@@ -34,7 +34,7 @@ class UpdateExternalPrometheusRequest(object):
     """
     swagger_types = {
         'auth_type': 'str',
-        'custom_headers': 'CustomHeadersForUpdateExternalPrometheusInput',
+        'custom_header_kvs': 'list[CustomHeaderKVForUpdateExternalPrometheusInput]',
         'description': 'str',
         'encrypted_bearer_token': 'str',
         'encrypted_password': 'str',
@@ -47,7 +47,7 @@ class UpdateExternalPrometheusRequest(object):
 
     attribute_map = {
         'auth_type': 'AuthType',
-        'custom_headers': 'CustomHeaders',
+        'custom_header_kvs': 'CustomHeaderKVs',
         'description': 'Description',
         'encrypted_bearer_token': 'EncryptedBearerToken',
         'encrypted_password': 'EncryptedPassword',
@@ -58,14 +58,14 @@ class UpdateExternalPrometheusRequest(object):
         'username': 'Username'
     }
 
-    def __init__(self, auth_type=None, custom_headers=None, description=None, encrypted_bearer_token=None, encrypted_password=None, id=None, max_query_rate=None, name=None, url=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_type=None, custom_header_kvs=None, description=None, encrypted_bearer_token=None, encrypted_password=None, id=None, max_query_rate=None, name=None, url=None, username=None, _configuration=None):  # noqa: E501
         """UpdateExternalPrometheusRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auth_type = None
-        self._custom_headers = None
+        self._custom_header_kvs = None
         self._description = None
         self._encrypted_bearer_token = None
         self._encrypted_password = None
@@ -78,8 +78,8 @@ class UpdateExternalPrometheusRequest(object):
 
         if auth_type is not None:
             self.auth_type = auth_type
-        if custom_headers is not None:
-            self.custom_headers = custom_headers
+        if custom_header_kvs is not None:
+            self.custom_header_kvs = custom_header_kvs
         if description is not None:
             self.description = description
         if encrypted_bearer_token is not None:
@@ -118,25 +118,25 @@ class UpdateExternalPrometheusRequest(object):
         self._auth_type = auth_type
 
     @property
-    def custom_headers(self):
-        """Gets the custom_headers of this UpdateExternalPrometheusRequest.  # noqa: E501
+    def custom_header_kvs(self):
+        """Gets the custom_header_kvs of this UpdateExternalPrometheusRequest.  # noqa: E501
 
 
-        :return: The custom_headers of this UpdateExternalPrometheusRequest.  # noqa: E501
-        :rtype: CustomHeadersForUpdateExternalPrometheusInput
+        :return: The custom_header_kvs of this UpdateExternalPrometheusRequest.  # noqa: E501
+        :rtype: list[CustomHeaderKVForUpdateExternalPrometheusInput]
         """
-        return self._custom_headers
+        return self._custom_header_kvs
 
-    @custom_headers.setter
-    def custom_headers(self, custom_headers):
-        """Sets the custom_headers of this UpdateExternalPrometheusRequest.
+    @custom_header_kvs.setter
+    def custom_header_kvs(self, custom_header_kvs):
+        """Sets the custom_header_kvs of this UpdateExternalPrometheusRequest.
 
 
-        :param custom_headers: The custom_headers of this UpdateExternalPrometheusRequest.  # noqa: E501
-        :type: CustomHeadersForUpdateExternalPrometheusInput
+        :param custom_header_kvs: The custom_header_kvs of this UpdateExternalPrometheusRequest.  # noqa: E501
+        :type: list[CustomHeaderKVForUpdateExternalPrometheusInput]
         """
 
-        self._custom_headers = custom_headers
+        self._custom_header_kvs = custom_header_kvs
 
     @property
     def description(self):

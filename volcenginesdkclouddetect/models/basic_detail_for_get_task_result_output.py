@@ -36,6 +36,7 @@ class BasicDetailForGetTaskResultOutput(object):
         'assertions': 'list[AssertionForGetTaskResultOutput]',
         'ch_uk': 'str',
         'client_info': 'ClientInfoForGetTaskResultOutput',
+        'dns_server': 'str',
         'error_msg': 'str',
         'target_info': 'TargetInfoForGetTaskResultOutput',
         'timestamp': 'int',
@@ -46,13 +47,14 @@ class BasicDetailForGetTaskResultOutput(object):
         'assertions': 'Assertions',
         'ch_uk': 'ChUk',
         'client_info': 'ClientInfo',
+        'dns_server': 'DNSServer',
         'error_msg': 'ErrorMsg',
         'target_info': 'TargetInfo',
         'timestamp': 'Timestamp',
         'usability_info': 'UsabilityInfo'
     }
 
-    def __init__(self, assertions=None, ch_uk=None, client_info=None, error_msg=None, target_info=None, timestamp=None, usability_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, assertions=None, ch_uk=None, client_info=None, dns_server=None, error_msg=None, target_info=None, timestamp=None, usability_info=None, _configuration=None):  # noqa: E501
         """BasicDetailForGetTaskResultOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class BasicDetailForGetTaskResultOutput(object):
         self._assertions = None
         self._ch_uk = None
         self._client_info = None
+        self._dns_server = None
         self._error_msg = None
         self._target_info = None
         self._timestamp = None
@@ -73,6 +76,8 @@ class BasicDetailForGetTaskResultOutput(object):
             self.ch_uk = ch_uk
         if client_info is not None:
             self.client_info = client_info
+        if dns_server is not None:
+            self.dns_server = dns_server
         if error_msg is not None:
             self.error_msg = error_msg
         if target_info is not None:
@@ -144,6 +149,27 @@ class BasicDetailForGetTaskResultOutput(object):
         """
 
         self._client_info = client_info
+
+    @property
+    def dns_server(self):
+        """Gets the dns_server of this BasicDetailForGetTaskResultOutput.  # noqa: E501
+
+
+        :return: The dns_server of this BasicDetailForGetTaskResultOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._dns_server
+
+    @dns_server.setter
+    def dns_server(self, dns_server):
+        """Sets the dns_server of this BasicDetailForGetTaskResultOutput.
+
+
+        :param dns_server: The dns_server of this BasicDetailForGetTaskResultOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._dns_server = dns_server
 
     @property
     def error_msg(self):

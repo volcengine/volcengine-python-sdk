@@ -36,6 +36,7 @@ class AddressObjectForDescribeDBInstancesOutput(object):
         'dns_visibility': 'bool',
         'domain': 'str',
         'eip_id': 'str',
+        'eip_locked': 'bool',
         'ip_address': 'str',
         'internet_protocol': 'str',
         'network_type': 'str',
@@ -47,6 +48,7 @@ class AddressObjectForDescribeDBInstancesOutput(object):
         'dns_visibility': 'DNSVisibility',
         'domain': 'Domain',
         'eip_id': 'EipId',
+        'eip_locked': 'EipLocked',
         'ip_address': 'IPAddress',
         'internet_protocol': 'InternetProtocol',
         'network_type': 'NetworkType',
@@ -54,7 +56,7 @@ class AddressObjectForDescribeDBInstancesOutput(object):
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, dns_visibility=None, domain=None, eip_id=None, ip_address=None, internet_protocol=None, network_type=None, port=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, dns_visibility=None, domain=None, eip_id=None, eip_locked=None, ip_address=None, internet_protocol=None, network_type=None, port=None, subnet_id=None, _configuration=None):  # noqa: E501
         """AddressObjectForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class AddressObjectForDescribeDBInstancesOutput(object):
         self._dns_visibility = None
         self._domain = None
         self._eip_id = None
+        self._eip_locked = None
         self._ip_address = None
         self._internet_protocol = None
         self._network_type = None
@@ -76,6 +79,8 @@ class AddressObjectForDescribeDBInstancesOutput(object):
             self.domain = domain
         if eip_id is not None:
             self.eip_id = eip_id
+        if eip_locked is not None:
+            self.eip_locked = eip_locked
         if ip_address is not None:
             self.ip_address = ip_address
         if internet_protocol is not None:
@@ -149,6 +154,27 @@ class AddressObjectForDescribeDBInstancesOutput(object):
         """
 
         self._eip_id = eip_id
+
+    @property
+    def eip_locked(self):
+        """Gets the eip_locked of this AddressObjectForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The eip_locked of this AddressObjectForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._eip_locked
+
+    @eip_locked.setter
+    def eip_locked(self, eip_locked):
+        """Sets the eip_locked of this AddressObjectForDescribeDBInstancesOutput.
+
+
+        :param eip_locked: The eip_locked of this AddressObjectForDescribeDBInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._eip_locked = eip_locked
 
     @property
     def ip_address(self):

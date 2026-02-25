@@ -42,6 +42,7 @@ class CreateKeyRequest(object):
         'multi_region': 'bool',
         'origin': 'str',
         'protection_level': 'str',
+        'rotate_interval': 'int',
         'rotate_state': 'str',
         'tags': 'list[TagForCreateKeyInput]',
         'xks_key_id': 'str'
@@ -57,12 +58,13 @@ class CreateKeyRequest(object):
         'multi_region': 'MultiRegion',
         'origin': 'Origin',
         'protection_level': 'ProtectionLevel',
+        'rotate_interval': 'RotateInterval',
         'rotate_state': 'RotateState',
         'tags': 'Tags',
         'xks_key_id': 'XksKeyID'
     }
 
-    def __init__(self, custom_key_store_id=None, description=None, key_name=None, key_spec=None, key_usage=None, keyring_name=None, multi_region=None, origin=None, protection_level=None, rotate_state=None, tags=None, xks_key_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_key_store_id=None, description=None, key_name=None, key_spec=None, key_usage=None, keyring_name=None, multi_region=None, origin=None, protection_level=None, rotate_interval=None, rotate_state=None, tags=None, xks_key_id=None, _configuration=None):  # noqa: E501
         """CreateKeyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class CreateKeyRequest(object):
         self._multi_region = None
         self._origin = None
         self._protection_level = None
+        self._rotate_interval = None
         self._rotate_state = None
         self._tags = None
         self._xks_key_id = None
@@ -98,6 +101,8 @@ class CreateKeyRequest(object):
             self.origin = origin
         if protection_level is not None:
             self.protection_level = protection_level
+        if rotate_interval is not None:
+            self.rotate_interval = rotate_interval
         if rotate_state is not None:
             self.rotate_state = rotate_state
         if tags is not None:
@@ -318,6 +323,33 @@ class CreateKeyRequest(object):
         """
 
         self._protection_level = protection_level
+
+    @property
+    def rotate_interval(self):
+        """Gets the rotate_interval of this CreateKeyRequest.  # noqa: E501
+
+
+        :return: The rotate_interval of this CreateKeyRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._rotate_interval
+
+    @rotate_interval.setter
+    def rotate_interval(self, rotate_interval):
+        """Sets the rotate_interval of this CreateKeyRequest.
+
+
+        :param rotate_interval: The rotate_interval of this CreateKeyRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                rotate_interval is not None and rotate_interval > 2560):  # noqa: E501
+            raise ValueError("Invalid value for `rotate_interval`, must be a value less than or equal to `2560`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                rotate_interval is not None and rotate_interval < 90):  # noqa: E501
+            raise ValueError("Invalid value for `rotate_interval`, must be a value greater than or equal to `90`")  # noqa: E501
+
+        self._rotate_interval = rotate_interval
 
     @property
     def rotate_state(self):

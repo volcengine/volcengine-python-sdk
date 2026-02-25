@@ -33,6 +33,7 @@ class GetNamespaceResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'associates': 'list[str]',
         'create_time': 'str',
         'description': 'str',
         'namespace_id': 'str',
@@ -44,6 +45,7 @@ class GetNamespaceResponse(object):
     }
 
     attribute_map = {
+        'associates': 'Associates',
         'create_time': 'CreateTime',
         'description': 'Description',
         'namespace_id': 'NamespaceId',
@@ -54,12 +56,13 @@ class GetNamespaceResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, description=None, namespace_id=None, namespace_name=None, project_name=None, tags=None, trn=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, associates=None, create_time=None, description=None, namespace_id=None, namespace_name=None, project_name=None, tags=None, trn=None, update_time=None, _configuration=None):  # noqa: E501
         """GetNamespaceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._associates = None
         self._create_time = None
         self._description = None
         self._namespace_id = None
@@ -70,6 +73,8 @@ class GetNamespaceResponse(object):
         self._update_time = None
         self.discriminator = None
 
+        if associates is not None:
+            self.associates = associates
         if create_time is not None:
             self.create_time = create_time
         if description is not None:
@@ -86,6 +91,27 @@ class GetNamespaceResponse(object):
             self.trn = trn
         if update_time is not None:
             self.update_time = update_time
+
+    @property
+    def associates(self):
+        """Gets the associates of this GetNamespaceResponse.  # noqa: E501
+
+
+        :return: The associates of this GetNamespaceResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._associates
+
+    @associates.setter
+    def associates(self, associates):
+        """Sets the associates of this GetNamespaceResponse.
+
+
+        :param associates: The associates of this GetNamespaceResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._associates = associates
 
     @property
     def create_time(self):

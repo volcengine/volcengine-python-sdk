@@ -41,6 +41,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'instance_status': 'str',
         'instance_tag': 'list[InstanceTagForDescribeDBInstanceDetailOutput]',
         'instance_type': 'str',
+        'maintenance_window': 'MaintenanceWindowForDescribeDBInstanceDetailOutput',
         'memory': 'int',
         'node_number': 'str',
         'node_spec': 'str',
@@ -69,6 +70,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'instance_status': 'InstanceStatus',
         'instance_tag': 'InstanceTag',
         'instance_type': 'InstanceType',
+        'maintenance_window': 'MaintenanceWindow',
         'memory': 'Memory',
         'node_number': 'NodeNumber',
         'node_spec': 'NodeSpec',
@@ -88,7 +90,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, create_time=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_tag=None, instance_type=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_data_use=None, storage_log_use=None, storage_space=None, storage_temp_use=None, storage_type=None, storage_use=None, storage_wal_use=None, subnet_id=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_tag=None, instance_type=None, maintenance_window=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_data_use=None, storage_log_use=None, storage_space=None, storage_temp_use=None, storage_type=None, storage_use=None, storage_wal_use=None, subnet_id=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -102,6 +104,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._instance_status = None
         self._instance_tag = None
         self._instance_type = None
+        self._maintenance_window = None
         self._memory = None
         self._node_number = None
         self._node_spec = None
@@ -137,6 +140,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.instance_tag = instance_tag
         if instance_type is not None:
             self.instance_type = instance_type
+        if maintenance_window is not None:
+            self.maintenance_window = maintenance_window
         if memory is not None:
             self.memory = memory
         if node_number is not None:
@@ -339,6 +344,27 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def maintenance_window(self):
+        """Gets the maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: MaintenanceWindowForDescribeDBInstanceDetailOutput
+        """
+        return self._maintenance_window
+
+    @maintenance_window.setter
+    def maintenance_window(self, maintenance_window):
+        """Sets the maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param maintenance_window: The maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: MaintenanceWindowForDescribeDBInstanceDetailOutput
+        """
+
+        self._maintenance_window = maintenance_window
 
     @property
     def memory(self):

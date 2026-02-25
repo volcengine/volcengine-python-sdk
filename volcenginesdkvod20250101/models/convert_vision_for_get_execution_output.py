@@ -35,6 +35,7 @@ class ConvertVisionForGetExecutionOutput(object):
     swagger_types = {
         'content': 'str',
         'duration': 'float',
+        'mode': 'str',
         'model': 'ConvertConvertModelForGetExecutionOutput',
         'snapshots_number': 'int'
     }
@@ -42,11 +43,12 @@ class ConvertVisionForGetExecutionOutput(object):
     attribute_map = {
         'content': 'Content',
         'duration': 'Duration',
+        'mode': 'Mode',
         'model': 'Model',
         'snapshots_number': 'SnapshotsNumber'
     }
 
-    def __init__(self, content=None, duration=None, model=None, snapshots_number=None, _configuration=None):  # noqa: E501
+    def __init__(self, content=None, duration=None, mode=None, model=None, snapshots_number=None, _configuration=None):  # noqa: E501
         """ConvertVisionForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class ConvertVisionForGetExecutionOutput(object):
 
         self._content = None
         self._duration = None
+        self._mode = None
         self._model = None
         self._snapshots_number = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ConvertVisionForGetExecutionOutput(object):
             self.content = content
         if duration is not None:
             self.duration = duration
+        if mode is not None:
+            self.mode = mode
         if model is not None:
             self.model = model
         if snapshots_number is not None:
@@ -108,6 +113,27 @@ class ConvertVisionForGetExecutionOutput(object):
         """
 
         self._duration = duration
+
+    @property
+    def mode(self):
+        """Gets the mode of this ConvertVisionForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The mode of this ConvertVisionForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._mode
+
+    @mode.setter
+    def mode(self, mode):
+        """Sets the mode of this ConvertVisionForGetExecutionOutput.
+
+
+        :param mode: The mode of this ConvertVisionForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._mode = mode
 
     @property
     def model(self):

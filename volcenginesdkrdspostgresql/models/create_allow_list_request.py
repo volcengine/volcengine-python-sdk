@@ -34,36 +34,52 @@ class CreateAllowListRequest(object):
     """
     swagger_types = {
         'allow_list': 'str',
+        'allow_list_category': 'str',
         'allow_list_desc': 'str',
         'allow_list_name': 'str',
-        'allow_list_type': 'str'
+        'allow_list_type': 'str',
+        'security_group_bind_infos': 'list[SecurityGroupBindInfoForCreateAllowListInput]',
+        'user_allow_list': 'str'
     }
 
     attribute_map = {
         'allow_list': 'AllowList',
+        'allow_list_category': 'AllowListCategory',
         'allow_list_desc': 'AllowListDesc',
         'allow_list_name': 'AllowListName',
-        'allow_list_type': 'AllowListType'
+        'allow_list_type': 'AllowListType',
+        'security_group_bind_infos': 'SecurityGroupBindInfos',
+        'user_allow_list': 'UserAllowList'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_name=None, allow_list_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_name=None, allow_list_type=None, security_group_bind_infos=None, user_allow_list=None, _configuration=None):  # noqa: E501
         """CreateAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list = None
+        self._allow_list_category = None
         self._allow_list_desc = None
         self._allow_list_name = None
         self._allow_list_type = None
+        self._security_group_bind_infos = None
+        self._user_allow_list = None
         self.discriminator = None
 
-        self.allow_list = allow_list
+        if allow_list is not None:
+            self.allow_list = allow_list
+        if allow_list_category is not None:
+            self.allow_list_category = allow_list_category
         if allow_list_desc is not None:
             self.allow_list_desc = allow_list_desc
         self.allow_list_name = allow_list_name
         if allow_list_type is not None:
             self.allow_list_type = allow_list_type
+        if security_group_bind_infos is not None:
+            self.security_group_bind_infos = security_group_bind_infos
+        if user_allow_list is not None:
+            self.user_allow_list = user_allow_list
 
     @property
     def allow_list(self):
@@ -83,10 +99,29 @@ class CreateAllowListRequest(object):
         :param allow_list: The allow_list of this CreateAllowListRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and allow_list is None:
-            raise ValueError("Invalid value for `allow_list`, must not be `None`")  # noqa: E501
 
         self._allow_list = allow_list
+
+    @property
+    def allow_list_category(self):
+        """Gets the allow_list_category of this CreateAllowListRequest.  # noqa: E501
+
+
+        :return: The allow_list_category of this CreateAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_category
+
+    @allow_list_category.setter
+    def allow_list_category(self, allow_list_category):
+        """Sets the allow_list_category of this CreateAllowListRequest.
+
+
+        :param allow_list_category: The allow_list_category of this CreateAllowListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._allow_list_category = allow_list_category
 
     @property
     def allow_list_desc(self):
@@ -152,6 +187,48 @@ class CreateAllowListRequest(object):
         """
 
         self._allow_list_type = allow_list_type
+
+    @property
+    def security_group_bind_infos(self):
+        """Gets the security_group_bind_infos of this CreateAllowListRequest.  # noqa: E501
+
+
+        :return: The security_group_bind_infos of this CreateAllowListRequest.  # noqa: E501
+        :rtype: list[SecurityGroupBindInfoForCreateAllowListInput]
+        """
+        return self._security_group_bind_infos
+
+    @security_group_bind_infos.setter
+    def security_group_bind_infos(self, security_group_bind_infos):
+        """Sets the security_group_bind_infos of this CreateAllowListRequest.
+
+
+        :param security_group_bind_infos: The security_group_bind_infos of this CreateAllowListRequest.  # noqa: E501
+        :type: list[SecurityGroupBindInfoForCreateAllowListInput]
+        """
+
+        self._security_group_bind_infos = security_group_bind_infos
+
+    @property
+    def user_allow_list(self):
+        """Gets the user_allow_list of this CreateAllowListRequest.  # noqa: E501
+
+
+        :return: The user_allow_list of this CreateAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_allow_list
+
+    @user_allow_list.setter
+    def user_allow_list(self, user_allow_list):
+        """Sets the user_allow_list of this CreateAllowListRequest.
+
+
+        :param user_allow_list: The user_allow_list of this CreateAllowListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._user_allow_list = user_allow_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,6 +34,7 @@ class DescribeDBInstanceDetailResponse(object):
     """
     swagger_types = {
         'auto_renew': 'bool',
+        'blue_green_role': 'str',
         'capacity': 'CapacityForDescribeDBInstanceDetailOutput',
         'charge_type': 'str',
         'configure_nodes': 'list[ConfigureNodeForDescribeDBInstanceDetailOutput]',
@@ -66,6 +67,7 @@ class DescribeDBInstanceDetailResponse(object):
 
     attribute_map = {
         'auto_renew': 'AutoRenew',
+        'blue_green_role': 'BlueGreenRole',
         'capacity': 'Capacity',
         'charge_type': 'ChargeType',
         'configure_nodes': 'ConfigureNodes',
@@ -96,13 +98,14 @@ class DescribeDBInstanceDetailResponse(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, capacity=None, charge_type=None, configure_nodes=None, create_time=None, data_layout=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, maintenance_time=None, max_connections=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_capacity_v2=None, shard_number=None, sharded_cluster=None, status=None, subnet_id=None, tags=None, visit_addrs=None, vpc_auth_mode=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, blue_green_role=None, capacity=None, charge_type=None, configure_nodes=None, create_time=None, data_layout=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, maintenance_time=None, max_connections=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_capacity_v2=None, shard_number=None, sharded_cluster=None, status=None, subnet_id=None, tags=None, visit_addrs=None, vpc_auth_mode=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_renew = None
+        self._blue_green_role = None
         self._capacity = None
         self._charge_type = None
         self._configure_nodes = None
@@ -135,6 +138,8 @@ class DescribeDBInstanceDetailResponse(object):
 
         if auto_renew is not None:
             self.auto_renew = auto_renew
+        if blue_green_role is not None:
+            self.blue_green_role = blue_green_role
         if capacity is not None:
             self.capacity = capacity
         if charge_type is not None:
@@ -212,6 +217,27 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._auto_renew = auto_renew
+
+    @property
+    def blue_green_role(self):
+        """Gets the blue_green_role of this DescribeDBInstanceDetailResponse.  # noqa: E501
+
+
+        :return: The blue_green_role of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._blue_green_role
+
+    @blue_green_role.setter
+    def blue_green_role(self, blue_green_role):
+        """Sets the blue_green_role of this DescribeDBInstanceDetailResponse.
+
+
+        :param blue_green_role: The blue_green_role of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._blue_green_role = blue_green_role
 
     @property
     def capacity(self):

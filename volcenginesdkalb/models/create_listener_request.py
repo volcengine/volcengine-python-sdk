@@ -33,6 +33,7 @@ class CreateListenerRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'access_log_record_customized_headers_enabled': 'str',
         'acl_ids': 'list[str]',
         'acl_status': 'str',
         'acl_type': 'str',
@@ -41,7 +42,6 @@ class CreateListenerRequest(object):
         'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
         'certificate_source': 'str',
-        'client_address_transmission_protocol': 'str',
         'description': 'str',
         'domain_extensions': 'list[DomainExtensionForCreateListenerInput]',
         'enable_http2': 'str',
@@ -54,12 +54,12 @@ class CreateListenerRequest(object):
         'pca_sub_ca_certificate_id': 'str',
         'port': 'int',
         'protocol': 'str',
-        'proxy_protocol_disabled': 'str',
         'server_group_id': 'str',
         'tags': 'list[TagForCreateListenerInput]'
     }
 
     attribute_map = {
+        'access_log_record_customized_headers_enabled': 'AccessLogRecordCustomizedHeadersEnabled',
         'acl_ids': 'AclIds',
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
@@ -68,7 +68,6 @@ class CreateListenerRequest(object):
         'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
         'certificate_source': 'CertificateSource',
-        'client_address_transmission_protocol': 'ClientAddressTransmissionProtocol',
         'description': 'Description',
         'domain_extensions': 'DomainExtensions',
         'enable_http2': 'EnableHttp2',
@@ -81,17 +80,17 @@ class CreateListenerRequest(object):
         'pca_sub_ca_certificate_id': 'PcaSubCACertificateId',
         'port': 'Port',
         'protocol': 'Protocol',
-        'proxy_protocol_disabled': 'ProxyProtocolDisabled',
         'server_group_id': 'ServerGroupId',
         'tags': 'Tags'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_name=None, load_balancer_id=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, port=None, protocol=None, proxy_protocol_disabled=None, server_group_id=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_name=None, load_balancer_id=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, port=None, protocol=None, server_group_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateListenerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._access_log_record_customized_headers_enabled = None
         self._acl_ids = None
         self._acl_status = None
         self._acl_type = None
@@ -100,7 +99,6 @@ class CreateListenerRequest(object):
         self._cert_center_certificate_id = None
         self._certificate_id = None
         self._certificate_source = None
-        self._client_address_transmission_protocol = None
         self._description = None
         self._domain_extensions = None
         self._enable_http2 = None
@@ -113,11 +111,12 @@ class CreateListenerRequest(object):
         self._pca_sub_ca_certificate_id = None
         self._port = None
         self._protocol = None
-        self._proxy_protocol_disabled = None
         self._server_group_id = None
         self._tags = None
         self.discriminator = None
 
+        if access_log_record_customized_headers_enabled is not None:
+            self.access_log_record_customized_headers_enabled = access_log_record_customized_headers_enabled
         if acl_ids is not None:
             self.acl_ids = acl_ids
         if acl_status is not None:
@@ -134,8 +133,6 @@ class CreateListenerRequest(object):
             self.certificate_id = certificate_id
         if certificate_source is not None:
             self.certificate_source = certificate_source
-        if client_address_transmission_protocol is not None:
-            self.client_address_transmission_protocol = client_address_transmission_protocol
         if description is not None:
             self.description = description
         if domain_extensions is not None:
@@ -157,11 +154,30 @@ class CreateListenerRequest(object):
             self.pca_sub_ca_certificate_id = pca_sub_ca_certificate_id
         self.port = port
         self.protocol = protocol
-        if proxy_protocol_disabled is not None:
-            self.proxy_protocol_disabled = proxy_protocol_disabled
         self.server_group_id = server_group_id
         if tags is not None:
             self.tags = tags
+
+    @property
+    def access_log_record_customized_headers_enabled(self):
+        """Gets the access_log_record_customized_headers_enabled of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The access_log_record_customized_headers_enabled of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._access_log_record_customized_headers_enabled
+
+    @access_log_record_customized_headers_enabled.setter
+    def access_log_record_customized_headers_enabled(self, access_log_record_customized_headers_enabled):
+        """Sets the access_log_record_customized_headers_enabled of this CreateListenerRequest.
+
+
+        :param access_log_record_customized_headers_enabled: The access_log_record_customized_headers_enabled of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._access_log_record_customized_headers_enabled = access_log_record_customized_headers_enabled
 
     @property
     def acl_ids(self):
@@ -330,27 +346,6 @@ class CreateListenerRequest(object):
         """
 
         self._certificate_source = certificate_source
-
-    @property
-    def client_address_transmission_protocol(self):
-        """Gets the client_address_transmission_protocol of this CreateListenerRequest.  # noqa: E501
-
-
-        :return: The client_address_transmission_protocol of this CreateListenerRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._client_address_transmission_protocol
-
-    @client_address_transmission_protocol.setter
-    def client_address_transmission_protocol(self, client_address_transmission_protocol):
-        """Sets the client_address_transmission_protocol of this CreateListenerRequest.
-
-
-        :param client_address_transmission_protocol: The client_address_transmission_protocol of this CreateListenerRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._client_address_transmission_protocol = client_address_transmission_protocol
 
     @property
     def description(self):
@@ -615,27 +610,6 @@ class CreateListenerRequest(object):
             raise ValueError("Invalid value for `protocol`, must not be `None`")  # noqa: E501
 
         self._protocol = protocol
-
-    @property
-    def proxy_protocol_disabled(self):
-        """Gets the proxy_protocol_disabled of this CreateListenerRequest.  # noqa: E501
-
-
-        :return: The proxy_protocol_disabled of this CreateListenerRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._proxy_protocol_disabled
-
-    @proxy_protocol_disabled.setter
-    def proxy_protocol_disabled(self, proxy_protocol_disabled):
-        """Sets the proxy_protocol_disabled of this CreateListenerRequest.
-
-
-        :param proxy_protocol_disabled: The proxy_protocol_disabled of this CreateListenerRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._proxy_protocol_disabled = proxy_protocol_disabled
 
     @property
     def server_group_id(self):

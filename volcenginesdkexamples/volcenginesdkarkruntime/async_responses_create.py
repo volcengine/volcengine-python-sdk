@@ -1,8 +1,14 @@
 import asyncio
 from volcenginesdkarkruntime import AsyncArk
-from volcenginesdkarkruntime.types.responses.response_completed_event import ResponseCompletedEvent
-from volcenginesdkarkruntime.types.responses.response_output_item_done_event import ResponseOutputItemDoneEvent
-from volcenginesdkarkruntime.types.responses.response_function_tool_call import ResponseFunctionToolCall
+from volcenginesdkarkruntime.types.responses.response_completed_event import (
+    ResponseCompletedEvent,
+)
+from volcenginesdkarkruntime.types.responses.response_output_item_done_event import (
+    ResponseOutputItemDoneEvent,
+)
+from volcenginesdkarkruntime.types.responses.response_function_tool_call import (
+    ResponseFunctionToolCall,
+)
 from volcenginesdkarkruntime.types.responses.response_mcp_item import McpApprovalRequest
 
 """
@@ -28,24 +34,27 @@ async def main():
     stream = await client.responses.create(
         model="doubao-seed-1-6",
         input=[
-            {"role": "system", "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手"},
-            {"role": "user", "content": [
-                {
-                    "type": "input_image",
-                    # local image file path, will be automatically uploaded to file
-                    "image_url": f"file://{image_path}"
-                },
-                {
-                    "type": "input_text",
-                    "text": "图里有什么内容"
-                }
-            ]},
+            {
+                "role": "system",
+                "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手",
+            },
+            {
+                "role": "user",
+                "content": [
+                    # {
+                    #     "type": "input_image",
+                    #     # local image file path, will be automatically uploaded to file
+                    #     "image_url": f"file://{image_path}"
+                    # },
+                    {"type": "input_text", "text": "图里有什么内容"}
+                ],
+            },
         ],
         caching={
             "type": "enabled",
         },
         store=True,
-        stream=True
+        stream=True,
     )
     response_id = ""
     async for event in stream:
@@ -65,7 +74,7 @@ async def main():
             "type": "enabled",
         },
         store=True,
-        stream=True
+        stream=True,
     )
     async for event in stream:
         print(event)
@@ -92,22 +101,22 @@ async def main():
                     "properties": {
                         "location": {
                             "type": "string",
-                            "description": "城市名称，例如北京"
+                            "description": "城市名称，例如北京",
                         },
                         "unit": {
                             "type": "string",
-                            "description": "温度单位，例如摄氏度"
-                        }
+                            "description": "温度单位，例如摄氏度",
+                        },
                     },
-                    "required": ["location"]
-                }
+                    "required": ["location"],
+                },
             }
         ],
         caching={
             "type": "enabled",
         },
         store=True,
-        stream=True
+        stream=True,
     )
     call_id = ""
     response_id = ""
@@ -115,7 +124,9 @@ async def main():
         print(event)
         if isinstance(event, ResponseCompletedEvent):
             response_id = event.response.id
-        if isinstance(event, ResponseOutputItemDoneEvent) and isinstance(event.item, ResponseFunctionToolCall):
+        if isinstance(event, ResponseOutputItemDoneEvent) and isinstance(
+            event.item, ResponseFunctionToolCall
+        ):
             call_id = event.item.call_id
 
     # ---------- 第 2 轮 ----------
@@ -127,14 +138,14 @@ async def main():
             {
                 "type": "function_call_output",
                 "call_id": call_id,
-                "output": "{\"temperature\": \"30\"}",
+                "output": '{"temperature": "30"}',
             },
         ],
         caching={
             "type": "enabled",
         },
         store=True,
-        stream=True
+        stream=True,
     )
     async for event in stream:
         print(event)
@@ -158,11 +169,11 @@ async def main():
                     "city": "北京",
                     "country": "中国",
                     "region": "北京",
-                }
+                },
             }
         ],
         store=True,
-        stream=True
+        stream=True,
     )
     async for event in stream:
         print(event)
@@ -174,21 +185,23 @@ async def main():
     # 用户询问repo信息，模型会触发mcp工具调用
     stream = await client.responses.create(
         model="doubao-seed-1-6",
-        input=[{
-            "role": "user",
-            "content": [
-                {
-                    "type": "input_text",
-                    "text": "查看这个 repo的文档 expressjs/express "
-                }
-            ]
-        }],
+        input=[
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "input_text",
+                        "text": "查看这个 repo的文档 expressjs/express ",
+                    }
+                ],
+            }
+        ],
         tools=[
             {
                 "type": "mcp",
                 "server_label": "deepwiki-test",
                 "server_url": "https://mcp.deepwiki.com/mcp",
-                "require_approval": "always"
+                "require_approval": "always",
             }
         ],
         store=True,
@@ -200,7 +213,9 @@ async def main():
         print(event)
         if isinstance(event, ResponseCompletedEvent):
             response_id = event.response.id
-        if isinstance(event, ResponseOutputItemDoneEvent) and isinstance(event.item, McpApprovalRequest):
+        if isinstance(event, ResponseOutputItemDoneEvent) and isinstance(
+            event.item, McpApprovalRequest
+        ):
             approval_id = event.item.id
 
     # ---------- 第 2 轮 ----------
@@ -211,7 +226,7 @@ async def main():
             {
                 "type": "mcp_approval_response",
                 "approval_request_id": approval_id,
-                "approve": True
+                "approve": True,
             }
         ],
         previous_response_id=response_id,
@@ -220,7 +235,7 @@ async def main():
                 "type": "mcp",
                 "server_label": "deepwiki-test",
                 "server_url": "https://mcp.deepwiki.com/mcp",
-                "require_approval": "always"
+                "require_approval": "always",
             }
         ],
         store=True,

@@ -36,6 +36,7 @@ class ClusterConfigForListClustersOutput(object):
         'api_server_endpoints': 'ApiServerEndpointsForListClustersOutput',
         'api_server_public_access_config': 'ApiServerPublicAccessConfigForListClustersOutput',
         'api_server_public_access_enabled': 'bool',
+        'ip_family': 'str',
         'resource_public_access_default_enabled': 'bool',
         'security_group_ids': 'list[str]',
         'subnet_ids': 'list[str]',
@@ -46,13 +47,14 @@ class ClusterConfigForListClustersOutput(object):
         'api_server_endpoints': 'ApiServerEndpoints',
         'api_server_public_access_config': 'ApiServerPublicAccessConfig',
         'api_server_public_access_enabled': 'ApiServerPublicAccessEnabled',
+        'ip_family': 'IpFamily',
         'resource_public_access_default_enabled': 'ResourcePublicAccessDefaultEnabled',
         'security_group_ids': 'SecurityGroupIds',
         'subnet_ids': 'SubnetIds',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, api_server_endpoints=None, api_server_public_access_config=None, api_server_public_access_enabled=None, resource_public_access_default_enabled=None, security_group_ids=None, subnet_ids=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_server_endpoints=None, api_server_public_access_config=None, api_server_public_access_enabled=None, ip_family=None, resource_public_access_default_enabled=None, security_group_ids=None, subnet_ids=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ClusterConfigForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class ClusterConfigForListClustersOutput(object):
         self._api_server_endpoints = None
         self._api_server_public_access_config = None
         self._api_server_public_access_enabled = None
+        self._ip_family = None
         self._resource_public_access_default_enabled = None
         self._security_group_ids = None
         self._subnet_ids = None
@@ -73,6 +76,8 @@ class ClusterConfigForListClustersOutput(object):
             self.api_server_public_access_config = api_server_public_access_config
         if api_server_public_access_enabled is not None:
             self.api_server_public_access_enabled = api_server_public_access_enabled
+        if ip_family is not None:
+            self.ip_family = ip_family
         if resource_public_access_default_enabled is not None:
             self.resource_public_access_default_enabled = resource_public_access_default_enabled
         if security_group_ids is not None:
@@ -144,6 +149,27 @@ class ClusterConfigForListClustersOutput(object):
         """
 
         self._api_server_public_access_enabled = api_server_public_access_enabled
+
+    @property
+    def ip_family(self):
+        """Gets the ip_family of this ClusterConfigForListClustersOutput.  # noqa: E501
+
+
+        :return: The ip_family of this ClusterConfigForListClustersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_family
+
+    @ip_family.setter
+    def ip_family(self, ip_family):
+        """Sets the ip_family of this ClusterConfigForListClustersOutput.
+
+
+        :param ip_family: The ip_family of this ClusterConfigForListClustersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_family = ip_family
 
     @property
     def resource_public_access_default_enabled(self):

@@ -34,15 +34,17 @@ class FlannelConfigForListClustersOutput(object):
     """
     swagger_types = {
         'max_pods_per_node': 'int',
-        'pod_cidrs': 'list[str]'
+        'pod_cidrs': 'list[str]',
+        'subnet_ids': 'list[str]'
     }
 
     attribute_map = {
         'max_pods_per_node': 'MaxPodsPerNode',
-        'pod_cidrs': 'PodCidrs'
+        'pod_cidrs': 'PodCidrs',
+        'subnet_ids': 'SubnetIds'
     }
 
-    def __init__(self, max_pods_per_node=None, pod_cidrs=None, _configuration=None):  # noqa: E501
+    def __init__(self, max_pods_per_node=None, pod_cidrs=None, subnet_ids=None, _configuration=None):  # noqa: E501
         """FlannelConfigForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class FlannelConfigForListClustersOutput(object):
 
         self._max_pods_per_node = None
         self._pod_cidrs = None
+        self._subnet_ids = None
         self.discriminator = None
 
         if max_pods_per_node is not None:
             self.max_pods_per_node = max_pods_per_node
         if pod_cidrs is not None:
             self.pod_cidrs = pod_cidrs
+        if subnet_ids is not None:
+            self.subnet_ids = subnet_ids
 
     @property
     def max_pods_per_node(self):
@@ -98,6 +103,27 @@ class FlannelConfigForListClustersOutput(object):
         """
 
         self._pod_cidrs = pod_cidrs
+
+    @property
+    def subnet_ids(self):
+        """Gets the subnet_ids of this FlannelConfigForListClustersOutput.  # noqa: E501
+
+
+        :return: The subnet_ids of this FlannelConfigForListClustersOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._subnet_ids
+
+    @subnet_ids.setter
+    def subnet_ids(self, subnet_ids):
+        """Sets the subnet_ids of this FlannelConfigForListClustersOutput.
+
+
+        :param subnet_ids: The subnet_ids of this FlannelConfigForListClustersOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._subnet_ids = subnet_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

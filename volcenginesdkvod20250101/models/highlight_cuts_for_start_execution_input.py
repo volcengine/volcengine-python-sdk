@@ -36,6 +36,7 @@ class HighlightCutsForStartExecutionInput(object):
         'max_duration': 'float',
         'max_number': 'int',
         'min_duration': 'float',
+        'miniseries_option': 'MiniseriesOptionForStartExecutionInput',
         'with_storyboard': 'bool'
     }
 
@@ -43,10 +44,11 @@ class HighlightCutsForStartExecutionInput(object):
         'max_duration': 'MaxDuration',
         'max_number': 'MaxNumber',
         'min_duration': 'MinDuration',
+        'miniseries_option': 'MiniseriesOption',
         'with_storyboard': 'WithStoryboard'
     }
 
-    def __init__(self, max_duration=None, max_number=None, min_duration=None, with_storyboard=None, _configuration=None):  # noqa: E501
+    def __init__(self, max_duration=None, max_number=None, min_duration=None, miniseries_option=None, with_storyboard=None, _configuration=None):  # noqa: E501
         """HighlightCutsForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class HighlightCutsForStartExecutionInput(object):
         self._max_duration = None
         self._max_number = None
         self._min_duration = None
+        self._miniseries_option = None
         self._with_storyboard = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class HighlightCutsForStartExecutionInput(object):
             self.max_number = max_number
         if min_duration is not None:
             self.min_duration = min_duration
+        if miniseries_option is not None:
+            self.miniseries_option = miniseries_option
         if with_storyboard is not None:
             self.with_storyboard = with_storyboard
 
@@ -129,6 +134,27 @@ class HighlightCutsForStartExecutionInput(object):
         """
 
         self._min_duration = min_duration
+
+    @property
+    def miniseries_option(self):
+        """Gets the miniseries_option of this HighlightCutsForStartExecutionInput.  # noqa: E501
+
+
+        :return: The miniseries_option of this HighlightCutsForStartExecutionInput.  # noqa: E501
+        :rtype: MiniseriesOptionForStartExecutionInput
+        """
+        return self._miniseries_option
+
+    @miniseries_option.setter
+    def miniseries_option(self, miniseries_option):
+        """Sets the miniseries_option of this HighlightCutsForStartExecutionInput.
+
+
+        :param miniseries_option: The miniseries_option of this HighlightCutsForStartExecutionInput.  # noqa: E501
+        :type: MiniseriesOptionForStartExecutionInput
+        """
+
+        self._miniseries_option = miniseries_option
 
     @property
     def with_storyboard(self):

@@ -43,6 +43,7 @@ class ListForListDevInstancesOutput(object):
         'id': 'str',
         'image': 'ImageForListDevInstancesOutput',
         'is_building_image': 'bool',
+        'isaac_api_key': 'str',
         'launch_time': 'str',
         'name': 'str',
         'node_affinity_spec': 'NodeAffinitySpecForListDevInstancesOutput',
@@ -74,6 +75,7 @@ class ListForListDevInstancesOutput(object):
         'id': 'Id',
         'image': 'Image',
         'is_building_image': 'IsBuildingImage',
+        'isaac_api_key': 'IsaacApiKey',
         'launch_time': 'LaunchTime',
         'name': 'Name',
         'node_affinity_spec': 'NodeAffinitySpec',
@@ -94,7 +96,7 @@ class ListForListDevInstancesOutput(object):
         'zone_id': 'ZoneID'
     }
 
-    def __init__(self, allow_image_build=None, create_time=None, creator_trn=None, credential=None, default_folder=None, description=None, expected_stop_time=None, id=None, image=None, is_building_image=None, launch_time=None, name=None, node_affinity_spec=None, numa_affinity=None, numa_status=None, ports=None, project_name=None, resource_claim=None, resource_queue_id=None, resource_reservation_plan_id=None, ssh_public_key=None, status=None, stop_time=None, stopped_time=None, storages=None, update_time=None, volume=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_image_build=None, create_time=None, creator_trn=None, credential=None, default_folder=None, description=None, expected_stop_time=None, id=None, image=None, is_building_image=None, isaac_api_key=None, launch_time=None, name=None, node_affinity_spec=None, numa_affinity=None, numa_status=None, ports=None, project_name=None, resource_claim=None, resource_queue_id=None, resource_reservation_plan_id=None, ssh_public_key=None, status=None, stop_time=None, stopped_time=None, storages=None, update_time=None, volume=None, zone_id=None, _configuration=None):  # noqa: E501
         """ListForListDevInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -110,6 +112,7 @@ class ListForListDevInstancesOutput(object):
         self._id = None
         self._image = None
         self._is_building_image = None
+        self._isaac_api_key = None
         self._launch_time = None
         self._name = None
         self._node_affinity_spec = None
@@ -150,6 +153,8 @@ class ListForListDevInstancesOutput(object):
             self.image = image
         if is_building_image is not None:
             self.is_building_image = is_building_image
+        if isaac_api_key is not None:
+            self.isaac_api_key = isaac_api_key
         if launch_time is not None:
             self.launch_time = launch_time
         if name is not None:
@@ -396,6 +401,27 @@ class ListForListDevInstancesOutput(object):
         """
 
         self._is_building_image = is_building_image
+
+    @property
+    def isaac_api_key(self):
+        """Gets the isaac_api_key of this ListForListDevInstancesOutput.  # noqa: E501
+
+
+        :return: The isaac_api_key of this ListForListDevInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._isaac_api_key
+
+    @isaac_api_key.setter
+    def isaac_api_key(self, isaac_api_key):
+        """Sets the isaac_api_key of this ListForListDevInstancesOutput.
+
+
+        :param isaac_api_key: The isaac_api_key of this ListForListDevInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._isaac_api_key = isaac_api_key
 
     @property
     def launch_time(self):

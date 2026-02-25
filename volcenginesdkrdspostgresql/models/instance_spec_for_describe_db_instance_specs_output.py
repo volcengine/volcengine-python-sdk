@@ -39,6 +39,7 @@ class InstanceSpecForDescribeDBInstanceSpecsOutput(object):
         'region_id': 'str',
         'spec_code': 'str',
         'spec_status': 'str',
+        'storage_type': 'str',
         'vcpu': 'int',
         'zone_id': 'str'
     }
@@ -50,11 +51,12 @@ class InstanceSpecForDescribeDBInstanceSpecsOutput(object):
         'region_id': 'RegionId',
         'spec_code': 'SpecCode',
         'spec_status': 'SpecStatus',
+        'storage_type': 'StorageType',
         'vcpu': 'VCPU',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, connection=None, db_engine_version=None, memory=None, region_id=None, spec_code=None, spec_status=None, vcpu=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection=None, db_engine_version=None, memory=None, region_id=None, spec_code=None, spec_status=None, storage_type=None, vcpu=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceSpecForDescribeDBInstanceSpecsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class InstanceSpecForDescribeDBInstanceSpecsOutput(object):
         self._region_id = None
         self._spec_code = None
         self._spec_status = None
+        self._storage_type = None
         self._vcpu = None
         self._zone_id = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class InstanceSpecForDescribeDBInstanceSpecsOutput(object):
             self.spec_code = spec_code
         if spec_status is not None:
             self.spec_status = spec_status
+        if storage_type is not None:
+            self.storage_type = storage_type
         if vcpu is not None:
             self.vcpu = vcpu
         if zone_id is not None:
@@ -212,6 +217,27 @@ class InstanceSpecForDescribeDBInstanceSpecsOutput(object):
         """
 
         self._spec_status = spec_status
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this InstanceSpecForDescribeDBInstanceSpecsOutput.  # noqa: E501
+
+
+        :return: The storage_type of this InstanceSpecForDescribeDBInstanceSpecsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this InstanceSpecForDescribeDBInstanceSpecsOutput.
+
+
+        :param storage_type: The storage_type of this InstanceSpecForDescribeDBInstanceSpecsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
 
     @property
     def vcpu(self):

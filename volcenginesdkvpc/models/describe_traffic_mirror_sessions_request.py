@@ -41,8 +41,8 @@ class DescribeTrafficMirrorSessionsRequest(object):
         'project_name': 'str',
         'tag_filters': 'list[TagFilterForDescribeTrafficMirrorSessionsInput]',
         'traffic_mirror_filter_id': 'str',
-        'traffic_mirror_session_ids': 'str',
-        'traffic_mirror_session_names': 'str',
+        'traffic_mirror_session_ids': 'list[str]',
+        'traffic_mirror_session_names': 'list[str]',
         'traffic_mirror_target_id': 'str',
         'virtual_network_id': 'int'
     }
@@ -281,7 +281,7 @@ class DescribeTrafficMirrorSessionsRequest(object):
 
 
         :return: The traffic_mirror_session_ids of this DescribeTrafficMirrorSessionsRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._traffic_mirror_session_ids
 
@@ -291,7 +291,7 @@ class DescribeTrafficMirrorSessionsRequest(object):
 
 
         :param traffic_mirror_session_ids: The traffic_mirror_session_ids of this DescribeTrafficMirrorSessionsRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._traffic_mirror_session_ids = traffic_mirror_session_ids
@@ -302,7 +302,7 @@ class DescribeTrafficMirrorSessionsRequest(object):
 
 
         :return: The traffic_mirror_session_names of this DescribeTrafficMirrorSessionsRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._traffic_mirror_session_names
 
@@ -312,7 +312,7 @@ class DescribeTrafficMirrorSessionsRequest(object):
 
 
         :param traffic_mirror_session_names: The traffic_mirror_session_names of this DescribeTrafficMirrorSessionsRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._traffic_mirror_session_names = traffic_mirror_session_names

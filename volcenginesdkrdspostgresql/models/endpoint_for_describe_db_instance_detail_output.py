@@ -44,7 +44,9 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'read_only_node_distribution_type': 'str',
         'read_only_node_max_delay_time': 'int',
         'read_only_node_weight': 'list[ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput]',
-        'read_write_mode': 'str'
+        'read_write_mode': 'str',
+        'read_write_proxy_connection': 'int',
+        'write_node_halt_writing': 'bool'
     }
 
     attribute_map = {
@@ -59,10 +61,12 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
         'read_only_node_max_delay_time': 'ReadOnlyNodeMaxDelayTime',
         'read_only_node_weight': 'ReadOnlyNodeWeight',
-        'read_write_mode': 'ReadWriteMode'
+        'read_write_mode': 'ReadWriteMode',
+        'read_write_proxy_connection': 'ReadWriteProxyConnection',
+        'write_node_halt_writing': 'WriteNodeHaltWriting'
     }
 
-    def __init__(self, address=None, auto_add_new_nodes=None, description=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, address=None, auto_add_new_nodes=None, description=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_proxy_connection=None, write_node_halt_writing=None, _configuration=None):  # noqa: E501
         """EndpointForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +84,8 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         self._read_only_node_max_delay_time = None
         self._read_only_node_weight = None
         self._read_write_mode = None
+        self._read_write_proxy_connection = None
+        self._write_node_halt_writing = None
         self.discriminator = None
 
         if address is not None:
@@ -106,6 +112,10 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
             self.read_only_node_weight = read_only_node_weight
         if read_write_mode is not None:
             self.read_write_mode = read_write_mode
+        if read_write_proxy_connection is not None:
+            self.read_write_proxy_connection = read_write_proxy_connection
+        if write_node_halt_writing is not None:
+            self.write_node_halt_writing = write_node_halt_writing
 
     @property
     def address(self):
@@ -358,6 +368,48 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         """
 
         self._read_write_mode = read_write_mode
+
+    @property
+    def read_write_proxy_connection(self):
+        """Gets the read_write_proxy_connection of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The read_write_proxy_connection of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_write_proxy_connection
+
+    @read_write_proxy_connection.setter
+    def read_write_proxy_connection(self, read_write_proxy_connection):
+        """Sets the read_write_proxy_connection of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param read_write_proxy_connection: The read_write_proxy_connection of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._read_write_proxy_connection = read_write_proxy_connection
+
+    @property
+    def write_node_halt_writing(self):
+        """Gets the write_node_halt_writing of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The write_node_halt_writing of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._write_node_halt_writing
+
+    @write_node_halt_writing.setter
+    def write_node_halt_writing(self, write_node_halt_writing):
+        """Sets the write_node_halt_writing of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param write_node_halt_writing: The write_node_halt_writing of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._write_node_halt_writing = write_node_halt_writing
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,6 +36,7 @@ class ListClusterUsersRequest(object):
         'cluster_id': 'str',
         'create_time_order': 'str',
         'createor_name': 'str',
+        'include_user_group': 'bool',
         'keyword': 'str',
         'update_time_order': 'str',
         'user_group_name': 'str',
@@ -48,6 +49,7 @@ class ListClusterUsersRequest(object):
         'cluster_id': 'ClusterId',
         'create_time_order': 'CreateTimeOrder',
         'createor_name': 'CreateorName',
+        'include_user_group': 'IncludeUserGroup',
         'keyword': 'Keyword',
         'update_time_order': 'UpdateTimeOrder',
         'user_group_name': 'UserGroupName',
@@ -56,7 +58,7 @@ class ListClusterUsersRequest(object):
         'user_names': 'UserNames'
     }
 
-    def __init__(self, cluster_id=None, create_time_order=None, createor_name=None, keyword=None, update_time_order=None, user_group_name=None, user_name=None, user_name_order=None, user_names=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, create_time_order=None, createor_name=None, include_user_group=None, keyword=None, update_time_order=None, user_group_name=None, user_name=None, user_name_order=None, user_names=None, _configuration=None):  # noqa: E501
         """ListClusterUsersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class ListClusterUsersRequest(object):
         self._cluster_id = None
         self._create_time_order = None
         self._createor_name = None
+        self._include_user_group = None
         self._keyword = None
         self._update_time_order = None
         self._user_group_name = None
@@ -78,6 +81,8 @@ class ListClusterUsersRequest(object):
             self.create_time_order = create_time_order
         if createor_name is not None:
             self.createor_name = createor_name
+        if include_user_group is not None:
+            self.include_user_group = include_user_group
         if keyword is not None:
             self.keyword = keyword
         if update_time_order is not None:
@@ -155,6 +160,27 @@ class ListClusterUsersRequest(object):
         """
 
         self._createor_name = createor_name
+
+    @property
+    def include_user_group(self):
+        """Gets the include_user_group of this ListClusterUsersRequest.  # noqa: E501
+
+
+        :return: The include_user_group of this ListClusterUsersRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._include_user_group
+
+    @include_user_group.setter
+    def include_user_group(self, include_user_group):
+        """Sets the include_user_group of this ListClusterUsersRequest.
+
+
+        :param include_user_group: The include_user_group of this ListClusterUsersRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._include_user_group = include_user_group
 
     @property
     def keyword(self):

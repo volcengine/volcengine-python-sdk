@@ -75,6 +75,18 @@ def _add_beta_headers(
             if extra_headers is None:
                 extra_headers = {}
             extra_headers["ark-beta-mcp"] = "true"
+        if tool_param.get("type", "") == "knowledge_search":
+            if extra_headers is None:
+                extra_headers = {}
+            extra_headers["ark-beta-knowledge-search"] = "true"
+        if tool_param.get("type", "") == "doubao_app":
+            if extra_headers is None:
+                extra_headers = {}
+            extra_headers["ark-beta-doubao-app"] = "true"
+        if tool_param.get("type", "") == "image_process":
+            if extra_headers is None:
+                extra_headers = {}
+            extra_headers["ark-beta-image-process"] = "true"
     return extra_headers
 
 

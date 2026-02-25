@@ -36,7 +36,7 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
         'bandwidth': 'int',
         'eip_billing_type': 'int',
         'isp': 'str',
-        'security_protection_instance_id': 'str',
+        'security_protection_instance_id': 'int',
         'security_protection_types': 'str'
     }
 
@@ -141,7 +141,7 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
 
 
         :return: The security_protection_instance_id of this EipBillingConfigForCreateLoadBalancerInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._security_protection_instance_id
 
@@ -151,7 +151,7 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
 
 
         :param security_protection_instance_id: The security_protection_instance_id of this EipBillingConfigForCreateLoadBalancerInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._security_protection_instance_id = security_protection_instance_id

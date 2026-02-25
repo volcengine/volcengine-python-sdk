@@ -33,24 +33,29 @@ class OperatorConfigForGetAITranslationProjectOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'subtitle_recognition_config': 'SubtitleRecognitionConfigForGetAITranslationProjectOutput'
+        'subtitle_recognition_config': 'SubtitleRecognitionConfigForGetAITranslationProjectOutput',
+        'voice_clone_config': 'VoiceCloneConfigForGetAITranslationProjectOutput'
     }
 
     attribute_map = {
-        'subtitle_recognition_config': 'SubtitleRecognitionConfig'
+        'subtitle_recognition_config': 'SubtitleRecognitionConfig',
+        'voice_clone_config': 'VoiceCloneConfig'
     }
 
-    def __init__(self, subtitle_recognition_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, subtitle_recognition_config=None, voice_clone_config=None, _configuration=None):  # noqa: E501
         """OperatorConfigForGetAITranslationProjectOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._subtitle_recognition_config = None
+        self._voice_clone_config = None
         self.discriminator = None
 
         if subtitle_recognition_config is not None:
             self.subtitle_recognition_config = subtitle_recognition_config
+        if voice_clone_config is not None:
+            self.voice_clone_config = voice_clone_config
 
     @property
     def subtitle_recognition_config(self):
@@ -72,6 +77,27 @@ class OperatorConfigForGetAITranslationProjectOutput(object):
         """
 
         self._subtitle_recognition_config = subtitle_recognition_config
+
+    @property
+    def voice_clone_config(self):
+        """Gets the voice_clone_config of this OperatorConfigForGetAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The voice_clone_config of this OperatorConfigForGetAITranslationProjectOutput.  # noqa: E501
+        :rtype: VoiceCloneConfigForGetAITranslationProjectOutput
+        """
+        return self._voice_clone_config
+
+    @voice_clone_config.setter
+    def voice_clone_config(self, voice_clone_config):
+        """Sets the voice_clone_config of this OperatorConfigForGetAITranslationProjectOutput.
+
+
+        :param voice_clone_config: The voice_clone_config of this OperatorConfigForGetAITranslationProjectOutput.  # noqa: E501
+        :type: VoiceCloneConfigForGetAITranslationProjectOutput
+        """
+
+        self._voice_clone_config = voice_clone_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""

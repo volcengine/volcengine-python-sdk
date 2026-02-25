@@ -33,37 +33,48 @@ class ModifyDBInstanceSpecRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'estimate_only': 'bool',
         'instance_id': 'str',
         'modify_type': 'str',
         'node_info': 'list[NodeInfoForModifyDBInstanceSpecInput]',
         'rollback_time': 'str',
+        'specified_switch_end_time': 'str',
+        'specified_switch_start_time': 'str',
         'storage_space': 'int',
         'storage_type': 'str'
     }
 
     attribute_map = {
+        'estimate_only': 'EstimateOnly',
         'instance_id': 'InstanceId',
         'modify_type': 'ModifyType',
         'node_info': 'NodeInfo',
         'rollback_time': 'RollbackTime',
+        'specified_switch_end_time': 'SpecifiedSwitchEndTime',
+        'specified_switch_start_time': 'SpecifiedSwitchStartTime',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType'
     }
 
-    def __init__(self, instance_id=None, modify_type=None, node_info=None, rollback_time=None, storage_space=None, storage_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, estimate_only=None, instance_id=None, modify_type=None, node_info=None, rollback_time=None, specified_switch_end_time=None, specified_switch_start_time=None, storage_space=None, storage_type=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceSpecRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._estimate_only = None
         self._instance_id = None
         self._modify_type = None
         self._node_info = None
         self._rollback_time = None
+        self._specified_switch_end_time = None
+        self._specified_switch_start_time = None
         self._storage_space = None
         self._storage_type = None
         self.discriminator = None
 
+        if estimate_only is not None:
+            self.estimate_only = estimate_only
         self.instance_id = instance_id
         if modify_type is not None:
             self.modify_type = modify_type
@@ -71,10 +82,35 @@ class ModifyDBInstanceSpecRequest(object):
             self.node_info = node_info
         if rollback_time is not None:
             self.rollback_time = rollback_time
+        if specified_switch_end_time is not None:
+            self.specified_switch_end_time = specified_switch_end_time
+        if specified_switch_start_time is not None:
+            self.specified_switch_start_time = specified_switch_start_time
         if storage_space is not None:
             self.storage_space = storage_space
         if storage_type is not None:
             self.storage_type = storage_type
+
+    @property
+    def estimate_only(self):
+        """Gets the estimate_only of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The estimate_only of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._estimate_only
+
+    @estimate_only.setter
+    def estimate_only(self, estimate_only):
+        """Sets the estimate_only of this ModifyDBInstanceSpecRequest.
+
+
+        :param estimate_only: The estimate_only of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._estimate_only = estimate_only
 
     @property
     def instance_id(self):
@@ -161,6 +197,48 @@ class ModifyDBInstanceSpecRequest(object):
         """
 
         self._rollback_time = rollback_time
+
+    @property
+    def specified_switch_end_time(self):
+        """Gets the specified_switch_end_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The specified_switch_end_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._specified_switch_end_time
+
+    @specified_switch_end_time.setter
+    def specified_switch_end_time(self, specified_switch_end_time):
+        """Sets the specified_switch_end_time of this ModifyDBInstanceSpecRequest.
+
+
+        :param specified_switch_end_time: The specified_switch_end_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._specified_switch_end_time = specified_switch_end_time
+
+    @property
+    def specified_switch_start_time(self):
+        """Gets the specified_switch_start_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The specified_switch_start_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._specified_switch_start_time
+
+    @specified_switch_start_time.setter
+    def specified_switch_start_time(self, specified_switch_start_time):
+        """Sets the specified_switch_start_time of this ModifyDBInstanceSpecRequest.
+
+
+        :param specified_switch_start_time: The specified_switch_start_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._specified_switch_start_time = specified_switch_start_time
 
     @property
     def storage_space(self):

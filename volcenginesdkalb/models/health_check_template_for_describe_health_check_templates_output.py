@@ -40,13 +40,13 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         'health_check_http_version': 'str',
         'health_check_interval': 'int',
         'health_check_method': 'str',
+        'health_check_port': 'int',
         'health_check_protocol': 'str',
         'health_check_template_id': 'str',
         'health_check_template_name': 'str',
         'health_check_timeout': 'int',
         'health_check_uri': 'str',
         'healthy_threshold': 'int',
-        'port': 'int',
         'project_name': 'str',
         'tags': 'list[TagForDescribeHealthCheckTemplatesOutput]',
         'unhealthy_threshold': 'int',
@@ -61,20 +61,20 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         'health_check_http_version': 'HealthCheckHttpVersion',
         'health_check_interval': 'HealthCheckInterval',
         'health_check_method': 'HealthCheckMethod',
+        'health_check_port': 'HealthCheckPort',
         'health_check_protocol': 'HealthCheckProtocol',
         'health_check_template_id': 'HealthCheckTemplateId',
         'health_check_template_name': 'HealthCheckTemplateName',
         'health_check_timeout': 'HealthCheckTimeout',
         'health_check_uri': 'HealthCheckURI',
         'healthy_threshold': 'HealthyThreshold',
-        'port': 'Port',
         'project_name': 'ProjectName',
         'tags': 'Tags',
         'unhealthy_threshold': 'UnhealthyThreshold',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_protocol=None, health_check_template_id=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, port=None, project_name=None, tags=None, unhealthy_threshold=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_port=None, health_check_protocol=None, health_check_template_id=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, project_name=None, tags=None, unhealthy_threshold=None, update_time=None, _configuration=None):  # noqa: E501
         """HealthCheckTemplateForDescribeHealthCheckTemplatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,13 +87,13 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         self._health_check_http_version = None
         self._health_check_interval = None
         self._health_check_method = None
+        self._health_check_port = None
         self._health_check_protocol = None
         self._health_check_template_id = None
         self._health_check_template_name = None
         self._health_check_timeout = None
         self._health_check_uri = None
         self._healthy_threshold = None
-        self._port = None
         self._project_name = None
         self._tags = None
         self._unhealthy_threshold = None
@@ -114,6 +114,8 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
             self.health_check_interval = health_check_interval
         if health_check_method is not None:
             self.health_check_method = health_check_method
+        if health_check_port is not None:
+            self.health_check_port = health_check_port
         if health_check_protocol is not None:
             self.health_check_protocol = health_check_protocol
         if health_check_template_id is not None:
@@ -126,8 +128,6 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
             self.health_check_uri = health_check_uri
         if healthy_threshold is not None:
             self.healthy_threshold = healthy_threshold
-        if port is not None:
-            self.port = port
         if project_name is not None:
             self.project_name = project_name
         if tags is not None:
@@ -285,6 +285,27 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         self._health_check_method = health_check_method
 
     @property
+    def health_check_port(self):
+        """Gets the health_check_port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+
+
+        :return: The health_check_port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._health_check_port
+
+    @health_check_port.setter
+    def health_check_port(self, health_check_port):
+        """Sets the health_check_port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.
+
+
+        :param health_check_port: The health_check_port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._health_check_port = health_check_port
+
+    @property
     def health_check_protocol(self):
         """Gets the health_check_protocol of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
 
@@ -409,27 +430,6 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         """
 
         self._healthy_threshold = healthy_threshold
-
-    @property
-    def port(self):
-        """Gets the port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
-
-
-        :return: The port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._port
-
-    @port.setter
-    def port(self, port):
-        """Sets the port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.
-
-
-        :param port: The port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._port = port
 
     @property
     def project_name(self):

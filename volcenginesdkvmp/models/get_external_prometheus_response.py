@@ -35,7 +35,7 @@ class GetExternalPrometheusResponse(object):
     swagger_types = {
         'auth_type': 'str',
         'create_time': 'str',
-        'custom_headers': 'CustomHeadersForGetExternalPrometheusOutput',
+        'custom_header_kvs': 'list[CustomHeaderKVForGetExternalPrometheusOutput]',
         'description': 'str',
         'id': 'str',
         'max_query_rate': 'int',
@@ -53,7 +53,7 @@ class GetExternalPrometheusResponse(object):
     attribute_map = {
         'auth_type': 'AuthType',
         'create_time': 'CreateTime',
-        'custom_headers': 'CustomHeaders',
+        'custom_header_kvs': 'CustomHeaderKVs',
         'description': 'Description',
         'id': 'Id',
         'max_query_rate': 'MaxQueryRate',
@@ -68,7 +68,7 @@ class GetExternalPrometheusResponse(object):
         'vpcid': 'VPCId'
     }
 
-    def __init__(self, auth_type=None, create_time=None, custom_headers=None, description=None, id=None, max_query_rate=None, name=None, project_name=None, status=None, subnet_ids=None, tags=None, type=None, url=None, username=None, vpcid=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_type=None, create_time=None, custom_header_kvs=None, description=None, id=None, max_query_rate=None, name=None, project_name=None, status=None, subnet_ids=None, tags=None, type=None, url=None, username=None, vpcid=None, _configuration=None):  # noqa: E501
         """GetExternalPrometheusResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,7 +76,7 @@ class GetExternalPrometheusResponse(object):
 
         self._auth_type = None
         self._create_time = None
-        self._custom_headers = None
+        self._custom_header_kvs = None
         self._description = None
         self._id = None
         self._max_query_rate = None
@@ -95,8 +95,8 @@ class GetExternalPrometheusResponse(object):
             self.auth_type = auth_type
         if create_time is not None:
             self.create_time = create_time
-        if custom_headers is not None:
-            self.custom_headers = custom_headers
+        if custom_header_kvs is not None:
+            self.custom_header_kvs = custom_header_kvs
         if description is not None:
             self.description = description
         if id is not None:
@@ -165,25 +165,25 @@ class GetExternalPrometheusResponse(object):
         self._create_time = create_time
 
     @property
-    def custom_headers(self):
-        """Gets the custom_headers of this GetExternalPrometheusResponse.  # noqa: E501
+    def custom_header_kvs(self):
+        """Gets the custom_header_kvs of this GetExternalPrometheusResponse.  # noqa: E501
 
 
-        :return: The custom_headers of this GetExternalPrometheusResponse.  # noqa: E501
-        :rtype: CustomHeadersForGetExternalPrometheusOutput
+        :return: The custom_header_kvs of this GetExternalPrometheusResponse.  # noqa: E501
+        :rtype: list[CustomHeaderKVForGetExternalPrometheusOutput]
         """
-        return self._custom_headers
+        return self._custom_header_kvs
 
-    @custom_headers.setter
-    def custom_headers(self, custom_headers):
-        """Sets the custom_headers of this GetExternalPrometheusResponse.
+    @custom_header_kvs.setter
+    def custom_header_kvs(self, custom_header_kvs):
+        """Sets the custom_header_kvs of this GetExternalPrometheusResponse.
 
 
-        :param custom_headers: The custom_headers of this GetExternalPrometheusResponse.  # noqa: E501
-        :type: CustomHeadersForGetExternalPrometheusOutput
+        :param custom_header_kvs: The custom_header_kvs of this GetExternalPrometheusResponse.  # noqa: E501
+        :type: list[CustomHeaderKVForGetExternalPrometheusOutput]
         """
 
-        self._custom_headers = custom_headers
+        self._custom_header_kvs = custom_header_kvs
 
     @property
     def description(self):

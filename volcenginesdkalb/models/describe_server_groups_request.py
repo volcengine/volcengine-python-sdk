@@ -51,7 +51,7 @@ class DescribeServerGroupsRequest(object):
         'server_group_names': 'ServerGroupNames',
         'server_group_type': 'ServerGroupType',
         'tag_filters': 'TagFilters',
-        'vpc_id': 'VpcID'
+        'vpc_id': 'VpcId'
     }
 
     def __init__(self, page_number=None, page_size=None, project_name=None, server_group_ids=None, server_group_names=None, server_group_type=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501

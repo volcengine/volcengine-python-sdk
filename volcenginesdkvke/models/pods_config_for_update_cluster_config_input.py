@@ -33,24 +33,50 @@ class PodsConfigForUpdateClusterConfigInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'flannel_config': 'FlannelConfigForUpdateClusterConfigInput',
         'vpc_cni_config': 'VpcCniConfigForUpdateClusterConfigInput'
     }
 
     attribute_map = {
+        'flannel_config': 'FlannelConfig',
         'vpc_cni_config': 'VpcCniConfig'
     }
 
-    def __init__(self, vpc_cni_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, flannel_config=None, vpc_cni_config=None, _configuration=None):  # noqa: E501
         """PodsConfigForUpdateClusterConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._flannel_config = None
         self._vpc_cni_config = None
         self.discriminator = None
 
+        if flannel_config is not None:
+            self.flannel_config = flannel_config
         if vpc_cni_config is not None:
             self.vpc_cni_config = vpc_cni_config
+
+    @property
+    def flannel_config(self):
+        """Gets the flannel_config of this PodsConfigForUpdateClusterConfigInput.  # noqa: E501
+
+
+        :return: The flannel_config of this PodsConfigForUpdateClusterConfigInput.  # noqa: E501
+        :rtype: FlannelConfigForUpdateClusterConfigInput
+        """
+        return self._flannel_config
+
+    @flannel_config.setter
+    def flannel_config(self, flannel_config):
+        """Sets the flannel_config of this PodsConfigForUpdateClusterConfigInput.
+
+
+        :param flannel_config: The flannel_config of this PodsConfigForUpdateClusterConfigInput.  # noqa: E501
+        :type: FlannelConfigForUpdateClusterConfigInput
+        """
+
+        self._flannel_config = flannel_config
 
     @property
     def vpc_cni_config(self):

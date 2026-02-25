@@ -34,6 +34,7 @@ class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput(object):
     """
     swagger_types = {
         'bilingual_subtitle_file_name': 'str',
+        'is_vision': 'bool',
         'recognition_type': 'str',
         'source_subtitle_file_name': 'str',
         'subtitle_file_name': 'str',
@@ -42,19 +43,21 @@ class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput(object):
 
     attribute_map = {
         'bilingual_subtitle_file_name': 'BilingualSubtitleFileName',
+        'is_vision': 'IsVision',
         'recognition_type': 'RecognitionType',
         'source_subtitle_file_name': 'SourceSubtitleFileName',
         'subtitle_file_name': 'SubtitleFileName',
         'target_subtitle_file_name': 'TargetSubtitleFileName'
     }
 
-    def __init__(self, bilingual_subtitle_file_name=None, recognition_type=None, source_subtitle_file_name=None, subtitle_file_name=None, target_subtitle_file_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bilingual_subtitle_file_name=None, is_vision=None, recognition_type=None, source_subtitle_file_name=None, subtitle_file_name=None, target_subtitle_file_name=None, _configuration=None):  # noqa: E501
         """SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bilingual_subtitle_file_name = None
+        self._is_vision = None
         self._recognition_type = None
         self._source_subtitle_file_name = None
         self._subtitle_file_name = None
@@ -63,6 +66,8 @@ class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput(object):
 
         if bilingual_subtitle_file_name is not None:
             self.bilingual_subtitle_file_name = bilingual_subtitle_file_name
+        if is_vision is not None:
+            self.is_vision = is_vision
         if recognition_type is not None:
             self.recognition_type = recognition_type
         if source_subtitle_file_name is not None:
@@ -92,6 +97,27 @@ class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput(object):
         """
 
         self._bilingual_subtitle_file_name = bilingual_subtitle_file_name
+
+    @property
+    def is_vision(self):
+        """Gets the is_vision of this SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+
+
+        :return: The is_vision of this SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_vision
+
+    @is_vision.setter
+    def is_vision(self, is_vision):
+        """Sets the is_vision of this SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput.
+
+
+        :param is_vision: The is_vision of this SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_vision = is_vision
 
     @property
     def recognition_type(self):

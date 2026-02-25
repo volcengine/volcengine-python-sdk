@@ -39,7 +39,8 @@ class DNSDetailForGetTaskResultOutput(object):
         'dns_cost': 'int',
         'detail': 'str',
         'diagnose_detail': 'DiagnoseDetailForGetTaskResultOutput',
-        'record_count': 'int'
+        'record_count': 'int',
+        'records': 'list[str]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class DNSDetailForGetTaskResultOutput(object):
         'dns_cost': 'DNSCost',
         'detail': 'Detail',
         'diagnose_detail': 'DiagnoseDetail',
-        'record_count': 'RecordCount'
+        'record_count': 'RecordCount',
+        'records': 'Records'
     }
 
-    def __init__(self, a_record=None, aaaa_record=None, cname_record=None, dns_cost=None, detail=None, diagnose_detail=None, record_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, a_record=None, aaaa_record=None, cname_record=None, dns_cost=None, detail=None, diagnose_detail=None, record_count=None, records=None, _configuration=None):  # noqa: E501
         """DNSDetailForGetTaskResultOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class DNSDetailForGetTaskResultOutput(object):
         self._detail = None
         self._diagnose_detail = None
         self._record_count = None
+        self._records = None
         self.discriminator = None
 
         if a_record is not None:
@@ -81,6 +84,8 @@ class DNSDetailForGetTaskResultOutput(object):
             self.diagnose_detail = diagnose_detail
         if record_count is not None:
             self.record_count = record_count
+        if records is not None:
+            self.records = records
 
     @property
     def a_record(self):
@@ -228,6 +233,27 @@ class DNSDetailForGetTaskResultOutput(object):
         """
 
         self._record_count = record_count
+
+    @property
+    def records(self):
+        """Gets the records of this DNSDetailForGetTaskResultOutput.  # noqa: E501
+
+
+        :return: The records of this DNSDetailForGetTaskResultOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._records
+
+    @records.setter
+    def records(self, records):
+        """Sets the records of this DNSDetailForGetTaskResultOutput.
+
+
+        :param records: The records of this DNSDetailForGetTaskResultOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._records = records
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,26 +34,31 @@ class EditForGetExecutionOutput(object):
     """
     swagger_types = {
         'custom_edit': 'CustomEditForGetExecutionOutput',
+        'miniseries_edit': 'MiniseriesEditForGetExecutionOutput',
         'mode': 'str'
     }
 
     attribute_map = {
         'custom_edit': 'CustomEdit',
+        'miniseries_edit': 'MiniseriesEdit',
         'mode': 'Mode'
     }
 
-    def __init__(self, custom_edit=None, mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_edit=None, miniseries_edit=None, mode=None, _configuration=None):  # noqa: E501
         """EditForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._custom_edit = None
+        self._miniseries_edit = None
         self._mode = None
         self.discriminator = None
 
         if custom_edit is not None:
             self.custom_edit = custom_edit
+        if miniseries_edit is not None:
+            self.miniseries_edit = miniseries_edit
         if mode is not None:
             self.mode = mode
 
@@ -77,6 +82,27 @@ class EditForGetExecutionOutput(object):
         """
 
         self._custom_edit = custom_edit
+
+    @property
+    def miniseries_edit(self):
+        """Gets the miniseries_edit of this EditForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The miniseries_edit of this EditForGetExecutionOutput.  # noqa: E501
+        :rtype: MiniseriesEditForGetExecutionOutput
+        """
+        return self._miniseries_edit
+
+    @miniseries_edit.setter
+    def miniseries_edit(self, miniseries_edit):
+        """Sets the miniseries_edit of this EditForGetExecutionOutput.
+
+
+        :param miniseries_edit: The miniseries_edit of this EditForGetExecutionOutput.  # noqa: E501
+        :type: MiniseriesEditForGetExecutionOutput
+        """
+
+        self._miniseries_edit = miniseries_edit
 
     @property
     def mode(self):

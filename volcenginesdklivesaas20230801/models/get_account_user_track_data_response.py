@@ -34,26 +34,36 @@ class GetAccountUserTrackDataResponse(object):
     """
     swagger_types = {
         'filter_user_track': 'FilterUserTrackForGetAccountUserTrackDataOutput',
+        'scroll_id': 'str',
+        'total_count': 'int',
         'user_track_data': 'UserTrackDataForGetAccountUserTrackDataOutput'
     }
 
     attribute_map = {
         'filter_user_track': 'FilterUserTrack',
+        'scroll_id': 'ScrollId',
+        'total_count': 'TotalCount',
         'user_track_data': 'UserTrackData'
     }
 
-    def __init__(self, filter_user_track=None, user_track_data=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter_user_track=None, scroll_id=None, total_count=None, user_track_data=None, _configuration=None):  # noqa: E501
         """GetAccountUserTrackDataResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._filter_user_track = None
+        self._scroll_id = None
+        self._total_count = None
         self._user_track_data = None
         self.discriminator = None
 
         if filter_user_track is not None:
             self.filter_user_track = filter_user_track
+        if scroll_id is not None:
+            self.scroll_id = scroll_id
+        if total_count is not None:
+            self.total_count = total_count
         if user_track_data is not None:
             self.user_track_data = user_track_data
 
@@ -77,6 +87,48 @@ class GetAccountUserTrackDataResponse(object):
         """
 
         self._filter_user_track = filter_user_track
+
+    @property
+    def scroll_id(self):
+        """Gets the scroll_id of this GetAccountUserTrackDataResponse.  # noqa: E501
+
+
+        :return: The scroll_id of this GetAccountUserTrackDataResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._scroll_id
+
+    @scroll_id.setter
+    def scroll_id(self, scroll_id):
+        """Sets the scroll_id of this GetAccountUserTrackDataResponse.
+
+
+        :param scroll_id: The scroll_id of this GetAccountUserTrackDataResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._scroll_id = scroll_id
+
+    @property
+    def total_count(self):
+        """Gets the total_count of this GetAccountUserTrackDataResponse.  # noqa: E501
+
+
+        :return: The total_count of this GetAccountUserTrackDataResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_count
+
+    @total_count.setter
+    def total_count(self, total_count):
+        """Sets the total_count of this GetAccountUserTrackDataResponse.
+
+
+        :param total_count: The total_count of this GetAccountUserTrackDataResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total_count = total_count
 
     @property
     def user_track_data(self):

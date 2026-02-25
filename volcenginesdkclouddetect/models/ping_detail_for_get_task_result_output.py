@@ -36,6 +36,7 @@ class PingDetailForGetTaskResultOutput(object):
         'dns_cost': 'int',
         'diagnose_detail': 'DiagnoseDetailForGetTaskResultOutput',
         'mtr_hops': 'int',
+        'pcap_uri': 'str',
         'ping_avg_cost': 'int',
         'ping_detail': 'str',
         'ping_loss_rate': 'float',
@@ -50,6 +51,7 @@ class PingDetailForGetTaskResultOutput(object):
         'dns_cost': 'DNSCost',
         'diagnose_detail': 'DiagnoseDetail',
         'mtr_hops': 'MtrHops',
+        'pcap_uri': 'PcapURI',
         'ping_avg_cost': 'PingAvgCost',
         'ping_detail': 'PingDetail',
         'ping_loss_rate': 'PingLossRate',
@@ -60,7 +62,7 @@ class PingDetailForGetTaskResultOutput(object):
         'resolve_cost': 'ResolveCost'
     }
 
-    def __init__(self, dns_cost=None, diagnose_detail=None, mtr_hops=None, ping_avg_cost=None, ping_detail=None, ping_loss_rate=None, ping_max_cost=None, ping_min_cost=None, ping_receive_times=None, ping_send_times=None, resolve_cost=None, _configuration=None):  # noqa: E501
+    def __init__(self, dns_cost=None, diagnose_detail=None, mtr_hops=None, pcap_uri=None, ping_avg_cost=None, ping_detail=None, ping_loss_rate=None, ping_max_cost=None, ping_min_cost=None, ping_receive_times=None, ping_send_times=None, resolve_cost=None, _configuration=None):  # noqa: E501
         """PingDetailForGetTaskResultOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class PingDetailForGetTaskResultOutput(object):
         self._dns_cost = None
         self._diagnose_detail = None
         self._mtr_hops = None
+        self._pcap_uri = None
         self._ping_avg_cost = None
         self._ping_detail = None
         self._ping_loss_rate = None
@@ -85,6 +88,8 @@ class PingDetailForGetTaskResultOutput(object):
             self.diagnose_detail = diagnose_detail
         if mtr_hops is not None:
             self.mtr_hops = mtr_hops
+        if pcap_uri is not None:
+            self.pcap_uri = pcap_uri
         if ping_avg_cost is not None:
             self.ping_avg_cost = ping_avg_cost
         if ping_detail is not None:
@@ -164,6 +169,27 @@ class PingDetailForGetTaskResultOutput(object):
         """
 
         self._mtr_hops = mtr_hops
+
+    @property
+    def pcap_uri(self):
+        """Gets the pcap_uri of this PingDetailForGetTaskResultOutput.  # noqa: E501
+
+
+        :return: The pcap_uri of this PingDetailForGetTaskResultOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pcap_uri
+
+    @pcap_uri.setter
+    def pcap_uri(self, pcap_uri):
+        """Sets the pcap_uri of this PingDetailForGetTaskResultOutput.
+
+
+        :param pcap_uri: The pcap_uri of this PingDetailForGetTaskResultOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pcap_uri = pcap_uri
 
     @property
     def ping_avg_cost(self):

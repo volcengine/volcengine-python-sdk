@@ -41,6 +41,7 @@ class DescribeLoadBalancersRequest(object):
         'page_size': 'int',
         'project_name': 'str',
         'tag_filters': 'list[TagFilterForDescribeLoadBalancersInput]',
+        'type': 'str',
         'vpc_id': 'str'
     }
 
@@ -53,10 +54,11 @@ class DescribeLoadBalancersRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'tag_filters': 'TagFilters',
+        'type': 'Type',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, eip_address=None, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_address=None, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class DescribeLoadBalancersRequest(object):
         self._page_size = None
         self._project_name = None
         self._tag_filters = None
+        self._type = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class DescribeLoadBalancersRequest(object):
             self.project_name = project_name
         if tag_filters is not None:
             self.tag_filters = tag_filters
+        if type is not None:
+            self.type = type
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -259,6 +264,27 @@ class DescribeLoadBalancersRequest(object):
         """
 
         self._tag_filters = tag_filters
+
+    @property
+    def type(self):
+        """Gets the type of this DescribeLoadBalancersRequest.  # noqa: E501
+
+
+        :return: The type of this DescribeLoadBalancersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this DescribeLoadBalancersRequest.
+
+
+        :param type: The type of this DescribeLoadBalancersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     @property
     def vpc_id(self):

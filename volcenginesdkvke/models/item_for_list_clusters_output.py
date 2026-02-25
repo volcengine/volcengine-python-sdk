@@ -40,6 +40,7 @@ class ItemForListClustersOutput(object):
         'delete_protection_enabled': 'bool',
         'description': 'str',
         'id': 'str',
+        'irsa_config': 'IrsaConfigForListClustersOutput',
         'kubernetes_version': 'str',
         'logging_config': 'LoggingConfigForListClustersOutput',
         'message': 'str',
@@ -65,6 +66,7 @@ class ItemForListClustersOutput(object):
         'delete_protection_enabled': 'DeleteProtectionEnabled',
         'description': 'Description',
         'id': 'Id',
+        'irsa_config': 'IrsaConfig',
         'kubernetes_version': 'KubernetesVersion',
         'logging_config': 'LoggingConfig',
         'message': 'Message',
@@ -82,7 +84,7 @@ class ItemForListClustersOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, cluster_config=None, connector_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, logging_config=None, message=None, monitoring_config=None, name=None, node_statistics=None, pods_config=None, project_name=None, register_monitoring_config=None, services_config=None, status=None, tags=None, type=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_config=None, connector_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, irsa_config=None, kubernetes_version=None, logging_config=None, message=None, monitoring_config=None, name=None, node_statistics=None, pods_config=None, project_name=None, register_monitoring_config=None, services_config=None, status=None, tags=None, type=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,6 +97,7 @@ class ItemForListClustersOutput(object):
         self._delete_protection_enabled = None
         self._description = None
         self._id = None
+        self._irsa_config = None
         self._kubernetes_version = None
         self._logging_config = None
         self._message = None
@@ -126,6 +129,8 @@ class ItemForListClustersOutput(object):
             self.description = description
         if id is not None:
             self.id = id
+        if irsa_config is not None:
+            self.irsa_config = irsa_config
         if kubernetes_version is not None:
             self.kubernetes_version = kubernetes_version
         if logging_config is not None:
@@ -303,6 +308,27 @@ class ItemForListClustersOutput(object):
         """
 
         self._id = id
+
+    @property
+    def irsa_config(self):
+        """Gets the irsa_config of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The irsa_config of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: IrsaConfigForListClustersOutput
+        """
+        return self._irsa_config
+
+    @irsa_config.setter
+    def irsa_config(self, irsa_config):
+        """Sets the irsa_config of this ItemForListClustersOutput.
+
+
+        :param irsa_config: The irsa_config of this ItemForListClustersOutput.  # noqa: E501
+        :type: IrsaConfigForListClustersOutput
+        """
+
+        self._irsa_config = irsa_config
 
     @property
     def kubernetes_version(self):

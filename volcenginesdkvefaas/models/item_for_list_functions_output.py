@@ -41,7 +41,7 @@ class ItemForListFunctionsOutput(object):
         'cpu_strategy': 'str',
         'creation_time': 'str',
         'description': 'str',
-        'enable_apmplus': 'str',
+        'enable_apmplus': 'bool',
         'envs': 'list[EnvForListFunctionsOutput]',
         'exclusive_mode': 'bool',
         'function_type': 'str',
@@ -391,7 +391,7 @@ class ItemForListFunctionsOutput(object):
 
 
         :return: The enable_apmplus of this ItemForListFunctionsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._enable_apmplus
 
@@ -401,7 +401,7 @@ class ItemForListFunctionsOutput(object):
 
 
         :param enable_apmplus: The enable_apmplus of this ItemForListFunctionsOutput.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._enable_apmplus = enable_apmplus

@@ -37,7 +37,6 @@ class DiagnosisInstanceForDescribeDiagnosisInstancesOutput(object):
         'creation_time': 'str',
         'diagnosis_instance_id': 'str',
         'diagnosis_instance_status': 'str',
-        'eip_address': 'str',
         'resource_deleted': 'bool',
         'resource_instance_id': 'str',
         'resource_instance_name': 'str',
@@ -50,7 +49,6 @@ class DiagnosisInstanceForDescribeDiagnosisInstancesOutput(object):
         'creation_time': 'CreationTime',
         'diagnosis_instance_id': 'DiagnosisInstanceId',
         'diagnosis_instance_status': 'DiagnosisInstanceStatus',
-        'eip_address': 'EipAddress',
         'resource_deleted': 'ResourceDeleted',
         'resource_instance_id': 'ResourceInstanceId',
         'resource_instance_name': 'ResourceInstanceName',
@@ -58,7 +56,7 @@ class DiagnosisInstanceForDescribeDiagnosisInstancesOutput(object):
         'resource_type': 'ResourceType'
     }
 
-    def __init__(self, count=None, creation_time=None, diagnosis_instance_id=None, diagnosis_instance_status=None, eip_address=None, resource_deleted=None, resource_instance_id=None, resource_instance_name=None, resource_region=None, resource_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, count=None, creation_time=None, diagnosis_instance_id=None, diagnosis_instance_status=None, resource_deleted=None, resource_instance_id=None, resource_instance_name=None, resource_region=None, resource_type=None, _configuration=None):  # noqa: E501
         """DiagnosisInstanceForDescribeDiagnosisInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,7 +66,6 @@ class DiagnosisInstanceForDescribeDiagnosisInstancesOutput(object):
         self._creation_time = None
         self._diagnosis_instance_id = None
         self._diagnosis_instance_status = None
-        self._eip_address = None
         self._resource_deleted = None
         self._resource_instance_id = None
         self._resource_instance_name = None
@@ -84,8 +81,6 @@ class DiagnosisInstanceForDescribeDiagnosisInstancesOutput(object):
             self.diagnosis_instance_id = diagnosis_instance_id
         if diagnosis_instance_status is not None:
             self.diagnosis_instance_status = diagnosis_instance_status
-        if eip_address is not None:
-            self.eip_address = eip_address
         if resource_deleted is not None:
             self.resource_deleted = resource_deleted
         if resource_instance_id is not None:
@@ -180,27 +175,6 @@ class DiagnosisInstanceForDescribeDiagnosisInstancesOutput(object):
         """
 
         self._diagnosis_instance_status = diagnosis_instance_status
-
-    @property
-    def eip_address(self):
-        """Gets the eip_address of this DiagnosisInstanceForDescribeDiagnosisInstancesOutput.  # noqa: E501
-
-
-        :return: The eip_address of this DiagnosisInstanceForDescribeDiagnosisInstancesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._eip_address
-
-    @eip_address.setter
-    def eip_address(self, eip_address):
-        """Sets the eip_address of this DiagnosisInstanceForDescribeDiagnosisInstancesOutput.
-
-
-        :param eip_address: The eip_address of this DiagnosisInstanceForDescribeDiagnosisInstancesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._eip_address = eip_address
 
     @property
     def resource_deleted(self):

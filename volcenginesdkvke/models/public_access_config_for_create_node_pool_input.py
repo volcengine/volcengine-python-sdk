@@ -122,7 +122,7 @@ class PublicAccessConfigForCreateNodePoolInput(object):
         :param isp: The isp of this PublicAccessConfigForCreateNodePoolInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["BGP", "ChinaMobile", "ChinaTelecom", "ChinaUnicom"]  # noqa: E501
+        allowed_values = ["BGP", "ChinaMobile", "ChinaUnicom", "ChinaTelecom", "SingleLine_BGP", "Fusion_BGP", "Static_BGP", "ChinaMobile_Value", "ChinaUnicom_Value", "ChinaTelecom_Value"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 isp not in allowed_values):
             raise ValueError(

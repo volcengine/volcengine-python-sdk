@@ -34,6 +34,7 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput(object):
     """
     swagger_types = {
         'create_time': 'str',
+        'host_name': 'str',
         'instance_id': 'str',
         'memory': 'int',
         'node_ip': 'str',
@@ -49,6 +50,7 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput(object):
 
     attribute_map = {
         'create_time': 'CreateTime',
+        'host_name': 'HostName',
         'instance_id': 'InstanceId',
         'memory': 'Memory',
         'node_ip': 'NodeIP',
@@ -62,13 +64,14 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, create_time=None, instance_id=None, memory=None, node_ip=None, node_id=None, node_spec=None, node_status=None, node_type=None, region_id=None, update_time=None, vcpu=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, host_name=None, instance_id=None, memory=None, node_ip=None, node_id=None, node_spec=None, node_status=None, node_type=None, region_id=None, update_time=None, vcpu=None, zone_id=None, _configuration=None):  # noqa: E501
         """NodeDetailInfoForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._create_time = None
+        self._host_name = None
         self._instance_id = None
         self._memory = None
         self._node_ip = None
@@ -84,6 +87,8 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput(object):
 
         if create_time is not None:
             self.create_time = create_time
+        if host_name is not None:
+            self.host_name = host_name
         if instance_id is not None:
             self.instance_id = instance_id
         if memory is not None:
@@ -127,6 +132,27 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def host_name(self):
+        """Gets the host_name of this NodeDetailInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The host_name of this NodeDetailInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._host_name
+
+    @host_name.setter
+    def host_name(self, host_name):
+        """Sets the host_name of this NodeDetailInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param host_name: The host_name of this NodeDetailInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._host_name = host_name
 
     @property
     def instance_id(self):

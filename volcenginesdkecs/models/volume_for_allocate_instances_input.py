@@ -33,7 +33,6 @@ class VolumeForAllocateInstancesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'delete_with_instance': 'str',
         'extra_performance_iops': 'int',
         'extra_performance_throughput_mb': 'int',
         'extra_performance_type_id': 'str',
@@ -43,7 +42,6 @@ class VolumeForAllocateInstancesInput(object):
     }
 
     attribute_map = {
-        'delete_with_instance': 'DeleteWithInstance',
         'extra_performance_iops': 'ExtraPerformanceIOPS',
         'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMB',
         'extra_performance_type_id': 'ExtraPerformanceTypeId',
@@ -52,13 +50,12 @@ class VolumeForAllocateInstancesInput(object):
         'volume_type': 'VolumeType'
     }
 
-    def __init__(self, delete_with_instance=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, size=None, snapshot_id=None, volume_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, size=None, snapshot_id=None, volume_type=None, _configuration=None):  # noqa: E501
         """VolumeForAllocateInstancesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._delete_with_instance = None
         self._extra_performance_iops = None
         self._extra_performance_throughput_mb = None
         self._extra_performance_type_id = None
@@ -67,8 +64,6 @@ class VolumeForAllocateInstancesInput(object):
         self._volume_type = None
         self.discriminator = None
 
-        if delete_with_instance is not None:
-            self.delete_with_instance = delete_with_instance
         if extra_performance_iops is not None:
             self.extra_performance_iops = extra_performance_iops
         if extra_performance_throughput_mb is not None:
@@ -80,27 +75,6 @@ class VolumeForAllocateInstancesInput(object):
             self.snapshot_id = snapshot_id
         if volume_type is not None:
             self.volume_type = volume_type
-
-    @property
-    def delete_with_instance(self):
-        """Gets the delete_with_instance of this VolumeForAllocateInstancesInput.  # noqa: E501
-
-
-        :return: The delete_with_instance of this VolumeForAllocateInstancesInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._delete_with_instance
-
-    @delete_with_instance.setter
-    def delete_with_instance(self, delete_with_instance):
-        """Sets the delete_with_instance of this VolumeForAllocateInstancesInput.
-
-
-        :param delete_with_instance: The delete_with_instance of this VolumeForAllocateInstancesInput.  # noqa: E501
-        :type: str
-        """
-
-        self._delete_with_instance = delete_with_instance
 
     @property
     def extra_performance_iops(self):

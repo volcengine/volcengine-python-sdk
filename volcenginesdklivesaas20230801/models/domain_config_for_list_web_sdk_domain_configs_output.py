@@ -36,17 +36,19 @@ class DomainConfigForListWebSDKDomainConfigsOutput(object):
         'create_time': 'int',
         'domain': 'str',
         'status': 'int',
-        'update_time': 'int'
+        'update_time': 'int',
+        'whitelist_scenes': 'int'
     }
 
     attribute_map = {
         'create_time': 'CreateTime',
         'domain': 'Domain',
         'status': 'Status',
-        'update_time': 'UpdateTime'
+        'update_time': 'UpdateTime',
+        'whitelist_scenes': 'WhitelistScenes'
     }
 
-    def __init__(self, create_time=None, domain=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, domain=None, status=None, update_time=None, whitelist_scenes=None, _configuration=None):  # noqa: E501
         """DomainConfigForListWebSDKDomainConfigsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DomainConfigForListWebSDKDomainConfigsOutput(object):
         self._domain = None
         self._status = None
         self._update_time = None
+        self._whitelist_scenes = None
         self.discriminator = None
 
         if create_time is not None:
@@ -66,6 +69,8 @@ class DomainConfigForListWebSDKDomainConfigsOutput(object):
             self.status = status
         if update_time is not None:
             self.update_time = update_time
+        if whitelist_scenes is not None:
+            self.whitelist_scenes = whitelist_scenes
 
     @property
     def create_time(self):
@@ -150,6 +155,27 @@ class DomainConfigForListWebSDKDomainConfigsOutput(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def whitelist_scenes(self):
+        """Gets the whitelist_scenes of this DomainConfigForListWebSDKDomainConfigsOutput.  # noqa: E501
+
+
+        :return: The whitelist_scenes of this DomainConfigForListWebSDKDomainConfigsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._whitelist_scenes
+
+    @whitelist_scenes.setter
+    def whitelist_scenes(self, whitelist_scenes):
+        """Sets the whitelist_scenes of this DomainConfigForListWebSDKDomainConfigsOutput.
+
+
+        :param whitelist_scenes: The whitelist_scenes of this DomainConfigForListWebSDKDomainConfigsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._whitelist_scenes = whitelist_scenes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

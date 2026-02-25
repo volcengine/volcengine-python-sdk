@@ -34,38 +34,52 @@ class ModifyAllowListRequest(object):
     """
     swagger_types = {
         'allow_list': 'str',
+        'allow_list_category': 'str',
         'allow_list_desc': 'str',
         'allow_list_id': 'str',
         'allow_list_name': 'str',
         'apply_instance_num': 'int',
-        'modify_mode': 'str'
+        'modify_mode': 'str',
+        'security_group_bind_infos': 'list[SecurityGroupBindInfoForModifyAllowListInput]',
+        'update_security_group': 'bool',
+        'user_allow_list': 'str'
     }
 
     attribute_map = {
         'allow_list': 'AllowList',
+        'allow_list_category': 'AllowListCategory',
         'allow_list_desc': 'AllowListDesc',
         'allow_list_id': 'AllowListId',
         'allow_list_name': 'AllowListName',
         'apply_instance_num': 'ApplyInstanceNum',
-        'modify_mode': 'ModifyMode'
+        'modify_mode': 'ModifyMode',
+        'security_group_bind_infos': 'SecurityGroupBindInfos',
+        'update_security_group': 'UpdateSecurityGroup',
+        'user_allow_list': 'UserAllowList'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, apply_instance_num=None, modify_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, apply_instance_num=None, modify_mode=None, security_group_bind_infos=None, update_security_group=None, user_allow_list=None, _configuration=None):  # noqa: E501
         """ModifyAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list = None
+        self._allow_list_category = None
         self._allow_list_desc = None
         self._allow_list_id = None
         self._allow_list_name = None
         self._apply_instance_num = None
         self._modify_mode = None
+        self._security_group_bind_infos = None
+        self._update_security_group = None
+        self._user_allow_list = None
         self.discriminator = None
 
         if allow_list is not None:
             self.allow_list = allow_list
+        if allow_list_category is not None:
+            self.allow_list_category = allow_list_category
         if allow_list_desc is not None:
             self.allow_list_desc = allow_list_desc
         self.allow_list_id = allow_list_id
@@ -74,6 +88,12 @@ class ModifyAllowListRequest(object):
             self.apply_instance_num = apply_instance_num
         if modify_mode is not None:
             self.modify_mode = modify_mode
+        if security_group_bind_infos is not None:
+            self.security_group_bind_infos = security_group_bind_infos
+        if update_security_group is not None:
+            self.update_security_group = update_security_group
+        if user_allow_list is not None:
+            self.user_allow_list = user_allow_list
 
     @property
     def allow_list(self):
@@ -95,6 +115,27 @@ class ModifyAllowListRequest(object):
         """
 
         self._allow_list = allow_list
+
+    @property
+    def allow_list_category(self):
+        """Gets the allow_list_category of this ModifyAllowListRequest.  # noqa: E501
+
+
+        :return: The allow_list_category of this ModifyAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_category
+
+    @allow_list_category.setter
+    def allow_list_category(self, allow_list_category):
+        """Sets the allow_list_category of this ModifyAllowListRequest.
+
+
+        :param allow_list_category: The allow_list_category of this ModifyAllowListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._allow_list_category = allow_list_category
 
     @property
     def allow_list_desc(self):
@@ -204,6 +245,69 @@ class ModifyAllowListRequest(object):
         """
 
         self._modify_mode = modify_mode
+
+    @property
+    def security_group_bind_infos(self):
+        """Gets the security_group_bind_infos of this ModifyAllowListRequest.  # noqa: E501
+
+
+        :return: The security_group_bind_infos of this ModifyAllowListRequest.  # noqa: E501
+        :rtype: list[SecurityGroupBindInfoForModifyAllowListInput]
+        """
+        return self._security_group_bind_infos
+
+    @security_group_bind_infos.setter
+    def security_group_bind_infos(self, security_group_bind_infos):
+        """Sets the security_group_bind_infos of this ModifyAllowListRequest.
+
+
+        :param security_group_bind_infos: The security_group_bind_infos of this ModifyAllowListRequest.  # noqa: E501
+        :type: list[SecurityGroupBindInfoForModifyAllowListInput]
+        """
+
+        self._security_group_bind_infos = security_group_bind_infos
+
+    @property
+    def update_security_group(self):
+        """Gets the update_security_group of this ModifyAllowListRequest.  # noqa: E501
+
+
+        :return: The update_security_group of this ModifyAllowListRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._update_security_group
+
+    @update_security_group.setter
+    def update_security_group(self, update_security_group):
+        """Sets the update_security_group of this ModifyAllowListRequest.
+
+
+        :param update_security_group: The update_security_group of this ModifyAllowListRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._update_security_group = update_security_group
+
+    @property
+    def user_allow_list(self):
+        """Gets the user_allow_list of this ModifyAllowListRequest.  # noqa: E501
+
+
+        :return: The user_allow_list of this ModifyAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_allow_list
+
+    @user_allow_list.setter
+    def user_allow_list(self, user_allow_list):
+        """Sets the user_allow_list of this ModifyAllowListRequest.
+
+
+        :param user_allow_list: The user_allow_list of this ModifyAllowListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._user_allow_list = user_allow_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

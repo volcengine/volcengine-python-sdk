@@ -42,7 +42,6 @@ class ModifyListenerAttributesRequest(object):
         'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
         'certificate_source': 'str',
-        'client_address_transmission_protocol': 'str',
         'customized_cfg_id': 'str',
         'description': 'str',
         'domain_extensions': 'list[DomainExtensionForModifyListenerAttributesInput]',
@@ -54,7 +53,6 @@ class ModifyListenerAttributesRequest(object):
         'pca_leaf_certificate_id': 'str',
         'pca_root_ca_certificate_id': 'str',
         'pca_sub_ca_certificate_id': 'str',
-        'proxy_protocol_disabled': 'str',
         'server_group_id': 'str'
     }
 
@@ -68,7 +66,6 @@ class ModifyListenerAttributesRequest(object):
         'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
         'certificate_source': 'CertificateSource',
-        'client_address_transmission_protocol': 'ClientAddressTransmissionProtocol',
         'customized_cfg_id': 'CustomizedCfgId',
         'description': 'Description',
         'domain_extensions': 'DomainExtensions',
@@ -80,11 +77,10 @@ class ModifyListenerAttributesRequest(object):
         'pca_leaf_certificate_id': 'PcaLeafCertificateId',
         'pca_root_ca_certificate_id': 'PcaRootCACertificateId',
         'pca_sub_ca_certificate_id': 'PcaSubCACertificateId',
-        'proxy_protocol_disabled': 'ProxyProtocolDisabled',
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, proxy_protocol_disabled=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -99,7 +95,6 @@ class ModifyListenerAttributesRequest(object):
         self._cert_center_certificate_id = None
         self._certificate_id = None
         self._certificate_source = None
-        self._client_address_transmission_protocol = None
         self._customized_cfg_id = None
         self._description = None
         self._domain_extensions = None
@@ -111,7 +106,6 @@ class ModifyListenerAttributesRequest(object):
         self._pca_leaf_certificate_id = None
         self._pca_root_ca_certificate_id = None
         self._pca_sub_ca_certificate_id = None
-        self._proxy_protocol_disabled = None
         self._server_group_id = None
         self.discriminator = None
 
@@ -133,8 +127,6 @@ class ModifyListenerAttributesRequest(object):
             self.certificate_id = certificate_id
         if certificate_source is not None:
             self.certificate_source = certificate_source
-        if client_address_transmission_protocol is not None:
-            self.client_address_transmission_protocol = client_address_transmission_protocol
         if customized_cfg_id is not None:
             self.customized_cfg_id = customized_cfg_id
         if description is not None:
@@ -156,8 +148,6 @@ class ModifyListenerAttributesRequest(object):
             self.pca_root_ca_certificate_id = pca_root_ca_certificate_id
         if pca_sub_ca_certificate_id is not None:
             self.pca_sub_ca_certificate_id = pca_sub_ca_certificate_id
-        if proxy_protocol_disabled is not None:
-            self.proxy_protocol_disabled = proxy_protocol_disabled
         if server_group_id is not None:
             self.server_group_id = server_group_id
 
@@ -349,27 +339,6 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._certificate_source = certificate_source
-
-    @property
-    def client_address_transmission_protocol(self):
-        """Gets the client_address_transmission_protocol of this ModifyListenerAttributesRequest.  # noqa: E501
-
-
-        :return: The client_address_transmission_protocol of this ModifyListenerAttributesRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._client_address_transmission_protocol
-
-    @client_address_transmission_protocol.setter
-    def client_address_transmission_protocol(self, client_address_transmission_protocol):
-        """Sets the client_address_transmission_protocol of this ModifyListenerAttributesRequest.
-
-
-        :param client_address_transmission_protocol: The client_address_transmission_protocol of this ModifyListenerAttributesRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._client_address_transmission_protocol = client_address_transmission_protocol
 
     @property
     def customized_cfg_id(self):
@@ -609,27 +578,6 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._pca_sub_ca_certificate_id = pca_sub_ca_certificate_id
-
-    @property
-    def proxy_protocol_disabled(self):
-        """Gets the proxy_protocol_disabled of this ModifyListenerAttributesRequest.  # noqa: E501
-
-
-        :return: The proxy_protocol_disabled of this ModifyListenerAttributesRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._proxy_protocol_disabled
-
-    @proxy_protocol_disabled.setter
-    def proxy_protocol_disabled(self, proxy_protocol_disabled):
-        """Sets the proxy_protocol_disabled of this ModifyListenerAttributesRequest.
-
-
-        :param proxy_protocol_disabled: The proxy_protocol_disabled of this ModifyListenerAttributesRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._proxy_protocol_disabled = proxy_protocol_disabled
 
     @property
     def server_group_id(self):

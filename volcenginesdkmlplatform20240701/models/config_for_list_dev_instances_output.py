@@ -38,6 +38,7 @@ class ConfigForListDevInstancesOutput(object):
         'nas_ap': 'NasAPForListDevInstancesOutput',
         'sfcs': 'SfcsForListDevInstancesOutput',
         'tos': 'TosForListDevInstancesOutput',
+        'tos_ap': 'TosAPForListDevInstancesOutput',
         'vepfs': 'VepfsForListDevInstancesOutput',
         'vepfs_ap': 'VepfsAPForListDevInstancesOutput'
     }
@@ -48,11 +49,12 @@ class ConfigForListDevInstancesOutput(object):
         'nas_ap': 'NasAP',
         'sfcs': 'Sfcs',
         'tos': 'Tos',
+        'tos_ap': 'TosAP',
         'vepfs': 'Vepfs',
         'vepfs_ap': 'VepfsAP'
     }
 
-    def __init__(self, cfs=None, nas=None, nas_ap=None, sfcs=None, tos=None, vepfs=None, vepfs_ap=None, _configuration=None):  # noqa: E501
+    def __init__(self, cfs=None, nas=None, nas_ap=None, sfcs=None, tos=None, tos_ap=None, vepfs=None, vepfs_ap=None, _configuration=None):  # noqa: E501
         """ConfigForListDevInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class ConfigForListDevInstancesOutput(object):
         self._nas_ap = None
         self._sfcs = None
         self._tos = None
+        self._tos_ap = None
         self._vepfs = None
         self._vepfs_ap = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class ConfigForListDevInstancesOutput(object):
             self.sfcs = sfcs
         if tos is not None:
             self.tos = tos
+        if tos_ap is not None:
+            self.tos_ap = tos_ap
         if vepfs is not None:
             self.vepfs = vepfs
         if vepfs_ap is not None:
@@ -186,6 +191,27 @@ class ConfigForListDevInstancesOutput(object):
         """
 
         self._tos = tos
+
+    @property
+    def tos_ap(self):
+        """Gets the tos_ap of this ConfigForListDevInstancesOutput.  # noqa: E501
+
+
+        :return: The tos_ap of this ConfigForListDevInstancesOutput.  # noqa: E501
+        :rtype: TosAPForListDevInstancesOutput
+        """
+        return self._tos_ap
+
+    @tos_ap.setter
+    def tos_ap(self, tos_ap):
+        """Sets the tos_ap of this ConfigForListDevInstancesOutput.
+
+
+        :param tos_ap: The tos_ap of this ConfigForListDevInstancesOutput.  # noqa: E501
+        :type: TosAPForListDevInstancesOutput
+        """
+
+        self._tos_ap = tos_ap
 
     @property
     def vepfs(self):

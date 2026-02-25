@@ -40,8 +40,10 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
         'join_time': 'int',
         'lottery_awards': 'list[str]',
         'pay_amount': 'str',
+        'user_id': 'int',
         'watch_duration_live': 'int',
-        'watch_duration_replay': 'int'
+        'watch_duration_replay': 'int',
+        'watch_type': 'str'
     }
 
     attribute_map = {
@@ -52,11 +54,13 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
         'join_time': 'JoinTime',
         'lottery_awards': 'LotteryAwards',
         'pay_amount': 'PayAmount',
+        'user_id': 'UserId',
         'watch_duration_live': 'WatchDurationLive',
-        'watch_duration_replay': 'WatchDurationReplay'
+        'watch_duration_replay': 'WatchDurationReplay',
+        'watch_type': 'WatchType'
     }
 
-    def __init__(self, activity_id=None, activity_name=None, check_in_count=None, comment_count=None, join_time=None, lottery_awards=None, pay_amount=None, watch_duration_live=None, watch_duration_replay=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, activity_name=None, check_in_count=None, comment_count=None, join_time=None, lottery_awards=None, pay_amount=None, user_id=None, watch_duration_live=None, watch_duration_replay=None, watch_type=None, _configuration=None):  # noqa: E501
         """UserTrackForGetAccountUserTrackDataOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,8 +73,10 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
         self._join_time = None
         self._lottery_awards = None
         self._pay_amount = None
+        self._user_id = None
         self._watch_duration_live = None
         self._watch_duration_replay = None
+        self._watch_type = None
         self.discriminator = None
 
         if activity_id is not None:
@@ -87,10 +93,14 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
             self.lottery_awards = lottery_awards
         if pay_amount is not None:
             self.pay_amount = pay_amount
+        if user_id is not None:
+            self.user_id = user_id
         if watch_duration_live is not None:
             self.watch_duration_live = watch_duration_live
         if watch_duration_replay is not None:
             self.watch_duration_replay = watch_duration_replay
+        if watch_type is not None:
+            self.watch_type = watch_type
 
     @property
     def activity_id(self):
@@ -240,6 +250,27 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
         self._pay_amount = pay_amount
 
     @property
+    def user_id(self):
+        """Gets the user_id of this UserTrackForGetAccountUserTrackDataOutput.  # noqa: E501
+
+
+        :return: The user_id of this UserTrackForGetAccountUserTrackDataOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this UserTrackForGetAccountUserTrackDataOutput.
+
+
+        :param user_id: The user_id of this UserTrackForGetAccountUserTrackDataOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._user_id = user_id
+
+    @property
     def watch_duration_live(self):
         """Gets the watch_duration_live of this UserTrackForGetAccountUserTrackDataOutput.  # noqa: E501
 
@@ -280,6 +311,27 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
         """
 
         self._watch_duration_replay = watch_duration_replay
+
+    @property
+    def watch_type(self):
+        """Gets the watch_type of this UserTrackForGetAccountUserTrackDataOutput.  # noqa: E501
+
+
+        :return: The watch_type of this UserTrackForGetAccountUserTrackDataOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._watch_type
+
+    @watch_type.setter
+    def watch_type(self, watch_type):
+        """Sets the watch_type of this UserTrackForGetAccountUserTrackDataOutput.
+
+
+        :param watch_type: The watch_type of this UserTrackForGetAccountUserTrackDataOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._watch_type = watch_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

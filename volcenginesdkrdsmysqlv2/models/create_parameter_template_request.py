@@ -33,6 +33,7 @@ class CreateParameterTemplateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'engine_type': 'str',
         'project_name': 'str',
         'template_desc': 'str',
         'template_name': 'str',
@@ -42,6 +43,7 @@ class CreateParameterTemplateRequest(object):
     }
 
     attribute_map = {
+        'engine_type': 'EngineType',
         'project_name': 'ProjectName',
         'template_desc': 'TemplateDesc',
         'template_name': 'TemplateName',
@@ -50,12 +52,13 @@ class CreateParameterTemplateRequest(object):
         'template_type_version': 'TemplateTypeVersion'
     }
 
-    def __init__(self, project_name=None, template_desc=None, template_name=None, template_params=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
+    def __init__(self, engine_type=None, project_name=None, template_desc=None, template_name=None, template_params=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
         """CreateParameterTemplateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._engine_type = None
         self._project_name = None
         self._template_desc = None
         self._template_name = None
@@ -64,6 +67,8 @@ class CreateParameterTemplateRequest(object):
         self._template_type_version = None
         self.discriminator = None
 
+        if engine_type is not None:
+            self.engine_type = engine_type
         if project_name is not None:
             self.project_name = project_name
         if template_desc is not None:
@@ -75,6 +80,27 @@ class CreateParameterTemplateRequest(object):
             self.template_type = template_type
         if template_type_version is not None:
             self.template_type_version = template_type_version
+
+    @property
+    def engine_type(self):
+        """Gets the engine_type of this CreateParameterTemplateRequest.  # noqa: E501
+
+
+        :return: The engine_type of this CreateParameterTemplateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._engine_type
+
+    @engine_type.setter
+    def engine_type(self, engine_type):
+        """Sets the engine_type of this CreateParameterTemplateRequest.
+
+
+        :param engine_type: The engine_type of this CreateParameterTemplateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._engine_type = engine_type
 
     @property
     def project_name(self):

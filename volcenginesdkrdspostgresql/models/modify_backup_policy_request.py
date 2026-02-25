@@ -34,8 +34,10 @@ class ModifyBackupPolicyRequest(object):
     """
     swagger_types = {
         'backup_retention_period': 'int',
+        'data_incr_backup_periods': 'str',
         'full_backup_period': 'str',
         'full_backup_time': 'str',
+        'hourly_incr_backup_enable': 'bool',
         'increment_backup_frequency': 'int',
         'instance_id': 'str',
         'wal_log_space_limit_enable': 'bool'
@@ -43,22 +45,26 @@ class ModifyBackupPolicyRequest(object):
 
     attribute_map = {
         'backup_retention_period': 'BackupRetentionPeriod',
+        'data_incr_backup_periods': 'DataIncrBackupPeriods',
         'full_backup_period': 'FullBackupPeriod',
         'full_backup_time': 'FullBackupTime',
+        'hourly_incr_backup_enable': 'HourlyIncrBackupEnable',
         'increment_backup_frequency': 'IncrementBackupFrequency',
         'instance_id': 'InstanceId',
         'wal_log_space_limit_enable': 'WALLogSpaceLimitEnable'
     }
 
-    def __init__(self, backup_retention_period=None, full_backup_period=None, full_backup_time=None, increment_backup_frequency=None, instance_id=None, wal_log_space_limit_enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_retention_period=None, data_incr_backup_periods=None, full_backup_period=None, full_backup_time=None, hourly_incr_backup_enable=None, increment_backup_frequency=None, instance_id=None, wal_log_space_limit_enable=None, _configuration=None):  # noqa: E501
         """ModifyBackupPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._backup_retention_period = None
+        self._data_incr_backup_periods = None
         self._full_backup_period = None
         self._full_backup_time = None
+        self._hourly_incr_backup_enable = None
         self._increment_backup_frequency = None
         self._instance_id = None
         self._wal_log_space_limit_enable = None
@@ -66,10 +72,14 @@ class ModifyBackupPolicyRequest(object):
 
         if backup_retention_period is not None:
             self.backup_retention_period = backup_retention_period
+        if data_incr_backup_periods is not None:
+            self.data_incr_backup_periods = data_incr_backup_periods
         if full_backup_period is not None:
             self.full_backup_period = full_backup_period
         if full_backup_time is not None:
             self.full_backup_time = full_backup_time
+        if hourly_incr_backup_enable is not None:
+            self.hourly_incr_backup_enable = hourly_incr_backup_enable
         if increment_backup_frequency is not None:
             self.increment_backup_frequency = increment_backup_frequency
         self.instance_id = instance_id
@@ -96,6 +106,27 @@ class ModifyBackupPolicyRequest(object):
         """
 
         self._backup_retention_period = backup_retention_period
+
+    @property
+    def data_incr_backup_periods(self):
+        """Gets the data_incr_backup_periods of this ModifyBackupPolicyRequest.  # noqa: E501
+
+
+        :return: The data_incr_backup_periods of this ModifyBackupPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_incr_backup_periods
+
+    @data_incr_backup_periods.setter
+    def data_incr_backup_periods(self, data_incr_backup_periods):
+        """Sets the data_incr_backup_periods of this ModifyBackupPolicyRequest.
+
+
+        :param data_incr_backup_periods: The data_incr_backup_periods of this ModifyBackupPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._data_incr_backup_periods = data_incr_backup_periods
 
     @property
     def full_backup_period(self):
@@ -138,6 +169,27 @@ class ModifyBackupPolicyRequest(object):
         """
 
         self._full_backup_time = full_backup_time
+
+    @property
+    def hourly_incr_backup_enable(self):
+        """Gets the hourly_incr_backup_enable of this ModifyBackupPolicyRequest.  # noqa: E501
+
+
+        :return: The hourly_incr_backup_enable of this ModifyBackupPolicyRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hourly_incr_backup_enable
+
+    @hourly_incr_backup_enable.setter
+    def hourly_incr_backup_enable(self, hourly_incr_backup_enable):
+        """Sets the hourly_incr_backup_enable of this ModifyBackupPolicyRequest.
+
+
+        :param hourly_incr_backup_enable: The hourly_incr_backup_enable of this ModifyBackupPolicyRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._hourly_incr_backup_enable = hourly_incr_backup_enable
 
     @property
     def increment_backup_frequency(self):

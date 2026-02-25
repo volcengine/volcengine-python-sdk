@@ -36,6 +36,7 @@ class CreateUserPoolClientRequest(object):
         'allowed_callback_urls': 'list[str]',
         'client_type': 'str',
         'description': 'str',
+        'logo_uri': 'str',
         'name': 'str',
         'user_pool_uid': 'str'
     }
@@ -44,11 +45,12 @@ class CreateUserPoolClientRequest(object):
         'allowed_callback_urls': 'AllowedCallbackUrls',
         'client_type': 'ClientType',
         'description': 'Description',
+        'logo_uri': 'LogoUri',
         'name': 'Name',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, allowed_callback_urls=None, client_type=None, description=None, name=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_callback_urls=None, client_type=None, description=None, logo_uri=None, name=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """CreateUserPoolClientRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class CreateUserPoolClientRequest(object):
         self._allowed_callback_urls = None
         self._client_type = None
         self._description = None
+        self._logo_uri = None
         self._name = None
         self._user_pool_uid = None
         self.discriminator = None
@@ -66,6 +69,8 @@ class CreateUserPoolClientRequest(object):
         self.client_type = client_type
         if description is not None:
             self.description = description
+        if logo_uri is not None:
+            self.logo_uri = logo_uri
         self.name = name
         self.user_pool_uid = user_pool_uid
 
@@ -133,6 +138,27 @@ class CreateUserPoolClientRequest(object):
         """
 
         self._description = description
+
+    @property
+    def logo_uri(self):
+        """Gets the logo_uri of this CreateUserPoolClientRequest.  # noqa: E501
+
+
+        :return: The logo_uri of this CreateUserPoolClientRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._logo_uri
+
+    @logo_uri.setter
+    def logo_uri(self, logo_uri):
+        """Sets the logo_uri of this CreateUserPoolClientRequest.
+
+
+        :param logo_uri: The logo_uri of this CreateUserPoolClientRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._logo_uri = logo_uri
 
     @property
     def name(self):

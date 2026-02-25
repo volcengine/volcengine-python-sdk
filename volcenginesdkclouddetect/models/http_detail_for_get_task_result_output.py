@@ -35,6 +35,8 @@ class HTTPDetailForGetTaskResultOutput(object):
     swagger_types = {
         'dns_cost': 'int',
         'diagnose_detail': 'DiagnoseDetailForGetTaskResultOutput',
+        'download_size': 'int',
+        'download_speed': 'int',
         'http_code': 'int',
         'http_request_header': 'str',
         'http_response_body': 'str',
@@ -54,6 +56,8 @@ class HTTPDetailForGetTaskResultOutput(object):
     attribute_map = {
         'dns_cost': 'DNSCost',
         'diagnose_detail': 'DiagnoseDetail',
+        'download_size': 'DownloadSize',
+        'download_speed': 'DownloadSpeed',
         'http_code': 'HTTPCode',
         'http_request_header': 'HTTPRequestHeader',
         'http_response_body': 'HTTPResponseBody',
@@ -70,7 +74,7 @@ class HTTPDetailForGetTaskResultOutput(object):
         'ttfb_cost': 'TtfbCost'
     }
 
-    def __init__(self, dns_cost=None, diagnose_detail=None, http_code=None, http_request_header=None, http_response_body=None, http_response_header=None, http_version=None, location_detail=None, recv_cost=None, redirect_cost=None, redirect_nums=None, send_cost=None, ssl_cost=None, tcp_cost=None, total_cost=None, ttfb_cost=None, _configuration=None):  # noqa: E501
+    def __init__(self, dns_cost=None, diagnose_detail=None, download_size=None, download_speed=None, http_code=None, http_request_header=None, http_response_body=None, http_response_header=None, http_version=None, location_detail=None, recv_cost=None, redirect_cost=None, redirect_nums=None, send_cost=None, ssl_cost=None, tcp_cost=None, total_cost=None, ttfb_cost=None, _configuration=None):  # noqa: E501
         """HTTPDetailForGetTaskResultOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +82,8 @@ class HTTPDetailForGetTaskResultOutput(object):
 
         self._dns_cost = None
         self._diagnose_detail = None
+        self._download_size = None
+        self._download_speed = None
         self._http_code = None
         self._http_request_header = None
         self._http_response_body = None
@@ -98,6 +104,10 @@ class HTTPDetailForGetTaskResultOutput(object):
             self.dns_cost = dns_cost
         if diagnose_detail is not None:
             self.diagnose_detail = diagnose_detail
+        if download_size is not None:
+            self.download_size = download_size
+        if download_speed is not None:
+            self.download_speed = download_speed
         if http_code is not None:
             self.http_code = http_code
         if http_request_header is not None:
@@ -168,6 +178,48 @@ class HTTPDetailForGetTaskResultOutput(object):
         """
 
         self._diagnose_detail = diagnose_detail
+
+    @property
+    def download_size(self):
+        """Gets the download_size of this HTTPDetailForGetTaskResultOutput.  # noqa: E501
+
+
+        :return: The download_size of this HTTPDetailForGetTaskResultOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._download_size
+
+    @download_size.setter
+    def download_size(self, download_size):
+        """Sets the download_size of this HTTPDetailForGetTaskResultOutput.
+
+
+        :param download_size: The download_size of this HTTPDetailForGetTaskResultOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._download_size = download_size
+
+    @property
+    def download_speed(self):
+        """Gets the download_speed of this HTTPDetailForGetTaskResultOutput.  # noqa: E501
+
+
+        :return: The download_speed of this HTTPDetailForGetTaskResultOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._download_speed
+
+    @download_speed.setter
+    def download_speed(self, download_speed):
+        """Sets the download_speed of this HTTPDetailForGetTaskResultOutput.
+
+
+        :param download_speed: The download_speed of this HTTPDetailForGetTaskResultOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._download_speed = download_speed
 
     @property
     def http_code(self):

@@ -33,6 +33,7 @@ class DescribeIpAddressPoolAttributesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address_source': 'str',
         'business_status': 'str',
         'cidr_blocks': 'list[str]',
         'creation_time': 'str',
@@ -44,6 +45,7 @@ class DescribeIpAddressPoolAttributesResponse(object):
         'overdue_time': 'str',
         'project_name': 'str',
         'request_id': 'str',
+        'specific_egress': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeIpAddressPoolAttributesOutput]',
         'total_ip_count': 'int',
@@ -52,6 +54,7 @@ class DescribeIpAddressPoolAttributesResponse(object):
     }
 
     attribute_map = {
+        'address_source': 'AddressSource',
         'business_status': 'BusinessStatus',
         'cidr_blocks': 'CidrBlocks',
         'creation_time': 'CreationTime',
@@ -63,6 +66,7 @@ class DescribeIpAddressPoolAttributesResponse(object):
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
+        'specific_egress': 'SpecificEgress',
         'status': 'Status',
         'tags': 'Tags',
         'total_ip_count': 'TotalIpCount',
@@ -70,12 +74,13 @@ class DescribeIpAddressPoolAttributesResponse(object):
         'used_ip_count': 'UsedIpCount'
     }
 
-    def __init__(self, business_status=None, cidr_blocks=None, creation_time=None, deleted_time=None, description=None, isp=None, ip_address_pool_id=None, name=None, overdue_time=None, project_name=None, request_id=None, status=None, tags=None, total_ip_count=None, update_time=None, used_ip_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_source=None, business_status=None, cidr_blocks=None, creation_time=None, deleted_time=None, description=None, isp=None, ip_address_pool_id=None, name=None, overdue_time=None, project_name=None, request_id=None, specific_egress=None, status=None, tags=None, total_ip_count=None, update_time=None, used_ip_count=None, _configuration=None):  # noqa: E501
         """DescribeIpAddressPoolAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._address_source = None
         self._business_status = None
         self._cidr_blocks = None
         self._creation_time = None
@@ -87,6 +92,7 @@ class DescribeIpAddressPoolAttributesResponse(object):
         self._overdue_time = None
         self._project_name = None
         self._request_id = None
+        self._specific_egress = None
         self._status = None
         self._tags = None
         self._total_ip_count = None
@@ -94,6 +100,8 @@ class DescribeIpAddressPoolAttributesResponse(object):
         self._used_ip_count = None
         self.discriminator = None
 
+        if address_source is not None:
+            self.address_source = address_source
         if business_status is not None:
             self.business_status = business_status
         if cidr_blocks is not None:
@@ -116,6 +124,8 @@ class DescribeIpAddressPoolAttributesResponse(object):
             self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
+        if specific_egress is not None:
+            self.specific_egress = specific_egress
         if status is not None:
             self.status = status
         if tags is not None:
@@ -126,6 +136,27 @@ class DescribeIpAddressPoolAttributesResponse(object):
             self.update_time = update_time
         if used_ip_count is not None:
             self.used_ip_count = used_ip_count
+
+    @property
+    def address_source(self):
+        """Gets the address_source of this DescribeIpAddressPoolAttributesResponse.  # noqa: E501
+
+
+        :return: The address_source of this DescribeIpAddressPoolAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_source
+
+    @address_source.setter
+    def address_source(self, address_source):
+        """Sets the address_source of this DescribeIpAddressPoolAttributesResponse.
+
+
+        :param address_source: The address_source of this DescribeIpAddressPoolAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._address_source = address_source
 
     @property
     def business_status(self):
@@ -357,6 +388,27 @@ class DescribeIpAddressPoolAttributesResponse(object):
         """
 
         self._request_id = request_id
+
+    @property
+    def specific_egress(self):
+        """Gets the specific_egress of this DescribeIpAddressPoolAttributesResponse.  # noqa: E501
+
+
+        :return: The specific_egress of this DescribeIpAddressPoolAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._specific_egress
+
+    @specific_egress.setter
+    def specific_egress(self, specific_egress):
+        """Sets the specific_egress of this DescribeIpAddressPoolAttributesResponse.
+
+
+        :param specific_egress: The specific_egress of this DescribeIpAddressPoolAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._specific_egress = specific_egress
 
     @property
     def status(self):

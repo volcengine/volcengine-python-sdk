@@ -33,34 +33,60 @@ class AssociateVpcCidrBlockResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_id': 'str',
         'request_id': 'str',
         'secondary_cidr_blocks': 'list[str]',
         'vpc_id': 'str'
     }
 
     attribute_map = {
+        'async_task_id': 'AsyncTaskId',
         'request_id': 'RequestId',
         'secondary_cidr_blocks': 'SecondaryCidrBlocks',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, request_id=None, secondary_cidr_blocks=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_id=None, request_id=None, secondary_cidr_blocks=None, vpc_id=None, _configuration=None):  # noqa: E501
         """AssociateVpcCidrBlockResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_id = None
         self._request_id = None
         self._secondary_cidr_blocks = None
         self._vpc_id = None
         self.discriminator = None
 
+        if async_task_id is not None:
+            self.async_task_id = async_task_id
         if request_id is not None:
             self.request_id = request_id
         if secondary_cidr_blocks is not None:
             self.secondary_cidr_blocks = secondary_cidr_blocks
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def async_task_id(self):
+        """Gets the async_task_id of this AssociateVpcCidrBlockResponse.  # noqa: E501
+
+
+        :return: The async_task_id of this AssociateVpcCidrBlockResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._async_task_id
+
+    @async_task_id.setter
+    def async_task_id(self, async_task_id):
+        """Sets the async_task_id of this AssociateVpcCidrBlockResponse.
+
+
+        :param async_task_id: The async_task_id of this AssociateVpcCidrBlockResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._async_task_id = async_task_id
 
     @property
     def request_id(self):

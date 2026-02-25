@@ -37,7 +37,7 @@ class DescribeTrafficMirrorTargetsRequest(object):
         'next_token': 'str',
         'project_name': 'str',
         'tag_filters': 'list[TagFilterForDescribeTrafficMirrorTargetsInput]',
-        'traffic_mirror_target_ids': 'str',
+        'traffic_mirror_target_ids': 'list[str]',
         'traffic_mirror_target_name': 'str'
     }
 
@@ -167,7 +167,7 @@ class DescribeTrafficMirrorTargetsRequest(object):
 
 
         :return: The traffic_mirror_target_ids of this DescribeTrafficMirrorTargetsRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._traffic_mirror_target_ids
 
@@ -177,7 +177,7 @@ class DescribeTrafficMirrorTargetsRequest(object):
 
 
         :param traffic_mirror_target_ids: The traffic_mirror_target_ids of this DescribeTrafficMirrorTargetsRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._traffic_mirror_target_ids = traffic_mirror_target_ids

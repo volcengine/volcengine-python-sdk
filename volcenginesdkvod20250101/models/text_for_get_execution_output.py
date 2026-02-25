@@ -33,34 +33,60 @@ class TextForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'detailed_info': 'DetailedInfoForGetExecutionOutput',
         'end': 'float',
         'start': 'float',
         'text': 'str'
     }
 
     attribute_map = {
+        'detailed_info': 'DetailedInfo',
         'end': 'End',
         'start': 'Start',
         'text': 'Text'
     }
 
-    def __init__(self, end=None, start=None, text=None, _configuration=None):  # noqa: E501
+    def __init__(self, detailed_info=None, end=None, start=None, text=None, _configuration=None):  # noqa: E501
         """TextForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._detailed_info = None
         self._end = None
         self._start = None
         self._text = None
         self.discriminator = None
 
+        if detailed_info is not None:
+            self.detailed_info = detailed_info
         if end is not None:
             self.end = end
         if start is not None:
             self.start = start
         if text is not None:
             self.text = text
+
+    @property
+    def detailed_info(self):
+        """Gets the detailed_info of this TextForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The detailed_info of this TextForGetExecutionOutput.  # noqa: E501
+        :rtype: DetailedInfoForGetExecutionOutput
+        """
+        return self._detailed_info
+
+    @detailed_info.setter
+    def detailed_info(self, detailed_info):
+        """Sets the detailed_info of this TextForGetExecutionOutput.
+
+
+        :param detailed_info: The detailed_info of this TextForGetExecutionOutput.  # noqa: E501
+        :type: DetailedInfoForGetExecutionOutput
+        """
+
+        self._detailed_info = detailed_info
 
     @property
     def end(self):

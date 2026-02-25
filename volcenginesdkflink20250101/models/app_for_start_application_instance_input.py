@@ -240,7 +240,7 @@ class AppForStartApplicationInstanceInput(object):
         :param engine_version: The engine_version of this AppForStartApplicationInstanceInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["FLINK_VERSION_1_11", "FLINK_VERSION_1_16"]  # noqa: E501
+        allowed_values = ["FLINK_VERSION_1_11", "FLINK_VERSION_1_16", "FLINK_VERSION_1_17"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 engine_version not in allowed_values):
             raise ValueError(

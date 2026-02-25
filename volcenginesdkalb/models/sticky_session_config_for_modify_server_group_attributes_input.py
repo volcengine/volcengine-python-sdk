@@ -34,7 +34,7 @@ class StickySessionConfigForModifyServerGroupAttributesInput(object):
     """
     swagger_types = {
         'cookie': 'str',
-        'cookie_timeout': 'str',
+        'cookie_timeout': 'int',
         'sticky_session_enabled': 'str',
         'sticky_session_type': 'str'
     }
@@ -94,7 +94,7 @@ class StickySessionConfigForModifyServerGroupAttributesInput(object):
 
 
         :return: The cookie_timeout of this StickySessionConfigForModifyServerGroupAttributesInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._cookie_timeout
 
@@ -104,7 +104,7 @@ class StickySessionConfigForModifyServerGroupAttributesInput(object):
 
 
         :param cookie_timeout: The cookie_timeout of this StickySessionConfigForModifyServerGroupAttributesInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._cookie_timeout = cookie_timeout

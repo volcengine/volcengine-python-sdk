@@ -233,7 +233,7 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
         :param type: The type of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ESSD_PL0", "ESSD_FlexPL"]  # noqa: E501
+        allowed_values = ["ESSD", "ESSD_PL0", "ESSD_FlexPL", "Ultra_Disk", "TSSD_TL0", "RSSD_RL0", "LOCAL_SSD", "LOCAL_HDD", "LOCAL_SSD_SRIOV", "LOCAL_LVM_SSD"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 type not in allowed_values):
             raise ValueError(

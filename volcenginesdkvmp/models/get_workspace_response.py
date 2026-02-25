@@ -33,6 +33,7 @@ class GetWorkspaceResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auth_type': 'str',
         'create_time': 'str',
         'delete_protection_enabled': 'bool',
         'description': 'str',
@@ -59,6 +60,7 @@ class GetWorkspaceResponse(object):
     }
 
     attribute_map = {
+        'auth_type': 'AuthType',
         'create_time': 'CreateTime',
         'delete_protection_enabled': 'DeleteProtectionEnabled',
         'description': 'Description',
@@ -84,12 +86,13 @@ class GetWorkspaceResponse(object):
         'username': 'Username'
     }
 
-    def __init__(self, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_push_endpoint=None, prometheus_push_intranet_endpoint=None, prometheus_query_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_endpoint=None, prometheus_write_intranet_endpoint=None, public_access_enabled=None, public_query_bandwidth=None, public_write_bandwidth=None, quota=None, search_latency_offset=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_type=None, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_push_endpoint=None, prometheus_push_intranet_endpoint=None, prometheus_query_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_endpoint=None, prometheus_write_intranet_endpoint=None, public_access_enabled=None, public_query_bandwidth=None, public_write_bandwidth=None, quota=None, search_latency_offset=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
         """GetWorkspaceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auth_type = None
         self._create_time = None
         self._delete_protection_enabled = None
         self._description = None
@@ -115,6 +118,8 @@ class GetWorkspaceResponse(object):
         self._username = None
         self.discriminator = None
 
+        if auth_type is not None:
+            self.auth_type = auth_type
         if create_time is not None:
             self.create_time = create_time
         if delete_protection_enabled is not None:
@@ -161,6 +166,27 @@ class GetWorkspaceResponse(object):
             self.tags = tags
         if username is not None:
             self.username = username
+
+    @property
+    def auth_type(self):
+        """Gets the auth_type of this GetWorkspaceResponse.  # noqa: E501
+
+
+        :return: The auth_type of this GetWorkspaceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_type
+
+    @auth_type.setter
+    def auth_type(self, auth_type):
+        """Sets the auth_type of this GetWorkspaceResponse.
+
+
+        :param auth_type: The auth_type of this GetWorkspaceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_type = auth_type
 
     @property
     def create_time(self):

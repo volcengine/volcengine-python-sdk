@@ -34,6 +34,7 @@ class ListForListCouponUsageRecordsOutput(object):
     """
     swagger_types = {
         'account_id': 'int',
+        'billing_cycle': 'str',
         'change_amount': 'float',
         'change_type': 'int',
         'coupon_id': 'str',
@@ -47,6 +48,7 @@ class ListForListCouponUsageRecordsOutput(object):
 
     attribute_map = {
         'account_id': 'AccountID',
+        'billing_cycle': 'BillingCycle',
         'change_amount': 'ChangeAmount',
         'change_type': 'ChangeType',
         'coupon_id': 'CouponID',
@@ -58,13 +60,14 @@ class ListForListCouponUsageRecordsOutput(object):
         'user_account_id': 'UserAccountID'
     }
 
-    def __init__(self, account_id=None, change_amount=None, change_type=None, coupon_id=None, created_time=None, pay_type=None, product_code=None, product_name=None, sub_business_id=None, user_account_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, billing_cycle=None, change_amount=None, change_type=None, coupon_id=None, created_time=None, pay_type=None, product_code=None, product_name=None, sub_business_id=None, user_account_id=None, _configuration=None):  # noqa: E501
         """ListForListCouponUsageRecordsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._billing_cycle = None
         self._change_amount = None
         self._change_type = None
         self._coupon_id = None
@@ -78,6 +81,8 @@ class ListForListCouponUsageRecordsOutput(object):
 
         if account_id is not None:
             self.account_id = account_id
+        if billing_cycle is not None:
+            self.billing_cycle = billing_cycle
         if change_amount is not None:
             self.change_amount = change_amount
         if change_type is not None:
@@ -117,6 +122,27 @@ class ListForListCouponUsageRecordsOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def billing_cycle(self):
+        """Gets the billing_cycle of this ListForListCouponUsageRecordsOutput.  # noqa: E501
+
+
+        :return: The billing_cycle of this ListForListCouponUsageRecordsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._billing_cycle
+
+    @billing_cycle.setter
+    def billing_cycle(self, billing_cycle):
+        """Sets the billing_cycle of this ListForListCouponUsageRecordsOutput.
+
+
+        :param billing_cycle: The billing_cycle of this ListForListCouponUsageRecordsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._billing_cycle = billing_cycle
 
     @property
     def change_amount(self):

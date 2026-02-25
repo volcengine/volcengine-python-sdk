@@ -33,52 +33,63 @@ class CreateSandboxRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        '_async': 'bool',
         'cpu_milli': 'int',
         'envs': 'list[EnvForCreateSandboxInput]',
         'function_id': 'str',
         'instance_image_info': 'InstanceImageInfoForCreateSandboxInput',
+        'instance_nas_mount_config': 'InstanceNasMountConfigForCreateSandboxInput',
         'instance_tos_mount_config': 'InstanceTosMountConfigForCreateSandboxInput',
         'max_concurrency': 'int',
         'memory_mb': 'int',
         'metadata': 'dict(str, str)',
         'request_timeout': 'int',
+        'session_id': 'str',
         'timeout': 'int',
         'timeout_unit': 'str'
     }
 
     attribute_map = {
+        '_async': 'Async',
         'cpu_milli': 'CpuMilli',
         'envs': 'Envs',
         'function_id': 'FunctionId',
         'instance_image_info': 'InstanceImageInfo',
+        'instance_nas_mount_config': 'InstanceNasMountConfig',
         'instance_tos_mount_config': 'InstanceTosMountConfig',
         'max_concurrency': 'MaxConcurrency',
         'memory_mb': 'MemoryMB',
         'metadata': 'Metadata',
         'request_timeout': 'RequestTimeout',
+        'session_id': 'SessionId',
         'timeout': 'Timeout',
         'timeout_unit': 'TimeoutUnit'
     }
 
-    def __init__(self, cpu_milli=None, envs=None, function_id=None, instance_image_info=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, _async=None, cpu_milli=None, envs=None, function_id=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, session_id=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
         """CreateSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self.__async = None
         self._cpu_milli = None
         self._envs = None
         self._function_id = None
         self._instance_image_info = None
+        self._instance_nas_mount_config = None
         self._instance_tos_mount_config = None
         self._max_concurrency = None
         self._memory_mb = None
         self._metadata = None
         self._request_timeout = None
+        self._session_id = None
         self._timeout = None
         self._timeout_unit = None
         self.discriminator = None
 
+        if _async is not None:
+            self._async = _async
         if cpu_milli is not None:
             self.cpu_milli = cpu_milli
         if envs is not None:
@@ -86,6 +97,8 @@ class CreateSandboxRequest(object):
         self.function_id = function_id
         if instance_image_info is not None:
             self.instance_image_info = instance_image_info
+        if instance_nas_mount_config is not None:
+            self.instance_nas_mount_config = instance_nas_mount_config
         if instance_tos_mount_config is not None:
             self.instance_tos_mount_config = instance_tos_mount_config
         if max_concurrency is not None:
@@ -96,10 +109,33 @@ class CreateSandboxRequest(object):
             self.metadata = metadata
         if request_timeout is not None:
             self.request_timeout = request_timeout
+        if session_id is not None:
+            self.session_id = session_id
         if timeout is not None:
             self.timeout = timeout
         if timeout_unit is not None:
             self.timeout_unit = timeout_unit
+
+    @property
+    def _async(self):
+        """Gets the _async of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The _async of this CreateSandboxRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self.__async
+
+    @_async.setter
+    def _async(self, _async):
+        """Sets the _async of this CreateSandboxRequest.
+
+
+        :param _async: The _async of this CreateSandboxRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self.__async = _async
 
     @property
     def cpu_milli(self):
@@ -186,6 +222,27 @@ class CreateSandboxRequest(object):
         """
 
         self._instance_image_info = instance_image_info
+
+    @property
+    def instance_nas_mount_config(self):
+        """Gets the instance_nas_mount_config of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The instance_nas_mount_config of this CreateSandboxRequest.  # noqa: E501
+        :rtype: InstanceNasMountConfigForCreateSandboxInput
+        """
+        return self._instance_nas_mount_config
+
+    @instance_nas_mount_config.setter
+    def instance_nas_mount_config(self, instance_nas_mount_config):
+        """Sets the instance_nas_mount_config of this CreateSandboxRequest.
+
+
+        :param instance_nas_mount_config: The instance_nas_mount_config of this CreateSandboxRequest.  # noqa: E501
+        :type: InstanceNasMountConfigForCreateSandboxInput
+        """
+
+        self._instance_nas_mount_config = instance_nas_mount_config
 
     @property
     def instance_tos_mount_config(self):
@@ -291,6 +348,27 @@ class CreateSandboxRequest(object):
         """
 
         self._request_timeout = request_timeout
+
+    @property
+    def session_id(self):
+        """Gets the session_id of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The session_id of this CreateSandboxRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._session_id
+
+    @session_id.setter
+    def session_id(self, session_id):
+        """Sets the session_id of this CreateSandboxRequest.
+
+
+        :param session_id: The session_id of this CreateSandboxRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._session_id = session_id
 
     @property
     def timeout(self):

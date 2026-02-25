@@ -44,6 +44,7 @@ class CommentConfigForUpdateActivityCommentConfigInput(object):
         'is_image_comment_enable': 'int',
         'is_like_number_show_enable': 'int',
         'is_manual_hot_list_enable': 'int',
+        'is_quick_comment_enable': 'int',
         'is_send_comment_enable': 'int',
         'is_view_in_purchase_enable': 'int',
         'is_view_order_enable': 'int',
@@ -68,6 +69,7 @@ class CommentConfigForUpdateActivityCommentConfigInput(object):
         'is_image_comment_enable': 'IsImageCommentEnable',
         'is_like_number_show_enable': 'IsLikeNumberShowEnable',
         'is_manual_hot_list_enable': 'IsManualHotListEnable',
+        'is_quick_comment_enable': 'IsQuickCommentEnable',
         'is_send_comment_enable': 'IsSendCommentEnable',
         'is_view_in_purchase_enable': 'IsViewInPurchaseEnable',
         'is_view_order_enable': 'IsViewOrderEnable',
@@ -80,7 +82,7 @@ class CommentConfigForUpdateActivityCommentConfigInput(object):
         'welcome_message_title': 'WelcomeMessageTitle'
     }
 
-    def __init__(self, hot_list_count=None, hot_list_name=None, input_box_prompt=None, is_auto_silence_all_enable=None, is_bullet_screen_enable=None, is_comment_llm_analyze_enable=None, is_comment_translate_enable=None, is_hot_list_enable=None, is_image_comment_enable=None, is_like_number_show_enable=None, is_manual_hot_list_enable=None, is_send_comment_enable=None, is_view_in_purchase_enable=None, is_view_order_enable=None, is_viewer_delete_comments_enable=None, is_welcome_message_enable=None, menu_name=None, presenter_name=None, voice_interval=None, welcome_message_content=None, welcome_message_title=None, _configuration=None):  # noqa: E501
+    def __init__(self, hot_list_count=None, hot_list_name=None, input_box_prompt=None, is_auto_silence_all_enable=None, is_bullet_screen_enable=None, is_comment_llm_analyze_enable=None, is_comment_translate_enable=None, is_hot_list_enable=None, is_image_comment_enable=None, is_like_number_show_enable=None, is_manual_hot_list_enable=None, is_quick_comment_enable=None, is_send_comment_enable=None, is_view_in_purchase_enable=None, is_view_order_enable=None, is_viewer_delete_comments_enable=None, is_welcome_message_enable=None, menu_name=None, presenter_name=None, voice_interval=None, welcome_message_content=None, welcome_message_title=None, _configuration=None):  # noqa: E501
         """CommentConfigForUpdateActivityCommentConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +99,7 @@ class CommentConfigForUpdateActivityCommentConfigInput(object):
         self._is_image_comment_enable = None
         self._is_like_number_show_enable = None
         self._is_manual_hot_list_enable = None
+        self._is_quick_comment_enable = None
         self._is_send_comment_enable = None
         self._is_view_in_purchase_enable = None
         self._is_view_order_enable = None
@@ -131,6 +134,8 @@ class CommentConfigForUpdateActivityCommentConfigInput(object):
             self.is_like_number_show_enable = is_like_number_show_enable
         if is_manual_hot_list_enable is not None:
             self.is_manual_hot_list_enable = is_manual_hot_list_enable
+        if is_quick_comment_enable is not None:
+            self.is_quick_comment_enable = is_quick_comment_enable
         if is_send_comment_enable is not None:
             self.is_send_comment_enable = is_send_comment_enable
         if is_view_in_purchase_enable is not None:
@@ -382,6 +387,27 @@ class CommentConfigForUpdateActivityCommentConfigInput(object):
         """
 
         self._is_manual_hot_list_enable = is_manual_hot_list_enable
+
+    @property
+    def is_quick_comment_enable(self):
+        """Gets the is_quick_comment_enable of this CommentConfigForUpdateActivityCommentConfigInput.  # noqa: E501
+
+
+        :return: The is_quick_comment_enable of this CommentConfigForUpdateActivityCommentConfigInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_quick_comment_enable
+
+    @is_quick_comment_enable.setter
+    def is_quick_comment_enable(self, is_quick_comment_enable):
+        """Sets the is_quick_comment_enable of this CommentConfigForUpdateActivityCommentConfigInput.
+
+
+        :param is_quick_comment_enable: The is_quick_comment_enable of this CommentConfigForUpdateActivityCommentConfigInput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_quick_comment_enable = is_quick_comment_enable
 
     @property
     def is_send_comment_enable(self):

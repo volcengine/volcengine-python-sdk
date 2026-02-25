@@ -38,6 +38,7 @@ class ItemForListClusterUsersOutput(object):
         'creator_name': 'str',
         'description': 'str',
         'update_time': 'int',
+        'user_group_names': 'list[str]',
         'user_name': 'str'
     }
 
@@ -47,10 +48,11 @@ class ItemForListClusterUsersOutput(object):
         'creator_name': 'CreatorName',
         'description': 'Description',
         'update_time': 'UpdateTime',
+        'user_group_names': 'UserGroupNames',
         'user_name': 'UserName'
     }
 
-    def __init__(self, cluster_id=None, create_time=None, creator_name=None, description=None, update_time=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, create_time=None, creator_name=None, description=None, update_time=None, user_group_names=None, user_name=None, _configuration=None):  # noqa: E501
         """ItemForListClusterUsersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class ItemForListClusterUsersOutput(object):
         self._creator_name = None
         self._description = None
         self._update_time = None
+        self._user_group_names = None
         self._user_name = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class ItemForListClusterUsersOutput(object):
             self.description = description
         if update_time is not None:
             self.update_time = update_time
+        if user_group_names is not None:
+            self.user_group_names = user_group_names
         if user_name is not None:
             self.user_name = user_name
 
@@ -181,6 +186,27 @@ class ItemForListClusterUsersOutput(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def user_group_names(self):
+        """Gets the user_group_names of this ItemForListClusterUsersOutput.  # noqa: E501
+
+
+        :return: The user_group_names of this ItemForListClusterUsersOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._user_group_names
+
+    @user_group_names.setter
+    def user_group_names(self, user_group_names):
+        """Sets the user_group_names of this ItemForListClusterUsersOutput.
+
+
+        :param user_group_names: The user_group_names of this ItemForListClusterUsersOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._user_group_names = user_group_names
 
     @property
     def user_name(self):

@@ -33,11 +33,12 @@ class ObjectForListObjectGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'dimension_conditions': 'str',
+        'dimension_conditions': 'DimensionConditionsForListObjectGroupsOutput',
         'dimensions': 'dict(str, list[str])',
         'id': 'str',
         'namespace': 'str',
         'region': 'str',
+        'rules': 'list[RuleForListObjectGroupsOutput]',
         'type': 'str'
     }
 
@@ -47,10 +48,11 @@ class ObjectForListObjectGroupsOutput(object):
         'id': 'Id',
         'namespace': 'Namespace',
         'region': 'Region',
+        'rules': 'Rules',
         'type': 'Type'
     }
 
-    def __init__(self, dimension_conditions=None, dimensions=None, id=None, namespace=None, region=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, dimension_conditions=None, dimensions=None, id=None, namespace=None, region=None, rules=None, type=None, _configuration=None):  # noqa: E501
         """ObjectForListObjectGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class ObjectForListObjectGroupsOutput(object):
         self._id = None
         self._namespace = None
         self._region = None
+        self._rules = None
         self._type = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class ObjectForListObjectGroupsOutput(object):
             self.namespace = namespace
         if region is not None:
             self.region = region
+        if rules is not None:
+            self.rules = rules
         if type is not None:
             self.type = type
 
@@ -83,7 +88,7 @@ class ObjectForListObjectGroupsOutput(object):
 
 
         :return: The dimension_conditions of this ObjectForListObjectGroupsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: DimensionConditionsForListObjectGroupsOutput
         """
         return self._dimension_conditions
 
@@ -93,7 +98,7 @@ class ObjectForListObjectGroupsOutput(object):
 
 
         :param dimension_conditions: The dimension_conditions of this ObjectForListObjectGroupsOutput.  # noqa: E501
-        :type: str
+        :type: DimensionConditionsForListObjectGroupsOutput
         """
 
         self._dimension_conditions = dimension_conditions
@@ -181,6 +186,27 @@ class ObjectForListObjectGroupsOutput(object):
         """
 
         self._region = region
+
+    @property
+    def rules(self):
+        """Gets the rules of this ObjectForListObjectGroupsOutput.  # noqa: E501
+
+
+        :return: The rules of this ObjectForListObjectGroupsOutput.  # noqa: E501
+        :rtype: list[RuleForListObjectGroupsOutput]
+        """
+        return self._rules
+
+    @rules.setter
+    def rules(self, rules):
+        """Sets the rules of this ObjectForListObjectGroupsOutput.
+
+
+        :param rules: The rules of this ObjectForListObjectGroupsOutput.  # noqa: E501
+        :type: list[RuleForListObjectGroupsOutput]
+        """
+
+        self._rules = rules
 
     @property
     def type(self):

@@ -34,26 +34,31 @@ class MonitoringConfigForUpdateClusterConfigInput(object):
     """
     swagger_types = {
         'component_configs': 'list[ComponentConfigForUpdateClusterConfigInput]',
+        'enable_metrics_external_collection': 'bool',
         'workspace_id': 'str'
     }
 
     attribute_map = {
         'component_configs': 'ComponentConfigs',
+        'enable_metrics_external_collection': 'EnableMetricsExternalCollection',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, component_configs=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, component_configs=None, enable_metrics_external_collection=None, workspace_id=None, _configuration=None):  # noqa: E501
         """MonitoringConfigForUpdateClusterConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._component_configs = None
+        self._enable_metrics_external_collection = None
         self._workspace_id = None
         self.discriminator = None
 
         if component_configs is not None:
             self.component_configs = component_configs
+        if enable_metrics_external_collection is not None:
+            self.enable_metrics_external_collection = enable_metrics_external_collection
         if workspace_id is not None:
             self.workspace_id = workspace_id
 
@@ -77,6 +82,27 @@ class MonitoringConfigForUpdateClusterConfigInput(object):
         """
 
         self._component_configs = component_configs
+
+    @property
+    def enable_metrics_external_collection(self):
+        """Gets the enable_metrics_external_collection of this MonitoringConfigForUpdateClusterConfigInput.  # noqa: E501
+
+
+        :return: The enable_metrics_external_collection of this MonitoringConfigForUpdateClusterConfigInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_metrics_external_collection
+
+    @enable_metrics_external_collection.setter
+    def enable_metrics_external_collection(self, enable_metrics_external_collection):
+        """Sets the enable_metrics_external_collection of this MonitoringConfigForUpdateClusterConfigInput.
+
+
+        :param enable_metrics_external_collection: The enable_metrics_external_collection of this MonitoringConfigForUpdateClusterConfigInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_metrics_external_collection = enable_metrics_external_collection
 
     @property
     def workspace_id(self):

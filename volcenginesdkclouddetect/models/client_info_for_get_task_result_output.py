@@ -39,7 +39,8 @@ class ClientInfoForGetTaskResultOutput(object):
         'ipv6': 'str',
         'isp': 'str',
         'region': 'str',
-        'tupe': 'str'
+        'tupe': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class ClientInfoForGetTaskResultOutput(object):
         'ipv6': 'Ipv6',
         'isp': 'Isp',
         'region': 'Region',
-        'tupe': 'Tupe'
+        'tupe': 'Tupe',
+        'type': 'Type'
     }
 
-    def __init__(self, city=None, dns_local_dnsip=None, ip=None, ipv6=None, isp=None, region=None, tupe=None, _configuration=None):  # noqa: E501
+    def __init__(self, city=None, dns_local_dnsip=None, ip=None, ipv6=None, isp=None, region=None, tupe=None, type=None, _configuration=None):  # noqa: E501
         """ClientInfoForGetTaskResultOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class ClientInfoForGetTaskResultOutput(object):
         self._isp = None
         self._region = None
         self._tupe = None
+        self._type = None
         self.discriminator = None
 
         if city is not None:
@@ -81,6 +84,8 @@ class ClientInfoForGetTaskResultOutput(object):
             self.region = region
         if tupe is not None:
             self.tupe = tupe
+        if type is not None:
+            self.type = type
 
     @property
     def city(self):
@@ -228,6 +233,27 @@ class ClientInfoForGetTaskResultOutput(object):
         """
 
         self._tupe = tupe
+
+    @property
+    def type(self):
+        """Gets the type of this ClientInfoForGetTaskResultOutput.  # noqa: E501
+
+
+        :return: The type of this ClientInfoForGetTaskResultOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ClientInfoForGetTaskResultOutput.
+
+
+        :param type: The type of this ClientInfoForGetTaskResultOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

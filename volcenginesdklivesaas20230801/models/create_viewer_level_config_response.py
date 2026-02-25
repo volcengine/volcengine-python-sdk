@@ -33,24 +33,50 @@ class CreateViewerLevelConfigResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'created_level_ids': 'list[int]',
         'viewer_level_metas': 'list[ViewerLevelMetaForCreateViewerLevelConfigOutput]'
     }
 
     attribute_map = {
+        'created_level_ids': 'CreatedLevelIds',
         'viewer_level_metas': 'ViewerLevelMetas'
     }
 
-    def __init__(self, viewer_level_metas=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_level_ids=None, viewer_level_metas=None, _configuration=None):  # noqa: E501
         """CreateViewerLevelConfigResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._created_level_ids = None
         self._viewer_level_metas = None
         self.discriminator = None
 
+        if created_level_ids is not None:
+            self.created_level_ids = created_level_ids
         if viewer_level_metas is not None:
             self.viewer_level_metas = viewer_level_metas
+
+    @property
+    def created_level_ids(self):
+        """Gets the created_level_ids of this CreateViewerLevelConfigResponse.  # noqa: E501
+
+
+        :return: The created_level_ids of this CreateViewerLevelConfigResponse.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._created_level_ids
+
+    @created_level_ids.setter
+    def created_level_ids(self, created_level_ids):
+        """Sets the created_level_ids of this CreateViewerLevelConfigResponse.
+
+
+        :param created_level_ids: The created_level_ids of this CreateViewerLevelConfigResponse.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._created_level_ids = created_level_ids
 
     @property
     def viewer_level_metas(self):

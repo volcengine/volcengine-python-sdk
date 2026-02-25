@@ -12,12 +12,12 @@
 from __future__ import annotations
 
 import re
+import time
 import base64
 from typing import Tuple
 
 
 def get_cert_info(cert_pem: str) -> Tuple[str, str, float]:
-    import re
     from cryptography import x509
     from cryptography.hazmat.backends import default_backend
 
@@ -105,7 +105,8 @@ def decrypt_corner_case(key: bytes, nonce: bytes, data: str) -> str:
         return ""
     for i in range(20, len(data), 4):
         try:
-            decrypted = aes_gcm_decrypt_base64_string(key, nonce, data[: i + 4])
+            decrypted = aes_gcm_decrypt_base64_string(
+                key, nonce, data[: i + 4])
             if i + 4 == len(data):
                 return decrypted
             return decrypted + decrypt_corner_case(key, nonce, data[i + 4:])
@@ -129,7 +130,8 @@ def decrypt_validate(ciphertext: str) -> bool:
     cipher_bytes = ciphertext.encode()
     cipher_b64_bytes = base64.decodebytes(cipher_bytes)
     return (
-        len(cipher_bytes) / 4 >= len(cipher_b64_bytes) / 3 >= len(cipher_bytes) / 4 - 1
+        len(cipher_bytes) / 4 >= len(cipher_b64_bytes) /
+        3 >= len(cipher_bytes) / 4 - 1
     )
 
 
@@ -162,6 +164,9 @@ class key_agreement_client:
         self._public_key = ec.EllipticCurvePublicNumbers(
             cert_pub.x, cert_pub.y, self._curve
         ).public_key()
+        self._not_valid_after_utc = self._cert.not_valid_after_utc.timestamp()
+        self._reload_time = time.time() + 60 * 60 * 12 * 14  # 14 days
+        self.init_cert_ring_key_id()
 
     def encrypt_string(self, plaintext: str) -> Tuple[bytes, bytes, str, str]:
         """encrypt_string encrypt plaintext with ECIES DH protocol"""
@@ -205,3 +210,36 @@ class key_agreement_client:
 
         token = marshal_cryptography_pub_key(R)
         return key, nonce, base64.b64encode(token).decode()
+
+    def need_reload(self) -> bool:
+        """need_reload check if the cert need reload"""
+        return time.time() > self._reload_time
+
+    def init_cert_ring_key_id(self) -> None:
+        """init_cert_ring_key_id init ring id and key id from cert"""
+        try:
+            from cryptography import x509
+            dns = self._cert.extensions.get_extension_for_class(
+                x509.SubjectAlternativeName
+            ).value.get_values_for_type(x509.DNSName)
+            if (
+                dns
+                and len(dns) > 1
+                and re.match(r"^ring\..*$", dns[0])
+                and re.match(r"^key\..*$", dns[1])
+            ):
+                self._ring_id = dns[0][5:]
+                self._key_id = dns[1][4:]
+            else:
+                self._ring_id = ""
+                self._key_id = ""
+        except Exception:
+            pass
+
+    def get_cert_ring_key_id(self) -> Tuple[str, str]:
+        """get_cert_ring_key_id get ring id and key id from cert"""
+        return self._ring_id, self._key_id
+
+    def get_cert_expiration_time(self) -> float:
+        """get_cert_expiration_time get cert expiration time"""
+        return self._not_valid_after_utc

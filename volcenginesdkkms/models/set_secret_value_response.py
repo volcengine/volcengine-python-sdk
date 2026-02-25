@@ -35,16 +35,18 @@ class SetSecretValueResponse(object):
     swagger_types = {
         'creation_date': 'int',
         'version_id': 'str',
+        'version_name': 'str',
         'version_stage': 'str'
     }
 
     attribute_map = {
         'creation_date': 'CreationDate',
         'version_id': 'VersionID',
+        'version_name': 'VersionName',
         'version_stage': 'VersionStage'
     }
 
-    def __init__(self, creation_date=None, version_id=None, version_stage=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_date=None, version_id=None, version_name=None, version_stage=None, _configuration=None):  # noqa: E501
         """SetSecretValueResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class SetSecretValueResponse(object):
 
         self._creation_date = None
         self._version_id = None
+        self._version_name = None
         self._version_stage = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class SetSecretValueResponse(object):
             self.creation_date = creation_date
         if version_id is not None:
             self.version_id = version_id
+        if version_name is not None:
+            self.version_name = version_name
         if version_stage is not None:
             self.version_stage = version_stage
 
@@ -103,6 +108,27 @@ class SetSecretValueResponse(object):
         """
 
         self._version_id = version_id
+
+    @property
+    def version_name(self):
+        """Gets the version_name of this SetSecretValueResponse.  # noqa: E501
+
+
+        :return: The version_name of this SetSecretValueResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._version_name
+
+    @version_name.setter
+    def version_name(self, version_name):
+        """Sets the version_name of this SetSecretValueResponse.
+
+
+        :param version_name: The version_name of this SetSecretValueResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._version_name = version_name
 
     @property
     def version_stage(self):

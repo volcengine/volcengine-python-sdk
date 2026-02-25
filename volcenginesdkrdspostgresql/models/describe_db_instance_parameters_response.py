@@ -35,6 +35,7 @@ class DescribeDBInstanceParametersResponse(object):
     swagger_types = {
         'db_engine_version': 'str',
         'instance_id': 'str',
+        'none_kernel_parameters': 'list[NoneKernelParameterForDescribeDBInstanceParametersOutput]',
         'parameter_count': 'str',
         'parameters': 'list[ParameterForDescribeDBInstanceParametersOutput]'
     }
@@ -42,11 +43,12 @@ class DescribeDBInstanceParametersResponse(object):
     attribute_map = {
         'db_engine_version': 'DBEngineVersion',
         'instance_id': 'InstanceId',
+        'none_kernel_parameters': 'NoneKernelParameters',
         'parameter_count': 'ParameterCount',
         'parameters': 'Parameters'
     }
 
-    def __init__(self, db_engine_version=None, instance_id=None, parameter_count=None, parameters=None, _configuration=None):  # noqa: E501
+    def __init__(self, db_engine_version=None, instance_id=None, none_kernel_parameters=None, parameter_count=None, parameters=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceParametersResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class DescribeDBInstanceParametersResponse(object):
 
         self._db_engine_version = None
         self._instance_id = None
+        self._none_kernel_parameters = None
         self._parameter_count = None
         self._parameters = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class DescribeDBInstanceParametersResponse(object):
             self.db_engine_version = db_engine_version
         if instance_id is not None:
             self.instance_id = instance_id
+        if none_kernel_parameters is not None:
+            self.none_kernel_parameters = none_kernel_parameters
         if parameter_count is not None:
             self.parameter_count = parameter_count
         if parameters is not None:
@@ -108,6 +113,27 @@ class DescribeDBInstanceParametersResponse(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def none_kernel_parameters(self):
+        """Gets the none_kernel_parameters of this DescribeDBInstanceParametersResponse.  # noqa: E501
+
+
+        :return: The none_kernel_parameters of this DescribeDBInstanceParametersResponse.  # noqa: E501
+        :rtype: list[NoneKernelParameterForDescribeDBInstanceParametersOutput]
+        """
+        return self._none_kernel_parameters
+
+    @none_kernel_parameters.setter
+    def none_kernel_parameters(self, none_kernel_parameters):
+        """Sets the none_kernel_parameters of this DescribeDBInstanceParametersResponse.
+
+
+        :param none_kernel_parameters: The none_kernel_parameters of this DescribeDBInstanceParametersResponse.  # noqa: E501
+        :type: list[NoneKernelParameterForDescribeDBInstanceParametersOutput]
+        """
+
+        self._none_kernel_parameters = none_kernel_parameters
 
     @property
     def parameter_count(self):

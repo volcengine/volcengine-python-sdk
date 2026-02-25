@@ -33,34 +33,60 @@ class ProcessConfigForSubmitAITranslationWorkflowInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'disable_clone_voice_by_scene': 'bool',
         'disable_smart_subtitle_rewrite': 'bool',
         'disable_subtitle_punct_split': 'bool',
         'suspension_stage_list': 'list[str]'
     }
 
     attribute_map = {
+        'disable_clone_voice_by_scene': 'DisableCloneVoiceByScene',
         'disable_smart_subtitle_rewrite': 'DisableSmartSubtitleRewrite',
         'disable_subtitle_punct_split': 'DisableSubtitlePunctSplit',
         'suspension_stage_list': 'SuspensionStageList'
     }
 
-    def __init__(self, disable_smart_subtitle_rewrite=None, disable_subtitle_punct_split=None, suspension_stage_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, disable_clone_voice_by_scene=None, disable_smart_subtitle_rewrite=None, disable_subtitle_punct_split=None, suspension_stage_list=None, _configuration=None):  # noqa: E501
         """ProcessConfigForSubmitAITranslationWorkflowInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._disable_clone_voice_by_scene = None
         self._disable_smart_subtitle_rewrite = None
         self._disable_subtitle_punct_split = None
         self._suspension_stage_list = None
         self.discriminator = None
 
+        if disable_clone_voice_by_scene is not None:
+            self.disable_clone_voice_by_scene = disable_clone_voice_by_scene
         if disable_smart_subtitle_rewrite is not None:
             self.disable_smart_subtitle_rewrite = disable_smart_subtitle_rewrite
         if disable_subtitle_punct_split is not None:
             self.disable_subtitle_punct_split = disable_subtitle_punct_split
         if suspension_stage_list is not None:
             self.suspension_stage_list = suspension_stage_list
+
+    @property
+    def disable_clone_voice_by_scene(self):
+        """Gets the disable_clone_voice_by_scene of this ProcessConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+
+
+        :return: The disable_clone_voice_by_scene of this ProcessConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_clone_voice_by_scene
+
+    @disable_clone_voice_by_scene.setter
+    def disable_clone_voice_by_scene(self, disable_clone_voice_by_scene):
+        """Sets the disable_clone_voice_by_scene of this ProcessConfigForSubmitAITranslationWorkflowInput.
+
+
+        :param disable_clone_voice_by_scene: The disable_clone_voice_by_scene of this ProcessConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._disable_clone_voice_by_scene = disable_clone_voice_by_scene
 
     @property
     def disable_smart_subtitle_rewrite(self):

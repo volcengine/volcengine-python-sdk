@@ -36,17 +36,19 @@ class AccountForDescribeDBAccountsOutput(object):
         'account_name': 'str',
         'account_privileges': 'str',
         'account_status': 'str',
-        'account_type': 'str'
+        'account_type': 'str',
+        'not_allow_privileges': 'list[str]'
     }
 
     attribute_map = {
         'account_name': 'AccountName',
         'account_privileges': 'AccountPrivileges',
         'account_status': 'AccountStatus',
-        'account_type': 'AccountType'
+        'account_type': 'AccountType',
+        'not_allow_privileges': 'NotAllowPrivileges'
     }
 
-    def __init__(self, account_name=None, account_privileges=None, account_status=None, account_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, account_privileges=None, account_status=None, account_type=None, not_allow_privileges=None, _configuration=None):  # noqa: E501
         """AccountForDescribeDBAccountsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class AccountForDescribeDBAccountsOutput(object):
         self._account_privileges = None
         self._account_status = None
         self._account_type = None
+        self._not_allow_privileges = None
         self.discriminator = None
 
         if account_name is not None:
@@ -66,6 +69,8 @@ class AccountForDescribeDBAccountsOutput(object):
             self.account_status = account_status
         if account_type is not None:
             self.account_type = account_type
+        if not_allow_privileges is not None:
+            self.not_allow_privileges = not_allow_privileges
 
     @property
     def account_name(self):
@@ -150,6 +155,27 @@ class AccountForDescribeDBAccountsOutput(object):
         """
 
         self._account_type = account_type
+
+    @property
+    def not_allow_privileges(self):
+        """Gets the not_allow_privileges of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The not_allow_privileges of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._not_allow_privileges
+
+    @not_allow_privileges.setter
+    def not_allow_privileges(self, not_allow_privileges):
+        """Sets the not_allow_privileges of this AccountForDescribeDBAccountsOutput.
+
+
+        :param not_allow_privileges: The not_allow_privileges of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._not_allow_privileges = not_allow_privileges
 
     def to_dict(self):
         """Returns the model properties as a dict"""

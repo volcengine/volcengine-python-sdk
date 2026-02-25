@@ -33,49 +33,71 @@ class BackupForDescribeBackupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'backup_data_size': 'int',
+        'backup_description': 'str',
         'backup_end_time': 'str',
         'backup_file_name': 'str',
         'backup_file_size': 'int',
         'backup_id': 'str',
+        'backup_meta': 'list[BackupMetaForDescribeBackupsOutput]',
+        'backup_method': 'str',
         'backup_progress': 'int',
+        'backup_scope': 'str',
         'backup_start_time': 'str',
         'backup_status': 'str',
         'backup_type': 'str',
         'create_type': 'str',
+        'download_status': 'str',
         'instance_info': 'InstanceInfoForDescribeBackupsOutput'
     }
 
     attribute_map = {
+        'backup_data_size': 'BackupDataSize',
+        'backup_description': 'BackupDescription',
         'backup_end_time': 'BackupEndTime',
         'backup_file_name': 'BackupFileName',
         'backup_file_size': 'BackupFileSize',
         'backup_id': 'BackupId',
+        'backup_meta': 'BackupMeta',
+        'backup_method': 'BackupMethod',
         'backup_progress': 'BackupProgress',
+        'backup_scope': 'BackupScope',
         'backup_start_time': 'BackupStartTime',
         'backup_status': 'BackupStatus',
         'backup_type': 'BackupType',
         'create_type': 'CreateType',
+        'download_status': 'DownloadStatus',
         'instance_info': 'InstanceInfo'
     }
 
-    def __init__(self, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_progress=None, backup_start_time=None, backup_status=None, backup_type=None, create_type=None, instance_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_data_size=None, backup_description=None, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_meta=None, backup_method=None, backup_progress=None, backup_scope=None, backup_start_time=None, backup_status=None, backup_type=None, create_type=None, download_status=None, instance_info=None, _configuration=None):  # noqa: E501
         """BackupForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._backup_data_size = None
+        self._backup_description = None
         self._backup_end_time = None
         self._backup_file_name = None
         self._backup_file_size = None
         self._backup_id = None
+        self._backup_meta = None
+        self._backup_method = None
         self._backup_progress = None
+        self._backup_scope = None
         self._backup_start_time = None
         self._backup_status = None
         self._backup_type = None
         self._create_type = None
+        self._download_status = None
         self._instance_info = None
         self.discriminator = None
 
+        if backup_data_size is not None:
+            self.backup_data_size = backup_data_size
+        if backup_description is not None:
+            self.backup_description = backup_description
         if backup_end_time is not None:
             self.backup_end_time = backup_end_time
         if backup_file_name is not None:
@@ -84,8 +106,14 @@ class BackupForDescribeBackupsOutput(object):
             self.backup_file_size = backup_file_size
         if backup_id is not None:
             self.backup_id = backup_id
+        if backup_meta is not None:
+            self.backup_meta = backup_meta
+        if backup_method is not None:
+            self.backup_method = backup_method
         if backup_progress is not None:
             self.backup_progress = backup_progress
+        if backup_scope is not None:
+            self.backup_scope = backup_scope
         if backup_start_time is not None:
             self.backup_start_time = backup_start_time
         if backup_status is not None:
@@ -94,8 +122,52 @@ class BackupForDescribeBackupsOutput(object):
             self.backup_type = backup_type
         if create_type is not None:
             self.create_type = create_type
+        if download_status is not None:
+            self.download_status = download_status
         if instance_info is not None:
             self.instance_info = instance_info
+
+    @property
+    def backup_data_size(self):
+        """Gets the backup_data_size of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The backup_data_size of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._backup_data_size
+
+    @backup_data_size.setter
+    def backup_data_size(self, backup_data_size):
+        """Sets the backup_data_size of this BackupForDescribeBackupsOutput.
+
+
+        :param backup_data_size: The backup_data_size of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._backup_data_size = backup_data_size
+
+    @property
+    def backup_description(self):
+        """Gets the backup_description of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The backup_description of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_description
+
+    @backup_description.setter
+    def backup_description(self, backup_description):
+        """Sets the backup_description of this BackupForDescribeBackupsOutput.
+
+
+        :param backup_description: The backup_description of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_description = backup_description
 
     @property
     def backup_end_time(self):
@@ -182,6 +254,48 @@ class BackupForDescribeBackupsOutput(object):
         self._backup_id = backup_id
 
     @property
+    def backup_meta(self):
+        """Gets the backup_meta of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The backup_meta of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: list[BackupMetaForDescribeBackupsOutput]
+        """
+        return self._backup_meta
+
+    @backup_meta.setter
+    def backup_meta(self, backup_meta):
+        """Sets the backup_meta of this BackupForDescribeBackupsOutput.
+
+
+        :param backup_meta: The backup_meta of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: list[BackupMetaForDescribeBackupsOutput]
+        """
+
+        self._backup_meta = backup_meta
+
+    @property
+    def backup_method(self):
+        """Gets the backup_method of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The backup_method of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_method
+
+    @backup_method.setter
+    def backup_method(self, backup_method):
+        """Sets the backup_method of this BackupForDescribeBackupsOutput.
+
+
+        :param backup_method: The backup_method of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_method = backup_method
+
+    @property
     def backup_progress(self):
         """Gets the backup_progress of this BackupForDescribeBackupsOutput.  # noqa: E501
 
@@ -201,6 +315,27 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._backup_progress = backup_progress
+
+    @property
+    def backup_scope(self):
+        """Gets the backup_scope of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The backup_scope of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_scope
+
+    @backup_scope.setter
+    def backup_scope(self, backup_scope):
+        """Sets the backup_scope of this BackupForDescribeBackupsOutput.
+
+
+        :param backup_scope: The backup_scope of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_scope = backup_scope
 
     @property
     def backup_start_time(self):
@@ -285,6 +420,27 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._create_type = create_type
+
+    @property
+    def download_status(self):
+        """Gets the download_status of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The download_status of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._download_status
+
+    @download_status.setter
+    def download_status(self, download_status):
+        """Sets the download_status of this BackupForDescribeBackupsOutput.
+
+
+        :param download_status: The download_status of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._download_status = download_status
 
     @property
     def instance_info(self):

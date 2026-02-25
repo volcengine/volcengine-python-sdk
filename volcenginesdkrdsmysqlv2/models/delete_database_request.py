@@ -34,15 +34,17 @@ class DeleteDatabaseRequest(object):
     """
     swagger_types = {
         'db_name': 'str',
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'keep_account_privileges': 'bool'
     }
 
     attribute_map = {
         'db_name': 'DBName',
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'keep_account_privileges': 'KeepAccountPrivileges'
     }
 
-    def __init__(self, db_name=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, db_name=None, instance_id=None, keep_account_privileges=None, _configuration=None):  # noqa: E501
         """DeleteDatabaseRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,10 +52,13 @@ class DeleteDatabaseRequest(object):
 
         self._db_name = None
         self._instance_id = None
+        self._keep_account_privileges = None
         self.discriminator = None
 
         self.db_name = db_name
         self.instance_id = instance_id
+        if keep_account_privileges is not None:
+            self.keep_account_privileges = keep_account_privileges
 
     @property
     def db_name(self):
@@ -100,6 +105,27 @@ class DeleteDatabaseRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def keep_account_privileges(self):
+        """Gets the keep_account_privileges of this DeleteDatabaseRequest.  # noqa: E501
+
+
+        :return: The keep_account_privileges of this DeleteDatabaseRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._keep_account_privileges
+
+    @keep_account_privileges.setter
+    def keep_account_privileges(self, keep_account_privileges):
+        """Sets the keep_account_privileges of this DeleteDatabaseRequest.
+
+
+        :param keep_account_privileges: The keep_account_privileges of this DeleteDatabaseRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._keep_account_privileges = keep_account_privileges
 
     def to_dict(self):
         """Returns the model properties as a dict"""

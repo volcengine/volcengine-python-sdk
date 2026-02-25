@@ -33,7 +33,7 @@ class ObjectForListObjectGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'dimension_conditions': 'str',
+        'dimension_conditions': 'DimensionConditionsForListObjectGroupsOutput',
         'dimensions': 'dict(str, list[str])',
         'id': 'str',
         'namespace': 'str',
@@ -88,7 +88,7 @@ class ObjectForListObjectGroupsOutput(object):
 
 
         :return: The dimension_conditions of this ObjectForListObjectGroupsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: DimensionConditionsForListObjectGroupsOutput
         """
         return self._dimension_conditions
 
@@ -98,7 +98,7 @@ class ObjectForListObjectGroupsOutput(object):
 
 
         :param dimension_conditions: The dimension_conditions of this ObjectForListObjectGroupsOutput.  # noqa: E501
-        :type: str
+        :type: DimensionConditionsForListObjectGroupsOutput
         """
 
         self._dimension_conditions = dimension_conditions

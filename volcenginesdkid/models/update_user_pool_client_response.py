@@ -43,6 +43,7 @@ class UpdateUserPoolClientResponse(object):
         'description': 'str',
         'id_token': 'IdTokenForUpdateUserPoolClientOutput',
         'login_page_url': 'str',
+        'logo_uri': 'str',
         'name': 'str',
         'refresh_token': 'RefreshTokenForUpdateUserPoolClientOutput',
         'uid': 'str',
@@ -60,13 +61,14 @@ class UpdateUserPoolClientResponse(object):
         'description': 'Description',
         'id_token': 'IdToken',
         'login_page_url': 'LoginPageUrl',
+        'logo_uri': 'LogoUri',
         'name': 'Name',
         'refresh_token': 'RefreshToken',
         'uid': 'Uid',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_secret=None, client_type=None, create_time=None, description=None, id_token=None, login_page_url=None, name=None, refresh_token=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_secret=None, client_type=None, create_time=None, description=None, id_token=None, login_page_url=None, logo_uri=None, name=None, refresh_token=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
         """UpdateUserPoolClientResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class UpdateUserPoolClientResponse(object):
         self._description = None
         self._id_token = None
         self._login_page_url = None
+        self._logo_uri = None
         self._name = None
         self._refresh_token = None
         self._uid = None
@@ -108,6 +111,8 @@ class UpdateUserPoolClientResponse(object):
             self.id_token = id_token
         if login_page_url is not None:
             self.login_page_url = login_page_url
+        if logo_uri is not None:
+            self.logo_uri = logo_uri
         if name is not None:
             self.name = name
         if refresh_token is not None:
@@ -326,6 +331,27 @@ class UpdateUserPoolClientResponse(object):
         """
 
         self._login_page_url = login_page_url
+
+    @property
+    def logo_uri(self):
+        """Gets the logo_uri of this UpdateUserPoolClientResponse.  # noqa: E501
+
+
+        :return: The logo_uri of this UpdateUserPoolClientResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._logo_uri
+
+    @logo_uri.setter
+    def logo_uri(self, logo_uri):
+        """Sets the logo_uri of this UpdateUserPoolClientResponse.
+
+
+        :param logo_uri: The logo_uri of this UpdateUserPoolClientResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._logo_uri = logo_uri
 
     @property
     def name(self):

@@ -36,17 +36,19 @@ class ControlForGetExecutionOutput(object):
         'callback_args': 'str',
         'client_token': 'str',
         'enable_low_priority': 'bool',
-        'priority': 'int'
+        'priority': 'int',
+        'task_list_id': 'str'
     }
 
     attribute_map = {
         'callback_args': 'CallbackArgs',
         'client_token': 'ClientToken',
         'enable_low_priority': 'EnableLowPriority',
-        'priority': 'Priority'
+        'priority': 'Priority',
+        'task_list_id': 'TaskListId'
     }
 
-    def __init__(self, callback_args=None, client_token=None, enable_low_priority=None, priority=None, _configuration=None):  # noqa: E501
+    def __init__(self, callback_args=None, client_token=None, enable_low_priority=None, priority=None, task_list_id=None, _configuration=None):  # noqa: E501
         """ControlForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ControlForGetExecutionOutput(object):
         self._client_token = None
         self._enable_low_priority = None
         self._priority = None
+        self._task_list_id = None
         self.discriminator = None
 
         if callback_args is not None:
@@ -66,6 +69,8 @@ class ControlForGetExecutionOutput(object):
             self.enable_low_priority = enable_low_priority
         if priority is not None:
             self.priority = priority
+        if task_list_id is not None:
+            self.task_list_id = task_list_id
 
     @property
     def callback_args(self):
@@ -150,6 +155,27 @@ class ControlForGetExecutionOutput(object):
         """
 
         self._priority = priority
+
+    @property
+    def task_list_id(self):
+        """Gets the task_list_id of this ControlForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The task_list_id of this ControlForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._task_list_id
+
+    @task_list_id.setter
+    def task_list_id(self, task_list_id):
+        """Sets the task_list_id of this ControlForGetExecutionOutput.
+
+
+        :param task_list_id: The task_list_id of this ControlForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._task_list_id = task_list_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -39,6 +39,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput(object):
         'instance_id': 'str',
         'ip_version_type': 'str',
         'lbid': 'str',
+        'network_resource_type': 'str',
         'region': 'str',
         'resource_name': 'str',
         'subnet_id': 'str',
@@ -54,6 +55,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput(object):
         'instance_id': 'InstanceId',
         'ip_version_type': 'IpVersionType',
         'lbid': 'LBId',
+        'network_resource_type': 'NetworkResourceType',
         'region': 'Region',
         'resource_name': 'ResourceName',
         'subnet_id': 'SubnetId',
@@ -62,7 +64,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput(object):
         'network_type': 'networkType'
     }
 
-    def __init__(self, address_type=None, az=None, id=None, instance_id=None, ip_version_type=None, lbid=None, region=None, resource_name=None, subnet_id=None, vip_v4=None, vip_v6=None, network_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_type=None, az=None, id=None, instance_id=None, ip_version_type=None, lbid=None, network_resource_type=None, region=None, resource_name=None, subnet_id=None, vip_v4=None, vip_v6=None, network_type=None, _configuration=None):  # noqa: E501
         """NetworkResourceForGetVegraphNetworkResourceOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput(object):
         self._instance_id = None
         self._ip_version_type = None
         self._lbid = None
+        self._network_resource_type = None
         self._region = None
         self._resource_name = None
         self._subnet_id = None
@@ -94,6 +97,8 @@ class NetworkResourceForGetVegraphNetworkResourceOutput(object):
             self.ip_version_type = ip_version_type
         if lbid is not None:
             self.lbid = lbid
+        if network_resource_type is not None:
+            self.network_resource_type = network_resource_type
         if region is not None:
             self.region = region
         if resource_name is not None:
@@ -232,6 +237,27 @@ class NetworkResourceForGetVegraphNetworkResourceOutput(object):
         """
 
         self._lbid = lbid
+
+    @property
+    def network_resource_type(self):
+        """Gets the network_resource_type of this NetworkResourceForGetVegraphNetworkResourceOutput.  # noqa: E501
+
+
+        :return: The network_resource_type of this NetworkResourceForGetVegraphNetworkResourceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_resource_type
+
+    @network_resource_type.setter
+    def network_resource_type(self, network_resource_type):
+        """Sets the network_resource_type of this NetworkResourceForGetVegraphNetworkResourceOutput.
+
+
+        :param network_resource_type: The network_resource_type of this NetworkResourceForGetVegraphNetworkResourceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._network_resource_type = network_resource_type
 
     @property
     def region(self):

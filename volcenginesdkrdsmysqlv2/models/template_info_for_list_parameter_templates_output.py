@@ -35,6 +35,7 @@ class TemplateInfoForListParameterTemplatesOutput(object):
     swagger_types = {
         'account_id': 'str',
         'create_time': 'str',
+        'engine_type': 'str',
         'need_restart': 'bool',
         'parameter_num': 'int',
         'project_name': 'str',
@@ -52,6 +53,7 @@ class TemplateInfoForListParameterTemplatesOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'create_time': 'CreateTime',
+        'engine_type': 'EngineType',
         'need_restart': 'NeedRestart',
         'parameter_num': 'ParameterNum',
         'project_name': 'ProjectName',
@@ -66,7 +68,7 @@ class TemplateInfoForListParameterTemplatesOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, create_time=None, need_restart=None, parameter_num=None, project_name=None, template_category=None, template_desc=None, template_id=None, template_name=None, template_params=None, template_source=None, template_type=None, template_type_version=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, create_time=None, engine_type=None, need_restart=None, parameter_num=None, project_name=None, template_category=None, template_desc=None, template_id=None, template_name=None, template_params=None, template_source=None, template_type=None, template_type_version=None, update_time=None, _configuration=None):  # noqa: E501
         """TemplateInfoForListParameterTemplatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class TemplateInfoForListParameterTemplatesOutput(object):
 
         self._account_id = None
         self._create_time = None
+        self._engine_type = None
         self._need_restart = None
         self._parameter_num = None
         self._project_name = None
@@ -92,6 +95,8 @@ class TemplateInfoForListParameterTemplatesOutput(object):
             self.account_id = account_id
         if create_time is not None:
             self.create_time = create_time
+        if engine_type is not None:
+            self.engine_type = engine_type
         if need_restart is not None:
             self.need_restart = need_restart
         if parameter_num is not None:
@@ -158,6 +163,27 @@ class TemplateInfoForListParameterTemplatesOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def engine_type(self):
+        """Gets the engine_type of this TemplateInfoForListParameterTemplatesOutput.  # noqa: E501
+
+
+        :return: The engine_type of this TemplateInfoForListParameterTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._engine_type
+
+    @engine_type.setter
+    def engine_type(self, engine_type):
+        """Sets the engine_type of this TemplateInfoForListParameterTemplatesOutput.
+
+
+        :param engine_type: The engine_type of this TemplateInfoForListParameterTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._engine_type = engine_type
 
     @property
     def need_restart(self):

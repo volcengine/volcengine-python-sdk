@@ -33,23 +33,28 @@ class AddWebSDKDomainRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'domain': 'str'
+        'domain': 'str',
+        'whitelist_scenes': 'int'
     }
 
     attribute_map = {
-        'domain': 'Domain'
+        'domain': 'Domain',
+        'whitelist_scenes': 'WhitelistScenes'
     }
 
-    def __init__(self, domain=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, whitelist_scenes=None, _configuration=None):  # noqa: E501
         """AddWebSDKDomainRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._domain = None
+        self._whitelist_scenes = None
         self.discriminator = None
 
         self.domain = domain
+        if whitelist_scenes is not None:
+            self.whitelist_scenes = whitelist_scenes
 
     @property
     def domain(self):
@@ -73,6 +78,27 @@ class AddWebSDKDomainRequest(object):
             raise ValueError("Invalid value for `domain`, must not be `None`")  # noqa: E501
 
         self._domain = domain
+
+    @property
+    def whitelist_scenes(self):
+        """Gets the whitelist_scenes of this AddWebSDKDomainRequest.  # noqa: E501
+
+
+        :return: The whitelist_scenes of this AddWebSDKDomainRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._whitelist_scenes
+
+    @whitelist_scenes.setter
+    def whitelist_scenes(self, whitelist_scenes):
+        """Sets the whitelist_scenes of this AddWebSDKDomainRequest.
+
+
+        :param whitelist_scenes: The whitelist_scenes of this AddWebSDKDomainRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._whitelist_scenes = whitelist_scenes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

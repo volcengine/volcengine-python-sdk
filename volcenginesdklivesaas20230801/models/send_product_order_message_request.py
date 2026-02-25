@@ -34,28 +34,33 @@ class SendProductOrderMessageRequest(object):
     """
     swagger_types = {
         'activity_id': 'int',
+        'amount': 'int',
         'product_id': 'int',
         'user_name': 'str'
     }
 
     attribute_map = {
         'activity_id': 'ActivityId',
+        'amount': 'Amount',
         'product_id': 'ProductId',
         'user_name': 'UserName'
     }
 
-    def __init__(self, activity_id=None, product_id=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, amount=None, product_id=None, user_name=None, _configuration=None):  # noqa: E501
         """SendProductOrderMessageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._activity_id = None
+        self._amount = None
         self._product_id = None
         self._user_name = None
         self.discriminator = None
 
         self.activity_id = activity_id
+        if amount is not None:
+            self.amount = amount
         self.product_id = product_id
         if user_name is not None:
             self.user_name = user_name
@@ -82,6 +87,27 @@ class SendProductOrderMessageRequest(object):
             raise ValueError("Invalid value for `activity_id`, must not be `None`")  # noqa: E501
 
         self._activity_id = activity_id
+
+    @property
+    def amount(self):
+        """Gets the amount of this SendProductOrderMessageRequest.  # noqa: E501
+
+
+        :return: The amount of this SendProductOrderMessageRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._amount
+
+    @amount.setter
+    def amount(self, amount):
+        """Sets the amount of this SendProductOrderMessageRequest.
+
+
+        :param amount: The amount of this SendProductOrderMessageRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._amount = amount
 
     @property
     def product_id(self):

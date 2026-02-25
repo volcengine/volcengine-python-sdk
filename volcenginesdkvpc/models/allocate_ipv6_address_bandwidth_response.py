@@ -34,26 +34,31 @@ class AllocateIpv6AddressBandwidthResponse(object):
     """
     swagger_types = {
         'allocation_id': 'str',
+        'allocation_ids': 'list[str]',
         'request_id': 'str'
     }
 
     attribute_map = {
         'allocation_id': 'AllocationId',
+        'allocation_ids': 'AllocationIds',
         'request_id': 'RequestId'
     }
 
-    def __init__(self, allocation_id=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, allocation_ids=None, request_id=None, _configuration=None):  # noqa: E501
         """AllocateIpv6AddressBandwidthResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allocation_id = None
+        self._allocation_ids = None
         self._request_id = None
         self.discriminator = None
 
         if allocation_id is not None:
             self.allocation_id = allocation_id
+        if allocation_ids is not None:
+            self.allocation_ids = allocation_ids
         if request_id is not None:
             self.request_id = request_id
 
@@ -77,6 +82,27 @@ class AllocateIpv6AddressBandwidthResponse(object):
         """
 
         self._allocation_id = allocation_id
+
+    @property
+    def allocation_ids(self):
+        """Gets the allocation_ids of this AllocateIpv6AddressBandwidthResponse.  # noqa: E501
+
+
+        :return: The allocation_ids of this AllocateIpv6AddressBandwidthResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allocation_ids
+
+    @allocation_ids.setter
+    def allocation_ids(self, allocation_ids):
+        """Sets the allocation_ids of this AllocateIpv6AddressBandwidthResponse.
+
+
+        :param allocation_ids: The allocation_ids of this AllocateIpv6AddressBandwidthResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allocation_ids = allocation_ids
 
     @property
     def request_id(self):

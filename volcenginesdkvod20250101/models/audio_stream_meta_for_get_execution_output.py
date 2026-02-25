@@ -34,6 +34,7 @@ class AudioStreamMetaForGetExecutionOutput(object):
     """
     swagger_types = {
         'bitrate': 'int',
+        'channels': 'int',
         'codec': 'str',
         'duration': 'float',
         'quality': 'str',
@@ -42,19 +43,21 @@ class AudioStreamMetaForGetExecutionOutput(object):
 
     attribute_map = {
         'bitrate': 'Bitrate',
+        'channels': 'Channels',
         'codec': 'Codec',
         'duration': 'Duration',
         'quality': 'Quality',
         'sample_rate': 'SampleRate'
     }
 
-    def __init__(self, bitrate=None, codec=None, duration=None, quality=None, sample_rate=None, _configuration=None):  # noqa: E501
+    def __init__(self, bitrate=None, channels=None, codec=None, duration=None, quality=None, sample_rate=None, _configuration=None):  # noqa: E501
         """AudioStreamMetaForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bitrate = None
+        self._channels = None
         self._codec = None
         self._duration = None
         self._quality = None
@@ -63,6 +66,8 @@ class AudioStreamMetaForGetExecutionOutput(object):
 
         if bitrate is not None:
             self.bitrate = bitrate
+        if channels is not None:
+            self.channels = channels
         if codec is not None:
             self.codec = codec
         if duration is not None:
@@ -92,6 +97,27 @@ class AudioStreamMetaForGetExecutionOutput(object):
         """
 
         self._bitrate = bitrate
+
+    @property
+    def channels(self):
+        """Gets the channels of this AudioStreamMetaForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The channels of this AudioStreamMetaForGetExecutionOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._channels
+
+    @channels.setter
+    def channels(self, channels):
+        """Sets the channels of this AudioStreamMetaForGetExecutionOutput.
+
+
+        :param channels: The channels of this AudioStreamMetaForGetExecutionOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._channels = channels
 
     @property
     def codec(self):

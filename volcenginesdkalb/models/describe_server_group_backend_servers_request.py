@@ -35,8 +35,8 @@ class DescribeServerGroupBackendServersRequest(object):
     swagger_types = {
         'instance_ids': 'list[str]',
         'ips': 'list[str]',
-        'page_number': 'str',
-        'page_size': 'str',
+        'page_number': 'int',
+        'page_size': 'int',
         'server_group_id': 'str'
     }
 
@@ -119,7 +119,7 @@ class DescribeServerGroupBackendServersRequest(object):
 
 
         :return: The page_number of this DescribeServerGroupBackendServersRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._page_number
 
@@ -129,7 +129,7 @@ class DescribeServerGroupBackendServersRequest(object):
 
 
         :param page_number: The page_number of this DescribeServerGroupBackendServersRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._page_number = page_number
@@ -140,7 +140,7 @@ class DescribeServerGroupBackendServersRequest(object):
 
 
         :return: The page_size of this DescribeServerGroupBackendServersRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._page_size
 
@@ -150,7 +150,7 @@ class DescribeServerGroupBackendServersRequest(object):
 
 
         :param page_size: The page_size of this DescribeServerGroupBackendServersRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._page_size = page_size

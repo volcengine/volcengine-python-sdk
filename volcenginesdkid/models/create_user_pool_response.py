@@ -33,6 +33,7 @@ class CreateUserPoolResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'brand': 'BrandForCreateUserPoolOutput',
         'create_time': 'str',
         'description': 'str',
         'discovery_url': 'str',
@@ -48,8 +49,10 @@ class CreateUserPoolResponse(object):
         'required_sign_up_attributes': 'list[str]',
         'saml_login_callback_url': 'str',
         'saml_sign_up_callback_url': 'str',
+        'self_account_recovery_enabled': 'bool',
         'self_sign_up_enabled': 'bool',
         'sign_in_attributes': 'list[str]',
+        'sign_up_auto_verification_enabled': 'bool',
         'sms_passwordless_sign_in_enabled': 'bool',
         'tags': 'list[TagForCreateUserPoolOutput]',
         'token_signing_key_url': 'str',
@@ -58,10 +61,12 @@ class CreateUserPoolResponse(object):
         'total_users': 'int',
         'trn': 'str',
         'uid': 'str',
+        'unconfirmed_user_sign_in_enabled': 'bool',
         'update_time': 'str'
     }
 
     attribute_map = {
+        'brand': 'Brand',
         'create_time': 'CreateTime',
         'description': 'Description',
         'discovery_url': 'DiscoveryUrl',
@@ -77,8 +82,10 @@ class CreateUserPoolResponse(object):
         'required_sign_up_attributes': 'RequiredSignUpAttributes',
         'saml_login_callback_url': 'SamlLoginCallbackUrl',
         'saml_sign_up_callback_url': 'SamlSignUpCallbackUrl',
+        'self_account_recovery_enabled': 'SelfAccountRecoveryEnabled',
         'self_sign_up_enabled': 'SelfSignUpEnabled',
         'sign_in_attributes': 'SignInAttributes',
+        'sign_up_auto_verification_enabled': 'SignUpAutoVerificationEnabled',
         'sms_passwordless_sign_in_enabled': 'SmsPasswordlessSignInEnabled',
         'tags': 'Tags',
         'token_signing_key_url': 'TokenSigningKeyUrl',
@@ -87,15 +94,17 @@ class CreateUserPoolResponse(object):
         'total_users': 'TotalUsers',
         'trn': 'Trn',
         'uid': 'Uid',
+        'unconfirmed_user_sign_in_enabled': 'UnconfirmedUserSignInEnabled',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, description=None, discovery_url=None, domain=None, email_passwordless_sign_in_enabled=None, name=None, oauth_login_callback_url=None, oauth_sign_up_callback_url=None, oidc_login_callback_url=None, oidc_sign_up_callback_url=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, saml_login_callback_url=None, saml_sign_up_callback_url=None, self_sign_up_enabled=None, sign_in_attributes=None, sms_passwordless_sign_in_enabled=None, tags=None, token_signing_key_url=None, total_clients=None, total_connections=None, total_users=None, trn=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, brand=None, create_time=None, description=None, discovery_url=None, domain=None, email_passwordless_sign_in_enabled=None, name=None, oauth_login_callback_url=None, oauth_sign_up_callback_url=None, oidc_login_callback_url=None, oidc_sign_up_callback_url=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, saml_login_callback_url=None, saml_sign_up_callback_url=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_in_attributes=None, sign_up_auto_verification_enabled=None, sms_passwordless_sign_in_enabled=None, tags=None, token_signing_key_url=None, total_clients=None, total_connections=None, total_users=None, trn=None, uid=None, unconfirmed_user_sign_in_enabled=None, update_time=None, _configuration=None):  # noqa: E501
         """CreateUserPoolResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._brand = None
         self._create_time = None
         self._description = None
         self._discovery_url = None
@@ -111,8 +120,10 @@ class CreateUserPoolResponse(object):
         self._required_sign_up_attributes = None
         self._saml_login_callback_url = None
         self._saml_sign_up_callback_url = None
+        self._self_account_recovery_enabled = None
         self._self_sign_up_enabled = None
         self._sign_in_attributes = None
+        self._sign_up_auto_verification_enabled = None
         self._sms_passwordless_sign_in_enabled = None
         self._tags = None
         self._token_signing_key_url = None
@@ -121,9 +132,12 @@ class CreateUserPoolResponse(object):
         self._total_users = None
         self._trn = None
         self._uid = None
+        self._unconfirmed_user_sign_in_enabled = None
         self._update_time = None
         self.discriminator = None
 
+        if brand is not None:
+            self.brand = brand
         if create_time is not None:
             self.create_time = create_time
         if description is not None:
@@ -154,10 +168,14 @@ class CreateUserPoolResponse(object):
             self.saml_login_callback_url = saml_login_callback_url
         if saml_sign_up_callback_url is not None:
             self.saml_sign_up_callback_url = saml_sign_up_callback_url
+        if self_account_recovery_enabled is not None:
+            self.self_account_recovery_enabled = self_account_recovery_enabled
         if self_sign_up_enabled is not None:
             self.self_sign_up_enabled = self_sign_up_enabled
         if sign_in_attributes is not None:
             self.sign_in_attributes = sign_in_attributes
+        if sign_up_auto_verification_enabled is not None:
+            self.sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
         if sms_passwordless_sign_in_enabled is not None:
             self.sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
         if tags is not None:
@@ -174,8 +192,31 @@ class CreateUserPoolResponse(object):
             self.trn = trn
         if uid is not None:
             self.uid = uid
+        if unconfirmed_user_sign_in_enabled is not None:
+            self.unconfirmed_user_sign_in_enabled = unconfirmed_user_sign_in_enabled
         if update_time is not None:
             self.update_time = update_time
+
+    @property
+    def brand(self):
+        """Gets the brand of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The brand of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: BrandForCreateUserPoolOutput
+        """
+        return self._brand
+
+    @brand.setter
+    def brand(self, brand):
+        """Sets the brand of this CreateUserPoolResponse.
+
+
+        :param brand: The brand of this CreateUserPoolResponse.  # noqa: E501
+        :type: BrandForCreateUserPoolOutput
+        """
+
+        self._brand = brand
 
     @property
     def create_time(self):
@@ -493,6 +534,27 @@ class CreateUserPoolResponse(object):
         self._saml_sign_up_callback_url = saml_sign_up_callback_url
 
     @property
+    def self_account_recovery_enabled(self):
+        """Gets the self_account_recovery_enabled of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The self_account_recovery_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._self_account_recovery_enabled
+
+    @self_account_recovery_enabled.setter
+    def self_account_recovery_enabled(self, self_account_recovery_enabled):
+        """Sets the self_account_recovery_enabled of this CreateUserPoolResponse.
+
+
+        :param self_account_recovery_enabled: The self_account_recovery_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._self_account_recovery_enabled = self_account_recovery_enabled
+
+    @property
     def self_sign_up_enabled(self):
         """Gets the self_sign_up_enabled of this CreateUserPoolResponse.  # noqa: E501
 
@@ -533,6 +595,27 @@ class CreateUserPoolResponse(object):
         """
 
         self._sign_in_attributes = sign_in_attributes
+
+    @property
+    def sign_up_auto_verification_enabled(self):
+        """Gets the sign_up_auto_verification_enabled of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The sign_up_auto_verification_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sign_up_auto_verification_enabled
+
+    @sign_up_auto_verification_enabled.setter
+    def sign_up_auto_verification_enabled(self, sign_up_auto_verification_enabled):
+        """Sets the sign_up_auto_verification_enabled of this CreateUserPoolResponse.
+
+
+        :param sign_up_auto_verification_enabled: The sign_up_auto_verification_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
 
     @property
     def sms_passwordless_sign_in_enabled(self):
@@ -701,6 +784,27 @@ class CreateUserPoolResponse(object):
         """
 
         self._uid = uid
+
+    @property
+    def unconfirmed_user_sign_in_enabled(self):
+        """Gets the unconfirmed_user_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The unconfirmed_user_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._unconfirmed_user_sign_in_enabled
+
+    @unconfirmed_user_sign_in_enabled.setter
+    def unconfirmed_user_sign_in_enabled(self, unconfirmed_user_sign_in_enabled):
+        """Sets the unconfirmed_user_sign_in_enabled of this CreateUserPoolResponse.
+
+
+        :param unconfirmed_user_sign_in_enabled: The unconfirmed_user_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._unconfirmed_user_sign_in_enabled = unconfirmed_user_sign_in_enabled
 
     @property
     def update_time(self):

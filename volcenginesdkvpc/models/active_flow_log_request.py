@@ -52,7 +52,8 @@ class ActiveFlowLogRequest(object):
         self._flow_log_id = None
         self.discriminator = None
 
-        self.client_token = client_token
+        if client_token is not None:
+            self.client_token = client_token
         self.flow_log_id = flow_log_id
 
     @property
@@ -73,8 +74,6 @@ class ActiveFlowLogRequest(object):
         :param client_token: The client_token of this ActiveFlowLogRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and client_token is None:
-            raise ValueError("Invalid value for `client_token`, must not be `None`")  # noqa: E501
 
         self._client_token = client_token
 

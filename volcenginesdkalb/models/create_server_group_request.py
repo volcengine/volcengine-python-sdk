@@ -51,7 +51,7 @@ class CreateServerGroupRequest(object):
         'cross_zone_enabled': 'CrossZoneEnabled',
         'description': 'Description',
         'health_check': 'HealthCheck',
-        'ip_address_type': 'IPAddressType',
+        'ip_address_type': 'IpAddressType',
         'project_name': 'ProjectName',
         'protocol': 'Protocol',
         'scheduler': 'Scheduler',

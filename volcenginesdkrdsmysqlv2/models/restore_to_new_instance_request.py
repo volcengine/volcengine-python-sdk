@@ -39,6 +39,7 @@ class RestoreToNewInstanceRequest(object):
         'charge_info': 'ChargeInfoForRestoreToNewInstanceInput',
         'db_param_group_id': 'str',
         'deletion_protection': 'str',
+        'enable_external_replication': 'bool',
         'instance_name': 'str',
         'instance_tags': 'list[InstanceTagForRestoreToNewInstanceInput]',
         'node_info': 'list[NodeInfoForRestoreToNewInstanceInput]',
@@ -60,6 +61,7 @@ class RestoreToNewInstanceRequest(object):
         'charge_info': 'ChargeInfo',
         'db_param_group_id': 'DBParamGroupId',
         'deletion_protection': 'DeletionProtection',
+        'enable_external_replication': 'EnableExternalReplication',
         'instance_name': 'InstanceName',
         'instance_tags': 'InstanceTags',
         'node_info': 'NodeInfo',
@@ -74,7 +76,7 @@ class RestoreToNewInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, proxy_node_custom=None, restore_time=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, enable_external_replication=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, proxy_node_custom=None, restore_time=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RestoreToNewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class RestoreToNewInstanceRequest(object):
         self._charge_info = None
         self._db_param_group_id = None
         self._deletion_protection = None
+        self._enable_external_replication = None
         self._instance_name = None
         self._instance_tags = None
         self._node_info = None
@@ -112,6 +115,8 @@ class RestoreToNewInstanceRequest(object):
             self.db_param_group_id = db_param_group_id
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
+        if enable_external_replication is not None:
+            self.enable_external_replication = enable_external_replication
         if instance_name is not None:
             self.instance_name = instance_name
         if instance_tags is not None:
@@ -258,6 +263,27 @@ class RestoreToNewInstanceRequest(object):
         """
 
         self._deletion_protection = deletion_protection
+
+    @property
+    def enable_external_replication(self):
+        """Gets the enable_external_replication of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The enable_external_replication of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_external_replication
+
+    @enable_external_replication.setter
+    def enable_external_replication(self, enable_external_replication):
+        """Sets the enable_external_replication of this RestoreToNewInstanceRequest.
+
+
+        :param enable_external_replication: The enable_external_replication of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_external_replication = enable_external_replication
 
     @property
     def instance_name(self):

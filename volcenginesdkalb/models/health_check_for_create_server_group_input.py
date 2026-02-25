@@ -35,16 +35,16 @@ class HealthCheckForCreateServerGroupInput(object):
     swagger_types = {
         'domain': 'str',
         'enabled': 'str',
-        'healthy_threshold': 'str',
+        'healthy_threshold': 'int',
         'http_code': 'str',
         'http_version': 'str',
-        'interval': 'str',
+        'interval': 'int',
         'method': 'str',
         'port': 'int',
         'protocol': 'str',
-        'timeout': 'str',
+        'timeout': 'int',
         'uri': 'str',
-        'unhealthy_threshold': 'str'
+        'unhealthy_threshold': 'int'
     }
 
     attribute_map = {
@@ -155,7 +155,7 @@ class HealthCheckForCreateServerGroupInput(object):
 
 
         :return: The healthy_threshold of this HealthCheckForCreateServerGroupInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._healthy_threshold
 
@@ -165,7 +165,7 @@ class HealthCheckForCreateServerGroupInput(object):
 
 
         :param healthy_threshold: The healthy_threshold of this HealthCheckForCreateServerGroupInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._healthy_threshold = healthy_threshold
@@ -218,7 +218,7 @@ class HealthCheckForCreateServerGroupInput(object):
 
 
         :return: The interval of this HealthCheckForCreateServerGroupInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._interval
 
@@ -228,7 +228,7 @@ class HealthCheckForCreateServerGroupInput(object):
 
 
         :param interval: The interval of this HealthCheckForCreateServerGroupInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._interval = interval
@@ -308,7 +308,7 @@ class HealthCheckForCreateServerGroupInput(object):
 
 
         :return: The timeout of this HealthCheckForCreateServerGroupInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._timeout
 
@@ -318,7 +318,7 @@ class HealthCheckForCreateServerGroupInput(object):
 
 
         :param timeout: The timeout of this HealthCheckForCreateServerGroupInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._timeout = timeout
@@ -350,7 +350,7 @@ class HealthCheckForCreateServerGroupInput(object):
 
 
         :return: The unhealthy_threshold of this HealthCheckForCreateServerGroupInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._unhealthy_threshold
 
@@ -360,7 +360,7 @@ class HealthCheckForCreateServerGroupInput(object):
 
 
         :param unhealthy_threshold: The unhealthy_threshold of this HealthCheckForCreateServerGroupInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._unhealthy_threshold = unhealthy_threshold

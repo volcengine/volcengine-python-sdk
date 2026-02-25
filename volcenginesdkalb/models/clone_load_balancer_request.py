@@ -37,6 +37,7 @@ class CloneLoadBalancerRequest(object):
         'delete_protection': 'str',
         'description': 'str',
         'eip_billing_config': 'EipBillingConfigForCloneLoadBalancerInput',
+        'ipv6_bandwidth_package_id': 'str',
         'ipv6_eip_billing_config': 'Ipv6EipBillingConfigForCloneLoadBalancerInput',
         'load_balancer_id': 'str',
         'load_balancer_name': 'str',
@@ -50,6 +51,7 @@ class CloneLoadBalancerRequest(object):
         'delete_protection': 'DeleteProtection',
         'description': 'Description',
         'eip_billing_config': 'EipBillingConfig',
+        'ipv6_bandwidth_package_id': 'Ipv6BandwidthPackageId',
         'ipv6_eip_billing_config': 'Ipv6EipBillingConfig',
         'load_balancer_id': 'LoadBalancerId',
         'load_balancer_name': 'LoadBalancerName',
@@ -58,7 +60,7 @@ class CloneLoadBalancerRequest(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, bandwidth_package_id=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_eip_billing_config=None, load_balancer_id=None, load_balancer_name=None, project_name=None, region_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth_package_id=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_bandwidth_package_id=None, ipv6_eip_billing_config=None, load_balancer_id=None, load_balancer_name=None, project_name=None, region_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """CloneLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class CloneLoadBalancerRequest(object):
         self._delete_protection = None
         self._description = None
         self._eip_billing_config = None
+        self._ipv6_bandwidth_package_id = None
         self._ipv6_eip_billing_config = None
         self._load_balancer_id = None
         self._load_balancer_name = None
@@ -84,6 +87,8 @@ class CloneLoadBalancerRequest(object):
             self.description = description
         if eip_billing_config is not None:
             self.eip_billing_config = eip_billing_config
+        if ipv6_bandwidth_package_id is not None:
+            self.ipv6_bandwidth_package_id = ipv6_bandwidth_package_id
         if ipv6_eip_billing_config is not None:
             self.ipv6_eip_billing_config = ipv6_eip_billing_config
         self.load_balancer_id = load_balancer_id
@@ -178,6 +183,27 @@ class CloneLoadBalancerRequest(object):
         """
 
         self._eip_billing_config = eip_billing_config
+
+    @property
+    def ipv6_bandwidth_package_id(self):
+        """Gets the ipv6_bandwidth_package_id of this CloneLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The ipv6_bandwidth_package_id of this CloneLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_bandwidth_package_id
+
+    @ipv6_bandwidth_package_id.setter
+    def ipv6_bandwidth_package_id(self, ipv6_bandwidth_package_id):
+        """Sets the ipv6_bandwidth_package_id of this CloneLoadBalancerRequest.
+
+
+        :param ipv6_bandwidth_package_id: The ipv6_bandwidth_package_id of this CloneLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_bandwidth_package_id = ipv6_bandwidth_package_id
 
     @property
     def ipv6_eip_billing_config(self):

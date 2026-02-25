@@ -33,49 +33,63 @@ class CreateUserPoolRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'brand': 'BrandForCreateUserPoolInput',
         'description': 'str',
         'email_passwordless_sign_in_enabled': 'bool',
         'name': 'str',
         'password_sign_in_enabled': 'bool',
         'project_name': 'str',
         'required_sign_up_attributes': 'list[str]',
+        'self_account_recovery_enabled': 'bool',
         'self_sign_up_enabled': 'bool',
         'sign_in_attributes': 'list[str]',
+        'sign_up_auto_verification_enabled': 'bool',
         'sms_passwordless_sign_in_enabled': 'bool',
-        'tags': 'list[TagForCreateUserPoolInput]'
+        'tags': 'list[TagForCreateUserPoolInput]',
+        'unconfirmed_user_sign_in_enabled': 'bool'
     }
 
     attribute_map = {
+        'brand': 'Brand',
         'description': 'Description',
         'email_passwordless_sign_in_enabled': 'EmailPasswordlessSignInEnabled',
         'name': 'Name',
         'password_sign_in_enabled': 'PasswordSignInEnabled',
         'project_name': 'ProjectName',
         'required_sign_up_attributes': 'RequiredSignUpAttributes',
+        'self_account_recovery_enabled': 'SelfAccountRecoveryEnabled',
         'self_sign_up_enabled': 'SelfSignUpEnabled',
         'sign_in_attributes': 'SignInAttributes',
+        'sign_up_auto_verification_enabled': 'SignUpAutoVerificationEnabled',
         'sms_passwordless_sign_in_enabled': 'SmsPasswordlessSignInEnabled',
-        'tags': 'Tags'
+        'tags': 'Tags',
+        'unconfirmed_user_sign_in_enabled': 'UnconfirmedUserSignInEnabled'
     }
 
-    def __init__(self, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, self_sign_up_enabled=None, sign_in_attributes=None, sms_passwordless_sign_in_enabled=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, brand=None, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_in_attributes=None, sign_up_auto_verification_enabled=None, sms_passwordless_sign_in_enabled=None, tags=None, unconfirmed_user_sign_in_enabled=None, _configuration=None):  # noqa: E501
         """CreateUserPoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._brand = None
         self._description = None
         self._email_passwordless_sign_in_enabled = None
         self._name = None
         self._password_sign_in_enabled = None
         self._project_name = None
         self._required_sign_up_attributes = None
+        self._self_account_recovery_enabled = None
         self._self_sign_up_enabled = None
         self._sign_in_attributes = None
+        self._sign_up_auto_verification_enabled = None
         self._sms_passwordless_sign_in_enabled = None
         self._tags = None
+        self._unconfirmed_user_sign_in_enabled = None
         self.discriminator = None
 
+        if brand is not None:
+            self.brand = brand
         if description is not None:
             self.description = description
         if email_passwordless_sign_in_enabled is not None:
@@ -87,14 +101,41 @@ class CreateUserPoolRequest(object):
             self.project_name = project_name
         if required_sign_up_attributes is not None:
             self.required_sign_up_attributes = required_sign_up_attributes
+        if self_account_recovery_enabled is not None:
+            self.self_account_recovery_enabled = self_account_recovery_enabled
         if self_sign_up_enabled is not None:
             self.self_sign_up_enabled = self_sign_up_enabled
         if sign_in_attributes is not None:
             self.sign_in_attributes = sign_in_attributes
+        if sign_up_auto_verification_enabled is not None:
+            self.sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
         if sms_passwordless_sign_in_enabled is not None:
             self.sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
         if tags is not None:
             self.tags = tags
+        if unconfirmed_user_sign_in_enabled is not None:
+            self.unconfirmed_user_sign_in_enabled = unconfirmed_user_sign_in_enabled
+
+    @property
+    def brand(self):
+        """Gets the brand of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The brand of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: BrandForCreateUserPoolInput
+        """
+        return self._brand
+
+    @brand.setter
+    def brand(self, brand):
+        """Sets the brand of this CreateUserPoolRequest.
+
+
+        :param brand: The brand of this CreateUserPoolRequest.  # noqa: E501
+        :type: BrandForCreateUserPoolInput
+        """
+
+        self._brand = brand
 
     @property
     def description(self):
@@ -228,6 +269,27 @@ class CreateUserPoolRequest(object):
         self._required_sign_up_attributes = required_sign_up_attributes
 
     @property
+    def self_account_recovery_enabled(self):
+        """Gets the self_account_recovery_enabled of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The self_account_recovery_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._self_account_recovery_enabled
+
+    @self_account_recovery_enabled.setter
+    def self_account_recovery_enabled(self, self_account_recovery_enabled):
+        """Sets the self_account_recovery_enabled of this CreateUserPoolRequest.
+
+
+        :param self_account_recovery_enabled: The self_account_recovery_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._self_account_recovery_enabled = self_account_recovery_enabled
+
+    @property
     def self_sign_up_enabled(self):
         """Gets the self_sign_up_enabled of this CreateUserPoolRequest.  # noqa: E501
 
@@ -270,6 +332,27 @@ class CreateUserPoolRequest(object):
         self._sign_in_attributes = sign_in_attributes
 
     @property
+    def sign_up_auto_verification_enabled(self):
+        """Gets the sign_up_auto_verification_enabled of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The sign_up_auto_verification_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sign_up_auto_verification_enabled
+
+    @sign_up_auto_verification_enabled.setter
+    def sign_up_auto_verification_enabled(self, sign_up_auto_verification_enabled):
+        """Sets the sign_up_auto_verification_enabled of this CreateUserPoolRequest.
+
+
+        :param sign_up_auto_verification_enabled: The sign_up_auto_verification_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
+
+    @property
     def sms_passwordless_sign_in_enabled(self):
         """Gets the sms_passwordless_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
 
@@ -310,6 +393,27 @@ class CreateUserPoolRequest(object):
         """
 
         self._tags = tags
+
+    @property
+    def unconfirmed_user_sign_in_enabled(self):
+        """Gets the unconfirmed_user_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The unconfirmed_user_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._unconfirmed_user_sign_in_enabled
+
+    @unconfirmed_user_sign_in_enabled.setter
+    def unconfirmed_user_sign_in_enabled(self, unconfirmed_user_sign_in_enabled):
+        """Sets the unconfirmed_user_sign_in_enabled of this CreateUserPoolRequest.
+
+
+        :param unconfirmed_user_sign_in_enabled: The unconfirmed_user_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._unconfirmed_user_sign_in_enabled = unconfirmed_user_sign_in_enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

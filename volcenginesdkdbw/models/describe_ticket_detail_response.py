@@ -37,6 +37,7 @@ class DescribeTicketDetailResponse(object):
         'create_user': 'CreateUserForDescribeTicketDetailOutput',
         'current_user': 'CurrentUserForDescribeTicketDetailOutput',
         'db_name': 'str',
+        'description': 'str',
         'exec_end_time': 'int',
         'exec_start_time': 'int',
         'instance_id': 'str',
@@ -56,6 +57,7 @@ class DescribeTicketDetailResponse(object):
         'create_user': 'CreateUser',
         'current_user': 'CurrentUser',
         'db_name': 'DbName',
+        'description': 'Description',
         'exec_end_time': 'ExecEndTime',
         'exec_start_time': 'ExecStartTime',
         'instance_id': 'InstanceId',
@@ -70,7 +72,7 @@ class DescribeTicketDetailResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, create_user=None, current_user=None, db_name=None, exec_end_time=None, exec_start_time=None, instance_id=None, instance_type=None, memo=None, sql_text=None, ticket_execute_type=None, ticket_id=None, ticket_status=None, ticket_type=None, title=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, create_user=None, current_user=None, db_name=None, description=None, exec_end_time=None, exec_start_time=None, instance_id=None, instance_type=None, memo=None, sql_text=None, ticket_execute_type=None, ticket_id=None, ticket_status=None, ticket_type=None, title=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeTicketDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +82,7 @@ class DescribeTicketDetailResponse(object):
         self._create_user = None
         self._current_user = None
         self._db_name = None
+        self._description = None
         self._exec_end_time = None
         self._exec_start_time = None
         self._instance_id = None
@@ -102,6 +105,8 @@ class DescribeTicketDetailResponse(object):
             self.current_user = current_user
         if db_name is not None:
             self.db_name = db_name
+        if description is not None:
+            self.description = description
         if exec_end_time is not None:
             self.exec_end_time = exec_end_time
         if exec_start_time is not None:
@@ -210,6 +215,27 @@ class DescribeTicketDetailResponse(object):
         """
 
         self._db_name = db_name
+
+    @property
+    def description(self):
+        """Gets the description of this DescribeTicketDetailResponse.  # noqa: E501
+
+
+        :return: The description of this DescribeTicketDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this DescribeTicketDetailResponse.
+
+
+        :param description: The description of this DescribeTicketDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def exec_end_time(self):

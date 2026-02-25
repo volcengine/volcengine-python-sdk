@@ -34,26 +34,31 @@ class CreateNodeGroupResponse(object):
     """
     swagger_types = {
         'cluster_id': 'str',
+        'node_group_id': 'str',
         'operation_id': 'str'
     }
 
     attribute_map = {
         'cluster_id': 'ClusterId',
+        'node_group_id': 'NodeGroupId',
         'operation_id': 'OperationId'
     }
 
-    def __init__(self, cluster_id=None, operation_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, node_group_id=None, operation_id=None, _configuration=None):  # noqa: E501
         """CreateNodeGroupResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cluster_id = None
+        self._node_group_id = None
         self._operation_id = None
         self.discriminator = None
 
         if cluster_id is not None:
             self.cluster_id = cluster_id
+        if node_group_id is not None:
+            self.node_group_id = node_group_id
         if operation_id is not None:
             self.operation_id = operation_id
 
@@ -77,6 +82,27 @@ class CreateNodeGroupResponse(object):
         """
 
         self._cluster_id = cluster_id
+
+    @property
+    def node_group_id(self):
+        """Gets the node_group_id of this CreateNodeGroupResponse.  # noqa: E501
+
+
+        :return: The node_group_id of this CreateNodeGroupResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._node_group_id
+
+    @node_group_id.setter
+    def node_group_id(self, node_group_id):
+        """Sets the node_group_id of this CreateNodeGroupResponse.
+
+
+        :param node_group_id: The node_group_id of this CreateNodeGroupResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._node_group_id = node_group_id
 
     @property
     def operation_id(self):

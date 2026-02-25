@@ -215,10 +215,10 @@ class ListVikingdbTaskRequest(object):
         :type: str
         """
         allowed_values = ["init", "queued", "running", "done", "fail", "confirm", "confirmed"]  # noqa: E501
-        if (self._configuration.client_side_validation and task_status is not None and
+        if (self._configuration.client_side_validation and
                 task_status not in allowed_values):
             raise ValueError(
-                "Invalid value for `task_status` ({0}), must be one of {1} or None"  # noqa: E501
+                "Invalid value for `task_status` ({0}), must be one of {1}"  # noqa: E501
                 .format(task_status, allowed_values)
             )
 
@@ -243,10 +243,10 @@ class ListVikingdbTaskRequest(object):
         :type: str
         """
         allowed_values = ["data_import", "filter_update", "filter_delete", "data_export"]  # noqa: E501
-        if (self._configuration.client_side_validation and task_type is not None and
+        if (self._configuration.client_side_validation and
                 task_type not in allowed_values):
             raise ValueError(
-                "Invalid value for `task_type` ({0}), must be one of {1} or None"  # noqa: E501
+                "Invalid value for `task_type` ({0}), must be one of {1}"  # noqa: E501
                 .format(task_type, allowed_values)
             )
 
