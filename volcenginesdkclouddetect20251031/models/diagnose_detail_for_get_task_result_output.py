@@ -39,7 +39,7 @@ class DiagnoseDetailForGetTaskResultOutput(object):
     }
 
     attribute_map = {
-        'dns_detail': 'DNSDetail',
+        'dns_detail': 'DnsDetail',
         'mtr_detail': 'MtrDetail',
         'ping_detail': 'PingDetail'
     }

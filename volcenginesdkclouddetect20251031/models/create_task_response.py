@@ -39,7 +39,7 @@ class CreateTaskResponse(object):
 
     attribute_map = {
         'location_info': 'LocationInfo',
-        'task_id': 'TaskID'
+        'task_id': 'TaskId'
     }
 
     def __init__(self, location_info=None, task_id=None, _configuration=None):  # noqa: E501

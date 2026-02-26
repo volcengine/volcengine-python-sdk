@@ -33,7 +33,7 @@ class SelectionConfigForCreateTaskInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'group_config': 'ConvertGroupConfigForCreateTaskInput',
+        'group_config': 'GroupConfigForCreateTaskInput',
         'line_config': 'LineConfigForCreateTaskInput',
         'line_group_config': 'LineGroupConfigForCreateTaskInput',
         'mode': 'int'
@@ -73,7 +73,7 @@ class SelectionConfigForCreateTaskInput(object):
 
 
         :return: The group_config of this SelectionConfigForCreateTaskInput.  # noqa: E501
-        :rtype: ConvertGroupConfigForCreateTaskInput
+        :rtype: GroupConfigForCreateTaskInput
         """
         return self._group_config
 
@@ -83,7 +83,7 @@ class SelectionConfigForCreateTaskInput(object):
 
 
         :param group_config: The group_config of this SelectionConfigForCreateTaskInput.  # noqa: E501
-        :type: ConvertGroupConfigForCreateTaskInput
+        :type: GroupConfigForCreateTaskInput
         """
 
         self._group_config = group_config
