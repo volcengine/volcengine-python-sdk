@@ -39,8 +39,7 @@ class PingConfigForGetTaskOutput(object):
         'packages_num': 'int',
         'packages_size': 'int',
         'protocol_type': 'int',
-        'timeout': 'int',
-        'common_types_protocol_type': 'int'
+        'timeout': 'int'
     }
 
     attribute_map = {
@@ -50,11 +49,10 @@ class PingConfigForGetTaskOutput(object):
         'packages_num': 'PackagesNum',
         'packages_size': 'PackagesSize',
         'protocol_type': 'ProtocolType',
-        'timeout': 'Timeout',
-        'common_types_protocol_type': 'common_types.ProtocolType'
+        'timeout': 'Timeout'
     }
 
-    def __init__(self, connect_timeout=None, enable_divide_package=None, execute_interval=None, packages_num=None, packages_size=None, protocol_type=None, timeout=None, common_types_protocol_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, connect_timeout=None, enable_divide_package=None, execute_interval=None, packages_num=None, packages_size=None, protocol_type=None, timeout=None, _configuration=None):  # noqa: E501
         """PingConfigForGetTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,7 +65,6 @@ class PingConfigForGetTaskOutput(object):
         self._packages_size = None
         self._protocol_type = None
         self._timeout = None
-        self._common_types_protocol_type = None
         self.discriminator = None
 
         if connect_timeout is not None:
@@ -84,8 +81,6 @@ class PingConfigForGetTaskOutput(object):
             self.protocol_type = protocol_type
         if timeout is not None:
             self.timeout = timeout
-        if common_types_protocol_type is not None:
-            self.common_types_protocol_type = common_types_protocol_type
 
     @property
     def connect_timeout(self):
@@ -233,27 +228,6 @@ class PingConfigForGetTaskOutput(object):
         """
 
         self._timeout = timeout
-
-    @property
-    def common_types_protocol_type(self):
-        """Gets the common_types_protocol_type of this PingConfigForGetTaskOutput.  # noqa: E501
-
-
-        :return: The common_types_protocol_type of this PingConfigForGetTaskOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._common_types_protocol_type
-
-    @common_types_protocol_type.setter
-    def common_types_protocol_type(self, common_types_protocol_type):
-        """Sets the common_types_protocol_type of this PingConfigForGetTaskOutput.
-
-
-        :param common_types_protocol_type: The common_types_protocol_type of this PingConfigForGetTaskOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._common_types_protocol_type = common_types_protocol_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

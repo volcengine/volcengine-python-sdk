@@ -47,7 +47,7 @@ class GetTaskResultRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'start_time': 'StartTime',
-        'task_id': 'TaskID'
+        'task_id': 'TaskId'
     }
 
     def __init__(self, end_time=None, page_num=None, page_size=None, project_name=None, start_time=None, task_id=None, _configuration=None):  # noqa: E501

@@ -33,7 +33,7 @@ class DiagnoseConfigForGetTaskOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'dns_config': 'DNSConfigForGetTaskOutput',
+        'dns_config': 'DnsConfigForGetTaskOutput',
         'method_list': 'list[int]',
         'mtr_config': 'MtrConfigForGetTaskOutput',
         'pcap_status': 'int',
@@ -41,7 +41,7 @@ class DiagnoseConfigForGetTaskOutput(object):
     }
 
     attribute_map = {
-        'dns_config': 'DNSConfig',
+        'dns_config': 'DnsConfig',
         'method_list': 'MethodList',
         'mtr_config': 'MtrConfig',
         'pcap_status': 'PcapStatus',
@@ -78,7 +78,7 @@ class DiagnoseConfigForGetTaskOutput(object):
 
 
         :return: The dns_config of this DiagnoseConfigForGetTaskOutput.  # noqa: E501
-        :rtype: DNSConfigForGetTaskOutput
+        :rtype: DnsConfigForGetTaskOutput
         """
         return self._dns_config
 
@@ -88,7 +88,7 @@ class DiagnoseConfigForGetTaskOutput(object):
 
 
         :param dns_config: The dns_config of this DiagnoseConfigForGetTaskOutput.  # noqa: E501
-        :type: DNSConfigForGetTaskOutput
+        :type: DnsConfigForGetTaskOutput
         """
 
         self._dns_config = dns_config
