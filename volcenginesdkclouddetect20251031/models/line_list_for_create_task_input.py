@@ -39,7 +39,7 @@ class LineListForCreateTaskInput(object):
     }
 
     attribute_map = {
-        'id': 'ID',
+        'id': 'Id',
         'name': 'Name',
         'node_count': 'NodeCount'
     }
