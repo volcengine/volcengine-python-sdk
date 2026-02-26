@@ -42,6 +42,7 @@ class CreateDBInstanceRequest(object):
         'engine_version': 'str',
         'instance_name': 'str',
         'instance_type': 'str',
+        'maintenance_window': 'MaintenanceWindowForCreateDBInstanceInput',
         'master_spec': 'str',
         'multi_az': 'bool',
         'project_name': 'str',
@@ -67,6 +68,7 @@ class CreateDBInstanceRequest(object):
         'engine_version': 'EngineVersion',
         'instance_name': 'InstanceName',
         'instance_type': 'InstanceType',
+        'maintenance_window': 'MaintenanceWindow',
         'master_spec': 'MasterSpec',
         'multi_az': 'MultiAZ',
         'project_name': 'ProjectName',
@@ -82,7 +84,7 @@ class CreateDBInstanceRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, cold_storage=None, deletion_protection=None, enable_auth=None, enable_cloud_storage=None, engine_version=None, instance_name=None, instance_type=None, master_spec=None, multi_az=None, project_name=None, purchase_months=None, rs_count=None, rs_spec=None, region_id=None, storage_capacity=None, storage_type=None, subnet_id=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, cold_storage=None, deletion_protection=None, enable_auth=None, enable_cloud_storage=None, engine_version=None, instance_name=None, instance_type=None, maintenance_window=None, master_spec=None, multi_az=None, project_name=None, purchase_months=None, rs_count=None, rs_spec=None, region_id=None, storage_capacity=None, storage_type=None, subnet_id=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +99,7 @@ class CreateDBInstanceRequest(object):
         self._engine_version = None
         self._instance_name = None
         self._instance_type = None
+        self._maintenance_window = None
         self._master_spec = None
         self._multi_az = None
         self._project_name = None
@@ -128,6 +131,8 @@ class CreateDBInstanceRequest(object):
             self.instance_name = instance_name
         if instance_type is not None:
             self.instance_type = instance_type
+        if maintenance_window is not None:
+            self.maintenance_window = maintenance_window
         self.master_spec = master_spec
         if multi_az is not None:
             self.multi_az = multi_az
@@ -339,6 +344,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def maintenance_window(self):
+        """Gets the maintenance_window of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The maintenance_window of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: MaintenanceWindowForCreateDBInstanceInput
+        """
+        return self._maintenance_window
+
+    @maintenance_window.setter
+    def maintenance_window(self, maintenance_window):
+        """Sets the maintenance_window of this CreateDBInstanceRequest.
+
+
+        :param maintenance_window: The maintenance_window of this CreateDBInstanceRequest.  # noqa: E501
+        :type: MaintenanceWindowForCreateDBInstanceInput
+        """
+
+        self._maintenance_window = maintenance_window
 
     @property
     def master_spec(self):
