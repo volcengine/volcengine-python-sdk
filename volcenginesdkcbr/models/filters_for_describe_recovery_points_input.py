@@ -179,6 +179,13 @@ class FiltersForDescribeRecoveryPointsInput(object):
         :param resource_type: The resource_type of this FiltersForDescribeRecoveryPointsInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ECS", "vePFS"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                resource_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `resource_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(resource_type, allowed_values)
+            )
 
         self._resource_type = resource_type
 
@@ -200,6 +207,13 @@ class FiltersForDescribeRecoveryPointsInput(object):
         :param status: The status of this FiltersForDescribeRecoveryPointsInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["AVAILABLE", "DELETING", "BEING_BACKUP", "RECOVERING", "ERROR", "WAITING"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
 
         self._status = status
 

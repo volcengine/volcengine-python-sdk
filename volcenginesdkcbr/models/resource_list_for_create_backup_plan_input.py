@@ -33,55 +33,55 @@ class ResourceListForCreateBackupPlanInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'meta_information': 'MetaInformationForCreateBackupPlanInput',
+        'backup_options': 'str',
         'resource_id': 'str',
         'resource_type': 'str'
     }
 
     attribute_map = {
-        'meta_information': 'MetaInformation',
+        'backup_options': 'BackupOptions',
         'resource_id': 'ResourceId',
         'resource_type': 'ResourceType'
     }
 
-    def __init__(self, meta_information=None, resource_id=None, resource_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_options=None, resource_id=None, resource_type=None, _configuration=None):  # noqa: E501
         """ResourceListForCreateBackupPlanInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._meta_information = None
+        self._backup_options = None
         self._resource_id = None
         self._resource_type = None
         self.discriminator = None
 
-        if meta_information is not None:
-            self.meta_information = meta_information
+        if backup_options is not None:
+            self.backup_options = backup_options
         if resource_id is not None:
             self.resource_id = resource_id
         if resource_type is not None:
             self.resource_type = resource_type
 
     @property
-    def meta_information(self):
-        """Gets the meta_information of this ResourceListForCreateBackupPlanInput.  # noqa: E501
+    def backup_options(self):
+        """Gets the backup_options of this ResourceListForCreateBackupPlanInput.  # noqa: E501
 
 
-        :return: The meta_information of this ResourceListForCreateBackupPlanInput.  # noqa: E501
-        :rtype: MetaInformationForCreateBackupPlanInput
+        :return: The backup_options of this ResourceListForCreateBackupPlanInput.  # noqa: E501
+        :rtype: str
         """
-        return self._meta_information
+        return self._backup_options
 
-    @meta_information.setter
-    def meta_information(self, meta_information):
-        """Sets the meta_information of this ResourceListForCreateBackupPlanInput.
+    @backup_options.setter
+    def backup_options(self, backup_options):
+        """Sets the backup_options of this ResourceListForCreateBackupPlanInput.
 
 
-        :param meta_information: The meta_information of this ResourceListForCreateBackupPlanInput.  # noqa: E501
-        :type: MetaInformationForCreateBackupPlanInput
+        :param backup_options: The backup_options of this ResourceListForCreateBackupPlanInput.  # noqa: E501
+        :type: str
         """
 
-        self._meta_information = meta_information
+        self._backup_options = backup_options
 
     @property
     def resource_id(self):
@@ -122,6 +122,13 @@ class ResourceListForCreateBackupPlanInput(object):
         :param resource_type: The resource_type of this ResourceListForCreateBackupPlanInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ECS", "vePFS"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                resource_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `resource_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(resource_type, allowed_values)
+            )
 
         self._resource_type = resource_type
 

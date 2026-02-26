@@ -33,8 +33,8 @@ class DownloadDetailForGetTaskResultOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'dns_cost': 'int',
         'diagnose_detail': 'DiagnoseDetailForGetTaskResultOutput',
+        'dns_cost': 'int',
         'download_size': 'int',
         'download_speed': 'int',
         'http_code': 'int',
@@ -58,23 +58,23 @@ class DownloadDetailForGetTaskResultOutput(object):
     }
 
     attribute_map = {
-        'dns_cost': 'DNSCost',
         'diagnose_detail': 'DiagnoseDetail',
+        'dns_cost': 'DnsCost',
         'download_size': 'DownloadSize',
         'download_speed': 'DownloadSpeed',
-        'http_code': 'HTTPCode',
-        'http_request_header': 'HTTPRequestHeader',
-        'http_response_body': 'HTTPResponseBody',
-        'http_response_header': 'HTTPResponseHeader',
-        'http_version': 'HTTPVersion',
+        'http_code': 'HttpCode',
+        'http_request_header': 'HttpRequestHeader',
+        'http_response_body': 'HttpResponseBody',
+        'http_response_header': 'HttpResponseHeader',
+        'http_version': 'HttpVersion',
         'location_detail': 'LocationDetail',
-        'pcap_uri': 'PcapURI',
+        'pcap_uri': 'PcapUri',
         'recv_cost': 'RecvCost',
         'redirect_cost': 'RedirectCost',
         'redirect_nums': 'RedirectNums',
         'send_cost': 'SendCost',
         'ssl_cost': 'SslCost',
-        'tcp_cost': 'TCPCost',
+        'tcp_cost': 'TcpCost',
         'total_cost': 'TotalCost',
         'ttfb_cost': 'TtfbCost',
         'upload_size': 'UploadSize',
@@ -82,14 +82,14 @@ class DownloadDetailForGetTaskResultOutput(object):
         'upload_time': 'UploadTime'
     }
 
-    def __init__(self, dns_cost=None, diagnose_detail=None, download_size=None, download_speed=None, http_code=None, http_request_header=None, http_response_body=None, http_response_header=None, http_version=None, location_detail=None, pcap_uri=None, recv_cost=None, redirect_cost=None, redirect_nums=None, send_cost=None, ssl_cost=None, tcp_cost=None, total_cost=None, ttfb_cost=None, upload_size=None, upload_speed=None, upload_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, diagnose_detail=None, dns_cost=None, download_size=None, download_speed=None, http_code=None, http_request_header=None, http_response_body=None, http_response_header=None, http_version=None, location_detail=None, pcap_uri=None, recv_cost=None, redirect_cost=None, redirect_nums=None, send_cost=None, ssl_cost=None, tcp_cost=None, total_cost=None, ttfb_cost=None, upload_size=None, upload_speed=None, upload_time=None, _configuration=None):  # noqa: E501
         """DownloadDetailForGetTaskResultOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._dns_cost = None
         self._diagnose_detail = None
+        self._dns_cost = None
         self._download_size = None
         self._download_speed = None
         self._http_code = None
@@ -112,10 +112,10 @@ class DownloadDetailForGetTaskResultOutput(object):
         self._upload_time = None
         self.discriminator = None
 
-        if dns_cost is not None:
-            self.dns_cost = dns_cost
         if diagnose_detail is not None:
             self.diagnose_detail = diagnose_detail
+        if dns_cost is not None:
+            self.dns_cost = dns_cost
         if download_size is not None:
             self.download_size = download_size
         if download_speed is not None:
@@ -158,27 +158,6 @@ class DownloadDetailForGetTaskResultOutput(object):
             self.upload_time = upload_time
 
     @property
-    def dns_cost(self):
-        """Gets the dns_cost of this DownloadDetailForGetTaskResultOutput.  # noqa: E501
-
-
-        :return: The dns_cost of this DownloadDetailForGetTaskResultOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._dns_cost
-
-    @dns_cost.setter
-    def dns_cost(self, dns_cost):
-        """Sets the dns_cost of this DownloadDetailForGetTaskResultOutput.
-
-
-        :param dns_cost: The dns_cost of this DownloadDetailForGetTaskResultOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._dns_cost = dns_cost
-
-    @property
     def diagnose_detail(self):
         """Gets the diagnose_detail of this DownloadDetailForGetTaskResultOutput.  # noqa: E501
 
@@ -198,6 +177,27 @@ class DownloadDetailForGetTaskResultOutput(object):
         """
 
         self._diagnose_detail = diagnose_detail
+
+    @property
+    def dns_cost(self):
+        """Gets the dns_cost of this DownloadDetailForGetTaskResultOutput.  # noqa: E501
+
+
+        :return: The dns_cost of this DownloadDetailForGetTaskResultOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._dns_cost
+
+    @dns_cost.setter
+    def dns_cost(self, dns_cost):
+        """Sets the dns_cost of this DownloadDetailForGetTaskResultOutput.
+
+
+        :param dns_cost: The dns_cost of this DownloadDetailForGetTaskResultOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._dns_cost = dns_cost
 
     @property
     def download_size(self):
