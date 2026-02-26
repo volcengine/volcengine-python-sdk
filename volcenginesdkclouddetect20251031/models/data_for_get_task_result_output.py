@@ -34,31 +34,31 @@ class DataForGetTaskResultOutput(object):
     """
     swagger_types = {
         'basic_detail': 'BasicDetailForGetTaskResultOutput',
-        'dns_detail': 'DNSDetailForGetTaskResultOutput',
+        'dns_detail': 'DnsDetailForGetTaskResultOutput',
         'download_detail': 'DownloadDetailForGetTaskResultOutput',
-        'http_detail': 'HTTPDetailForGetTaskResultOutput',
+        'http_detail': 'HttpDetailForGetTaskResultOutput',
         'page_detail': 'PageDetailForGetTaskResultOutput',
         'ping_detail': 'PingDetailForGetTaskResultOutput',
-        'tcp_detail': 'TCPDetailForGetTaskResultOutput',
         'task_id': 'int',
-        'udp_detail': 'UDPDetailForGetTaskResultOutput',
+        'tcp_detail': 'TcpDetailForGetTaskResultOutput',
+        'udp_detail': 'UdpDetailForGetTaskResultOutput',
         'upload_detail': 'UploadDetailForGetTaskResultOutput'
     }
 
     attribute_map = {
         'basic_detail': 'BasicDetail',
-        'dns_detail': 'DNSDetail',
+        'dns_detail': 'DnsDetail',
         'download_detail': 'DownloadDetail',
-        'http_detail': 'HTTPDetail',
+        'http_detail': 'HttpDetail',
         'page_detail': 'PageDetail',
         'ping_detail': 'PingDetail',
-        'tcp_detail': 'TCPDetail',
-        'task_id': 'TaskID',
-        'udp_detail': 'UDPDetail',
+        'task_id': 'TaskId',
+        'tcp_detail': 'TcpDetail',
+        'udp_detail': 'UdpDetail',
         'upload_detail': 'UploadDetail'
     }
 
-    def __init__(self, basic_detail=None, dns_detail=None, download_detail=None, http_detail=None, page_detail=None, ping_detail=None, tcp_detail=None, task_id=None, udp_detail=None, upload_detail=None, _configuration=None):  # noqa: E501
+    def __init__(self, basic_detail=None, dns_detail=None, download_detail=None, http_detail=None, page_detail=None, ping_detail=None, task_id=None, tcp_detail=None, udp_detail=None, upload_detail=None, _configuration=None):  # noqa: E501
         """DataForGetTaskResultOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,8 +70,8 @@ class DataForGetTaskResultOutput(object):
         self._http_detail = None
         self._page_detail = None
         self._ping_detail = None
-        self._tcp_detail = None
         self._task_id = None
+        self._tcp_detail = None
         self._udp_detail = None
         self._upload_detail = None
         self.discriminator = None
@@ -88,10 +88,10 @@ class DataForGetTaskResultOutput(object):
             self.page_detail = page_detail
         if ping_detail is not None:
             self.ping_detail = ping_detail
-        if tcp_detail is not None:
-            self.tcp_detail = tcp_detail
         if task_id is not None:
             self.task_id = task_id
+        if tcp_detail is not None:
+            self.tcp_detail = tcp_detail
         if udp_detail is not None:
             self.udp_detail = udp_detail
         if upload_detail is not None:
@@ -124,7 +124,7 @@ class DataForGetTaskResultOutput(object):
 
 
         :return: The dns_detail of this DataForGetTaskResultOutput.  # noqa: E501
-        :rtype: DNSDetailForGetTaskResultOutput
+        :rtype: DnsDetailForGetTaskResultOutput
         """
         return self._dns_detail
 
@@ -134,7 +134,7 @@ class DataForGetTaskResultOutput(object):
 
 
         :param dns_detail: The dns_detail of this DataForGetTaskResultOutput.  # noqa: E501
-        :type: DNSDetailForGetTaskResultOutput
+        :type: DnsDetailForGetTaskResultOutput
         """
 
         self._dns_detail = dns_detail
@@ -166,7 +166,7 @@ class DataForGetTaskResultOutput(object):
 
 
         :return: The http_detail of this DataForGetTaskResultOutput.  # noqa: E501
-        :rtype: HTTPDetailForGetTaskResultOutput
+        :rtype: HttpDetailForGetTaskResultOutput
         """
         return self._http_detail
 
@@ -176,7 +176,7 @@ class DataForGetTaskResultOutput(object):
 
 
         :param http_detail: The http_detail of this DataForGetTaskResultOutput.  # noqa: E501
-        :type: HTTPDetailForGetTaskResultOutput
+        :type: HttpDetailForGetTaskResultOutput
         """
 
         self._http_detail = http_detail
@@ -224,27 +224,6 @@ class DataForGetTaskResultOutput(object):
         self._ping_detail = ping_detail
 
     @property
-    def tcp_detail(self):
-        """Gets the tcp_detail of this DataForGetTaskResultOutput.  # noqa: E501
-
-
-        :return: The tcp_detail of this DataForGetTaskResultOutput.  # noqa: E501
-        :rtype: TCPDetailForGetTaskResultOutput
-        """
-        return self._tcp_detail
-
-    @tcp_detail.setter
-    def tcp_detail(self, tcp_detail):
-        """Sets the tcp_detail of this DataForGetTaskResultOutput.
-
-
-        :param tcp_detail: The tcp_detail of this DataForGetTaskResultOutput.  # noqa: E501
-        :type: TCPDetailForGetTaskResultOutput
-        """
-
-        self._tcp_detail = tcp_detail
-
-    @property
     def task_id(self):
         """Gets the task_id of this DataForGetTaskResultOutput.  # noqa: E501
 
@@ -266,12 +245,33 @@ class DataForGetTaskResultOutput(object):
         self._task_id = task_id
 
     @property
+    def tcp_detail(self):
+        """Gets the tcp_detail of this DataForGetTaskResultOutput.  # noqa: E501
+
+
+        :return: The tcp_detail of this DataForGetTaskResultOutput.  # noqa: E501
+        :rtype: TcpDetailForGetTaskResultOutput
+        """
+        return self._tcp_detail
+
+    @tcp_detail.setter
+    def tcp_detail(self, tcp_detail):
+        """Sets the tcp_detail of this DataForGetTaskResultOutput.
+
+
+        :param tcp_detail: The tcp_detail of this DataForGetTaskResultOutput.  # noqa: E501
+        :type: TcpDetailForGetTaskResultOutput
+        """
+
+        self._tcp_detail = tcp_detail
+
+    @property
     def udp_detail(self):
         """Gets the udp_detail of this DataForGetTaskResultOutput.  # noqa: E501
 
 
         :return: The udp_detail of this DataForGetTaskResultOutput.  # noqa: E501
-        :rtype: UDPDetailForGetTaskResultOutput
+        :rtype: UdpDetailForGetTaskResultOutput
         """
         return self._udp_detail
 
@@ -281,7 +281,7 @@ class DataForGetTaskResultOutput(object):
 
 
         :param udp_detail: The udp_detail of this DataForGetTaskResultOutput.  # noqa: E501
-        :type: UDPDetailForGetTaskResultOutput
+        :type: UdpDetailForGetTaskResultOutput
         """
 
         self._udp_detail = udp_detail
