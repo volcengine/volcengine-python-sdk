@@ -37,9 +37,7 @@ class CreateBackupPolicyRequest(object):
         'crontab': 'str',
         'enable_policy': 'bool',
         'name': 'str',
-        'retention_day': 'int',
-        'retention_num_max': 'int',
-        'retention_num_min': 'int'
+        'retention_day': 'int'
     }
 
     attribute_map = {
@@ -47,12 +45,10 @@ class CreateBackupPolicyRequest(object):
         'crontab': 'Crontab',
         'enable_policy': 'EnablePolicy',
         'name': 'Name',
-        'retention_day': 'RetentionDay',
-        'retention_num_max': 'RetentionNumMax',
-        'retention_num_min': 'RetentionNumMin'
+        'retention_day': 'RetentionDay'
     }
 
-    def __init__(self, backup_type=None, crontab=None, enable_policy=None, name=None, retention_day=None, retention_num_max=None, retention_num_min=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_type=None, crontab=None, enable_policy=None, name=None, retention_day=None, _configuration=None):  # noqa: E501
         """CreateBackupPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,8 +59,6 @@ class CreateBackupPolicyRequest(object):
         self._enable_policy = None
         self._name = None
         self._retention_day = None
-        self._retention_num_max = None
-        self._retention_num_min = None
         self.discriminator = None
 
         self.backup_type = backup_type
@@ -72,8 +66,6 @@ class CreateBackupPolicyRequest(object):
         self.enable_policy = enable_policy
         self.name = name
         self.retention_day = retention_day
-        self.retention_num_max = retention_num_max
-        self.retention_num_min = retention_num_min
 
     @property
     def backup_type(self):
@@ -196,52 +188,6 @@ class CreateBackupPolicyRequest(object):
             raise ValueError("Invalid value for `retention_day`, must not be `None`")  # noqa: E501
 
         self._retention_day = retention_day
-
-    @property
-    def retention_num_max(self):
-        """Gets the retention_num_max of this CreateBackupPolicyRequest.  # noqa: E501
-
-
-        :return: The retention_num_max of this CreateBackupPolicyRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._retention_num_max
-
-    @retention_num_max.setter
-    def retention_num_max(self, retention_num_max):
-        """Sets the retention_num_max of this CreateBackupPolicyRequest.
-
-
-        :param retention_num_max: The retention_num_max of this CreateBackupPolicyRequest.  # noqa: E501
-        :type: int
-        """
-        if self._configuration.client_side_validation and retention_num_max is None:
-            raise ValueError("Invalid value for `retention_num_max`, must not be `None`")  # noqa: E501
-
-        self._retention_num_max = retention_num_max
-
-    @property
-    def retention_num_min(self):
-        """Gets the retention_num_min of this CreateBackupPolicyRequest.  # noqa: E501
-
-
-        :return: The retention_num_min of this CreateBackupPolicyRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._retention_num_min
-
-    @retention_num_min.setter
-    def retention_num_min(self, retention_num_min):
-        """Sets the retention_num_min of this CreateBackupPolicyRequest.
-
-
-        :param retention_num_min: The retention_num_min of this CreateBackupPolicyRequest.  # noqa: E501
-        :type: int
-        """
-        if self._configuration.client_side_validation and retention_num_min is None:
-            raise ValueError("Invalid value for `retention_num_min`, must not be `None`")  # noqa: E501
-
-        self._retention_num_min = retention_num_min
 
     def to_dict(self):
         """Returns the model properties as a dict"""
