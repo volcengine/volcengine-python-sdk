@@ -34,6 +34,7 @@ class GetResourceOauth2TokenRequest(object):
     """
     swagger_types = {
         'custom_parameters': 'CustomParametersForGetResourceOauth2TokenInput',
+        'custom_state': 'str',
         'flow': 'str',
         'force_authentication': 'bool',
         'identity_token': 'str',
@@ -41,11 +42,13 @@ class GetResourceOauth2TokenRequest(object):
         'provider_name': 'str',
         'redirect_url': 'str',
         'resource_oauth2_return_url': 'str',
-        'scopes': 'list[str]'
+        'scopes': 'list[str]',
+        'session_uri': 'str'
     }
 
     attribute_map = {
         'custom_parameters': 'CustomParameters',
+        'custom_state': 'CustomState',
         'flow': 'Flow',
         'force_authentication': 'ForceAuthentication',
         'identity_token': 'IdentityToken',
@@ -53,16 +56,18 @@ class GetResourceOauth2TokenRequest(object):
         'provider_name': 'ProviderName',
         'redirect_url': 'RedirectUrl',
         'resource_oauth2_return_url': 'ResourceOauth2ReturnUrl',
-        'scopes': 'Scopes'
+        'scopes': 'Scopes',
+        'session_uri': 'SessionUri'
     }
 
-    def __init__(self, custom_parameters=None, flow=None, force_authentication=None, identity_token=None, pool_name=None, provider_name=None, redirect_url=None, resource_oauth2_return_url=None, scopes=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_parameters=None, custom_state=None, flow=None, force_authentication=None, identity_token=None, pool_name=None, provider_name=None, redirect_url=None, resource_oauth2_return_url=None, scopes=None, session_uri=None, _configuration=None):  # noqa: E501
         """GetResourceOauth2TokenRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._custom_parameters = None
+        self._custom_state = None
         self._flow = None
         self._force_authentication = None
         self._identity_token = None
@@ -71,10 +76,13 @@ class GetResourceOauth2TokenRequest(object):
         self._redirect_url = None
         self._resource_oauth2_return_url = None
         self._scopes = None
+        self._session_uri = None
         self.discriminator = None
 
         if custom_parameters is not None:
             self.custom_parameters = custom_parameters
+        if custom_state is not None:
+            self.custom_state = custom_state
         if flow is not None:
             self.flow = flow
         if force_authentication is not None:
@@ -89,6 +97,8 @@ class GetResourceOauth2TokenRequest(object):
             self.resource_oauth2_return_url = resource_oauth2_return_url
         if scopes is not None:
             self.scopes = scopes
+        if session_uri is not None:
+            self.session_uri = session_uri
 
     @property
     def custom_parameters(self):
@@ -110,6 +120,27 @@ class GetResourceOauth2TokenRequest(object):
         """
 
         self._custom_parameters = custom_parameters
+
+    @property
+    def custom_state(self):
+        """Gets the custom_state of this GetResourceOauth2TokenRequest.  # noqa: E501
+
+
+        :return: The custom_state of this GetResourceOauth2TokenRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_state
+
+    @custom_state.setter
+    def custom_state(self, custom_state):
+        """Sets the custom_state of this GetResourceOauth2TokenRequest.
+
+
+        :param custom_state: The custom_state of this GetResourceOauth2TokenRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_state = custom_state
 
     @property
     def flow(self):
@@ -282,6 +313,27 @@ class GetResourceOauth2TokenRequest(object):
         """
 
         self._scopes = scopes
+
+    @property
+    def session_uri(self):
+        """Gets the session_uri of this GetResourceOauth2TokenRequest.  # noqa: E501
+
+
+        :return: The session_uri of this GetResourceOauth2TokenRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._session_uri
+
+    @session_uri.setter
+    def session_uri(self, session_uri):
+        """Sets the session_uri of this GetResourceOauth2TokenRequest.
+
+
+        :param session_uri: The session_uri of this GetResourceOauth2TokenRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._session_uri = session_uri
 
     def to_dict(self):
         """Returns the model properties as a dict"""

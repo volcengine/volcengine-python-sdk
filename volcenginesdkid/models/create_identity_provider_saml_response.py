@@ -35,12 +35,14 @@ class CreateIdentityProviderSAMLResponse(object):
     swagger_types = {
         'attribute_mapping': 'str',
         'certificate': 'str',
+        'claims_propagation_config': 'ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput',
         'enabled': 'bool',
         'enabled_encryption': 'bool',
         'enabled_sign': 'bool',
         'id_attribute': 'str',
         'idp_metadata': 'str',
         'name': 'str',
+        'provider': 'str',
         'provider_options': 'ProviderOptionsForCreateIdentityProviderSAMLOutput',
         'uid': 'str'
     }
@@ -48,17 +50,19 @@ class CreateIdentityProviderSAMLResponse(object):
     attribute_map = {
         'attribute_mapping': 'AttributeMapping',
         'certificate': 'Certificate',
+        'claims_propagation_config': 'ClaimsPropagationConfig',
         'enabled': 'Enabled',
         'enabled_encryption': 'EnabledEncryption',
         'enabled_sign': 'EnabledSign',
         'id_attribute': 'IdAttribute',
         'idp_metadata': 'IdpMetadata',
         'name': 'Name',
+        'provider': 'Provider',
         'provider_options': 'ProviderOptions',
         'uid': 'Uid'
     }
 
-    def __init__(self, attribute_mapping=None, certificate=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider_options=None, uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mapping=None, certificate=None, claims_propagation_config=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider=None, provider_options=None, uid=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderSAMLResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,12 +70,14 @@ class CreateIdentityProviderSAMLResponse(object):
 
         self._attribute_mapping = None
         self._certificate = None
+        self._claims_propagation_config = None
         self._enabled = None
         self._enabled_encryption = None
         self._enabled_sign = None
         self._id_attribute = None
         self._idp_metadata = None
         self._name = None
+        self._provider = None
         self._provider_options = None
         self._uid = None
         self.discriminator = None
@@ -80,6 +86,8 @@ class CreateIdentityProviderSAMLResponse(object):
             self.attribute_mapping = attribute_mapping
         if certificate is not None:
             self.certificate = certificate
+        if claims_propagation_config is not None:
+            self.claims_propagation_config = claims_propagation_config
         if enabled is not None:
             self.enabled = enabled
         if enabled_encryption is not None:
@@ -92,6 +100,8 @@ class CreateIdentityProviderSAMLResponse(object):
             self.idp_metadata = idp_metadata
         if name is not None:
             self.name = name
+        if provider is not None:
+            self.provider = provider
         if provider_options is not None:
             self.provider_options = provider_options
         if uid is not None:
@@ -138,6 +148,27 @@ class CreateIdentityProviderSAMLResponse(object):
         """
 
         self._certificate = certificate
+
+    @property
+    def claims_propagation_config(self):
+        """Gets the claims_propagation_config of this CreateIdentityProviderSAMLResponse.  # noqa: E501
+
+
+        :return: The claims_propagation_config of this CreateIdentityProviderSAMLResponse.  # noqa: E501
+        :rtype: ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput
+        """
+        return self._claims_propagation_config
+
+    @claims_propagation_config.setter
+    def claims_propagation_config(self, claims_propagation_config):
+        """Sets the claims_propagation_config of this CreateIdentityProviderSAMLResponse.
+
+
+        :param claims_propagation_config: The claims_propagation_config of this CreateIdentityProviderSAMLResponse.  # noqa: E501
+        :type: ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput
+        """
+
+        self._claims_propagation_config = claims_propagation_config
 
     @property
     def enabled(self):
@@ -264,6 +295,27 @@ class CreateIdentityProviderSAMLResponse(object):
         """
 
         self._name = name
+
+    @property
+    def provider(self):
+        """Gets the provider of this CreateIdentityProviderSAMLResponse.  # noqa: E501
+
+
+        :return: The provider of this CreateIdentityProviderSAMLResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._provider
+
+    @provider.setter
+    def provider(self, provider):
+        """Sets the provider of this CreateIdentityProviderSAMLResponse.
+
+
+        :param provider: The provider of this CreateIdentityProviderSAMLResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._provider = provider
 
     @property
     def provider_options(self):

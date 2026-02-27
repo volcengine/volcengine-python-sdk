@@ -39,6 +39,7 @@ class ConfigForUpdateOauth2CredentialProviderInput(object):
         'flow': 'str',
         'force_authentication': 'bool',
         'max_expires': 'int',
+        'metadata': 'str',
         'oauth2_discovery': 'Oauth2DiscoveryForUpdateOauth2CredentialProviderInput',
         'redirect_url': 'str',
         'scopes': 'list[str]'
@@ -51,12 +52,13 @@ class ConfigForUpdateOauth2CredentialProviderInput(object):
         'flow': 'Flow',
         'force_authentication': 'ForceAuthentication',
         'max_expires': 'MaxExpires',
+        'metadata': 'Metadata',
         'oauth2_discovery': 'Oauth2Discovery',
         'redirect_url': 'RedirectUrl',
         'scopes': 'Scopes'
     }
 
-    def __init__(self, client_id=None, client_secret=None, custom_parameters=None, flow=None, force_authentication=None, max_expires=None, oauth2_discovery=None, redirect_url=None, scopes=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_id=None, client_secret=None, custom_parameters=None, flow=None, force_authentication=None, max_expires=None, metadata=None, oauth2_discovery=None, redirect_url=None, scopes=None, _configuration=None):  # noqa: E501
         """ConfigForUpdateOauth2CredentialProviderInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class ConfigForUpdateOauth2CredentialProviderInput(object):
         self._flow = None
         self._force_authentication = None
         self._max_expires = None
+        self._metadata = None
         self._oauth2_discovery = None
         self._redirect_url = None
         self._scopes = None
@@ -85,6 +88,8 @@ class ConfigForUpdateOauth2CredentialProviderInput(object):
             self.force_authentication = force_authentication
         if max_expires is not None:
             self.max_expires = max_expires
+        if metadata is not None:
+            self.metadata = metadata
         if oauth2_discovery is not None:
             self.oauth2_discovery = oauth2_discovery
         if redirect_url is not None:
@@ -173,6 +178,13 @@ class ConfigForUpdateOauth2CredentialProviderInput(object):
         :param flow: The flow of this ConfigForUpdateOauth2CredentialProviderInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["USER_FEDERATION", "M2M"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                flow not in allowed_values):
+            raise ValueError(
+                "Invalid value for `flow` ({0}), must be one of {1}"  # noqa: E501
+                .format(flow, allowed_values)
+            )
 
         self._flow = flow
 
@@ -217,6 +229,27 @@ class ConfigForUpdateOauth2CredentialProviderInput(object):
         """
 
         self._max_expires = max_expires
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this ConfigForUpdateOauth2CredentialProviderInput.  # noqa: E501
+
+
+        :return: The metadata of this ConfigForUpdateOauth2CredentialProviderInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this ConfigForUpdateOauth2CredentialProviderInput.
+
+
+        :param metadata: The metadata of this ConfigForUpdateOauth2CredentialProviderInput.  # noqa: E501
+        :type: str
+        """
+
+        self._metadata = metadata
 
     @property
     def oauth2_discovery(self):

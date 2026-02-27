@@ -39,6 +39,7 @@ class UpdateUserPoolClientRequest(object):
         'allowed_web_origins': 'list[str]',
         'client_uid': 'str',
         'description': 'str',
+        'development_mode_enabled': 'bool',
         'id_token': 'IdTokenForUpdateUserPoolClientInput',
         'logo_uri': 'str',
         'name': 'str',
@@ -53,6 +54,7 @@ class UpdateUserPoolClientRequest(object):
         'allowed_web_origins': 'AllowedWebOrigins',
         'client_uid': 'ClientUid',
         'description': 'Description',
+        'development_mode_enabled': 'DevelopmentModeEnabled',
         'id_token': 'IdToken',
         'logo_uri': 'LogoUri',
         'name': 'Name',
@@ -60,7 +62,7 @@ class UpdateUserPoolClientRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_uid=None, description=None, id_token=None, logo_uri=None, name=None, refresh_token=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_uid=None, description=None, development_mode_enabled=None, id_token=None, logo_uri=None, name=None, refresh_token=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateUserPoolClientRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class UpdateUserPoolClientRequest(object):
         self._allowed_web_origins = None
         self._client_uid = None
         self._description = None
+        self._development_mode_enabled = None
         self._id_token = None
         self._logo_uri = None
         self._name = None
@@ -90,6 +93,8 @@ class UpdateUserPoolClientRequest(object):
         self.client_uid = client_uid
         if description is not None:
             self.description = description
+        if development_mode_enabled is not None:
+            self.development_mode_enabled = development_mode_enabled
         if id_token is not None:
             self.id_token = id_token
         if logo_uri is not None:
@@ -227,6 +232,27 @@ class UpdateUserPoolClientRequest(object):
         """
 
         self._description = description
+
+    @property
+    def development_mode_enabled(self):
+        """Gets the development_mode_enabled of this UpdateUserPoolClientRequest.  # noqa: E501
+
+
+        :return: The development_mode_enabled of this UpdateUserPoolClientRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._development_mode_enabled
+
+    @development_mode_enabled.setter
+    def development_mode_enabled(self, development_mode_enabled):
+        """Sets the development_mode_enabled of this UpdateUserPoolClientRequest.
+
+
+        :param development_mode_enabled: The development_mode_enabled of this UpdateUserPoolClientRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._development_mode_enabled = development_mode_enabled
 
     @property
     def id_token(self):

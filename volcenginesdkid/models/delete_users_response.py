@@ -34,6 +34,7 @@ class DeleteUsersResponse(object):
     """
     swagger_types = {
         'errors': 'list[str]',
+        'errors_structured': 'list[ErrorsStructuredForDeleteUsersOutput]',
         'failure_count': 'int',
         'success_count': 'int',
         'successful_uids': 'list[str]'
@@ -41,18 +42,20 @@ class DeleteUsersResponse(object):
 
     attribute_map = {
         'errors': 'Errors',
+        'errors_structured': 'ErrorsStructured',
         'failure_count': 'FailureCount',
         'success_count': 'SuccessCount',
         'successful_uids': 'SuccessfulUids'
     }
 
-    def __init__(self, errors=None, failure_count=None, success_count=None, successful_uids=None, _configuration=None):  # noqa: E501
+    def __init__(self, errors=None, errors_structured=None, failure_count=None, success_count=None, successful_uids=None, _configuration=None):  # noqa: E501
         """DeleteUsersResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._errors = None
+        self._errors_structured = None
         self._failure_count = None
         self._success_count = None
         self._successful_uids = None
@@ -60,6 +63,8 @@ class DeleteUsersResponse(object):
 
         if errors is not None:
             self.errors = errors
+        if errors_structured is not None:
+            self.errors_structured = errors_structured
         if failure_count is not None:
             self.failure_count = failure_count
         if success_count is not None:
@@ -87,6 +92,27 @@ class DeleteUsersResponse(object):
         """
 
         self._errors = errors
+
+    @property
+    def errors_structured(self):
+        """Gets the errors_structured of this DeleteUsersResponse.  # noqa: E501
+
+
+        :return: The errors_structured of this DeleteUsersResponse.  # noqa: E501
+        :rtype: list[ErrorsStructuredForDeleteUsersOutput]
+        """
+        return self._errors_structured
+
+    @errors_structured.setter
+    def errors_structured(self, errors_structured):
+        """Sets the errors_structured of this DeleteUsersResponse.
+
+
+        :param errors_structured: The errors_structured of this DeleteUsersResponse.  # noqa: E501
+        :type: list[ErrorsStructuredForDeleteUsersOutput]
+        """
+
+        self._errors_structured = errors_structured
 
     @property
     def failure_count(self):

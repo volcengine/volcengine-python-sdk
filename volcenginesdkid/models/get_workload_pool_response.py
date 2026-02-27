@@ -35,8 +35,11 @@ class GetWorkloadPoolResponse(object):
     swagger_types = {
         'created_at': 'str',
         'description': 'str',
+        'discovery_url': 'str',
         'project_name': 'str',
         'tags': 'list[TagForGetWorkloadPoolOutput]',
+        'total_credentials': 'int',
+        'total_workloads': 'int',
         'trn': 'str',
         'updated_at': 'str',
         'workload_pool_id': 'str',
@@ -46,15 +49,18 @@ class GetWorkloadPoolResponse(object):
     attribute_map = {
         'created_at': 'CreatedAt',
         'description': 'Description',
+        'discovery_url': 'DiscoveryUrl',
         'project_name': 'ProjectName',
         'tags': 'Tags',
+        'total_credentials': 'TotalCredentials',
+        'total_workloads': 'TotalWorkloads',
         'trn': 'Trn',
         'updated_at': 'UpdatedAt',
         'workload_pool_id': 'WorkloadPoolId',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, created_at=None, description=None, project_name=None, tags=None, trn=None, updated_at=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, description=None, discovery_url=None, project_name=None, tags=None, total_credentials=None, total_workloads=None, trn=None, updated_at=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """GetWorkloadPoolResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,8 +68,11 @@ class GetWorkloadPoolResponse(object):
 
         self._created_at = None
         self._description = None
+        self._discovery_url = None
         self._project_name = None
         self._tags = None
+        self._total_credentials = None
+        self._total_workloads = None
         self._trn = None
         self._updated_at = None
         self._workload_pool_id = None
@@ -74,10 +83,16 @@ class GetWorkloadPoolResponse(object):
             self.created_at = created_at
         if description is not None:
             self.description = description
+        if discovery_url is not None:
+            self.discovery_url = discovery_url
         if project_name is not None:
             self.project_name = project_name
         if tags is not None:
             self.tags = tags
+        if total_credentials is not None:
+            self.total_credentials = total_credentials
+        if total_workloads is not None:
+            self.total_workloads = total_workloads
         if trn is not None:
             self.trn = trn
         if updated_at is not None:
@@ -130,6 +145,27 @@ class GetWorkloadPoolResponse(object):
         self._description = description
 
     @property
+    def discovery_url(self):
+        """Gets the discovery_url of this GetWorkloadPoolResponse.  # noqa: E501
+
+
+        :return: The discovery_url of this GetWorkloadPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._discovery_url
+
+    @discovery_url.setter
+    def discovery_url(self, discovery_url):
+        """Sets the discovery_url of this GetWorkloadPoolResponse.
+
+
+        :param discovery_url: The discovery_url of this GetWorkloadPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._discovery_url = discovery_url
+
+    @property
     def project_name(self):
         """Gets the project_name of this GetWorkloadPoolResponse.  # noqa: E501
 
@@ -170,6 +206,48 @@ class GetWorkloadPoolResponse(object):
         """
 
         self._tags = tags
+
+    @property
+    def total_credentials(self):
+        """Gets the total_credentials of this GetWorkloadPoolResponse.  # noqa: E501
+
+
+        :return: The total_credentials of this GetWorkloadPoolResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_credentials
+
+    @total_credentials.setter
+    def total_credentials(self, total_credentials):
+        """Sets the total_credentials of this GetWorkloadPoolResponse.
+
+
+        :param total_credentials: The total_credentials of this GetWorkloadPoolResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total_credentials = total_credentials
+
+    @property
+    def total_workloads(self):
+        """Gets the total_workloads of this GetWorkloadPoolResponse.  # noqa: E501
+
+
+        :return: The total_workloads of this GetWorkloadPoolResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_workloads
+
+    @total_workloads.setter
+    def total_workloads(self, total_workloads):
+        """Sets the total_workloads of this GetWorkloadPoolResponse.
+
+
+        :param total_workloads: The total_workloads of this GetWorkloadPoolResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total_workloads = total_workloads
 
     @property
     def trn(self):
