@@ -46,6 +46,7 @@ class ListSplitBillDetailRequest(object):
         'owner_id': 'list[int]',
         'payer_id': 'list[int]',
         'product': 'list[str]',
+        'split_dimension': 'str',
         'split_item_id': 'str'
     }
 
@@ -63,10 +64,11 @@ class ListSplitBillDetailRequest(object):
         'owner_id': 'OwnerID',
         'payer_id': 'PayerID',
         'product': 'Product',
+        'split_dimension': 'SplitDimension',
         'split_item_id': 'SplitItemID'
     }
 
-    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, split_item_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, split_dimension=None, split_item_id=None, _configuration=None):  # noqa: E501
         """ListSplitBillDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +87,7 @@ class ListSplitBillDetailRequest(object):
         self._owner_id = None
         self._payer_id = None
         self._product = None
+        self._split_dimension = None
         self._split_item_id = None
         self.discriminator = None
 
@@ -112,6 +115,8 @@ class ListSplitBillDetailRequest(object):
             self.payer_id = payer_id
         if product is not None:
             self.product = product
+        if split_dimension is not None:
+            self.split_dimension = split_dimension
         if split_item_id is not None:
             self.split_item_id = split_item_id
 
@@ -391,6 +396,27 @@ class ListSplitBillDetailRequest(object):
         """
 
         self._product = product
+
+    @property
+    def split_dimension(self):
+        """Gets the split_dimension of this ListSplitBillDetailRequest.  # noqa: E501
+
+
+        :return: The split_dimension of this ListSplitBillDetailRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._split_dimension
+
+    @split_dimension.setter
+    def split_dimension(self, split_dimension):
+        """Sets the split_dimension of this ListSplitBillDetailRequest.
+
+
+        :param split_dimension: The split_dimension of this ListSplitBillDetailRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._split_dimension = split_dimension
 
     @property
     def split_item_id(self):

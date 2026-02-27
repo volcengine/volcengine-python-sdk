@@ -33,33 +33,69 @@ class BackupDataRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'backup_all': 'bool',
         'description': 'str',
+        'exclude_path_list': 'list[str]',
+        'include_path_list': 'list[str]',
         'pod_id_list': 'list[str]',
         'product_id': 'str'
     }
 
     attribute_map = {
+        'backup_all': 'BackupAll',
         'description': 'Description',
+        'exclude_path_list': 'ExcludePathList',
+        'include_path_list': 'IncludePathList',
         'pod_id_list': 'PodIdList',
         'product_id': 'ProductId'
     }
 
-    def __init__(self, description=None, pod_id_list=None, product_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_all=None, description=None, exclude_path_list=None, include_path_list=None, pod_id_list=None, product_id=None, _configuration=None):  # noqa: E501
         """BackupDataRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._backup_all = None
         self._description = None
+        self._exclude_path_list = None
+        self._include_path_list = None
         self._pod_id_list = None
         self._product_id = None
         self.discriminator = None
 
+        if backup_all is not None:
+            self.backup_all = backup_all
         if description is not None:
             self.description = description
+        if exclude_path_list is not None:
+            self.exclude_path_list = exclude_path_list
+        if include_path_list is not None:
+            self.include_path_list = include_path_list
         if pod_id_list is not None:
             self.pod_id_list = pod_id_list
         self.product_id = product_id
+
+    @property
+    def backup_all(self):
+        """Gets the backup_all of this BackupDataRequest.  # noqa: E501
+
+
+        :return: The backup_all of this BackupDataRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._backup_all
+
+    @backup_all.setter
+    def backup_all(self, backup_all):
+        """Sets the backup_all of this BackupDataRequest.
+
+
+        :param backup_all: The backup_all of this BackupDataRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._backup_all = backup_all
 
     @property
     def description(self):
@@ -81,6 +117,48 @@ class BackupDataRequest(object):
         """
 
         self._description = description
+
+    @property
+    def exclude_path_list(self):
+        """Gets the exclude_path_list of this BackupDataRequest.  # noqa: E501
+
+
+        :return: The exclude_path_list of this BackupDataRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._exclude_path_list
+
+    @exclude_path_list.setter
+    def exclude_path_list(self, exclude_path_list):
+        """Sets the exclude_path_list of this BackupDataRequest.
+
+
+        :param exclude_path_list: The exclude_path_list of this BackupDataRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._exclude_path_list = exclude_path_list
+
+    @property
+    def include_path_list(self):
+        """Gets the include_path_list of this BackupDataRequest.  # noqa: E501
+
+
+        :return: The include_path_list of this BackupDataRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._include_path_list
+
+    @include_path_list.setter
+    def include_path_list(self, include_path_list):
+        """Sets the include_path_list of this BackupDataRequest.
+
+
+        :param include_path_list: The include_path_list of this BackupDataRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._include_path_list = include_path_list
 
     @property
     def pod_id_list(self):

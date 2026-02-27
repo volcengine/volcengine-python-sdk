@@ -33,6 +33,7 @@ class ListObjectGroupsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'alert_template_ids': 'list[str]',
         'ids': 'list[str]',
         'name': 'str',
         'page_number': 'int',
@@ -40,24 +41,28 @@ class ListObjectGroupsRequest(object):
     }
 
     attribute_map = {
+        'alert_template_ids': 'AlertTemplateIds',
         'ids': 'Ids',
         'name': 'Name',
         'page_number': 'PageNumber',
         'page_size': 'PageSize'
     }
 
-    def __init__(self, ids=None, name=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_template_ids=None, ids=None, name=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
         """ListObjectGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._alert_template_ids = None
         self._ids = None
         self._name = None
         self._page_number = None
         self._page_size = None
         self.discriminator = None
 
+        if alert_template_ids is not None:
+            self.alert_template_ids = alert_template_ids
         if ids is not None:
             self.ids = ids
         if name is not None:
@@ -66,6 +71,27 @@ class ListObjectGroupsRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+
+    @property
+    def alert_template_ids(self):
+        """Gets the alert_template_ids of this ListObjectGroupsRequest.  # noqa: E501
+
+
+        :return: The alert_template_ids of this ListObjectGroupsRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._alert_template_ids
+
+    @alert_template_ids.setter
+    def alert_template_ids(self, alert_template_ids):
+        """Sets the alert_template_ids of this ListObjectGroupsRequest.
+
+
+        :param alert_template_ids: The alert_template_ids of this ListObjectGroupsRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._alert_template_ids = alert_template_ids
 
     @property
     def ids(self):

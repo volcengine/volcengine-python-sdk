@@ -39,7 +39,8 @@ class ListTaskRequest(object):
         'owner': 'str',
         'page_num': 'int',
         'page_size': 'int',
-        'project_name': 'str'
+        'project_name': 'str',
+        'tag_filters': 'list[TagFilterForListTaskInput]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class ListTaskRequest(object):
         'owner': 'Owner',
         'page_num': 'PageNum',
         'page_size': 'PageSize',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, address=None, id=None, name=None, owner=None, page_num=None, page_size=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, address=None, id=None, name=None, owner=None, page_num=None, page_size=None, project_name=None, tag_filters=None, _configuration=None):  # noqa: E501
         """ListTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class ListTaskRequest(object):
         self._page_num = None
         self._page_size = None
         self._project_name = None
+        self._tag_filters = None
         self.discriminator = None
 
         if address is not None:
@@ -79,6 +82,8 @@ class ListTaskRequest(object):
         self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def address(self):
@@ -230,6 +235,27 @@ class ListTaskRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this ListTaskRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this ListTaskRequest.  # noqa: E501
+        :rtype: list[TagFilterForListTaskInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this ListTaskRequest.
+
+
+        :param tag_filters: The tag_filters of this ListTaskRequest.  # noqa: E501
+        :type: list[TagFilterForListTaskInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

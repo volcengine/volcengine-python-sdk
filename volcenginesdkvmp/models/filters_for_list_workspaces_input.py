@@ -33,6 +33,8 @@ class FiltersForListWorkspacesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cross_account': 'bool',
+        'cross_region': 'bool',
         'ids': 'list[str]',
         'instance_type_ids': 'list[str]',
         'name': 'str',
@@ -40,24 +42,32 @@ class FiltersForListWorkspacesInput(object):
     }
 
     attribute_map = {
+        'cross_account': 'CrossAccount',
+        'cross_region': 'CrossRegion',
         'ids': 'Ids',
         'instance_type_ids': 'InstanceTypeIds',
         'name': 'Name',
         'statuses': 'Statuses'
     }
 
-    def __init__(self, ids=None, instance_type_ids=None, name=None, statuses=None, _configuration=None):  # noqa: E501
+    def __init__(self, cross_account=None, cross_region=None, ids=None, instance_type_ids=None, name=None, statuses=None, _configuration=None):  # noqa: E501
         """FiltersForListWorkspacesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cross_account = None
+        self._cross_region = None
         self._ids = None
         self._instance_type_ids = None
         self._name = None
         self._statuses = None
         self.discriminator = None
 
+        if cross_account is not None:
+            self.cross_account = cross_account
+        if cross_region is not None:
+            self.cross_region = cross_region
         if ids is not None:
             self.ids = ids
         if instance_type_ids is not None:
@@ -66,6 +76,48 @@ class FiltersForListWorkspacesInput(object):
             self.name = name
         if statuses is not None:
             self.statuses = statuses
+
+    @property
+    def cross_account(self):
+        """Gets the cross_account of this FiltersForListWorkspacesInput.  # noqa: E501
+
+
+        :return: The cross_account of this FiltersForListWorkspacesInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cross_account
+
+    @cross_account.setter
+    def cross_account(self, cross_account):
+        """Sets the cross_account of this FiltersForListWorkspacesInput.
+
+
+        :param cross_account: The cross_account of this FiltersForListWorkspacesInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._cross_account = cross_account
+
+    @property
+    def cross_region(self):
+        """Gets the cross_region of this FiltersForListWorkspacesInput.  # noqa: E501
+
+
+        :return: The cross_region of this FiltersForListWorkspacesInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cross_region
+
+    @cross_region.setter
+    def cross_region(self, cross_region):
+        """Sets the cross_region of this FiltersForListWorkspacesInput.
+
+
+        :param cross_region: The cross_region of this FiltersForListWorkspacesInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._cross_region = cross_region
 
     @property
     def ids(self):

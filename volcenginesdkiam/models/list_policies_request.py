@@ -35,6 +35,7 @@ class ListPoliciesRequest(object):
     swagger_types = {
         'limit': 'int',
         'offset': 'int',
+        'query': 'str',
         'scope': 'str',
         'with_service_role_policy': 'int'
     }
@@ -42,11 +43,12 @@ class ListPoliciesRequest(object):
     attribute_map = {
         'limit': 'Limit',
         'offset': 'Offset',
+        'query': 'Query',
         'scope': 'Scope',
         'with_service_role_policy': 'WithServiceRolePolicy'
     }
 
-    def __init__(self, limit=None, offset=None, scope=None, with_service_role_policy=None, _configuration=None):  # noqa: E501
+    def __init__(self, limit=None, offset=None, query=None, scope=None, with_service_role_policy=None, _configuration=None):  # noqa: E501
         """ListPoliciesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class ListPoliciesRequest(object):
 
         self._limit = None
         self._offset = None
+        self._query = None
         self._scope = None
         self._with_service_role_policy = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ListPoliciesRequest(object):
             self.limit = limit
         if offset is not None:
             self.offset = offset
+        if query is not None:
+            self.query = query
         if scope is not None:
             self.scope = scope
         if with_service_role_policy is not None:
@@ -108,6 +113,27 @@ class ListPoliciesRequest(object):
         """
 
         self._offset = offset
+
+    @property
+    def query(self):
+        """Gets the query of this ListPoliciesRequest.  # noqa: E501
+
+
+        :return: The query of this ListPoliciesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._query
+
+    @query.setter
+    def query(self, query):
+        """Sets the query of this ListPoliciesRequest.
+
+
+        :param query: The query of this ListPoliciesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._query = query
 
     @property
     def scope(self):

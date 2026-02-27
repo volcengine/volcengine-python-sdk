@@ -33,34 +33,60 @@ class UDPConfigForCreateTaskInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'mode': 'int',
         'payload': 'str',
         'payload_type': 'int',
         'timeout': 'int'
     }
 
     attribute_map = {
+        'mode': 'Mode',
         'payload': 'Payload',
         'payload_type': 'PayloadType',
         'timeout': 'Timeout'
     }
 
-    def __init__(self, payload=None, payload_type=None, timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, mode=None, payload=None, payload_type=None, timeout=None, _configuration=None):  # noqa: E501
         """UDPConfigForCreateTaskInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._mode = None
         self._payload = None
         self._payload_type = None
         self._timeout = None
         self.discriminator = None
 
+        if mode is not None:
+            self.mode = mode
         if payload is not None:
             self.payload = payload
         if payload_type is not None:
             self.payload_type = payload_type
         if timeout is not None:
             self.timeout = timeout
+
+    @property
+    def mode(self):
+        """Gets the mode of this UDPConfigForCreateTaskInput.  # noqa: E501
+
+
+        :return: The mode of this UDPConfigForCreateTaskInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._mode
+
+    @mode.setter
+    def mode(self, mode):
+        """Sets the mode of this UDPConfigForCreateTaskInput.
+
+
+        :param mode: The mode of this UDPConfigForCreateTaskInput.  # noqa: E501
+        :type: int
+        """
+
+        self._mode = mode
 
     @property
     def payload(self):

@@ -39,6 +39,8 @@ class ListWorkspacesRequest(object):
         'project_name': 'str',
         'show_aggregate_query_workspaces': 'bool',
         'show_external_prom_workspaces': 'bool',
+        'show_workspace_instance_type': 'bool',
+        'show_workspace_quota': 'bool',
         'tag_filters': 'list[TagFilterForListWorkspacesInput]'
     }
 
@@ -49,10 +51,12 @@ class ListWorkspacesRequest(object):
         'project_name': 'ProjectName',
         'show_aggregate_query_workspaces': 'ShowAggregateQueryWorkspaces',
         'show_external_prom_workspaces': 'ShowExternalPromWorkspaces',
+        'show_workspace_instance_type': 'ShowWorkspaceInstanceType',
+        'show_workspace_quota': 'ShowWorkspaceQuota',
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, filters=None, page_number=None, page_size=None, project_name=None, show_aggregate_query_workspaces=None, show_external_prom_workspaces=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, filters=None, page_number=None, page_size=None, project_name=None, show_aggregate_query_workspaces=None, show_external_prom_workspaces=None, show_workspace_instance_type=None, show_workspace_quota=None, tag_filters=None, _configuration=None):  # noqa: E501
         """ListWorkspacesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +68,8 @@ class ListWorkspacesRequest(object):
         self._project_name = None
         self._show_aggregate_query_workspaces = None
         self._show_external_prom_workspaces = None
+        self._show_workspace_instance_type = None
+        self._show_workspace_quota = None
         self._tag_filters = None
         self.discriminator = None
 
@@ -79,6 +85,10 @@ class ListWorkspacesRequest(object):
             self.show_aggregate_query_workspaces = show_aggregate_query_workspaces
         if show_external_prom_workspaces is not None:
             self.show_external_prom_workspaces = show_external_prom_workspaces
+        if show_workspace_instance_type is not None:
+            self.show_workspace_instance_type = show_workspace_instance_type
+        if show_workspace_quota is not None:
+            self.show_workspace_quota = show_workspace_quota
         if tag_filters is not None:
             self.tag_filters = tag_filters
 
@@ -207,6 +217,48 @@ class ListWorkspacesRequest(object):
         """
 
         self._show_external_prom_workspaces = show_external_prom_workspaces
+
+    @property
+    def show_workspace_instance_type(self):
+        """Gets the show_workspace_instance_type of this ListWorkspacesRequest.  # noqa: E501
+
+
+        :return: The show_workspace_instance_type of this ListWorkspacesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_workspace_instance_type
+
+    @show_workspace_instance_type.setter
+    def show_workspace_instance_type(self, show_workspace_instance_type):
+        """Sets the show_workspace_instance_type of this ListWorkspacesRequest.
+
+
+        :param show_workspace_instance_type: The show_workspace_instance_type of this ListWorkspacesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_workspace_instance_type = show_workspace_instance_type
+
+    @property
+    def show_workspace_quota(self):
+        """Gets the show_workspace_quota of this ListWorkspacesRequest.  # noqa: E501
+
+
+        :return: The show_workspace_quota of this ListWorkspacesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_workspace_quota
+
+    @show_workspace_quota.setter
+    def show_workspace_quota(self, show_workspace_quota):
+        """Sets the show_workspace_quota of this ListWorkspacesRequest.
+
+
+        :param show_workspace_quota: The show_workspace_quota of this ListWorkspacesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_workspace_quota = show_workspace_quota
 
     @property
     def tag_filters(self):

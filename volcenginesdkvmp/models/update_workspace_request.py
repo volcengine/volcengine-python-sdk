@@ -33,6 +33,8 @@ class UpdateWorkspaceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auth_type': 'str',
+        'bearer_token': 'str',
         'delete_protection_enabled': 'bool',
         'description': 'str',
         'id': 'str',
@@ -48,6 +50,8 @@ class UpdateWorkspaceRequest(object):
     }
 
     attribute_map = {
+        'auth_type': 'AuthType',
+        'bearer_token': 'BearerToken',
         'delete_protection_enabled': 'DeleteProtectionEnabled',
         'description': 'Description',
         'id': 'Id',
@@ -62,12 +66,14 @@ class UpdateWorkspaceRequest(object):
         'username': 'Username'
     }
 
-    def __init__(self, delete_protection_enabled=None, description=None, id=None, instance_type_id=None, name=None, password=None, public_access_enabled=None, public_query_bandwidth=None, public_write_bandwidth=None, quota=None, search_latency_offset=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_type=None, bearer_token=None, delete_protection_enabled=None, description=None, id=None, instance_type_id=None, name=None, password=None, public_access_enabled=None, public_query_bandwidth=None, public_write_bandwidth=None, quota=None, search_latency_offset=None, username=None, _configuration=None):  # noqa: E501
         """UpdateWorkspaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auth_type = None
+        self._bearer_token = None
         self._delete_protection_enabled = None
         self._description = None
         self._id = None
@@ -82,6 +88,10 @@ class UpdateWorkspaceRequest(object):
         self._username = None
         self.discriminator = None
 
+        if auth_type is not None:
+            self.auth_type = auth_type
+        if bearer_token is not None:
+            self.bearer_token = bearer_token
         if delete_protection_enabled is not None:
             self.delete_protection_enabled = delete_protection_enabled
         if description is not None:
@@ -105,6 +115,48 @@ class UpdateWorkspaceRequest(object):
             self.search_latency_offset = search_latency_offset
         if username is not None:
             self.username = username
+
+    @property
+    def auth_type(self):
+        """Gets the auth_type of this UpdateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The auth_type of this UpdateWorkspaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_type
+
+    @auth_type.setter
+    def auth_type(self, auth_type):
+        """Sets the auth_type of this UpdateWorkspaceRequest.
+
+
+        :param auth_type: The auth_type of this UpdateWorkspaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_type = auth_type
+
+    @property
+    def bearer_token(self):
+        """Gets the bearer_token of this UpdateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The bearer_token of this UpdateWorkspaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._bearer_token
+
+    @bearer_token.setter
+    def bearer_token(self, bearer_token):
+        """Sets the bearer_token of this UpdateWorkspaceRequest.
+
+
+        :param bearer_token: The bearer_token of this UpdateWorkspaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._bearer_token = bearer_token
 
     @property
     def delete_protection_enabled(self):

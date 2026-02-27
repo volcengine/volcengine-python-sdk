@@ -35,18 +35,16 @@ class CreateBackupResourceRequest(object):
     swagger_types = {
         'instance_id': 'str',
         'instance_name': 'str',
-        'meta_information': 'MetaInformationForCreateBackupResourceInput',
         'resource_type': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
-        'meta_information': 'MetaInformation',
         'resource_type': 'ResourceType'
     }
 
-    def __init__(self, instance_id=None, instance_name=None, meta_information=None, resource_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, instance_name=None, resource_type=None, _configuration=None):  # noqa: E501
         """CreateBackupResourceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,14 +52,11 @@ class CreateBackupResourceRequest(object):
 
         self._instance_id = None
         self._instance_name = None
-        self._meta_information = None
         self._resource_type = None
         self.discriminator = None
 
         self.instance_id = instance_id
         self.instance_name = instance_name
-        if meta_information is not None:
-            self.meta_information = meta_information
         self.resource_type = resource_type
 
     @property
@@ -109,27 +104,6 @@ class CreateBackupResourceRequest(object):
             raise ValueError("Invalid value for `instance_name`, must not be `None`")  # noqa: E501
 
         self._instance_name = instance_name
-
-    @property
-    def meta_information(self):
-        """Gets the meta_information of this CreateBackupResourceRequest.  # noqa: E501
-
-
-        :return: The meta_information of this CreateBackupResourceRequest.  # noqa: E501
-        :rtype: MetaInformationForCreateBackupResourceInput
-        """
-        return self._meta_information
-
-    @meta_information.setter
-    def meta_information(self, meta_information):
-        """Sets the meta_information of this CreateBackupResourceRequest.
-
-
-        :param meta_information: The meta_information of this CreateBackupResourceRequest.  # noqa: E501
-        :type: MetaInformationForCreateBackupResourceInput
-        """
-
-        self._meta_information = meta_information
 
     @property
     def resource_type(self):

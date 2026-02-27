@@ -48,7 +48,7 @@ class CreateClusterRequest(object):
         'release_version': 'str',
         'security_group_id': 'str',
         'security_mode': 'str',
-        'tags': 'list[str]',
+        'tags': 'list[TagForCreateClusterInput]',
         'vpc_id': 'str'
     }
 
@@ -457,7 +457,7 @@ class CreateClusterRequest(object):
 
 
         :return: The tags of this CreateClusterRequest.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[TagForCreateClusterInput]
         """
         return self._tags
 
@@ -467,7 +467,7 @@ class CreateClusterRequest(object):
 
 
         :param tags: The tags of this CreateClusterRequest.  # noqa: E501
-        :type: list[str]
+        :type: list[TagForCreateClusterInput]
         """
 
         self._tags = tags

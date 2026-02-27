@@ -34,15 +34,17 @@ class VectorizeForListVikingdbCollectionOutput(object):
     """
     swagger_types = {
         'dense': 'DenseForListVikingdbCollectionOutput',
-        'sparse': 'SparseForListVikingdbCollectionOutput'
+        'sparse': 'SparseForListVikingdbCollectionOutput',
+        'tensor': 'TensorForListVikingdbCollectionOutput'
     }
 
     attribute_map = {
         'dense': 'Dense',
-        'sparse': 'Sparse'
+        'sparse': 'Sparse',
+        'tensor': 'Tensor'
     }
 
-    def __init__(self, dense=None, sparse=None, _configuration=None):  # noqa: E501
+    def __init__(self, dense=None, sparse=None, tensor=None, _configuration=None):  # noqa: E501
         """VectorizeForListVikingdbCollectionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class VectorizeForListVikingdbCollectionOutput(object):
 
         self._dense = None
         self._sparse = None
+        self._tensor = None
         self.discriminator = None
 
         if dense is not None:
             self.dense = dense
         if sparse is not None:
             self.sparse = sparse
+        if tensor is not None:
+            self.tensor = tensor
 
     @property
     def dense(self):
@@ -98,6 +103,27 @@ class VectorizeForListVikingdbCollectionOutput(object):
         """
 
         self._sparse = sparse
+
+    @property
+    def tensor(self):
+        """Gets the tensor of this VectorizeForListVikingdbCollectionOutput.  # noqa: E501
+
+
+        :return: The tensor of this VectorizeForListVikingdbCollectionOutput.  # noqa: E501
+        :rtype: TensorForListVikingdbCollectionOutput
+        """
+        return self._tensor
+
+    @tensor.setter
+    def tensor(self, tensor):
+        """Sets the tensor of this VectorizeForListVikingdbCollectionOutput.
+
+
+        :param tensor: The tensor of this VectorizeForListVikingdbCollectionOutput.  # noqa: E501
+        :type: TensorForListVikingdbCollectionOutput
+        """
+
+        self._tensor = tensor
 
     def to_dict(self):
         """Returns the model properties as a dict"""

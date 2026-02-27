@@ -89,3 +89,18 @@ class ContentGenerationTask(BaseModel):
 
     generate_audio: bool
     """Whether to generate audio."""
+
+    duration: int
+    """The duration of the generated content in seconds."""
+
+    ratio: str
+    """The aspect ratio of the generated content."""
+
+    resolution: str
+    """The resolution of the generated content."""
+
+    draft: bool
+    """Whether to generate a draft version of the content."""
+
+    draft_task_id: str
+    """The ID of the draft task, if applicable."""

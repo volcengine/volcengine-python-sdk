@@ -47,9 +47,11 @@ class RowForListBackupDataOutput(object):
         'data_size': 'int',
         'description': 'str',
         'detail': 'str',
+        'exclude_path_list': 'list[str]',
         'expire_time': 'int',
         'finished_time': 'int',
         'in_use_count': 'int',
+        'include_path_list': 'list[str]',
         'md5_sum': 'str',
         'product_id': 'str',
         'restore_count': 'int',
@@ -77,9 +79,11 @@ class RowForListBackupDataOutput(object):
         'data_size': 'DataSize',
         'description': 'Description',
         'detail': 'Detail',
+        'exclude_path_list': 'ExcludePathList',
         'expire_time': 'ExpireTime',
         'finished_time': 'FinishedTime',
         'in_use_count': 'InUseCount',
+        'include_path_list': 'IncludePathList',
         'md5_sum': 'Md5Sum',
         'product_id': 'ProductId',
         'restore_count': 'RestoreCount',
@@ -92,7 +96,7 @@ class RowForListBackupDataOutput(object):
         'updated_time': 'UpdatedTime'
     }
 
-    def __init__(self, aosp_version=None, account_id=None, backup_data_id=None, backup_data_name=None, backup_job_id=None, backup_size=None, backup_task_id=None, backup_type=None, completed_time=None, compression_type=None, created_time=None, data_size=None, description=None, detail=None, expire_time=None, finished_time=None, in_use_count=None, md5_sum=None, product_id=None, restore_count=None, size=None, source_pod_id=None, started_time=None, status=None, storage_resource=None, storage_type=None, updated_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, aosp_version=None, account_id=None, backup_data_id=None, backup_data_name=None, backup_job_id=None, backup_size=None, backup_task_id=None, backup_type=None, completed_time=None, compression_type=None, created_time=None, data_size=None, description=None, detail=None, exclude_path_list=None, expire_time=None, finished_time=None, in_use_count=None, include_path_list=None, md5_sum=None, product_id=None, restore_count=None, size=None, source_pod_id=None, started_time=None, status=None, storage_resource=None, storage_type=None, updated_time=None, _configuration=None):  # noqa: E501
         """RowForListBackupDataOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -112,9 +116,11 @@ class RowForListBackupDataOutput(object):
         self._data_size = None
         self._description = None
         self._detail = None
+        self._exclude_path_list = None
         self._expire_time = None
         self._finished_time = None
         self._in_use_count = None
+        self._include_path_list = None
         self._md5_sum = None
         self._product_id = None
         self._restore_count = None
@@ -155,12 +161,16 @@ class RowForListBackupDataOutput(object):
             self.description = description
         if detail is not None:
             self.detail = detail
+        if exclude_path_list is not None:
+            self.exclude_path_list = exclude_path_list
         if expire_time is not None:
             self.expire_time = expire_time
         if finished_time is not None:
             self.finished_time = finished_time
         if in_use_count is not None:
             self.in_use_count = in_use_count
+        if include_path_list is not None:
+            self.include_path_list = include_path_list
         if md5_sum is not None:
             self.md5_sum = md5_sum
         if product_id is not None:
@@ -477,6 +487,27 @@ class RowForListBackupDataOutput(object):
         self._detail = detail
 
     @property
+    def exclude_path_list(self):
+        """Gets the exclude_path_list of this RowForListBackupDataOutput.  # noqa: E501
+
+
+        :return: The exclude_path_list of this RowForListBackupDataOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._exclude_path_list
+
+    @exclude_path_list.setter
+    def exclude_path_list(self, exclude_path_list):
+        """Sets the exclude_path_list of this RowForListBackupDataOutput.
+
+
+        :param exclude_path_list: The exclude_path_list of this RowForListBackupDataOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._exclude_path_list = exclude_path_list
+
+    @property
     def expire_time(self):
         """Gets the expire_time of this RowForListBackupDataOutput.  # noqa: E501
 
@@ -538,6 +569,27 @@ class RowForListBackupDataOutput(object):
         """
 
         self._in_use_count = in_use_count
+
+    @property
+    def include_path_list(self):
+        """Gets the include_path_list of this RowForListBackupDataOutput.  # noqa: E501
+
+
+        :return: The include_path_list of this RowForListBackupDataOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._include_path_list
+
+    @include_path_list.setter
+    def include_path_list(self, include_path_list):
+        """Sets the include_path_list of this RowForListBackupDataOutput.
+
+
+        :param include_path_list: The include_path_list of this RowForListBackupDataOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._include_path_list = include_path_list
 
     @property
     def md5_sum(self):
