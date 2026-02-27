@@ -130,6 +130,13 @@ class DescribeVpnConnectionsRequest(object):
         :param attach_status: The attach_status of this DescribeVpnConnectionsRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Attached", "Attaching", "Detached", "Detaching"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                attach_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `attach_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(attach_status, allowed_values)
+            )
 
         self._attach_status = attach_status
 
@@ -151,6 +158,13 @@ class DescribeVpnConnectionsRequest(object):
         :param attach_type: The attach_type of this DescribeVpnConnectionsRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["VpnGateway", "TransitRouter"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                attach_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `attach_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(attach_type, allowed_values)
+            )
 
         self._attach_type = attach_type
 
@@ -256,6 +270,13 @@ class DescribeVpnConnectionsRequest(object):
         :param spec: The spec of this DescribeVpnConnectionsRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["default", "large", "xlarge"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                spec not in allowed_values):
+            raise ValueError(
+                "Invalid value for `spec` ({0}), must be one of {1}"  # noqa: E501
+                .format(spec, allowed_values)
+            )
 
         self._spec = spec
 

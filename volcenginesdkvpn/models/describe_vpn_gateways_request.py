@@ -42,6 +42,7 @@ class DescribeVpnGatewaysRequest(object):
         'page_size': 'int',
         'project_name': 'str',
         'ssl_enabled': 'bool',
+        'status': 'str',
         'subnet_id': 'str',
         'tag_filters': 'list[TagFilterForDescribeVpnGatewaysInput]',
         'vpc_id': 'str',
@@ -59,6 +60,7 @@ class DescribeVpnGatewaysRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'ssl_enabled': 'SslEnabled',
+        'status': 'Status',
         'subnet_id': 'SubnetId',
         'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId',
@@ -66,7 +68,7 @@ class DescribeVpnGatewaysRequest(object):
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, dual_tunnel_enabled=None, ip_address=None, ip_stack_type=None, ip_version=None, ipsec_enabled=None, page_number=None, page_size=None, project_name=None, ssl_enabled=None, subnet_id=None, tag_filters=None, vpc_id=None, vpn_gateway_ids=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, dual_tunnel_enabled=None, ip_address=None, ip_stack_type=None, ip_version=None, ipsec_enabled=None, page_number=None, page_size=None, project_name=None, ssl_enabled=None, status=None, subnet_id=None, tag_filters=None, vpc_id=None, vpn_gateway_ids=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class DescribeVpnGatewaysRequest(object):
         self._page_size = None
         self._project_name = None
         self._ssl_enabled = None
+        self._status = None
         self._subnet_id = None
         self._tag_filters = None
         self._vpc_id = None
@@ -106,6 +109,8 @@ class DescribeVpnGatewaysRequest(object):
             self.project_name = project_name
         if ssl_enabled is not None:
             self.ssl_enabled = ssl_enabled
+        if status is not None:
+            self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if tag_filters is not None:
@@ -305,6 +310,27 @@ class DescribeVpnGatewaysRequest(object):
         """
 
         self._ssl_enabled = ssl_enabled
+
+    @property
+    def status(self):
+        """Gets the status of this DescribeVpnGatewaysRequest.  # noqa: E501
+
+
+        :return: The status of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this DescribeVpnGatewaysRequest.
+
+
+        :param status: The status of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     @property
     def subnet_id(self):

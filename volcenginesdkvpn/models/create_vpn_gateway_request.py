@@ -369,6 +369,13 @@ class CreateVpnGatewayRequest(object):
         :param period_unit: The period_unit of this CreateVpnGatewayRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Month", "Year"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                period_unit not in allowed_values):
+            raise ValueError(
+                "Invalid value for `period_unit` ({0}), must be one of {1}"  # noqa: E501
+                .format(period_unit, allowed_values)
+            )
 
         self._period_unit = period_unit
 

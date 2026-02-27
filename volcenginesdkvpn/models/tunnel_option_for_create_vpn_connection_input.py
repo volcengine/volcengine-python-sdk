@@ -33,7 +33,7 @@ class TunnelOptionForCreateVpnConnectionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'bgp_config': 'ConvertBGPConfigForCreateVpnConnectionInput',
+        'bgp_config': 'BGPConfigForCreateVpnConnectionInput',
         'customer_gateway_id': 'str',
         'dpd_action': 'str',
         'ike_config': 'IkeConfigForCreateVpnConnectionInput',
@@ -88,7 +88,7 @@ class TunnelOptionForCreateVpnConnectionInput(object):
 
 
         :return: The bgp_config of this TunnelOptionForCreateVpnConnectionInput.  # noqa: E501
-        :rtype: ConvertBGPConfigForCreateVpnConnectionInput
+        :rtype: BGPConfigForCreateVpnConnectionInput
         """
         return self._bgp_config
 
@@ -98,7 +98,7 @@ class TunnelOptionForCreateVpnConnectionInput(object):
 
 
         :param bgp_config: The bgp_config of this TunnelOptionForCreateVpnConnectionInput.  # noqa: E501
-        :type: ConvertBGPConfigForCreateVpnConnectionInput
+        :type: BGPConfigForCreateVpnConnectionInput
         """
 
         self._bgp_config = bgp_config
@@ -142,6 +142,13 @@ class TunnelOptionForCreateVpnConnectionInput(object):
         :param dpd_action: The dpd_action of this TunnelOptionForCreateVpnConnectionInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["none", "clear", "hold", "restart"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                dpd_action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `dpd_action` ({0}), must be one of {1}"  # noqa: E501
+                .format(dpd_action, allowed_values)
+            )
 
         self._dpd_action = dpd_action
 

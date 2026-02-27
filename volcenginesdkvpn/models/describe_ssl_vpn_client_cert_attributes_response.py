@@ -46,6 +46,7 @@ class DescribeSslVpnClientCertAttributesResponse(object):
         'ssl_vpn_client_cert_name': 'str',
         'ssl_vpn_server_id': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeSslVpnClientCertAttributesOutput]',
         'update_time': 'str'
     }
 
@@ -63,10 +64,11 @@ class DescribeSslVpnClientCertAttributesResponse(object):
         'ssl_vpn_client_cert_name': 'SslVpnClientCertName',
         'ssl_vpn_server_id': 'SslVpnServerId',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, ca_certificate=None, certificate_status=None, client_certificate=None, client_key=None, creation_time=None, description=None, expired_time=None, open_vpn_client_config=None, request_id=None, ssl_vpn_client_cert_id=None, ssl_vpn_client_cert_name=None, ssl_vpn_server_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, ca_certificate=None, certificate_status=None, client_certificate=None, client_key=None, creation_time=None, description=None, expired_time=None, open_vpn_client_config=None, request_id=None, ssl_vpn_client_cert_id=None, ssl_vpn_client_cert_name=None, ssl_vpn_server_id=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeSslVpnClientCertAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +87,7 @@ class DescribeSslVpnClientCertAttributesResponse(object):
         self._ssl_vpn_client_cert_name = None
         self._ssl_vpn_server_id = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self.discriminator = None
 
@@ -114,6 +117,8 @@ class DescribeSslVpnClientCertAttributesResponse(object):
             self.ssl_vpn_server_id = ssl_vpn_server_id
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
 
@@ -389,6 +394,27 @@ class DescribeSslVpnClientCertAttributesResponse(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeSslVpnClientCertAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeSslVpnClientCertAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeSslVpnClientCertAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeSslVpnClientCertAttributesResponse.
+
+
+        :param tags: The tags of this DescribeSslVpnClientCertAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeSslVpnClientCertAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

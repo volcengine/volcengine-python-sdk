@@ -85,6 +85,13 @@ class IpsecConfigForModifyVpnConnectionAttributesInput(object):
         :param auth_alg: The auth_alg of this IpsecConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["sha1", "md5", "sha256", "sha384", "sha512", "sm3"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                auth_alg not in allowed_values):
+            raise ValueError(
+                "Invalid value for `auth_alg` ({0}), must be one of {1}"  # noqa: E501
+                .format(auth_alg, allowed_values)
+            )
 
         self._auth_alg = auth_alg
 
@@ -106,6 +113,13 @@ class IpsecConfigForModifyVpnConnectionAttributesInput(object):
         :param dh_group: The dh_group of this IpsecConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["group1", "group2", "group5", "group14"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                dh_group not in allowed_values):
+            raise ValueError(
+                "Invalid value for `dh_group` ({0}), must be one of {1}"  # noqa: E501
+                .format(dh_group, allowed_values)
+            )
 
         self._dh_group = dh_group
 
@@ -127,6 +141,13 @@ class IpsecConfigForModifyVpnConnectionAttributesInput(object):
         :param enc_alg: The enc_alg of this IpsecConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["aes", "aes192", "aes256", "des", "3des", "sm4"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                enc_alg not in allowed_values):
+            raise ValueError(
+                "Invalid value for `enc_alg` ({0}), must be one of {1}"  # noqa: E501
+                .format(enc_alg, allowed_values)
+            )
 
         self._enc_alg = enc_alg
 

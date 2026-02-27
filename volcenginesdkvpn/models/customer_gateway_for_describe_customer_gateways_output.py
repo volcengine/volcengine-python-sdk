@@ -44,6 +44,7 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
         'ip_version': 'str',
         'project_name': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeCustomerGatewaysOutput]',
         'update_time': 'str'
     }
 
@@ -59,10 +60,11 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
         'ip_version': 'IpVersion',
         'project_name': 'ProjectName',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, asn=None, connection_count=None, creation_time=None, customer_gateway_id=None, customer_gateway_name=None, description=None, ip_address=None, ip_version=None, project_name=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asn=None, connection_count=None, creation_time=None, customer_gateway_id=None, customer_gateway_name=None, description=None, ip_address=None, ip_version=None, project_name=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """CustomerGatewayForDescribeCustomerGatewaysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
         self._ip_version = None
         self._project_name = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self.discriminator = None
 
@@ -104,6 +107,8 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
             self.project_name = project_name
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
 
@@ -337,6 +342,27 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this CustomerGatewayForDescribeCustomerGatewaysOutput.  # noqa: E501
+
+
+        :return: The tags of this CustomerGatewayForDescribeCustomerGatewaysOutput.  # noqa: E501
+        :rtype: list[TagForDescribeCustomerGatewaysOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CustomerGatewayForDescribeCustomerGatewaysOutput.
+
+
+        :param tags: The tags of this CustomerGatewayForDescribeCustomerGatewaysOutput.  # noqa: E501
+        :type: list[TagForDescribeCustomerGatewaysOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):
