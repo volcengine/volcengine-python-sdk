@@ -33,6 +33,7 @@ class CreateIdentityProviderOIDCResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'claims_propagation_config': 'ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput',
         'client_id': 'str',
         'client_secret': 'str',
         'enabled': 'bool',
@@ -47,6 +48,7 @@ class CreateIdentityProviderOIDCResponse(object):
     }
 
     attribute_map = {
+        'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
         'enabled': 'Enabled',
@@ -60,12 +62,13 @@ class CreateIdentityProviderOIDCResponse(object):
         'use_pkce': 'UsePkce'
     }
 
-    def __init__(self, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
+    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderOIDCResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
         self._enabled = None
@@ -79,6 +82,8 @@ class CreateIdentityProviderOIDCResponse(object):
         self._use_pkce = None
         self.discriminator = None
 
+        if claims_propagation_config is not None:
+            self.claims_propagation_config = claims_propagation_config
         if client_id is not None:
             self.client_id = client_id
         if client_secret is not None:
@@ -101,6 +106,27 @@ class CreateIdentityProviderOIDCResponse(object):
             self.uid = uid
         if use_pkce is not None:
             self.use_pkce = use_pkce
+
+    @property
+    def claims_propagation_config(self):
+        """Gets the claims_propagation_config of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+
+
+        :return: The claims_propagation_config of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+        :rtype: ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput
+        """
+        return self._claims_propagation_config
+
+    @claims_propagation_config.setter
+    def claims_propagation_config(self, claims_propagation_config):
+        """Sets the claims_propagation_config of this CreateIdentityProviderOIDCResponse.
+
+
+        :param claims_propagation_config: The claims_propagation_config of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+        :type: ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput
+        """
+
+        self._claims_propagation_config = claims_propagation_config
 
     @property
     def client_id(self):

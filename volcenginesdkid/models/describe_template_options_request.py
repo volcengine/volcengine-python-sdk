@@ -33,24 +33,50 @@ class DescribeTemplateOptionsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'backend_type': 'str',
         'keyword': 'str'
     }
 
     attribute_map = {
+        'backend_type': 'BackendType',
         'keyword': 'Keyword'
     }
 
-    def __init__(self, keyword=None, _configuration=None):  # noqa: E501
+    def __init__(self, backend_type=None, keyword=None, _configuration=None):  # noqa: E501
         """DescribeTemplateOptionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._backend_type = None
         self._keyword = None
         self.discriminator = None
 
+        if backend_type is not None:
+            self.backend_type = backend_type
         if keyword is not None:
             self.keyword = keyword
+
+    @property
+    def backend_type(self):
+        """Gets the backend_type of this DescribeTemplateOptionsRequest.  # noqa: E501
+
+
+        :return: The backend_type of this DescribeTemplateOptionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backend_type
+
+    @backend_type.setter
+    def backend_type(self, backend_type):
+        """Sets the backend_type of this DescribeTemplateOptionsRequest.
+
+
+        :param backend_type: The backend_type of this DescribeTemplateOptionsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backend_type = backend_type
 
     @property
     def keyword(self):

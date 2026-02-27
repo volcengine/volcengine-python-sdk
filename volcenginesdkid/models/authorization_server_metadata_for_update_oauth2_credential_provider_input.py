@@ -34,41 +34,51 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput(object):
     """
     swagger_types = {
         'authorization_endpoint': 'str',
+        'code_challenge_methods_supported': 'list[str]',
         'issuer': 'str',
         'registration_endpoint': 'str',
         'response_types': 'list[str]',
+        'revocation_endpoint': 'str',
         'token_endpoint': 'str'
     }
 
     attribute_map = {
         'authorization_endpoint': 'AuthorizationEndpoint',
+        'code_challenge_methods_supported': 'CodeChallengeMethodsSupported',
         'issuer': 'Issuer',
         'registration_endpoint': 'RegistrationEndpoint',
         'response_types': 'ResponseTypes',
+        'revocation_endpoint': 'RevocationEndpoint',
         'token_endpoint': 'TokenEndpoint'
     }
 
-    def __init__(self, authorization_endpoint=None, issuer=None, registration_endpoint=None, response_types=None, token_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorization_endpoint=None, code_challenge_methods_supported=None, issuer=None, registration_endpoint=None, response_types=None, revocation_endpoint=None, token_endpoint=None, _configuration=None):  # noqa: E501
         """AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._authorization_endpoint = None
+        self._code_challenge_methods_supported = None
         self._issuer = None
         self._registration_endpoint = None
         self._response_types = None
+        self._revocation_endpoint = None
         self._token_endpoint = None
         self.discriminator = None
 
         if authorization_endpoint is not None:
             self.authorization_endpoint = authorization_endpoint
+        if code_challenge_methods_supported is not None:
+            self.code_challenge_methods_supported = code_challenge_methods_supported
         if issuer is not None:
             self.issuer = issuer
         if registration_endpoint is not None:
             self.registration_endpoint = registration_endpoint
         if response_types is not None:
             self.response_types = response_types
+        if revocation_endpoint is not None:
+            self.revocation_endpoint = revocation_endpoint
         if token_endpoint is not None:
             self.token_endpoint = token_endpoint
 
@@ -92,6 +102,27 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput(object):
         """
 
         self._authorization_endpoint = authorization_endpoint
+
+    @property
+    def code_challenge_methods_supported(self):
+        """Gets the code_challenge_methods_supported of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.  # noqa: E501
+
+
+        :return: The code_challenge_methods_supported of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._code_challenge_methods_supported
+
+    @code_challenge_methods_supported.setter
+    def code_challenge_methods_supported(self, code_challenge_methods_supported):
+        """Sets the code_challenge_methods_supported of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.
+
+
+        :param code_challenge_methods_supported: The code_challenge_methods_supported of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._code_challenge_methods_supported = code_challenge_methods_supported
 
     @property
     def issuer(self):
@@ -155,6 +186,27 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput(object):
         """
 
         self._response_types = response_types
+
+    @property
+    def revocation_endpoint(self):
+        """Gets the revocation_endpoint of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.  # noqa: E501
+
+
+        :return: The revocation_endpoint of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._revocation_endpoint
+
+    @revocation_endpoint.setter
+    def revocation_endpoint(self, revocation_endpoint):
+        """Sets the revocation_endpoint of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.
+
+
+        :param revocation_endpoint: The revocation_endpoint of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.  # noqa: E501
+        :type: str
+        """
+
+        self._revocation_endpoint = revocation_endpoint
 
     @property
     def token_endpoint(self):

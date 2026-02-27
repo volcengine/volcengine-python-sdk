@@ -35,7 +35,9 @@ class CredentialProviderForListCredentialProvidersOutput(object):
     swagger_types = {
         'created_at': 'str',
         'credential_provider_trn': 'str',
+        'flow': 'str',
         'name': 'str',
+        'pool_name': 'str',
         'type': 'str',
         'updated_at': 'str',
         'vendor': 'int'
@@ -44,13 +46,15 @@ class CredentialProviderForListCredentialProvidersOutput(object):
     attribute_map = {
         'created_at': 'CreatedAt',
         'credential_provider_trn': 'CredentialProviderTrn',
+        'flow': 'Flow',
         'name': 'Name',
+        'pool_name': 'PoolName',
         'type': 'Type',
         'updated_at': 'UpdatedAt',
         'vendor': 'Vendor'
     }
 
-    def __init__(self, created_at=None, credential_provider_trn=None, name=None, type=None, updated_at=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, credential_provider_trn=None, flow=None, name=None, pool_name=None, type=None, updated_at=None, vendor=None, _configuration=None):  # noqa: E501
         """CredentialProviderForListCredentialProvidersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,7 +62,9 @@ class CredentialProviderForListCredentialProvidersOutput(object):
 
         self._created_at = None
         self._credential_provider_trn = None
+        self._flow = None
         self._name = None
+        self._pool_name = None
         self._type = None
         self._updated_at = None
         self._vendor = None
@@ -68,8 +74,12 @@ class CredentialProviderForListCredentialProvidersOutput(object):
             self.created_at = created_at
         if credential_provider_trn is not None:
             self.credential_provider_trn = credential_provider_trn
+        if flow is not None:
+            self.flow = flow
         if name is not None:
             self.name = name
+        if pool_name is not None:
+            self.pool_name = pool_name
         if type is not None:
             self.type = type
         if updated_at is not None:
@@ -120,6 +130,27 @@ class CredentialProviderForListCredentialProvidersOutput(object):
         self._credential_provider_trn = credential_provider_trn
 
     @property
+    def flow(self):
+        """Gets the flow of this CredentialProviderForListCredentialProvidersOutput.  # noqa: E501
+
+
+        :return: The flow of this CredentialProviderForListCredentialProvidersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._flow
+
+    @flow.setter
+    def flow(self, flow):
+        """Sets the flow of this CredentialProviderForListCredentialProvidersOutput.
+
+
+        :param flow: The flow of this CredentialProviderForListCredentialProvidersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._flow = flow
+
+    @property
     def name(self):
         """Gets the name of this CredentialProviderForListCredentialProvidersOutput.  # noqa: E501
 
@@ -139,6 +170,27 @@ class CredentialProviderForListCredentialProvidersOutput(object):
         """
 
         self._name = name
+
+    @property
+    def pool_name(self):
+        """Gets the pool_name of this CredentialProviderForListCredentialProvidersOutput.  # noqa: E501
+
+
+        :return: The pool_name of this CredentialProviderForListCredentialProvidersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pool_name
+
+    @pool_name.setter
+    def pool_name(self, pool_name):
+        """Sets the pool_name of this CredentialProviderForListCredentialProvidersOutput.
+
+
+        :param pool_name: The pool_name of this CredentialProviderForListCredentialProvidersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pool_name = pool_name
 
     @property
     def type(self):

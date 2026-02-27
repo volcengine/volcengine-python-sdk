@@ -34,30 +34,36 @@ class UpdateServiceRequest(object):
     """
     swagger_types = {
         'description': 'str',
+        'service_id': 'str',
         'service_name': 'str',
         'status': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
+        'service_id': 'ServiceId',
         'service_name': 'ServiceName',
         'status': 'Status'
     }
 
-    def __init__(self, description=None, service_name=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, service_id=None, service_name=None, status=None, _configuration=None):  # noqa: E501
         """UpdateServiceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._service_id = None
         self._service_name = None
         self._status = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
-        self.service_name = service_name
+        if service_id is not None:
+            self.service_id = service_id
+        if service_name is not None:
+            self.service_name = service_name
         if status is not None:
             self.status = status
 
@@ -83,6 +89,27 @@ class UpdateServiceRequest(object):
         self._description = description
 
     @property
+    def service_id(self):
+        """Gets the service_id of this UpdateServiceRequest.  # noqa: E501
+
+
+        :return: The service_id of this UpdateServiceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_id
+
+    @service_id.setter
+    def service_id(self, service_id):
+        """Sets the service_id of this UpdateServiceRequest.
+
+
+        :param service_id: The service_id of this UpdateServiceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._service_id = service_id
+
+    @property
     def service_name(self):
         """Gets the service_name of this UpdateServiceRequest.  # noqa: E501
 
@@ -100,8 +127,6 @@ class UpdateServiceRequest(object):
         :param service_name: The service_name of this UpdateServiceRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and service_name is None:
-            raise ValueError("Invalid value for `service_name`, must not be `None`")  # noqa: E501
 
         self._service_name = service_name
 

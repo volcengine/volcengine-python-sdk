@@ -39,7 +39,8 @@ class CreateCustomerGatewayRequest(object):
         'description': 'str',
         'ip_address': 'str',
         'ip_version': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'tags': 'list[TagForCreateCustomerGatewayInput]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class CreateCustomerGatewayRequest(object):
         'description': 'Description',
         'ip_address': 'IpAddress',
         'ip_version': 'IpVersion',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'tags': 'Tags'
     }
 
-    def __init__(self, asn=None, client_token=None, customer_gateway_name=None, description=None, ip_address=None, ip_version=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, asn=None, client_token=None, customer_gateway_name=None, description=None, ip_address=None, ip_version=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateCustomerGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class CreateCustomerGatewayRequest(object):
         self._ip_address = None
         self._ip_version = None
         self._project_name = None
+        self._tags = None
         self.discriminator = None
 
         if asn is not None:
@@ -80,6 +83,8 @@ class CreateCustomerGatewayRequest(object):
             self.ip_version = ip_version
         if project_name is not None:
             self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
 
     @property
     def asn(self):
@@ -206,13 +211,6 @@ class CreateCustomerGatewayRequest(object):
         :param ip_version: The ip_version of this CreateCustomerGatewayRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ipv4", "ipv6"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                ip_version not in allowed_values):
-            raise ValueError(
-                "Invalid value for `ip_version` ({0}), must be one of {1}"  # noqa: E501
-                .format(ip_version, allowed_values)
-            )
 
         self._ip_version = ip_version
 
@@ -236,6 +234,27 @@ class CreateCustomerGatewayRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateCustomerGatewayRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateCustomerGatewayRequest.  # noqa: E501
+        :rtype: list[TagForCreateCustomerGatewayInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateCustomerGatewayRequest.
+
+
+        :param tags: The tags of this CreateCustomerGatewayRequest.  # noqa: E501
+        :type: list[TagForCreateCustomerGatewayInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
