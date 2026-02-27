@@ -39,6 +39,8 @@ class CreateUserPoolResponse(object):
         'discovery_url': 'str',
         'domain': 'str',
         'email_passwordless_sign_in_enabled': 'bool',
+        'enabled': 'bool',
+        'issuer_url': 'str',
         'name': 'str',
         'oauth_login_callback_url': 'str',
         'oauth_sign_up_callback_url': 'str',
@@ -53,9 +55,11 @@ class CreateUserPoolResponse(object):
         'self_sign_up_enabled': 'bool',
         'sign_in_attributes': 'list[str]',
         'sign_up_auto_verification_enabled': 'bool',
+        'sms_anonymous_sign_up_enabled': 'bool',
         'sms_passwordless_sign_in_enabled': 'bool',
         'tags': 'list[TagForCreateUserPoolOutput]',
         'token_signing_key_url': 'str',
+        'token_url': 'str',
         'total_clients': 'int',
         'total_connections': 'int',
         'total_users': 'int',
@@ -72,6 +76,8 @@ class CreateUserPoolResponse(object):
         'discovery_url': 'DiscoveryUrl',
         'domain': 'Domain',
         'email_passwordless_sign_in_enabled': 'EmailPasswordlessSignInEnabled',
+        'enabled': 'Enabled',
+        'issuer_url': 'IssuerUrl',
         'name': 'Name',
         'oauth_login_callback_url': 'OauthLoginCallbackUrl',
         'oauth_sign_up_callback_url': 'OauthSignUpCallbackUrl',
@@ -86,9 +92,11 @@ class CreateUserPoolResponse(object):
         'self_sign_up_enabled': 'SelfSignUpEnabled',
         'sign_in_attributes': 'SignInAttributes',
         'sign_up_auto_verification_enabled': 'SignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled': 'SmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled': 'SmsPasswordlessSignInEnabled',
         'tags': 'Tags',
         'token_signing_key_url': 'TokenSigningKeyUrl',
+        'token_url': 'TokenUrl',
         'total_clients': 'TotalClients',
         'total_connections': 'TotalConnections',
         'total_users': 'TotalUsers',
@@ -98,7 +106,7 @@ class CreateUserPoolResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, brand=None, create_time=None, description=None, discovery_url=None, domain=None, email_passwordless_sign_in_enabled=None, name=None, oauth_login_callback_url=None, oauth_sign_up_callback_url=None, oidc_login_callback_url=None, oidc_sign_up_callback_url=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, saml_login_callback_url=None, saml_sign_up_callback_url=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_in_attributes=None, sign_up_auto_verification_enabled=None, sms_passwordless_sign_in_enabled=None, tags=None, token_signing_key_url=None, total_clients=None, total_connections=None, total_users=None, trn=None, uid=None, unconfirmed_user_sign_in_enabled=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, brand=None, create_time=None, description=None, discovery_url=None, domain=None, email_passwordless_sign_in_enabled=None, enabled=None, issuer_url=None, name=None, oauth_login_callback_url=None, oauth_sign_up_callback_url=None, oidc_login_callback_url=None, oidc_sign_up_callback_url=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, saml_login_callback_url=None, saml_sign_up_callback_url=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_in_attributes=None, sign_up_auto_verification_enabled=None, sms_anonymous_sign_up_enabled=None, sms_passwordless_sign_in_enabled=None, tags=None, token_signing_key_url=None, token_url=None, total_clients=None, total_connections=None, total_users=None, trn=None, uid=None, unconfirmed_user_sign_in_enabled=None, update_time=None, _configuration=None):  # noqa: E501
         """CreateUserPoolResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -110,6 +118,8 @@ class CreateUserPoolResponse(object):
         self._discovery_url = None
         self._domain = None
         self._email_passwordless_sign_in_enabled = None
+        self._enabled = None
+        self._issuer_url = None
         self._name = None
         self._oauth_login_callback_url = None
         self._oauth_sign_up_callback_url = None
@@ -124,9 +134,11 @@ class CreateUserPoolResponse(object):
         self._self_sign_up_enabled = None
         self._sign_in_attributes = None
         self._sign_up_auto_verification_enabled = None
+        self._sms_anonymous_sign_up_enabled = None
         self._sms_passwordless_sign_in_enabled = None
         self._tags = None
         self._token_signing_key_url = None
+        self._token_url = None
         self._total_clients = None
         self._total_connections = None
         self._total_users = None
@@ -148,6 +160,10 @@ class CreateUserPoolResponse(object):
             self.domain = domain
         if email_passwordless_sign_in_enabled is not None:
             self.email_passwordless_sign_in_enabled = email_passwordless_sign_in_enabled
+        if enabled is not None:
+            self.enabled = enabled
+        if issuer_url is not None:
+            self.issuer_url = issuer_url
         if name is not None:
             self.name = name
         if oauth_login_callback_url is not None:
@@ -176,12 +192,16 @@ class CreateUserPoolResponse(object):
             self.sign_in_attributes = sign_in_attributes
         if sign_up_auto_verification_enabled is not None:
             self.sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
+        if sms_anonymous_sign_up_enabled is not None:
+            self.sms_anonymous_sign_up_enabled = sms_anonymous_sign_up_enabled
         if sms_passwordless_sign_in_enabled is not None:
             self.sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
         if tags is not None:
             self.tags = tags
         if token_signing_key_url is not None:
             self.token_signing_key_url = token_signing_key_url
+        if token_url is not None:
+            self.token_url = token_url
         if total_clients is not None:
             self.total_clients = total_clients
         if total_connections is not None:
@@ -322,6 +342,48 @@ class CreateUserPoolResponse(object):
         """
 
         self._email_passwordless_sign_in_enabled = email_passwordless_sign_in_enabled
+
+    @property
+    def enabled(self):
+        """Gets the enabled of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The enabled of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled):
+        """Sets the enabled of this CreateUserPoolResponse.
+
+
+        :param enabled: The enabled of this CreateUserPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._enabled = enabled
+
+    @property
+    def issuer_url(self):
+        """Gets the issuer_url of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The issuer_url of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._issuer_url
+
+    @issuer_url.setter
+    def issuer_url(self, issuer_url):
+        """Sets the issuer_url of this CreateUserPoolResponse.
+
+
+        :param issuer_url: The issuer_url of this CreateUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._issuer_url = issuer_url
 
     @property
     def name(self):
@@ -618,6 +680,27 @@ class CreateUserPoolResponse(object):
         self._sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
 
     @property
+    def sms_anonymous_sign_up_enabled(self):
+        """Gets the sms_anonymous_sign_up_enabled of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The sms_anonymous_sign_up_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sms_anonymous_sign_up_enabled
+
+    @sms_anonymous_sign_up_enabled.setter
+    def sms_anonymous_sign_up_enabled(self, sms_anonymous_sign_up_enabled):
+        """Sets the sms_anonymous_sign_up_enabled of this CreateUserPoolResponse.
+
+
+        :param sms_anonymous_sign_up_enabled: The sms_anonymous_sign_up_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._sms_anonymous_sign_up_enabled = sms_anonymous_sign_up_enabled
+
+    @property
     def sms_passwordless_sign_in_enabled(self):
         """Gets the sms_passwordless_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
 
@@ -679,6 +762,27 @@ class CreateUserPoolResponse(object):
         """
 
         self._token_signing_key_url = token_signing_key_url
+
+    @property
+    def token_url(self):
+        """Gets the token_url of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The token_url of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._token_url
+
+    @token_url.setter
+    def token_url(self, token_url):
+        """Sets the token_url of this CreateUserPoolResponse.
+
+
+        :param token_url: The token_url of this CreateUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._token_url = token_url
 
     @property
     def total_clients(self):

@@ -35,6 +35,7 @@ class CreateWorkloadPoolResponse(object):
     swagger_types = {
         'created_at': 'str',
         'description': 'str',
+        'discovery_url': 'str',
         'project_name': 'str',
         'tags': 'list[TagForCreateWorkloadPoolOutput]',
         'trn': 'str',
@@ -46,6 +47,7 @@ class CreateWorkloadPoolResponse(object):
     attribute_map = {
         'created_at': 'CreatedAt',
         'description': 'Description',
+        'discovery_url': 'DiscoveryUrl',
         'project_name': 'ProjectName',
         'tags': 'Tags',
         'trn': 'Trn',
@@ -54,7 +56,7 @@ class CreateWorkloadPoolResponse(object):
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, created_at=None, description=None, project_name=None, tags=None, trn=None, updated_at=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, description=None, discovery_url=None, project_name=None, tags=None, trn=None, updated_at=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """CreateWorkloadPoolResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class CreateWorkloadPoolResponse(object):
 
         self._created_at = None
         self._description = None
+        self._discovery_url = None
         self._project_name = None
         self._tags = None
         self._trn = None
@@ -74,6 +77,8 @@ class CreateWorkloadPoolResponse(object):
             self.created_at = created_at
         if description is not None:
             self.description = description
+        if discovery_url is not None:
+            self.discovery_url = discovery_url
         if project_name is not None:
             self.project_name = project_name
         if tags is not None:
@@ -128,6 +133,27 @@ class CreateWorkloadPoolResponse(object):
         """
 
         self._description = description
+
+    @property
+    def discovery_url(self):
+        """Gets the discovery_url of this CreateWorkloadPoolResponse.  # noqa: E501
+
+
+        :return: The discovery_url of this CreateWorkloadPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._discovery_url
+
+    @discovery_url.setter
+    def discovery_url(self, discovery_url):
+        """Sets the discovery_url of this CreateWorkloadPoolResponse.
+
+
+        :param discovery_url: The discovery_url of this CreateWorkloadPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._discovery_url = discovery_url
 
     @property
     def project_name(self):

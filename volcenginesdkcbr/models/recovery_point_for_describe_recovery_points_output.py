@@ -35,6 +35,7 @@ class RecoveryPointForDescribeRecoveryPointsOutput(object):
     swagger_types = {
         'account_id': 'str',
         'backup_completed_time': 'str',
+        'backup_options': 'str',
         'capacity_in_bytes': 'int',
         'created_at': 'str',
         'error_detail': 'str',
@@ -54,6 +55,7 @@ class RecoveryPointForDescribeRecoveryPointsOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'backup_completed_time': 'BackupCompletedTime',
+        'backup_options': 'BackupOptions',
         'capacity_in_bytes': 'CapacityInBytes',
         'created_at': 'CreatedAt',
         'error_detail': 'ErrorDetail',
@@ -70,7 +72,7 @@ class RecoveryPointForDescribeRecoveryPointsOutput(object):
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, account_id=None, backup_completed_time=None, capacity_in_bytes=None, created_at=None, error_detail=None, extra_metadata=None, instance_id=None, instance_name=None, name=None, plan_id=None, plan_name=None, recovery_point_id=None, resource_type=None, retention_day=None, status=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, backup_completed_time=None, backup_options=None, capacity_in_bytes=None, created_at=None, error_detail=None, extra_metadata=None, instance_id=None, instance_name=None, name=None, plan_id=None, plan_name=None, recovery_point_id=None, resource_type=None, retention_day=None, status=None, updated_at=None, _configuration=None):  # noqa: E501
         """RecoveryPointForDescribeRecoveryPointsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class RecoveryPointForDescribeRecoveryPointsOutput(object):
 
         self._account_id = None
         self._backup_completed_time = None
+        self._backup_options = None
         self._capacity_in_bytes = None
         self._created_at = None
         self._error_detail = None
@@ -98,6 +101,8 @@ class RecoveryPointForDescribeRecoveryPointsOutput(object):
             self.account_id = account_id
         if backup_completed_time is not None:
             self.backup_completed_time = backup_completed_time
+        if backup_options is not None:
+            self.backup_options = backup_options
         if capacity_in_bytes is not None:
             self.capacity_in_bytes = capacity_in_bytes
         if created_at is not None:
@@ -168,6 +173,27 @@ class RecoveryPointForDescribeRecoveryPointsOutput(object):
         """
 
         self._backup_completed_time = backup_completed_time
+
+    @property
+    def backup_options(self):
+        """Gets the backup_options of this RecoveryPointForDescribeRecoveryPointsOutput.  # noqa: E501
+
+
+        :return: The backup_options of this RecoveryPointForDescribeRecoveryPointsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_options
+
+    @backup_options.setter
+    def backup_options(self, backup_options):
+        """Sets the backup_options of this RecoveryPointForDescribeRecoveryPointsOutput.
+
+
+        :param backup_options: The backup_options of this RecoveryPointForDescribeRecoveryPointsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_options = backup_options
 
     @property
     def capacity_in_bytes(self):

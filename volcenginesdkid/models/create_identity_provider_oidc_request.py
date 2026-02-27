@@ -33,6 +33,7 @@ class CreateIdentityProviderOIDCRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'claims_propagation_config': 'ClaimsPropagationConfigForCreateIdentityProviderOIDCInput',
         'client_id': 'str',
         'client_secret': 'str',
         'enabled': 'bool',
@@ -47,6 +48,7 @@ class CreateIdentityProviderOIDCRequest(object):
     }
 
     attribute_map = {
+        'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
         'enabled': 'Enabled',
@@ -60,12 +62,13 @@ class CreateIdentityProviderOIDCRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scopes_list=None, use_pkce=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scopes_list=None, use_pkce=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderOIDCRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
         self._enabled = None
@@ -79,6 +82,8 @@ class CreateIdentityProviderOIDCRequest(object):
         self._user_pool_uid = None
         self.discriminator = None
 
+        if claims_propagation_config is not None:
+            self.claims_propagation_config = claims_propagation_config
         self.client_id = client_id
         self.client_secret = client_secret
         self.enabled = enabled
@@ -93,6 +98,27 @@ class CreateIdentityProviderOIDCRequest(object):
             self.scopes_list = scopes_list
         self.use_pkce = use_pkce
         self.user_pool_uid = user_pool_uid
+
+    @property
+    def claims_propagation_config(self):
+        """Gets the claims_propagation_config of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+
+
+        :return: The claims_propagation_config of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :rtype: ClaimsPropagationConfigForCreateIdentityProviderOIDCInput
+        """
+        return self._claims_propagation_config
+
+    @claims_propagation_config.setter
+    def claims_propagation_config(self, claims_propagation_config):
+        """Sets the claims_propagation_config of this CreateIdentityProviderOIDCRequest.
+
+
+        :param claims_propagation_config: The claims_propagation_config of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :type: ClaimsPropagationConfigForCreateIdentityProviderOIDCInput
+        """
+
+        self._claims_propagation_config = claims_propagation_config
 
     @property
     def client_id(self):

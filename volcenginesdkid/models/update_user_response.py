@@ -43,6 +43,7 @@ class UpdateUserResponse(object):
         'given_name': 'str',
         'latest_browser': 'str',
         'latest_login': 'str',
+        'latest_login_method': 'str',
         'locale': 'str',
         'middle_name': 'str',
         'name': 'str',
@@ -59,7 +60,7 @@ class UpdateUserResponse(object):
         'user_metadata': 'str',
         'user_state': 'str',
         'website': 'str',
-        'zone_info': 'str'
+        'zoneinfo': 'str'
     }
 
     attribute_map = {
@@ -73,6 +74,7 @@ class UpdateUserResponse(object):
         'given_name': 'GivenName',
         'latest_browser': 'LatestBrowser',
         'latest_login': 'LatestLogin',
+        'latest_login_method': 'LatestLoginMethod',
         'locale': 'Locale',
         'middle_name': 'MiddleName',
         'name': 'Name',
@@ -89,10 +91,10 @@ class UpdateUserResponse(object):
         'user_metadata': 'UserMetadata',
         'user_state': 'UserState',
         'website': 'Website',
-        'zone_info': 'ZoneInfo'
+        'zoneinfo': 'Zoneinfo'
     }
 
-    def __init__(self, birthdate=None, connection=None, create_time=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, latest_browser=None, latest_login=None, locale=None, middle_name=None, name=None, nickname=None, num_logins=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, sub=None, uid=None, update_time=None, user_metadata=None, user_state=None, website=None, zone_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, birthdate=None, connection=None, create_time=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, latest_browser=None, latest_login=None, latest_login_method=None, locale=None, middle_name=None, name=None, nickname=None, num_logins=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, sub=None, uid=None, update_time=None, user_metadata=None, user_state=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
         """UpdateUserResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -108,6 +110,7 @@ class UpdateUserResponse(object):
         self._given_name = None
         self._latest_browser = None
         self._latest_login = None
+        self._latest_login_method = None
         self._locale = None
         self._middle_name = None
         self._name = None
@@ -124,7 +127,7 @@ class UpdateUserResponse(object):
         self._user_metadata = None
         self._user_state = None
         self._website = None
-        self._zone_info = None
+        self._zoneinfo = None
         self.discriminator = None
 
         if birthdate is not None:
@@ -147,6 +150,8 @@ class UpdateUserResponse(object):
             self.latest_browser = latest_browser
         if latest_login is not None:
             self.latest_login = latest_login
+        if latest_login_method is not None:
+            self.latest_login_method = latest_login_method
         if locale is not None:
             self.locale = locale
         if middle_name is not None:
@@ -179,8 +184,8 @@ class UpdateUserResponse(object):
             self.user_state = user_state
         if website is not None:
             self.website = website
-        if zone_info is not None:
-            self.zone_info = zone_info
+        if zoneinfo is not None:
+            self.zoneinfo = zoneinfo
 
     @property
     def birthdate(self):
@@ -391,6 +396,27 @@ class UpdateUserResponse(object):
         """
 
         self._latest_login = latest_login
+
+    @property
+    def latest_login_method(self):
+        """Gets the latest_login_method of this UpdateUserResponse.  # noqa: E501
+
+
+        :return: The latest_login_method of this UpdateUserResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._latest_login_method
+
+    @latest_login_method.setter
+    def latest_login_method(self, latest_login_method):
+        """Sets the latest_login_method of this UpdateUserResponse.
+
+
+        :param latest_login_method: The latest_login_method of this UpdateUserResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._latest_login_method = latest_login_method
 
     @property
     def locale(self):
@@ -729,25 +755,25 @@ class UpdateUserResponse(object):
         self._website = website
 
     @property
-    def zone_info(self):
-        """Gets the zone_info of this UpdateUserResponse.  # noqa: E501
+    def zoneinfo(self):
+        """Gets the zoneinfo of this UpdateUserResponse.  # noqa: E501
 
 
-        :return: The zone_info of this UpdateUserResponse.  # noqa: E501
+        :return: The zoneinfo of this UpdateUserResponse.  # noqa: E501
         :rtype: str
         """
-        return self._zone_info
+        return self._zoneinfo
 
-    @zone_info.setter
-    def zone_info(self, zone_info):
-        """Sets the zone_info of this UpdateUserResponse.
+    @zoneinfo.setter
+    def zoneinfo(self, zoneinfo):
+        """Sets the zoneinfo of this UpdateUserResponse.
 
 
-        :param zone_info: The zone_info of this UpdateUserResponse.  # noqa: E501
+        :param zoneinfo: The zoneinfo of this UpdateUserResponse.  # noqa: E501
         :type: str
         """
 
-        self._zone_info = zone_info
+        self._zoneinfo = zoneinfo
 
     def to_dict(self):
         """Returns the model properties as a dict"""

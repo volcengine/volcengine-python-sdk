@@ -33,34 +33,60 @@ class CreateOauth2CredentialProviderResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'callback_url': 'str',
         'credential_provider_trn': 'str',
         'name': 'str',
         'secret_trn': 'str'
     }
 
     attribute_map = {
+        'callback_url': 'CallbackUrl',
         'credential_provider_trn': 'CredentialProviderTrn',
         'name': 'Name',
         'secret_trn': 'SecretTrn'
     }
 
-    def __init__(self, credential_provider_trn=None, name=None, secret_trn=None, _configuration=None):  # noqa: E501
+    def __init__(self, callback_url=None, credential_provider_trn=None, name=None, secret_trn=None, _configuration=None):  # noqa: E501
         """CreateOauth2CredentialProviderResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._callback_url = None
         self._credential_provider_trn = None
         self._name = None
         self._secret_trn = None
         self.discriminator = None
 
+        if callback_url is not None:
+            self.callback_url = callback_url
         if credential_provider_trn is not None:
             self.credential_provider_trn = credential_provider_trn
         if name is not None:
             self.name = name
         if secret_trn is not None:
             self.secret_trn = secret_trn
+
+    @property
+    def callback_url(self):
+        """Gets the callback_url of this CreateOauth2CredentialProviderResponse.  # noqa: E501
+
+
+        :return: The callback_url of this CreateOauth2CredentialProviderResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._callback_url
+
+    @callback_url.setter
+    def callback_url(self, callback_url):
+        """Sets the callback_url of this CreateOauth2CredentialProviderResponse.
+
+
+        :param callback_url: The callback_url of this CreateOauth2CredentialProviderResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._callback_url = callback_url
 
     @property
     def credential_provider_trn(self):

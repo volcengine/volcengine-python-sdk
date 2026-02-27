@@ -39,6 +39,9 @@ class DataForListUserPoolsOutput(object):
         'name': 'str',
         'project_name': 'str',
         'tags': 'list[TagForListUserPoolsOutput]',
+        'total_clients': 'int',
+        'total_connections': 'int',
+        'total_users': 'int',
         'trn': 'str',
         'uid': 'str',
         'update_time': 'str'
@@ -51,12 +54,15 @@ class DataForListUserPoolsOutput(object):
         'name': 'Name',
         'project_name': 'ProjectName',
         'tags': 'Tags',
+        'total_clients': 'TotalClients',
+        'total_connections': 'TotalConnections',
+        'total_users': 'TotalUsers',
         'trn': 'Trn',
         'uid': 'Uid',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, description=None, domain=None, name=None, project_name=None, tags=None, trn=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, domain=None, name=None, project_name=None, tags=None, total_clients=None, total_connections=None, total_users=None, trn=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
         """DataForListUserPoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +74,9 @@ class DataForListUserPoolsOutput(object):
         self._name = None
         self._project_name = None
         self._tags = None
+        self._total_clients = None
+        self._total_connections = None
+        self._total_users = None
         self._trn = None
         self._uid = None
         self._update_time = None
@@ -85,6 +94,12 @@ class DataForListUserPoolsOutput(object):
             self.project_name = project_name
         if tags is not None:
             self.tags = tags
+        if total_clients is not None:
+            self.total_clients = total_clients
+        if total_connections is not None:
+            self.total_connections = total_connections
+        if total_users is not None:
+            self.total_users = total_users
         if trn is not None:
             self.trn = trn
         if uid is not None:
@@ -217,6 +232,69 @@ class DataForListUserPoolsOutput(object):
         """
 
         self._tags = tags
+
+    @property
+    def total_clients(self):
+        """Gets the total_clients of this DataForListUserPoolsOutput.  # noqa: E501
+
+
+        :return: The total_clients of this DataForListUserPoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_clients
+
+    @total_clients.setter
+    def total_clients(self, total_clients):
+        """Sets the total_clients of this DataForListUserPoolsOutput.
+
+
+        :param total_clients: The total_clients of this DataForListUserPoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._total_clients = total_clients
+
+    @property
+    def total_connections(self):
+        """Gets the total_connections of this DataForListUserPoolsOutput.  # noqa: E501
+
+
+        :return: The total_connections of this DataForListUserPoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_connections
+
+    @total_connections.setter
+    def total_connections(self, total_connections):
+        """Sets the total_connections of this DataForListUserPoolsOutput.
+
+
+        :param total_connections: The total_connections of this DataForListUserPoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._total_connections = total_connections
+
+    @property
+    def total_users(self):
+        """Gets the total_users of this DataForListUserPoolsOutput.  # noqa: E501
+
+
+        :return: The total_users of this DataForListUserPoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_users
+
+    @total_users.setter
+    def total_users(self, total_users):
+        """Sets the total_users of this DataForListUserPoolsOutput.
+
+
+        :param total_users: The total_users of this DataForListUserPoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._total_users = total_users
 
     @property
     def trn(self):

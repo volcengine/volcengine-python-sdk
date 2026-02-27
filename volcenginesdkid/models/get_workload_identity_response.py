@@ -38,6 +38,7 @@ class GetWorkloadIdentityResponse(object):
         'created_at': 'str',
         'description': 'str',
         'name': 'str',
+        'source': 'str',
         'trn': 'str',
         'updated_at': 'str',
         'workload_pool_name': 'str'
@@ -49,12 +50,13 @@ class GetWorkloadIdentityResponse(object):
         'created_at': 'CreatedAt',
         'description': 'Description',
         'name': 'Name',
+        'source': 'Source',
         'trn': 'Trn',
         'updated_at': 'UpdatedAt',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, allowed_resource_oauth2_return_urls=None, category=None, created_at=None, description=None, name=None, trn=None, updated_at=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_resource_oauth2_return_urls=None, category=None, created_at=None, description=None, name=None, source=None, trn=None, updated_at=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """GetWorkloadIdentityResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class GetWorkloadIdentityResponse(object):
         self._created_at = None
         self._description = None
         self._name = None
+        self._source = None
         self._trn = None
         self._updated_at = None
         self._workload_pool_name = None
@@ -80,6 +83,8 @@ class GetWorkloadIdentityResponse(object):
             self.description = description
         if name is not None:
             self.name = name
+        if source is not None:
+            self.source = source
         if trn is not None:
             self.trn = trn
         if updated_at is not None:
@@ -191,6 +196,27 @@ class GetWorkloadIdentityResponse(object):
         """
 
         self._name = name
+
+    @property
+    def source(self):
+        """Gets the source of this GetWorkloadIdentityResponse.  # noqa: E501
+
+
+        :return: The source of this GetWorkloadIdentityResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this GetWorkloadIdentityResponse.
+
+
+        :param source: The source of this GetWorkloadIdentityResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
 
     @property
     def trn(self):

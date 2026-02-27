@@ -44,6 +44,7 @@ class CreateUserPoolRequest(object):
         'self_sign_up_enabled': 'bool',
         'sign_in_attributes': 'list[str]',
         'sign_up_auto_verification_enabled': 'bool',
+        'sms_anonymous_sign_up_enabled': 'str',
         'sms_passwordless_sign_in_enabled': 'bool',
         'tags': 'list[TagForCreateUserPoolInput]',
         'unconfirmed_user_sign_in_enabled': 'bool'
@@ -61,12 +62,13 @@ class CreateUserPoolRequest(object):
         'self_sign_up_enabled': 'SelfSignUpEnabled',
         'sign_in_attributes': 'SignInAttributes',
         'sign_up_auto_verification_enabled': 'SignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled': 'SmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled': 'SmsPasswordlessSignInEnabled',
         'tags': 'Tags',
         'unconfirmed_user_sign_in_enabled': 'UnconfirmedUserSignInEnabled'
     }
 
-    def __init__(self, brand=None, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_in_attributes=None, sign_up_auto_verification_enabled=None, sms_passwordless_sign_in_enabled=None, tags=None, unconfirmed_user_sign_in_enabled=None, _configuration=None):  # noqa: E501
+    def __init__(self, brand=None, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_in_attributes=None, sign_up_auto_verification_enabled=None, sms_anonymous_sign_up_enabled=None, sms_passwordless_sign_in_enabled=None, tags=None, unconfirmed_user_sign_in_enabled=None, _configuration=None):  # noqa: E501
         """CreateUserPoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +85,7 @@ class CreateUserPoolRequest(object):
         self._self_sign_up_enabled = None
         self._sign_in_attributes = None
         self._sign_up_auto_verification_enabled = None
+        self._sms_anonymous_sign_up_enabled = None
         self._sms_passwordless_sign_in_enabled = None
         self._tags = None
         self._unconfirmed_user_sign_in_enabled = None
@@ -109,6 +112,8 @@ class CreateUserPoolRequest(object):
             self.sign_in_attributes = sign_in_attributes
         if sign_up_auto_verification_enabled is not None:
             self.sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
+        if sms_anonymous_sign_up_enabled is not None:
+            self.sms_anonymous_sign_up_enabled = sms_anonymous_sign_up_enabled
         if sms_passwordless_sign_in_enabled is not None:
             self.sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
         if tags is not None:
@@ -351,6 +356,27 @@ class CreateUserPoolRequest(object):
         """
 
         self._sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
+
+    @property
+    def sms_anonymous_sign_up_enabled(self):
+        """Gets the sms_anonymous_sign_up_enabled of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The sms_anonymous_sign_up_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sms_anonymous_sign_up_enabled
+
+    @sms_anonymous_sign_up_enabled.setter
+    def sms_anonymous_sign_up_enabled(self, sms_anonymous_sign_up_enabled):
+        """Sets the sms_anonymous_sign_up_enabled of this CreateUserPoolRequest.
+
+
+        :param sms_anonymous_sign_up_enabled: The sms_anonymous_sign_up_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sms_anonymous_sign_up_enabled = sms_anonymous_sign_up_enabled
 
     @property
     def sms_passwordless_sign_in_enabled(self):

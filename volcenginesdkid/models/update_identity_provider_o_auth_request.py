@@ -34,6 +34,7 @@ class UpdateIdentityProviderOAuthRequest(object):
     """
     swagger_types = {
         'authorization_endpoint': 'str',
+        'claims_propagation_config': 'ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput',
         'client_id': 'str',
         'client_secret': 'str',
         'connection_uid': 'str',
@@ -50,6 +51,7 @@ class UpdateIdentityProviderOAuthRequest(object):
 
     attribute_map = {
         'authorization_endpoint': 'AuthorizationEndpoint',
+        'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
         'connection_uid': 'ConnectionUid',
@@ -64,13 +66,14 @@ class UpdateIdentityProviderOAuthRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, authorization_endpoint=None, client_id=None, client_secret=None, connection_uid=None, enabled=None, id_attribute=None, name=None, provider_options=None, scopes_list=None, token_endpoint=None, use_pkce=None, user_endpoint=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorization_endpoint=None, claims_propagation_config=None, client_id=None, client_secret=None, connection_uid=None, enabled=None, id_attribute=None, name=None, provider_options=None, scopes_list=None, token_endpoint=None, use_pkce=None, user_endpoint=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderOAuthRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._authorization_endpoint = None
+        self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
         self._connection_uid = None
@@ -87,6 +90,8 @@ class UpdateIdentityProviderOAuthRequest(object):
 
         if authorization_endpoint is not None:
             self.authorization_endpoint = authorization_endpoint
+        if claims_propagation_config is not None:
+            self.claims_propagation_config = claims_propagation_config
         self.client_id = client_id
         if client_secret is not None:
             self.client_secret = client_secret
@@ -127,6 +132,27 @@ class UpdateIdentityProviderOAuthRequest(object):
         """
 
         self._authorization_endpoint = authorization_endpoint
+
+    @property
+    def claims_propagation_config(self):
+        """Gets the claims_propagation_config of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+
+
+        :return: The claims_propagation_config of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+        :rtype: ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput
+        """
+        return self._claims_propagation_config
+
+    @claims_propagation_config.setter
+    def claims_propagation_config(self, claims_propagation_config):
+        """Sets the claims_propagation_config of this UpdateIdentityProviderOAuthRequest.
+
+
+        :param claims_propagation_config: The claims_propagation_config of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+        :type: ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput
+        """
+
+        self._claims_propagation_config = claims_propagation_config
 
     @property
     def client_id(self):

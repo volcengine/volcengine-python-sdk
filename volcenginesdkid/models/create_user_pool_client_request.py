@@ -36,6 +36,7 @@ class CreateUserPoolClientRequest(object):
         'allowed_callback_urls': 'list[str]',
         'client_type': 'str',
         'description': 'str',
+        'development_mode_enabled': 'bool',
         'logo_uri': 'str',
         'name': 'str',
         'user_pool_uid': 'str'
@@ -45,12 +46,13 @@ class CreateUserPoolClientRequest(object):
         'allowed_callback_urls': 'AllowedCallbackUrls',
         'client_type': 'ClientType',
         'description': 'Description',
+        'development_mode_enabled': 'DevelopmentModeEnabled',
         'logo_uri': 'LogoUri',
         'name': 'Name',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, allowed_callback_urls=None, client_type=None, description=None, logo_uri=None, name=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_callback_urls=None, client_type=None, description=None, development_mode_enabled=None, logo_uri=None, name=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """CreateUserPoolClientRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CreateUserPoolClientRequest(object):
         self._allowed_callback_urls = None
         self._client_type = None
         self._description = None
+        self._development_mode_enabled = None
         self._logo_uri = None
         self._name = None
         self._user_pool_uid = None
@@ -69,6 +72,8 @@ class CreateUserPoolClientRequest(object):
         self.client_type = client_type
         if description is not None:
             self.description = description
+        if development_mode_enabled is not None:
+            self.development_mode_enabled = development_mode_enabled
         if logo_uri is not None:
             self.logo_uri = logo_uri
         self.name = name
@@ -138,6 +143,27 @@ class CreateUserPoolClientRequest(object):
         """
 
         self._description = description
+
+    @property
+    def development_mode_enabled(self):
+        """Gets the development_mode_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+
+
+        :return: The development_mode_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._development_mode_enabled
+
+    @development_mode_enabled.setter
+    def development_mode_enabled(self, development_mode_enabled):
+        """Sets the development_mode_enabled of this CreateUserPoolClientRequest.
+
+
+        :param development_mode_enabled: The development_mode_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._development_mode_enabled = development_mode_enabled
 
     @property
     def logo_uri(self):
