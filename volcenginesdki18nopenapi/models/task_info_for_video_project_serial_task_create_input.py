@@ -46,6 +46,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'need_translate_desc': 'bool',
         'need_translate_title': 'bool',
         'need_translate_title_and_desc': 'bool',
+        'need_video_speed': 'bool',
         'serial_number': 'int',
         'source_lang': 'str',
         'suppression_params': 'SuppressionParamsForVideoProjectSerialTaskCreateInput',
@@ -69,6 +70,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'need_translate_desc': 'needTranslateDesc',
         'need_translate_title': 'needTranslateTitle',
         'need_translate_title_and_desc': 'needTranslateTitleAndDesc',
+        'need_video_speed': 'needVideoSpeed',
         'serial_number': 'serialNumber',
         'source_lang': 'sourceLang',
         'suppression_params': 'suppressionParams',
@@ -78,7 +80,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'use_mt': 'useMT'
     }
 
-    def __init__(self, ai_remove_type=None, asr_model=None, bgm_policy=None, comment=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, is_dub=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, serial_number=None, source_lang=None, suppression_params=None, target_langs=None, target_style_map=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_remove_type=None, asr_model=None, bgm_policy=None, comment=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, is_dub=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, serial_number=None, source_lang=None, suppression_params=None, target_langs=None, target_style_map=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
         """TaskInfoForVideoProjectSerialTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +99,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         self._need_translate_desc = None
         self._need_translate_title = None
         self._need_translate_title_and_desc = None
+        self._need_video_speed = None
         self._serial_number = None
         self._source_lang = None
         self._suppression_params = None
@@ -132,6 +135,8 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
             self.need_translate_title = need_translate_title
         if need_translate_title_and_desc is not None:
             self.need_translate_title_and_desc = need_translate_title_and_desc
+        if need_video_speed is not None:
+            self.need_video_speed = need_video_speed
         if serial_number is not None:
             self.serial_number = serial_number
         if source_lang is not None:
@@ -419,6 +424,27 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         """
 
         self._need_translate_title_and_desc = need_translate_title_and_desc
+
+    @property
+    def need_video_speed(self):
+        """Gets the need_video_speed of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+
+
+        :return: The need_video_speed of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._need_video_speed
+
+    @need_video_speed.setter
+    def need_video_speed(self, need_video_speed):
+        """Sets the need_video_speed of this TaskInfoForVideoProjectSerialTaskCreateInput.
+
+
+        :param need_video_speed: The need_video_speed of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._need_video_speed = need_video_speed
 
     @property
     def serial_number(self):
