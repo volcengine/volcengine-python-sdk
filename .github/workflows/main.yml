@@ -27,8 +27,7 @@ jobs:
       - name: Extract Version
         id: version
         run: |
-          VERSION=$(grep -oP "VERSION\s*=\s*['\"]?\K[^'\"]+" setup.py 2>/dev/null || \
-                   grep -oP '__version__\s*=\s*["\x27]\K[^"\x27]+' volcengine/__init__.py)
+          VERSION=$(grep -oP "version\s*=\s*['\"]?\K[^'\"]+" pyproject.toml 2>/dev/null)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "tag=v$VERSION" >> $GITHUB_OUTPUT
 
