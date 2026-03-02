@@ -34,26 +34,31 @@ class CreateVaultRequest(object):
     """
     swagger_types = {
         'project_name': 'str',
+        'tags': 'list[TagForCreateVaultInput]',
         'vault_name': 'str'
     }
 
     attribute_map = {
         'project_name': 'ProjectName',
+        'tags': 'Tags',
         'vault_name': 'VaultName'
     }
 
-    def __init__(self, project_name=None, vault_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, project_name=None, tags=None, vault_name=None, _configuration=None):  # noqa: E501
         """CreateVaultRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._project_name = None
+        self._tags = None
         self._vault_name = None
         self.discriminator = None
 
         if project_name is not None:
             self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         self.vault_name = vault_name
 
     @property
@@ -76,6 +81,27 @@ class CreateVaultRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateVaultRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateVaultRequest.  # noqa: E501
+        :rtype: list[TagForCreateVaultInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateVaultRequest.
+
+
+        :param tags: The tags of this CreateVaultRequest.  # noqa: E501
+        :type: list[TagForCreateVaultInput]
+        """
+
+        self._tags = tags
 
     @property
     def vault_name(self):

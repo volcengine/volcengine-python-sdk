@@ -65,7 +65,7 @@ class Files(SyncAPIResource):
         *,
         file: FileTypes,
         purpose: FilePurpose,
-        expires_at: datetime.datetime | int | None = None,
+        expire_at: datetime.datetime | int | None = None,
         preprocess_configs: PreprocessConfigs | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -83,7 +83,7 @@ class Files(SyncAPIResource):
 
           purpose: The intended purpose of the uploaded file. Only `user_data` is supported.
 
-          expires_at: The expiration time for a file in Unix timestamp format. By default, files expires after 7 days.
+          expire_at: The expiration time for a file in Unix timestamp format. By default, files expires after 7 days.
 
           extra_headers: Send extra headers
 
@@ -97,7 +97,7 @@ class Files(SyncAPIResource):
             {
                 "file": file,
                 "purpose": purpose,
-                "expires_at": expires_at,
+                "expire_at": expire_at,
                 "preprocess_configs": preprocess_configs,
             }
         )

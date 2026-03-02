@@ -33,7 +33,7 @@ class LineConfigForCreateTaskInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'group_list': 'list[ConvertGroupListForCreateTaskInput]',
+        'group_list': 'list[GroupListForCreateTaskInput]',
         'groups': 'list[int]',
         'line_list': 'list[LineListForCreateTaskInput]'
     }
@@ -68,7 +68,7 @@ class LineConfigForCreateTaskInput(object):
 
 
         :return: The group_list of this LineConfigForCreateTaskInput.  # noqa: E501
-        :rtype: list[ConvertGroupListForCreateTaskInput]
+        :rtype: list[GroupListForCreateTaskInput]
         """
         return self._group_list
 
@@ -78,7 +78,7 @@ class LineConfigForCreateTaskInput(object):
 
 
         :param group_list: The group_list of this LineConfigForCreateTaskInput.  # noqa: E501
-        :type: list[ConvertGroupListForCreateTaskInput]
+        :type: list[GroupListForCreateTaskInput]
         """
 
         self._group_list = group_list

@@ -33,23 +33,50 @@ class GetServiceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'service_id': 'str',
         'service_name': 'str'
     }
 
     attribute_map = {
+        'service_id': 'ServiceId',
         'service_name': 'ServiceName'
     }
 
-    def __init__(self, service_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, service_id=None, service_name=None, _configuration=None):  # noqa: E501
         """GetServiceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._service_id = None
         self._service_name = None
         self.discriminator = None
 
-        self.service_name = service_name
+        if service_id is not None:
+            self.service_id = service_id
+        if service_name is not None:
+            self.service_name = service_name
+
+    @property
+    def service_id(self):
+        """Gets the service_id of this GetServiceRequest.  # noqa: E501
+
+
+        :return: The service_id of this GetServiceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_id
+
+    @service_id.setter
+    def service_id(self, service_id):
+        """Sets the service_id of this GetServiceRequest.
+
+
+        :param service_id: The service_id of this GetServiceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._service_id = service_id
 
     @property
     def service_name(self):
@@ -69,8 +96,6 @@ class GetServiceRequest(object):
         :param service_name: The service_name of this GetServiceRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and service_name is None:
-            raise ValueError("Invalid value for `service_name`, must not be `None`")  # noqa: E501
 
         self._service_name = service_name
 

@@ -35,12 +35,12 @@ class CreateTaskRequest(object):
     swagger_types = {
         'address': 'str',
         'alarm_id_list': 'list[int]',
-        'dns_config': 'DNSConfigForCreateTaskInput',
-        'dns_hijack_config': 'DNSHijackConfigForCreateTaskInput',
         'diagnose_config': 'DiagnoseConfigForCreateTaskInput',
+        'dns_config': 'DnsConfigForCreateTaskInput',
+        'dns_hijack_config': 'DnsHijackConfigForCreateTaskInput',
         'download_config': 'DownloadConfigForCreateTaskInput',
         'finish_time': 'int',
-        'http_config': 'HTTPConfigForCreateTaskInput',
+        'http_config': 'HttpConfigForCreateTaskInput',
         'interval_seconds': 'int',
         'line_id_list': 'list[int]',
         'name': 'str',
@@ -51,26 +51,26 @@ class CreateTaskRequest(object):
         'project_name': 'str',
         'result_assert': 'ResultAssertForCreateTaskInput',
         'selection_config': 'SelectionConfigForCreateTaskInput',
-        'tcp_config': 'TCPConfigForCreateTaskInput',
         'tags': 'list[TagForCreateTaskInput]',
         'target_server_type': 'int',
         'task_group_id': 'int',
+        'tcp_config': 'TcpConfigForCreateTaskInput',
         'type': 'int',
-        'udp_config': 'UDPConfigForCreateTaskInput',
+        'udp_config': 'UdpConfigForCreateTaskInput',
         'upload_config': 'UploadConfigForCreateTaskInput'
     }
 
     attribute_map = {
         'address': 'Address',
-        'alarm_id_list': 'AlarmIDList',
-        'dns_config': 'DNSConfig',
-        'dns_hijack_config': 'DNSHijackConfig',
+        'alarm_id_list': 'AlarmIdList',
         'diagnose_config': 'DiagnoseConfig',
+        'dns_config': 'DnsConfig',
+        'dns_hijack_config': 'DnsHijackConfig',
         'download_config': 'DownloadConfig',
         'finish_time': 'FinishTime',
-        'http_config': 'HTTPConfig',
+        'http_config': 'HttpConfig',
         'interval_seconds': 'IntervalSeconds',
-        'line_id_list': 'LineIDList',
+        'line_id_list': 'LineIdList',
         'name': 'Name',
         'node_count': 'NodeCount',
         'page_config': 'PageConfig',
@@ -79,16 +79,16 @@ class CreateTaskRequest(object):
         'project_name': 'ProjectName',
         'result_assert': 'ResultAssert',
         'selection_config': 'SelectionConfig',
-        'tcp_config': 'TCPConfig',
         'tags': 'Tags',
         'target_server_type': 'TargetServerType',
-        'task_group_id': 'TaskGroupID',
+        'task_group_id': 'TaskGroupId',
+        'tcp_config': 'TcpConfig',
         'type': 'Type',
-        'udp_config': 'UDPConfig',
+        'udp_config': 'UdpConfig',
         'upload_config': 'UploadConfig'
     }
 
-    def __init__(self, address=None, alarm_id_list=None, dns_config=None, dns_hijack_config=None, diagnose_config=None, download_config=None, finish_time=None, http_config=None, interval_seconds=None, line_id_list=None, name=None, node_count=None, page_config=None, period_config=None, ping_config=None, project_name=None, result_assert=None, selection_config=None, tcp_config=None, tags=None, target_server_type=None, task_group_id=None, type=None, udp_config=None, upload_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, address=None, alarm_id_list=None, diagnose_config=None, dns_config=None, dns_hijack_config=None, download_config=None, finish_time=None, http_config=None, interval_seconds=None, line_id_list=None, name=None, node_count=None, page_config=None, period_config=None, ping_config=None, project_name=None, result_assert=None, selection_config=None, tags=None, target_server_type=None, task_group_id=None, tcp_config=None, type=None, udp_config=None, upload_config=None, _configuration=None):  # noqa: E501
         """CreateTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,9 +96,9 @@ class CreateTaskRequest(object):
 
         self._address = None
         self._alarm_id_list = None
+        self._diagnose_config = None
         self._dns_config = None
         self._dns_hijack_config = None
-        self._diagnose_config = None
         self._download_config = None
         self._finish_time = None
         self._http_config = None
@@ -112,10 +112,10 @@ class CreateTaskRequest(object):
         self._project_name = None
         self._result_assert = None
         self._selection_config = None
-        self._tcp_config = None
         self._tags = None
         self._target_server_type = None
         self._task_group_id = None
+        self._tcp_config = None
         self._type = None
         self._udp_config = None
         self._upload_config = None
@@ -124,12 +124,12 @@ class CreateTaskRequest(object):
         self.address = address
         if alarm_id_list is not None:
             self.alarm_id_list = alarm_id_list
+        if diagnose_config is not None:
+            self.diagnose_config = diagnose_config
         if dns_config is not None:
             self.dns_config = dns_config
         if dns_hijack_config is not None:
             self.dns_hijack_config = dns_hijack_config
-        if diagnose_config is not None:
-            self.diagnose_config = diagnose_config
         if download_config is not None:
             self.download_config = download_config
         self.finish_time = finish_time
@@ -152,14 +152,14 @@ class CreateTaskRequest(object):
             self.result_assert = result_assert
         if selection_config is not None:
             self.selection_config = selection_config
-        if tcp_config is not None:
-            self.tcp_config = tcp_config
         if tags is not None:
             self.tags = tags
         if target_server_type is not None:
             self.target_server_type = target_server_type
         if task_group_id is not None:
             self.task_group_id = task_group_id
+        if tcp_config is not None:
+            self.tcp_config = tcp_config
         self.type = type
         if udp_config is not None:
             self.udp_config = udp_config
@@ -211,48 +211,6 @@ class CreateTaskRequest(object):
         self._alarm_id_list = alarm_id_list
 
     @property
-    def dns_config(self):
-        """Gets the dns_config of this CreateTaskRequest.  # noqa: E501
-
-
-        :return: The dns_config of this CreateTaskRequest.  # noqa: E501
-        :rtype: DNSConfigForCreateTaskInput
-        """
-        return self._dns_config
-
-    @dns_config.setter
-    def dns_config(self, dns_config):
-        """Sets the dns_config of this CreateTaskRequest.
-
-
-        :param dns_config: The dns_config of this CreateTaskRequest.  # noqa: E501
-        :type: DNSConfigForCreateTaskInput
-        """
-
-        self._dns_config = dns_config
-
-    @property
-    def dns_hijack_config(self):
-        """Gets the dns_hijack_config of this CreateTaskRequest.  # noqa: E501
-
-
-        :return: The dns_hijack_config of this CreateTaskRequest.  # noqa: E501
-        :rtype: DNSHijackConfigForCreateTaskInput
-        """
-        return self._dns_hijack_config
-
-    @dns_hijack_config.setter
-    def dns_hijack_config(self, dns_hijack_config):
-        """Sets the dns_hijack_config of this CreateTaskRequest.
-
-
-        :param dns_hijack_config: The dns_hijack_config of this CreateTaskRequest.  # noqa: E501
-        :type: DNSHijackConfigForCreateTaskInput
-        """
-
-        self._dns_hijack_config = dns_hijack_config
-
-    @property
     def diagnose_config(self):
         """Gets the diagnose_config of this CreateTaskRequest.  # noqa: E501
 
@@ -272,6 +230,48 @@ class CreateTaskRequest(object):
         """
 
         self._diagnose_config = diagnose_config
+
+    @property
+    def dns_config(self):
+        """Gets the dns_config of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The dns_config of this CreateTaskRequest.  # noqa: E501
+        :rtype: DnsConfigForCreateTaskInput
+        """
+        return self._dns_config
+
+    @dns_config.setter
+    def dns_config(self, dns_config):
+        """Sets the dns_config of this CreateTaskRequest.
+
+
+        :param dns_config: The dns_config of this CreateTaskRequest.  # noqa: E501
+        :type: DnsConfigForCreateTaskInput
+        """
+
+        self._dns_config = dns_config
+
+    @property
+    def dns_hijack_config(self):
+        """Gets the dns_hijack_config of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The dns_hijack_config of this CreateTaskRequest.  # noqa: E501
+        :rtype: DnsHijackConfigForCreateTaskInput
+        """
+        return self._dns_hijack_config
+
+    @dns_hijack_config.setter
+    def dns_hijack_config(self, dns_hijack_config):
+        """Sets the dns_hijack_config of this CreateTaskRequest.
+
+
+        :param dns_hijack_config: The dns_hijack_config of this CreateTaskRequest.  # noqa: E501
+        :type: DnsHijackConfigForCreateTaskInput
+        """
+
+        self._dns_hijack_config = dns_hijack_config
 
     @property
     def download_config(self):
@@ -323,7 +323,7 @@ class CreateTaskRequest(object):
 
 
         :return: The http_config of this CreateTaskRequest.  # noqa: E501
-        :rtype: HTTPConfigForCreateTaskInput
+        :rtype: HttpConfigForCreateTaskInput
         """
         return self._http_config
 
@@ -333,7 +333,7 @@ class CreateTaskRequest(object):
 
 
         :param http_config: The http_config of this CreateTaskRequest.  # noqa: E501
-        :type: HTTPConfigForCreateTaskInput
+        :type: HttpConfigForCreateTaskInput
         """
 
         self._http_config = http_config
@@ -555,27 +555,6 @@ class CreateTaskRequest(object):
         self._selection_config = selection_config
 
     @property
-    def tcp_config(self):
-        """Gets the tcp_config of this CreateTaskRequest.  # noqa: E501
-
-
-        :return: The tcp_config of this CreateTaskRequest.  # noqa: E501
-        :rtype: TCPConfigForCreateTaskInput
-        """
-        return self._tcp_config
-
-    @tcp_config.setter
-    def tcp_config(self, tcp_config):
-        """Sets the tcp_config of this CreateTaskRequest.
-
-
-        :param tcp_config: The tcp_config of this CreateTaskRequest.  # noqa: E501
-        :type: TCPConfigForCreateTaskInput
-        """
-
-        self._tcp_config = tcp_config
-
-    @property
     def tags(self):
         """Gets the tags of this CreateTaskRequest.  # noqa: E501
 
@@ -639,6 +618,27 @@ class CreateTaskRequest(object):
         self._task_group_id = task_group_id
 
     @property
+    def tcp_config(self):
+        """Gets the tcp_config of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The tcp_config of this CreateTaskRequest.  # noqa: E501
+        :rtype: TcpConfigForCreateTaskInput
+        """
+        return self._tcp_config
+
+    @tcp_config.setter
+    def tcp_config(self, tcp_config):
+        """Sets the tcp_config of this CreateTaskRequest.
+
+
+        :param tcp_config: The tcp_config of this CreateTaskRequest.  # noqa: E501
+        :type: TcpConfigForCreateTaskInput
+        """
+
+        self._tcp_config = tcp_config
+
+    @property
     def type(self):
         """Gets the type of this CreateTaskRequest.  # noqa: E501
 
@@ -667,7 +667,7 @@ class CreateTaskRequest(object):
 
 
         :return: The udp_config of this CreateTaskRequest.  # noqa: E501
-        :rtype: UDPConfigForCreateTaskInput
+        :rtype: UdpConfigForCreateTaskInput
         """
         return self._udp_config
 
@@ -677,7 +677,7 @@ class CreateTaskRequest(object):
 
 
         :param udp_config: The udp_config of this CreateTaskRequest.  # noqa: E501
-        :type: UDPConfigForCreateTaskInput
+        :type: UdpConfigForCreateTaskInput
         """
 
         self._udp_config = udp_config

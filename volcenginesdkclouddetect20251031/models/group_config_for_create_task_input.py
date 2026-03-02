@@ -33,71 +33,71 @@ class GroupConfigForCreateTaskInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'name': 'str',
-        'node_count': 'int'
+        'group_list': 'list[GroupListForCreateTaskInput]',
+        'groups': 'list[int]'
     }
 
     attribute_map = {
-        'name': 'Name',
-        'node_count': 'NodeCount'
+        'group_list': 'GroupList',
+        'groups': 'Groups'
     }
 
-    def __init__(self, name=None, node_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, group_list=None, groups=None, _configuration=None):  # noqa: E501
         """GroupConfigForCreateTaskInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._name = None
-        self._node_count = None
+        self._group_list = None
+        self._groups = None
         self.discriminator = None
 
-        if name is not None:
-            self.name = name
-        if node_count is not None:
-            self.node_count = node_count
+        if group_list is not None:
+            self.group_list = group_list
+        if groups is not None:
+            self.groups = groups
 
     @property
-    def name(self):
-        """Gets the name of this GroupConfigForCreateTaskInput.  # noqa: E501
+    def group_list(self):
+        """Gets the group_list of this GroupConfigForCreateTaskInput.  # noqa: E501
 
 
-        :return: The name of this GroupConfigForCreateTaskInput.  # noqa: E501
-        :rtype: str
+        :return: The group_list of this GroupConfigForCreateTaskInput.  # noqa: E501
+        :rtype: list[GroupListForCreateTaskInput]
         """
-        return self._name
+        return self._group_list
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this GroupConfigForCreateTaskInput.
+    @group_list.setter
+    def group_list(self, group_list):
+        """Sets the group_list of this GroupConfigForCreateTaskInput.
 
 
-        :param name: The name of this GroupConfigForCreateTaskInput.  # noqa: E501
-        :type: str
+        :param group_list: The group_list of this GroupConfigForCreateTaskInput.  # noqa: E501
+        :type: list[GroupListForCreateTaskInput]
         """
 
-        self._name = name
+        self._group_list = group_list
 
     @property
-    def node_count(self):
-        """Gets the node_count of this GroupConfigForCreateTaskInput.  # noqa: E501
+    def groups(self):
+        """Gets the groups of this GroupConfigForCreateTaskInput.  # noqa: E501
 
 
-        :return: The node_count of this GroupConfigForCreateTaskInput.  # noqa: E501
-        :rtype: int
+        :return: The groups of this GroupConfigForCreateTaskInput.  # noqa: E501
+        :rtype: list[int]
         """
-        return self._node_count
+        return self._groups
 
-    @node_count.setter
-    def node_count(self, node_count):
-        """Sets the node_count of this GroupConfigForCreateTaskInput.
+    @groups.setter
+    def groups(self, groups):
+        """Sets the groups of this GroupConfigForCreateTaskInput.
 
 
-        :param node_count: The node_count of this GroupConfigForCreateTaskInput.  # noqa: E501
-        :type: int
+        :param groups: The groups of this GroupConfigForCreateTaskInput.  # noqa: E501
+        :type: list[int]
         """
 
-        self._node_count = node_count
+        self._groups = groups
 
     def to_dict(self):
         """Returns the model properties as a dict"""

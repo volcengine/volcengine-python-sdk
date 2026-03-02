@@ -38,7 +38,7 @@ class LineGroupListForCreateTaskInput(object):
     }
 
     attribute_map = {
-        'id': 'ID',
+        'id': 'Id',
         'name': 'Name'
     }
 

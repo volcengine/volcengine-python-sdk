@@ -119,6 +119,13 @@ class ModifySslVpnServerRequest(object):
         :param auth: The auth of this ModifySslVpnServerRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["SHA1", "MD5", "None"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                auth not in allowed_values):
+            raise ValueError(
+                "Invalid value for `auth` ({0}), must be one of {1}"  # noqa: E501
+                .format(auth, allowed_values)
+            )
 
         self._auth = auth
 
@@ -140,6 +147,13 @@ class ModifySslVpnServerRequest(object):
         :param cipher: The cipher of this ModifySslVpnServerRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["AES-128-CBC", "AES-192-CBC", "AES-256-CBC", "None"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                cipher not in allowed_values):
+            raise ValueError(
+                "Invalid value for `cipher` ({0}), must be one of {1}"  # noqa: E501
+                .format(cipher, allowed_values)
+            )
 
         self._cipher = cipher
 
@@ -294,6 +308,13 @@ class ModifySslVpnServerRequest(object):
         :param protocol: The protocol of this ModifySslVpnServerRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["TCP", "UDP"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                protocol not in allowed_values):
+            raise ValueError(
+                "Invalid value for `protocol` ({0}), must be one of {1}"  # noqa: E501
+                .format(protocol, allowed_values)
+            )
 
         self._protocol = protocol
 

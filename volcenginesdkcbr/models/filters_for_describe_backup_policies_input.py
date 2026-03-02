@@ -33,7 +33,7 @@ class FiltersForDescribeBackupPoliciesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'enable_policy': 'bool',
+        'enable_policy': 'str',
         'name': 'str',
         'policy_id': 'str'
     }
@@ -68,7 +68,7 @@ class FiltersForDescribeBackupPoliciesInput(object):
 
 
         :return: The enable_policy of this FiltersForDescribeBackupPoliciesInput.  # noqa: E501
-        :rtype: bool
+        :rtype: str
         """
         return self._enable_policy
 
@@ -78,7 +78,7 @@ class FiltersForDescribeBackupPoliciesInput(object):
 
 
         :param enable_policy: The enable_policy of this FiltersForDescribeBackupPoliciesInput.  # noqa: E501
-        :type: bool
+        :type: str
         """
 
         self._enable_policy = enable_policy

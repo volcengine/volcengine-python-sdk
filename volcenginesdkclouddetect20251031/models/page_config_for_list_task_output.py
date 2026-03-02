@@ -36,10 +36,10 @@ class PageConfigForListTaskOutput(object):
         'auto_scroll': 'bool',
         'cookies': 'list[CookieForListTaskOutput]',
         'custom_header': 'CustomHeaderForListTaskOutput',
+        'custom_host_config': 'CustomHostConfigForListTaskOutput',
         'disable_compress': 'bool',
         'enable_cache': 'bool',
         'enable_redirect': 'bool',
-        'end_custom_host_config_time': 'EndCustomHostConfigTimeForListTaskOutput',
         'ignore_certificate': 'bool',
         'quic_config': 'QuicConfigForListTaskOutput',
         'save_base_document_body': 'bool',
@@ -53,10 +53,10 @@ class PageConfigForListTaskOutput(object):
         'auto_scroll': 'AutoScroll',
         'cookies': 'Cookies',
         'custom_header': 'CustomHeader',
+        'custom_host_config': 'CustomHostConfig',
         'disable_compress': 'DisableCompress',
         'enable_cache': 'EnableCache',
         'enable_redirect': 'EnableRedirect',
-        'end_custom_host_config_time': 'EndCustomHostConfigTime',
         'ignore_certificate': 'IgnoreCertificate',
         'quic_config': 'QuicConfig',
         'save_base_document_body': 'SaveBaseDocumentBody',
@@ -66,7 +66,7 @@ class PageConfigForListTaskOutput(object):
         'timeout': 'Timeout'
     }
 
-    def __init__(self, auto_scroll=None, cookies=None, custom_header=None, disable_compress=None, enable_cache=None, enable_redirect=None, end_custom_host_config_time=None, ignore_certificate=None, quic_config=None, save_base_document_body=None, save_elements=None, save_final_snapshot=None, screenshot_keypoint=None, timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scroll=None, cookies=None, custom_header=None, custom_host_config=None, disable_compress=None, enable_cache=None, enable_redirect=None, ignore_certificate=None, quic_config=None, save_base_document_body=None, save_elements=None, save_final_snapshot=None, screenshot_keypoint=None, timeout=None, _configuration=None):  # noqa: E501
         """PageConfigForListTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,10 +75,10 @@ class PageConfigForListTaskOutput(object):
         self._auto_scroll = None
         self._cookies = None
         self._custom_header = None
+        self._custom_host_config = None
         self._disable_compress = None
         self._enable_cache = None
         self._enable_redirect = None
-        self._end_custom_host_config_time = None
         self._ignore_certificate = None
         self._quic_config = None
         self._save_base_document_body = None
@@ -94,14 +94,14 @@ class PageConfigForListTaskOutput(object):
             self.cookies = cookies
         if custom_header is not None:
             self.custom_header = custom_header
+        if custom_host_config is not None:
+            self.custom_host_config = custom_host_config
         if disable_compress is not None:
             self.disable_compress = disable_compress
         if enable_cache is not None:
             self.enable_cache = enable_cache
         if enable_redirect is not None:
             self.enable_redirect = enable_redirect
-        if end_custom_host_config_time is not None:
-            self.end_custom_host_config_time = end_custom_host_config_time
         if ignore_certificate is not None:
             self.ignore_certificate = ignore_certificate
         if quic_config is not None:
@@ -181,6 +181,27 @@ class PageConfigForListTaskOutput(object):
         self._custom_header = custom_header
 
     @property
+    def custom_host_config(self):
+        """Gets the custom_host_config of this PageConfigForListTaskOutput.  # noqa: E501
+
+
+        :return: The custom_host_config of this PageConfigForListTaskOutput.  # noqa: E501
+        :rtype: CustomHostConfigForListTaskOutput
+        """
+        return self._custom_host_config
+
+    @custom_host_config.setter
+    def custom_host_config(self, custom_host_config):
+        """Sets the custom_host_config of this PageConfigForListTaskOutput.
+
+
+        :param custom_host_config: The custom_host_config of this PageConfigForListTaskOutput.  # noqa: E501
+        :type: CustomHostConfigForListTaskOutput
+        """
+
+        self._custom_host_config = custom_host_config
+
+    @property
     def disable_compress(self):
         """Gets the disable_compress of this PageConfigForListTaskOutput.  # noqa: E501
 
@@ -242,27 +263,6 @@ class PageConfigForListTaskOutput(object):
         """
 
         self._enable_redirect = enable_redirect
-
-    @property
-    def end_custom_host_config_time(self):
-        """Gets the end_custom_host_config_time of this PageConfigForListTaskOutput.  # noqa: E501
-
-
-        :return: The end_custom_host_config_time of this PageConfigForListTaskOutput.  # noqa: E501
-        :rtype: EndCustomHostConfigTimeForListTaskOutput
-        """
-        return self._end_custom_host_config_time
-
-    @end_custom_host_config_time.setter
-    def end_custom_host_config_time(self, end_custom_host_config_time):
-        """Sets the end_custom_host_config_time of this PageConfigForListTaskOutput.
-
-
-        :param end_custom_host_config_time: The end_custom_host_config_time of this PageConfigForListTaskOutput.  # noqa: E501
-        :type: EndCustomHostConfigTimeForListTaskOutput
-        """
-
-        self._end_custom_host_config_time = end_custom_host_config_time
 
     @property
     def ignore_certificate(self):

@@ -35,13 +35,14 @@ class UpdateTaskRequest(object):
     swagger_types = {
         'address': 'str',
         'alarm_id_list': 'list[int]',
-        'dns_config': 'DNSConfigForUpdateTaskInput',
-        'dns_hijack_config': 'DNSHijackConfigForUpdateTaskInput',
+        'bind_group_id': 'int',
         'diagnose_config': 'DiagnoseConfigForUpdateTaskInput',
+        'dns_config': 'DnsConfigForUpdateTaskInput',
+        'dns_hijack_config': 'DnsHijackConfigForUpdateTaskInput',
         'download_config': 'DownloadConfigForUpdateTaskInput',
         'enable_shuffle': 'bool',
         'finish_time': 'int',
-        'http_config': 'HTTPConfigForUpdateTaskInput',
+        'http_config': 'HttpConfigForUpdateTaskInput',
         'id': 'int',
         'interval_seconds': 'int',
         'line_id_list': 'list[int]',
@@ -51,42 +52,45 @@ class UpdateTaskRequest(object):
         'period_config': 'PeriodConfigForUpdateTaskInput',
         'ping_config': 'PingConfigForUpdateTaskInput',
         'result_assert': 'ResultAssertForUpdateTaskInput',
-        'tcp_config': 'TCPConfigForUpdateTaskInput',
+        'selection_config': 'SelectionConfigForUpdateTaskInput',
         'tags': 'list[TagForUpdateTaskInput]',
         'target_server_type': 'int',
         'task_group_id': 'int',
-        'udp_config': 'UDPConfigForUpdateTaskInput',
+        'tcp_config': 'TcpConfigForUpdateTaskInput',
+        'udp_config': 'UdpConfigForUpdateTaskInput',
         'upload_config': 'UploadConfigForUpdateTaskInput'
     }
 
     attribute_map = {
         'address': 'Address',
-        'alarm_id_list': 'AlarmIDList',
-        'dns_config': 'DNSConfig',
-        'dns_hijack_config': 'DNSHijackConfig',
+        'alarm_id_list': 'AlarmIdList',
+        'bind_group_id': 'BindGroupId',
         'diagnose_config': 'DiagnoseConfig',
+        'dns_config': 'DnsConfig',
+        'dns_hijack_config': 'DnsHijackConfig',
         'download_config': 'DownloadConfig',
         'enable_shuffle': 'EnableShuffle',
         'finish_time': 'FinishTime',
-        'http_config': 'HTTPConfig',
-        'id': 'ID',
+        'http_config': 'HttpConfig',
+        'id': 'Id',
         'interval_seconds': 'IntervalSeconds',
-        'line_id_list': 'LineIDList',
+        'line_id_list': 'LineIdList',
         'name': 'Name',
         'node_count': 'NodeCount',
         'page_config': 'PageConfig',
         'period_config': 'PeriodConfig',
         'ping_config': 'PingConfig',
         'result_assert': 'ResultAssert',
-        'tcp_config': 'TCPConfig',
+        'selection_config': 'SelectionConfig',
         'tags': 'Tags',
         'target_server_type': 'TargetServerType',
-        'task_group_id': 'TaskGroupID',
-        'udp_config': 'UDPConfig',
+        'task_group_id': 'TaskGroupId',
+        'tcp_config': 'TcpConfig',
+        'udp_config': 'UdpConfig',
         'upload_config': 'UploadConfig'
     }
 
-    def __init__(self, address=None, alarm_id_list=None, dns_config=None, dns_hijack_config=None, diagnose_config=None, download_config=None, enable_shuffle=None, finish_time=None, http_config=None, id=None, interval_seconds=None, line_id_list=None, name=None, node_count=None, page_config=None, period_config=None, ping_config=None, result_assert=None, tcp_config=None, tags=None, target_server_type=None, task_group_id=None, udp_config=None, upload_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, address=None, alarm_id_list=None, bind_group_id=None, diagnose_config=None, dns_config=None, dns_hijack_config=None, download_config=None, enable_shuffle=None, finish_time=None, http_config=None, id=None, interval_seconds=None, line_id_list=None, name=None, node_count=None, page_config=None, period_config=None, ping_config=None, result_assert=None, selection_config=None, tags=None, target_server_type=None, task_group_id=None, tcp_config=None, udp_config=None, upload_config=None, _configuration=None):  # noqa: E501
         """UpdateTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,9 +98,10 @@ class UpdateTaskRequest(object):
 
         self._address = None
         self._alarm_id_list = None
+        self._bind_group_id = None
+        self._diagnose_config = None
         self._dns_config = None
         self._dns_hijack_config = None
-        self._diagnose_config = None
         self._download_config = None
         self._enable_shuffle = None
         self._finish_time = None
@@ -110,10 +115,11 @@ class UpdateTaskRequest(object):
         self._period_config = None
         self._ping_config = None
         self._result_assert = None
-        self._tcp_config = None
+        self._selection_config = None
         self._tags = None
         self._target_server_type = None
         self._task_group_id = None
+        self._tcp_config = None
         self._udp_config = None
         self._upload_config = None
         self.discriminator = None
@@ -121,12 +127,14 @@ class UpdateTaskRequest(object):
         self.address = address
         if alarm_id_list is not None:
             self.alarm_id_list = alarm_id_list
+        if bind_group_id is not None:
+            self.bind_group_id = bind_group_id
+        if diagnose_config is not None:
+            self.diagnose_config = diagnose_config
         if dns_config is not None:
             self.dns_config = dns_config
         if dns_hijack_config is not None:
             self.dns_hijack_config = dns_hijack_config
-        if diagnose_config is not None:
-            self.diagnose_config = diagnose_config
         if download_config is not None:
             self.download_config = download_config
         if enable_shuffle is not None:
@@ -148,14 +156,16 @@ class UpdateTaskRequest(object):
             self.ping_config = ping_config
         if result_assert is not None:
             self.result_assert = result_assert
-        if tcp_config is not None:
-            self.tcp_config = tcp_config
+        if selection_config is not None:
+            self.selection_config = selection_config
         if tags is not None:
             self.tags = tags
         if target_server_type is not None:
             self.target_server_type = target_server_type
         if task_group_id is not None:
             self.task_group_id = task_group_id
+        if tcp_config is not None:
+            self.tcp_config = tcp_config
         if udp_config is not None:
             self.udp_config = udp_config
         if upload_config is not None:
@@ -206,46 +216,25 @@ class UpdateTaskRequest(object):
         self._alarm_id_list = alarm_id_list
 
     @property
-    def dns_config(self):
-        """Gets the dns_config of this UpdateTaskRequest.  # noqa: E501
+    def bind_group_id(self):
+        """Gets the bind_group_id of this UpdateTaskRequest.  # noqa: E501
 
 
-        :return: The dns_config of this UpdateTaskRequest.  # noqa: E501
-        :rtype: DNSConfigForUpdateTaskInput
+        :return: The bind_group_id of this UpdateTaskRequest.  # noqa: E501
+        :rtype: int
         """
-        return self._dns_config
+        return self._bind_group_id
 
-    @dns_config.setter
-    def dns_config(self, dns_config):
-        """Sets the dns_config of this UpdateTaskRequest.
-
-
-        :param dns_config: The dns_config of this UpdateTaskRequest.  # noqa: E501
-        :type: DNSConfigForUpdateTaskInput
-        """
-
-        self._dns_config = dns_config
-
-    @property
-    def dns_hijack_config(self):
-        """Gets the dns_hijack_config of this UpdateTaskRequest.  # noqa: E501
+    @bind_group_id.setter
+    def bind_group_id(self, bind_group_id):
+        """Sets the bind_group_id of this UpdateTaskRequest.
 
 
-        :return: The dns_hijack_config of this UpdateTaskRequest.  # noqa: E501
-        :rtype: DNSHijackConfigForUpdateTaskInput
-        """
-        return self._dns_hijack_config
-
-    @dns_hijack_config.setter
-    def dns_hijack_config(self, dns_hijack_config):
-        """Sets the dns_hijack_config of this UpdateTaskRequest.
-
-
-        :param dns_hijack_config: The dns_hijack_config of this UpdateTaskRequest.  # noqa: E501
-        :type: DNSHijackConfigForUpdateTaskInput
+        :param bind_group_id: The bind_group_id of this UpdateTaskRequest.  # noqa: E501
+        :type: int
         """
 
-        self._dns_hijack_config = dns_hijack_config
+        self._bind_group_id = bind_group_id
 
     @property
     def diagnose_config(self):
@@ -267,6 +256,48 @@ class UpdateTaskRequest(object):
         """
 
         self._diagnose_config = diagnose_config
+
+    @property
+    def dns_config(self):
+        """Gets the dns_config of this UpdateTaskRequest.  # noqa: E501
+
+
+        :return: The dns_config of this UpdateTaskRequest.  # noqa: E501
+        :rtype: DnsConfigForUpdateTaskInput
+        """
+        return self._dns_config
+
+    @dns_config.setter
+    def dns_config(self, dns_config):
+        """Sets the dns_config of this UpdateTaskRequest.
+
+
+        :param dns_config: The dns_config of this UpdateTaskRequest.  # noqa: E501
+        :type: DnsConfigForUpdateTaskInput
+        """
+
+        self._dns_config = dns_config
+
+    @property
+    def dns_hijack_config(self):
+        """Gets the dns_hijack_config of this UpdateTaskRequest.  # noqa: E501
+
+
+        :return: The dns_hijack_config of this UpdateTaskRequest.  # noqa: E501
+        :rtype: DnsHijackConfigForUpdateTaskInput
+        """
+        return self._dns_hijack_config
+
+    @dns_hijack_config.setter
+    def dns_hijack_config(self, dns_hijack_config):
+        """Sets the dns_hijack_config of this UpdateTaskRequest.
+
+
+        :param dns_hijack_config: The dns_hijack_config of this UpdateTaskRequest.  # noqa: E501
+        :type: DnsHijackConfigForUpdateTaskInput
+        """
+
+        self._dns_hijack_config = dns_hijack_config
 
     @property
     def download_config(self):
@@ -339,7 +370,7 @@ class UpdateTaskRequest(object):
 
 
         :return: The http_config of this UpdateTaskRequest.  # noqa: E501
-        :rtype: HTTPConfigForUpdateTaskInput
+        :rtype: HttpConfigForUpdateTaskInput
         """
         return self._http_config
 
@@ -349,7 +380,7 @@ class UpdateTaskRequest(object):
 
 
         :param http_config: The http_config of this UpdateTaskRequest.  # noqa: E501
-        :type: HTTPConfigForUpdateTaskInput
+        :type: HttpConfigForUpdateTaskInput
         """
 
         self._http_config = http_config
@@ -552,25 +583,25 @@ class UpdateTaskRequest(object):
         self._result_assert = result_assert
 
     @property
-    def tcp_config(self):
-        """Gets the tcp_config of this UpdateTaskRequest.  # noqa: E501
+    def selection_config(self):
+        """Gets the selection_config of this UpdateTaskRequest.  # noqa: E501
 
 
-        :return: The tcp_config of this UpdateTaskRequest.  # noqa: E501
-        :rtype: TCPConfigForUpdateTaskInput
+        :return: The selection_config of this UpdateTaskRequest.  # noqa: E501
+        :rtype: SelectionConfigForUpdateTaskInput
         """
-        return self._tcp_config
+        return self._selection_config
 
-    @tcp_config.setter
-    def tcp_config(self, tcp_config):
-        """Sets the tcp_config of this UpdateTaskRequest.
+    @selection_config.setter
+    def selection_config(self, selection_config):
+        """Sets the selection_config of this UpdateTaskRequest.
 
 
-        :param tcp_config: The tcp_config of this UpdateTaskRequest.  # noqa: E501
-        :type: TCPConfigForUpdateTaskInput
+        :param selection_config: The selection_config of this UpdateTaskRequest.  # noqa: E501
+        :type: SelectionConfigForUpdateTaskInput
         """
 
-        self._tcp_config = tcp_config
+        self._selection_config = selection_config
 
     @property
     def tags(self):
@@ -636,12 +667,33 @@ class UpdateTaskRequest(object):
         self._task_group_id = task_group_id
 
     @property
+    def tcp_config(self):
+        """Gets the tcp_config of this UpdateTaskRequest.  # noqa: E501
+
+
+        :return: The tcp_config of this UpdateTaskRequest.  # noqa: E501
+        :rtype: TcpConfigForUpdateTaskInput
+        """
+        return self._tcp_config
+
+    @tcp_config.setter
+    def tcp_config(self, tcp_config):
+        """Sets the tcp_config of this UpdateTaskRequest.
+
+
+        :param tcp_config: The tcp_config of this UpdateTaskRequest.  # noqa: E501
+        :type: TcpConfigForUpdateTaskInput
+        """
+
+        self._tcp_config = tcp_config
+
+    @property
     def udp_config(self):
         """Gets the udp_config of this UpdateTaskRequest.  # noqa: E501
 
 
         :return: The udp_config of this UpdateTaskRequest.  # noqa: E501
-        :rtype: UDPConfigForUpdateTaskInput
+        :rtype: UdpConfigForUpdateTaskInput
         """
         return self._udp_config
 
@@ -651,7 +703,7 @@ class UpdateTaskRequest(object):
 
 
         :param udp_config: The udp_config of this UpdateTaskRequest.  # noqa: E501
-        :type: UDPConfigForUpdateTaskInput
+        :type: UdpConfigForUpdateTaskInput
         """
 
         self._udp_config = udp_config

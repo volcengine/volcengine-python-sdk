@@ -106,6 +106,13 @@ class FiltersForDescribeRestoreJobsInput(object):
         :param resource_type: The resource_type of this FiltersForDescribeRestoreJobsInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ECS", "vePFS"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                resource_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `resource_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(resource_type, allowed_values)
+            )
 
         self._resource_type = resource_type
 

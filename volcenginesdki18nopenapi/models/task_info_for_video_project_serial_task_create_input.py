@@ -48,6 +48,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'need_translate_title_and_desc': 'bool',
         'serial_number': 'int',
         'source_lang': 'str',
+        'suppression_params': 'SuppressionParamsForVideoProjectSerialTaskCreateInput',
         'target_langs': 'list[str]',
         'target_style_map': 'TargetStyleMapForVideoProjectSerialTaskCreateInput',
         'task_name': 'str',
@@ -70,13 +71,14 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'need_translate_title_and_desc': 'needTranslateTitleAndDesc',
         'serial_number': 'serialNumber',
         'source_lang': 'sourceLang',
+        'suppression_params': 'suppressionParams',
         'target_langs': 'targetLangs',
         'target_style_map': 'targetStyleMap',
         'task_name': 'taskName',
         'use_mt': 'useMT'
     }
 
-    def __init__(self, ai_remove_type=None, asr_model=None, bgm_policy=None, comment=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, is_dub=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, serial_number=None, source_lang=None, target_langs=None, target_style_map=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_remove_type=None, asr_model=None, bgm_policy=None, comment=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, is_dub=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, serial_number=None, source_lang=None, suppression_params=None, target_langs=None, target_style_map=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
         """TaskInfoForVideoProjectSerialTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +99,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         self._need_translate_title_and_desc = None
         self._serial_number = None
         self._source_lang = None
+        self._suppression_params = None
         self._target_langs = None
         self._target_style_map = None
         self._task_name = None
@@ -133,6 +136,8 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
             self.serial_number = serial_number
         if source_lang is not None:
             self.source_lang = source_lang
+        if suppression_params is not None:
+            self.suppression_params = suppression_params
         if target_langs is not None:
             self.target_langs = target_langs
         if target_style_map is not None:
@@ -456,6 +461,27 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         """
 
         self._source_lang = source_lang
+
+    @property
+    def suppression_params(self):
+        """Gets the suppression_params of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+
+
+        :return: The suppression_params of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :rtype: SuppressionParamsForVideoProjectSerialTaskCreateInput
+        """
+        return self._suppression_params
+
+    @suppression_params.setter
+    def suppression_params(self, suppression_params):
+        """Sets the suppression_params of this TaskInfoForVideoProjectSerialTaskCreateInput.
+
+
+        :param suppression_params: The suppression_params of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :type: SuppressionParamsForVideoProjectSerialTaskCreateInput
+        """
+
+        self._suppression_params = suppression_params
 
     @property
     def target_langs(self):

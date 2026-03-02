@@ -33,33 +33,85 @@ class GetWorkloadAccessTokenForJWTRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'audience': 'list[str]',
+        'duration_seconds': 'int',
         'name': 'str',
         'user_token': 'str',
         'workload_pool_name': 'str'
     }
 
     attribute_map = {
+        'audience': 'Audience',
+        'duration_seconds': 'DurationSeconds',
         'name': 'Name',
         'user_token': 'UserToken',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, name=None, user_token=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, audience=None, duration_seconds=None, name=None, user_token=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """GetWorkloadAccessTokenForJWTRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._audience = None
+        self._duration_seconds = None
         self._name = None
         self._user_token = None
         self._workload_pool_name = None
         self.discriminator = None
 
+        if audience is not None:
+            self.audience = audience
+        if duration_seconds is not None:
+            self.duration_seconds = duration_seconds
         if name is not None:
             self.name = name
         self.user_token = user_token
         if workload_pool_name is not None:
             self.workload_pool_name = workload_pool_name
+
+    @property
+    def audience(self):
+        """Gets the audience of this GetWorkloadAccessTokenForJWTRequest.  # noqa: E501
+
+
+        :return: The audience of this GetWorkloadAccessTokenForJWTRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._audience
+
+    @audience.setter
+    def audience(self, audience):
+        """Sets the audience of this GetWorkloadAccessTokenForJWTRequest.
+
+
+        :param audience: The audience of this GetWorkloadAccessTokenForJWTRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._audience = audience
+
+    @property
+    def duration_seconds(self):
+        """Gets the duration_seconds of this GetWorkloadAccessTokenForJWTRequest.  # noqa: E501
+
+
+        :return: The duration_seconds of this GetWorkloadAccessTokenForJWTRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._duration_seconds
+
+    @duration_seconds.setter
+    def duration_seconds(self, duration_seconds):
+        """Sets the duration_seconds of this GetWorkloadAccessTokenForJWTRequest.
+
+
+        :param duration_seconds: The duration_seconds of this GetWorkloadAccessTokenForJWTRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._duration_seconds = duration_seconds
 
     @property
     def name(self):

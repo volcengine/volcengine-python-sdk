@@ -33,33 +33,33 @@ class ListIdentityProvidersSAMLResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'generic_saml_response': 'GenericSAMLResponseForListIdentityProvidersSAMLOutput',
+        'data': 'list[DataForListIdentityProvidersSAMLOutput]',
         'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int'
     }
 
     attribute_map = {
-        'generic_saml_response': 'GenericSAMLResponse',
+        'data': 'Data',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, generic_saml_response=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
         """ListIdentityProvidersSAMLResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._generic_saml_response = None
+        self._data = None
         self._page_number = None
         self._page_size = None
         self._total_count = None
         self.discriminator = None
 
-        if generic_saml_response is not None:
-            self.generic_saml_response = generic_saml_response
+        if data is not None:
+            self.data = data
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -68,25 +68,25 @@ class ListIdentityProvidersSAMLResponse(object):
             self.total_count = total_count
 
     @property
-    def generic_saml_response(self):
-        """Gets the generic_saml_response of this ListIdentityProvidersSAMLResponse.  # noqa: E501
+    def data(self):
+        """Gets the data of this ListIdentityProvidersSAMLResponse.  # noqa: E501
 
 
-        :return: The generic_saml_response of this ListIdentityProvidersSAMLResponse.  # noqa: E501
-        :rtype: GenericSAMLResponseForListIdentityProvidersSAMLOutput
+        :return: The data of this ListIdentityProvidersSAMLResponse.  # noqa: E501
+        :rtype: list[DataForListIdentityProvidersSAMLOutput]
         """
-        return self._generic_saml_response
+        return self._data
 
-    @generic_saml_response.setter
-    def generic_saml_response(self, generic_saml_response):
-        """Sets the generic_saml_response of this ListIdentityProvidersSAMLResponse.
+    @data.setter
+    def data(self, data):
+        """Sets the data of this ListIdentityProvidersSAMLResponse.
 
 
-        :param generic_saml_response: The generic_saml_response of this ListIdentityProvidersSAMLResponse.  # noqa: E501
-        :type: GenericSAMLResponseForListIdentityProvidersSAMLOutput
+        :param data: The data of this ListIdentityProvidersSAMLResponse.  # noqa: E501
+        :type: list[DataForListIdentityProvidersSAMLOutput]
         """
 
-        self._generic_saml_response = generic_saml_response
+        self._data = data
 
     @property
     def page_number(self):

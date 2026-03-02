@@ -142,6 +142,13 @@ class TunnelOptionForModifyVpnConnectionAttributesInput(object):
         :param dpd_action: The dpd_action of this TunnelOptionForModifyVpnConnectionAttributesInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["none", "clear", "hold", "restart"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                dpd_action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `dpd_action` ({0}), must be one of {1}"  # noqa: E501
+                .format(dpd_action, allowed_values)
+            )
 
         self._dpd_action = dpd_action
 
