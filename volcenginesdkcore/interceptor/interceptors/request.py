@@ -63,6 +63,10 @@ class Request(object):
         self.retryer = configuration.retryer
         self.credential_provider = configuration.credential_provider
 
+        # Presign support
+        self.is_presign = False
+        self.signed_query = None
+
         self.runtime_options = None
         if hasattr(body, '_configuration') and isinstance(body._configuration, RuntimeOption):
             self.runtime_options = body._configuration
