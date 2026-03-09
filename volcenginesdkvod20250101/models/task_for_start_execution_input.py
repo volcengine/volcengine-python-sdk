@@ -33,16 +33,20 @@ class TaskForStartExecutionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'abr_transcode': 'ABRTranscodeForStartExecutionInput',
         'ad_audit': 'AdAuditForStartExecutionInput',
         'asr': 'AsrForStartExecutionInput',
         'audio_extract': 'AudioExtractForStartExecutionInput',
+        'convert_format': 'ConvertFormatForStartExecutionInput',
         'enhance': 'EnhanceForStartExecutionInput',
         'erase': 'EraseForStartExecutionInput',
         'file_delete': 'FileDeleteForStartExecutionInput',
         'highlight': 'HighlightForStartExecutionInput',
         'ocr': 'OcrForStartExecutionInput',
-        'segment': 'SegmentForStartExecutionInput',
+        'segment': 'ConvertSegmentForStartExecutionInput',
         'storyline': 'StorylineForStartExecutionInput',
+        'strategy_tag': 'str',
+        'transcode': 'TranscodeForStartExecutionInput',
         'type': 'str',
         'video_generation': 'VideoGenerationForStartExecutionInput',
         'video_matting': 'VideoMattingForStartExecutionInput',
@@ -52,9 +56,11 @@ class TaskForStartExecutionInput(object):
     }
 
     attribute_map = {
+        'abr_transcode': 'ABRTranscode',
         'ad_audit': 'AdAudit',
         'asr': 'Asr',
         'audio_extract': 'AudioExtract',
+        'convert_format': 'ConvertFormat',
         'enhance': 'Enhance',
         'erase': 'Erase',
         'file_delete': 'FileDelete',
@@ -62,6 +68,8 @@ class TaskForStartExecutionInput(object):
         'ocr': 'Ocr',
         'segment': 'Segment',
         'storyline': 'Storyline',
+        'strategy_tag': 'StrategyTag',
+        'transcode': 'Transcode',
         'type': 'Type',
         'video_generation': 'VideoGeneration',
         'video_matting': 'VideoMatting',
@@ -70,15 +78,17 @@ class TaskForStartExecutionInput(object):
         'vision': 'Vision'
     }
 
-    def __init__(self, ad_audit=None, asr=None, audio_extract=None, enhance=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, video_generation=None, video_matting=None, video_summary=None, video_understanding=None, vision=None, _configuration=None):  # noqa: E501
+    def __init__(self, abr_transcode=None, ad_audit=None, asr=None, audio_extract=None, convert_format=None, enhance=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, strategy_tag=None, transcode=None, type=None, video_generation=None, video_matting=None, video_summary=None, video_understanding=None, vision=None, _configuration=None):  # noqa: E501
         """TaskForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._abr_transcode = None
         self._ad_audit = None
         self._asr = None
         self._audio_extract = None
+        self._convert_format = None
         self._enhance = None
         self._erase = None
         self._file_delete = None
@@ -86,6 +96,8 @@ class TaskForStartExecutionInput(object):
         self._ocr = None
         self._segment = None
         self._storyline = None
+        self._strategy_tag = None
+        self._transcode = None
         self._type = None
         self._video_generation = None
         self._video_matting = None
@@ -94,12 +106,16 @@ class TaskForStartExecutionInput(object):
         self._vision = None
         self.discriminator = None
 
+        if abr_transcode is not None:
+            self.abr_transcode = abr_transcode
         if ad_audit is not None:
             self.ad_audit = ad_audit
         if asr is not None:
             self.asr = asr
         if audio_extract is not None:
             self.audio_extract = audio_extract
+        if convert_format is not None:
+            self.convert_format = convert_format
         if enhance is not None:
             self.enhance = enhance
         if erase is not None:
@@ -114,6 +130,10 @@ class TaskForStartExecutionInput(object):
             self.segment = segment
         if storyline is not None:
             self.storyline = storyline
+        if strategy_tag is not None:
+            self.strategy_tag = strategy_tag
+        if transcode is not None:
+            self.transcode = transcode
         if type is not None:
             self.type = type
         if video_generation is not None:
@@ -126,6 +146,27 @@ class TaskForStartExecutionInput(object):
             self.video_understanding = video_understanding
         if vision is not None:
             self.vision = vision
+
+    @property
+    def abr_transcode(self):
+        """Gets the abr_transcode of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The abr_transcode of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: ABRTranscodeForStartExecutionInput
+        """
+        return self._abr_transcode
+
+    @abr_transcode.setter
+    def abr_transcode(self, abr_transcode):
+        """Sets the abr_transcode of this TaskForStartExecutionInput.
+
+
+        :param abr_transcode: The abr_transcode of this TaskForStartExecutionInput.  # noqa: E501
+        :type: ABRTranscodeForStartExecutionInput
+        """
+
+        self._abr_transcode = abr_transcode
 
     @property
     def ad_audit(self):
@@ -189,6 +230,27 @@ class TaskForStartExecutionInput(object):
         """
 
         self._audio_extract = audio_extract
+
+    @property
+    def convert_format(self):
+        """Gets the convert_format of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The convert_format of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: ConvertFormatForStartExecutionInput
+        """
+        return self._convert_format
+
+    @convert_format.setter
+    def convert_format(self, convert_format):
+        """Sets the convert_format of this TaskForStartExecutionInput.
+
+
+        :param convert_format: The convert_format of this TaskForStartExecutionInput.  # noqa: E501
+        :type: ConvertFormatForStartExecutionInput
+        """
+
+        self._convert_format = convert_format
 
     @property
     def enhance(self):
@@ -301,7 +363,7 @@ class TaskForStartExecutionInput(object):
 
 
         :return: The segment of this TaskForStartExecutionInput.  # noqa: E501
-        :rtype: SegmentForStartExecutionInput
+        :rtype: ConvertSegmentForStartExecutionInput
         """
         return self._segment
 
@@ -311,7 +373,7 @@ class TaskForStartExecutionInput(object):
 
 
         :param segment: The segment of this TaskForStartExecutionInput.  # noqa: E501
-        :type: SegmentForStartExecutionInput
+        :type: ConvertSegmentForStartExecutionInput
         """
 
         self._segment = segment
@@ -336,6 +398,48 @@ class TaskForStartExecutionInput(object):
         """
 
         self._storyline = storyline
+
+    @property
+    def strategy_tag(self):
+        """Gets the strategy_tag of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The strategy_tag of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._strategy_tag
+
+    @strategy_tag.setter
+    def strategy_tag(self, strategy_tag):
+        """Sets the strategy_tag of this TaskForStartExecutionInput.
+
+
+        :param strategy_tag: The strategy_tag of this TaskForStartExecutionInput.  # noqa: E501
+        :type: str
+        """
+
+        self._strategy_tag = strategy_tag
+
+    @property
+    def transcode(self):
+        """Gets the transcode of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The transcode of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: TranscodeForStartExecutionInput
+        """
+        return self._transcode
+
+    @transcode.setter
+    def transcode(self, transcode):
+        """Sets the transcode of this TaskForStartExecutionInput.
+
+
+        :param transcode: The transcode of this TaskForStartExecutionInput.  # noqa: E501
+        :type: TranscodeForStartExecutionInput
+        """
+
+        self._transcode = transcode
 
     @property
     def type(self):

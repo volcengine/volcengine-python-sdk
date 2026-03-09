@@ -35,7 +35,7 @@ class ConvertVideoUnderstandingForGetExecutionOutput(object):
     swagger_types = {
         'content': 'str',
         'duration': 'float',
-        'segments': 'list[ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput]'
+        'segments': 'list[ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput]'
     }
 
     attribute_map = {
@@ -110,7 +110,7 @@ class ConvertVideoUnderstandingForGetExecutionOutput(object):
 
 
         :return: The segments of this ConvertVideoUnderstandingForGetExecutionOutput.  # noqa: E501
-        :rtype: list[ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput]
+        :rtype: list[ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput]
         """
         return self._segments
 
@@ -120,7 +120,7 @@ class ConvertVideoUnderstandingForGetExecutionOutput(object):
 
 
         :param segments: The segments of this ConvertVideoUnderstandingForGetExecutionOutput.  # noqa: E501
-        :type: list[ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput]
+        :type: list[ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput]
         """
 
         self._segments = segments

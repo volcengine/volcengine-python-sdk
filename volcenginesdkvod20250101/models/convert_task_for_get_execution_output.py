@@ -33,16 +33,19 @@ class ConvertTaskForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'abr_transcode': 'ConvertABRTranscodeForGetExecutionOutput',
         'ad_audit': 'ConvertAdAuditForGetExecutionOutput',
         'asr': 'ConvertAsrForGetExecutionOutput',
         'audio_extract': 'ConvertAudioExtractForGetExecutionOutput',
-        'enhance': 'ConvertConvertEnhanceForGetExecutionOutput',
+        'convert_format': 'ConvertConvertFormatForGetExecutionOutput',
+        'enhance': 'ConvertConvertConvertEnhanceForGetExecutionOutput',
         'erase': 'ConvertEraseForGetExecutionOutput',
         'file_delete': 'ConvertFileDeleteForGetExecutionOutput',
         'highlight': 'ConvertHighlightForGetExecutionOutput',
         'ocr': 'ConvertOcrForGetExecutionOutput',
-        'segment': 'ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput',
+        'segment': 'ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput',
         'storyline': 'ConvertConvertConvertStorylineForGetExecutionOutput',
+        'transcode': 'ConvertTranscodeForGetExecutionOutput',
         'type': 'str',
         'video_generation': 'ConvertVideoGenerationForGetExecutionOutput',
         'video_matting': 'ConvertVideoMattingForGetExecutionOutput',
@@ -52,9 +55,11 @@ class ConvertTaskForGetExecutionOutput(object):
     }
 
     attribute_map = {
+        'abr_transcode': 'ABRTranscode',
         'ad_audit': 'AdAudit',
         'asr': 'Asr',
         'audio_extract': 'AudioExtract',
+        'convert_format': 'ConvertFormat',
         'enhance': 'Enhance',
         'erase': 'Erase',
         'file_delete': 'FileDelete',
@@ -62,6 +67,7 @@ class ConvertTaskForGetExecutionOutput(object):
         'ocr': 'Ocr',
         'segment': 'Segment',
         'storyline': 'Storyline',
+        'transcode': 'Transcode',
         'type': 'Type',
         'video_generation': 'VideoGeneration',
         'video_matting': 'VideoMatting',
@@ -70,15 +76,17 @@ class ConvertTaskForGetExecutionOutput(object):
         'vision': 'Vision'
     }
 
-    def __init__(self, ad_audit=None, asr=None, audio_extract=None, enhance=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, video_generation=None, video_matting=None, video_summary=None, video_understanding=None, vision=None, _configuration=None):  # noqa: E501
+    def __init__(self, abr_transcode=None, ad_audit=None, asr=None, audio_extract=None, convert_format=None, enhance=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, transcode=None, type=None, video_generation=None, video_matting=None, video_summary=None, video_understanding=None, vision=None, _configuration=None):  # noqa: E501
         """ConvertTaskForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._abr_transcode = None
         self._ad_audit = None
         self._asr = None
         self._audio_extract = None
+        self._convert_format = None
         self._enhance = None
         self._erase = None
         self._file_delete = None
@@ -86,6 +94,7 @@ class ConvertTaskForGetExecutionOutput(object):
         self._ocr = None
         self._segment = None
         self._storyline = None
+        self._transcode = None
         self._type = None
         self._video_generation = None
         self._video_matting = None
@@ -94,12 +103,16 @@ class ConvertTaskForGetExecutionOutput(object):
         self._vision = None
         self.discriminator = None
 
+        if abr_transcode is not None:
+            self.abr_transcode = abr_transcode
         if ad_audit is not None:
             self.ad_audit = ad_audit
         if asr is not None:
             self.asr = asr
         if audio_extract is not None:
             self.audio_extract = audio_extract
+        if convert_format is not None:
+            self.convert_format = convert_format
         if enhance is not None:
             self.enhance = enhance
         if erase is not None:
@@ -114,6 +127,8 @@ class ConvertTaskForGetExecutionOutput(object):
             self.segment = segment
         if storyline is not None:
             self.storyline = storyline
+        if transcode is not None:
+            self.transcode = transcode
         if type is not None:
             self.type = type
         if video_generation is not None:
@@ -126,6 +141,27 @@ class ConvertTaskForGetExecutionOutput(object):
             self.video_understanding = video_understanding
         if vision is not None:
             self.vision = vision
+
+    @property
+    def abr_transcode(self):
+        """Gets the abr_transcode of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The abr_transcode of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertABRTranscodeForGetExecutionOutput
+        """
+        return self._abr_transcode
+
+    @abr_transcode.setter
+    def abr_transcode(self, abr_transcode):
+        """Sets the abr_transcode of this ConvertTaskForGetExecutionOutput.
+
+
+        :param abr_transcode: The abr_transcode of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :type: ConvertABRTranscodeForGetExecutionOutput
+        """
+
+        self._abr_transcode = abr_transcode
 
     @property
     def ad_audit(self):
@@ -191,12 +227,33 @@ class ConvertTaskForGetExecutionOutput(object):
         self._audio_extract = audio_extract
 
     @property
+    def convert_format(self):
+        """Gets the convert_format of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The convert_format of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertConvertFormatForGetExecutionOutput
+        """
+        return self._convert_format
+
+    @convert_format.setter
+    def convert_format(self, convert_format):
+        """Sets the convert_format of this ConvertTaskForGetExecutionOutput.
+
+
+        :param convert_format: The convert_format of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :type: ConvertConvertFormatForGetExecutionOutput
+        """
+
+        self._convert_format = convert_format
+
+    @property
     def enhance(self):
         """Gets the enhance of this ConvertTaskForGetExecutionOutput.  # noqa: E501
 
 
         :return: The enhance of this ConvertTaskForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertConvertEnhanceForGetExecutionOutput
+        :rtype: ConvertConvertConvertEnhanceForGetExecutionOutput
         """
         return self._enhance
 
@@ -206,7 +263,7 @@ class ConvertTaskForGetExecutionOutput(object):
 
 
         :param enhance: The enhance of this ConvertTaskForGetExecutionOutput.  # noqa: E501
-        :type: ConvertConvertEnhanceForGetExecutionOutput
+        :type: ConvertConvertConvertEnhanceForGetExecutionOutput
         """
 
         self._enhance = enhance
@@ -301,7 +358,7 @@ class ConvertTaskForGetExecutionOutput(object):
 
 
         :return: The segment of this ConvertTaskForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput
+        :rtype: ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput
         """
         return self._segment
 
@@ -311,7 +368,7 @@ class ConvertTaskForGetExecutionOutput(object):
 
 
         :param segment: The segment of this ConvertTaskForGetExecutionOutput.  # noqa: E501
-        :type: ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput
+        :type: ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput
         """
 
         self._segment = segment
@@ -336,6 +393,27 @@ class ConvertTaskForGetExecutionOutput(object):
         """
 
         self._storyline = storyline
+
+    @property
+    def transcode(self):
+        """Gets the transcode of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The transcode of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertTranscodeForGetExecutionOutput
+        """
+        return self._transcode
+
+    @transcode.setter
+    def transcode(self, transcode):
+        """Sets the transcode of this ConvertTaskForGetExecutionOutput.
+
+
+        :param transcode: The transcode of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :type: ConvertTranscodeForGetExecutionOutput
+        """
+
+        self._transcode = transcode
 
     @property
     def type(self):

@@ -39,7 +39,7 @@ class GetExecutionResponse(object):
         'meta': 'MetaForGetExecutionOutput',
         'multi_inputs': 'list[MultiInputForGetExecutionOutput]',
         'operation': 'ConvertOperationForGetExecutionOutput',
-        'output': 'ConvertConvertOutputForGetExecutionOutput',
+        'output': 'ConvertConvertConvertOutputForGetExecutionOutput',
         'run_id': 'str',
         'space_name': 'str',
         'status': 'str'
@@ -229,7 +229,7 @@ class GetExecutionResponse(object):
 
 
         :return: The output of this GetExecutionResponse.  # noqa: E501
-        :rtype: ConvertConvertOutputForGetExecutionOutput
+        :rtype: ConvertConvertConvertOutputForGetExecutionOutput
         """
         return self._output
 
@@ -239,7 +239,7 @@ class GetExecutionResponse(object):
 
 
         :param output: The output of this GetExecutionResponse.  # noqa: E501
-        :type: ConvertConvertOutputForGetExecutionOutput
+        :type: ConvertConvertConvertOutputForGetExecutionOutput
         """
 
         self._output = output
