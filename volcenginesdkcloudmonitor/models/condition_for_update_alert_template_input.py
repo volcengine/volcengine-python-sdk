@@ -34,6 +34,7 @@ class ConditionForUpdateAlertTemplateInput(object):
     """
     swagger_types = {
         'comparison_operator': 'str',
+        'evaluation_window': 'int',
         'metric_name': 'str',
         'metric_unit': 'str',
         'statistics': 'str',
@@ -42,19 +43,21 @@ class ConditionForUpdateAlertTemplateInput(object):
 
     attribute_map = {
         'comparison_operator': 'ComparisonOperator',
+        'evaluation_window': 'EvaluationWindow',
         'metric_name': 'MetricName',
         'metric_unit': 'MetricUnit',
         'statistics': 'Statistics',
         'threshold': 'Threshold'
     }
 
-    def __init__(self, comparison_operator=None, metric_name=None, metric_unit=None, statistics=None, threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, comparison_operator=None, evaluation_window=None, metric_name=None, metric_unit=None, statistics=None, threshold=None, _configuration=None):  # noqa: E501
         """ConditionForUpdateAlertTemplateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._comparison_operator = None
+        self._evaluation_window = None
         self._metric_name = None
         self._metric_unit = None
         self._statistics = None
@@ -63,6 +66,8 @@ class ConditionForUpdateAlertTemplateInput(object):
 
         if comparison_operator is not None:
             self.comparison_operator = comparison_operator
+        if evaluation_window is not None:
+            self.evaluation_window = evaluation_window
         if metric_name is not None:
             self.metric_name = metric_name
         if metric_unit is not None:
@@ -92,6 +97,27 @@ class ConditionForUpdateAlertTemplateInput(object):
         """
 
         self._comparison_operator = comparison_operator
+
+    @property
+    def evaluation_window(self):
+        """Gets the evaluation_window of this ConditionForUpdateAlertTemplateInput.  # noqa: E501
+
+
+        :return: The evaluation_window of this ConditionForUpdateAlertTemplateInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._evaluation_window
+
+    @evaluation_window.setter
+    def evaluation_window(self, evaluation_window):
+        """Sets the evaluation_window of this ConditionForUpdateAlertTemplateInput.
+
+
+        :param evaluation_window: The evaluation_window of this ConditionForUpdateAlertTemplateInput.  # noqa: E501
+        :type: int
+        """
+
+        self._evaluation_window = evaluation_window
 
     @property
     def metric_name(self):
