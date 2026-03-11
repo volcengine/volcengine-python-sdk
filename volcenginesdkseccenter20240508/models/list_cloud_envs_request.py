@@ -173,9 +173,6 @@ class ListCloudEnvsRequest(object):
         """
         if self._configuration.client_side_validation and page_number is None:
             raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                page_number is not None and page_number < 1):  # noqa: E501
-            raise ValueError("Invalid value for `page_number`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -199,12 +196,6 @@ class ListCloudEnvsRequest(object):
         """
         if self._configuration.client_side_validation and page_size is None:
             raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                page_size is not None and page_size > 5000):  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `5000`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                page_size is not None and page_size < 1):  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_size = page_size
 

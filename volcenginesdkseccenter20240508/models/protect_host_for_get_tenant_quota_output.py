@@ -33,39 +33,70 @@ class ProtectHostForGetTenantQuotaOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'action': 'str',
         'expire_time': 'int',
+        'need_remove': 'bool',
         'total_count': 'int',
         'used_count': 'int',
         'version': 'int'
     }
 
     attribute_map = {
+        'action': 'Action',
         'expire_time': 'ExpireTime',
+        'need_remove': 'NeedRemove',
         'total_count': 'TotalCount',
         'used_count': 'UsedCount',
         'version': 'Version'
     }
 
-    def __init__(self, expire_time=None, total_count=None, used_count=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, expire_time=None, need_remove=None, total_count=None, used_count=None, version=None, _configuration=None):  # noqa: E501
         """ProtectHostForGetTenantQuotaOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._action = None
         self._expire_time = None
+        self._need_remove = None
         self._total_count = None
         self._used_count = None
         self._version = None
         self.discriminator = None
 
+        if action is not None:
+            self.action = action
         if expire_time is not None:
             self.expire_time = expire_time
+        if need_remove is not None:
+            self.need_remove = need_remove
         if total_count is not None:
             self.total_count = total_count
         if used_count is not None:
             self.used_count = used_count
         if version is not None:
             self.version = version
+
+    @property
+    def action(self):
+        """Gets the action of this ProtectHostForGetTenantQuotaOutput.  # noqa: E501
+
+
+        :return: The action of this ProtectHostForGetTenantQuotaOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._action
+
+    @action.setter
+    def action(self, action):
+        """Sets the action of this ProtectHostForGetTenantQuotaOutput.
+
+
+        :param action: The action of this ProtectHostForGetTenantQuotaOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._action = action
 
     @property
     def expire_time(self):
@@ -87,6 +118,27 @@ class ProtectHostForGetTenantQuotaOutput(object):
         """
 
         self._expire_time = expire_time
+
+    @property
+    def need_remove(self):
+        """Gets the need_remove of this ProtectHostForGetTenantQuotaOutput.  # noqa: E501
+
+
+        :return: The need_remove of this ProtectHostForGetTenantQuotaOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._need_remove
+
+    @need_remove.setter
+    def need_remove(self, need_remove):
+        """Sets the need_remove of this ProtectHostForGetTenantQuotaOutput.
+
+
+        :param need_remove: The need_remove of this ProtectHostForGetTenantQuotaOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._need_remove = need_remove
 
     @property
     def total_count(self):

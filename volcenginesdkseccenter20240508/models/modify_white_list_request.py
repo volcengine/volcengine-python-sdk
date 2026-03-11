@@ -36,6 +36,7 @@ class ModifyWhiteListRequest(object):
         'desc': 'str',
         'id': 'str',
         'name': 'str',
+        'range': 'RangeForModifyWhiteListInput',
         'type': 'str'
     }
 
@@ -43,10 +44,11 @@ class ModifyWhiteListRequest(object):
         'desc': 'Desc',
         'id': 'ID',
         'name': 'Name',
+        'range': 'Range',
         'type': 'Type'
     }
 
-    def __init__(self, desc=None, id=None, name=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, desc=None, id=None, name=None, range=None, type=None, _configuration=None):  # noqa: E501
         """ModifyWhiteListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class ModifyWhiteListRequest(object):
         self._desc = None
         self._id = None
         self._name = None
+        self._range = None
         self._type = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class ModifyWhiteListRequest(object):
             self.id = id
         if name is not None:
             self.name = name
+        if range is not None:
+            self.range = range
         if type is not None:
             self.type = type
 
@@ -129,6 +134,27 @@ class ModifyWhiteListRequest(object):
         """
 
         self._name = name
+
+    @property
+    def range(self):
+        """Gets the range of this ModifyWhiteListRequest.  # noqa: E501
+
+
+        :return: The range of this ModifyWhiteListRequest.  # noqa: E501
+        :rtype: RangeForModifyWhiteListInput
+        """
+        return self._range
+
+    @range.setter
+    def range(self, range):
+        """Sets the range of this ModifyWhiteListRequest.
+
+
+        :param range: The range of this ModifyWhiteListRequest.  # noqa: E501
+        :type: RangeForModifyWhiteListInput
+        """
+
+        self._range = range
 
     @property
     def type(self):

@@ -42,8 +42,10 @@ class GetDevDetailResponse(object):
         'platform': 'str',
         'ports': 'list[PortForGetDevDetailOutput]',
         'private_ip': 'str',
+        'protect_status': 'str',
         'public_ip': 'str',
         'region': 'str',
+        'security_enhancement': 'bool',
         'status': 'str',
         'storages': 'list[StorageForGetDevDetailOutput]',
         'volume': 'VolumeForGetDevDetailOutput',
@@ -60,15 +62,17 @@ class GetDevDetailResponse(object):
         'platform': 'Platform',
         'ports': 'Ports',
         'private_ip': 'PrivateIP',
+        'protect_status': 'ProtectStatus',
         'public_ip': 'PublicIP',
         'region': 'Region',
+        'security_enhancement': 'SecurityEnhancement',
         'status': 'Status',
         'storages': 'Storages',
         'volume': 'Volume',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, asset_id=None, asset_name=None, create_time=None, flavor_id=None, image_id=None, platform=None, ports=None, private_ip=None, public_ip=None, region=None, status=None, storages=None, volume=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asset_id=None, asset_name=None, create_time=None, flavor_id=None, image_id=None, platform=None, ports=None, private_ip=None, protect_status=None, public_ip=None, region=None, security_enhancement=None, status=None, storages=None, volume=None, vpc_id=None, _configuration=None):  # noqa: E501
         """GetDevDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,8 +87,10 @@ class GetDevDetailResponse(object):
         self._platform = None
         self._ports = None
         self._private_ip = None
+        self._protect_status = None
         self._public_ip = None
         self._region = None
+        self._security_enhancement = None
         self._status = None
         self._storages = None
         self._volume = None
@@ -109,10 +115,14 @@ class GetDevDetailResponse(object):
             self.ports = ports
         if private_ip is not None:
             self.private_ip = private_ip
+        if protect_status is not None:
+            self.protect_status = protect_status
         if public_ip is not None:
             self.public_ip = public_ip
         if region is not None:
             self.region = region
+        if security_enhancement is not None:
+            self.security_enhancement = security_enhancement
         if status is not None:
             self.status = status
         if storages is not None:
@@ -312,6 +322,27 @@ class GetDevDetailResponse(object):
         self._private_ip = private_ip
 
     @property
+    def protect_status(self):
+        """Gets the protect_status of this GetDevDetailResponse.  # noqa: E501
+
+
+        :return: The protect_status of this GetDevDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._protect_status
+
+    @protect_status.setter
+    def protect_status(self, protect_status):
+        """Sets the protect_status of this GetDevDetailResponse.
+
+
+        :param protect_status: The protect_status of this GetDevDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._protect_status = protect_status
+
+    @property
     def public_ip(self):
         """Gets the public_ip of this GetDevDetailResponse.  # noqa: E501
 
@@ -352,6 +383,27 @@ class GetDevDetailResponse(object):
         """
 
         self._region = region
+
+    @property
+    def security_enhancement(self):
+        """Gets the security_enhancement of this GetDevDetailResponse.  # noqa: E501
+
+
+        :return: The security_enhancement of this GetDevDetailResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._security_enhancement
+
+    @security_enhancement.setter
+    def security_enhancement(self, security_enhancement):
+        """Sets the security_enhancement of this GetDevDetailResponse.
+
+
+        :param security_enhancement: The security_enhancement of this GetDevDetailResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._security_enhancement = security_enhancement
 
     @property
     def status(self):

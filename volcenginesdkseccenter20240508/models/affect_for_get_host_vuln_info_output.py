@@ -33,8 +33,11 @@ class AffectForGetHostVulnInfoOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'action': 'str',
         'agent_id': 'str',
         'asset_id': 'str',
+        'cluster_id': 'str',
+        'cluster_name': 'str',
         'cmdline': 'str',
         'container_create_time': 'str',
         'container_host_name': 'str',
@@ -45,9 +48,18 @@ class AffectForGetHostVulnInfoOutput(object):
         'container_query_result': 'str',
         'container_run_time': 'str',
         'container_state': 'str',
+        'control_time': 'int',
+        'create_time': 'int',
+        'cve_id': 'str',
         'cves': 'list[str]',
+        'cwpp_id': 'str',
+        'fix_command': 'str',
+        'fix_version': 'str',
         'image_id': 'str',
         'image_name': 'str',
+        'level': 'str',
+        'namespace': 'str',
+        'operate_reason': 'str',
         'pid_list': 'list[PidListForGetHostVulnInfoOutput]',
         'pod_id': 'str',
         'pod_name': 'str',
@@ -56,31 +68,25 @@ class AffectForGetHostVulnInfoOutput(object):
         'software_source': 'str',
         'software_version': 'str',
         'state': 'str',
-        'type': 'str',
-        'update_time': 'int',
-        'action': 'str',
-        'cluster_id': 'str',
-        'cluster_name': 'str',
-        'control_time': 'int',
-        'create_time': 'int',
-        'cve_id': 'str',
-        'cwpp_id': 'str',
-        'fix_version': 'str',
-        'level': 'str',
-        'namespace': 'str',
-        'operate_reason': 'str',
-        'pod_hash': 'str',
         'status': 'str',
         'tag': 'list[str]',
+        'tag_en': 'list[str]',
+        'type': 'str',
+        'update_time': 'int',
+        'vuln_affect_version': 'str',
         'vuln_name': 'str',
+        'vuln_name_en': 'str',
         'vuln_type': 'str',
         'workload_id': 'str',
         'workload_name': 'str'
     }
 
     attribute_map = {
+        'action': 'Action',
         'agent_id': 'AgentID',
         'asset_id': 'AssetID',
+        'cluster_id': 'ClusterID',
+        'cluster_name': 'ClusterName',
         'cmdline': 'Cmdline',
         'container_create_time': 'ContainerCreateTime',
         'container_host_name': 'ContainerHostName',
@@ -91,9 +97,18 @@ class AffectForGetHostVulnInfoOutput(object):
         'container_query_result': 'ContainerQueryResult',
         'container_run_time': 'ContainerRunTime',
         'container_state': 'ContainerState',
+        'control_time': 'ControlTime',
+        'create_time': 'CreateTime',
+        'cve_id': 'CveID',
         'cves': 'Cves',
+        'cwpp_id': 'CwppID',
+        'fix_command': 'FixCommand',
+        'fix_version': 'FixVersion',
         'image_id': 'ImageID',
         'image_name': 'ImageName',
+        'level': 'Level',
+        'namespace': 'Namespace',
+        'operate_reason': 'OperateReason',
         'pid_list': 'PidList',
         'pod_id': 'PodID',
         'pod_name': 'PodName',
@@ -102,36 +117,30 @@ class AffectForGetHostVulnInfoOutput(object):
         'software_source': 'SoftwareSource',
         'software_version': 'SoftwareVersion',
         'state': 'State',
+        'status': 'Status',
+        'tag': 'Tag',
+        'tag_en': 'TagEn',
         'type': 'Type',
         'update_time': 'UpdateTime',
-        'action': 'action',
-        'cluster_id': 'cluster_id',
-        'cluster_name': 'cluster_name',
-        'control_time': 'control_time',
-        'create_time': 'create_time',
-        'cve_id': 'cve_id',
-        'cwpp_id': 'cwpp_id',
-        'fix_version': 'fix_version',
-        'level': 'level',
-        'namespace': 'namespace',
-        'operate_reason': 'operate_reason',
-        'pod_hash': 'pod_hash',
-        'status': 'status',
-        'tag': 'tag',
-        'vuln_name': 'vuln_name',
-        'vuln_type': 'vuln_type',
-        'workload_id': 'workload_id',
-        'workload_name': 'workload_name'
+        'vuln_affect_version': 'VulnAffectVersion',
+        'vuln_name': 'VulnName',
+        'vuln_name_en': 'VulnNameEn',
+        'vuln_type': 'VulnType',
+        'workload_id': 'WorkloadID',
+        'workload_name': 'WorkloadName'
     }
 
-    def __init__(self, agent_id=None, asset_id=None, cmdline=None, container_create_time=None, container_host_name=None, container_id=None, container_ip=None, container_name=None, container_net_mode=None, container_query_result=None, container_run_time=None, container_state=None, cves=None, image_id=None, image_name=None, pid_list=None, pod_id=None, pod_name=None, software_name=None, software_path=None, software_source=None, software_version=None, state=None, type=None, update_time=None, action=None, cluster_id=None, cluster_name=None, control_time=None, create_time=None, cve_id=None, cwpp_id=None, fix_version=None, level=None, namespace=None, operate_reason=None, pod_hash=None, status=None, tag=None, vuln_name=None, vuln_type=None, workload_id=None, workload_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, agent_id=None, asset_id=None, cluster_id=None, cluster_name=None, cmdline=None, container_create_time=None, container_host_name=None, container_id=None, container_ip=None, container_name=None, container_net_mode=None, container_query_result=None, container_run_time=None, container_state=None, control_time=None, create_time=None, cve_id=None, cves=None, cwpp_id=None, fix_command=None, fix_version=None, image_id=None, image_name=None, level=None, namespace=None, operate_reason=None, pid_list=None, pod_id=None, pod_name=None, software_name=None, software_path=None, software_source=None, software_version=None, state=None, status=None, tag=None, tag_en=None, type=None, update_time=None, vuln_affect_version=None, vuln_name=None, vuln_name_en=None, vuln_type=None, workload_id=None, workload_name=None, _configuration=None):  # noqa: E501
         """AffectForGetHostVulnInfoOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._action = None
         self._agent_id = None
         self._asset_id = None
+        self._cluster_id = None
+        self._cluster_name = None
         self._cmdline = None
         self._container_create_time = None
         self._container_host_name = None
@@ -142,9 +151,18 @@ class AffectForGetHostVulnInfoOutput(object):
         self._container_query_result = None
         self._container_run_time = None
         self._container_state = None
+        self._control_time = None
+        self._create_time = None
+        self._cve_id = None
         self._cves = None
+        self._cwpp_id = None
+        self._fix_command = None
+        self._fix_version = None
         self._image_id = None
         self._image_name = None
+        self._level = None
+        self._namespace = None
+        self._operate_reason = None
         self._pid_list = None
         self._pod_id = None
         self._pod_name = None
@@ -153,32 +171,29 @@ class AffectForGetHostVulnInfoOutput(object):
         self._software_source = None
         self._software_version = None
         self._state = None
-        self._type = None
-        self._update_time = None
-        self._action = None
-        self._cluster_id = None
-        self._cluster_name = None
-        self._control_time = None
-        self._create_time = None
-        self._cve_id = None
-        self._cwpp_id = None
-        self._fix_version = None
-        self._level = None
-        self._namespace = None
-        self._operate_reason = None
-        self._pod_hash = None
         self._status = None
         self._tag = None
+        self._tag_en = None
+        self._type = None
+        self._update_time = None
+        self._vuln_affect_version = None
         self._vuln_name = None
+        self._vuln_name_en = None
         self._vuln_type = None
         self._workload_id = None
         self._workload_name = None
         self.discriminator = None
 
+        if action is not None:
+            self.action = action
         if agent_id is not None:
             self.agent_id = agent_id
         if asset_id is not None:
             self.asset_id = asset_id
+        if cluster_id is not None:
+            self.cluster_id = cluster_id
+        if cluster_name is not None:
+            self.cluster_name = cluster_name
         if cmdline is not None:
             self.cmdline = cmdline
         if container_create_time is not None:
@@ -199,12 +214,30 @@ class AffectForGetHostVulnInfoOutput(object):
             self.container_run_time = container_run_time
         if container_state is not None:
             self.container_state = container_state
+        if control_time is not None:
+            self.control_time = control_time
+        if create_time is not None:
+            self.create_time = create_time
+        if cve_id is not None:
+            self.cve_id = cve_id
         if cves is not None:
             self.cves = cves
+        if cwpp_id is not None:
+            self.cwpp_id = cwpp_id
+        if fix_command is not None:
+            self.fix_command = fix_command
+        if fix_version is not None:
+            self.fix_version = fix_version
         if image_id is not None:
             self.image_id = image_id
         if image_name is not None:
             self.image_name = image_name
+        if level is not None:
+            self.level = level
+        if namespace is not None:
+            self.namespace = namespace
+        if operate_reason is not None:
+            self.operate_reason = operate_reason
         if pid_list is not None:
             self.pid_list = pid_list
         if pod_id is not None:
@@ -221,46 +254,49 @@ class AffectForGetHostVulnInfoOutput(object):
             self.software_version = software_version
         if state is not None:
             self.state = state
-        if type is not None:
-            self.type = type
-        if update_time is not None:
-            self.update_time = update_time
-        if action is not None:
-            self.action = action
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
-        if cluster_name is not None:
-            self.cluster_name = cluster_name
-        if control_time is not None:
-            self.control_time = control_time
-        if create_time is not None:
-            self.create_time = create_time
-        if cve_id is not None:
-            self.cve_id = cve_id
-        if cwpp_id is not None:
-            self.cwpp_id = cwpp_id
-        if fix_version is not None:
-            self.fix_version = fix_version
-        if level is not None:
-            self.level = level
-        if namespace is not None:
-            self.namespace = namespace
-        if operate_reason is not None:
-            self.operate_reason = operate_reason
-        if pod_hash is not None:
-            self.pod_hash = pod_hash
         if status is not None:
             self.status = status
         if tag is not None:
             self.tag = tag
+        if tag_en is not None:
+            self.tag_en = tag_en
+        if type is not None:
+            self.type = type
+        if update_time is not None:
+            self.update_time = update_time
+        if vuln_affect_version is not None:
+            self.vuln_affect_version = vuln_affect_version
         if vuln_name is not None:
             self.vuln_name = vuln_name
+        if vuln_name_en is not None:
+            self.vuln_name_en = vuln_name_en
         if vuln_type is not None:
             self.vuln_type = vuln_type
         if workload_id is not None:
             self.workload_id = workload_id
         if workload_name is not None:
             self.workload_name = workload_name
+
+    @property
+    def action(self):
+        """Gets the action of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The action of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._action
+
+    @action.setter
+    def action(self, action):
+        """Sets the action of this AffectForGetHostVulnInfoOutput.
+
+
+        :param action: The action of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._action = action
 
     @property
     def agent_id(self):
@@ -303,6 +339,48 @@ class AffectForGetHostVulnInfoOutput(object):
         """
 
         self._asset_id = asset_id
+
+    @property
+    def cluster_id(self):
+        """Gets the cluster_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The cluster_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cluster_id
+
+    @cluster_id.setter
+    def cluster_id(self, cluster_id):
+        """Sets the cluster_id of this AffectForGetHostVulnInfoOutput.
+
+
+        :param cluster_id: The cluster_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cluster_id = cluster_id
+
+    @property
+    def cluster_name(self):
+        """Gets the cluster_name of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The cluster_name of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cluster_name
+
+    @cluster_name.setter
+    def cluster_name(self, cluster_name):
+        """Sets the cluster_name of this AffectForGetHostVulnInfoOutput.
+
+
+        :param cluster_name: The cluster_name of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cluster_name = cluster_name
 
     @property
     def cmdline(self):
@@ -515,6 +593,69 @@ class AffectForGetHostVulnInfoOutput(object):
         self._container_state = container_state
 
     @property
+    def control_time(self):
+        """Gets the control_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The control_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._control_time
+
+    @control_time.setter
+    def control_time(self, control_time):
+        """Sets the control_time of this AffectForGetHostVulnInfoOutput.
+
+
+        :param control_time: The control_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._control_time = control_time
+
+    @property
+    def create_time(self):
+        """Gets the create_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The create_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._create_time
+
+    @create_time.setter
+    def create_time(self, create_time):
+        """Sets the create_time of this AffectForGetHostVulnInfoOutput.
+
+
+        :param create_time: The create_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._create_time = create_time
+
+    @property
+    def cve_id(self):
+        """Gets the cve_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The cve_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cve_id
+
+    @cve_id.setter
+    def cve_id(self, cve_id):
+        """Sets the cve_id of this AffectForGetHostVulnInfoOutput.
+
+
+        :param cve_id: The cve_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cve_id = cve_id
+
+    @property
     def cves(self):
         """Gets the cves of this AffectForGetHostVulnInfoOutput.  # noqa: E501
 
@@ -534,6 +675,69 @@ class AffectForGetHostVulnInfoOutput(object):
         """
 
         self._cves = cves
+
+    @property
+    def cwpp_id(self):
+        """Gets the cwpp_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The cwpp_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cwpp_id
+
+    @cwpp_id.setter
+    def cwpp_id(self, cwpp_id):
+        """Sets the cwpp_id of this AffectForGetHostVulnInfoOutput.
+
+
+        :param cwpp_id: The cwpp_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cwpp_id = cwpp_id
+
+    @property
+    def fix_command(self):
+        """Gets the fix_command of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The fix_command of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._fix_command
+
+    @fix_command.setter
+    def fix_command(self, fix_command):
+        """Sets the fix_command of this AffectForGetHostVulnInfoOutput.
+
+
+        :param fix_command: The fix_command of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._fix_command = fix_command
+
+    @property
+    def fix_version(self):
+        """Gets the fix_version of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The fix_version of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._fix_version
+
+    @fix_version.setter
+    def fix_version(self, fix_version):
+        """Sets the fix_version of this AffectForGetHostVulnInfoOutput.
+
+
+        :param fix_version: The fix_version of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._fix_version = fix_version
 
     @property
     def image_id(self):
@@ -576,6 +780,69 @@ class AffectForGetHostVulnInfoOutput(object):
         """
 
         self._image_name = image_name
+
+    @property
+    def level(self):
+        """Gets the level of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The level of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._level
+
+    @level.setter
+    def level(self, level):
+        """Sets the level of this AffectForGetHostVulnInfoOutput.
+
+
+        :param level: The level of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._level = level
+
+    @property
+    def namespace(self):
+        """Gets the namespace of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The namespace of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._namespace
+
+    @namespace.setter
+    def namespace(self, namespace):
+        """Sets the namespace of this AffectForGetHostVulnInfoOutput.
+
+
+        :param namespace: The namespace of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._namespace = namespace
+
+    @property
+    def operate_reason(self):
+        """Gets the operate_reason of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The operate_reason of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._operate_reason
+
+    @operate_reason.setter
+    def operate_reason(self, operate_reason):
+        """Sets the operate_reason of this AffectForGetHostVulnInfoOutput.
+
+
+        :param operate_reason: The operate_reason of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._operate_reason = operate_reason
 
     @property
     def pid_list(self):
@@ -746,300 +1013,6 @@ class AffectForGetHostVulnInfoOutput(object):
         self._state = state
 
     @property
-    def type(self):
-        """Gets the type of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The type of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this AffectForGetHostVulnInfoOutput.
-
-
-        :param type: The type of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._type = type
-
-    @property
-    def update_time(self):
-        """Gets the update_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The update_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._update_time
-
-    @update_time.setter
-    def update_time(self, update_time):
-        """Sets the update_time of this AffectForGetHostVulnInfoOutput.
-
-
-        :param update_time: The update_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._update_time = update_time
-
-    @property
-    def action(self):
-        """Gets the action of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The action of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._action
-
-    @action.setter
-    def action(self, action):
-        """Sets the action of this AffectForGetHostVulnInfoOutput.
-
-
-        :param action: The action of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._action = action
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The cluster_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this AffectForGetHostVulnInfoOutput.
-
-
-        :param cluster_id: The cluster_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
-
-    @property
-    def cluster_name(self):
-        """Gets the cluster_name of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The cluster_name of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_name
-
-    @cluster_name.setter
-    def cluster_name(self, cluster_name):
-        """Sets the cluster_name of this AffectForGetHostVulnInfoOutput.
-
-
-        :param cluster_name: The cluster_name of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_name = cluster_name
-
-    @property
-    def control_time(self):
-        """Gets the control_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The control_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._control_time
-
-    @control_time.setter
-    def control_time(self, control_time):
-        """Sets the control_time of this AffectForGetHostVulnInfoOutput.
-
-
-        :param control_time: The control_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._control_time = control_time
-
-    @property
-    def create_time(self):
-        """Gets the create_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The create_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._create_time
-
-    @create_time.setter
-    def create_time(self, create_time):
-        """Sets the create_time of this AffectForGetHostVulnInfoOutput.
-
-
-        :param create_time: The create_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._create_time = create_time
-
-    @property
-    def cve_id(self):
-        """Gets the cve_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The cve_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cve_id
-
-    @cve_id.setter
-    def cve_id(self, cve_id):
-        """Sets the cve_id of this AffectForGetHostVulnInfoOutput.
-
-
-        :param cve_id: The cve_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cve_id = cve_id
-
-    @property
-    def cwpp_id(self):
-        """Gets the cwpp_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The cwpp_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cwpp_id
-
-    @cwpp_id.setter
-    def cwpp_id(self, cwpp_id):
-        """Sets the cwpp_id of this AffectForGetHostVulnInfoOutput.
-
-
-        :param cwpp_id: The cwpp_id of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cwpp_id = cwpp_id
-
-    @property
-    def fix_version(self):
-        """Gets the fix_version of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The fix_version of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._fix_version
-
-    @fix_version.setter
-    def fix_version(self, fix_version):
-        """Sets the fix_version of this AffectForGetHostVulnInfoOutput.
-
-
-        :param fix_version: The fix_version of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._fix_version = fix_version
-
-    @property
-    def level(self):
-        """Gets the level of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The level of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._level
-
-    @level.setter
-    def level(self, level):
-        """Sets the level of this AffectForGetHostVulnInfoOutput.
-
-
-        :param level: The level of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._level = level
-
-    @property
-    def namespace(self):
-        """Gets the namespace of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The namespace of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._namespace
-
-    @namespace.setter
-    def namespace(self, namespace):
-        """Sets the namespace of this AffectForGetHostVulnInfoOutput.
-
-
-        :param namespace: The namespace of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._namespace = namespace
-
-    @property
-    def operate_reason(self):
-        """Gets the operate_reason of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The operate_reason of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._operate_reason
-
-    @operate_reason.setter
-    def operate_reason(self, operate_reason):
-        """Sets the operate_reason of this AffectForGetHostVulnInfoOutput.
-
-
-        :param operate_reason: The operate_reason of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._operate_reason = operate_reason
-
-    @property
-    def pod_hash(self):
-        """Gets the pod_hash of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-
-
-        :return: The pod_hash of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._pod_hash
-
-    @pod_hash.setter
-    def pod_hash(self, pod_hash):
-        """Sets the pod_hash of this AffectForGetHostVulnInfoOutput.
-
-
-        :param pod_hash: The pod_hash of this AffectForGetHostVulnInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._pod_hash = pod_hash
-
-    @property
     def status(self):
         """Gets the status of this AffectForGetHostVulnInfoOutput.  # noqa: E501
 
@@ -1082,6 +1055,90 @@ class AffectForGetHostVulnInfoOutput(object):
         self._tag = tag
 
     @property
+    def tag_en(self):
+        """Gets the tag_en of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The tag_en of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tag_en
+
+    @tag_en.setter
+    def tag_en(self, tag_en):
+        """Sets the tag_en of this AffectForGetHostVulnInfoOutput.
+
+
+        :param tag_en: The tag_en of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tag_en = tag_en
+
+    @property
+    def type(self):
+        """Gets the type of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The type of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this AffectForGetHostVulnInfoOutput.
+
+
+        :param type: The type of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The update_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this AffectForGetHostVulnInfoOutput.
+
+
+        :param update_time: The update_time of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._update_time = update_time
+
+    @property
+    def vuln_affect_version(self):
+        """Gets the vuln_affect_version of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The vuln_affect_version of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vuln_affect_version
+
+    @vuln_affect_version.setter
+    def vuln_affect_version(self, vuln_affect_version):
+        """Sets the vuln_affect_version of this AffectForGetHostVulnInfoOutput.
+
+
+        :param vuln_affect_version: The vuln_affect_version of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vuln_affect_version = vuln_affect_version
+
+    @property
     def vuln_name(self):
         """Gets the vuln_name of this AffectForGetHostVulnInfoOutput.  # noqa: E501
 
@@ -1101,6 +1158,27 @@ class AffectForGetHostVulnInfoOutput(object):
         """
 
         self._vuln_name = vuln_name
+
+    @property
+    def vuln_name_en(self):
+        """Gets the vuln_name_en of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+
+
+        :return: The vuln_name_en of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vuln_name_en
+
+    @vuln_name_en.setter
+    def vuln_name_en(self, vuln_name_en):
+        """Sets the vuln_name_en of this AffectForGetHostVulnInfoOutput.
+
+
+        :param vuln_name_en: The vuln_name_en of this AffectForGetHostVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vuln_name_en = vuln_name_en
 
     @property
     def vuln_type(self):

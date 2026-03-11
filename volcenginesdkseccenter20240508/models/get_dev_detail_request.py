@@ -49,7 +49,8 @@ class GetDevDetailRequest(object):
         self._asset_id = None
         self.discriminator = None
 
-        self.asset_id = asset_id
+        if asset_id is not None:
+            self.asset_id = asset_id
 
     @property
     def asset_id(self):
@@ -69,8 +70,6 @@ class GetDevDetailRequest(object):
         :param asset_id: The asset_id of this GetDevDetailRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and asset_id is None:
-            raise ValueError("Invalid value for `asset_id`, must not be `None`")  # noqa: E501
 
         self._asset_id = asset_id
 

@@ -33,31 +33,39 @@ class ValueAddedForGetTenantQuotaOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'llm_eval_quota': 'LLMEvalQuotaForGetTenantQuotaOutput',
         'log_analysis_quota': 'LogAnalysisQuotaForGetTenantQuotaOutput',
         'mlp_defender_quota': 'MlpDefenderQuotaForGetTenantQuotaOutput',
         'multi_level_management': 'MultiLevelManagementForGetTenantQuotaOutput',
-        'rasp_auth_quota': 'RaspAuthQuotaForGetTenantQuotaOutput'
+        'rasp_auth_quota': 'RaspAuthQuotaForGetTenantQuotaOutput',
+        'varmor_quota': 'VarmorQuotaForGetTenantQuotaOutput'
     }
 
     attribute_map = {
+        'llm_eval_quota': 'LLMEvalQuota',
         'log_analysis_quota': 'LogAnalysisQuota',
         'mlp_defender_quota': 'MlpDefenderQuota',
         'multi_level_management': 'MultiLevelManagement',
-        'rasp_auth_quota': 'RaspAuthQuota'
+        'rasp_auth_quota': 'RaspAuthQuota',
+        'varmor_quota': 'VarmorQuota'
     }
 
-    def __init__(self, log_analysis_quota=None, mlp_defender_quota=None, multi_level_management=None, rasp_auth_quota=None, _configuration=None):  # noqa: E501
+    def __init__(self, llm_eval_quota=None, log_analysis_quota=None, mlp_defender_quota=None, multi_level_management=None, rasp_auth_quota=None, varmor_quota=None, _configuration=None):  # noqa: E501
         """ValueAddedForGetTenantQuotaOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._llm_eval_quota = None
         self._log_analysis_quota = None
         self._mlp_defender_quota = None
         self._multi_level_management = None
         self._rasp_auth_quota = None
+        self._varmor_quota = None
         self.discriminator = None
 
+        if llm_eval_quota is not None:
+            self.llm_eval_quota = llm_eval_quota
         if log_analysis_quota is not None:
             self.log_analysis_quota = log_analysis_quota
         if mlp_defender_quota is not None:
@@ -66,6 +74,29 @@ class ValueAddedForGetTenantQuotaOutput(object):
             self.multi_level_management = multi_level_management
         if rasp_auth_quota is not None:
             self.rasp_auth_quota = rasp_auth_quota
+        if varmor_quota is not None:
+            self.varmor_quota = varmor_quota
+
+    @property
+    def llm_eval_quota(self):
+        """Gets the llm_eval_quota of this ValueAddedForGetTenantQuotaOutput.  # noqa: E501
+
+
+        :return: The llm_eval_quota of this ValueAddedForGetTenantQuotaOutput.  # noqa: E501
+        :rtype: LLMEvalQuotaForGetTenantQuotaOutput
+        """
+        return self._llm_eval_quota
+
+    @llm_eval_quota.setter
+    def llm_eval_quota(self, llm_eval_quota):
+        """Sets the llm_eval_quota of this ValueAddedForGetTenantQuotaOutput.
+
+
+        :param llm_eval_quota: The llm_eval_quota of this ValueAddedForGetTenantQuotaOutput.  # noqa: E501
+        :type: LLMEvalQuotaForGetTenantQuotaOutput
+        """
+
+        self._llm_eval_quota = llm_eval_quota
 
     @property
     def log_analysis_quota(self):
@@ -150,6 +181,27 @@ class ValueAddedForGetTenantQuotaOutput(object):
         """
 
         self._rasp_auth_quota = rasp_auth_quota
+
+    @property
+    def varmor_quota(self):
+        """Gets the varmor_quota of this ValueAddedForGetTenantQuotaOutput.  # noqa: E501
+
+
+        :return: The varmor_quota of this ValueAddedForGetTenantQuotaOutput.  # noqa: E501
+        :rtype: VarmorQuotaForGetTenantQuotaOutput
+        """
+        return self._varmor_quota
+
+    @varmor_quota.setter
+    def varmor_quota(self, varmor_quota):
+        """Sets the varmor_quota of this ValueAddedForGetTenantQuotaOutput.
+
+
+        :param varmor_quota: The varmor_quota of this ValueAddedForGetTenantQuotaOutput.  # noqa: E501
+        :type: VarmorQuotaForGetTenantQuotaOutput
+        """
+
+        self._varmor_quota = varmor_quota
 
     def to_dict(self):
         """Returns the model properties as a dict"""
