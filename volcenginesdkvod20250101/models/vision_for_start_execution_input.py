@@ -37,7 +37,7 @@ class VisionForStartExecutionInput(object):
         'need_asr_speaker': 'bool',
         'prompt': 'str',
         'response_format_type': 'str',
-        'segment': 'ConvertConvertSegmentForStartExecutionInput',
+        'segment': 'ConvertConvertConvertSegmentForStartExecutionInput',
         'snapshot_param': 'SnapshotParamForStartExecutionInput'
     }
 
@@ -167,7 +167,7 @@ class VisionForStartExecutionInput(object):
 
 
         :return: The segment of this VisionForStartExecutionInput.  # noqa: E501
-        :rtype: ConvertConvertSegmentForStartExecutionInput
+        :rtype: ConvertConvertConvertSegmentForStartExecutionInput
         """
         return self._segment
 
@@ -177,7 +177,7 @@ class VisionForStartExecutionInput(object):
 
 
         :param segment: The segment of this VisionForStartExecutionInput.  # noqa: E501
-        :type: ConvertConvertSegmentForStartExecutionInput
+        :type: ConvertConvertConvertSegmentForStartExecutionInput
         """
 
         self._segment = segment

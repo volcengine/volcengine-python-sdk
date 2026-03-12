@@ -33,10 +33,13 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'alarm_count': 'int',
         'alarm_handle_result': 'int',
         'alarm_id': 'str',
         'alert_desc': 'str',
+        'alert_desc_us': 'str',
         'alert_detail': 'str',
+        'alert_detail_us': 'str',
         'alert_tags': 'list[str]',
         'alert_type': 'str',
         'alert_type_us': 'str',
@@ -45,6 +48,7 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         'attack_id': 'str',
         'attack_id_list': 'str',
         'data_type_str': 'str',
+        'data_type_str_en': 'str',
         'desc': 'str',
         'docker': 'str',
         'error_reason': 'str',
@@ -53,21 +57,28 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         'hids_level': 'str',
         'insert_time': 'int',
         'kube_level': 'str',
+        'last_alarm_time': 'int',
+        'operation_list': 'list[str]',
         'rasp_config_name': 'str',
         'rasp_level': 'str',
         'related_config_id': 'str',
         'risk_desc': 'str',
         'rule_name': 'str',
+        'rule_name_us': 'str',
         'status': 'int',
         'suggestion': 'str',
+        'suggestion_us': 'str',
         'trace_id': 'str'
     }
 
     attribute_map = {
+        'alarm_count': 'AlarmCount',
         'alarm_handle_result': 'AlarmHandleResult',
         'alarm_id': 'AlarmID',
         'alert_desc': 'AlertDesc',
+        'alert_desc_us': 'AlertDescUS',
         'alert_detail': 'AlertDetail',
+        'alert_detail_us': 'AlertDetailUS',
         'alert_tags': 'AlertTags',
         'alert_type': 'AlertType',
         'alert_type_us': 'AlertTypeUs',
@@ -76,6 +87,7 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         'attack_id': 'AttackID',
         'attack_id_list': 'AttackIDList',
         'data_type_str': 'DataTypeStr',
+        'data_type_str_en': 'DataTypeStrEn',
         'desc': 'Desc',
         'docker': 'Docker',
         'error_reason': 'ErrorReason',
@@ -84,26 +96,33 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         'hids_level': 'HidsLevel',
         'insert_time': 'InsertTime',
         'kube_level': 'KubeLevel',
+        'last_alarm_time': 'LastAlarmTime',
+        'operation_list': 'OperationList',
         'rasp_config_name': 'RaspConfigName',
         'rasp_level': 'RaspLevel',
         'related_config_id': 'RelatedConfigID',
         'risk_desc': 'RiskDesc',
         'rule_name': 'RuleName',
+        'rule_name_us': 'RuleNameUs',
         'status': 'Status',
         'suggestion': 'Suggestion',
+        'suggestion_us': 'SuggestionUs',
         'trace_id': 'TraceID'
     }
 
-    def __init__(self, alarm_handle_result=None, alarm_id=None, alert_desc=None, alert_detail=None, alert_tags=None, alert_type=None, alert_type_us=None, analyze_report=None, analyze_report_name=None, attack_id=None, attack_id_list=None, data_type_str=None, desc=None, docker=None, error_reason=None, handle_time=None, handle_user=None, hids_level=None, insert_time=None, kube_level=None, rasp_config_name=None, rasp_level=None, related_config_id=None, risk_desc=None, rule_name=None, status=None, suggestion=None, trace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_count=None, alarm_handle_result=None, alarm_id=None, alert_desc=None, alert_desc_us=None, alert_detail=None, alert_detail_us=None, alert_tags=None, alert_type=None, alert_type_us=None, analyze_report=None, analyze_report_name=None, attack_id=None, attack_id_list=None, data_type_str=None, data_type_str_en=None, desc=None, docker=None, error_reason=None, handle_time=None, handle_user=None, hids_level=None, insert_time=None, kube_level=None, last_alarm_time=None, operation_list=None, rasp_config_name=None, rasp_level=None, related_config_id=None, risk_desc=None, rule_name=None, rule_name_us=None, status=None, suggestion=None, suggestion_us=None, trace_id=None, _configuration=None):  # noqa: E501
         """AlarmDescForGetHidsAlarmSummaryInfoOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._alarm_count = None
         self._alarm_handle_result = None
         self._alarm_id = None
         self._alert_desc = None
+        self._alert_desc_us = None
         self._alert_detail = None
+        self._alert_detail_us = None
         self._alert_tags = None
         self._alert_type = None
         self._alert_type_us = None
@@ -112,6 +131,7 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         self._attack_id = None
         self._attack_id_list = None
         self._data_type_str = None
+        self._data_type_str_en = None
         self._desc = None
         self._docker = None
         self._error_reason = None
@@ -120,24 +140,34 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         self._hids_level = None
         self._insert_time = None
         self._kube_level = None
+        self._last_alarm_time = None
+        self._operation_list = None
         self._rasp_config_name = None
         self._rasp_level = None
         self._related_config_id = None
         self._risk_desc = None
         self._rule_name = None
+        self._rule_name_us = None
         self._status = None
         self._suggestion = None
+        self._suggestion_us = None
         self._trace_id = None
         self.discriminator = None
 
+        if alarm_count is not None:
+            self.alarm_count = alarm_count
         if alarm_handle_result is not None:
             self.alarm_handle_result = alarm_handle_result
         if alarm_id is not None:
             self.alarm_id = alarm_id
         if alert_desc is not None:
             self.alert_desc = alert_desc
+        if alert_desc_us is not None:
+            self.alert_desc_us = alert_desc_us
         if alert_detail is not None:
             self.alert_detail = alert_detail
+        if alert_detail_us is not None:
+            self.alert_detail_us = alert_detail_us
         if alert_tags is not None:
             self.alert_tags = alert_tags
         if alert_type is not None:
@@ -154,6 +184,8 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
             self.attack_id_list = attack_id_list
         if data_type_str is not None:
             self.data_type_str = data_type_str
+        if data_type_str_en is not None:
+            self.data_type_str_en = data_type_str_en
         if desc is not None:
             self.desc = desc
         if docker is not None:
@@ -170,6 +202,10 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
             self.insert_time = insert_time
         if kube_level is not None:
             self.kube_level = kube_level
+        if last_alarm_time is not None:
+            self.last_alarm_time = last_alarm_time
+        if operation_list is not None:
+            self.operation_list = operation_list
         if rasp_config_name is not None:
             self.rasp_config_name = rasp_config_name
         if rasp_level is not None:
@@ -180,12 +216,37 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
             self.risk_desc = risk_desc
         if rule_name is not None:
             self.rule_name = rule_name
+        if rule_name_us is not None:
+            self.rule_name_us = rule_name_us
         if status is not None:
             self.status = status
         if suggestion is not None:
             self.suggestion = suggestion
+        if suggestion_us is not None:
+            self.suggestion_us = suggestion_us
         if trace_id is not None:
             self.trace_id = trace_id
+
+    @property
+    def alarm_count(self):
+        """Gets the alarm_count of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The alarm_count of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._alarm_count
+
+    @alarm_count.setter
+    def alarm_count(self, alarm_count):
+        """Sets the alarm_count of this AlarmDescForGetHidsAlarmSummaryInfoOutput.
+
+
+        :param alarm_count: The alarm_count of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._alarm_count = alarm_count
 
     @property
     def alarm_handle_result(self):
@@ -251,6 +312,27 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         self._alert_desc = alert_desc
 
     @property
+    def alert_desc_us(self):
+        """Gets the alert_desc_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The alert_desc_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._alert_desc_us
+
+    @alert_desc_us.setter
+    def alert_desc_us(self, alert_desc_us):
+        """Sets the alert_desc_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.
+
+
+        :param alert_desc_us: The alert_desc_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._alert_desc_us = alert_desc_us
+
+    @property
     def alert_detail(self):
         """Gets the alert_detail of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
 
@@ -270,6 +352,27 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         """
 
         self._alert_detail = alert_detail
+
+    @property
+    def alert_detail_us(self):
+        """Gets the alert_detail_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The alert_detail_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._alert_detail_us
+
+    @alert_detail_us.setter
+    def alert_detail_us(self, alert_detail_us):
+        """Sets the alert_detail_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.
+
+
+        :param alert_detail_us: The alert_detail_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._alert_detail_us = alert_detail_us
 
     @property
     def alert_tags(self):
@@ -440,6 +543,27 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         self._data_type_str = data_type_str
 
     @property
+    def data_type_str_en(self):
+        """Gets the data_type_str_en of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The data_type_str_en of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_type_str_en
+
+    @data_type_str_en.setter
+    def data_type_str_en(self, data_type_str_en):
+        """Sets the data_type_str_en of this AlarmDescForGetHidsAlarmSummaryInfoOutput.
+
+
+        :param data_type_str_en: The data_type_str_en of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._data_type_str_en = data_type_str_en
+
+    @property
     def desc(self):
         """Gets the desc of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
 
@@ -608,6 +732,48 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         self._kube_level = kube_level
 
     @property
+    def last_alarm_time(self):
+        """Gets the last_alarm_time of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The last_alarm_time of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_alarm_time
+
+    @last_alarm_time.setter
+    def last_alarm_time(self, last_alarm_time):
+        """Sets the last_alarm_time of this AlarmDescForGetHidsAlarmSummaryInfoOutput.
+
+
+        :param last_alarm_time: The last_alarm_time of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._last_alarm_time = last_alarm_time
+
+    @property
+    def operation_list(self):
+        """Gets the operation_list of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The operation_list of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._operation_list
+
+    @operation_list.setter
+    def operation_list(self, operation_list):
+        """Sets the operation_list of this AlarmDescForGetHidsAlarmSummaryInfoOutput.
+
+
+        :param operation_list: The operation_list of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._operation_list = operation_list
+
+    @property
     def rasp_config_name(self):
         """Gets the rasp_config_name of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
 
@@ -713,6 +879,27 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         self._rule_name = rule_name
 
     @property
+    def rule_name_us(self):
+        """Gets the rule_name_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The rule_name_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._rule_name_us
+
+    @rule_name_us.setter
+    def rule_name_us(self, rule_name_us):
+        """Sets the rule_name_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.
+
+
+        :param rule_name_us: The rule_name_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._rule_name_us = rule_name_us
+
+    @property
     def status(self):
         """Gets the status of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
 
@@ -753,6 +940,27 @@ class AlarmDescForGetHidsAlarmSummaryInfoOutput(object):
         """
 
         self._suggestion = suggestion
+
+    @property
+    def suggestion_us(self):
+        """Gets the suggestion_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The suggestion_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._suggestion_us
+
+    @suggestion_us.setter
+    def suggestion_us(self, suggestion_us):
+        """Sets the suggestion_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.
+
+
+        :param suggestion_us: The suggestion_us of this AlarmDescForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._suggestion_us = suggestion_us
 
     @property
     def trace_id(self):

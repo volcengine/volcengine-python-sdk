@@ -37,11 +37,13 @@ class DataForGetIntrusionRealTimeUpdatesOutput(object):
         'alarm_id': 'str',
         'alarm_time': 'int',
         'alarm_type': 'str',
+        'alert_desc_en': 'str',
         'alert_detail': 'str',
         'cluster_id': 'str',
         'data_type': 'str',
         'harm_level': 'str',
         'name': 'str',
+        'name_en': 'str',
         'status': 'int',
         'trace_id': 'str'
     }
@@ -51,16 +53,18 @@ class DataForGetIntrusionRealTimeUpdatesOutput(object):
         'alarm_id': 'AlarmID',
         'alarm_time': 'AlarmTime',
         'alarm_type': 'AlarmType',
+        'alert_desc_en': 'AlertDescEn',
         'alert_detail': 'AlertDetail',
         'cluster_id': 'ClusterID',
         'data_type': 'DataType',
         'harm_level': 'HarmLevel',
         'name': 'Name',
+        'name_en': 'NameEn',
         'status': 'Status',
         'trace_id': 'TraceID'
     }
 
-    def __init__(self, agent_id=None, alarm_id=None, alarm_time=None, alarm_type=None, alert_detail=None, cluster_id=None, data_type=None, harm_level=None, name=None, status=None, trace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, alarm_id=None, alarm_time=None, alarm_type=None, alert_desc_en=None, alert_detail=None, cluster_id=None, data_type=None, harm_level=None, name=None, name_en=None, status=None, trace_id=None, _configuration=None):  # noqa: E501
         """DataForGetIntrusionRealTimeUpdatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,11 +74,13 @@ class DataForGetIntrusionRealTimeUpdatesOutput(object):
         self._alarm_id = None
         self._alarm_time = None
         self._alarm_type = None
+        self._alert_desc_en = None
         self._alert_detail = None
         self._cluster_id = None
         self._data_type = None
         self._harm_level = None
         self._name = None
+        self._name_en = None
         self._status = None
         self._trace_id = None
         self.discriminator = None
@@ -87,6 +93,8 @@ class DataForGetIntrusionRealTimeUpdatesOutput(object):
             self.alarm_time = alarm_time
         if alarm_type is not None:
             self.alarm_type = alarm_type
+        if alert_desc_en is not None:
+            self.alert_desc_en = alert_desc_en
         if alert_detail is not None:
             self.alert_detail = alert_detail
         if cluster_id is not None:
@@ -97,6 +105,8 @@ class DataForGetIntrusionRealTimeUpdatesOutput(object):
             self.harm_level = harm_level
         if name is not None:
             self.name = name
+        if name_en is not None:
+            self.name_en = name_en
         if status is not None:
             self.status = status
         if trace_id is not None:
@@ -185,6 +195,27 @@ class DataForGetIntrusionRealTimeUpdatesOutput(object):
         """
 
         self._alarm_type = alarm_type
+
+    @property
+    def alert_desc_en(self):
+        """Gets the alert_desc_en of this DataForGetIntrusionRealTimeUpdatesOutput.  # noqa: E501
+
+
+        :return: The alert_desc_en of this DataForGetIntrusionRealTimeUpdatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._alert_desc_en
+
+    @alert_desc_en.setter
+    def alert_desc_en(self, alert_desc_en):
+        """Sets the alert_desc_en of this DataForGetIntrusionRealTimeUpdatesOutput.
+
+
+        :param alert_desc_en: The alert_desc_en of this DataForGetIntrusionRealTimeUpdatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._alert_desc_en = alert_desc_en
 
     @property
     def alert_detail(self):
@@ -290,6 +321,27 @@ class DataForGetIntrusionRealTimeUpdatesOutput(object):
         """
 
         self._name = name
+
+    @property
+    def name_en(self):
+        """Gets the name_en of this DataForGetIntrusionRealTimeUpdatesOutput.  # noqa: E501
+
+
+        :return: The name_en of this DataForGetIntrusionRealTimeUpdatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name_en
+
+    @name_en.setter
+    def name_en(self, name_en):
+        """Sets the name_en of this DataForGetIntrusionRealTimeUpdatesOutput.
+
+
+        :param name_en: The name_en of this DataForGetIntrusionRealTimeUpdatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._name_en = name_en
 
     @property
     def status(self):

@@ -130,3 +130,33 @@ class ResponseMetadata(object):
             return True
 
         return self.to_dict() != other.to_dict()
+
+
+def get_response_metadata(response):
+    """Extract ResponseMetadata from a Volcengine API response object.
+
+    :param response: A response object returned by a service API call,
+                     or a raw dict containing a 'ResponseMetadata' key.
+    :return: ResponseMetadata instance if available, otherwise None.
+    :rtype: ResponseMetadata or None
+    """
+    # Case 1: Typed response model with _metadata (from generated service APIs)
+    if hasattr(response, '_metadata'):
+        meta = response._metadata
+        if isinstance(meta, ResponseMetadata):
+            return meta
+        return None
+
+    # Case 2: Raw dict with "ResponseMetadata" key
+    if isinstance(response, dict):
+        meta_dict = response.get('ResponseMetadata')
+        if isinstance(meta_dict, dict):
+            return ResponseMetadata(
+                service=meta_dict.get('Service'),
+                action=meta_dict.get('Action'),
+                version=meta_dict.get('Version'),
+                region=meta_dict.get('Region'),
+                request_id=meta_dict.get('RequestId')
+            )
+
+    return None

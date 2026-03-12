@@ -19,7 +19,14 @@ class ResolveEndpointInterceptor(RequestInterceptor):
             context.request.host = endpoint_resolver.host
             prefix = endpoint_resolver.url_for(scheme)
         else:
-            prefix = scheme + '://' + host
+            if host.startswith('https://'):
+                prefix = host
+                context.request.host = host[len('https://'):]
+            elif host.startswith('http://'):
+                prefix = host
+                context.request.host = host[len('http://'):]
+            else:
+                prefix = scheme + '://' + host
         context.request.url = prefix + context.request.true_path
         sdk_core_logger.debug_endpoint(
             "Using endpoint: %s", context.request.host

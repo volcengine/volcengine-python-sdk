@@ -43,9 +43,13 @@ class GetVulnInfoResponse(object):
         'cvss': 'str',
         'cvss_vector': 'str',
         'cwe': 'str',
+        'cwe_ids': 'list[str]',
         'descript': 'str',
         'descript_en': 'str',
         'exploit_link': 'str',
+        'has_exploit': 'bool',
+        'has_payload': 'bool',
+        'if_emg': 'bool',
         'if_exp': 'int',
         'if_rasp': 'bool',
         'level': 'str',
@@ -74,9 +78,13 @@ class GetVulnInfoResponse(object):
         'cvss': 'Cvss',
         'cvss_vector': 'CvssVector',
         'cwe': 'Cwe',
+        'cwe_ids': 'CweIds',
         'descript': 'Descript',
         'descript_en': 'DescriptEn',
         'exploit_link': 'ExploitLink',
+        'has_exploit': 'HasExploit',
+        'has_payload': 'HasPayload',
+        'if_emg': 'IfEmg',
         'if_exp': 'IfExp',
         'if_rasp': 'IfRasp',
         'level': 'Level',
@@ -94,7 +102,7 @@ class GetVulnInfoResponse(object):
         'cwpp_id': 'cwpp_id'
     }
 
-    def __init__(self, action=None, cnnvd=None, cpe_name=None, cpe_version=None, cve_id=None, cve_list=None, cves=None, cvss=None, cvss_vector=None, cwe=None, descript=None, descript_en=None, exploit_link=None, if_exp=None, if_rasp=None, level=None, md5=None, patch_url=None, refer_urls=None, storage_name=None, suggest=None, suggest_en=None, update_time=None, upload_at=None, upload_name=None, vuln_name=None, vuln_name_en=None, cwpp_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, cnnvd=None, cpe_name=None, cpe_version=None, cve_id=None, cve_list=None, cves=None, cvss=None, cvss_vector=None, cwe=None, cwe_ids=None, descript=None, descript_en=None, exploit_link=None, has_exploit=None, has_payload=None, if_emg=None, if_exp=None, if_rasp=None, level=None, md5=None, patch_url=None, refer_urls=None, storage_name=None, suggest=None, suggest_en=None, update_time=None, upload_at=None, upload_name=None, vuln_name=None, vuln_name_en=None, cwpp_id=None, _configuration=None):  # noqa: E501
         """GetVulnInfoResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -110,9 +118,13 @@ class GetVulnInfoResponse(object):
         self._cvss = None
         self._cvss_vector = None
         self._cwe = None
+        self._cwe_ids = None
         self._descript = None
         self._descript_en = None
         self._exploit_link = None
+        self._has_exploit = None
+        self._has_payload = None
+        self._if_emg = None
         self._if_exp = None
         self._if_rasp = None
         self._level = None
@@ -150,12 +162,20 @@ class GetVulnInfoResponse(object):
             self.cvss_vector = cvss_vector
         if cwe is not None:
             self.cwe = cwe
+        if cwe_ids is not None:
+            self.cwe_ids = cwe_ids
         if descript is not None:
             self.descript = descript
         if descript_en is not None:
             self.descript_en = descript_en
         if exploit_link is not None:
             self.exploit_link = exploit_link
+        if has_exploit is not None:
+            self.has_exploit = has_exploit
+        if has_payload is not None:
+            self.has_payload = has_payload
+        if if_emg is not None:
+            self.if_emg = if_emg
         if if_exp is not None:
             self.if_exp = if_exp
         if if_rasp is not None:
@@ -398,6 +418,27 @@ class GetVulnInfoResponse(object):
         self._cwe = cwe
 
     @property
+    def cwe_ids(self):
+        """Gets the cwe_ids of this GetVulnInfoResponse.  # noqa: E501
+
+
+        :return: The cwe_ids of this GetVulnInfoResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._cwe_ids
+
+    @cwe_ids.setter
+    def cwe_ids(self, cwe_ids):
+        """Sets the cwe_ids of this GetVulnInfoResponse.
+
+
+        :param cwe_ids: The cwe_ids of this GetVulnInfoResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._cwe_ids = cwe_ids
+
+    @property
     def descript(self):
         """Gets the descript of this GetVulnInfoResponse.  # noqa: E501
 
@@ -459,6 +500,69 @@ class GetVulnInfoResponse(object):
         """
 
         self._exploit_link = exploit_link
+
+    @property
+    def has_exploit(self):
+        """Gets the has_exploit of this GetVulnInfoResponse.  # noqa: E501
+
+
+        :return: The has_exploit of this GetVulnInfoResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_exploit
+
+    @has_exploit.setter
+    def has_exploit(self, has_exploit):
+        """Sets the has_exploit of this GetVulnInfoResponse.
+
+
+        :param has_exploit: The has_exploit of this GetVulnInfoResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_exploit = has_exploit
+
+    @property
+    def has_payload(self):
+        """Gets the has_payload of this GetVulnInfoResponse.  # noqa: E501
+
+
+        :return: The has_payload of this GetVulnInfoResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_payload
+
+    @has_payload.setter
+    def has_payload(self, has_payload):
+        """Sets the has_payload of this GetVulnInfoResponse.
+
+
+        :param has_payload: The has_payload of this GetVulnInfoResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_payload = has_payload
+
+    @property
+    def if_emg(self):
+        """Gets the if_emg of this GetVulnInfoResponse.  # noqa: E501
+
+
+        :return: The if_emg of this GetVulnInfoResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._if_emg
+
+    @if_emg.setter
+    def if_emg(self, if_emg):
+        """Sets the if_emg of this GetVulnInfoResponse.
+
+
+        :param if_emg: The if_emg of this GetVulnInfoResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._if_emg = if_emg
 
     @property
     def if_exp(self):

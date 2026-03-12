@@ -43,6 +43,7 @@ class CreateRuleRequest(object):
         'effect_start_at': 'str',
         'enable_state': 'str',
         'evaluation_count': 'int',
+        'evaluation_interval': 'int',
         'level': 'str',
         'level_conditions': 'list[LevelConditionForCreateRuleInput]',
         'multiple_conditions': 'bool',
@@ -75,6 +76,7 @@ class CreateRuleRequest(object):
         'effect_start_at': 'EffectStartAt',
         'enable_state': 'EnableState',
         'evaluation_count': 'EvaluationCount',
+        'evaluation_interval': 'EvaluationInterval',
         'level': 'Level',
         'level_conditions': 'LevelConditions',
         'multiple_conditions': 'MultipleConditions',
@@ -96,7 +98,7 @@ class CreateRuleRequest(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, condition_operator=None, conditions=None, contact_group_ids=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, no_data=None, notification_id=None, notify_templates=None, object_group_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, tags=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, condition_operator=None, conditions=None, contact_group_ids=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, evaluation_interval=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, no_data=None, notification_id=None, notify_templates=None, object_group_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, tags=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """CreateRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -112,6 +114,7 @@ class CreateRuleRequest(object):
         self._effect_start_at = None
         self._enable_state = None
         self._evaluation_count = None
+        self._evaluation_interval = None
         self._level = None
         self._level_conditions = None
         self._multiple_conditions = None
@@ -149,6 +152,8 @@ class CreateRuleRequest(object):
         self.effect_start_at = effect_start_at
         self.enable_state = enable_state
         self.evaluation_count = evaluation_count
+        if evaluation_interval is not None:
+            self.evaluation_interval = evaluation_interval
         self.level = level
         if level_conditions is not None:
             self.level_conditions = level_conditions
@@ -407,6 +412,27 @@ class CreateRuleRequest(object):
             raise ValueError("Invalid value for `evaluation_count`, must not be `None`")  # noqa: E501
 
         self._evaluation_count = evaluation_count
+
+    @property
+    def evaluation_interval(self):
+        """Gets the evaluation_interval of this CreateRuleRequest.  # noqa: E501
+
+
+        :return: The evaluation_interval of this CreateRuleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._evaluation_interval
+
+    @evaluation_interval.setter
+    def evaluation_interval(self, evaluation_interval):
+        """Sets the evaluation_interval of this CreateRuleRequest.
+
+
+        :param evaluation_interval: The evaluation_interval of this CreateRuleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._evaluation_interval = evaluation_interval
 
     @property
     def level(self):

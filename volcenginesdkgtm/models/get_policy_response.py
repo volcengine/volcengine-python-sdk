@@ -38,7 +38,7 @@ class GetPolicyResponse(object):
         'routing_mode': 'str',
         'source_flow': 'SourceFlowForGetPolicyOutput',
         'statistics': 'StatisticsForGetPolicyOutput',
-        'targets': 'TargetsForGetPolicyOutput'
+        'targets': 'list[TargetForGetPolicyOutput]'
     }
 
     attribute_map = {
@@ -188,7 +188,7 @@ class GetPolicyResponse(object):
 
 
         :return: The targets of this GetPolicyResponse.  # noqa: E501
-        :rtype: TargetsForGetPolicyOutput
+        :rtype: list[TargetForGetPolicyOutput]
         """
         return self._targets
 
@@ -198,7 +198,7 @@ class GetPolicyResponse(object):
 
 
         :param targets: The targets of this GetPolicyResponse.  # noqa: E501
-        :type: TargetsForGetPolicyOutput
+        :type: list[TargetForGetPolicyOutput]
         """
 
         self._targets = targets

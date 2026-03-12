@@ -33,16 +33,20 @@ class TaskForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'abr_transcode': 'ABRTranscodeForGetExecutionOutput',
         'ad_audit': 'AdAuditForGetExecutionOutput',
         'asr': 'AsrForGetExecutionOutput',
         'audio_extract': 'AudioExtractForGetExecutionOutput',
+        'convert_format': 'ConvertFormatForGetExecutionOutput',
         'enhance': 'EnhanceForGetExecutionOutput',
         'erase': 'EraseForGetExecutionOutput',
         'file_delete': 'FileDeleteForGetExecutionOutput',
         'highlight': 'HighlightForGetExecutionOutput',
         'ocr': 'OcrForGetExecutionOutput',
-        'segment': 'SegmentForGetExecutionOutput',
+        'segment': 'ConvertSegmentForGetExecutionOutput',
         'storyline': 'StorylineForGetExecutionOutput',
+        'strategy_tag': 'str',
+        'transcode': 'TranscodeForGetExecutionOutput',
         'type': 'str',
         'video_generation': 'VideoGenerationForGetExecutionOutput',
         'video_matting': 'VideoMattingForGetExecutionOutput',
@@ -52,9 +56,11 @@ class TaskForGetExecutionOutput(object):
     }
 
     attribute_map = {
+        'abr_transcode': 'ABRTranscode',
         'ad_audit': 'AdAudit',
         'asr': 'Asr',
         'audio_extract': 'AudioExtract',
+        'convert_format': 'ConvertFormat',
         'enhance': 'Enhance',
         'erase': 'Erase',
         'file_delete': 'FileDelete',
@@ -62,6 +68,8 @@ class TaskForGetExecutionOutput(object):
         'ocr': 'Ocr',
         'segment': 'Segment',
         'storyline': 'Storyline',
+        'strategy_tag': 'StrategyTag',
+        'transcode': 'Transcode',
         'type': 'Type',
         'video_generation': 'VideoGeneration',
         'video_matting': 'VideoMatting',
@@ -70,15 +78,17 @@ class TaskForGetExecutionOutput(object):
         'vision': 'Vision'
     }
 
-    def __init__(self, ad_audit=None, asr=None, audio_extract=None, enhance=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, video_generation=None, video_matting=None, video_summary=None, video_understanding=None, vision=None, _configuration=None):  # noqa: E501
+    def __init__(self, abr_transcode=None, ad_audit=None, asr=None, audio_extract=None, convert_format=None, enhance=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, strategy_tag=None, transcode=None, type=None, video_generation=None, video_matting=None, video_summary=None, video_understanding=None, vision=None, _configuration=None):  # noqa: E501
         """TaskForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._abr_transcode = None
         self._ad_audit = None
         self._asr = None
         self._audio_extract = None
+        self._convert_format = None
         self._enhance = None
         self._erase = None
         self._file_delete = None
@@ -86,6 +96,8 @@ class TaskForGetExecutionOutput(object):
         self._ocr = None
         self._segment = None
         self._storyline = None
+        self._strategy_tag = None
+        self._transcode = None
         self._type = None
         self._video_generation = None
         self._video_matting = None
@@ -94,12 +106,16 @@ class TaskForGetExecutionOutput(object):
         self._vision = None
         self.discriminator = None
 
+        if abr_transcode is not None:
+            self.abr_transcode = abr_transcode
         if ad_audit is not None:
             self.ad_audit = ad_audit
         if asr is not None:
             self.asr = asr
         if audio_extract is not None:
             self.audio_extract = audio_extract
+        if convert_format is not None:
+            self.convert_format = convert_format
         if enhance is not None:
             self.enhance = enhance
         if erase is not None:
@@ -114,6 +130,10 @@ class TaskForGetExecutionOutput(object):
             self.segment = segment
         if storyline is not None:
             self.storyline = storyline
+        if strategy_tag is not None:
+            self.strategy_tag = strategy_tag
+        if transcode is not None:
+            self.transcode = transcode
         if type is not None:
             self.type = type
         if video_generation is not None:
@@ -126,6 +146,27 @@ class TaskForGetExecutionOutput(object):
             self.video_understanding = video_understanding
         if vision is not None:
             self.vision = vision
+
+    @property
+    def abr_transcode(self):
+        """Gets the abr_transcode of this TaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The abr_transcode of this TaskForGetExecutionOutput.  # noqa: E501
+        :rtype: ABRTranscodeForGetExecutionOutput
+        """
+        return self._abr_transcode
+
+    @abr_transcode.setter
+    def abr_transcode(self, abr_transcode):
+        """Sets the abr_transcode of this TaskForGetExecutionOutput.
+
+
+        :param abr_transcode: The abr_transcode of this TaskForGetExecutionOutput.  # noqa: E501
+        :type: ABRTranscodeForGetExecutionOutput
+        """
+
+        self._abr_transcode = abr_transcode
 
     @property
     def ad_audit(self):
@@ -189,6 +230,27 @@ class TaskForGetExecutionOutput(object):
         """
 
         self._audio_extract = audio_extract
+
+    @property
+    def convert_format(self):
+        """Gets the convert_format of this TaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The convert_format of this TaskForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertFormatForGetExecutionOutput
+        """
+        return self._convert_format
+
+    @convert_format.setter
+    def convert_format(self, convert_format):
+        """Sets the convert_format of this TaskForGetExecutionOutput.
+
+
+        :param convert_format: The convert_format of this TaskForGetExecutionOutput.  # noqa: E501
+        :type: ConvertFormatForGetExecutionOutput
+        """
+
+        self._convert_format = convert_format
 
     @property
     def enhance(self):
@@ -301,7 +363,7 @@ class TaskForGetExecutionOutput(object):
 
 
         :return: The segment of this TaskForGetExecutionOutput.  # noqa: E501
-        :rtype: SegmentForGetExecutionOutput
+        :rtype: ConvertSegmentForGetExecutionOutput
         """
         return self._segment
 
@@ -311,7 +373,7 @@ class TaskForGetExecutionOutput(object):
 
 
         :param segment: The segment of this TaskForGetExecutionOutput.  # noqa: E501
-        :type: SegmentForGetExecutionOutput
+        :type: ConvertSegmentForGetExecutionOutput
         """
 
         self._segment = segment
@@ -336,6 +398,48 @@ class TaskForGetExecutionOutput(object):
         """
 
         self._storyline = storyline
+
+    @property
+    def strategy_tag(self):
+        """Gets the strategy_tag of this TaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The strategy_tag of this TaskForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._strategy_tag
+
+    @strategy_tag.setter
+    def strategy_tag(self, strategy_tag):
+        """Sets the strategy_tag of this TaskForGetExecutionOutput.
+
+
+        :param strategy_tag: The strategy_tag of this TaskForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._strategy_tag = strategy_tag
+
+    @property
+    def transcode(self):
+        """Gets the transcode of this TaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The transcode of this TaskForGetExecutionOutput.  # noqa: E501
+        :rtype: TranscodeForGetExecutionOutput
+        """
+        return self._transcode
+
+    @transcode.setter
+    def transcode(self, transcode):
+        """Sets the transcode of this TaskForGetExecutionOutput.
+
+
+        :param transcode: The transcode of this TaskForGetExecutionOutput.  # noqa: E501
+        :type: TranscodeForGetExecutionOutput
+        """
+
+        self._transcode = transcode
 
     @property
     def type(self):
