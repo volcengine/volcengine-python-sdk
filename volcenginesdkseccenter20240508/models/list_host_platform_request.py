@@ -33,24 +33,50 @@ class ListHostPlatformRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'os': 'str',
         'top_group_id': 'str'
     }
 
     attribute_map = {
+        'os': 'Os',
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, os=None, top_group_id=None, _configuration=None):  # noqa: E501
         """ListHostPlatformRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._os = None
         self._top_group_id = None
         self.discriminator = None
 
+        if os is not None:
+            self.os = os
         if top_group_id is not None:
             self.top_group_id = top_group_id
+
+    @property
+    def os(self):
+        """Gets the os of this ListHostPlatformRequest.  # noqa: E501
+
+
+        :return: The os of this ListHostPlatformRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._os
+
+    @os.setter
+    def os(self, os):
+        """Sets the os of this ListHostPlatformRequest.
+
+
+        :param os: The os of this ListHostPlatformRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._os = os
 
     @property
     def top_group_id(self):

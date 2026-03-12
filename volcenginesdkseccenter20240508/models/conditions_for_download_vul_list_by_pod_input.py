@@ -36,6 +36,7 @@ class ConditionsForDownloadVulListByPodInput(object):
         'cloud_providers': 'list[str]',
         'cve_id': 'str',
         'if_high_availability': 'bool',
+        'is_real_risk_vul': 'bool',
         'leaf_group_ids': 'list[str]',
         'level': 'list[str]',
         'tag': 'list[str]',
@@ -47,6 +48,7 @@ class ConditionsForDownloadVulListByPodInput(object):
         'cloud_providers': 'CloudProviders',
         'cve_id': 'CveID',
         'if_high_availability': 'IfHighAvailability',
+        'is_real_risk_vul': 'IsRealRiskVul',
         'leaf_group_ids': 'LeafGroupIDs',
         'level': 'Level',
         'tag': 'Tag',
@@ -54,7 +56,7 @@ class ConditionsForDownloadVulListByPodInput(object):
         'vuln_name': 'VulnName'
     }
 
-    def __init__(self, cloud_providers=None, cve_id=None, if_high_availability=None, leaf_group_ids=None, level=None, tag=None, top_group_id=None, vuln_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_providers=None, cve_id=None, if_high_availability=None, is_real_risk_vul=None, leaf_group_ids=None, level=None, tag=None, top_group_id=None, vuln_name=None, _configuration=None):  # noqa: E501
         """ConditionsForDownloadVulListByPodInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class ConditionsForDownloadVulListByPodInput(object):
         self._cloud_providers = None
         self._cve_id = None
         self._if_high_availability = None
+        self._is_real_risk_vul = None
         self._leaf_group_ids = None
         self._level = None
         self._tag = None
@@ -76,6 +79,8 @@ class ConditionsForDownloadVulListByPodInput(object):
             self.cve_id = cve_id
         if if_high_availability is not None:
             self.if_high_availability = if_high_availability
+        if is_real_risk_vul is not None:
+            self.is_real_risk_vul = is_real_risk_vul
         if leaf_group_ids is not None:
             self.leaf_group_ids = leaf_group_ids
         if level is not None:
@@ -149,6 +154,27 @@ class ConditionsForDownloadVulListByPodInput(object):
         """
 
         self._if_high_availability = if_high_availability
+
+    @property
+    def is_real_risk_vul(self):
+        """Gets the is_real_risk_vul of this ConditionsForDownloadVulListByPodInput.  # noqa: E501
+
+
+        :return: The is_real_risk_vul of this ConditionsForDownloadVulListByPodInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_real_risk_vul
+
+    @is_real_risk_vul.setter
+    def is_real_risk_vul(self, is_real_risk_vul):
+        """Sets the is_real_risk_vul of this ConditionsForDownloadVulListByPodInput.
+
+
+        :param is_real_risk_vul: The is_real_risk_vul of this ConditionsForDownloadVulListByPodInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_real_risk_vul = is_real_risk_vul
 
     @property
     def leaf_group_ids(self):

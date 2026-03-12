@@ -34,28 +34,33 @@ class CreateWebhookRequest(object):
     """
     swagger_types = {
         'name': 'str',
+        'token': 'str',
         'type': 'str',
         'url': 'str'
     }
 
     attribute_map = {
         'name': 'Name',
+        'token': 'Token',
         'type': 'Type',
         'url': 'Url'
     }
 
-    def __init__(self, name=None, type=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, token=None, type=None, url=None, _configuration=None):  # noqa: E501
         """CreateWebhookRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._name = None
+        self._token = None
         self._type = None
         self._url = None
         self.discriminator = None
 
         self.name = name
+        if token is not None:
+            self.token = token
         self.type = type
         self.url = url
 
@@ -87,6 +92,27 @@ class CreateWebhookRequest(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def token(self):
+        """Gets the token of this CreateWebhookRequest.  # noqa: E501
+
+
+        :return: The token of this CreateWebhookRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._token
+
+    @token.setter
+    def token(self, token):
+        """Sets the token of this CreateWebhookRequest.
+
+
+        :param token: The token of this CreateWebhookRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._token = token
 
     @property
     def type(self):

@@ -33,29 +33,55 @@ class ListBatchEndpointHandleMethodsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'not_support_reason': 'str',
         'operation_list': 'list[OperationListForListBatchEndpointHandleMethodsOutput]',
         'support': 'bool'
     }
 
     attribute_map = {
+        'not_support_reason': 'NotSupportReason',
         'operation_list': 'OperationList',
         'support': 'Support'
     }
 
-    def __init__(self, operation_list=None, support=None, _configuration=None):  # noqa: E501
+    def __init__(self, not_support_reason=None, operation_list=None, support=None, _configuration=None):  # noqa: E501
         """ListBatchEndpointHandleMethodsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._not_support_reason = None
         self._operation_list = None
         self._support = None
         self.discriminator = None
 
+        if not_support_reason is not None:
+            self.not_support_reason = not_support_reason
         if operation_list is not None:
             self.operation_list = operation_list
         if support is not None:
             self.support = support
+
+    @property
+    def not_support_reason(self):
+        """Gets the not_support_reason of this ListBatchEndpointHandleMethodsResponse.  # noqa: E501
+
+
+        :return: The not_support_reason of this ListBatchEndpointHandleMethodsResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._not_support_reason
+
+    @not_support_reason.setter
+    def not_support_reason(self, not_support_reason):
+        """Sets the not_support_reason of this ListBatchEndpointHandleMethodsResponse.
+
+
+        :param not_support_reason: The not_support_reason of this ListBatchEndpointHandleMethodsResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._not_support_reason = not_support_reason
 
     @property
     def operation_list(self):

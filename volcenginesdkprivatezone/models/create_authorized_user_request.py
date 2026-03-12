@@ -35,7 +35,7 @@ class CreateAuthorizedUserRequest(object):
     swagger_types = {
         'account_id': 'str',
         'auth_type': 'int',
-        'verify_code': 'int'
+        'verify_code': 'str'
     }
 
     attribute_map = {
@@ -112,7 +112,7 @@ class CreateAuthorizedUserRequest(object):
 
 
         :return: The verify_code of this CreateAuthorizedUserRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._verify_code
 
@@ -122,7 +122,7 @@ class CreateAuthorizedUserRequest(object):
 
 
         :param verify_code: The verify_code of this CreateAuthorizedUserRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._verify_code = verify_code
