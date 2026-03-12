@@ -33,253 +33,71 @@ class OutputForStartExecutionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'alpha': 'bool',
-        'audio_phase_detect': 'bool',
-        'canvas_with_max': 'bool',
-        'canvas_with_ratio': 'bool',
-        'codec': 'CodecForStartExecutionInput',
-        'disable_audio': 'bool',
-        'disable_video': 'bool',
-        'format': 'str',
-        'fps': 'float'
+        'audio': 'AudioForStartExecutionInput',
+        'video': 'VideoForStartExecutionInput'
     }
 
     attribute_map = {
-        'alpha': 'Alpha',
-        'audio_phase_detect': 'AudioPhaseDetect',
-        'canvas_with_max': 'CanvasWithMax',
-        'canvas_with_ratio': 'CanvasWithRatio',
-        'codec': 'Codec',
-        'disable_audio': 'DisableAudio',
-        'disable_video': 'DisableVideo',
-        'format': 'Format',
-        'fps': 'Fps'
+        'audio': 'Audio',
+        'video': 'Video'
     }
 
-    def __init__(self, alpha=None, audio_phase_detect=None, canvas_with_max=None, canvas_with_ratio=None, codec=None, disable_audio=None, disable_video=None, format=None, fps=None, _configuration=None):  # noqa: E501
+    def __init__(self, audio=None, video=None, _configuration=None):  # noqa: E501
         """OutputForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._alpha = None
-        self._audio_phase_detect = None
-        self._canvas_with_max = None
-        self._canvas_with_ratio = None
-        self._codec = None
-        self._disable_audio = None
-        self._disable_video = None
-        self._format = None
-        self._fps = None
+        self._audio = None
+        self._video = None
         self.discriminator = None
 
-        if alpha is not None:
-            self.alpha = alpha
-        if audio_phase_detect is not None:
-            self.audio_phase_detect = audio_phase_detect
-        if canvas_with_max is not None:
-            self.canvas_with_max = canvas_with_max
-        if canvas_with_ratio is not None:
-            self.canvas_with_ratio = canvas_with_ratio
-        if codec is not None:
-            self.codec = codec
-        if disable_audio is not None:
-            self.disable_audio = disable_audio
-        if disable_video is not None:
-            self.disable_video = disable_video
-        if format is not None:
-            self.format = format
-        if fps is not None:
-            self.fps = fps
+        if audio is not None:
+            self.audio = audio
+        if video is not None:
+            self.video = video
 
     @property
-    def alpha(self):
-        """Gets the alpha of this OutputForStartExecutionInput.  # noqa: E501
+    def audio(self):
+        """Gets the audio of this OutputForStartExecutionInput.  # noqa: E501
 
 
-        :return: The alpha of this OutputForStartExecutionInput.  # noqa: E501
-        :rtype: bool
+        :return: The audio of this OutputForStartExecutionInput.  # noqa: E501
+        :rtype: AudioForStartExecutionInput
         """
-        return self._alpha
+        return self._audio
 
-    @alpha.setter
-    def alpha(self, alpha):
-        """Sets the alpha of this OutputForStartExecutionInput.
+    @audio.setter
+    def audio(self, audio):
+        """Sets the audio of this OutputForStartExecutionInput.
 
 
-        :param alpha: The alpha of this OutputForStartExecutionInput.  # noqa: E501
-        :type: bool
+        :param audio: The audio of this OutputForStartExecutionInput.  # noqa: E501
+        :type: AudioForStartExecutionInput
         """
 
-        self._alpha = alpha
+        self._audio = audio
 
     @property
-    def audio_phase_detect(self):
-        """Gets the audio_phase_detect of this OutputForStartExecutionInput.  # noqa: E501
+    def video(self):
+        """Gets the video of this OutputForStartExecutionInput.  # noqa: E501
 
 
-        :return: The audio_phase_detect of this OutputForStartExecutionInput.  # noqa: E501
-        :rtype: bool
+        :return: The video of this OutputForStartExecutionInput.  # noqa: E501
+        :rtype: VideoForStartExecutionInput
         """
-        return self._audio_phase_detect
+        return self._video
 
-    @audio_phase_detect.setter
-    def audio_phase_detect(self, audio_phase_detect):
-        """Sets the audio_phase_detect of this OutputForStartExecutionInput.
-
-
-        :param audio_phase_detect: The audio_phase_detect of this OutputForStartExecutionInput.  # noqa: E501
-        :type: bool
-        """
-
-        self._audio_phase_detect = audio_phase_detect
-
-    @property
-    def canvas_with_max(self):
-        """Gets the canvas_with_max of this OutputForStartExecutionInput.  # noqa: E501
+    @video.setter
+    def video(self, video):
+        """Sets the video of this OutputForStartExecutionInput.
 
 
-        :return: The canvas_with_max of this OutputForStartExecutionInput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._canvas_with_max
-
-    @canvas_with_max.setter
-    def canvas_with_max(self, canvas_with_max):
-        """Sets the canvas_with_max of this OutputForStartExecutionInput.
-
-
-        :param canvas_with_max: The canvas_with_max of this OutputForStartExecutionInput.  # noqa: E501
-        :type: bool
+        :param video: The video of this OutputForStartExecutionInput.  # noqa: E501
+        :type: VideoForStartExecutionInput
         """
 
-        self._canvas_with_max = canvas_with_max
-
-    @property
-    def canvas_with_ratio(self):
-        """Gets the canvas_with_ratio of this OutputForStartExecutionInput.  # noqa: E501
-
-
-        :return: The canvas_with_ratio of this OutputForStartExecutionInput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._canvas_with_ratio
-
-    @canvas_with_ratio.setter
-    def canvas_with_ratio(self, canvas_with_ratio):
-        """Sets the canvas_with_ratio of this OutputForStartExecutionInput.
-
-
-        :param canvas_with_ratio: The canvas_with_ratio of this OutputForStartExecutionInput.  # noqa: E501
-        :type: bool
-        """
-
-        self._canvas_with_ratio = canvas_with_ratio
-
-    @property
-    def codec(self):
-        """Gets the codec of this OutputForStartExecutionInput.  # noqa: E501
-
-
-        :return: The codec of this OutputForStartExecutionInput.  # noqa: E501
-        :rtype: CodecForStartExecutionInput
-        """
-        return self._codec
-
-    @codec.setter
-    def codec(self, codec):
-        """Sets the codec of this OutputForStartExecutionInput.
-
-
-        :param codec: The codec of this OutputForStartExecutionInput.  # noqa: E501
-        :type: CodecForStartExecutionInput
-        """
-
-        self._codec = codec
-
-    @property
-    def disable_audio(self):
-        """Gets the disable_audio of this OutputForStartExecutionInput.  # noqa: E501
-
-
-        :return: The disable_audio of this OutputForStartExecutionInput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._disable_audio
-
-    @disable_audio.setter
-    def disable_audio(self, disable_audio):
-        """Sets the disable_audio of this OutputForStartExecutionInput.
-
-
-        :param disable_audio: The disable_audio of this OutputForStartExecutionInput.  # noqa: E501
-        :type: bool
-        """
-
-        self._disable_audio = disable_audio
-
-    @property
-    def disable_video(self):
-        """Gets the disable_video of this OutputForStartExecutionInput.  # noqa: E501
-
-
-        :return: The disable_video of this OutputForStartExecutionInput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._disable_video
-
-    @disable_video.setter
-    def disable_video(self, disable_video):
-        """Sets the disable_video of this OutputForStartExecutionInput.
-
-
-        :param disable_video: The disable_video of this OutputForStartExecutionInput.  # noqa: E501
-        :type: bool
-        """
-
-        self._disable_video = disable_video
-
-    @property
-    def format(self):
-        """Gets the format of this OutputForStartExecutionInput.  # noqa: E501
-
-
-        :return: The format of this OutputForStartExecutionInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._format
-
-    @format.setter
-    def format(self, format):
-        """Sets the format of this OutputForStartExecutionInput.
-
-
-        :param format: The format of this OutputForStartExecutionInput.  # noqa: E501
-        :type: str
-        """
-
-        self._format = format
-
-    @property
-    def fps(self):
-        """Gets the fps of this OutputForStartExecutionInput.  # noqa: E501
-
-
-        :return: The fps of this OutputForStartExecutionInput.  # noqa: E501
-        :rtype: float
-        """
-        return self._fps
-
-    @fps.setter
-    def fps(self, fps):
-        """Sets the fps of this OutputForStartExecutionInput.
-
-
-        :param fps: The fps of this OutputForStartExecutionInput.  # noqa: E501
-        :type: float
-        """
-
-        self._fps = fps
+        self._video = video
 
     def to_dict(self):
         """Returns the model properties as a dict"""

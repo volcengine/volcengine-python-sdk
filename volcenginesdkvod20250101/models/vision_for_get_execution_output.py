@@ -37,7 +37,7 @@ class VisionForGetExecutionOutput(object):
         'need_asr_speaker': 'bool',
         'prompt': 'str',
         'response_format_type': 'str',
-        'segment': 'ConvertConvertSegmentForGetExecutionOutput',
+        'segment': 'ConvertConvertConvertSegmentForGetExecutionOutput',
         'snapshot_param': 'SnapshotParamForGetExecutionOutput'
     }
 
@@ -167,7 +167,7 @@ class VisionForGetExecutionOutput(object):
 
 
         :return: The segment of this VisionForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertConvertSegmentForGetExecutionOutput
+        :rtype: ConvertConvertConvertSegmentForGetExecutionOutput
         """
         return self._segment
 
@@ -177,7 +177,7 @@ class VisionForGetExecutionOutput(object):
 
 
         :param segment: The segment of this VisionForGetExecutionOutput.  # noqa: E501
-        :type: ConvertConvertSegmentForGetExecutionOutput
+        :type: ConvertConvertConvertSegmentForGetExecutionOutput
         """
 
         self._segment = segment

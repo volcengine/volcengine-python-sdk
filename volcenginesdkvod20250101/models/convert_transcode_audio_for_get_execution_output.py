@@ -39,7 +39,7 @@ class ConvertTranscodeAudioForGetExecutionOutput(object):
         'dynamic_range': 'str',
         'encoded_type': 'str',
         'encrypt': 'bool',
-        'encryption': 'EncryptionForGetExecutionOutput',
+        'encryption': 'ConvertEncryptionForGetExecutionOutput',
         'file_id': 'str',
         'file_type': 'str',
         'format': 'str',
@@ -259,7 +259,7 @@ class ConvertTranscodeAudioForGetExecutionOutput(object):
 
 
         :return: The encryption of this ConvertTranscodeAudioForGetExecutionOutput.  # noqa: E501
-        :rtype: EncryptionForGetExecutionOutput
+        :rtype: ConvertEncryptionForGetExecutionOutput
         """
         return self._encryption
 
@@ -269,7 +269,7 @@ class ConvertTranscodeAudioForGetExecutionOutput(object):
 
 
         :param encryption: The encryption of this ConvertTranscodeAudioForGetExecutionOutput.  # noqa: E501
-        :type: EncryptionForGetExecutionOutput
+        :type: ConvertEncryptionForGetExecutionOutput
         """
 
         self._encryption = encryption
