@@ -35,14 +35,17 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
     swagger_types = {
         'account_expires': 'str',
         'additional_actions_string': 'str',
+        'analysis_record_uuid': 'str',
         'args_array': 'list[str]',
         'argv': 'str',
+        'backend_alarm_tags': 'list[str]',
         'bruteforce_sip': 'str',
         'category_name': 'str',
         '_class': 'str',
         'cmd': 'str',
         'comm': 'str',
         'command_line': 'str',
+        'confidence': 'str',
         'configuration': 'str',
         'configuration_file_hash': 'str',
         'connect_info': 'str',
@@ -60,6 +63,8 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'dip': 'str',
         'dport': 'str',
         'dst_list': 'str',
+        'elkeid_save_data': 'list[ElkeidSaveDataForGetMlpAlarmSummaryInfoOutput]',
+        'en_hanced': 'str',
         'event_type': 'str',
         'exe': 'str',
         'exe_hash': 'str',
@@ -67,6 +72,7 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'failure_reason': 'str',
         'fd_name': 'str',
         'file_downloadable': 'bool',
+        'file_name': 'str',
         'file_path': 'str',
         'flags': 'str',
         'hash': 'str',
@@ -75,6 +81,9 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'hit_argv_list': 'list[str]',
         'hit_data': 'str',
         'home_directory': 'str',
+        'ip_intelligence': 'str',
+        'ip_source': 'str',
+        'ip_source_us': 'str',
         'image': 'str',
         'image_loaded': 'str',
         'interrupt_number': 'str',
@@ -83,8 +92,10 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'ioc_severity': 'str',
         'ioc_source': 'str',
         'ip_address': 'str',
+        'is_inner_account': 'bool',
         'ko_file': 'str',
         'ld_preload': 'str',
+        'login_count': 'str',
         'logon_type': 'str',
         'md5_hash': 'str',
         'mod_info': 'str',
@@ -119,8 +130,11 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'query_name': 'str',
         'query_results': 'str',
         'query_status': 'str',
+        'root_pns': 'str',
         'run_path': 'str',
         'sam_account_name': 'str',
+        'security_intelligence_complete': 'bool',
+        'security_intelligence_result': 'str',
         'service_account': 'str',
         'service_file_name': 'str',
         'service_name': 'str',
@@ -175,14 +189,17 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
     attribute_map = {
         'account_expires': 'AccountExpires',
         'additional_actions_string': 'AdditionalActionsString',
+        'analysis_record_uuid': 'AnalysisRecordUUID',
         'args_array': 'ArgsArray',
         'argv': 'Argv',
+        'backend_alarm_tags': 'BackendAlarmTags',
         'bruteforce_sip': 'BruteforceSip',
         'category_name': 'CategoryName',
         '_class': 'Class',
         'cmd': 'Cmd',
         'comm': 'Comm',
         'command_line': 'CommandLine',
+        'confidence': 'Confidence',
         'configuration': 'Configuration',
         'configuration_file_hash': 'ConfigurationFileHash',
         'connect_info': 'ConnectInfo',
@@ -200,6 +217,8 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'dip': 'Dip',
         'dport': 'Dport',
         'dst_list': 'DstList',
+        'elkeid_save_data': 'ElkeidSaveData',
+        'en_hanced': 'EnHanced',
         'event_type': 'EventType',
         'exe': 'Exe',
         'exe_hash': 'ExeHash',
@@ -207,6 +226,7 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'failure_reason': 'FailureReason',
         'fd_name': 'FdName',
         'file_downloadable': 'FileDownloadable',
+        'file_name': 'FileName',
         'file_path': 'FilePath',
         'flags': 'Flags',
         'hash': 'Hash',
@@ -215,6 +235,9 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'hit_argv_list': 'HitArgvList',
         'hit_data': 'HitData',
         'home_directory': 'HomeDirectory',
+        'ip_intelligence': 'IPIntelligence',
+        'ip_source': 'IPSource',
+        'ip_source_us': 'IPSourceUs',
         'image': 'Image',
         'image_loaded': 'ImageLoaded',
         'interrupt_number': 'InterruptNumber',
@@ -223,8 +246,10 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'ioc_severity': 'IocSeverity',
         'ioc_source': 'IocSource',
         'ip_address': 'IpAddress',
+        'is_inner_account': 'IsInnerAccount',
         'ko_file': 'KoFile',
         'ld_preload': 'LdPreload',
+        'login_count': 'LoginCount',
         'logon_type': 'LogonType',
         'md5_hash': 'Md5Hash',
         'mod_info': 'ModInfo',
@@ -259,8 +284,11 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'query_name': 'QueryName',
         'query_results': 'QueryResults',
         'query_status': 'QueryStatus',
+        'root_pns': 'RootPns',
         'run_path': 'RunPath',
         'sam_account_name': 'SamAccountName',
+        'security_intelligence_complete': 'SecurityIntelligenceComplete',
+        'security_intelligence_result': 'SecurityIntelligenceResult',
         'service_account': 'ServiceAccount',
         'service_file_name': 'ServiceFileName',
         'service_name': 'ServiceName',
@@ -312,7 +340,7 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         'virus_hit_data_list': 'VirusHitDataList'
     }
 
-    def __init__(self, account_expires=None, additional_actions_string=None, args_array=None, argv=None, bruteforce_sip=None, category_name=None, _class=None, cmd=None, comm=None, command_line=None, configuration=None, configuration_file_hash=None, connect_info=None, contents=None, create_at=None, current_directory=None, data_type=None, description=None, destination_hostname=None, destination_ip=None, destination_port=None, destination_port_name=None, details=None, detection_user=None, dip=None, dport=None, dst_list=None, event_type=None, exe=None, exe_hash=None, external_conns=None, failure_reason=None, fd_name=None, file_downloadable=None, file_path=None, flags=None, hash=None, hashes=None, highlight_fields=None, hit_argv_list=None, hit_data=None, home_directory=None, image=None, image_loaded=None, interrupt_number=None, ioc_detail=None, ioc_meta=None, ioc_severity=None, ioc_source=None, ip_address=None, ko_file=None, ld_preload=None, logon_type=None, md5_hash=None, mod_info=None, modify_at=None, module_name=None, name=None, new_name=None, new_thread_id=None, nspid=None, old_name=None, old_uid=None, old_username=None, original_file_name=None, parent_command_line=None, parent_image=None, path=None, pgid=None, pgid_argv=None, pid=None, pid_set=None, pid_tree=None, ppid=None, ppid_argv=None, privilege_list=None, probe_hook=None, process_guid=None, process_id=None, process_name=None, protocol=None, ptrace_request=None, query=None, query_name=None, query_results=None, query_status=None, run_path=None, sam_account_name=None, service_account=None, service_file_name=None, service_name=None, service_start_type=None, service_type=None, severity_name=None, sid=None, signature=None, signature_status=None, sip=None, socket_argv=None, socket_pid=None, source_ip=None, source_image=None, source_name=None, source_port=None, source_process_guid=None, source_user=None, sport=None, src_list=None, ssh=None, ssh_info=None, stack_trace_format=None, stack_trace_hash=None, start_function=None, start_module=None, static_file=None, stdin=None, stdout=None, subject_user_name=None, symbol_hooked=None, symbol_so=None, syscall_number=None, target_argv=None, target_domain_name=None, target_filename=None, target_object=None, target_pid=None, target_user_name=None, task_content=None, task_name=None, threat_name=None, timestamp=None, types=None, uid=None, user=None, user_principal_name=None, username=None, virus_hit_data_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_expires=None, additional_actions_string=None, analysis_record_uuid=None, args_array=None, argv=None, backend_alarm_tags=None, bruteforce_sip=None, category_name=None, _class=None, cmd=None, comm=None, command_line=None, confidence=None, configuration=None, configuration_file_hash=None, connect_info=None, contents=None, create_at=None, current_directory=None, data_type=None, description=None, destination_hostname=None, destination_ip=None, destination_port=None, destination_port_name=None, details=None, detection_user=None, dip=None, dport=None, dst_list=None, elkeid_save_data=None, en_hanced=None, event_type=None, exe=None, exe_hash=None, external_conns=None, failure_reason=None, fd_name=None, file_downloadable=None, file_name=None, file_path=None, flags=None, hash=None, hashes=None, highlight_fields=None, hit_argv_list=None, hit_data=None, home_directory=None, ip_intelligence=None, ip_source=None, ip_source_us=None, image=None, image_loaded=None, interrupt_number=None, ioc_detail=None, ioc_meta=None, ioc_severity=None, ioc_source=None, ip_address=None, is_inner_account=None, ko_file=None, ld_preload=None, login_count=None, logon_type=None, md5_hash=None, mod_info=None, modify_at=None, module_name=None, name=None, new_name=None, new_thread_id=None, nspid=None, old_name=None, old_uid=None, old_username=None, original_file_name=None, parent_command_line=None, parent_image=None, path=None, pgid=None, pgid_argv=None, pid=None, pid_set=None, pid_tree=None, ppid=None, ppid_argv=None, privilege_list=None, probe_hook=None, process_guid=None, process_id=None, process_name=None, protocol=None, ptrace_request=None, query=None, query_name=None, query_results=None, query_status=None, root_pns=None, run_path=None, sam_account_name=None, security_intelligence_complete=None, security_intelligence_result=None, service_account=None, service_file_name=None, service_name=None, service_start_type=None, service_type=None, severity_name=None, sid=None, signature=None, signature_status=None, sip=None, socket_argv=None, socket_pid=None, source_ip=None, source_image=None, source_name=None, source_port=None, source_process_guid=None, source_user=None, sport=None, src_list=None, ssh=None, ssh_info=None, stack_trace_format=None, stack_trace_hash=None, start_function=None, start_module=None, static_file=None, stdin=None, stdout=None, subject_user_name=None, symbol_hooked=None, symbol_so=None, syscall_number=None, target_argv=None, target_domain_name=None, target_filename=None, target_object=None, target_pid=None, target_user_name=None, task_content=None, task_name=None, threat_name=None, timestamp=None, types=None, uid=None, user=None, user_principal_name=None, username=None, virus_hit_data_list=None, _configuration=None):  # noqa: E501
         """AlarmNodeForGetMlpAlarmSummaryInfoOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -320,14 +348,17 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
 
         self._account_expires = None
         self._additional_actions_string = None
+        self._analysis_record_uuid = None
         self._args_array = None
         self._argv = None
+        self._backend_alarm_tags = None
         self._bruteforce_sip = None
         self._category_name = None
         self.__class = None
         self._cmd = None
         self._comm = None
         self._command_line = None
+        self._confidence = None
         self._configuration = None
         self._configuration_file_hash = None
         self._connect_info = None
@@ -345,6 +376,8 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         self._dip = None
         self._dport = None
         self._dst_list = None
+        self._elkeid_save_data = None
+        self._en_hanced = None
         self._event_type = None
         self._exe = None
         self._exe_hash = None
@@ -352,6 +385,7 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         self._failure_reason = None
         self._fd_name = None
         self._file_downloadable = None
+        self._file_name = None
         self._file_path = None
         self._flags = None
         self._hash = None
@@ -360,6 +394,9 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         self._hit_argv_list = None
         self._hit_data = None
         self._home_directory = None
+        self._ip_intelligence = None
+        self._ip_source = None
+        self._ip_source_us = None
         self._image = None
         self._image_loaded = None
         self._interrupt_number = None
@@ -368,8 +405,10 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         self._ioc_severity = None
         self._ioc_source = None
         self._ip_address = None
+        self._is_inner_account = None
         self._ko_file = None
         self._ld_preload = None
+        self._login_count = None
         self._logon_type = None
         self._md5_hash = None
         self._mod_info = None
@@ -404,8 +443,11 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         self._query_name = None
         self._query_results = None
         self._query_status = None
+        self._root_pns = None
         self._run_path = None
         self._sam_account_name = None
+        self._security_intelligence_complete = None
+        self._security_intelligence_result = None
         self._service_account = None
         self._service_file_name = None
         self._service_name = None
@@ -461,10 +503,14 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
             self.account_expires = account_expires
         if additional_actions_string is not None:
             self.additional_actions_string = additional_actions_string
+        if analysis_record_uuid is not None:
+            self.analysis_record_uuid = analysis_record_uuid
         if args_array is not None:
             self.args_array = args_array
         if argv is not None:
             self.argv = argv
+        if backend_alarm_tags is not None:
+            self.backend_alarm_tags = backend_alarm_tags
         if bruteforce_sip is not None:
             self.bruteforce_sip = bruteforce_sip
         if category_name is not None:
@@ -477,6 +523,8 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
             self.comm = comm
         if command_line is not None:
             self.command_line = command_line
+        if confidence is not None:
+            self.confidence = confidence
         if configuration is not None:
             self.configuration = configuration
         if configuration_file_hash is not None:
@@ -511,6 +559,10 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
             self.dport = dport
         if dst_list is not None:
             self.dst_list = dst_list
+        if elkeid_save_data is not None:
+            self.elkeid_save_data = elkeid_save_data
+        if en_hanced is not None:
+            self.en_hanced = en_hanced
         if event_type is not None:
             self.event_type = event_type
         if exe is not None:
@@ -525,6 +577,8 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
             self.fd_name = fd_name
         if file_downloadable is not None:
             self.file_downloadable = file_downloadable
+        if file_name is not None:
+            self.file_name = file_name
         if file_path is not None:
             self.file_path = file_path
         if flags is not None:
@@ -541,6 +595,12 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
             self.hit_data = hit_data
         if home_directory is not None:
             self.home_directory = home_directory
+        if ip_intelligence is not None:
+            self.ip_intelligence = ip_intelligence
+        if ip_source is not None:
+            self.ip_source = ip_source
+        if ip_source_us is not None:
+            self.ip_source_us = ip_source_us
         if image is not None:
             self.image = image
         if image_loaded is not None:
@@ -557,10 +617,14 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
             self.ioc_source = ioc_source
         if ip_address is not None:
             self.ip_address = ip_address
+        if is_inner_account is not None:
+            self.is_inner_account = is_inner_account
         if ko_file is not None:
             self.ko_file = ko_file
         if ld_preload is not None:
             self.ld_preload = ld_preload
+        if login_count is not None:
+            self.login_count = login_count
         if logon_type is not None:
             self.logon_type = logon_type
         if md5_hash is not None:
@@ -629,10 +693,16 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
             self.query_results = query_results
         if query_status is not None:
             self.query_status = query_status
+        if root_pns is not None:
+            self.root_pns = root_pns
         if run_path is not None:
             self.run_path = run_path
         if sam_account_name is not None:
             self.sam_account_name = sam_account_name
+        if security_intelligence_complete is not None:
+            self.security_intelligence_complete = security_intelligence_complete
+        if security_intelligence_result is not None:
+            self.security_intelligence_result = security_intelligence_result
         if service_account is not None:
             self.service_account = service_account
         if service_file_name is not None:
@@ -775,6 +845,27 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         self._additional_actions_string = additional_actions_string
 
     @property
+    def analysis_record_uuid(self):
+        """Gets the analysis_record_uuid of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The analysis_record_uuid of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._analysis_record_uuid
+
+    @analysis_record_uuid.setter
+    def analysis_record_uuid(self, analysis_record_uuid):
+        """Sets the analysis_record_uuid of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param analysis_record_uuid: The analysis_record_uuid of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._analysis_record_uuid = analysis_record_uuid
+
+    @property
     def args_array(self):
         """Gets the args_array of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
 
@@ -815,6 +906,27 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         """
 
         self._argv = argv
+
+    @property
+    def backend_alarm_tags(self):
+        """Gets the backend_alarm_tags of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The backend_alarm_tags of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._backend_alarm_tags
+
+    @backend_alarm_tags.setter
+    def backend_alarm_tags(self, backend_alarm_tags):
+        """Sets the backend_alarm_tags of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param backend_alarm_tags: The backend_alarm_tags of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._backend_alarm_tags = backend_alarm_tags
 
     @property
     def bruteforce_sip(self):
@@ -941,6 +1053,27 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         """
 
         self._command_line = command_line
+
+    @property
+    def confidence(self):
+        """Gets the confidence of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The confidence of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._confidence
+
+    @confidence.setter
+    def confidence(self, confidence):
+        """Sets the confidence of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param confidence: The confidence of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._confidence = confidence
 
     @property
     def configuration(self):
@@ -1300,6 +1433,48 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         self._dst_list = dst_list
 
     @property
+    def elkeid_save_data(self):
+        """Gets the elkeid_save_data of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The elkeid_save_data of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: list[ElkeidSaveDataForGetMlpAlarmSummaryInfoOutput]
+        """
+        return self._elkeid_save_data
+
+    @elkeid_save_data.setter
+    def elkeid_save_data(self, elkeid_save_data):
+        """Sets the elkeid_save_data of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param elkeid_save_data: The elkeid_save_data of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: list[ElkeidSaveDataForGetMlpAlarmSummaryInfoOutput]
+        """
+
+        self._elkeid_save_data = elkeid_save_data
+
+    @property
+    def en_hanced(self):
+        """Gets the en_hanced of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The en_hanced of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._en_hanced
+
+    @en_hanced.setter
+    def en_hanced(self, en_hanced):
+        """Sets the en_hanced of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param en_hanced: The en_hanced of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._en_hanced = en_hanced
+
+    @property
     def event_type(self):
         """Gets the event_type of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
 
@@ -1445,6 +1620,27 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         """
 
         self._file_downloadable = file_downloadable
+
+    @property
+    def file_name(self):
+        """Gets the file_name of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The file_name of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_name
+
+    @file_name.setter
+    def file_name(self, file_name):
+        """Sets the file_name of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param file_name: The file_name of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._file_name = file_name
 
     @property
     def file_path(self):
@@ -1615,6 +1811,69 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         self._home_directory = home_directory
 
     @property
+    def ip_intelligence(self):
+        """Gets the ip_intelligence of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The ip_intelligence of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_intelligence
+
+    @ip_intelligence.setter
+    def ip_intelligence(self, ip_intelligence):
+        """Sets the ip_intelligence of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param ip_intelligence: The ip_intelligence of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_intelligence = ip_intelligence
+
+    @property
+    def ip_source(self):
+        """Gets the ip_source of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The ip_source of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_source
+
+    @ip_source.setter
+    def ip_source(self, ip_source):
+        """Sets the ip_source of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param ip_source: The ip_source of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_source = ip_source
+
+    @property
+    def ip_source_us(self):
+        """Gets the ip_source_us of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The ip_source_us of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_source_us
+
+    @ip_source_us.setter
+    def ip_source_us(self, ip_source_us):
+        """Sets the ip_source_us of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param ip_source_us: The ip_source_us of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_source_us = ip_source_us
+
+    @property
     def image(self):
         """Gets the image of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
 
@@ -1783,6 +2042,27 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         self._ip_address = ip_address
 
     @property
+    def is_inner_account(self):
+        """Gets the is_inner_account of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The is_inner_account of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_inner_account
+
+    @is_inner_account.setter
+    def is_inner_account(self, is_inner_account):
+        """Sets the is_inner_account of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param is_inner_account: The is_inner_account of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_inner_account = is_inner_account
+
+    @property
     def ko_file(self):
         """Gets the ko_file of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
 
@@ -1823,6 +2103,27 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         """
 
         self._ld_preload = ld_preload
+
+    @property
+    def login_count(self):
+        """Gets the login_count of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The login_count of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._login_count
+
+    @login_count.setter
+    def login_count(self, login_count):
+        """Sets the login_count of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param login_count: The login_count of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._login_count = login_count
 
     @property
     def logon_type(self):
@@ -2539,6 +2840,27 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         self._query_status = query_status
 
     @property
+    def root_pns(self):
+        """Gets the root_pns of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The root_pns of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._root_pns
+
+    @root_pns.setter
+    def root_pns(self, root_pns):
+        """Sets the root_pns of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param root_pns: The root_pns of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._root_pns = root_pns
+
+    @property
     def run_path(self):
         """Gets the run_path of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
 
@@ -2579,6 +2901,48 @@ class AlarmNodeForGetMlpAlarmSummaryInfoOutput(object):
         """
 
         self._sam_account_name = sam_account_name
+
+    @property
+    def security_intelligence_complete(self):
+        """Gets the security_intelligence_complete of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The security_intelligence_complete of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._security_intelligence_complete
+
+    @security_intelligence_complete.setter
+    def security_intelligence_complete(self, security_intelligence_complete):
+        """Sets the security_intelligence_complete of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param security_intelligence_complete: The security_intelligence_complete of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._security_intelligence_complete = security_intelligence_complete
+
+    @property
+    def security_intelligence_result(self):
+        """Gets the security_intelligence_result of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The security_intelligence_result of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_intelligence_result
+
+    @security_intelligence_result.setter
+    def security_intelligence_result(self, security_intelligence_result):
+        """Sets the security_intelligence_result of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.
+
+
+        :param security_intelligence_result: The security_intelligence_result of this AlarmNodeForGetMlpAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_intelligence_result = security_intelligence_result
 
     @property
     def service_account(self):

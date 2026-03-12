@@ -33,29 +33,60 @@ class RelateAlarmInfoForListBanIPListOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'alarm_handle_method': 'int',
         'alarm_type': 'str',
+        'cloud_provider': 'str',
         'related_alarm_id': 'str'
     }
 
     attribute_map = {
+        'alarm_handle_method': 'AlarmHandleMethod',
         'alarm_type': 'AlarmType',
+        'cloud_provider': 'CloudProvider',
         'related_alarm_id': 'RelatedAlarmID'
     }
 
-    def __init__(self, alarm_type=None, related_alarm_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_handle_method=None, alarm_type=None, cloud_provider=None, related_alarm_id=None, _configuration=None):  # noqa: E501
         """RelateAlarmInfoForListBanIPListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._alarm_handle_method = None
         self._alarm_type = None
+        self._cloud_provider = None
         self._related_alarm_id = None
         self.discriminator = None
 
+        if alarm_handle_method is not None:
+            self.alarm_handle_method = alarm_handle_method
         if alarm_type is not None:
             self.alarm_type = alarm_type
+        if cloud_provider is not None:
+            self.cloud_provider = cloud_provider
         if related_alarm_id is not None:
             self.related_alarm_id = related_alarm_id
+
+    @property
+    def alarm_handle_method(self):
+        """Gets the alarm_handle_method of this RelateAlarmInfoForListBanIPListOutput.  # noqa: E501
+
+
+        :return: The alarm_handle_method of this RelateAlarmInfoForListBanIPListOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._alarm_handle_method
+
+    @alarm_handle_method.setter
+    def alarm_handle_method(self, alarm_handle_method):
+        """Sets the alarm_handle_method of this RelateAlarmInfoForListBanIPListOutput.
+
+
+        :param alarm_handle_method: The alarm_handle_method of this RelateAlarmInfoForListBanIPListOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._alarm_handle_method = alarm_handle_method
 
     @property
     def alarm_type(self):
@@ -77,6 +108,27 @@ class RelateAlarmInfoForListBanIPListOutput(object):
         """
 
         self._alarm_type = alarm_type
+
+    @property
+    def cloud_provider(self):
+        """Gets the cloud_provider of this RelateAlarmInfoForListBanIPListOutput.  # noqa: E501
+
+
+        :return: The cloud_provider of this RelateAlarmInfoForListBanIPListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cloud_provider
+
+    @cloud_provider.setter
+    def cloud_provider(self, cloud_provider):
+        """Sets the cloud_provider of this RelateAlarmInfoForListBanIPListOutput.
+
+
+        :param cloud_provider: The cloud_provider of this RelateAlarmInfoForListBanIPListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cloud_provider = cloud_provider
 
     @property
     def related_alarm_id(self):

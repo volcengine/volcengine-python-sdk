@@ -35,7 +35,7 @@ class VideoUnderstandingForStartExecutionInput(object):
     swagger_types = {
         'model': 'ModelForStartExecutionInput',
         'prompt': 'str',
-        'segment': 'ConvertSegmentForStartExecutionInput',
+        'segment': 'ConvertConvertSegmentForStartExecutionInput',
         'with_segment': 'bool'
     }
 
@@ -115,7 +115,7 @@ class VideoUnderstandingForStartExecutionInput(object):
 
 
         :return: The segment of this VideoUnderstandingForStartExecutionInput.  # noqa: E501
-        :rtype: ConvertSegmentForStartExecutionInput
+        :rtype: ConvertConvertSegmentForStartExecutionInput
         """
         return self._segment
 
@@ -125,7 +125,7 @@ class VideoUnderstandingForStartExecutionInput(object):
 
 
         :param segment: The segment of this VideoUnderstandingForStartExecutionInput.  # noqa: E501
-        :type: ConvertSegmentForStartExecutionInput
+        :type: ConvertConvertSegmentForStartExecutionInput
         """
 
         self._segment = segment

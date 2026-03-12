@@ -36,6 +36,7 @@ class VulnTypeForGetVulnStatisticsOutput(object):
         'app': 'int',
         'dev_linux': 'int',
         'dev_py': 'int',
+        'emg': 'int',
         'linux': 'int',
         'webcms': 'int',
         'windows': 'int'
@@ -45,12 +46,13 @@ class VulnTypeForGetVulnStatisticsOutput(object):
         'app': 'App',
         'dev_linux': 'DevLinux',
         'dev_py': 'DevPy',
+        'emg': 'Emg',
         'linux': 'Linux',
         'webcms': 'Webcms',
         'windows': 'Windows'
     }
 
-    def __init__(self, app=None, dev_linux=None, dev_py=None, linux=None, webcms=None, windows=None, _configuration=None):  # noqa: E501
+    def __init__(self, app=None, dev_linux=None, dev_py=None, emg=None, linux=None, webcms=None, windows=None, _configuration=None):  # noqa: E501
         """VulnTypeForGetVulnStatisticsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class VulnTypeForGetVulnStatisticsOutput(object):
         self._app = None
         self._dev_linux = None
         self._dev_py = None
+        self._emg = None
         self._linux = None
         self._webcms = None
         self._windows = None
@@ -70,6 +73,8 @@ class VulnTypeForGetVulnStatisticsOutput(object):
             self.dev_linux = dev_linux
         if dev_py is not None:
             self.dev_py = dev_py
+        if emg is not None:
+            self.emg = emg
         if linux is not None:
             self.linux = linux
         if webcms is not None:
@@ -139,6 +144,27 @@ class VulnTypeForGetVulnStatisticsOutput(object):
         """
 
         self._dev_py = dev_py
+
+    @property
+    def emg(self):
+        """Gets the emg of this VulnTypeForGetVulnStatisticsOutput.  # noqa: E501
+
+
+        :return: The emg of this VulnTypeForGetVulnStatisticsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._emg
+
+    @emg.setter
+    def emg(self, emg):
+        """Sets the emg of this VulnTypeForGetVulnStatisticsOutput.
+
+
+        :param emg: The emg of this VulnTypeForGetVulnStatisticsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._emg = emg
 
     @property
     def linux(self):

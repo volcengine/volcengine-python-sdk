@@ -66,13 +66,16 @@ class ListOrderedHostsBasicInfosRequest(object):
 
         if conditions is not None:
             self.conditions = conditions
-        self.page_number = page_number
-        self.page_size = page_size
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
         if sort_by is not None:
             self.sort_by = sort_by
         if sort_order is not None:
             self.sort_order = sort_order
-        self.type = type
+        if type is not None:
+            self.type = type
 
     @property
     def conditions(self):
@@ -113,8 +116,6 @@ class ListOrderedHostsBasicInfosRequest(object):
         :param page_number: The page_number of this ListOrderedHostsBasicInfosRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and page_number is None:
-            raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -136,8 +137,6 @@ class ListOrderedHostsBasicInfosRequest(object):
         :param page_size: The page_size of this ListOrderedHostsBasicInfosRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and page_size is None:
-            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
 
@@ -201,8 +200,6 @@ class ListOrderedHostsBasicInfosRequest(object):
         :param type: The type of this ListOrderedHostsBasicInfosRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

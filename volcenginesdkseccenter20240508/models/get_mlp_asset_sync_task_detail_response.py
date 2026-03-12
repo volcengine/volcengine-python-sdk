@@ -33,24 +33,127 @@ class GetMLPAssetSyncTaskDetailResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'DataForGetMLPAssetSyncTaskDetailOutput'
+        'account_id': 'str',
+        'asset_count': 'int',
+        'creator': 'str',
+        'data': 'DataForGetMLPAssetSyncTaskDetailOutput',
+        'end_time': 'int',
+        'start_time': 'int',
+        'status': 'str',
+        'task_id': 'str',
+        'task_type': 'str'
     }
 
     attribute_map = {
-        'data': 'Data'
+        'account_id': 'AccountID',
+        'asset_count': 'AssetCount',
+        'creator': 'Creator',
+        'data': 'Data',
+        'end_time': 'EndTime',
+        'start_time': 'StartTime',
+        'status': 'Status',
+        'task_id': 'TaskID',
+        'task_type': 'TaskType'
     }
 
-    def __init__(self, data=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asset_count=None, creator=None, data=None, end_time=None, start_time=None, status=None, task_id=None, task_type=None, _configuration=None):  # noqa: E501
         """GetMLPAssetSyncTaskDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_id = None
+        self._asset_count = None
+        self._creator = None
         self._data = None
+        self._end_time = None
+        self._start_time = None
+        self._status = None
+        self._task_id = None
+        self._task_type = None
         self.discriminator = None
 
+        if account_id is not None:
+            self.account_id = account_id
+        if asset_count is not None:
+            self.asset_count = asset_count
+        if creator is not None:
+            self.creator = creator
         if data is not None:
             self.data = data
+        if end_time is not None:
+            self.end_time = end_time
+        if start_time is not None:
+            self.start_time = start_time
+        if status is not None:
+            self.status = status
+        if task_id is not None:
+            self.task_id = task_id
+        if task_type is not None:
+            self.task_type = task_type
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+
+
+        :return: The account_id of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this GetMLPAssetSyncTaskDetailResponse.
+
+
+        :param account_id: The account_id of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
+
+    @property
+    def asset_count(self):
+        """Gets the asset_count of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+
+
+        :return: The asset_count of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._asset_count
+
+    @asset_count.setter
+    def asset_count(self, asset_count):
+        """Sets the asset_count of this GetMLPAssetSyncTaskDetailResponse.
+
+
+        :param asset_count: The asset_count of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._asset_count = asset_count
+
+    @property
+    def creator(self):
+        """Gets the creator of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+
+
+        :return: The creator of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._creator
+
+    @creator.setter
+    def creator(self, creator):
+        """Sets the creator of this GetMLPAssetSyncTaskDetailResponse.
+
+
+        :param creator: The creator of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._creator = creator
 
     @property
     def data(self):
@@ -72,6 +175,111 @@ class GetMLPAssetSyncTaskDetailResponse(object):
         """
 
         self._data = data
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+
+
+        :return: The end_time of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this GetMLPAssetSyncTaskDetailResponse.
+
+
+        :param end_time: The end_time of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._end_time = end_time
+
+    @property
+    def start_time(self):
+        """Gets the start_time of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+
+
+        :return: The start_time of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this GetMLPAssetSyncTaskDetailResponse.
+
+
+        :param start_time: The start_time of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._start_time = start_time
+
+    @property
+    def status(self):
+        """Gets the status of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+
+
+        :return: The status of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this GetMLPAssetSyncTaskDetailResponse.
+
+
+        :param status: The status of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
+
+    @property
+    def task_id(self):
+        """Gets the task_id of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+
+
+        :return: The task_id of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._task_id
+
+    @task_id.setter
+    def task_id(self, task_id):
+        """Sets the task_id of this GetMLPAssetSyncTaskDetailResponse.
+
+
+        :param task_id: The task_id of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._task_id = task_id
+
+    @property
+    def task_type(self):
+        """Gets the task_type of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+
+
+        :return: The task_type of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._task_type
+
+    @task_type.setter
+    def task_type(self, task_type):
+        """Sets the task_type of this GetMLPAssetSyncTaskDetailResponse.
+
+
+        :param task_type: The task_type of this GetMLPAssetSyncTaskDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._task_type = task_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

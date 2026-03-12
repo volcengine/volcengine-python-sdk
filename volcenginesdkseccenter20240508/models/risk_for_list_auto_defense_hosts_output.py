@@ -35,6 +35,7 @@ class RiskForListAutoDefenseHostsOutput(object):
     swagger_types = {
         'alarm': 'int',
         'baseline': 'int',
+        'real_risk_vul': 'int',
         'virus': 'int',
         'vuln': 'int'
     }
@@ -42,11 +43,12 @@ class RiskForListAutoDefenseHostsOutput(object):
     attribute_map = {
         'alarm': 'Alarm',
         'baseline': 'Baseline',
+        'real_risk_vul': 'RealRiskVul',
         'virus': 'Virus',
         'vuln': 'Vuln'
     }
 
-    def __init__(self, alarm=None, baseline=None, virus=None, vuln=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm=None, baseline=None, real_risk_vul=None, virus=None, vuln=None, _configuration=None):  # noqa: E501
         """RiskForListAutoDefenseHostsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class RiskForListAutoDefenseHostsOutput(object):
 
         self._alarm = None
         self._baseline = None
+        self._real_risk_vul = None
         self._virus = None
         self._vuln = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class RiskForListAutoDefenseHostsOutput(object):
             self.alarm = alarm
         if baseline is not None:
             self.baseline = baseline
+        if real_risk_vul is not None:
+            self.real_risk_vul = real_risk_vul
         if virus is not None:
             self.virus = virus
         if vuln is not None:
@@ -108,6 +113,27 @@ class RiskForListAutoDefenseHostsOutput(object):
         """
 
         self._baseline = baseline
+
+    @property
+    def real_risk_vul(self):
+        """Gets the real_risk_vul of this RiskForListAutoDefenseHostsOutput.  # noqa: E501
+
+
+        :return: The real_risk_vul of this RiskForListAutoDefenseHostsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._real_risk_vul
+
+    @real_risk_vul.setter
+    def real_risk_vul(self, real_risk_vul):
+        """Sets the real_risk_vul of this RiskForListAutoDefenseHostsOutput.
+
+
+        :param real_risk_vul: The real_risk_vul of this RiskForListAutoDefenseHostsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._real_risk_vul = real_risk_vul
 
     @property
     def virus(self):

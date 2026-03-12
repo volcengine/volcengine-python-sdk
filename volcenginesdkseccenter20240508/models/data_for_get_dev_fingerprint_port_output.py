@@ -41,8 +41,10 @@ class DataForGetDevFingerprintPortOutput(object):
         'id': 'str',
         'pid': 'str',
         'private_ip': 'str',
+        'protect_status': 'str',
         'protocol': 'str',
         'public_ip': 'str',
+        'security_enhancement': 'bool',
         'sip': 'str',
         'sport': 'str',
         'start_time': 'int',
@@ -61,8 +63,10 @@ class DataForGetDevFingerprintPortOutput(object):
         'id': 'ID',
         'pid': 'Pid',
         'private_ip': 'PrivateIP',
+        'protect_status': 'ProtectStatus',
         'protocol': 'Protocol',
         'public_ip': 'PublicIP',
+        'security_enhancement': 'SecurityEnhancement',
         'sip': 'Sip',
         'sport': 'Sport',
         'start_time': 'StartTime',
@@ -72,7 +76,7 @@ class DataForGetDevFingerprintPortOutput(object):
         'username': 'Username'
     }
 
-    def __init__(self, account_id=None, asset_id=None, asset_name=None, cmdline=None, comm=None, id=None, pid=None, private_ip=None, protocol=None, public_ip=None, sip=None, sport=None, start_time=None, status=None, uid=None, update_time=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asset_id=None, asset_name=None, cmdline=None, comm=None, id=None, pid=None, private_ip=None, protect_status=None, protocol=None, public_ip=None, security_enhancement=None, sip=None, sport=None, start_time=None, status=None, uid=None, update_time=None, username=None, _configuration=None):  # noqa: E501
         """DataForGetDevFingerprintPortOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,8 +90,10 @@ class DataForGetDevFingerprintPortOutput(object):
         self._id = None
         self._pid = None
         self._private_ip = None
+        self._protect_status = None
         self._protocol = None
         self._public_ip = None
+        self._security_enhancement = None
         self._sip = None
         self._sport = None
         self._start_time = None
@@ -113,10 +119,14 @@ class DataForGetDevFingerprintPortOutput(object):
             self.pid = pid
         if private_ip is not None:
             self.private_ip = private_ip
+        if protect_status is not None:
+            self.protect_status = protect_status
         if protocol is not None:
             self.protocol = protocol
         if public_ip is not None:
             self.public_ip = public_ip
+        if security_enhancement is not None:
+            self.security_enhancement = security_enhancement
         if sip is not None:
             self.sip = sip
         if sport is not None:
@@ -301,6 +311,27 @@ class DataForGetDevFingerprintPortOutput(object):
         self._private_ip = private_ip
 
     @property
+    def protect_status(self):
+        """Gets the protect_status of this DataForGetDevFingerprintPortOutput.  # noqa: E501
+
+
+        :return: The protect_status of this DataForGetDevFingerprintPortOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._protect_status
+
+    @protect_status.setter
+    def protect_status(self, protect_status):
+        """Sets the protect_status of this DataForGetDevFingerprintPortOutput.
+
+
+        :param protect_status: The protect_status of this DataForGetDevFingerprintPortOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._protect_status = protect_status
+
+    @property
     def protocol(self):
         """Gets the protocol of this DataForGetDevFingerprintPortOutput.  # noqa: E501
 
@@ -341,6 +372,27 @@ class DataForGetDevFingerprintPortOutput(object):
         """
 
         self._public_ip = public_ip
+
+    @property
+    def security_enhancement(self):
+        """Gets the security_enhancement of this DataForGetDevFingerprintPortOutput.  # noqa: E501
+
+
+        :return: The security_enhancement of this DataForGetDevFingerprintPortOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._security_enhancement
+
+    @security_enhancement.setter
+    def security_enhancement(self, security_enhancement):
+        """Sets the security_enhancement of this DataForGetDevFingerprintPortOutput.
+
+
+        :param security_enhancement: The security_enhancement of this DataForGetDevFingerprintPortOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._security_enhancement = security_enhancement
 
     @property
     def sip(self):

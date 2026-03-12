@@ -33,29 +33,55 @@ class GetAlarmBySmithKeyRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'alarm_category': 'str',
         'smith_key': 'str',
         'type': 'str'
     }
 
     attribute_map = {
+        'alarm_category': 'AlarmCategory',
         'smith_key': 'SmithKey',
         'type': 'Type'
     }
 
-    def __init__(self, smith_key=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_category=None, smith_key=None, type=None, _configuration=None):  # noqa: E501
         """GetAlarmBySmithKeyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._alarm_category = None
         self._smith_key = None
         self._type = None
         self.discriminator = None
 
+        if alarm_category is not None:
+            self.alarm_category = alarm_category
         if smith_key is not None:
             self.smith_key = smith_key
         if type is not None:
             self.type = type
+
+    @property
+    def alarm_category(self):
+        """Gets the alarm_category of this GetAlarmBySmithKeyRequest.  # noqa: E501
+
+
+        :return: The alarm_category of this GetAlarmBySmithKeyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._alarm_category
+
+    @alarm_category.setter
+    def alarm_category(self, alarm_category):
+        """Sets the alarm_category of this GetAlarmBySmithKeyRequest.
+
+
+        :param alarm_category: The alarm_category of this GetAlarmBySmithKeyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._alarm_category = alarm_category
 
     @property
     def smith_key(self):
