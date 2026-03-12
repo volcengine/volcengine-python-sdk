@@ -37,7 +37,6 @@ class ResourceForDescribeBackupResourcesOutput(object):
         'created_at': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
-        'meta_information': 'MetaInformationForDescribeBackupResourcesOutput',
         'plans': 'list[PlanForDescribeBackupResourcesOutput]',
         'recovery_point_number': 'int',
         'resource_id': 'str',
@@ -52,7 +51,6 @@ class ResourceForDescribeBackupResourcesOutput(object):
         'created_at': 'CreatedAt',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
-        'meta_information': 'MetaInformation',
         'plans': 'Plans',
         'recovery_point_number': 'RecoveryPointNumber',
         'resource_id': 'ResourceId',
@@ -62,7 +60,7 @@ class ResourceForDescribeBackupResourcesOutput(object):
         'used_capacity_in_bytes': 'UsedCapacityInBytes'
     }
 
-    def __init__(self, account_id=None, created_at=None, instance_id=None, instance_name=None, meta_information=None, plans=None, recovery_point_number=None, resource_id=None, resource_type=None, status=None, updated_at=None, used_capacity_in_bytes=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, created_at=None, instance_id=None, instance_name=None, plans=None, recovery_point_number=None, resource_id=None, resource_type=None, status=None, updated_at=None, used_capacity_in_bytes=None, _configuration=None):  # noqa: E501
         """ResourceForDescribeBackupResourcesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,7 +70,6 @@ class ResourceForDescribeBackupResourcesOutput(object):
         self._created_at = None
         self._instance_id = None
         self._instance_name = None
-        self._meta_information = None
         self._plans = None
         self._recovery_point_number = None
         self._resource_id = None
@@ -90,8 +87,6 @@ class ResourceForDescribeBackupResourcesOutput(object):
             self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
-        if meta_information is not None:
-            self.meta_information = meta_information
         if plans is not None:
             self.plans = plans
         if recovery_point_number is not None:
@@ -190,27 +185,6 @@ class ResourceForDescribeBackupResourcesOutput(object):
         """
 
         self._instance_name = instance_name
-
-    @property
-    def meta_information(self):
-        """Gets the meta_information of this ResourceForDescribeBackupResourcesOutput.  # noqa: E501
-
-
-        :return: The meta_information of this ResourceForDescribeBackupResourcesOutput.  # noqa: E501
-        :rtype: MetaInformationForDescribeBackupResourcesOutput
-        """
-        return self._meta_information
-
-    @meta_information.setter
-    def meta_information(self, meta_information):
-        """Sets the meta_information of this ResourceForDescribeBackupResourcesOutput.
-
-
-        :param meta_information: The meta_information of this ResourceForDescribeBackupResourcesOutput.  # noqa: E501
-        :type: MetaInformationForDescribeBackupResourcesOutput
-        """
-
-        self._meta_information = meta_information
 
     @property
     def plans(self):

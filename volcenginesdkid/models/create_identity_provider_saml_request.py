@@ -34,6 +34,7 @@ class CreateIdentityProviderSAMLRequest(object):
     """
     swagger_types = {
         'attribute_mapping': 'str',
+        'claims_propagation_config': 'ClaimsPropagationConfigForCreateIdentityProviderSAMLInput',
         'enabled': 'bool',
         'enabled_encryption': 'bool',
         'enabled_sign': 'bool',
@@ -47,6 +48,7 @@ class CreateIdentityProviderSAMLRequest(object):
 
     attribute_map = {
         'attribute_mapping': 'AttributeMapping',
+        'claims_propagation_config': 'ClaimsPropagationConfig',
         'enabled': 'Enabled',
         'enabled_encryption': 'EnabledEncryption',
         'enabled_sign': 'EnabledSign',
@@ -58,13 +60,14 @@ class CreateIdentityProviderSAMLRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, attribute_mapping=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider=None, provider_options=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mapping=None, claims_propagation_config=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider=None, provider_options=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderSAMLRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._attribute_mapping = None
+        self._claims_propagation_config = None
         self._enabled = None
         self._enabled_encryption = None
         self._enabled_sign = None
@@ -77,6 +80,8 @@ class CreateIdentityProviderSAMLRequest(object):
         self.discriminator = None
 
         self.attribute_mapping = attribute_mapping
+        if claims_propagation_config is not None:
+            self.claims_propagation_config = claims_propagation_config
         self.enabled = enabled
         self.enabled_encryption = enabled_encryption
         self.enabled_sign = enabled_sign
@@ -111,6 +116,27 @@ class CreateIdentityProviderSAMLRequest(object):
             raise ValueError("Invalid value for `attribute_mapping`, must not be `None`")  # noqa: E501
 
         self._attribute_mapping = attribute_mapping
+
+    @property
+    def claims_propagation_config(self):
+        """Gets the claims_propagation_config of this CreateIdentityProviderSAMLRequest.  # noqa: E501
+
+
+        :return: The claims_propagation_config of this CreateIdentityProviderSAMLRequest.  # noqa: E501
+        :rtype: ClaimsPropagationConfigForCreateIdentityProviderSAMLInput
+        """
+        return self._claims_propagation_config
+
+    @claims_propagation_config.setter
+    def claims_propagation_config(self, claims_propagation_config):
+        """Sets the claims_propagation_config of this CreateIdentityProviderSAMLRequest.
+
+
+        :param claims_propagation_config: The claims_propagation_config of this CreateIdentityProviderSAMLRequest.  # noqa: E501
+        :type: ClaimsPropagationConfigForCreateIdentityProviderSAMLInput
+        """
+
+        self._claims_propagation_config = claims_propagation_config
 
     @property
     def enabled(self):

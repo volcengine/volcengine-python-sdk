@@ -34,9 +34,11 @@ class GetHostBasicInfoResponse(object):
     """
     swagger_types = {
         'abnormal_plugins_list': 'str',
+        'account_id': 'str',
         'agent_id': 'str',
         'alarm': 'AlarmForGetHostBasicInfoOutput',
         'baseline': 'BaselineForGetHostBasicInfoOutput',
+        'client_public_ip': 'str',
         'cloud_provider': 'str',
         'collect_status': 'bool',
         'cpu_usage': 'float',
@@ -46,13 +48,17 @@ class GetHostBasicInfoResponse(object):
         'gateway': 'str',
         'group': 'str',
         'group_path': 'str',
+        'group_path_en': 'str',
         'kernel_version': 'str',
         'last_heartbeat_time': 'int',
         'mem_usage': 'float',
+        'old_valid_code': 'int',
         'online': 'bool',
         'platform': 'str',
+        'platform_version': 'str',
         'plugins_brief_info': 'str',
         'plugins_status': 'str',
+        'real_risk_vul': 'RealRiskVulForGetHostBasicInfoOutput',
         'reason': 'str',
         'security_enhancement': 'bool',
         'start_time': 'int',
@@ -61,15 +67,18 @@ class GetHostBasicInfoResponse(object):
         'total_mem': 'int',
         'user_status': 'str',
         'user_status_reason': 'str',
+        'user_status_reason_code': 'int',
         'virus': 'VirusForGetHostBasicInfoOutput',
         'vuln': 'VulnForGetHostBasicInfoOutput'
     }
 
     attribute_map = {
         'abnormal_plugins_list': 'AbnormalPluginsList',
+        'account_id': 'AccountID',
         'agent_id': 'AgentID',
         'alarm': 'Alarm',
         'baseline': 'Baseline',
+        'client_public_ip': 'ClientPublicIP',
         'cloud_provider': 'CloudProvider',
         'collect_status': 'CollectStatus',
         'cpu_usage': 'CpuUsage',
@@ -79,13 +88,17 @@ class GetHostBasicInfoResponse(object):
         'gateway': 'Gateway',
         'group': 'Group',
         'group_path': 'GroupPath',
+        'group_path_en': 'GroupPathEn',
         'kernel_version': 'KernelVersion',
         'last_heartbeat_time': 'LastHeartbeatTime',
         'mem_usage': 'MemUsage',
+        'old_valid_code': 'OldValidCode',
         'online': 'Online',
         'platform': 'Platform',
+        'platform_version': 'PlatformVersion',
         'plugins_brief_info': 'PluginsBriefInfo',
         'plugins_status': 'PluginsStatus',
+        'real_risk_vul': 'RealRiskVul',
         'reason': 'Reason',
         'security_enhancement': 'SecurityEnhancement',
         'start_time': 'StartTime',
@@ -94,20 +107,23 @@ class GetHostBasicInfoResponse(object):
         'total_mem': 'TotalMem',
         'user_status': 'UserStatus',
         'user_status_reason': 'UserStatusReason',
+        'user_status_reason_code': 'UserStatusReasonCode',
         'virus': 'Virus',
         'vuln': 'Vuln'
     }
 
-    def __init__(self, abnormal_plugins_list=None, agent_id=None, alarm=None, baseline=None, cloud_provider=None, collect_status=None, cpu_usage=None, dns=None, ecs_instance=None, first_heartbeat_time=None, gateway=None, group=None, group_path=None, kernel_version=None, last_heartbeat_time=None, mem_usage=None, online=None, platform=None, plugins_brief_info=None, plugins_status=None, reason=None, security_enhancement=None, start_time=None, status=None, tags=None, total_mem=None, user_status=None, user_status_reason=None, virus=None, vuln=None, _configuration=None):  # noqa: E501
+    def __init__(self, abnormal_plugins_list=None, account_id=None, agent_id=None, alarm=None, baseline=None, client_public_ip=None, cloud_provider=None, collect_status=None, cpu_usage=None, dns=None, ecs_instance=None, first_heartbeat_time=None, gateway=None, group=None, group_path=None, group_path_en=None, kernel_version=None, last_heartbeat_time=None, mem_usage=None, old_valid_code=None, online=None, platform=None, platform_version=None, plugins_brief_info=None, plugins_status=None, real_risk_vul=None, reason=None, security_enhancement=None, start_time=None, status=None, tags=None, total_mem=None, user_status=None, user_status_reason=None, user_status_reason_code=None, virus=None, vuln=None, _configuration=None):  # noqa: E501
         """GetHostBasicInfoResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._abnormal_plugins_list = None
+        self._account_id = None
         self._agent_id = None
         self._alarm = None
         self._baseline = None
+        self._client_public_ip = None
         self._cloud_provider = None
         self._collect_status = None
         self._cpu_usage = None
@@ -117,13 +133,17 @@ class GetHostBasicInfoResponse(object):
         self._gateway = None
         self._group = None
         self._group_path = None
+        self._group_path_en = None
         self._kernel_version = None
         self._last_heartbeat_time = None
         self._mem_usage = None
+        self._old_valid_code = None
         self._online = None
         self._platform = None
+        self._platform_version = None
         self._plugins_brief_info = None
         self._plugins_status = None
+        self._real_risk_vul = None
         self._reason = None
         self._security_enhancement = None
         self._start_time = None
@@ -132,18 +152,23 @@ class GetHostBasicInfoResponse(object):
         self._total_mem = None
         self._user_status = None
         self._user_status_reason = None
+        self._user_status_reason_code = None
         self._virus = None
         self._vuln = None
         self.discriminator = None
 
         if abnormal_plugins_list is not None:
             self.abnormal_plugins_list = abnormal_plugins_list
+        if account_id is not None:
+            self.account_id = account_id
         if agent_id is not None:
             self.agent_id = agent_id
         if alarm is not None:
             self.alarm = alarm
         if baseline is not None:
             self.baseline = baseline
+        if client_public_ip is not None:
+            self.client_public_ip = client_public_ip
         if cloud_provider is not None:
             self.cloud_provider = cloud_provider
         if collect_status is not None:
@@ -162,20 +187,28 @@ class GetHostBasicInfoResponse(object):
             self.group = group
         if group_path is not None:
             self.group_path = group_path
+        if group_path_en is not None:
+            self.group_path_en = group_path_en
         if kernel_version is not None:
             self.kernel_version = kernel_version
         if last_heartbeat_time is not None:
             self.last_heartbeat_time = last_heartbeat_time
         if mem_usage is not None:
             self.mem_usage = mem_usage
+        if old_valid_code is not None:
+            self.old_valid_code = old_valid_code
         if online is not None:
             self.online = online
         if platform is not None:
             self.platform = platform
+        if platform_version is not None:
+            self.platform_version = platform_version
         if plugins_brief_info is not None:
             self.plugins_brief_info = plugins_brief_info
         if plugins_status is not None:
             self.plugins_status = plugins_status
+        if real_risk_vul is not None:
+            self.real_risk_vul = real_risk_vul
         if reason is not None:
             self.reason = reason
         if security_enhancement is not None:
@@ -192,6 +225,8 @@ class GetHostBasicInfoResponse(object):
             self.user_status = user_status
         if user_status_reason is not None:
             self.user_status_reason = user_status_reason
+        if user_status_reason_code is not None:
+            self.user_status_reason_code = user_status_reason_code
         if virus is not None:
             self.virus = virus
         if vuln is not None:
@@ -217,6 +252,27 @@ class GetHostBasicInfoResponse(object):
         """
 
         self._abnormal_plugins_list = abnormal_plugins_list
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this GetHostBasicInfoResponse.  # noqa: E501
+
+
+        :return: The account_id of this GetHostBasicInfoResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this GetHostBasicInfoResponse.
+
+
+        :param account_id: The account_id of this GetHostBasicInfoResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
 
     @property
     def agent_id(self):
@@ -280,6 +336,27 @@ class GetHostBasicInfoResponse(object):
         """
 
         self._baseline = baseline
+
+    @property
+    def client_public_ip(self):
+        """Gets the client_public_ip of this GetHostBasicInfoResponse.  # noqa: E501
+
+
+        :return: The client_public_ip of this GetHostBasicInfoResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_public_ip
+
+    @client_public_ip.setter
+    def client_public_ip(self, client_public_ip):
+        """Sets the client_public_ip of this GetHostBasicInfoResponse.
+
+
+        :param client_public_ip: The client_public_ip of this GetHostBasicInfoResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._client_public_ip = client_public_ip
 
     @property
     def cloud_provider(self):
@@ -471,6 +548,27 @@ class GetHostBasicInfoResponse(object):
         self._group_path = group_path
 
     @property
+    def group_path_en(self):
+        """Gets the group_path_en of this GetHostBasicInfoResponse.  # noqa: E501
+
+
+        :return: The group_path_en of this GetHostBasicInfoResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._group_path_en
+
+    @group_path_en.setter
+    def group_path_en(self, group_path_en):
+        """Sets the group_path_en of this GetHostBasicInfoResponse.
+
+
+        :param group_path_en: The group_path_en of this GetHostBasicInfoResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._group_path_en = group_path_en
+
+    @property
     def kernel_version(self):
         """Gets the kernel_version of this GetHostBasicInfoResponse.  # noqa: E501
 
@@ -534,6 +632,27 @@ class GetHostBasicInfoResponse(object):
         self._mem_usage = mem_usage
 
     @property
+    def old_valid_code(self):
+        """Gets the old_valid_code of this GetHostBasicInfoResponse.  # noqa: E501
+
+
+        :return: The old_valid_code of this GetHostBasicInfoResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._old_valid_code
+
+    @old_valid_code.setter
+    def old_valid_code(self, old_valid_code):
+        """Sets the old_valid_code of this GetHostBasicInfoResponse.
+
+
+        :param old_valid_code: The old_valid_code of this GetHostBasicInfoResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._old_valid_code = old_valid_code
+
+    @property
     def online(self):
         """Gets the online of this GetHostBasicInfoResponse.  # noqa: E501
 
@@ -576,6 +695,27 @@ class GetHostBasicInfoResponse(object):
         self._platform = platform
 
     @property
+    def platform_version(self):
+        """Gets the platform_version of this GetHostBasicInfoResponse.  # noqa: E501
+
+
+        :return: The platform_version of this GetHostBasicInfoResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._platform_version
+
+    @platform_version.setter
+    def platform_version(self, platform_version):
+        """Sets the platform_version of this GetHostBasicInfoResponse.
+
+
+        :param platform_version: The platform_version of this GetHostBasicInfoResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._platform_version = platform_version
+
+    @property
     def plugins_brief_info(self):
         """Gets the plugins_brief_info of this GetHostBasicInfoResponse.  # noqa: E501
 
@@ -616,6 +756,27 @@ class GetHostBasicInfoResponse(object):
         """
 
         self._plugins_status = plugins_status
+
+    @property
+    def real_risk_vul(self):
+        """Gets the real_risk_vul of this GetHostBasicInfoResponse.  # noqa: E501
+
+
+        :return: The real_risk_vul of this GetHostBasicInfoResponse.  # noqa: E501
+        :rtype: RealRiskVulForGetHostBasicInfoOutput
+        """
+        return self._real_risk_vul
+
+    @real_risk_vul.setter
+    def real_risk_vul(self, real_risk_vul):
+        """Sets the real_risk_vul of this GetHostBasicInfoResponse.
+
+
+        :param real_risk_vul: The real_risk_vul of this GetHostBasicInfoResponse.  # noqa: E501
+        :type: RealRiskVulForGetHostBasicInfoOutput
+        """
+
+        self._real_risk_vul = real_risk_vul
 
     @property
     def reason(self):
@@ -784,6 +945,27 @@ class GetHostBasicInfoResponse(object):
         """
 
         self._user_status_reason = user_status_reason
+
+    @property
+    def user_status_reason_code(self):
+        """Gets the user_status_reason_code of this GetHostBasicInfoResponse.  # noqa: E501
+
+
+        :return: The user_status_reason_code of this GetHostBasicInfoResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_status_reason_code
+
+    @user_status_reason_code.setter
+    def user_status_reason_code(self, user_status_reason_code):
+        """Sets the user_status_reason_code of this GetHostBasicInfoResponse.
+
+
+        :param user_status_reason_code: The user_status_reason_code of this GetHostBasicInfoResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._user_status_reason_code = user_status_reason_code
 
     @property
     def virus(self):

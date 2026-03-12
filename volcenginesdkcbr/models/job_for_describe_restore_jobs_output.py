@@ -39,6 +39,7 @@ class JobForDescribeRestoreJobsOutput(object):
         'recovery_point_id': 'str',
         'recovery_point_name': 'str',
         'resource_type': 'str',
+        'restore_options': 'str',
         'status': 'str'
     }
 
@@ -49,10 +50,11 @@ class JobForDescribeRestoreJobsOutput(object):
         'recovery_point_id': 'RecoveryPointId',
         'recovery_point_name': 'RecoveryPointName',
         'resource_type': 'ResourceType',
+        'restore_options': 'RestoreOptions',
         'status': 'Status'
     }
 
-    def __init__(self, extra_metadata=None, job_id=None, name=None, recovery_point_id=None, recovery_point_name=None, resource_type=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, extra_metadata=None, job_id=None, name=None, recovery_point_id=None, recovery_point_name=None, resource_type=None, restore_options=None, status=None, _configuration=None):  # noqa: E501
         """JobForDescribeRestoreJobsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class JobForDescribeRestoreJobsOutput(object):
         self._recovery_point_id = None
         self._recovery_point_name = None
         self._resource_type = None
+        self._restore_options = None
         self._status = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class JobForDescribeRestoreJobsOutput(object):
             self.recovery_point_name = recovery_point_name
         if resource_type is not None:
             self.resource_type = resource_type
+        if restore_options is not None:
+            self.restore_options = restore_options
         if status is not None:
             self.status = status
 
@@ -207,6 +212,27 @@ class JobForDescribeRestoreJobsOutput(object):
         """
 
         self._resource_type = resource_type
+
+    @property
+    def restore_options(self):
+        """Gets the restore_options of this JobForDescribeRestoreJobsOutput.  # noqa: E501
+
+
+        :return: The restore_options of this JobForDescribeRestoreJobsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._restore_options
+
+    @restore_options.setter
+    def restore_options(self, restore_options):
+        """Sets the restore_options of this JobForDescribeRestoreJobsOutput.
+
+
+        :param restore_options: The restore_options of this JobForDescribeRestoreJobsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._restore_options = restore_options
 
     @property
     def status(self):

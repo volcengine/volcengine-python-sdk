@@ -34,15 +34,17 @@ class ApiKeyMetadataForCreateInboundAuthConfigOutput(object):
     """
     swagger_types = {
         'location': 'str',
-        'parameter_name': 'str'
+        'parameter_name': 'str',
+        'prefix': 'str'
     }
 
     attribute_map = {
         'location': 'Location',
-        'parameter_name': 'ParameterName'
+        'parameter_name': 'ParameterName',
+        'prefix': 'Prefix'
     }
 
-    def __init__(self, location=None, parameter_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, location=None, parameter_name=None, prefix=None, _configuration=None):  # noqa: E501
         """ApiKeyMetadataForCreateInboundAuthConfigOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class ApiKeyMetadataForCreateInboundAuthConfigOutput(object):
 
         self._location = None
         self._parameter_name = None
+        self._prefix = None
         self.discriminator = None
 
         if location is not None:
             self.location = location
         if parameter_name is not None:
             self.parameter_name = parameter_name
+        if prefix is not None:
+            self.prefix = prefix
 
     @property
     def location(self):
@@ -98,6 +103,27 @@ class ApiKeyMetadataForCreateInboundAuthConfigOutput(object):
         """
 
         self._parameter_name = parameter_name
+
+    @property
+    def prefix(self):
+        """Gets the prefix of this ApiKeyMetadataForCreateInboundAuthConfigOutput.  # noqa: E501
+
+
+        :return: The prefix of this ApiKeyMetadataForCreateInboundAuthConfigOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prefix
+
+    @prefix.setter
+    def prefix(self, prefix):
+        """Sets the prefix of this ApiKeyMetadataForCreateInboundAuthConfigOutput.
+
+
+        :param prefix: The prefix of this ApiKeyMetadataForCreateInboundAuthConfigOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._prefix = prefix
 
     def to_dict(self):
         """Returns the model properties as a dict"""

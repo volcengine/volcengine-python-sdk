@@ -41,6 +41,7 @@ class GetUserPoolClientResponse(object):
         'client_type': 'str',
         'create_time': 'str',
         'description': 'str',
+        'development_mode_enabled': 'bool',
         'id_token': 'IdTokenForGetUserPoolClientOutput',
         'login_page_url': 'str',
         'logo_uri': 'str',
@@ -59,6 +60,7 @@ class GetUserPoolClientResponse(object):
         'client_type': 'ClientType',
         'create_time': 'CreateTime',
         'description': 'Description',
+        'development_mode_enabled': 'DevelopmentModeEnabled',
         'id_token': 'IdToken',
         'login_page_url': 'LoginPageUrl',
         'logo_uri': 'LogoUri',
@@ -68,7 +70,7 @@ class GetUserPoolClientResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_secret=None, client_type=None, create_time=None, description=None, id_token=None, login_page_url=None, logo_uri=None, name=None, refresh_token=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_secret=None, client_type=None, create_time=None, description=None, development_mode_enabled=None, id_token=None, login_page_url=None, logo_uri=None, name=None, refresh_token=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
         """GetUserPoolClientResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class GetUserPoolClientResponse(object):
         self._client_type = None
         self._create_time = None
         self._description = None
+        self._development_mode_enabled = None
         self._id_token = None
         self._login_page_url = None
         self._logo_uri = None
@@ -107,6 +110,8 @@ class GetUserPoolClientResponse(object):
             self.create_time = create_time
         if description is not None:
             self.description = description
+        if development_mode_enabled is not None:
+            self.development_mode_enabled = development_mode_enabled
         if id_token is not None:
             self.id_token = id_token
         if login_page_url is not None:
@@ -289,6 +294,27 @@ class GetUserPoolClientResponse(object):
         """
 
         self._description = description
+
+    @property
+    def development_mode_enabled(self):
+        """Gets the development_mode_enabled of this GetUserPoolClientResponse.  # noqa: E501
+
+
+        :return: The development_mode_enabled of this GetUserPoolClientResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._development_mode_enabled
+
+    @development_mode_enabled.setter
+    def development_mode_enabled(self, development_mode_enabled):
+        """Sets the development_mode_enabled of this GetUserPoolClientResponse.
+
+
+        :param development_mode_enabled: The development_mode_enabled of this GetUserPoolClientResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._development_mode_enabled = development_mode_enabled
 
     @property
     def id_token(self):

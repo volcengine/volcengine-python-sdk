@@ -38,7 +38,7 @@ class RestartTaskRequest(object):
     }
 
     attribute_map = {
-        'id': 'ID',
+        'id': 'Id',
         'project_name': 'ProjectName'
     }
 

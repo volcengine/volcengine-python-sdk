@@ -73,7 +73,8 @@ class ModifyVpnConnectionHealthCheckerRequest(object):
         self._vpn_connection_id = None
         self.discriminator = None
 
-        self.check_interval = check_interval
+        if check_interval is not None:
+            self.check_interval = check_interval
         self.checker_id = checker_id
         if client_token is not None:
             self.client_token = client_token
@@ -87,7 +88,8 @@ class ModifyVpnConnectionHealthCheckerRequest(object):
             self.timeout = timeout
         if up_time is not None:
             self.up_time = up_time
-        self.vpn_connection_id = vpn_connection_id
+        if vpn_connection_id is not None:
+            self.vpn_connection_id = vpn_connection_id
 
     @property
     def check_interval(self):
@@ -107,14 +109,6 @@ class ModifyVpnConnectionHealthCheckerRequest(object):
         :param check_interval: The check_interval of this ModifyVpnConnectionHealthCheckerRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and check_interval is None:
-            raise ValueError("Invalid value for `check_interval`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                check_interval is not None and check_interval > 300):  # noqa: E501
-            raise ValueError("Invalid value for `check_interval`, must be a value less than or equal to `300`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                check_interval is not None and check_interval < 3):  # noqa: E501
-            raise ValueError("Invalid value for `check_interval`, must be a value greater than or equal to `3`")  # noqa: E501
 
         self._check_interval = check_interval
 
@@ -180,12 +174,6 @@ class ModifyVpnConnectionHealthCheckerRequest(object):
         :param down_time: The down_time of this ModifyVpnConnectionHealthCheckerRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                down_time is not None and down_time > 10):  # noqa: E501
-            raise ValueError("Invalid value for `down_time`, must be a value less than or equal to `10`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                down_time is not None and down_time < 1):  # noqa: E501
-            raise ValueError("Invalid value for `down_time`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._down_time = down_time
 
@@ -249,12 +237,6 @@ class ModifyVpnConnectionHealthCheckerRequest(object):
         :param timeout: The timeout of this ModifyVpnConnectionHealthCheckerRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                timeout is not None and timeout > 300):  # noqa: E501
-            raise ValueError("Invalid value for `timeout`, must be a value less than or equal to `300`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                timeout is not None and timeout < 1):  # noqa: E501
-            raise ValueError("Invalid value for `timeout`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._timeout = timeout
 
@@ -297,8 +279,6 @@ class ModifyVpnConnectionHealthCheckerRequest(object):
         :param vpn_connection_id: The vpn_connection_id of this ModifyVpnConnectionHealthCheckerRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and vpn_connection_id is None:
-            raise ValueError("Invalid value for `vpn_connection_id`, must not be `None`")  # noqa: E501
 
         self._vpn_connection_id = vpn_connection_id
 

@@ -34,28 +34,54 @@ class ConvertBGPConfigForModifyVpnConnectionAttributesInput(object):
     """
     swagger_types = {
         'local_bgp_ip': 'str',
+        'local_bgp_ip': 'str',
         'tunnel_cidr': 'str'
     }
 
     attribute_map = {
+        'local_bgp_ip': 'LocalBgpIP',
         'local_bgp_ip': 'LocalBgpIp',
         'tunnel_cidr': 'TunnelCidr'
     }
 
-    def __init__(self, local_bgp_ip=None, tunnel_cidr=None, _configuration=None):  # noqa: E501
+    def __init__(self, local_bgp_ip=None, local_bgp_ip=None, tunnel_cidr=None, _configuration=None):  # noqa: E501
         """ConvertBGPConfigForModifyVpnConnectionAttributesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._local_bgp_ip = None
+        self._local_bgp_ip = None
         self._tunnel_cidr = None
         self.discriminator = None
 
         if local_bgp_ip is not None:
             self.local_bgp_ip = local_bgp_ip
+        if local_bgp_ip is not None:
+            self.local_bgp_ip = local_bgp_ip
         if tunnel_cidr is not None:
             self.tunnel_cidr = tunnel_cidr
+
+    @property
+    def local_bgp_ip(self):
+        """Gets the local_bgp_ip of this ConvertBGPConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
+
+
+        :return: The local_bgp_ip of this ConvertBGPConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._local_bgp_ip
+
+    @local_bgp_ip.setter
+    def local_bgp_ip(self, local_bgp_ip):
+        """Sets the local_bgp_ip of this ConvertBGPConfigForModifyVpnConnectionAttributesInput.
+
+
+        :param local_bgp_ip: The local_bgp_ip of this ConvertBGPConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._local_bgp_ip = local_bgp_ip
 
     @property
     def local_bgp_ip(self):

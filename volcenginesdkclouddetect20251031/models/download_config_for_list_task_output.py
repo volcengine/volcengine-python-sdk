@@ -36,8 +36,8 @@ class DownloadConfigForListTaskOutput(object):
         'custom_host_config': 'CustomHostConfigForListTaskOutput',
         'dns_server': 'str',
         'dns_type': 'str',
-        'http_version': 'str',
         'headers': 'list[HeaderForListTaskOutput]',
+        'http_version': 'str',
         'ignore_certificate': 'bool',
         'max_transfer_size': 'int',
         'method': 'int',
@@ -49,20 +49,20 @@ class DownloadConfigForListTaskOutput(object):
 
     attribute_map = {
         'custom_host_config': 'CustomHostConfig',
-        'dns_server': 'DNSServer',
-        'dns_type': 'DNSType',
-        'http_version': 'HTTPVersion',
+        'dns_server': 'DnsServer',
+        'dns_type': 'DnsType',
         'headers': 'Headers',
+        'http_version': 'HttpVersion',
         'ignore_certificate': 'IgnoreCertificate',
         'max_transfer_size': 'MaxTransferSize',
         'method': 'Method',
         'queries': 'Queries',
         'redirect': 'Redirect',
         'timeout': 'Timeout',
-        'upload_file_url': 'UploadFileURL'
+        'upload_file_url': 'UploadFileUrl'
     }
 
-    def __init__(self, custom_host_config=None, dns_server=None, dns_type=None, http_version=None, headers=None, ignore_certificate=None, max_transfer_size=None, method=None, queries=None, redirect=None, timeout=None, upload_file_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_host_config=None, dns_server=None, dns_type=None, headers=None, http_version=None, ignore_certificate=None, max_transfer_size=None, method=None, queries=None, redirect=None, timeout=None, upload_file_url=None, _configuration=None):  # noqa: E501
         """DownloadConfigForListTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,8 +71,8 @@ class DownloadConfigForListTaskOutput(object):
         self._custom_host_config = None
         self._dns_server = None
         self._dns_type = None
-        self._http_version = None
         self._headers = None
+        self._http_version = None
         self._ignore_certificate = None
         self._max_transfer_size = None
         self._method = None
@@ -88,10 +88,10 @@ class DownloadConfigForListTaskOutput(object):
             self.dns_server = dns_server
         if dns_type is not None:
             self.dns_type = dns_type
-        if http_version is not None:
-            self.http_version = http_version
         if headers is not None:
             self.headers = headers
+        if http_version is not None:
+            self.http_version = http_version
         if ignore_certificate is not None:
             self.ignore_certificate = ignore_certificate
         if max_transfer_size is not None:
@@ -171,27 +171,6 @@ class DownloadConfigForListTaskOutput(object):
         self._dns_type = dns_type
 
     @property
-    def http_version(self):
-        """Gets the http_version of this DownloadConfigForListTaskOutput.  # noqa: E501
-
-
-        :return: The http_version of this DownloadConfigForListTaskOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._http_version
-
-    @http_version.setter
-    def http_version(self, http_version):
-        """Sets the http_version of this DownloadConfigForListTaskOutput.
-
-
-        :param http_version: The http_version of this DownloadConfigForListTaskOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._http_version = http_version
-
-    @property
     def headers(self):
         """Gets the headers of this DownloadConfigForListTaskOutput.  # noqa: E501
 
@@ -211,6 +190,27 @@ class DownloadConfigForListTaskOutput(object):
         """
 
         self._headers = headers
+
+    @property
+    def http_version(self):
+        """Gets the http_version of this DownloadConfigForListTaskOutput.  # noqa: E501
+
+
+        :return: The http_version of this DownloadConfigForListTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._http_version
+
+    @http_version.setter
+    def http_version(self, http_version):
+        """Sets the http_version of this DownloadConfigForListTaskOutput.
+
+
+        :param http_version: The http_version of this DownloadConfigForListTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._http_version = http_version
 
     @property
     def ignore_certificate(self):

@@ -41,6 +41,7 @@ class UpdateUserPoolRequest(object):
         'self_account_recovery_enabled': 'bool',
         'self_sign_up_enabled': 'bool',
         'sign_up_auto_verification_enabled': 'bool',
+        'sms_anonymous_sign_up_enabled': 'str',
         'sms_passwordless_sign_in_enabled': 'bool',
         'unconfirmed_user_sign_in_enabled': 'bool',
         'user_pool_uid': 'str'
@@ -55,12 +56,13 @@ class UpdateUserPoolRequest(object):
         'self_account_recovery_enabled': 'SelfAccountRecoveryEnabled',
         'self_sign_up_enabled': 'SelfSignUpEnabled',
         'sign_up_auto_verification_enabled': 'SignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled': 'SmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled': 'SmsPasswordlessSignInEnabled',
         'unconfirmed_user_sign_in_enabled': 'UnconfirmedUserSignInEnabled',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, brand=None, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_up_auto_verification_enabled=None, sms_passwordless_sign_in_enabled=None, unconfirmed_user_sign_in_enabled=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, brand=None, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_up_auto_verification_enabled=None, sms_anonymous_sign_up_enabled=None, sms_passwordless_sign_in_enabled=None, unconfirmed_user_sign_in_enabled=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateUserPoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class UpdateUserPoolRequest(object):
         self._self_account_recovery_enabled = None
         self._self_sign_up_enabled = None
         self._sign_up_auto_verification_enabled = None
+        self._sms_anonymous_sign_up_enabled = None
         self._sms_passwordless_sign_in_enabled = None
         self._unconfirmed_user_sign_in_enabled = None
         self._user_pool_uid = None
@@ -95,6 +98,8 @@ class UpdateUserPoolRequest(object):
             self.self_sign_up_enabled = self_sign_up_enabled
         if sign_up_auto_verification_enabled is not None:
             self.sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
+        if sms_anonymous_sign_up_enabled is not None:
+            self.sms_anonymous_sign_up_enabled = sms_anonymous_sign_up_enabled
         if sms_passwordless_sign_in_enabled is not None:
             self.sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
         if unconfirmed_user_sign_in_enabled is not None:
@@ -268,6 +273,27 @@ class UpdateUserPoolRequest(object):
         """
 
         self._sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
+
+    @property
+    def sms_anonymous_sign_up_enabled(self):
+        """Gets the sms_anonymous_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The sms_anonymous_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sms_anonymous_sign_up_enabled
+
+    @sms_anonymous_sign_up_enabled.setter
+    def sms_anonymous_sign_up_enabled(self, sms_anonymous_sign_up_enabled):
+        """Sets the sms_anonymous_sign_up_enabled of this UpdateUserPoolRequest.
+
+
+        :param sms_anonymous_sign_up_enabled: The sms_anonymous_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sms_anonymous_sign_up_enabled = sms_anonymous_sign_up_enabled
 
     @property
     def sms_passwordless_sign_in_enabled(self):

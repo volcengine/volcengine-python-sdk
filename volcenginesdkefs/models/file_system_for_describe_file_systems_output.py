@@ -45,7 +45,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
         'performance': 'PerformanceForDescribeFileSystemsOutput',
         'performance_density': 'str',
         'project_name': 'str',
-        'protocol_types': 'list[str]',
         'status': 'str',
         'storage': 'StorageForDescribeFileSystemsOutput',
         'tags': 'list[TagForDescribeFileSystemsOutput]',
@@ -67,7 +66,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
         'performance': 'Performance',
         'performance_density': 'PerformanceDensity',
         'project_name': 'ProjectName',
-        'protocol_types': 'ProtocolTypes',
         'status': 'Status',
         'storage': 'Storage',
         'tags': 'Tags',
@@ -76,7 +74,7 @@ class FileSystemForDescribeFileSystemsOutput(object):
         'zone_name': 'ZoneName'
     }
 
-    def __init__(self, access_point_limit=None, charge_config=None, create_time=None, description=None, downgrade_unlock_time=None, file_system_id=None, file_system_name=None, instance_type=None, mount_point_limit=None, performance=None, performance_density=None, project_name=None, protocol_types=None, status=None, storage=None, tags=None, update_time=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_point_limit=None, charge_config=None, create_time=None, description=None, downgrade_unlock_time=None, file_system_id=None, file_system_name=None, instance_type=None, mount_point_limit=None, performance=None, performance_density=None, project_name=None, status=None, storage=None, tags=None, update_time=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
         """FileSystemForDescribeFileSystemsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,7 +92,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
         self._performance = None
         self._performance_density = None
         self._project_name = None
-        self._protocol_types = None
         self._status = None
         self._storage = None
         self._tags = None
@@ -127,8 +124,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
             self.performance_density = performance_density
         if project_name is not None:
             self.project_name = project_name
-        if protocol_types is not None:
-            self.protocol_types = protocol_types
         if status is not None:
             self.status = status
         if storage is not None:
@@ -393,27 +388,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
         """
 
         self._project_name = project_name
-
-    @property
-    def protocol_types(self):
-        """Gets the protocol_types of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The protocol_types of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._protocol_types
-
-    @protocol_types.setter
-    def protocol_types(self, protocol_types):
-        """Sets the protocol_types of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param protocol_types: The protocol_types of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._protocol_types = protocol_types
 
     @property
     def status(self):

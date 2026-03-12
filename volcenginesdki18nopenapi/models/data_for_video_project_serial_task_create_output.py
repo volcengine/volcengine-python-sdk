@@ -34,26 +34,31 @@ class DataForVideoProjectSerialTaskCreateOutput(object):
     """
     swagger_types = {
         'base_resp': 'BaseRespForVideoProjectSerialTaskCreateOutput',
+        'subtitle_file_check_reports': 'list[SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput]',
         'task_ids': 'list[str]'
     }
 
     attribute_map = {
         'base_resp': 'BaseResp',
+        'subtitle_file_check_reports': 'SubtitleFileCheckReports',
         'task_ids': 'TaskIDs'
     }
 
-    def __init__(self, base_resp=None, task_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, base_resp=None, subtitle_file_check_reports=None, task_ids=None, _configuration=None):  # noqa: E501
         """DataForVideoProjectSerialTaskCreateOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._base_resp = None
+        self._subtitle_file_check_reports = None
         self._task_ids = None
         self.discriminator = None
 
         if base_resp is not None:
             self.base_resp = base_resp
+        if subtitle_file_check_reports is not None:
+            self.subtitle_file_check_reports = subtitle_file_check_reports
         if task_ids is not None:
             self.task_ids = task_ids
 
@@ -77,6 +82,27 @@ class DataForVideoProjectSerialTaskCreateOutput(object):
         """
 
         self._base_resp = base_resp
+
+    @property
+    def subtitle_file_check_reports(self):
+        """Gets the subtitle_file_check_reports of this DataForVideoProjectSerialTaskCreateOutput.  # noqa: E501
+
+
+        :return: The subtitle_file_check_reports of this DataForVideoProjectSerialTaskCreateOutput.  # noqa: E501
+        :rtype: list[SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput]
+        """
+        return self._subtitle_file_check_reports
+
+    @subtitle_file_check_reports.setter
+    def subtitle_file_check_reports(self, subtitle_file_check_reports):
+        """Sets the subtitle_file_check_reports of this DataForVideoProjectSerialTaskCreateOutput.
+
+
+        :param subtitle_file_check_reports: The subtitle_file_check_reports of this DataForVideoProjectSerialTaskCreateOutput.  # noqa: E501
+        :type: list[SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput]
+        """
+
+        self._subtitle_file_check_reports = subtitle_file_check_reports
 
     @property
     def task_ids(self):

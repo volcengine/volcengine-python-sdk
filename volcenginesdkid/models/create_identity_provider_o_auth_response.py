@@ -34,6 +34,7 @@ class CreateIdentityProviderOAuthResponse(object):
     """
     swagger_types = {
         'authorization_endpoint': 'str',
+        'claims_propagation_config': 'ClaimsPropagationConfigForCreateIdentityProviderOAuthOutput',
         'client_id': 'str',
         'client_secret': 'str',
         'enabled': 'bool',
@@ -50,6 +51,7 @@ class CreateIdentityProviderOAuthResponse(object):
 
     attribute_map = {
         'authorization_endpoint': 'AuthorizationEndpoint',
+        'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
         'enabled': 'Enabled',
@@ -64,13 +66,14 @@ class CreateIdentityProviderOAuthResponse(object):
         'user_endpoint': 'UserEndpoint'
     }
 
-    def __init__(self, authorization_endpoint=None, client_id=None, client_secret=None, enabled=None, id_attribute=None, name=None, provider=None, provider_options=None, scopes_list=None, token_endpoint=None, uid=None, use_pkce=None, user_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorization_endpoint=None, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, id_attribute=None, name=None, provider=None, provider_options=None, scopes_list=None, token_endpoint=None, uid=None, use_pkce=None, user_endpoint=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderOAuthResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._authorization_endpoint = None
+        self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
         self._enabled = None
@@ -87,6 +90,8 @@ class CreateIdentityProviderOAuthResponse(object):
 
         if authorization_endpoint is not None:
             self.authorization_endpoint = authorization_endpoint
+        if claims_propagation_config is not None:
+            self.claims_propagation_config = claims_propagation_config
         if client_id is not None:
             self.client_id = client_id
         if client_secret is not None:
@@ -132,6 +137,27 @@ class CreateIdentityProviderOAuthResponse(object):
         """
 
         self._authorization_endpoint = authorization_endpoint
+
+    @property
+    def claims_propagation_config(self):
+        """Gets the claims_propagation_config of this CreateIdentityProviderOAuthResponse.  # noqa: E501
+
+
+        :return: The claims_propagation_config of this CreateIdentityProviderOAuthResponse.  # noqa: E501
+        :rtype: ClaimsPropagationConfigForCreateIdentityProviderOAuthOutput
+        """
+        return self._claims_propagation_config
+
+    @claims_propagation_config.setter
+    def claims_propagation_config(self, claims_propagation_config):
+        """Sets the claims_propagation_config of this CreateIdentityProviderOAuthResponse.
+
+
+        :param claims_propagation_config: The claims_propagation_config of this CreateIdentityProviderOAuthResponse.  # noqa: E501
+        :type: ClaimsPropagationConfigForCreateIdentityProviderOAuthOutput
+        """
+
+        self._claims_propagation_config = claims_propagation_config
 
     @property
     def client_id(self):

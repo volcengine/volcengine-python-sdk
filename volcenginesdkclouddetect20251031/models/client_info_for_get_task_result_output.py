@@ -34,46 +34,43 @@ class ClientInfoForGetTaskResultOutput(object):
     """
     swagger_types = {
         'city': 'str',
-        'dns_local_dnsip': 'str',
+        'dns_local_dns_ip': 'str',
         'ip': 'str',
         'ipv6': 'str',
         'isp': 'str',
         'region': 'str',
-        'tupe': 'str',
         'type': 'str'
     }
 
     attribute_map = {
         'city': 'City',
-        'dns_local_dnsip': 'DNSLocalDNSIP',
-        'ip': 'IP',
+        'dns_local_dns_ip': 'DnsLocalDnsIp',
+        'ip': 'Ip',
         'ipv6': 'Ipv6',
         'isp': 'Isp',
         'region': 'Region',
-        'tupe': 'Tupe',
         'type': 'Type'
     }
 
-    def __init__(self, city=None, dns_local_dnsip=None, ip=None, ipv6=None, isp=None, region=None, tupe=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, city=None, dns_local_dns_ip=None, ip=None, ipv6=None, isp=None, region=None, type=None, _configuration=None):  # noqa: E501
         """ClientInfoForGetTaskResultOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._city = None
-        self._dns_local_dnsip = None
+        self._dns_local_dns_ip = None
         self._ip = None
         self._ipv6 = None
         self._isp = None
         self._region = None
-        self._tupe = None
         self._type = None
         self.discriminator = None
 
         if city is not None:
             self.city = city
-        if dns_local_dnsip is not None:
-            self.dns_local_dnsip = dns_local_dnsip
+        if dns_local_dns_ip is not None:
+            self.dns_local_dns_ip = dns_local_dns_ip
         if ip is not None:
             self.ip = ip
         if ipv6 is not None:
@@ -82,8 +79,6 @@ class ClientInfoForGetTaskResultOutput(object):
             self.isp = isp
         if region is not None:
             self.region = region
-        if tupe is not None:
-            self.tupe = tupe
         if type is not None:
             self.type = type
 
@@ -109,25 +104,25 @@ class ClientInfoForGetTaskResultOutput(object):
         self._city = city
 
     @property
-    def dns_local_dnsip(self):
-        """Gets the dns_local_dnsip of this ClientInfoForGetTaskResultOutput.  # noqa: E501
+    def dns_local_dns_ip(self):
+        """Gets the dns_local_dns_ip of this ClientInfoForGetTaskResultOutput.  # noqa: E501
 
 
-        :return: The dns_local_dnsip of this ClientInfoForGetTaskResultOutput.  # noqa: E501
+        :return: The dns_local_dns_ip of this ClientInfoForGetTaskResultOutput.  # noqa: E501
         :rtype: str
         """
-        return self._dns_local_dnsip
+        return self._dns_local_dns_ip
 
-    @dns_local_dnsip.setter
-    def dns_local_dnsip(self, dns_local_dnsip):
-        """Sets the dns_local_dnsip of this ClientInfoForGetTaskResultOutput.
+    @dns_local_dns_ip.setter
+    def dns_local_dns_ip(self, dns_local_dns_ip):
+        """Sets the dns_local_dns_ip of this ClientInfoForGetTaskResultOutput.
 
 
-        :param dns_local_dnsip: The dns_local_dnsip of this ClientInfoForGetTaskResultOutput.  # noqa: E501
+        :param dns_local_dns_ip: The dns_local_dns_ip of this ClientInfoForGetTaskResultOutput.  # noqa: E501
         :type: str
         """
 
-        self._dns_local_dnsip = dns_local_dnsip
+        self._dns_local_dns_ip = dns_local_dns_ip
 
     @property
     def ip(self):
@@ -212,27 +207,6 @@ class ClientInfoForGetTaskResultOutput(object):
         """
 
         self._region = region
-
-    @property
-    def tupe(self):
-        """Gets the tupe of this ClientInfoForGetTaskResultOutput.  # noqa: E501
-
-
-        :return: The tupe of this ClientInfoForGetTaskResultOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._tupe
-
-    @tupe.setter
-    def tupe(self, tupe):
-        """Sets the tupe of this ClientInfoForGetTaskResultOutput.
-
-
-        :param tupe: The tupe of this ClientInfoForGetTaskResultOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._tupe = tupe
 
     @property
     def type(self):

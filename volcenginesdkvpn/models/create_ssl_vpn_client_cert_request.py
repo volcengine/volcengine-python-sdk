@@ -36,17 +36,19 @@ class CreateSslVpnClientCertRequest(object):
         'client_token': 'str',
         'description': 'str',
         'ssl_vpn_client_cert_name': 'str',
-        'ssl_vpn_server_id': 'str'
+        'ssl_vpn_server_id': 'str',
+        'tags': 'list[TagForCreateSslVpnClientCertInput]'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
         'description': 'Description',
         'ssl_vpn_client_cert_name': 'SslVpnClientCertName',
-        'ssl_vpn_server_id': 'SslVpnServerId'
+        'ssl_vpn_server_id': 'SslVpnServerId',
+        'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, description=None, ssl_vpn_client_cert_name=None, ssl_vpn_server_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, ssl_vpn_client_cert_name=None, ssl_vpn_server_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateSslVpnClientCertRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CreateSslVpnClientCertRequest(object):
         self._description = None
         self._ssl_vpn_client_cert_name = None
         self._ssl_vpn_server_id = None
+        self._tags = None
         self.discriminator = None
 
         if client_token is not None:
@@ -65,6 +68,8 @@ class CreateSslVpnClientCertRequest(object):
         if ssl_vpn_client_cert_name is not None:
             self.ssl_vpn_client_cert_name = ssl_vpn_client_cert_name
         self.ssl_vpn_server_id = ssl_vpn_server_id
+        if tags is not None:
+            self.tags = tags
 
     @property
     def client_token(self):
@@ -151,6 +156,27 @@ class CreateSslVpnClientCertRequest(object):
             raise ValueError("Invalid value for `ssl_vpn_server_id`, must not be `None`")  # noqa: E501
 
         self._ssl_vpn_server_id = ssl_vpn_server_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateSslVpnClientCertRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateSslVpnClientCertRequest.  # noqa: E501
+        :rtype: list[TagForCreateSslVpnClientCertInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateSslVpnClientCertRequest.
+
+
+        :param tags: The tags of this CreateSslVpnClientCertRequest.  # noqa: E501
+        :type: list[TagForCreateSslVpnClientCertInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

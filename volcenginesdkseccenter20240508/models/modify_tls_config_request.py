@@ -34,6 +34,7 @@ class ModifyTLSConfigRequest(object):
     """
     swagger_types = {
         'alarm_topic_config': 'AlarmTopicConfigForModifyTLSConfigInput',
+        'bash_audit_topic_config': 'BashAuditTopicConfigForModifyTLSConfigInput',
         'login_topic_config': 'LoginTopicConfigForModifyTLSConfigInput',
         'port_change_topic_config': 'PortChangeTopicConfigForModifyTLSConfigInput',
         'process_start_topic_config': 'ProcessStartTopicConfigForModifyTLSConfigInput',
@@ -44,6 +45,7 @@ class ModifyTLSConfigRequest(object):
 
     attribute_map = {
         'alarm_topic_config': 'AlarmTopicConfig',
+        'bash_audit_topic_config': 'BashAuditTopicConfig',
         'login_topic_config': 'LoginTopicConfig',
         'port_change_topic_config': 'PortChangeTopicConfig',
         'process_start_topic_config': 'ProcessStartTopicConfig',
@@ -52,13 +54,14 @@ class ModifyTLSConfigRequest(object):
         'vuln_topic_config': 'VulnTopicConfig'
     }
 
-    def __init__(self, alarm_topic_config=None, login_topic_config=None, port_change_topic_config=None, process_start_topic_config=None, storage_days=None, threshold=None, vuln_topic_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_topic_config=None, bash_audit_topic_config=None, login_topic_config=None, port_change_topic_config=None, process_start_topic_config=None, storage_days=None, threshold=None, vuln_topic_config=None, _configuration=None):  # noqa: E501
         """ModifyTLSConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._alarm_topic_config = None
+        self._bash_audit_topic_config = None
         self._login_topic_config = None
         self._port_change_topic_config = None
         self._process_start_topic_config = None
@@ -69,6 +72,8 @@ class ModifyTLSConfigRequest(object):
 
         if alarm_topic_config is not None:
             self.alarm_topic_config = alarm_topic_config
+        if bash_audit_topic_config is not None:
+            self.bash_audit_topic_config = bash_audit_topic_config
         if login_topic_config is not None:
             self.login_topic_config = login_topic_config
         if port_change_topic_config is not None:
@@ -102,6 +107,27 @@ class ModifyTLSConfigRequest(object):
         """
 
         self._alarm_topic_config = alarm_topic_config
+
+    @property
+    def bash_audit_topic_config(self):
+        """Gets the bash_audit_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+
+
+        :return: The bash_audit_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :rtype: BashAuditTopicConfigForModifyTLSConfigInput
+        """
+        return self._bash_audit_topic_config
+
+    @bash_audit_topic_config.setter
+    def bash_audit_topic_config(self, bash_audit_topic_config):
+        """Sets the bash_audit_topic_config of this ModifyTLSConfigRequest.
+
+
+        :param bash_audit_topic_config: The bash_audit_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :type: BashAuditTopicConfigForModifyTLSConfigInput
+        """
+
+        self._bash_audit_topic_config = bash_audit_topic_config
 
     @property
     def login_topic_config(self):

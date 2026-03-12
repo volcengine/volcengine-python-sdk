@@ -33,7 +33,7 @@ class DiagnoseConfigForListTaskOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'dns_config': 'DNSConfigForListTaskOutput',
+        'dns_config': 'DnsConfigForListTaskOutput',
         'method_list': 'list[int]',
         'mtr_config': 'MtrConfigForListTaskOutput',
         'pcap_status': 'int',
@@ -41,7 +41,7 @@ class DiagnoseConfigForListTaskOutput(object):
     }
 
     attribute_map = {
-        'dns_config': 'DNSConfig',
+        'dns_config': 'DnsConfig',
         'method_list': 'MethodList',
         'mtr_config': 'MtrConfig',
         'pcap_status': 'PcapStatus',
@@ -78,7 +78,7 @@ class DiagnoseConfigForListTaskOutput(object):
 
 
         :return: The dns_config of this DiagnoseConfigForListTaskOutput.  # noqa: E501
-        :rtype: DNSConfigForListTaskOutput
+        :rtype: DnsConfigForListTaskOutput
         """
         return self._dns_config
 
@@ -88,7 +88,7 @@ class DiagnoseConfigForListTaskOutput(object):
 
 
         :param dns_config: The dns_config of this DiagnoseConfigForListTaskOutput.  # noqa: E501
-        :type: DNSConfigForListTaskOutput
+        :type: DnsConfigForListTaskOutput
         """
 
         self._dns_config = dns_config

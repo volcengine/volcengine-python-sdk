@@ -38,6 +38,7 @@ class DataForListScanTasksOutput(object):
         'create_time': 'int',
         'file_path': 'str',
         'id_count': 'int',
+        'is_internal': 'bool',
         'result_num': 'int',
         'sub_task_created': 'int',
         'sub_task_failed': 'int',
@@ -62,6 +63,7 @@ class DataForListScanTasksOutput(object):
         'create_time': 'CreateTime',
         'file_path': 'FilePath',
         'id_count': 'IDCount',
+        'is_internal': 'IsInternal',
         'result_num': 'ResultNum',
         'sub_task_created': 'SubTaskCreated',
         'sub_task_failed': 'SubTaskFailed',
@@ -80,7 +82,7 @@ class DataForListScanTasksOutput(object):
         'virus_task_id': 'VirusTaskID'
     }
 
-    def __init__(self, account_id=None, action=None, create_time=None, file_path=None, id_count=None, result_num=None, sub_task_created=None, sub_task_failed=None, sub_task_running=None, sub_task_stopped=None, sub_task_succeed=None, tag=None, task_id=None, task_name=None, task_status=None, task_timeout=None, task_type=None, task_user=None, top_group_id=None, update_time=None, virus_task_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, action=None, create_time=None, file_path=None, id_count=None, is_internal=None, result_num=None, sub_task_created=None, sub_task_failed=None, sub_task_running=None, sub_task_stopped=None, sub_task_succeed=None, tag=None, task_id=None, task_name=None, task_status=None, task_timeout=None, task_type=None, task_user=None, top_group_id=None, update_time=None, virus_task_id=None, _configuration=None):  # noqa: E501
         """DataForListScanTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,6 +93,7 @@ class DataForListScanTasksOutput(object):
         self._create_time = None
         self._file_path = None
         self._id_count = None
+        self._is_internal = None
         self._result_num = None
         self._sub_task_created = None
         self._sub_task_failed = None
@@ -119,6 +122,8 @@ class DataForListScanTasksOutput(object):
             self.file_path = file_path
         if id_count is not None:
             self.id_count = id_count
+        if is_internal is not None:
+            self.is_internal = is_internal
         if result_num is not None:
             self.result_num = result_num
         if sub_task_created is not None:
@@ -256,6 +261,27 @@ class DataForListScanTasksOutput(object):
         """
 
         self._id_count = id_count
+
+    @property
+    def is_internal(self):
+        """Gets the is_internal of this DataForListScanTasksOutput.  # noqa: E501
+
+
+        :return: The is_internal of this DataForListScanTasksOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_internal
+
+    @is_internal.setter
+    def is_internal(self, is_internal):
+        """Sets the is_internal of this DataForListScanTasksOutput.
+
+
+        :param is_internal: The is_internal of this DataForListScanTasksOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_internal = is_internal
 
     @property
     def result_num(self):

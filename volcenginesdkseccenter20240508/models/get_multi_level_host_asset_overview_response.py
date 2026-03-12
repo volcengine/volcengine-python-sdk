@@ -40,6 +40,7 @@ class GetMultiLevelHostAssetOverviewResponse(object):
         'offline': 'int',
         'protecting': 'int',
         'protection_exception': 'int',
+        'real_risk_vul': 'int',
         'risk': 'int',
         'unprotected': 'int',
         'unprotected_cpu': 'int',
@@ -55,6 +56,7 @@ class GetMultiLevelHostAssetOverviewResponse(object):
         'offline': 'Offline',
         'protecting': 'Protecting',
         'protection_exception': 'ProtectionException',
+        'real_risk_vul': 'RealRiskVul',
         'risk': 'Risk',
         'unprotected': 'Unprotected',
         'unprotected_cpu': 'UnprotectedCpu',
@@ -62,7 +64,7 @@ class GetMultiLevelHostAssetOverviewResponse(object):
         'vuln': 'Vuln'
     }
 
-    def __init__(self, alarm=None, baseline=None, cpu=None, host_num=None, offline=None, protecting=None, protection_exception=None, risk=None, unprotected=None, unprotected_cpu=None, virus=None, vuln=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm=None, baseline=None, cpu=None, host_num=None, offline=None, protecting=None, protection_exception=None, real_risk_vul=None, risk=None, unprotected=None, unprotected_cpu=None, virus=None, vuln=None, _configuration=None):  # noqa: E501
         """GetMultiLevelHostAssetOverviewResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class GetMultiLevelHostAssetOverviewResponse(object):
         self._offline = None
         self._protecting = None
         self._protection_exception = None
+        self._real_risk_vul = None
         self._risk = None
         self._unprotected = None
         self._unprotected_cpu = None
@@ -96,6 +99,8 @@ class GetMultiLevelHostAssetOverviewResponse(object):
             self.protecting = protecting
         if protection_exception is not None:
             self.protection_exception = protection_exception
+        if real_risk_vul is not None:
+            self.real_risk_vul = real_risk_vul
         if risk is not None:
             self.risk = risk
         if unprotected is not None:
@@ -253,6 +258,27 @@ class GetMultiLevelHostAssetOverviewResponse(object):
         """
 
         self._protection_exception = protection_exception
+
+    @property
+    def real_risk_vul(self):
+        """Gets the real_risk_vul of this GetMultiLevelHostAssetOverviewResponse.  # noqa: E501
+
+
+        :return: The real_risk_vul of this GetMultiLevelHostAssetOverviewResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._real_risk_vul
+
+    @real_risk_vul.setter
+    def real_risk_vul(self, real_risk_vul):
+        """Sets the real_risk_vul of this GetMultiLevelHostAssetOverviewResponse.
+
+
+        :param real_risk_vul: The real_risk_vul of this GetMultiLevelHostAssetOverviewResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._real_risk_vul = real_risk_vul
 
     @property
     def risk(self):

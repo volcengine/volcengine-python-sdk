@@ -212,13 +212,6 @@ class GetDevFingerprintSoftwareRequest(object):
         :param sort_order: The sort_order of this GetDevFingerprintSoftwareRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Asc", " Desc"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                sort_order not in allowed_values):
-            raise ValueError(
-                "Invalid value for `sort_order` ({0}), must be one of {1}"  # noqa: E501
-                .format(sort_order, allowed_values)
-            )
 
         self._sort_order = sort_order
 
@@ -240,14 +233,6 @@ class GetDevFingerprintSoftwareRequest(object):
         :param type: The type of this GetDevFingerprintSoftwareRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["dpkg", " rpm", " pypi"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(type).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `type` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(type) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._type = type
 

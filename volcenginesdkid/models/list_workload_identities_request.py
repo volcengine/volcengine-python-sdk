@@ -39,6 +39,7 @@ class ListWorkloadIdentitiesRequest(object):
         'page_size': 'int',
         'sort_by': 'str',
         'sort_order': 'str',
+        'source': 'str',
         'trn': 'str',
         'workload_pool_name': 'str'
     }
@@ -50,11 +51,12 @@ class ListWorkloadIdentitiesRequest(object):
         'page_size': 'PageSize',
         'sort_by': 'SortBy',
         'sort_order': 'SortOrder',
+        'source': 'Source',
         'trn': 'Trn',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, category=None, name=None, page_number=None, page_size=None, sort_by=None, sort_order=None, trn=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, category=None, name=None, page_number=None, page_size=None, sort_by=None, sort_order=None, source=None, trn=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """ListWorkloadIdentitiesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class ListWorkloadIdentitiesRequest(object):
         self._page_size = None
         self._sort_by = None
         self._sort_order = None
+        self._source = None
         self._trn = None
         self._workload_pool_name = None
         self.discriminator = None
@@ -80,6 +83,8 @@ class ListWorkloadIdentitiesRequest(object):
             self.sort_by = sort_by
         if sort_order is not None:
             self.sort_order = sort_order
+        if source is not None:
+            self.source = source
         if trn is not None:
             self.trn = trn
         if workload_pool_name is not None:
@@ -220,6 +225,27 @@ class ListWorkloadIdentitiesRequest(object):
         """
 
         self._sort_order = sort_order
+
+    @property
+    def source(self):
+        """Gets the source of this ListWorkloadIdentitiesRequest.  # noqa: E501
+
+
+        :return: The source of this ListWorkloadIdentitiesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this ListWorkloadIdentitiesRequest.
+
+
+        :param source: The source of this ListWorkloadIdentitiesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
 
     @property
     def trn(self):

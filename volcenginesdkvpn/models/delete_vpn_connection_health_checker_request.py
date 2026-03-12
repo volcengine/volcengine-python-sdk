@@ -58,7 +58,8 @@ class DeleteVpnConnectionHealthCheckerRequest(object):
         self.checker_id = checker_id
         if client_token is not None:
             self.client_token = client_token
-        self.vpn_connection_id = vpn_connection_id
+        if vpn_connection_id is not None:
+            self.vpn_connection_id = vpn_connection_id
 
     @property
     def checker_id(self):
@@ -122,8 +123,6 @@ class DeleteVpnConnectionHealthCheckerRequest(object):
         :param vpn_connection_id: The vpn_connection_id of this DeleteVpnConnectionHealthCheckerRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and vpn_connection_id is None:
-            raise ValueError("Invalid value for `vpn_connection_id`, must not be `None`")  # noqa: E501
 
         self._vpn_connection_id = vpn_connection_id
 

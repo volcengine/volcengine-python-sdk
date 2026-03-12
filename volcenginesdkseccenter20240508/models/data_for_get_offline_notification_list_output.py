@@ -34,6 +34,7 @@ class DataForGetOfflineNotificationListOutput(object):
     """
     swagger_types = {
         'abnormal_plugins_list': 'str',
+        'account_id': 'str',
         'agent_id': 'str',
         'agent_offline_time': 'int',
         'agent_status': 'str',
@@ -46,6 +47,7 @@ class DataForGetOfflineNotificationListOutput(object):
         'gateway': 'str',
         'group': 'str',
         'group_path': 'str',
+        'group_path_en': 'str',
         'kernel_version': 'str',
         'last_heartbeat_time': 'int',
         'mem_usage': 'float',
@@ -54,6 +56,7 @@ class DataForGetOfflineNotificationListOutput(object):
         'old_valid_code': 'int',
         'online': 'bool',
         'platform': 'str',
+        'platform_version': 'str',
         'plugins_brief_info': 'str',
         'plugins_status': 'str',
         'reason': 'str',
@@ -64,11 +67,13 @@ class DataForGetOfflineNotificationListOutput(object):
         'tags': 'list[str]',
         'total_mem': 'int',
         'user_status': 'str',
-        'user_status_reason': 'str'
+        'user_status_reason': 'str',
+        'user_status_reason_code': 'int'
     }
 
     attribute_map = {
         'abnormal_plugins_list': 'AbnormalPluginsList',
+        'account_id': 'AccountID',
         'agent_id': 'AgentID',
         'agent_offline_time': 'AgentOfflineTime',
         'agent_status': 'AgentStatus',
@@ -81,6 +86,7 @@ class DataForGetOfflineNotificationListOutput(object):
         'gateway': 'Gateway',
         'group': 'Group',
         'group_path': 'GroupPath',
+        'group_path_en': 'GroupPathEn',
         'kernel_version': 'KernelVersion',
         'last_heartbeat_time': 'LastHeartbeatTime',
         'mem_usage': 'MemUsage',
@@ -89,6 +95,7 @@ class DataForGetOfflineNotificationListOutput(object):
         'old_valid_code': 'OldValidCode',
         'online': 'Online',
         'platform': 'Platform',
+        'platform_version': 'PlatformVersion',
         'plugins_brief_info': 'PluginsBriefInfo',
         'plugins_status': 'PluginsStatus',
         'reason': 'Reason',
@@ -99,16 +106,18 @@ class DataForGetOfflineNotificationListOutput(object):
         'tags': 'Tags',
         'total_mem': 'TotalMem',
         'user_status': 'UserStatus',
-        'user_status_reason': 'UserStatusReason'
+        'user_status_reason': 'UserStatusReason',
+        'user_status_reason_code': 'UserStatusReasonCode'
     }
 
-    def __init__(self, abnormal_plugins_list=None, agent_id=None, agent_offline_time=None, agent_status=None, client_public_ip=None, cloud_provider=None, cpu_usage=None, dns=None, ecs_instance=None, first_heartbeat_time=None, gateway=None, group=None, group_path=None, kernel_version=None, last_heartbeat_time=None, mem_usage=None, notification_threshold=None, notification_time=None, old_valid_code=None, online=None, platform=None, plugins_brief_info=None, plugins_status=None, reason=None, risk=None, security_enhancement=None, start_time=None, status=None, tags=None, total_mem=None, user_status=None, user_status_reason=None, _configuration=None):  # noqa: E501
+    def __init__(self, abnormal_plugins_list=None, account_id=None, agent_id=None, agent_offline_time=None, agent_status=None, client_public_ip=None, cloud_provider=None, cpu_usage=None, dns=None, ecs_instance=None, first_heartbeat_time=None, gateway=None, group=None, group_path=None, group_path_en=None, kernel_version=None, last_heartbeat_time=None, mem_usage=None, notification_threshold=None, notification_time=None, old_valid_code=None, online=None, platform=None, platform_version=None, plugins_brief_info=None, plugins_status=None, reason=None, risk=None, security_enhancement=None, start_time=None, status=None, tags=None, total_mem=None, user_status=None, user_status_reason=None, user_status_reason_code=None, _configuration=None):  # noqa: E501
         """DataForGetOfflineNotificationListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._abnormal_plugins_list = None
+        self._account_id = None
         self._agent_id = None
         self._agent_offline_time = None
         self._agent_status = None
@@ -121,6 +130,7 @@ class DataForGetOfflineNotificationListOutput(object):
         self._gateway = None
         self._group = None
         self._group_path = None
+        self._group_path_en = None
         self._kernel_version = None
         self._last_heartbeat_time = None
         self._mem_usage = None
@@ -129,6 +139,7 @@ class DataForGetOfflineNotificationListOutput(object):
         self._old_valid_code = None
         self._online = None
         self._platform = None
+        self._platform_version = None
         self._plugins_brief_info = None
         self._plugins_status = None
         self._reason = None
@@ -140,10 +151,13 @@ class DataForGetOfflineNotificationListOutput(object):
         self._total_mem = None
         self._user_status = None
         self._user_status_reason = None
+        self._user_status_reason_code = None
         self.discriminator = None
 
         if abnormal_plugins_list is not None:
             self.abnormal_plugins_list = abnormal_plugins_list
+        if account_id is not None:
+            self.account_id = account_id
         if agent_id is not None:
             self.agent_id = agent_id
         if agent_offline_time is not None:
@@ -168,6 +182,8 @@ class DataForGetOfflineNotificationListOutput(object):
             self.group = group
         if group_path is not None:
             self.group_path = group_path
+        if group_path_en is not None:
+            self.group_path_en = group_path_en
         if kernel_version is not None:
             self.kernel_version = kernel_version
         if last_heartbeat_time is not None:
@@ -184,6 +200,8 @@ class DataForGetOfflineNotificationListOutput(object):
             self.online = online
         if platform is not None:
             self.platform = platform
+        if platform_version is not None:
+            self.platform_version = platform_version
         if plugins_brief_info is not None:
             self.plugins_brief_info = plugins_brief_info
         if plugins_status is not None:
@@ -206,6 +224,8 @@ class DataForGetOfflineNotificationListOutput(object):
             self.user_status = user_status
         if user_status_reason is not None:
             self.user_status_reason = user_status_reason
+        if user_status_reason_code is not None:
+            self.user_status_reason_code = user_status_reason_code
 
     @property
     def abnormal_plugins_list(self):
@@ -227,6 +247,27 @@ class DataForGetOfflineNotificationListOutput(object):
         """
 
         self._abnormal_plugins_list = abnormal_plugins_list
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+
+
+        :return: The account_id of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this DataForGetOfflineNotificationListOutput.
+
+
+        :param account_id: The account_id of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
 
     @property
     def agent_id(self):
@@ -481,6 +522,27 @@ class DataForGetOfflineNotificationListOutput(object):
         self._group_path = group_path
 
     @property
+    def group_path_en(self):
+        """Gets the group_path_en of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+
+
+        :return: The group_path_en of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._group_path_en
+
+    @group_path_en.setter
+    def group_path_en(self, group_path_en):
+        """Sets the group_path_en of this DataForGetOfflineNotificationListOutput.
+
+
+        :param group_path_en: The group_path_en of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._group_path_en = group_path_en
+
+    @property
     def kernel_version(self):
         """Gets the kernel_version of this DataForGetOfflineNotificationListOutput.  # noqa: E501
 
@@ -647,6 +709,27 @@ class DataForGetOfflineNotificationListOutput(object):
         """
 
         self._platform = platform
+
+    @property
+    def platform_version(self):
+        """Gets the platform_version of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+
+
+        :return: The platform_version of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._platform_version
+
+    @platform_version.setter
+    def platform_version(self, platform_version):
+        """Sets the platform_version of this DataForGetOfflineNotificationListOutput.
+
+
+        :param platform_version: The platform_version of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._platform_version = platform_version
 
     @property
     def plugins_brief_info(self):
@@ -878,6 +961,27 @@ class DataForGetOfflineNotificationListOutput(object):
         """
 
         self._user_status_reason = user_status_reason
+
+    @property
+    def user_status_reason_code(self):
+        """Gets the user_status_reason_code of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+
+
+        :return: The user_status_reason_code of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_status_reason_code
+
+    @user_status_reason_code.setter
+    def user_status_reason_code(self, user_status_reason_code):
+        """Sets the user_status_reason_code of this DataForGetOfflineNotificationListOutput.
+
+
+        :param user_status_reason_code: The user_status_reason_code of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._user_status_reason_code = user_status_reason_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

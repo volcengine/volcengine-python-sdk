@@ -58,7 +58,8 @@ class DescribeEipAddressAttributesResponse(object):
         'service_managed': 'bool',
         'status': 'str',
         'tags': 'list[TagForDescribeEipAddressAttributesOutput]',
-        'updated_at': 'str'
+        'updated_at': 'str',
+        'vpc_id': 'str'
     }
 
     attribute_map = {
@@ -87,10 +88,11 @@ class DescribeEipAddressAttributesResponse(object):
         'service_managed': 'ServiceManaged',
         'status': 'Status',
         'tags': 'Tags',
-        'updated_at': 'UpdatedAt'
+        'updated_at': 'UpdatedAt',
+        'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allocation_id=None, allocation_time=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, deleted_time=None, description=None, eip_address=None, expired_time=None, isp=None, instance_id=None, instance_type=None, ip_address_pool_id=None, is_blocked=None, lock_reason=None, name=None, overdue_time=None, project_name=None, release_with_instance=None, request_id=None, security_protection_types=None, service_managed=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, allocation_time=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, deleted_time=None, description=None, eip_address=None, expired_time=None, isp=None, instance_id=None, instance_type=None, ip_address_pool_id=None, is_blocked=None, lock_reason=None, name=None, overdue_time=None, project_name=None, release_with_instance=None, request_id=None, security_protection_types=None, service_managed=None, status=None, tags=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeEipAddressAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -122,6 +124,7 @@ class DescribeEipAddressAttributesResponse(object):
         self._status = None
         self._tags = None
         self._updated_at = None
+        self._vpc_id = None
         self.discriminator = None
 
         if allocation_id is not None:
@@ -176,6 +179,8 @@ class DescribeEipAddressAttributesResponse(object):
             self.tags = tags
         if updated_at is not None:
             self.updated_at = updated_at
+        if vpc_id is not None:
+            self.vpc_id = vpc_id
 
     @property
     def allocation_id(self):
@@ -722,6 +727,27 @@ class DescribeEipAddressAttributesResponse(object):
         """
 
         self._updated_at = updated_at
+
+    @property
+    def vpc_id(self):
+        """Gets the vpc_id of this DescribeEipAddressAttributesResponse.  # noqa: E501
+
+
+        :return: The vpc_id of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_id
+
+    @vpc_id.setter
+    def vpc_id(self, vpc_id):
+        """Sets the vpc_id of this DescribeEipAddressAttributesResponse.
+
+
+        :param vpc_id: The vpc_id of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_id = vpc_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

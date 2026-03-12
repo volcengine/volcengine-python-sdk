@@ -34,15 +34,19 @@ class GetResourceOauth2TokenResponse(object):
     """
     swagger_types = {
         'access_token': 'str',
-        'authorization_url': 'str'
+        'authorization_url': 'str',
+        'expires_in': 'int',
+        'session_uri': 'str'
     }
 
     attribute_map = {
         'access_token': 'AccessToken',
-        'authorization_url': 'AuthorizationUrl'
+        'authorization_url': 'AuthorizationUrl',
+        'expires_in': 'ExpiresIn',
+        'session_uri': 'SessionUri'
     }
 
-    def __init__(self, access_token=None, authorization_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_token=None, authorization_url=None, expires_in=None, session_uri=None, _configuration=None):  # noqa: E501
         """GetResourceOauth2TokenResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +54,18 @@ class GetResourceOauth2TokenResponse(object):
 
         self._access_token = None
         self._authorization_url = None
+        self._expires_in = None
+        self._session_uri = None
         self.discriminator = None
 
         if access_token is not None:
             self.access_token = access_token
         if authorization_url is not None:
             self.authorization_url = authorization_url
+        if expires_in is not None:
+            self.expires_in = expires_in
+        if session_uri is not None:
+            self.session_uri = session_uri
 
     @property
     def access_token(self):
@@ -98,6 +108,48 @@ class GetResourceOauth2TokenResponse(object):
         """
 
         self._authorization_url = authorization_url
+
+    @property
+    def expires_in(self):
+        """Gets the expires_in of this GetResourceOauth2TokenResponse.  # noqa: E501
+
+
+        :return: The expires_in of this GetResourceOauth2TokenResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._expires_in
+
+    @expires_in.setter
+    def expires_in(self, expires_in):
+        """Sets the expires_in of this GetResourceOauth2TokenResponse.
+
+
+        :param expires_in: The expires_in of this GetResourceOauth2TokenResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._expires_in = expires_in
+
+    @property
+    def session_uri(self):
+        """Gets the session_uri of this GetResourceOauth2TokenResponse.  # noqa: E501
+
+
+        :return: The session_uri of this GetResourceOauth2TokenResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._session_uri
+
+    @session_uri.setter
+    def session_uri(self, session_uri):
+        """Sets the session_uri of this GetResourceOauth2TokenResponse.
+
+
+        :param session_uri: The session_uri of this GetResourceOauth2TokenResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._session_uri = session_uri
 
     def to_dict(self):
         """Returns the model properties as a dict"""

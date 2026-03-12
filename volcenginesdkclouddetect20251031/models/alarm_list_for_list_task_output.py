@@ -39,7 +39,7 @@ class AlarmListForListTaskOutput(object):
     }
 
     attribute_map = {
-        'id': 'ID',
+        'id': 'Id',
         'name': 'Name',
         'status': 'Status'
     }

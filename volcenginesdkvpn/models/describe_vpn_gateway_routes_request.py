@@ -189,7 +189,7 @@ class DescribeVpnGatewayRoutesRequest(object):
         :param route_type: The route_type of this DescribeVpnGatewayRoutesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["BGP", " Static", " Cloud"]  # noqa: E501
+        allowed_values = ["Static", "BGP", "Cloud"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 route_type not in allowed_values):
             raise ValueError(

@@ -45,13 +45,14 @@ class PageDetailForGetTaskResultOutput(object):
         'page_error_element_proportion': 'int',
         'page_request_id': 'str',
         'page_time_first_screen': 'int',
-        'page_time_total': 'int'
+        'page_time_total': 'int',
+        'pcap_uri': 'str'
     }
 
     attribute_map = {
         'diagnose_detail': 'DiagnoseDetail',
-        'http_request_header': 'HTTPRequestHeader',
-        'http_response_header': 'HTTPResponseHeader',
+        'http_request_header': 'HttpRequestHeader',
+        'http_response_header': 'HttpResponseHeader',
         'page_count_element': 'PageCountElement',
         'page_count_error_element': 'PageCountErrorElement',
         'page_download_bytes_total': 'PageDownloadBytesTotal',
@@ -59,12 +60,13 @@ class PageDetailForGetTaskResultOutput(object):
         'page_element_speed_avg': 'PageElementSpeedAvg',
         'page_error_elem_proportion': 'PageErrorElemProportion',
         'page_error_element_proportion': 'PageErrorElementProportion',
-        'page_request_id': 'PageRequestID',
+        'page_request_id': 'PageRequestId',
         'page_time_first_screen': 'PageTimeFirstScreen',
-        'page_time_total': 'PageTimeTotal'
+        'page_time_total': 'PageTimeTotal',
+        'pcap_uri': 'PcapUri'
     }
 
-    def __init__(self, diagnose_detail=None, http_request_header=None, http_response_header=None, page_count_element=None, page_count_error_element=None, page_download_bytes_total=None, page_elem_speed_avg=None, page_element_speed_avg=None, page_error_elem_proportion=None, page_error_element_proportion=None, page_request_id=None, page_time_first_screen=None, page_time_total=None, _configuration=None):  # noqa: E501
+    def __init__(self, diagnose_detail=None, http_request_header=None, http_response_header=None, page_count_element=None, page_count_error_element=None, page_download_bytes_total=None, page_elem_speed_avg=None, page_element_speed_avg=None, page_error_elem_proportion=None, page_error_element_proportion=None, page_request_id=None, page_time_first_screen=None, page_time_total=None, pcap_uri=None, _configuration=None):  # noqa: E501
         """PageDetailForGetTaskResultOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +85,7 @@ class PageDetailForGetTaskResultOutput(object):
         self._page_request_id = None
         self._page_time_first_screen = None
         self._page_time_total = None
+        self._pcap_uri = None
         self.discriminator = None
 
         if diagnose_detail is not None:
@@ -111,6 +114,8 @@ class PageDetailForGetTaskResultOutput(object):
             self.page_time_first_screen = page_time_first_screen
         if page_time_total is not None:
             self.page_time_total = page_time_total
+        if pcap_uri is not None:
+            self.pcap_uri = pcap_uri
 
     @property
     def diagnose_detail(self):
@@ -384,6 +389,27 @@ class PageDetailForGetTaskResultOutput(object):
         """
 
         self._page_time_total = page_time_total
+
+    @property
+    def pcap_uri(self):
+        """Gets the pcap_uri of this PageDetailForGetTaskResultOutput.  # noqa: E501
+
+
+        :return: The pcap_uri of this PageDetailForGetTaskResultOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pcap_uri
+
+    @pcap_uri.setter
+    def pcap_uri(self, pcap_uri):
+        """Sets the pcap_uri of this PageDetailForGetTaskResultOutput.
+
+
+        :param pcap_uri: The pcap_uri of this PageDetailForGetTaskResultOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pcap_uri = pcap_uri
 
     def to_dict(self):
         """Returns the model properties as a dict"""
