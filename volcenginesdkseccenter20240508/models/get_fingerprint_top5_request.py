@@ -49,7 +49,8 @@ class GetFingerprintTop5Request(object):
         self._fingerprint_type = None
         self.discriminator = None
 
-        self.fingerprint_type = fingerprint_type
+        if fingerprint_type is not None:
+            self.fingerprint_type = fingerprint_type
 
     @property
     def fingerprint_type(self):
@@ -69,8 +70,6 @@ class GetFingerprintTop5Request(object):
         :param fingerprint_type: The fingerprint_type of this GetFingerprintTop5Request.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and fingerprint_type is None:
-            raise ValueError("Invalid value for `fingerprint_type`, must not be `None`")  # noqa: E501
 
         self._fingerprint_type = fingerprint_type
 

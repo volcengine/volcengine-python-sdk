@@ -33,24 +33,55 @@ class EncryptionForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'kid': 'str'
+        'host': 'str',
+        'kid': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
-        'kid': 'Kid'
+        'host': 'Host',
+        'kid': 'Kid',
+        'type': 'Type'
     }
 
-    def __init__(self, kid=None, _configuration=None):  # noqa: E501
+    def __init__(self, host=None, kid=None, type=None, _configuration=None):  # noqa: E501
         """EncryptionForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._host = None
         self._kid = None
+        self._type = None
         self.discriminator = None
 
+        if host is not None:
+            self.host = host
         if kid is not None:
             self.kid = kid
+        if type is not None:
+            self.type = type
+
+    @property
+    def host(self):
+        """Gets the host of this EncryptionForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The host of this EncryptionForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        """Sets the host of this EncryptionForGetExecutionOutput.
+
+
+        :param host: The host of this EncryptionForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._host = host
 
     @property
     def kid(self):
@@ -72,6 +103,27 @@ class EncryptionForGetExecutionOutput(object):
         """
 
         self._kid = kid
+
+    @property
+    def type(self):
+        """Gets the type of this EncryptionForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The type of this EncryptionForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this EncryptionForGetExecutionOutput.
+
+
+        :param type: The type of this EncryptionForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

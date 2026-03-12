@@ -37,7 +37,9 @@ class DataForListDevBasicInfosOutput(object):
         'asset_id': 'str',
         'asset_name': 'str',
         'private_ip': 'str',
+        'protect_status': 'str',
         'public_ip': 'str',
+        'security_enhancement': 'bool',
         'status': 'str'
     }
 
@@ -46,11 +48,13 @@ class DataForListDevBasicInfosOutput(object):
         'asset_id': 'AssetId',
         'asset_name': 'AssetName',
         'private_ip': 'PrivateIP',
+        'protect_status': 'ProtectStatus',
         'public_ip': 'PublicIP',
+        'security_enhancement': 'SecurityEnhancement',
         'status': 'Status'
     }
 
-    def __init__(self, account_id=None, asset_id=None, asset_name=None, private_ip=None, public_ip=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asset_id=None, asset_name=None, private_ip=None, protect_status=None, public_ip=None, security_enhancement=None, status=None, _configuration=None):  # noqa: E501
         """DataForListDevBasicInfosOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,7 +64,9 @@ class DataForListDevBasicInfosOutput(object):
         self._asset_id = None
         self._asset_name = None
         self._private_ip = None
+        self._protect_status = None
         self._public_ip = None
+        self._security_enhancement = None
         self._status = None
         self.discriminator = None
 
@@ -72,8 +78,12 @@ class DataForListDevBasicInfosOutput(object):
             self.asset_name = asset_name
         if private_ip is not None:
             self.private_ip = private_ip
+        if protect_status is not None:
+            self.protect_status = protect_status
         if public_ip is not None:
             self.public_ip = public_ip
+        if security_enhancement is not None:
+            self.security_enhancement = security_enhancement
         if status is not None:
             self.status = status
 
@@ -162,6 +172,27 @@ class DataForListDevBasicInfosOutput(object):
         self._private_ip = private_ip
 
     @property
+    def protect_status(self):
+        """Gets the protect_status of this DataForListDevBasicInfosOutput.  # noqa: E501
+
+
+        :return: The protect_status of this DataForListDevBasicInfosOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._protect_status
+
+    @protect_status.setter
+    def protect_status(self, protect_status):
+        """Sets the protect_status of this DataForListDevBasicInfosOutput.
+
+
+        :param protect_status: The protect_status of this DataForListDevBasicInfosOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._protect_status = protect_status
+
+    @property
     def public_ip(self):
         """Gets the public_ip of this DataForListDevBasicInfosOutput.  # noqa: E501
 
@@ -181,6 +212,27 @@ class DataForListDevBasicInfosOutput(object):
         """
 
         self._public_ip = public_ip
+
+    @property
+    def security_enhancement(self):
+        """Gets the security_enhancement of this DataForListDevBasicInfosOutput.  # noqa: E501
+
+
+        :return: The security_enhancement of this DataForListDevBasicInfosOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._security_enhancement
+
+    @security_enhancement.setter
+    def security_enhancement(self, security_enhancement):
+        """Sets the security_enhancement of this DataForListDevBasicInfosOutput.
+
+
+        :param security_enhancement: The security_enhancement of this DataForListDevBasicInfosOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._security_enhancement = security_enhancement
 
     @property
     def status(self):

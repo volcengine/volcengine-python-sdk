@@ -39,7 +39,6 @@ class CreateQuotaRequest(object):
         'inode_limit': 'int',
         'limit_type': 'str',
         'quota_type': 'str',
-        'user_id': 'str',
         'user_type': 'str'
     }
 
@@ -50,11 +49,10 @@ class CreateQuotaRequest(object):
         'inode_limit': 'InodeLimit',
         'limit_type': 'LimitType',
         'quota_type': 'QuotaType',
-        'user_id': 'UserId',
         'user_type': 'UserType'
     }
 
-    def __init__(self, capacity_limit=None, file_system_id=None, file_system_path=None, inode_limit=None, limit_type=None, quota_type=None, user_id=None, user_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, capacity_limit=None, file_system_id=None, file_system_path=None, inode_limit=None, limit_type=None, quota_type=None, user_type=None, _configuration=None):  # noqa: E501
         """CreateQuotaRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,7 +64,6 @@ class CreateQuotaRequest(object):
         self._inode_limit = None
         self._limit_type = None
         self._quota_type = None
-        self._user_id = None
         self._user_type = None
         self.discriminator = None
 
@@ -78,8 +75,6 @@ class CreateQuotaRequest(object):
             self.inode_limit = inode_limit
         self.limit_type = limit_type
         self.quota_type = quota_type
-        if user_id is not None:
-            self.user_id = user_id
         if user_type is not None:
             self.user_type = user_type
 
@@ -230,27 +225,6 @@ class CreateQuotaRequest(object):
             )
 
         self._quota_type = quota_type
-
-    @property
-    def user_id(self):
-        """Gets the user_id of this CreateQuotaRequest.  # noqa: E501
-
-
-        :return: The user_id of this CreateQuotaRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_id
-
-    @user_id.setter
-    def user_id(self, user_id):
-        """Sets the user_id of this CreateQuotaRequest.
-
-
-        :param user_id: The user_id of this CreateQuotaRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._user_id = user_id
 
     @property
     def user_type(self):

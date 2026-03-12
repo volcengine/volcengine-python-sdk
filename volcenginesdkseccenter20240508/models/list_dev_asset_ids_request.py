@@ -39,8 +39,10 @@ class ListDevAssetIDsRequest(object):
         'ip': 'str',
         'is_all': 'bool',
         'platforms': 'list[str]',
+        'protect_status': 'str',
         'regions': 'list[str]',
         'risk': 'RiskForListDevAssetIDsInput',
+        'security_enhancement': 'bool',
         'status': 'list[str]'
     }
 
@@ -51,12 +53,14 @@ class ListDevAssetIDsRequest(object):
         'ip': 'IP',
         'is_all': 'IsAll',
         'platforms': 'Platforms',
+        'protect_status': 'ProtectStatus',
         'regions': 'Regions',
         'risk': 'Risk',
+        'security_enhancement': 'SecurityEnhancement',
         'status': 'Status'
     }
 
-    def __init__(self, asset_id=None, asset_ids=None, asset_name=None, ip=None, is_all=None, platforms=None, regions=None, risk=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, asset_id=None, asset_ids=None, asset_name=None, ip=None, is_all=None, platforms=None, protect_status=None, regions=None, risk=None, security_enhancement=None, status=None, _configuration=None):  # noqa: E501
         """ListDevAssetIDsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,8 +72,10 @@ class ListDevAssetIDsRequest(object):
         self._ip = None
         self._is_all = None
         self._platforms = None
+        self._protect_status = None
         self._regions = None
         self._risk = None
+        self._security_enhancement = None
         self._status = None
         self.discriminator = None
 
@@ -85,10 +91,14 @@ class ListDevAssetIDsRequest(object):
             self.is_all = is_all
         if platforms is not None:
             self.platforms = platforms
+        if protect_status is not None:
+            self.protect_status = protect_status
         if regions is not None:
             self.regions = regions
         if risk is not None:
             self.risk = risk
+        if security_enhancement is not None:
+            self.security_enhancement = security_enhancement
         if status is not None:
             self.status = status
 
@@ -219,6 +229,27 @@ class ListDevAssetIDsRequest(object):
         self._platforms = platforms
 
     @property
+    def protect_status(self):
+        """Gets the protect_status of this ListDevAssetIDsRequest.  # noqa: E501
+
+
+        :return: The protect_status of this ListDevAssetIDsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._protect_status
+
+    @protect_status.setter
+    def protect_status(self, protect_status):
+        """Sets the protect_status of this ListDevAssetIDsRequest.
+
+
+        :param protect_status: The protect_status of this ListDevAssetIDsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._protect_status = protect_status
+
+    @property
     def regions(self):
         """Gets the regions of this ListDevAssetIDsRequest.  # noqa: E501
 
@@ -259,6 +290,27 @@ class ListDevAssetIDsRequest(object):
         """
 
         self._risk = risk
+
+    @property
+    def security_enhancement(self):
+        """Gets the security_enhancement of this ListDevAssetIDsRequest.  # noqa: E501
+
+
+        :return: The security_enhancement of this ListDevAssetIDsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._security_enhancement
+
+    @security_enhancement.setter
+    def security_enhancement(self, security_enhancement):
+        """Sets the security_enhancement of this ListDevAssetIDsRequest.
+
+
+        :param security_enhancement: The security_enhancement of this ListDevAssetIDsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._security_enhancement = security_enhancement
 
     @property
     def status(self):

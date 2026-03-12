@@ -34,29 +34,34 @@ class RuleListForListWhiteListsOutput(object):
     """
     swagger_types = {
         'match_content': 'str',
+        'match_content_list': 'list[str]',
         'match_key': 'str',
         'match_type': 'int'
     }
 
     attribute_map = {
         'match_content': 'MatchContent',
+        'match_content_list': 'MatchContentList',
         'match_key': 'MatchKey',
         'match_type': 'MatchType'
     }
 
-    def __init__(self, match_content=None, match_key=None, match_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, match_content=None, match_content_list=None, match_key=None, match_type=None, _configuration=None):  # noqa: E501
         """RuleListForListWhiteListsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._match_content = None
+        self._match_content_list = None
         self._match_key = None
         self._match_type = None
         self.discriminator = None
 
         if match_content is not None:
             self.match_content = match_content
+        if match_content_list is not None:
+            self.match_content_list = match_content_list
         if match_key is not None:
             self.match_key = match_key
         if match_type is not None:
@@ -82,6 +87,27 @@ class RuleListForListWhiteListsOutput(object):
         """
 
         self._match_content = match_content
+
+    @property
+    def match_content_list(self):
+        """Gets the match_content_list of this RuleListForListWhiteListsOutput.  # noqa: E501
+
+
+        :return: The match_content_list of this RuleListForListWhiteListsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._match_content_list
+
+    @match_content_list.setter
+    def match_content_list(self, match_content_list):
+        """Sets the match_content_list of this RuleListForListWhiteListsOutput.
+
+
+        :param match_content_list: The match_content_list of this RuleListForListWhiteListsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._match_content_list = match_content_list
 
     @property
     def match_key(self):

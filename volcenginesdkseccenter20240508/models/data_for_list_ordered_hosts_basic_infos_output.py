@@ -41,6 +41,7 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         'group': 'str',
         'group_path': 'str',
         'last_heartbeat_time': 'int',
+        'old_valid_code': 'int',
         'online': 'bool',
         'platform': 'str',
         'plugins_status': 'str',
@@ -49,7 +50,8 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         'status': 'str',
         'tags': 'list[str]',
         'user_status': 'str',
-        'user_status_reason': 'str'
+        'user_status_reason': 'str',
+        'user_status_reason_code': 'int'
     }
 
     attribute_map = {
@@ -61,6 +63,7 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         'group': 'Group',
         'group_path': 'GroupPath',
         'last_heartbeat_time': 'LastHeartbeatTime',
+        'old_valid_code': 'OldValidCode',
         'online': 'Online',
         'platform': 'Platform',
         'plugins_status': 'PluginsStatus',
@@ -69,10 +72,11 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         'status': 'Status',
         'tags': 'Tags',
         'user_status': 'UserStatus',
-        'user_status_reason': 'UserStatusReason'
+        'user_status_reason': 'UserStatusReason',
+        'user_status_reason_code': 'UserStatusReasonCode'
     }
 
-    def __init__(self, abnormal_plugins_list=None, agent_id=None, agent_status=None, cloud_provider=None, ecs_instance=None, group=None, group_path=None, last_heartbeat_time=None, online=None, platform=None, plugins_status=None, reason=None, security_enhancement=None, status=None, tags=None, user_status=None, user_status_reason=None, _configuration=None):  # noqa: E501
+    def __init__(self, abnormal_plugins_list=None, agent_id=None, agent_status=None, cloud_provider=None, ecs_instance=None, group=None, group_path=None, last_heartbeat_time=None, old_valid_code=None, online=None, platform=None, plugins_status=None, reason=None, security_enhancement=None, status=None, tags=None, user_status=None, user_status_reason=None, user_status_reason_code=None, _configuration=None):  # noqa: E501
         """DataForListOrderedHostsBasicInfosOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +90,7 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         self._group = None
         self._group_path = None
         self._last_heartbeat_time = None
+        self._old_valid_code = None
         self._online = None
         self._platform = None
         self._plugins_status = None
@@ -95,6 +100,7 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         self._tags = None
         self._user_status = None
         self._user_status_reason = None
+        self._user_status_reason_code = None
         self.discriminator = None
 
         if abnormal_plugins_list is not None:
@@ -113,6 +119,8 @@ class DataForListOrderedHostsBasicInfosOutput(object):
             self.group_path = group_path
         if last_heartbeat_time is not None:
             self.last_heartbeat_time = last_heartbeat_time
+        if old_valid_code is not None:
+            self.old_valid_code = old_valid_code
         if online is not None:
             self.online = online
         if platform is not None:
@@ -131,6 +139,8 @@ class DataForListOrderedHostsBasicInfosOutput(object):
             self.user_status = user_status
         if user_status_reason is not None:
             self.user_status_reason = user_status_reason
+        if user_status_reason_code is not None:
+            self.user_status_reason_code = user_status_reason_code
 
     @property
     def abnormal_plugins_list(self):
@@ -299,6 +309,27 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         """
 
         self._last_heartbeat_time = last_heartbeat_time
+
+    @property
+    def old_valid_code(self):
+        """Gets the old_valid_code of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+
+
+        :return: The old_valid_code of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._old_valid_code
+
+    @old_valid_code.setter
+    def old_valid_code(self, old_valid_code):
+        """Sets the old_valid_code of this DataForListOrderedHostsBasicInfosOutput.
+
+
+        :param old_valid_code: The old_valid_code of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._old_valid_code = old_valid_code
 
     @property
     def online(self):
@@ -488,6 +519,27 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         """
 
         self._user_status_reason = user_status_reason
+
+    @property
+    def user_status_reason_code(self):
+        """Gets the user_status_reason_code of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+
+
+        :return: The user_status_reason_code of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_status_reason_code
+
+    @user_status_reason_code.setter
+    def user_status_reason_code(self, user_status_reason_code):
+        """Sets the user_status_reason_code of this DataForListOrderedHostsBasicInfosOutput.
+
+
+        :param user_status_reason_code: The user_status_reason_code of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._user_status_reason_code = user_status_reason_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

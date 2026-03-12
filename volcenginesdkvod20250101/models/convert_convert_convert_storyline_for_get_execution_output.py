@@ -34,7 +34,7 @@ class ConvertConvertConvertStorylineForGetExecutionOutput(object):
     """
     swagger_types = {
         'all_tags': 'list[AllTagForGetExecutionOutput]',
-        'clips': 'list[ConvertConvertConvertClipForGetExecutionOutput]',
+        'clips': 'list[ConvertConvertConvertConvertClipForGetExecutionOutput]',
         'duration': 'float',
         'storylines': 'list[ConvertConvertStorylineForGetExecutionOutput]',
         'summaries': 'list[str]',
@@ -104,7 +104,7 @@ class ConvertConvertConvertStorylineForGetExecutionOutput(object):
 
 
         :return: The clips of this ConvertConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :rtype: list[ConvertConvertConvertClipForGetExecutionOutput]
+        :rtype: list[ConvertConvertConvertConvertClipForGetExecutionOutput]
         """
         return self._clips
 
@@ -114,7 +114,7 @@ class ConvertConvertConvertStorylineForGetExecutionOutput(object):
 
 
         :param clips: The clips of this ConvertConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :type: list[ConvertConvertConvertClipForGetExecutionOutput]
+        :type: list[ConvertConvertConvertConvertClipForGetExecutionOutput]
         """
 
         self._clips = clips

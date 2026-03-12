@@ -38,6 +38,7 @@ class DataForListBaselineCheckConfigOutput(object):
         'baseline_list': 'list[BaselineListForListBaselineCheckConfigOutput]',
         'config_id': 'str',
         'config_name': 'str',
+        'config_name_en': 'str',
         'enable': 'bool',
         'end_time': 'int',
         'if_all_host': 'bool',
@@ -61,6 +62,7 @@ class DataForListBaselineCheckConfigOutput(object):
         'baseline_list': 'BaselineList',
         'config_id': 'ConfigID',
         'config_name': 'ConfigName',
+        'config_name_en': 'ConfigNameEn',
         'enable': 'Enable',
         'end_time': 'EndTime',
         'if_all_host': 'IfAllHost',
@@ -78,7 +80,7 @@ class DataForListBaselineCheckConfigOutput(object):
         'update_user': 'UpdateUser'
     }
 
-    def __init__(self, account_id=None, agent_id_list=None, baseline_list=None, config_id=None, config_name=None, enable=None, end_time=None, if_all_host=None, is_default_config=None, last_check_time=None, leaf_group_ids=None, model=None, period=None, remark=None, single_group_path=None, single_hostname=None, start_time=None, status=None, update_time=None, update_user=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, agent_id_list=None, baseline_list=None, config_id=None, config_name=None, config_name_en=None, enable=None, end_time=None, if_all_host=None, is_default_config=None, last_check_time=None, leaf_group_ids=None, model=None, period=None, remark=None, single_group_path=None, single_hostname=None, start_time=None, status=None, update_time=None, update_user=None, _configuration=None):  # noqa: E501
         """DataForListBaselineCheckConfigOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +91,7 @@ class DataForListBaselineCheckConfigOutput(object):
         self._baseline_list = None
         self._config_id = None
         self._config_name = None
+        self._config_name_en = None
         self._enable = None
         self._end_time = None
         self._if_all_host = None
@@ -116,6 +119,8 @@ class DataForListBaselineCheckConfigOutput(object):
             self.config_id = config_id
         if config_name is not None:
             self.config_name = config_name
+        if config_name_en is not None:
+            self.config_name_en = config_name_en
         if enable is not None:
             self.enable = enable
         if end_time is not None:
@@ -251,6 +256,27 @@ class DataForListBaselineCheckConfigOutput(object):
         """
 
         self._config_name = config_name
+
+    @property
+    def config_name_en(self):
+        """Gets the config_name_en of this DataForListBaselineCheckConfigOutput.  # noqa: E501
+
+
+        :return: The config_name_en of this DataForListBaselineCheckConfigOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._config_name_en
+
+    @config_name_en.setter
+    def config_name_en(self, config_name_en):
+        """Sets the config_name_en of this DataForListBaselineCheckConfigOutput.
+
+
+        :param config_name_en: The config_name_en of this DataForListBaselineCheckConfigOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._config_name_en = config_name_en
 
     @property
     def enable(self):
