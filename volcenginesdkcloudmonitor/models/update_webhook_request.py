@@ -35,18 +35,22 @@ class UpdateWebhookRequest(object):
     swagger_types = {
         'id': 'str',
         'name': 'str',
+        'token': 'str',
         'type': 'str',
-        'url': 'str'
+        'url': 'str',
+        'with_token': 'bool'
     }
 
     attribute_map = {
         'id': 'Id',
         'name': 'Name',
+        'token': 'Token',
         'type': 'Type',
-        'url': 'Url'
+        'url': 'Url',
+        'with_token': 'WithToken'
     }
 
-    def __init__(self, id=None, name=None, type=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, token=None, type=None, url=None, with_token=None, _configuration=None):  # noqa: E501
         """UpdateWebhookRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,14 +58,20 @@ class UpdateWebhookRequest(object):
 
         self._id = None
         self._name = None
+        self._token = None
         self._type = None
         self._url = None
+        self._with_token = None
         self.discriminator = None
 
         self.id = id
         self.name = name
+        if token is not None:
+            self.token = token
         self.type = type
         self.url = url
+        if with_token is not None:
+            self.with_token = with_token
 
     @property
     def id(self):
@@ -110,6 +120,27 @@ class UpdateWebhookRequest(object):
         self._name = name
 
     @property
+    def token(self):
+        """Gets the token of this UpdateWebhookRequest.  # noqa: E501
+
+
+        :return: The token of this UpdateWebhookRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._token
+
+    @token.setter
+    def token(self, token):
+        """Sets the token of this UpdateWebhookRequest.
+
+
+        :param token: The token of this UpdateWebhookRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._token = token
+
+    @property
     def type(self):
         """Gets the type of this UpdateWebhookRequest.  # noqa: E501
 
@@ -154,6 +185,27 @@ class UpdateWebhookRequest(object):
             raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
+
+    @property
+    def with_token(self):
+        """Gets the with_token of this UpdateWebhookRequest.  # noqa: E501
+
+
+        :return: The with_token of this UpdateWebhookRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._with_token
+
+    @with_token.setter
+    def with_token(self, with_token):
+        """Sets the with_token of this UpdateWebhookRequest.
+
+
+        :param with_token: The with_token of this UpdateWebhookRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._with_token = with_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""
