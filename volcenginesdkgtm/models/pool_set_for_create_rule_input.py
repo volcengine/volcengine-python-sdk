@@ -33,55 +33,55 @@ class PoolSetForCreateRuleInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'active_addr_count': 'int',
+        'active_addr_thr': 'int',
         'name': 'str',
         'pools': 'list[PoolForCreateRuleInput]'
     }
 
     attribute_map = {
-        'active_addr_count': 'ActiveAddrCount',
+        'active_addr_thr': 'ActiveAddrThr',
         'name': 'Name',
         'pools': 'Pools'
     }
 
-    def __init__(self, active_addr_count=None, name=None, pools=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_addr_thr=None, name=None, pools=None, _configuration=None):  # noqa: E501
         """PoolSetForCreateRuleInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._active_addr_count = None
+        self._active_addr_thr = None
         self._name = None
         self._pools = None
         self.discriminator = None
 
-        if active_addr_count is not None:
-            self.active_addr_count = active_addr_count
+        if active_addr_thr is not None:
+            self.active_addr_thr = active_addr_thr
         if name is not None:
             self.name = name
         if pools is not None:
             self.pools = pools
 
     @property
-    def active_addr_count(self):
-        """Gets the active_addr_count of this PoolSetForCreateRuleInput.  # noqa: E501
+    def active_addr_thr(self):
+        """Gets the active_addr_thr of this PoolSetForCreateRuleInput.  # noqa: E501
 
 
-        :return: The active_addr_count of this PoolSetForCreateRuleInput.  # noqa: E501
+        :return: The active_addr_thr of this PoolSetForCreateRuleInput.  # noqa: E501
         :rtype: int
         """
-        return self._active_addr_count
+        return self._active_addr_thr
 
-    @active_addr_count.setter
-    def active_addr_count(self, active_addr_count):
-        """Sets the active_addr_count of this PoolSetForCreateRuleInput.
+    @active_addr_thr.setter
+    def active_addr_thr(self, active_addr_thr):
+        """Sets the active_addr_thr of this PoolSetForCreateRuleInput.
 
 
-        :param active_addr_count: The active_addr_count of this PoolSetForCreateRuleInput.  # noqa: E501
+        :param active_addr_thr: The active_addr_thr of this PoolSetForCreateRuleInput.  # noqa: E501
         :type: int
         """
 
-        self._active_addr_count = active_addr_count
+        self._active_addr_thr = active_addr_thr
 
     @property
     def name(self):
