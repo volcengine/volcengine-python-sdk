@@ -34,7 +34,7 @@ class CustomEditForGetExecutionOutput(object):
     """
     swagger_types = {
         'canvas': 'CanvasForGetExecutionOutput',
-        'output': 'OutputForGetExecutionOutput'
+        'output': 'ConvertOutputForGetExecutionOutput'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class CustomEditForGetExecutionOutput(object):
 
 
         :return: The output of this CustomEditForGetExecutionOutput.  # noqa: E501
-        :rtype: OutputForGetExecutionOutput
+        :rtype: ConvertOutputForGetExecutionOutput
         """
         return self._output
 
@@ -94,7 +94,7 @@ class CustomEditForGetExecutionOutput(object):
 
 
         :param output: The output of this CustomEditForGetExecutionOutput.  # noqa: E501
-        :type: OutputForGetExecutionOutput
+        :type: ConvertOutputForGetExecutionOutput
         """
 
         self._output = output

@@ -34,7 +34,7 @@ class ConvertStorylineCutsForGetExecutionOutput(object):
     """
     swagger_types = {
         'cut_segments': 'list[CutSegmentForGetExecutionOutput]',
-        'segments': 'list[ConvertConvertConvertSegmentForGetExecutionOutput]',
+        'segments': 'list[ConvertConvertConvertConvertSegmentForGetExecutionOutput]',
         'storylines': 'list[ConvertStorylineForGetExecutionOutput]'
     }
 
@@ -89,7 +89,7 @@ class ConvertStorylineCutsForGetExecutionOutput(object):
 
 
         :return: The segments of this ConvertStorylineCutsForGetExecutionOutput.  # noqa: E501
-        :rtype: list[ConvertConvertConvertSegmentForGetExecutionOutput]
+        :rtype: list[ConvertConvertConvertConvertSegmentForGetExecutionOutput]
         """
         return self._segments
 
@@ -99,7 +99,7 @@ class ConvertStorylineCutsForGetExecutionOutput(object):
 
 
         :param segments: The segments of this ConvertStorylineCutsForGetExecutionOutput.  # noqa: E501
-        :type: list[ConvertConvertConvertSegmentForGetExecutionOutput]
+        :type: list[ConvertConvertConvertConvertSegmentForGetExecutionOutput]
         """
 
         self._segments = segments

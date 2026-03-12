@@ -34,6 +34,7 @@ class UpdateQuotaRequest(object):
     """
     swagger_types = {
         'capacity_limit': 'int',
+        'file_system_id': 'str',
         'inode_limit': 'int',
         'limit_type': 'str',
         'quota_id': 'str'
@@ -41,18 +42,20 @@ class UpdateQuotaRequest(object):
 
     attribute_map = {
         'capacity_limit': 'CapacityLimit',
+        'file_system_id': 'FileSystemId',
         'inode_limit': 'InodeLimit',
         'limit_type': 'LimitType',
         'quota_id': 'QuotaId'
     }
 
-    def __init__(self, capacity_limit=None, inode_limit=None, limit_type=None, quota_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, capacity_limit=None, file_system_id=None, inode_limit=None, limit_type=None, quota_id=None, _configuration=None):  # noqa: E501
         """UpdateQuotaRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._capacity_limit = None
+        self._file_system_id = None
         self._inode_limit = None
         self._limit_type = None
         self._quota_id = None
@@ -60,6 +63,7 @@ class UpdateQuotaRequest(object):
 
         if capacity_limit is not None:
             self.capacity_limit = capacity_limit
+        self.file_system_id = file_system_id
         if inode_limit is not None:
             self.inode_limit = inode_limit
         if limit_type is not None:
@@ -86,6 +90,29 @@ class UpdateQuotaRequest(object):
         """
 
         self._capacity_limit = capacity_limit
+
+    @property
+    def file_system_id(self):
+        """Gets the file_system_id of this UpdateQuotaRequest.  # noqa: E501
+
+
+        :return: The file_system_id of this UpdateQuotaRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_system_id
+
+    @file_system_id.setter
+    def file_system_id(self, file_system_id):
+        """Sets the file_system_id of this UpdateQuotaRequest.
+
+
+        :param file_system_id: The file_system_id of this UpdateQuotaRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and file_system_id is None:
+            raise ValueError("Invalid value for `file_system_id`, must not be `None`")  # noqa: E501
+
+        self._file_system_id = file_system_id
 
     @property
     def inode_limit(self):

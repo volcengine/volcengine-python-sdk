@@ -33,97 +33,71 @@ class ConvertClipForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'end': 'float',
-        'start': 'float',
-        'video_index': 'int'
+        'end_time': 'int',
+        'start_time': 'int'
     }
 
     attribute_map = {
-        'end': 'End',
-        'start': 'Start',
-        'video_index': 'VideoIndex'
+        'end_time': 'EndTime',
+        'start_time': 'StartTime'
     }
 
-    def __init__(self, end=None, start=None, video_index=None, _configuration=None):  # noqa: E501
+    def __init__(self, end_time=None, start_time=None, _configuration=None):  # noqa: E501
         """ConvertClipForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._end = None
-        self._start = None
-        self._video_index = None
+        self._end_time = None
+        self._start_time = None
         self.discriminator = None
 
-        if end is not None:
-            self.end = end
-        if start is not None:
-            self.start = start
-        if video_index is not None:
-            self.video_index = video_index
+        if end_time is not None:
+            self.end_time = end_time
+        if start_time is not None:
+            self.start_time = start_time
 
     @property
-    def end(self):
-        """Gets the end of this ConvertClipForGetExecutionOutput.  # noqa: E501
+    def end_time(self):
+        """Gets the end_time of this ConvertClipForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The end of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: float
-        """
-        return self._end
-
-    @end.setter
-    def end(self, end):
-        """Sets the end of this ConvertClipForGetExecutionOutput.
-
-
-        :param end: The end of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: float
-        """
-
-        self._end = end
-
-    @property
-    def start(self):
-        """Gets the start of this ConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The start of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: float
-        """
-        return self._start
-
-    @start.setter
-    def start(self, start):
-        """Sets the start of this ConvertClipForGetExecutionOutput.
-
-
-        :param start: The start of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: float
-        """
-
-        self._start = start
-
-    @property
-    def video_index(self):
-        """Gets the video_index of this ConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The video_index of this ConvertClipForGetExecutionOutput.  # noqa: E501
+        :return: The end_time of this ConvertClipForGetExecutionOutput.  # noqa: E501
         :rtype: int
         """
-        return self._video_index
+        return self._end_time
 
-    @video_index.setter
-    def video_index(self, video_index):
-        """Sets the video_index of this ConvertClipForGetExecutionOutput.
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this ConvertClipForGetExecutionOutput.
 
 
-        :param video_index: The video_index of this ConvertClipForGetExecutionOutput.  # noqa: E501
+        :param end_time: The end_time of this ConvertClipForGetExecutionOutput.  # noqa: E501
         :type: int
         """
 
-        self._video_index = video_index
+        self._end_time = end_time
+
+    @property
+    def start_time(self):
+        """Gets the start_time of this ConvertClipForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The start_time of this ConvertClipForGetExecutionOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this ConvertClipForGetExecutionOutput.
+
+
+        :param start_time: The start_time of this ConvertClipForGetExecutionOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._start_time = start_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

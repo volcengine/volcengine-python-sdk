@@ -38,11 +38,15 @@ class GetBruteForceBanConfigResponse(object):
         'all_host': 'bool',
         'ban_scenes': 'list[str]',
         'ban_type': 'str',
+        'ban_type_list': 'list[str]',
         'cloud_providers': 'list[str]',
         'enable': 'bool',
         'leaf_group_ids': 'list[str]',
+        'manager_id': 'str',
         'operator': 'str',
         'rule_list': 'list[RuleListForGetBruteForceBanConfigOutput]',
+        'single_group_path': 'str',
+        'single_hostname': 'str',
         'top_group_id': 'str'
     }
 
@@ -52,15 +56,19 @@ class GetBruteForceBanConfigResponse(object):
         'all_host': 'AllHost',
         'ban_scenes': 'BanScenes',
         'ban_type': 'BanType',
+        'ban_type_list': 'BanTypeList',
         'cloud_providers': 'CloudProviders',
         'enable': 'Enable',
         'leaf_group_ids': 'LeafGroupIDs',
+        'manager_id': 'ManagerID',
         'operator': 'Operator',
         'rule_list': 'RuleList',
+        'single_group_path': 'SingleGroupPath',
+        'single_hostname': 'SingleHostname',
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, account_id=None, agent_id_list=None, all_host=None, ban_scenes=None, ban_type=None, cloud_providers=None, enable=None, leaf_group_ids=None, operator=None, rule_list=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, agent_id_list=None, all_host=None, ban_scenes=None, ban_type=None, ban_type_list=None, cloud_providers=None, enable=None, leaf_group_ids=None, manager_id=None, operator=None, rule_list=None, single_group_path=None, single_hostname=None, top_group_id=None, _configuration=None):  # noqa: E501
         """GetBruteForceBanConfigResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,11 +79,15 @@ class GetBruteForceBanConfigResponse(object):
         self._all_host = None
         self._ban_scenes = None
         self._ban_type = None
+        self._ban_type_list = None
         self._cloud_providers = None
         self._enable = None
         self._leaf_group_ids = None
+        self._manager_id = None
         self._operator = None
         self._rule_list = None
+        self._single_group_path = None
+        self._single_hostname = None
         self._top_group_id = None
         self.discriminator = None
 
@@ -89,16 +101,24 @@ class GetBruteForceBanConfigResponse(object):
             self.ban_scenes = ban_scenes
         if ban_type is not None:
             self.ban_type = ban_type
+        if ban_type_list is not None:
+            self.ban_type_list = ban_type_list
         if cloud_providers is not None:
             self.cloud_providers = cloud_providers
         if enable is not None:
             self.enable = enable
         if leaf_group_ids is not None:
             self.leaf_group_ids = leaf_group_ids
+        if manager_id is not None:
+            self.manager_id = manager_id
         if operator is not None:
             self.operator = operator
         if rule_list is not None:
             self.rule_list = rule_list
+        if single_group_path is not None:
+            self.single_group_path = single_group_path
+        if single_hostname is not None:
+            self.single_hostname = single_hostname
         if top_group_id is not None:
             self.top_group_id = top_group_id
 
@@ -208,6 +228,27 @@ class GetBruteForceBanConfigResponse(object):
         self._ban_type = ban_type
 
     @property
+    def ban_type_list(self):
+        """Gets the ban_type_list of this GetBruteForceBanConfigResponse.  # noqa: E501
+
+
+        :return: The ban_type_list of this GetBruteForceBanConfigResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ban_type_list
+
+    @ban_type_list.setter
+    def ban_type_list(self, ban_type_list):
+        """Sets the ban_type_list of this GetBruteForceBanConfigResponse.
+
+
+        :param ban_type_list: The ban_type_list of this GetBruteForceBanConfigResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ban_type_list = ban_type_list
+
+    @property
     def cloud_providers(self):
         """Gets the cloud_providers of this GetBruteForceBanConfigResponse.  # noqa: E501
 
@@ -271,6 +312,27 @@ class GetBruteForceBanConfigResponse(object):
         self._leaf_group_ids = leaf_group_ids
 
     @property
+    def manager_id(self):
+        """Gets the manager_id of this GetBruteForceBanConfigResponse.  # noqa: E501
+
+
+        :return: The manager_id of this GetBruteForceBanConfigResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._manager_id
+
+    @manager_id.setter
+    def manager_id(self, manager_id):
+        """Sets the manager_id of this GetBruteForceBanConfigResponse.
+
+
+        :param manager_id: The manager_id of this GetBruteForceBanConfigResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._manager_id = manager_id
+
+    @property
     def operator(self):
         """Gets the operator of this GetBruteForceBanConfigResponse.  # noqa: E501
 
@@ -311,6 +373,48 @@ class GetBruteForceBanConfigResponse(object):
         """
 
         self._rule_list = rule_list
+
+    @property
+    def single_group_path(self):
+        """Gets the single_group_path of this GetBruteForceBanConfigResponse.  # noqa: E501
+
+
+        :return: The single_group_path of this GetBruteForceBanConfigResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._single_group_path
+
+    @single_group_path.setter
+    def single_group_path(self, single_group_path):
+        """Sets the single_group_path of this GetBruteForceBanConfigResponse.
+
+
+        :param single_group_path: The single_group_path of this GetBruteForceBanConfigResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._single_group_path = single_group_path
+
+    @property
+    def single_hostname(self):
+        """Gets the single_hostname of this GetBruteForceBanConfigResponse.  # noqa: E501
+
+
+        :return: The single_hostname of this GetBruteForceBanConfigResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._single_hostname
+
+    @single_hostname.setter
+    def single_hostname(self, single_hostname):
+        """Sets the single_hostname of this GetBruteForceBanConfigResponse.
+
+
+        :param single_hostname: The single_hostname of this GetBruteForceBanConfigResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._single_hostname = single_hostname
 
     @property
     def top_group_id(self):

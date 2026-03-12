@@ -37,6 +37,7 @@ class GetSecurityOverviewResponse(object):
         'container_intrusion': 'ContainerIntrusionForGetSecurityOverviewOutput',
         'host_intrusion': 'HostIntrusionForGetSecurityOverviewOutput',
         'rasp_intrusion': 'RaspIntrusionForGetSecurityOverviewOutput',
+        'real_risk_vul': 'RealRiskVulForGetSecurityOverviewOutput',
         'virus_file': 'VirusFileForGetSecurityOverviewOutput',
         'vuln_risk': 'VulnRiskForGetSecurityOverviewOutput'
     }
@@ -46,11 +47,12 @@ class GetSecurityOverviewResponse(object):
         'container_intrusion': 'ContainerIntrusion',
         'host_intrusion': 'HostIntrusion',
         'rasp_intrusion': 'RaspIntrusion',
+        'real_risk_vul': 'RealRiskVul',
         'virus_file': 'VirusFile',
         'vuln_risk': 'VulnRisk'
     }
 
-    def __init__(self, baseline_risk=None, container_intrusion=None, host_intrusion=None, rasp_intrusion=None, virus_file=None, vuln_risk=None, _configuration=None):  # noqa: E501
+    def __init__(self, baseline_risk=None, container_intrusion=None, host_intrusion=None, rasp_intrusion=None, real_risk_vul=None, virus_file=None, vuln_risk=None, _configuration=None):  # noqa: E501
         """GetSecurityOverviewResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +62,7 @@ class GetSecurityOverviewResponse(object):
         self._container_intrusion = None
         self._host_intrusion = None
         self._rasp_intrusion = None
+        self._real_risk_vul = None
         self._virus_file = None
         self._vuln_risk = None
         self.discriminator = None
@@ -72,6 +75,8 @@ class GetSecurityOverviewResponse(object):
             self.host_intrusion = host_intrusion
         if rasp_intrusion is not None:
             self.rasp_intrusion = rasp_intrusion
+        if real_risk_vul is not None:
+            self.real_risk_vul = real_risk_vul
         if virus_file is not None:
             self.virus_file = virus_file
         if vuln_risk is not None:
@@ -160,6 +165,27 @@ class GetSecurityOverviewResponse(object):
         """
 
         self._rasp_intrusion = rasp_intrusion
+
+    @property
+    def real_risk_vul(self):
+        """Gets the real_risk_vul of this GetSecurityOverviewResponse.  # noqa: E501
+
+
+        :return: The real_risk_vul of this GetSecurityOverviewResponse.  # noqa: E501
+        :rtype: RealRiskVulForGetSecurityOverviewOutput
+        """
+        return self._real_risk_vul
+
+    @real_risk_vul.setter
+    def real_risk_vul(self, real_risk_vul):
+        """Sets the real_risk_vul of this GetSecurityOverviewResponse.
+
+
+        :param real_risk_vul: The real_risk_vul of this GetSecurityOverviewResponse.  # noqa: E501
+        :type: RealRiskVulForGetSecurityOverviewOutput
+        """
+
+        self._real_risk_vul = real_risk_vul
 
     @property
     def virus_file(self):

@@ -36,7 +36,7 @@ class ConvertVideoGenerationForGetExecutionOutput(object):
         'duration': 'float',
         'model': 'str',
         'resolution': 'str',
-        'video': 'VideoForGetExecutionOutput'
+        'video': 'ConvertConvertVideoForGetExecutionOutput'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class ConvertVideoGenerationForGetExecutionOutput(object):
 
 
         :return: The video of this ConvertVideoGenerationForGetExecutionOutput.  # noqa: E501
-        :rtype: VideoForGetExecutionOutput
+        :rtype: ConvertConvertVideoForGetExecutionOutput
         """
         return self._video
 
@@ -146,7 +146,7 @@ class ConvertVideoGenerationForGetExecutionOutput(object):
 
 
         :param video: The video of this ConvertVideoGenerationForGetExecutionOutput.  # noqa: E501
-        :type: VideoForGetExecutionOutput
+        :type: ConvertConvertVideoForGetExecutionOutput
         """
 
         self._video = video

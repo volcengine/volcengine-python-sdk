@@ -54,6 +54,7 @@ class GetHidsAlarmInfoResponse(object):
         'plus_alarm_info6003': 'PlusAlarmInfo6003ForGetHidsAlarmInfoOutput',
         'plus_alarm_info601': 'PlusAlarmInfo601ForGetHidsAlarmInfoOutput',
         'plus_alarm_info602': 'PlusAlarmInfo602ForGetHidsAlarmInfoOutput',
+        'plus_alarm_info602x': 'PlusAlarmInfo602xForGetHidsAlarmInfoOutput',
         'plus_alarm_info603': 'PlusAlarmInfo603ForGetHidsAlarmInfoOutput',
         'plus_alarm_info604': 'PlusAlarmInfo604ForGetHidsAlarmInfoOutput',
         'plus_alarm_info700': 'PlusAlarmInfo700ForGetHidsAlarmInfoOutput',
@@ -87,6 +88,7 @@ class GetHidsAlarmInfoResponse(object):
         'plus_alarm_info6003': 'PlusAlarmInfo6003',
         'plus_alarm_info601': 'PlusAlarmInfo601',
         'plus_alarm_info602': 'PlusAlarmInfo602',
+        'plus_alarm_info602x': 'PlusAlarmInfo602x',
         'plus_alarm_info603': 'PlusAlarmInfo603',
         'plus_alarm_info604': 'PlusAlarmInfo604',
         'plus_alarm_info700': 'PlusAlarmInfo700',
@@ -98,7 +100,7 @@ class GetHidsAlarmInfoResponse(object):
         'plus_kill_chain': 'PlusKillChain'
     }
 
-    def __init__(self, alarm_data_type2439=None, base_alarm_info=None, base_info=None, comm_alarm_info=None, container_info=None, data_type=None, data_type_str=None, endpoint=None, hub_trace_data=None, plus_alarm_info101=None, plus_alarm_info3004=None, plus_alarm_info356=None, plus_alarm_info4000=None, plus_alarm_info42=None, plus_alarm_info49=None, plus_alarm_info59=None, plus_alarm_info6001=None, plus_alarm_info6002=None, plus_alarm_info6003=None, plus_alarm_info601=None, plus_alarm_info602=None, plus_alarm_info603=None, plus_alarm_info604=None, plus_alarm_info700=None, plus_alarm_info701=None, plus_alarm_info702=None, plus_alarm_info703=None, plus_alarm_info82=None, plus_alarm_info86=None, plus_kill_chain=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_data_type2439=None, base_alarm_info=None, base_info=None, comm_alarm_info=None, container_info=None, data_type=None, data_type_str=None, endpoint=None, hub_trace_data=None, plus_alarm_info101=None, plus_alarm_info3004=None, plus_alarm_info356=None, plus_alarm_info4000=None, plus_alarm_info42=None, plus_alarm_info49=None, plus_alarm_info59=None, plus_alarm_info6001=None, plus_alarm_info6002=None, plus_alarm_info6003=None, plus_alarm_info601=None, plus_alarm_info602=None, plus_alarm_info602x=None, plus_alarm_info603=None, plus_alarm_info604=None, plus_alarm_info700=None, plus_alarm_info701=None, plus_alarm_info702=None, plus_alarm_info703=None, plus_alarm_info82=None, plus_alarm_info86=None, plus_kill_chain=None, _configuration=None):  # noqa: E501
         """GetHidsAlarmInfoResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -125,6 +127,7 @@ class GetHidsAlarmInfoResponse(object):
         self._plus_alarm_info6003 = None
         self._plus_alarm_info601 = None
         self._plus_alarm_info602 = None
+        self._plus_alarm_info602x = None
         self._plus_alarm_info603 = None
         self._plus_alarm_info604 = None
         self._plus_alarm_info700 = None
@@ -178,6 +181,8 @@ class GetHidsAlarmInfoResponse(object):
             self.plus_alarm_info601 = plus_alarm_info601
         if plus_alarm_info602 is not None:
             self.plus_alarm_info602 = plus_alarm_info602
+        if plus_alarm_info602x is not None:
+            self.plus_alarm_info602x = plus_alarm_info602x
         if plus_alarm_info603 is not None:
             self.plus_alarm_info603 = plus_alarm_info603
         if plus_alarm_info604 is not None:
@@ -637,6 +642,27 @@ class GetHidsAlarmInfoResponse(object):
         """
 
         self._plus_alarm_info602 = plus_alarm_info602
+
+    @property
+    def plus_alarm_info602x(self):
+        """Gets the plus_alarm_info602x of this GetHidsAlarmInfoResponse.  # noqa: E501
+
+
+        :return: The plus_alarm_info602x of this GetHidsAlarmInfoResponse.  # noqa: E501
+        :rtype: PlusAlarmInfo602xForGetHidsAlarmInfoOutput
+        """
+        return self._plus_alarm_info602x
+
+    @plus_alarm_info602x.setter
+    def plus_alarm_info602x(self, plus_alarm_info602x):
+        """Sets the plus_alarm_info602x of this GetHidsAlarmInfoResponse.
+
+
+        :param plus_alarm_info602x: The plus_alarm_info602x of this GetHidsAlarmInfoResponse.  # noqa: E501
+        :type: PlusAlarmInfo602xForGetHidsAlarmInfoOutput
+        """
+
+        self._plus_alarm_info602x = plus_alarm_info602x
 
     @property
     def plus_alarm_info603(self):

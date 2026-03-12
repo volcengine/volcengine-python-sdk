@@ -34,7 +34,7 @@ class TemplateForStartExecutionInput(object):
     """
     swagger_types = {
         'byte_hd': 'ByteHDForStartExecutionInput',
-        'enhance': 'ConvertEnhanceForStartExecutionInput',
+        'enhance': 'ConvertConvertEnhanceForStartExecutionInput',
         'transcode_audio': 'TranscodeAudioForStartExecutionInput',
         'transcode_video': 'TranscodeVideoForStartExecutionInput',
         'type': 'str'
@@ -99,7 +99,7 @@ class TemplateForStartExecutionInput(object):
 
 
         :return: The enhance of this TemplateForStartExecutionInput.  # noqa: E501
-        :rtype: ConvertEnhanceForStartExecutionInput
+        :rtype: ConvertConvertEnhanceForStartExecutionInput
         """
         return self._enhance
 
@@ -109,7 +109,7 @@ class TemplateForStartExecutionInput(object):
 
 
         :param enhance: The enhance of this TemplateForStartExecutionInput.  # noqa: E501
-        :type: ConvertEnhanceForStartExecutionInput
+        :type: ConvertConvertEnhanceForStartExecutionInput
         """
 
         self._enhance = enhance

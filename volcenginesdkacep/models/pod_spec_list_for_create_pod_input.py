@@ -44,6 +44,7 @@ class PodSpecListForCreatePodInput(object):
         'host_id': 'str',
         'ip_white_list': 'str',
         'image_id': 'str',
+        'is_selinux_on': 'bool',
         'overlay_persist_property': 'list[OverlayPersistPropertyForCreatePodInput]',
         'overlay_property': 'list[OverlayPropertyForCreatePodInput]',
         'overlay_settings': 'list[OverlaySettingForCreatePodInput]',
@@ -67,6 +68,7 @@ class PodSpecListForCreatePodInput(object):
         'host_id': 'HostId',
         'ip_white_list': 'IPWhiteList',
         'image_id': 'ImageId',
+        'is_selinux_on': 'IsSelinuxOn',
         'overlay_persist_property': 'OverlayPersistProperty',
         'overlay_property': 'OverlayProperty',
         'overlay_settings': 'OverlaySettings',
@@ -78,7 +80,7 @@ class PodSpecListForCreatePodInput(object):
         'up_bandwidth_limit': 'UpBandwidthLimit'
     }
 
-    def __init__(self, apply_num=None, configuration_code=None, custom_route_id=None, dnsid=None, data_size=None, dc=None, display_layout_id=None, down_bandwidth_limit=None, host_id=None, ip_white_list=None, image_id=None, overlay_persist_property=None, overlay_property=None, overlay_settings=None, phone_template_id=None, pod_name=None, port_mapping_rule_id_list=None, start=None, tag_id=None, up_bandwidth_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, apply_num=None, configuration_code=None, custom_route_id=None, dnsid=None, data_size=None, dc=None, display_layout_id=None, down_bandwidth_limit=None, host_id=None, ip_white_list=None, image_id=None, is_selinux_on=None, overlay_persist_property=None, overlay_property=None, overlay_settings=None, phone_template_id=None, pod_name=None, port_mapping_rule_id_list=None, start=None, tag_id=None, up_bandwidth_limit=None, _configuration=None):  # noqa: E501
         """PodSpecListForCreatePodInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,6 +97,7 @@ class PodSpecListForCreatePodInput(object):
         self._host_id = None
         self._ip_white_list = None
         self._image_id = None
+        self._is_selinux_on = None
         self._overlay_persist_property = None
         self._overlay_property = None
         self._overlay_settings = None
@@ -128,6 +131,8 @@ class PodSpecListForCreatePodInput(object):
             self.ip_white_list = ip_white_list
         if image_id is not None:
             self.image_id = image_id
+        if is_selinux_on is not None:
+            self.is_selinux_on = is_selinux_on
         if overlay_persist_property is not None:
             self.overlay_persist_property = overlay_persist_property
         if overlay_property is not None:
@@ -377,6 +382,27 @@ class PodSpecListForCreatePodInput(object):
         """
 
         self._image_id = image_id
+
+    @property
+    def is_selinux_on(self):
+        """Gets the is_selinux_on of this PodSpecListForCreatePodInput.  # noqa: E501
+
+
+        :return: The is_selinux_on of this PodSpecListForCreatePodInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_selinux_on
+
+    @is_selinux_on.setter
+    def is_selinux_on(self, is_selinux_on):
+        """Sets the is_selinux_on of this PodSpecListForCreatePodInput.
+
+
+        :param is_selinux_on: The is_selinux_on of this PodSpecListForCreatePodInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_selinux_on = is_selinux_on
 
     @property
     def overlay_persist_property(self):
