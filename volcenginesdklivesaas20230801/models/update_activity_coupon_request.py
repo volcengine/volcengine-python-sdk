@@ -35,6 +35,7 @@ class UpdateActivityCouponRequest(object):
     swagger_types = {
         'activity_id': 'int',
         'allow_close_icon': 'bool',
+        'auto_send_time': 'int',
         'count': 'int',
         'coupon_id': 'int',
         'cut_off_time': 'int',
@@ -43,12 +44,14 @@ class UpdateActivityCouponRequest(object):
         'is_viewer_level_limit': 'int',
         'is_watch_live_limit': 'int',
         'rule': 'int',
+        'send_coupon_type': 'int',
         'viewer_level_config_ids': 'list[int]'
     }
 
     attribute_map = {
         'activity_id': 'ActivityId',
         'allow_close_icon': 'AllowCloseIcon',
+        'auto_send_time': 'AutoSendTime',
         'count': 'Count',
         'coupon_id': 'CouponId',
         'cut_off_time': 'CutOffTime',
@@ -57,10 +60,11 @@ class UpdateActivityCouponRequest(object):
         'is_viewer_level_limit': 'IsViewerLevelLimit',
         'is_watch_live_limit': 'IsWatchLiveLimit',
         'rule': 'Rule',
+        'send_coupon_type': 'SendCouponType',
         'viewer_level_config_ids': 'ViewerLevelConfigIds'
     }
 
-    def __init__(self, activity_id=None, allow_close_icon=None, count=None, coupon_id=None, cut_off_time=None, duration=None, id=None, is_viewer_level_limit=None, is_watch_live_limit=None, rule=None, viewer_level_config_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, allow_close_icon=None, auto_send_time=None, count=None, coupon_id=None, cut_off_time=None, duration=None, id=None, is_viewer_level_limit=None, is_watch_live_limit=None, rule=None, send_coupon_type=None, viewer_level_config_ids=None, _configuration=None):  # noqa: E501
         """UpdateActivityCouponRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +72,7 @@ class UpdateActivityCouponRequest(object):
 
         self._activity_id = None
         self._allow_close_icon = None
+        self._auto_send_time = None
         self._count = None
         self._coupon_id = None
         self._cut_off_time = None
@@ -76,12 +81,15 @@ class UpdateActivityCouponRequest(object):
         self._is_viewer_level_limit = None
         self._is_watch_live_limit = None
         self._rule = None
+        self._send_coupon_type = None
         self._viewer_level_config_ids = None
         self.discriminator = None
 
         self.activity_id = activity_id
         if allow_close_icon is not None:
             self.allow_close_icon = allow_close_icon
+        if auto_send_time is not None:
+            self.auto_send_time = auto_send_time
         if count is not None:
             self.count = count
         if coupon_id is not None:
@@ -97,6 +105,8 @@ class UpdateActivityCouponRequest(object):
             self.is_watch_live_limit = is_watch_live_limit
         if rule is not None:
             self.rule = rule
+        if send_coupon_type is not None:
+            self.send_coupon_type = send_coupon_type
         if viewer_level_config_ids is not None:
             self.viewer_level_config_ids = viewer_level_config_ids
 
@@ -143,6 +153,27 @@ class UpdateActivityCouponRequest(object):
         """
 
         self._allow_close_icon = allow_close_icon
+
+    @property
+    def auto_send_time(self):
+        """Gets the auto_send_time of this UpdateActivityCouponRequest.  # noqa: E501
+
+
+        :return: The auto_send_time of this UpdateActivityCouponRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_send_time
+
+    @auto_send_time.setter
+    def auto_send_time(self, auto_send_time):
+        """Sets the auto_send_time of this UpdateActivityCouponRequest.
+
+
+        :param auto_send_time: The auto_send_time of this UpdateActivityCouponRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_send_time = auto_send_time
 
     @property
     def count(self):
@@ -313,6 +344,27 @@ class UpdateActivityCouponRequest(object):
         """
 
         self._rule = rule
+
+    @property
+    def send_coupon_type(self):
+        """Gets the send_coupon_type of this UpdateActivityCouponRequest.  # noqa: E501
+
+
+        :return: The send_coupon_type of this UpdateActivityCouponRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._send_coupon_type
+
+    @send_coupon_type.setter
+    def send_coupon_type(self, send_coupon_type):
+        """Sets the send_coupon_type of this UpdateActivityCouponRequest.
+
+
+        :param send_coupon_type: The send_coupon_type of this UpdateActivityCouponRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._send_coupon_type = send_coupon_type
 
     @property
     def viewer_level_config_ids(self):
