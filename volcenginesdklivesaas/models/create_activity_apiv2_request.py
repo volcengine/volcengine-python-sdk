@@ -42,6 +42,7 @@ class CreateActivityAPIV2Request(object):
         'is_answer_repetition_enable': 'int',
         'is_auto_end_enable': 'int',
         'is_auto_start_enable': 'int',
+        'is_link_mic_enable': 'int',
         'is_replay_auto_online_enable': 'int',
         'live_layout': 'int',
         'live_mode': 'int',
@@ -67,6 +68,7 @@ class CreateActivityAPIV2Request(object):
         'is_answer_repetition_enable': 'IsAnswerRepetitionEnable',
         'is_auto_end_enable': 'IsAutoEndEnable',
         'is_auto_start_enable': 'IsAutoStartEnable',
+        'is_link_mic_enable': 'IsLinkMicEnable',
         'is_replay_auto_online_enable': 'IsReplayAutoOnlineEnable',
         'live_layout': 'LiveLayout',
         'live_mode': 'LiveMode',
@@ -82,7 +84,7 @@ class CreateActivityAPIV2Request(object):
         'view_url_path': 'ViewUrlPath'
     }
 
-    def __init__(self, activity_type=None, auto_start_config=None, copy_stream=None, cover_image=None, creator_name=None, end_time=None, is_answer_repetition_enable=None, is_auto_end_enable=None, is_auto_start_enable=None, is_replay_auto_online_enable=None, live_layout=None, live_mode=None, live_time=None, loop_videos=None, name=None, old_id=None, site_tags=None, template_id=None, text_site_tags=None, vertical_cover_image=None, vid=None, view_url_path=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_type=None, auto_start_config=None, copy_stream=None, cover_image=None, creator_name=None, end_time=None, is_answer_repetition_enable=None, is_auto_end_enable=None, is_auto_start_enable=None, is_link_mic_enable=None, is_replay_auto_online_enable=None, live_layout=None, live_mode=None, live_time=None, loop_videos=None, name=None, old_id=None, site_tags=None, template_id=None, text_site_tags=None, vertical_cover_image=None, vid=None, view_url_path=None, _configuration=None):  # noqa: E501
         """CreateActivityAPIV2Request - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +99,7 @@ class CreateActivityAPIV2Request(object):
         self._is_answer_repetition_enable = None
         self._is_auto_end_enable = None
         self._is_auto_start_enable = None
+        self._is_link_mic_enable = None
         self._is_replay_auto_online_enable = None
         self._live_layout = None
         self._live_mode = None
@@ -130,6 +133,8 @@ class CreateActivityAPIV2Request(object):
             self.is_auto_end_enable = is_auto_end_enable
         if is_auto_start_enable is not None:
             self.is_auto_start_enable = is_auto_start_enable
+        if is_link_mic_enable is not None:
+            self.is_link_mic_enable = is_link_mic_enable
         if is_replay_auto_online_enable is not None:
             self.is_replay_auto_online_enable = is_replay_auto_online_enable
         if live_layout is not None:
@@ -344,6 +349,27 @@ class CreateActivityAPIV2Request(object):
         """
 
         self._is_auto_start_enable = is_auto_start_enable
+
+    @property
+    def is_link_mic_enable(self):
+        """Gets the is_link_mic_enable of this CreateActivityAPIV2Request.  # noqa: E501
+
+
+        :return: The is_link_mic_enable of this CreateActivityAPIV2Request.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_link_mic_enable
+
+    @is_link_mic_enable.setter
+    def is_link_mic_enable(self, is_link_mic_enable):
+        """Sets the is_link_mic_enable of this CreateActivityAPIV2Request.
+
+
+        :param is_link_mic_enable: The is_link_mic_enable of this CreateActivityAPIV2Request.  # noqa: E501
+        :type: int
+        """
+
+        self._is_link_mic_enable = is_link_mic_enable
 
     @property
     def is_replay_auto_online_enable(self):
