@@ -35,17 +35,20 @@ class NextForGetNeighboringAlarmOutput(object):
     swagger_types = {
         'agent_group': 'str',
         'agent_id': 'str',
+        'alarm_count': 'int',
         'alarm_handle_result': 'int',
         'alarm_hostname': 'str',
         'alarm_id': 'str',
         'alarm_time': 'int',
         'alert_tags': 'list[str]',
+        'analysis_record_uuid': 'str',
         'args': 'list[str]',
         'args_list': 'list[str]',
         'argv_list': 'list[str]',
         'attribution_list': 'list[AttributionListForGetNeighboringAlarmOutput]',
         '_class': 'str',
         'cluster': 'ClusterForGetNeighboringAlarmOutput',
+        'confidence': 'str',
         'data_type': 'str',
         'error_reason': 'str',
         'event_id': 'str',
@@ -55,21 +58,26 @@ class NextForGetNeighboringAlarmOutput(object):
         'file_hash': 'str',
         'file_path': 'str',
         'group_path': 'str',
+        'handle_fail_reason': 'str',
         'handle_time': 'int',
         'host': 'HostForGetNeighboringAlarmOutput',
         'image_name': 'str',
         'in_docker': 'str',
         'llm_analysis_result': 'str',
         'llm_processed': 'bool',
+        'last_alarm_time': 'int',
         'level': 'str',
         'mlp_instance_id': 'str',
         'mlp_private_ip': 'str',
         'name': 'str',
         'ns_pid': 'str',
+        'operation_list': 'list[str]',
         'os_type': 'str',
         'pid': 'str',
         'probe_hook': 'str',
         'region': 'str',
+        'security_intelligence_complete': 'bool',
+        'security_intelligence_result': 'str',
         'sid': 'str',
         'stack_trace_format': 'str',
         'stack_trace_hash': 'str',
@@ -81,17 +89,20 @@ class NextForGetNeighboringAlarmOutput(object):
     attribute_map = {
         'agent_group': 'AgentGroup',
         'agent_id': 'AgentID',
+        'alarm_count': 'AlarmCount',
         'alarm_handle_result': 'AlarmHandleResult',
         'alarm_hostname': 'AlarmHostname',
         'alarm_id': 'AlarmID',
         'alarm_time': 'AlarmTime',
         'alert_tags': 'AlertTags',
+        'analysis_record_uuid': 'AnalysisRecordUUID',
         'args': 'Args',
         'args_list': 'ArgsList',
         'argv_list': 'ArgvList',
         'attribution_list': 'AttributionList',
         '_class': 'Class',
         'cluster': 'Cluster',
+        'confidence': 'Confidence',
         'data_type': 'DataType',
         'error_reason': 'ErrorReason',
         'event_id': 'EventID',
@@ -101,21 +112,26 @@ class NextForGetNeighboringAlarmOutput(object):
         'file_hash': 'FileHash',
         'file_path': 'FilePath',
         'group_path': 'GroupPath',
+        'handle_fail_reason': 'HandleFailReason',
         'handle_time': 'HandleTime',
         'host': 'Host',
         'image_name': 'ImageName',
         'in_docker': 'InDocker',
         'llm_analysis_result': 'LLMAnalysisResult',
         'llm_processed': 'LLMProcessed',
+        'last_alarm_time': 'LastAlarmTime',
         'level': 'Level',
         'mlp_instance_id': 'MlpInstanceID',
         'mlp_private_ip': 'MlpPrivateIP',
         'name': 'Name',
         'ns_pid': 'NsPid',
+        'operation_list': 'OperationList',
         'os_type': 'OsType',
         'pid': 'Pid',
         'probe_hook': 'ProbeHook',
         'region': 'Region',
+        'security_intelligence_complete': 'SecurityIntelligenceComplete',
+        'security_intelligence_result': 'SecurityIntelligenceResult',
         'sid': 'Sid',
         'stack_trace_format': 'StackTraceFormat',
         'stack_trace_hash': 'StackTraceHash',
@@ -124,7 +140,7 @@ class NextForGetNeighboringAlarmOutput(object):
         'type': 'Type'
     }
 
-    def __init__(self, agent_group=None, agent_id=None, alarm_handle_result=None, alarm_hostname=None, alarm_id=None, alarm_time=None, alert_tags=None, args=None, args_list=None, argv_list=None, attribution_list=None, _class=None, cluster=None, data_type=None, error_reason=None, event_id=None, event_name=None, exe=None, file_downloadable=None, file_hash=None, file_path=None, group_path=None, handle_time=None, host=None, image_name=None, in_docker=None, llm_analysis_result=None, llm_processed=None, level=None, mlp_instance_id=None, mlp_private_ip=None, name=None, ns_pid=None, os_type=None, pid=None, probe_hook=None, region=None, sid=None, stack_trace_format=None, stack_trace_hash=None, status=None, trace_id=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_group=None, agent_id=None, alarm_count=None, alarm_handle_result=None, alarm_hostname=None, alarm_id=None, alarm_time=None, alert_tags=None, analysis_record_uuid=None, args=None, args_list=None, argv_list=None, attribution_list=None, _class=None, cluster=None, confidence=None, data_type=None, error_reason=None, event_id=None, event_name=None, exe=None, file_downloadable=None, file_hash=None, file_path=None, group_path=None, handle_fail_reason=None, handle_time=None, host=None, image_name=None, in_docker=None, llm_analysis_result=None, llm_processed=None, last_alarm_time=None, level=None, mlp_instance_id=None, mlp_private_ip=None, name=None, ns_pid=None, operation_list=None, os_type=None, pid=None, probe_hook=None, region=None, security_intelligence_complete=None, security_intelligence_result=None, sid=None, stack_trace_format=None, stack_trace_hash=None, status=None, trace_id=None, type=None, _configuration=None):  # noqa: E501
         """NextForGetNeighboringAlarmOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -132,17 +148,20 @@ class NextForGetNeighboringAlarmOutput(object):
 
         self._agent_group = None
         self._agent_id = None
+        self._alarm_count = None
         self._alarm_handle_result = None
         self._alarm_hostname = None
         self._alarm_id = None
         self._alarm_time = None
         self._alert_tags = None
+        self._analysis_record_uuid = None
         self._args = None
         self._args_list = None
         self._argv_list = None
         self._attribution_list = None
         self.__class = None
         self._cluster = None
+        self._confidence = None
         self._data_type = None
         self._error_reason = None
         self._event_id = None
@@ -152,21 +171,26 @@ class NextForGetNeighboringAlarmOutput(object):
         self._file_hash = None
         self._file_path = None
         self._group_path = None
+        self._handle_fail_reason = None
         self._handle_time = None
         self._host = None
         self._image_name = None
         self._in_docker = None
         self._llm_analysis_result = None
         self._llm_processed = None
+        self._last_alarm_time = None
         self._level = None
         self._mlp_instance_id = None
         self._mlp_private_ip = None
         self._name = None
         self._ns_pid = None
+        self._operation_list = None
         self._os_type = None
         self._pid = None
         self._probe_hook = None
         self._region = None
+        self._security_intelligence_complete = None
+        self._security_intelligence_result = None
         self._sid = None
         self._stack_trace_format = None
         self._stack_trace_hash = None
@@ -179,6 +203,8 @@ class NextForGetNeighboringAlarmOutput(object):
             self.agent_group = agent_group
         if agent_id is not None:
             self.agent_id = agent_id
+        if alarm_count is not None:
+            self.alarm_count = alarm_count
         if alarm_handle_result is not None:
             self.alarm_handle_result = alarm_handle_result
         if alarm_hostname is not None:
@@ -189,6 +215,8 @@ class NextForGetNeighboringAlarmOutput(object):
             self.alarm_time = alarm_time
         if alert_tags is not None:
             self.alert_tags = alert_tags
+        if analysis_record_uuid is not None:
+            self.analysis_record_uuid = analysis_record_uuid
         if args is not None:
             self.args = args
         if args_list is not None:
@@ -201,6 +229,8 @@ class NextForGetNeighboringAlarmOutput(object):
             self._class = _class
         if cluster is not None:
             self.cluster = cluster
+        if confidence is not None:
+            self.confidence = confidence
         if data_type is not None:
             self.data_type = data_type
         if error_reason is not None:
@@ -219,6 +249,8 @@ class NextForGetNeighboringAlarmOutput(object):
             self.file_path = file_path
         if group_path is not None:
             self.group_path = group_path
+        if handle_fail_reason is not None:
+            self.handle_fail_reason = handle_fail_reason
         if handle_time is not None:
             self.handle_time = handle_time
         if host is not None:
@@ -231,6 +263,8 @@ class NextForGetNeighboringAlarmOutput(object):
             self.llm_analysis_result = llm_analysis_result
         if llm_processed is not None:
             self.llm_processed = llm_processed
+        if last_alarm_time is not None:
+            self.last_alarm_time = last_alarm_time
         if level is not None:
             self.level = level
         if mlp_instance_id is not None:
@@ -241,6 +275,8 @@ class NextForGetNeighboringAlarmOutput(object):
             self.name = name
         if ns_pid is not None:
             self.ns_pid = ns_pid
+        if operation_list is not None:
+            self.operation_list = operation_list
         if os_type is not None:
             self.os_type = os_type
         if pid is not None:
@@ -249,6 +285,10 @@ class NextForGetNeighboringAlarmOutput(object):
             self.probe_hook = probe_hook
         if region is not None:
             self.region = region
+        if security_intelligence_complete is not None:
+            self.security_intelligence_complete = security_intelligence_complete
+        if security_intelligence_result is not None:
+            self.security_intelligence_result = security_intelligence_result
         if sid is not None:
             self.sid = sid
         if stack_trace_format is not None:
@@ -303,6 +343,27 @@ class NextForGetNeighboringAlarmOutput(object):
         """
 
         self._agent_id = agent_id
+
+    @property
+    def alarm_count(self):
+        """Gets the alarm_count of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+
+
+        :return: The alarm_count of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._alarm_count
+
+    @alarm_count.setter
+    def alarm_count(self, alarm_count):
+        """Sets the alarm_count of this NextForGetNeighboringAlarmOutput.
+
+
+        :param alarm_count: The alarm_count of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._alarm_count = alarm_count
 
     @property
     def alarm_handle_result(self):
@@ -408,6 +469,27 @@ class NextForGetNeighboringAlarmOutput(object):
         """
 
         self._alert_tags = alert_tags
+
+    @property
+    def analysis_record_uuid(self):
+        """Gets the analysis_record_uuid of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+
+
+        :return: The analysis_record_uuid of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._analysis_record_uuid
+
+    @analysis_record_uuid.setter
+    def analysis_record_uuid(self, analysis_record_uuid):
+        """Sets the analysis_record_uuid of this NextForGetNeighboringAlarmOutput.
+
+
+        :param analysis_record_uuid: The analysis_record_uuid of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._analysis_record_uuid = analysis_record_uuid
 
     @property
     def args(self):
@@ -534,6 +616,27 @@ class NextForGetNeighboringAlarmOutput(object):
         """
 
         self._cluster = cluster
+
+    @property
+    def confidence(self):
+        """Gets the confidence of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+
+
+        :return: The confidence of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._confidence
+
+    @confidence.setter
+    def confidence(self, confidence):
+        """Sets the confidence of this NextForGetNeighboringAlarmOutput.
+
+
+        :param confidence: The confidence of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._confidence = confidence
 
     @property
     def data_type(self):
@@ -725,6 +828,27 @@ class NextForGetNeighboringAlarmOutput(object):
         self._group_path = group_path
 
     @property
+    def handle_fail_reason(self):
+        """Gets the handle_fail_reason of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+
+
+        :return: The handle_fail_reason of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._handle_fail_reason
+
+    @handle_fail_reason.setter
+    def handle_fail_reason(self, handle_fail_reason):
+        """Sets the handle_fail_reason of this NextForGetNeighboringAlarmOutput.
+
+
+        :param handle_fail_reason: The handle_fail_reason of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._handle_fail_reason = handle_fail_reason
+
+    @property
     def handle_time(self):
         """Gets the handle_time of this NextForGetNeighboringAlarmOutput.  # noqa: E501
 
@@ -851,6 +975,27 @@ class NextForGetNeighboringAlarmOutput(object):
         self._llm_processed = llm_processed
 
     @property
+    def last_alarm_time(self):
+        """Gets the last_alarm_time of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+
+
+        :return: The last_alarm_time of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_alarm_time
+
+    @last_alarm_time.setter
+    def last_alarm_time(self, last_alarm_time):
+        """Sets the last_alarm_time of this NextForGetNeighboringAlarmOutput.
+
+
+        :param last_alarm_time: The last_alarm_time of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._last_alarm_time = last_alarm_time
+
+    @property
     def level(self):
         """Gets the level of this NextForGetNeighboringAlarmOutput.  # noqa: E501
 
@@ -956,6 +1101,27 @@ class NextForGetNeighboringAlarmOutput(object):
         self._ns_pid = ns_pid
 
     @property
+    def operation_list(self):
+        """Gets the operation_list of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+
+
+        :return: The operation_list of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._operation_list
+
+    @operation_list.setter
+    def operation_list(self, operation_list):
+        """Sets the operation_list of this NextForGetNeighboringAlarmOutput.
+
+
+        :param operation_list: The operation_list of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._operation_list = operation_list
+
+    @property
     def os_type(self):
         """Gets the os_type of this NextForGetNeighboringAlarmOutput.  # noqa: E501
 
@@ -1038,6 +1204,48 @@ class NextForGetNeighboringAlarmOutput(object):
         """
 
         self._region = region
+
+    @property
+    def security_intelligence_complete(self):
+        """Gets the security_intelligence_complete of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+
+
+        :return: The security_intelligence_complete of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._security_intelligence_complete
+
+    @security_intelligence_complete.setter
+    def security_intelligence_complete(self, security_intelligence_complete):
+        """Sets the security_intelligence_complete of this NextForGetNeighboringAlarmOutput.
+
+
+        :param security_intelligence_complete: The security_intelligence_complete of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._security_intelligence_complete = security_intelligence_complete
+
+    @property
+    def security_intelligence_result(self):
+        """Gets the security_intelligence_result of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+
+
+        :return: The security_intelligence_result of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_intelligence_result
+
+    @security_intelligence_result.setter
+    def security_intelligence_result(self, security_intelligence_result):
+        """Sets the security_intelligence_result of this NextForGetNeighboringAlarmOutput.
+
+
+        :param security_intelligence_result: The security_intelligence_result of this NextForGetNeighboringAlarmOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_intelligence_result = security_intelligence_result
 
     @property
     def sid(self):

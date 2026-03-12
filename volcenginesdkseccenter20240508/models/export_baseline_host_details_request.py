@@ -111,13 +111,6 @@ class ExportBaselineHostDetailsRequest(object):
         :param asset_type: The asset_type of this ExportBaselineHostDetailsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Host", "Dev"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                asset_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `asset_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(asset_type, allowed_values)
-            )
 
         self._asset_type = asset_type
 

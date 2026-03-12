@@ -44,7 +44,9 @@ class DataForGetDevFingerprintProcessOutput(object):
         'pid': 'str',
         'ppid': 'str',
         'private_ip': 'str',
+        'protect_status': 'str',
         'public_ip': 'str',
+        'security_enhancement': 'bool',
         'start_time': 'int',
         'state': 'str',
         'status': 'str',
@@ -65,7 +67,9 @@ class DataForGetDevFingerprintProcessOutput(object):
         'pid': 'Pid',
         'ppid': 'Ppid',
         'private_ip': 'PrivateIP',
+        'protect_status': 'ProtectStatus',
         'public_ip': 'PublicIP',
+        'security_enhancement': 'SecurityEnhancement',
         'start_time': 'StartTime',
         'state': 'State',
         'status': 'Status',
@@ -74,7 +78,7 @@ class DataForGetDevFingerprintProcessOutput(object):
         'username': 'Username'
     }
 
-    def __init__(self, account_id=None, asset_id=None, asset_name=None, checksum=None, cmdline=None, comm=None, exe=None, id=None, pid=None, ppid=None, private_ip=None, public_ip=None, start_time=None, state=None, status=None, uid=None, update_time=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asset_id=None, asset_name=None, checksum=None, cmdline=None, comm=None, exe=None, id=None, pid=None, ppid=None, private_ip=None, protect_status=None, public_ip=None, security_enhancement=None, start_time=None, state=None, status=None, uid=None, update_time=None, username=None, _configuration=None):  # noqa: E501
         """DataForGetDevFingerprintProcessOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,7 +95,9 @@ class DataForGetDevFingerprintProcessOutput(object):
         self._pid = None
         self._ppid = None
         self._private_ip = None
+        self._protect_status = None
         self._public_ip = None
+        self._security_enhancement = None
         self._start_time = None
         self._state = None
         self._status = None
@@ -122,8 +128,12 @@ class DataForGetDevFingerprintProcessOutput(object):
             self.ppid = ppid
         if private_ip is not None:
             self.private_ip = private_ip
+        if protect_status is not None:
+            self.protect_status = protect_status
         if public_ip is not None:
             self.public_ip = public_ip
+        if security_enhancement is not None:
+            self.security_enhancement = security_enhancement
         if start_time is not None:
             self.start_time = start_time
         if state is not None:
@@ -369,6 +379,27 @@ class DataForGetDevFingerprintProcessOutput(object):
         self._private_ip = private_ip
 
     @property
+    def protect_status(self):
+        """Gets the protect_status of this DataForGetDevFingerprintProcessOutput.  # noqa: E501
+
+
+        :return: The protect_status of this DataForGetDevFingerprintProcessOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._protect_status
+
+    @protect_status.setter
+    def protect_status(self, protect_status):
+        """Sets the protect_status of this DataForGetDevFingerprintProcessOutput.
+
+
+        :param protect_status: The protect_status of this DataForGetDevFingerprintProcessOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._protect_status = protect_status
+
+    @property
     def public_ip(self):
         """Gets the public_ip of this DataForGetDevFingerprintProcessOutput.  # noqa: E501
 
@@ -388,6 +419,27 @@ class DataForGetDevFingerprintProcessOutput(object):
         """
 
         self._public_ip = public_ip
+
+    @property
+    def security_enhancement(self):
+        """Gets the security_enhancement of this DataForGetDevFingerprintProcessOutput.  # noqa: E501
+
+
+        :return: The security_enhancement of this DataForGetDevFingerprintProcessOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._security_enhancement
+
+    @security_enhancement.setter
+    def security_enhancement(self, security_enhancement):
+        """Sets the security_enhancement of this DataForGetDevFingerprintProcessOutput.
+
+
+        :param security_enhancement: The security_enhancement of this DataForGetDevFingerprintProcessOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._security_enhancement = security_enhancement
 
     @property
     def start_time(self):

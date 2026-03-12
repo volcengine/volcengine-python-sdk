@@ -41,6 +41,7 @@ class ConditionsForDisableHostImportantProtectInput(object):
         'hostname': 'str',
         'ip': 'str',
         'leaf_group_ids': 'list[str]',
+        'os': 'str',
         'platforms': 'list[str]',
         'proxy_name': 'str',
         'proxy_server_name': 'str',
@@ -64,6 +65,7 @@ class ConditionsForDisableHostImportantProtectInput(object):
         'hostname': 'Hostname',
         'ip': 'Ip',
         'leaf_group_ids': 'LeafGroupIDs',
+        'os': 'Os',
         'platforms': 'Platforms',
         'proxy_name': 'ProxyName',
         'proxy_server_name': 'ProxyServerName',
@@ -78,7 +80,7 @@ class ConditionsForDisableHostImportantProtectInput(object):
         'vpc_ids': 'VpcIds'
     }
 
-    def __init__(self, agent_id=None, agent_id_list=None, agent_status=None, all_host=None, cloud_providers=None, hostname=None, ip=None, leaf_group_ids=None, platforms=None, proxy_name=None, proxy_server_name=None, regions=None, risk=None, security_enhancement=None, status=None, tags=None, top_group_id=None, virus_file_auto_isolate=None, visibility=None, vpc_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, agent_id_list=None, agent_status=None, all_host=None, cloud_providers=None, hostname=None, ip=None, leaf_group_ids=None, os=None, platforms=None, proxy_name=None, proxy_server_name=None, regions=None, risk=None, security_enhancement=None, status=None, tags=None, top_group_id=None, virus_file_auto_isolate=None, visibility=None, vpc_ids=None, _configuration=None):  # noqa: E501
         """ConditionsForDisableHostImportantProtectInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,6 +94,7 @@ class ConditionsForDisableHostImportantProtectInput(object):
         self._hostname = None
         self._ip = None
         self._leaf_group_ids = None
+        self._os = None
         self._platforms = None
         self._proxy_name = None
         self._proxy_server_name = None
@@ -122,6 +125,8 @@ class ConditionsForDisableHostImportantProtectInput(object):
             self.ip = ip
         if leaf_group_ids is not None:
             self.leaf_group_ids = leaf_group_ids
+        if os is not None:
+            self.os = os
         if platforms is not None:
             self.platforms = platforms
         if proxy_name is not None:
@@ -314,6 +319,27 @@ class ConditionsForDisableHostImportantProtectInput(object):
         """
 
         self._leaf_group_ids = leaf_group_ids
+
+    @property
+    def os(self):
+        """Gets the os of this ConditionsForDisableHostImportantProtectInput.  # noqa: E501
+
+
+        :return: The os of this ConditionsForDisableHostImportantProtectInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._os
+
+    @os.setter
+    def os(self, os):
+        """Sets the os of this ConditionsForDisableHostImportantProtectInput.
+
+
+        :param os: The os of this ConditionsForDisableHostImportantProtectInput.  # noqa: E501
+        :type: str
+        """
+
+        self._os = os
 
     @property
     def platforms(self):

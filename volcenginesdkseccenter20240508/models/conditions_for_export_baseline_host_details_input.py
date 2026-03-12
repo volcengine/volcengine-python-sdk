@@ -40,7 +40,7 @@ class ConditionsForExportBaselineHostDetailsInput(object):
         'hostname': 'str',
         'ip': 'str',
         'leaf_group_ids': 'list[str]',
-        'tag': 'str',
+        'tag': 'list[str]',
         'top_group_id': 'str'
     }
 
@@ -245,7 +245,7 @@ class ConditionsForExportBaselineHostDetailsInput(object):
 
 
         :return: The tag of this ConditionsForExportBaselineHostDetailsInput.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._tag
 
@@ -255,7 +255,7 @@ class ConditionsForExportBaselineHostDetailsInput(object):
 
 
         :param tag: The tag of this ConditionsForExportBaselineHostDetailsInput.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._tag = tag
