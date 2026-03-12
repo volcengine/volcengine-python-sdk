@@ -37,6 +37,7 @@ class DataForListMultiLevelAssetHostsOutput(object):
         'account_id': 'str',
         'agent_id': 'str',
         'agent_status': 'str',
+        'client_public_ip': 'str',
         'cloud_provider': 'str',
         'cpu_usage': 'float',
         'dns': 'str',
@@ -45,12 +46,15 @@ class DataForListMultiLevelAssetHostsOutput(object):
         'gateway': 'str',
         'group': 'str',
         'group_path': 'str',
+        'group_path_en': 'str',
         'institution_id': 'str',
         'kernel_version': 'str',
         'last_heartbeat_time': 'int',
         'mem_usage': 'float',
+        'old_valid_code': 'int',
         'online': 'bool',
         'platform': 'str',
+        'platform_version': 'str',
         'plugins_brief_info': 'str',
         'plugins_status': 'str',
         'reason': 'str',
@@ -62,7 +66,8 @@ class DataForListMultiLevelAssetHostsOutput(object):
         'total_mem': 'int',
         'update_time': 'int',
         'user_status': 'str',
-        'user_status_reason': 'str'
+        'user_status_reason': 'str',
+        'user_status_reason_code': 'int'
     }
 
     attribute_map = {
@@ -70,6 +75,7 @@ class DataForListMultiLevelAssetHostsOutput(object):
         'account_id': 'AccountID',
         'agent_id': 'AgentID',
         'agent_status': 'AgentStatus',
+        'client_public_ip': 'ClientPublicIP',
         'cloud_provider': 'CloudProvider',
         'cpu_usage': 'CpuUsage',
         'dns': 'Dns',
@@ -78,12 +84,15 @@ class DataForListMultiLevelAssetHostsOutput(object):
         'gateway': 'Gateway',
         'group': 'Group',
         'group_path': 'GroupPath',
+        'group_path_en': 'GroupPathEn',
         'institution_id': 'InstitutionID',
         'kernel_version': 'KernelVersion',
         'last_heartbeat_time': 'LastHeartbeatTime',
         'mem_usage': 'MemUsage',
+        'old_valid_code': 'OldValidCode',
         'online': 'Online',
         'platform': 'Platform',
+        'platform_version': 'PlatformVersion',
         'plugins_brief_info': 'PluginsBriefInfo',
         'plugins_status': 'PluginsStatus',
         'reason': 'Reason',
@@ -95,10 +104,11 @@ class DataForListMultiLevelAssetHostsOutput(object):
         'total_mem': 'TotalMem',
         'update_time': 'UpdateTime',
         'user_status': 'UserStatus',
-        'user_status_reason': 'UserStatusReason'
+        'user_status_reason': 'UserStatusReason',
+        'user_status_reason_code': 'UserStatusReasonCode'
     }
 
-    def __init__(self, abnormal_plugins_list=None, account_id=None, agent_id=None, agent_status=None, cloud_provider=None, cpu_usage=None, dns=None, ecs_instance=None, first_heartbeat_time=None, gateway=None, group=None, group_path=None, institution_id=None, kernel_version=None, last_heartbeat_time=None, mem_usage=None, online=None, platform=None, plugins_brief_info=None, plugins_status=None, reason=None, risk=None, security_enhancement=None, start_time=None, status=None, tags=None, total_mem=None, update_time=None, user_status=None, user_status_reason=None, _configuration=None):  # noqa: E501
+    def __init__(self, abnormal_plugins_list=None, account_id=None, agent_id=None, agent_status=None, client_public_ip=None, cloud_provider=None, cpu_usage=None, dns=None, ecs_instance=None, first_heartbeat_time=None, gateway=None, group=None, group_path=None, group_path_en=None, institution_id=None, kernel_version=None, last_heartbeat_time=None, mem_usage=None, old_valid_code=None, online=None, platform=None, platform_version=None, plugins_brief_info=None, plugins_status=None, reason=None, risk=None, security_enhancement=None, start_time=None, status=None, tags=None, total_mem=None, update_time=None, user_status=None, user_status_reason=None, user_status_reason_code=None, _configuration=None):  # noqa: E501
         """DataForListMultiLevelAssetHostsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -108,6 +118,7 @@ class DataForListMultiLevelAssetHostsOutput(object):
         self._account_id = None
         self._agent_id = None
         self._agent_status = None
+        self._client_public_ip = None
         self._cloud_provider = None
         self._cpu_usage = None
         self._dns = None
@@ -116,12 +127,15 @@ class DataForListMultiLevelAssetHostsOutput(object):
         self._gateway = None
         self._group = None
         self._group_path = None
+        self._group_path_en = None
         self._institution_id = None
         self._kernel_version = None
         self._last_heartbeat_time = None
         self._mem_usage = None
+        self._old_valid_code = None
         self._online = None
         self._platform = None
+        self._platform_version = None
         self._plugins_brief_info = None
         self._plugins_status = None
         self._reason = None
@@ -134,6 +148,7 @@ class DataForListMultiLevelAssetHostsOutput(object):
         self._update_time = None
         self._user_status = None
         self._user_status_reason = None
+        self._user_status_reason_code = None
         self.discriminator = None
 
         if abnormal_plugins_list is not None:
@@ -144,6 +159,8 @@ class DataForListMultiLevelAssetHostsOutput(object):
             self.agent_id = agent_id
         if agent_status is not None:
             self.agent_status = agent_status
+        if client_public_ip is not None:
+            self.client_public_ip = client_public_ip
         if cloud_provider is not None:
             self.cloud_provider = cloud_provider
         if cpu_usage is not None:
@@ -160,6 +177,8 @@ class DataForListMultiLevelAssetHostsOutput(object):
             self.group = group
         if group_path is not None:
             self.group_path = group_path
+        if group_path_en is not None:
+            self.group_path_en = group_path_en
         if institution_id is not None:
             self.institution_id = institution_id
         if kernel_version is not None:
@@ -168,10 +187,14 @@ class DataForListMultiLevelAssetHostsOutput(object):
             self.last_heartbeat_time = last_heartbeat_time
         if mem_usage is not None:
             self.mem_usage = mem_usage
+        if old_valid_code is not None:
+            self.old_valid_code = old_valid_code
         if online is not None:
             self.online = online
         if platform is not None:
             self.platform = platform
+        if platform_version is not None:
+            self.platform_version = platform_version
         if plugins_brief_info is not None:
             self.plugins_brief_info = plugins_brief_info
         if plugins_status is not None:
@@ -196,6 +219,8 @@ class DataForListMultiLevelAssetHostsOutput(object):
             self.user_status = user_status
         if user_status_reason is not None:
             self.user_status_reason = user_status_reason
+        if user_status_reason_code is not None:
+            self.user_status_reason_code = user_status_reason_code
 
     @property
     def abnormal_plugins_list(self):
@@ -280,6 +305,27 @@ class DataForListMultiLevelAssetHostsOutput(object):
         """
 
         self._agent_status = agent_status
+
+    @property
+    def client_public_ip(self):
+        """Gets the client_public_ip of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+
+
+        :return: The client_public_ip of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_public_ip
+
+    @client_public_ip.setter
+    def client_public_ip(self, client_public_ip):
+        """Sets the client_public_ip of this DataForListMultiLevelAssetHostsOutput.
+
+
+        :param client_public_ip: The client_public_ip of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._client_public_ip = client_public_ip
 
     @property
     def cloud_provider(self):
@@ -450,6 +496,27 @@ class DataForListMultiLevelAssetHostsOutput(object):
         self._group_path = group_path
 
     @property
+    def group_path_en(self):
+        """Gets the group_path_en of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+
+
+        :return: The group_path_en of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._group_path_en
+
+    @group_path_en.setter
+    def group_path_en(self, group_path_en):
+        """Sets the group_path_en of this DataForListMultiLevelAssetHostsOutput.
+
+
+        :param group_path_en: The group_path_en of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._group_path_en = group_path_en
+
+    @property
     def institution_id(self):
         """Gets the institution_id of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
 
@@ -534,6 +601,27 @@ class DataForListMultiLevelAssetHostsOutput(object):
         self._mem_usage = mem_usage
 
     @property
+    def old_valid_code(self):
+        """Gets the old_valid_code of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+
+
+        :return: The old_valid_code of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._old_valid_code
+
+    @old_valid_code.setter
+    def old_valid_code(self, old_valid_code):
+        """Sets the old_valid_code of this DataForListMultiLevelAssetHostsOutput.
+
+
+        :param old_valid_code: The old_valid_code of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._old_valid_code = old_valid_code
+
+    @property
     def online(self):
         """Gets the online of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
 
@@ -574,6 +662,27 @@ class DataForListMultiLevelAssetHostsOutput(object):
         """
 
         self._platform = platform
+
+    @property
+    def platform_version(self):
+        """Gets the platform_version of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+
+
+        :return: The platform_version of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._platform_version
+
+    @platform_version.setter
+    def platform_version(self, platform_version):
+        """Sets the platform_version of this DataForListMultiLevelAssetHostsOutput.
+
+
+        :param platform_version: The platform_version of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._platform_version = platform_version
 
     @property
     def plugins_brief_info(self):
@@ -826,6 +935,27 @@ class DataForListMultiLevelAssetHostsOutput(object):
         """
 
         self._user_status_reason = user_status_reason
+
+    @property
+    def user_status_reason_code(self):
+        """Gets the user_status_reason_code of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+
+
+        :return: The user_status_reason_code of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_status_reason_code
+
+    @user_status_reason_code.setter
+    def user_status_reason_code(self, user_status_reason_code):
+        """Sets the user_status_reason_code of this DataForListMultiLevelAssetHostsOutput.
+
+
+        :param user_status_reason_code: The user_status_reason_code of this DataForListMultiLevelAssetHostsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._user_status_reason_code = user_status_reason_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

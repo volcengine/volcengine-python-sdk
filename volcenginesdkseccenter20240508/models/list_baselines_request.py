@@ -37,6 +37,7 @@ class ListBaselinesRequest(object):
         'asset_id': 'str',
         'asset_type': 'str',
         'baseline_name': 'str',
+        'baseline_name_en': 'str',
         'cloud_providers': 'list[str]',
         'cluster_id': 'str',
         'group_id': 'int',
@@ -56,6 +57,7 @@ class ListBaselinesRequest(object):
         'asset_id': 'AssetID',
         'asset_type': 'AssetType',
         'baseline_name': 'BaselineName',
+        'baseline_name_en': 'BaselineNameEn',
         'cloud_providers': 'CloudProviders',
         'cluster_id': 'ClusterID',
         'group_id': 'GroupID',
@@ -70,7 +72,7 @@ class ListBaselinesRequest(object):
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, agent_id=None, asset_id=None, asset_type=None, baseline_name=None, cloud_providers=None, cluster_id=None, group_id=None, last_detected_time_end=None, last_detected_time_start=None, leaf_group_ids=None, page_number=None, page_size=None, sort_by=None, sort_order=None, status=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, asset_id=None, asset_type=None, baseline_name=None, baseline_name_en=None, cloud_providers=None, cluster_id=None, group_id=None, last_detected_time_end=None, last_detected_time_start=None, leaf_group_ids=None, page_number=None, page_size=None, sort_by=None, sort_order=None, status=None, top_group_id=None, _configuration=None):  # noqa: E501
         """ListBaselinesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +82,7 @@ class ListBaselinesRequest(object):
         self._asset_id = None
         self._asset_type = None
         self._baseline_name = None
+        self._baseline_name_en = None
         self._cloud_providers = None
         self._cluster_id = None
         self._group_id = None
@@ -102,6 +105,8 @@ class ListBaselinesRequest(object):
             self.asset_type = asset_type
         if baseline_name is not None:
             self.baseline_name = baseline_name
+        if baseline_name_en is not None:
+            self.baseline_name_en = baseline_name_en
         if cloud_providers is not None:
             self.cloud_providers = cloud_providers
         if cluster_id is not None:
@@ -185,13 +190,6 @@ class ListBaselinesRequest(object):
         :param asset_type: The asset_type of this ListBaselinesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Host", "Dev"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                asset_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `asset_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(asset_type, allowed_values)
-            )
 
         self._asset_type = asset_type
 
@@ -215,6 +213,27 @@ class ListBaselinesRequest(object):
         """
 
         self._baseline_name = baseline_name
+
+    @property
+    def baseline_name_en(self):
+        """Gets the baseline_name_en of this ListBaselinesRequest.  # noqa: E501
+
+
+        :return: The baseline_name_en of this ListBaselinesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._baseline_name_en
+
+    @baseline_name_en.setter
+    def baseline_name_en(self, baseline_name_en):
+        """Sets the baseline_name_en of this ListBaselinesRequest.
+
+
+        :param baseline_name_en: The baseline_name_en of this ListBaselinesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._baseline_name_en = baseline_name_en
 
     @property
     def cloud_providers(self):

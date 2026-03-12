@@ -35,32 +35,44 @@ class GetTLSInfoResponse(object):
     swagger_types = {
         'alarm_topic_config': 'AlarmTopicConfigForGetTLSInfoOutput',
         'authorized': 'bool',
+        'bash_audit_topic_config': 'BashAuditTopicConfigForGetTLSInfoOutput',
         'login_topic_config': 'LoginTopicConfigForGetTLSInfoOutput',
         'open': 'bool',
         'port_change_topic_config': 'PortChangeTopicConfigForGetTLSInfoOutput',
         'process_start_topic_config': 'ProcessStartTopicConfigForGetTLSInfoOutput',
         'project_id': 'str',
+        'project_id': 'str',
         'quota_total': 'int',
         'quota_used': 'int',
+        'storage_days': 'int',
         'threshold': 'int',
-        'vuln_topic_config': 'VulnTopicConfigForGetTLSInfoOutput'
+        'topic_id': 'str',
+        'varmor_topic_config': 'VarmorTopicConfigForGetTLSInfoOutput',
+        'vuln_topic_config': 'VulnTopicConfigForGetTLSInfoOutput',
+        'vuln_topic_id': 'str'
     }
 
     attribute_map = {
         'alarm_topic_config': 'AlarmTopicConfig',
         'authorized': 'Authorized',
+        'bash_audit_topic_config': 'BashAuditTopicConfig',
         'login_topic_config': 'LoginTopicConfig',
         'open': 'Open',
         'port_change_topic_config': 'PortChangeTopicConfig',
         'process_start_topic_config': 'ProcessStartTopicConfig',
         'project_id': 'ProjectID',
+        'project_id': 'ProjectId',
         'quota_total': 'QuotaTotal',
         'quota_used': 'QuotaUsed',
+        'storage_days': 'StorageDays',
         'threshold': 'Threshold',
-        'vuln_topic_config': 'VulnTopicConfig'
+        'topic_id': 'TopicId',
+        'varmor_topic_config': 'VarmorTopicConfig',
+        'vuln_topic_config': 'VulnTopicConfig',
+        'vuln_topic_id': 'VulnTopicId'
     }
 
-    def __init__(self, alarm_topic_config=None, authorized=None, login_topic_config=None, open=None, port_change_topic_config=None, process_start_topic_config=None, project_id=None, quota_total=None, quota_used=None, threshold=None, vuln_topic_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_topic_config=None, authorized=None, bash_audit_topic_config=None, login_topic_config=None, open=None, port_change_topic_config=None, process_start_topic_config=None, project_id=None, project_id=None, quota_total=None, quota_used=None, storage_days=None, threshold=None, topic_id=None, varmor_topic_config=None, vuln_topic_config=None, vuln_topic_id=None, _configuration=None):  # noqa: E501
         """GetTLSInfoResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,21 +80,29 @@ class GetTLSInfoResponse(object):
 
         self._alarm_topic_config = None
         self._authorized = None
+        self._bash_audit_topic_config = None
         self._login_topic_config = None
         self._open = None
         self._port_change_topic_config = None
         self._process_start_topic_config = None
         self._project_id = None
+        self._project_id = None
         self._quota_total = None
         self._quota_used = None
+        self._storage_days = None
         self._threshold = None
+        self._topic_id = None
+        self._varmor_topic_config = None
         self._vuln_topic_config = None
+        self._vuln_topic_id = None
         self.discriminator = None
 
         if alarm_topic_config is not None:
             self.alarm_topic_config = alarm_topic_config
         if authorized is not None:
             self.authorized = authorized
+        if bash_audit_topic_config is not None:
+            self.bash_audit_topic_config = bash_audit_topic_config
         if login_topic_config is not None:
             self.login_topic_config = login_topic_config
         if open is not None:
@@ -93,14 +113,24 @@ class GetTLSInfoResponse(object):
             self.process_start_topic_config = process_start_topic_config
         if project_id is not None:
             self.project_id = project_id
+        if project_id is not None:
+            self.project_id = project_id
         if quota_total is not None:
             self.quota_total = quota_total
         if quota_used is not None:
             self.quota_used = quota_used
+        if storage_days is not None:
+            self.storage_days = storage_days
         if threshold is not None:
             self.threshold = threshold
+        if topic_id is not None:
+            self.topic_id = topic_id
+        if varmor_topic_config is not None:
+            self.varmor_topic_config = varmor_topic_config
         if vuln_topic_config is not None:
             self.vuln_topic_config = vuln_topic_config
+        if vuln_topic_id is not None:
+            self.vuln_topic_id = vuln_topic_id
 
     @property
     def alarm_topic_config(self):
@@ -143,6 +173,27 @@ class GetTLSInfoResponse(object):
         """
 
         self._authorized = authorized
+
+    @property
+    def bash_audit_topic_config(self):
+        """Gets the bash_audit_topic_config of this GetTLSInfoResponse.  # noqa: E501
+
+
+        :return: The bash_audit_topic_config of this GetTLSInfoResponse.  # noqa: E501
+        :rtype: BashAuditTopicConfigForGetTLSInfoOutput
+        """
+        return self._bash_audit_topic_config
+
+    @bash_audit_topic_config.setter
+    def bash_audit_topic_config(self, bash_audit_topic_config):
+        """Sets the bash_audit_topic_config of this GetTLSInfoResponse.
+
+
+        :param bash_audit_topic_config: The bash_audit_topic_config of this GetTLSInfoResponse.  # noqa: E501
+        :type: BashAuditTopicConfigForGetTLSInfoOutput
+        """
+
+        self._bash_audit_topic_config = bash_audit_topic_config
 
     @property
     def login_topic_config(self):
@@ -250,6 +301,27 @@ class GetTLSInfoResponse(object):
         self._project_id = project_id
 
     @property
+    def project_id(self):
+        """Gets the project_id of this GetTLSInfoResponse.  # noqa: E501
+
+
+        :return: The project_id of this GetTLSInfoResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_id
+
+    @project_id.setter
+    def project_id(self, project_id):
+        """Sets the project_id of this GetTLSInfoResponse.
+
+
+        :param project_id: The project_id of this GetTLSInfoResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_id = project_id
+
+    @property
     def quota_total(self):
         """Gets the quota_total of this GetTLSInfoResponse.  # noqa: E501
 
@@ -292,6 +364,27 @@ class GetTLSInfoResponse(object):
         self._quota_used = quota_used
 
     @property
+    def storage_days(self):
+        """Gets the storage_days of this GetTLSInfoResponse.  # noqa: E501
+
+
+        :return: The storage_days of this GetTLSInfoResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._storage_days
+
+    @storage_days.setter
+    def storage_days(self, storage_days):
+        """Sets the storage_days of this GetTLSInfoResponse.
+
+
+        :param storage_days: The storage_days of this GetTLSInfoResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._storage_days = storage_days
+
+    @property
     def threshold(self):
         """Gets the threshold of this GetTLSInfoResponse.  # noqa: E501
 
@@ -313,6 +406,48 @@ class GetTLSInfoResponse(object):
         self._threshold = threshold
 
     @property
+    def topic_id(self):
+        """Gets the topic_id of this GetTLSInfoResponse.  # noqa: E501
+
+
+        :return: The topic_id of this GetTLSInfoResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._topic_id
+
+    @topic_id.setter
+    def topic_id(self, topic_id):
+        """Sets the topic_id of this GetTLSInfoResponse.
+
+
+        :param topic_id: The topic_id of this GetTLSInfoResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._topic_id = topic_id
+
+    @property
+    def varmor_topic_config(self):
+        """Gets the varmor_topic_config of this GetTLSInfoResponse.  # noqa: E501
+
+
+        :return: The varmor_topic_config of this GetTLSInfoResponse.  # noqa: E501
+        :rtype: VarmorTopicConfigForGetTLSInfoOutput
+        """
+        return self._varmor_topic_config
+
+    @varmor_topic_config.setter
+    def varmor_topic_config(self, varmor_topic_config):
+        """Sets the varmor_topic_config of this GetTLSInfoResponse.
+
+
+        :param varmor_topic_config: The varmor_topic_config of this GetTLSInfoResponse.  # noqa: E501
+        :type: VarmorTopicConfigForGetTLSInfoOutput
+        """
+
+        self._varmor_topic_config = varmor_topic_config
+
+    @property
     def vuln_topic_config(self):
         """Gets the vuln_topic_config of this GetTLSInfoResponse.  # noqa: E501
 
@@ -332,6 +467,27 @@ class GetTLSInfoResponse(object):
         """
 
         self._vuln_topic_config = vuln_topic_config
+
+    @property
+    def vuln_topic_id(self):
+        """Gets the vuln_topic_id of this GetTLSInfoResponse.  # noqa: E501
+
+
+        :return: The vuln_topic_id of this GetTLSInfoResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._vuln_topic_id
+
+    @vuln_topic_id.setter
+    def vuln_topic_id(self, vuln_topic_id):
+        """Sets the vuln_topic_id of this GetTLSInfoResponse.
+
+
+        :param vuln_topic_id: The vuln_topic_id of this GetTLSInfoResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._vuln_topic_id = vuln_topic_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -57,10 +57,13 @@ class ConditionsForExportVirusAlarmListDataInput(object):
         'hostname': 'str',
         'ip': 'str',
         'image_name': 'str',
+        'last_alarm_time_end': 'int',
+        'last_alarm_time_start': 'int',
         'leaf_group_ids': 'list[str]',
         'level': 'list[str]',
         'mlp_instance_id': 'str',
         'name': 'str',
+        'operation_list': 'list[str]',
         'probe_hook': 'str',
         'rasp_argv': 'str',
         'status': 'list[int]',
@@ -72,7 +75,8 @@ class ConditionsForExportVirusAlarmListDataInput(object):
         'type': 'list[str]',
         'virus_type': 'str',
         'white_list_id': 'str',
-        'white_list_name': 'str'
+        'white_list_name': 'str',
+        'security_intelligence_results': 'list[str]'
     }
 
     attribute_map = {
@@ -100,10 +104,13 @@ class ConditionsForExportVirusAlarmListDataInput(object):
         'hostname': 'Hostname',
         'ip': 'IP',
         'image_name': 'ImageName',
+        'last_alarm_time_end': 'LastAlarmTimeEnd',
+        'last_alarm_time_start': 'LastAlarmTimeStart',
         'leaf_group_ids': 'LeafGroupIDs',
         'level': 'Level',
         'mlp_instance_id': 'MlpInstanceID',
         'name': 'Name',
+        'operation_list': 'OperationList',
         'probe_hook': 'ProbeHook',
         'rasp_argv': 'RaspArgv',
         'status': 'Status',
@@ -115,10 +122,11 @@ class ConditionsForExportVirusAlarmListDataInput(object):
         'type': 'Type',
         'virus_type': 'VirusType',
         'white_list_id': 'WhiteListID',
-        'white_list_name': 'WhiteListName'
+        'white_list_name': 'WhiteListName',
+        'security_intelligence_results': 'security_intelligence_results'
     }
 
-    def __init__(self, agent_group=None, agent_group_list=None, agent_id=None, agent_id_list=None, agent_tags=None, alarm_handle_result_list=None, alarm_id=None, alert_tags=None, cloud_providers=None, cluster_id=None, cluster_name=None, cluster_region=None, cluster_tags=None, container_id=None, container_name=None, event_id=None, event_name=None, event_reason=None, exe=None, file_hash=None, file_path=None, hostname=None, ip=None, image_name=None, leaf_group_ids=None, level=None, mlp_instance_id=None, name=None, probe_hook=None, rasp_argv=None, status=None, tags=None, task_id=None, time_end=None, time_start=None, top_group_id=None, type=None, virus_type=None, white_list_id=None, white_list_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_group=None, agent_group_list=None, agent_id=None, agent_id_list=None, agent_tags=None, alarm_handle_result_list=None, alarm_id=None, alert_tags=None, cloud_providers=None, cluster_id=None, cluster_name=None, cluster_region=None, cluster_tags=None, container_id=None, container_name=None, event_id=None, event_name=None, event_reason=None, exe=None, file_hash=None, file_path=None, hostname=None, ip=None, image_name=None, last_alarm_time_end=None, last_alarm_time_start=None, leaf_group_ids=None, level=None, mlp_instance_id=None, name=None, operation_list=None, probe_hook=None, rasp_argv=None, status=None, tags=None, task_id=None, time_end=None, time_start=None, top_group_id=None, type=None, virus_type=None, white_list_id=None, white_list_name=None, security_intelligence_results=None, _configuration=None):  # noqa: E501
         """ConditionsForExportVirusAlarmListDataInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -148,10 +156,13 @@ class ConditionsForExportVirusAlarmListDataInput(object):
         self._hostname = None
         self._ip = None
         self._image_name = None
+        self._last_alarm_time_end = None
+        self._last_alarm_time_start = None
         self._leaf_group_ids = None
         self._level = None
         self._mlp_instance_id = None
         self._name = None
+        self._operation_list = None
         self._probe_hook = None
         self._rasp_argv = None
         self._status = None
@@ -164,6 +175,7 @@ class ConditionsForExportVirusAlarmListDataInput(object):
         self._virus_type = None
         self._white_list_id = None
         self._white_list_name = None
+        self._security_intelligence_results = None
         self.discriminator = None
 
         if agent_group is not None:
@@ -214,6 +226,10 @@ class ConditionsForExportVirusAlarmListDataInput(object):
             self.ip = ip
         if image_name is not None:
             self.image_name = image_name
+        if last_alarm_time_end is not None:
+            self.last_alarm_time_end = last_alarm_time_end
+        if last_alarm_time_start is not None:
+            self.last_alarm_time_start = last_alarm_time_start
         if leaf_group_ids is not None:
             self.leaf_group_ids = leaf_group_ids
         if level is not None:
@@ -222,6 +238,8 @@ class ConditionsForExportVirusAlarmListDataInput(object):
             self.mlp_instance_id = mlp_instance_id
         if name is not None:
             self.name = name
+        if operation_list is not None:
+            self.operation_list = operation_list
         if probe_hook is not None:
             self.probe_hook = probe_hook
         if rasp_argv is not None:
@@ -246,6 +264,8 @@ class ConditionsForExportVirusAlarmListDataInput(object):
             self.white_list_id = white_list_id
         if white_list_name is not None:
             self.white_list_name = white_list_name
+        if security_intelligence_results is not None:
+            self.security_intelligence_results = security_intelligence_results
 
     @property
     def agent_group(self):
@@ -752,6 +772,48 @@ class ConditionsForExportVirusAlarmListDataInput(object):
         self._image_name = image_name
 
     @property
+    def last_alarm_time_end(self):
+        """Gets the last_alarm_time_end of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+
+
+        :return: The last_alarm_time_end of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_alarm_time_end
+
+    @last_alarm_time_end.setter
+    def last_alarm_time_end(self, last_alarm_time_end):
+        """Sets the last_alarm_time_end of this ConditionsForExportVirusAlarmListDataInput.
+
+
+        :param last_alarm_time_end: The last_alarm_time_end of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+        :type: int
+        """
+
+        self._last_alarm_time_end = last_alarm_time_end
+
+    @property
+    def last_alarm_time_start(self):
+        """Gets the last_alarm_time_start of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+
+
+        :return: The last_alarm_time_start of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_alarm_time_start
+
+    @last_alarm_time_start.setter
+    def last_alarm_time_start(self, last_alarm_time_start):
+        """Sets the last_alarm_time_start of this ConditionsForExportVirusAlarmListDataInput.
+
+
+        :param last_alarm_time_start: The last_alarm_time_start of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+        :type: int
+        """
+
+        self._last_alarm_time_start = last_alarm_time_start
+
+    @property
     def leaf_group_ids(self):
         """Gets the leaf_group_ids of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
 
@@ -834,6 +896,27 @@ class ConditionsForExportVirusAlarmListDataInput(object):
         """
 
         self._name = name
+
+    @property
+    def operation_list(self):
+        """Gets the operation_list of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+
+
+        :return: The operation_list of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._operation_list
+
+    @operation_list.setter
+    def operation_list(self, operation_list):
+        """Sets the operation_list of this ConditionsForExportVirusAlarmListDataInput.
+
+
+        :param operation_list: The operation_list of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._operation_list = operation_list
 
     @property
     def probe_hook(self):
@@ -1086,6 +1169,27 @@ class ConditionsForExportVirusAlarmListDataInput(object):
         """
 
         self._white_list_name = white_list_name
+
+    @property
+    def security_intelligence_results(self):
+        """Gets the security_intelligence_results of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+
+
+        :return: The security_intelligence_results of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._security_intelligence_results
+
+    @security_intelligence_results.setter
+    def security_intelligence_results(self, security_intelligence_results):
+        """Sets the security_intelligence_results of this ConditionsForExportVirusAlarmListDataInput.
+
+
+        :param security_intelligence_results: The security_intelligence_results of this ConditionsForExportVirusAlarmListDataInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._security_intelligence_results = security_intelligence_results
 
     def to_dict(self):
         """Returns the model properties as a dict"""

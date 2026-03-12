@@ -34,12 +34,18 @@ class DataForListBanIPListOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'agent_id': 'str',
         'ban_end_time_unix': 'int',
         'ban_ip': 'str',
         'ban_start_time_unix': 'int',
         'ban_type': 'str',
+        'cloud_provider': 'str',
+        'ecs_instance': 'EcsInstanceForListBanIPListOutput',
+        'group_id': 'str',
         'id': 'str',
+        'i_ptables_id': 'str',
         'insert_time': 'int',
+        'platform': 'str',
         'port_end': 'int',
         'port_start': 'int',
         'reason': 'str',
@@ -47,17 +53,25 @@ class DataForListBanIPListOutput(object):
         'relate_alarm_info': 'RelateAlarmInfoForListBanIPListOutput',
         'security_group_id': 'str',
         'status': 'str',
-        'host_info': 'HostInfoForListBanIPListOutput'
+        'tags': 'list[str]',
+        'top_group_id': 'str',
+        'update_time': 'int'
     }
 
     attribute_map = {
         'account_id': 'AccountID',
+        'agent_id': 'AgentID',
         'ban_end_time_unix': 'BanEndTimeUnix',
         'ban_ip': 'BanIP',
         'ban_start_time_unix': 'BanStartTimeUnix',
         'ban_type': 'BanType',
+        'cloud_provider': 'CloudProvider',
+        'ecs_instance': 'EcsInstance',
+        'group_id': 'GroupID',
         'id': 'ID',
+        'i_ptables_id': 'IPtablesID',
         'insert_time': 'InsertTime',
+        'platform': 'Platform',
         'port_end': 'PortEnd',
         'port_start': 'PortStart',
         'reason': 'Reason',
@@ -65,22 +79,30 @@ class DataForListBanIPListOutput(object):
         'relate_alarm_info': 'RelateAlarmInfo',
         'security_group_id': 'SecurityGroupID',
         'status': 'Status',
-        'host_info': 'hostInfo'
+        'tags': 'Tags',
+        'top_group_id': 'TopGroupID',
+        'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, ban_end_time_unix=None, ban_ip=None, ban_start_time_unix=None, ban_type=None, id=None, insert_time=None, port_end=None, port_start=None, reason=None, region=None, relate_alarm_info=None, security_group_id=None, status=None, host_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, agent_id=None, ban_end_time_unix=None, ban_ip=None, ban_start_time_unix=None, ban_type=None, cloud_provider=None, ecs_instance=None, group_id=None, id=None, i_ptables_id=None, insert_time=None, platform=None, port_end=None, port_start=None, reason=None, region=None, relate_alarm_info=None, security_group_id=None, status=None, tags=None, top_group_id=None, update_time=None, _configuration=None):  # noqa: E501
         """DataForListBanIPListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._agent_id = None
         self._ban_end_time_unix = None
         self._ban_ip = None
         self._ban_start_time_unix = None
         self._ban_type = None
+        self._cloud_provider = None
+        self._ecs_instance = None
+        self._group_id = None
         self._id = None
+        self._i_ptables_id = None
         self._insert_time = None
+        self._platform = None
         self._port_end = None
         self._port_start = None
         self._reason = None
@@ -88,11 +110,15 @@ class DataForListBanIPListOutput(object):
         self._relate_alarm_info = None
         self._security_group_id = None
         self._status = None
-        self._host_info = None
+        self._tags = None
+        self._top_group_id = None
+        self._update_time = None
         self.discriminator = None
 
         if account_id is not None:
             self.account_id = account_id
+        if agent_id is not None:
+            self.agent_id = agent_id
         if ban_end_time_unix is not None:
             self.ban_end_time_unix = ban_end_time_unix
         if ban_ip is not None:
@@ -101,10 +127,20 @@ class DataForListBanIPListOutput(object):
             self.ban_start_time_unix = ban_start_time_unix
         if ban_type is not None:
             self.ban_type = ban_type
+        if cloud_provider is not None:
+            self.cloud_provider = cloud_provider
+        if ecs_instance is not None:
+            self.ecs_instance = ecs_instance
+        if group_id is not None:
+            self.group_id = group_id
         if id is not None:
             self.id = id
+        if i_ptables_id is not None:
+            self.i_ptables_id = i_ptables_id
         if insert_time is not None:
             self.insert_time = insert_time
+        if platform is not None:
+            self.platform = platform
         if port_end is not None:
             self.port_end = port_end
         if port_start is not None:
@@ -119,8 +155,12 @@ class DataForListBanIPListOutput(object):
             self.security_group_id = security_group_id
         if status is not None:
             self.status = status
-        if host_info is not None:
-            self.host_info = host_info
+        if tags is not None:
+            self.tags = tags
+        if top_group_id is not None:
+            self.top_group_id = top_group_id
+        if update_time is not None:
+            self.update_time = update_time
 
     @property
     def account_id(self):
@@ -142,6 +182,27 @@ class DataForListBanIPListOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def agent_id(self):
+        """Gets the agent_id of this DataForListBanIPListOutput.  # noqa: E501
+
+
+        :return: The agent_id of this DataForListBanIPListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._agent_id
+
+    @agent_id.setter
+    def agent_id(self, agent_id):
+        """Sets the agent_id of this DataForListBanIPListOutput.
+
+
+        :param agent_id: The agent_id of this DataForListBanIPListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._agent_id = agent_id
 
     @property
     def ban_end_time_unix(self):
@@ -228,6 +289,69 @@ class DataForListBanIPListOutput(object):
         self._ban_type = ban_type
 
     @property
+    def cloud_provider(self):
+        """Gets the cloud_provider of this DataForListBanIPListOutput.  # noqa: E501
+
+
+        :return: The cloud_provider of this DataForListBanIPListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cloud_provider
+
+    @cloud_provider.setter
+    def cloud_provider(self, cloud_provider):
+        """Sets the cloud_provider of this DataForListBanIPListOutput.
+
+
+        :param cloud_provider: The cloud_provider of this DataForListBanIPListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cloud_provider = cloud_provider
+
+    @property
+    def ecs_instance(self):
+        """Gets the ecs_instance of this DataForListBanIPListOutput.  # noqa: E501
+
+
+        :return: The ecs_instance of this DataForListBanIPListOutput.  # noqa: E501
+        :rtype: EcsInstanceForListBanIPListOutput
+        """
+        return self._ecs_instance
+
+    @ecs_instance.setter
+    def ecs_instance(self, ecs_instance):
+        """Sets the ecs_instance of this DataForListBanIPListOutput.
+
+
+        :param ecs_instance: The ecs_instance of this DataForListBanIPListOutput.  # noqa: E501
+        :type: EcsInstanceForListBanIPListOutput
+        """
+
+        self._ecs_instance = ecs_instance
+
+    @property
+    def group_id(self):
+        """Gets the group_id of this DataForListBanIPListOutput.  # noqa: E501
+
+
+        :return: The group_id of this DataForListBanIPListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._group_id
+
+    @group_id.setter
+    def group_id(self, group_id):
+        """Sets the group_id of this DataForListBanIPListOutput.
+
+
+        :param group_id: The group_id of this DataForListBanIPListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._group_id = group_id
+
+    @property
     def id(self):
         """Gets the id of this DataForListBanIPListOutput.  # noqa: E501
 
@@ -249,6 +373,27 @@ class DataForListBanIPListOutput(object):
         self._id = id
 
     @property
+    def i_ptables_id(self):
+        """Gets the i_ptables_id of this DataForListBanIPListOutput.  # noqa: E501
+
+
+        :return: The i_ptables_id of this DataForListBanIPListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._i_ptables_id
+
+    @i_ptables_id.setter
+    def i_ptables_id(self, i_ptables_id):
+        """Sets the i_ptables_id of this DataForListBanIPListOutput.
+
+
+        :param i_ptables_id: The i_ptables_id of this DataForListBanIPListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._i_ptables_id = i_ptables_id
+
+    @property
     def insert_time(self):
         """Gets the insert_time of this DataForListBanIPListOutput.  # noqa: E501
 
@@ -268,6 +413,27 @@ class DataForListBanIPListOutput(object):
         """
 
         self._insert_time = insert_time
+
+    @property
+    def platform(self):
+        """Gets the platform of this DataForListBanIPListOutput.  # noqa: E501
+
+
+        :return: The platform of this DataForListBanIPListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._platform
+
+    @platform.setter
+    def platform(self, platform):
+        """Sets the platform of this DataForListBanIPListOutput.
+
+
+        :param platform: The platform of this DataForListBanIPListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._platform = platform
 
     @property
     def port_end(self):
@@ -417,25 +583,67 @@ class DataForListBanIPListOutput(object):
         self._status = status
 
     @property
-    def host_info(self):
-        """Gets the host_info of this DataForListBanIPListOutput.  # noqa: E501
+    def tags(self):
+        """Gets the tags of this DataForListBanIPListOutput.  # noqa: E501
 
 
-        :return: The host_info of this DataForListBanIPListOutput.  # noqa: E501
-        :rtype: HostInfoForListBanIPListOutput
+        :return: The tags of this DataForListBanIPListOutput.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._host_info
+        return self._tags
 
-    @host_info.setter
-    def host_info(self, host_info):
-        """Sets the host_info of this DataForListBanIPListOutput.
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DataForListBanIPListOutput.
 
 
-        :param host_info: The host_info of this DataForListBanIPListOutput.  # noqa: E501
-        :type: HostInfoForListBanIPListOutput
+        :param tags: The tags of this DataForListBanIPListOutput.  # noqa: E501
+        :type: list[str]
         """
 
-        self._host_info = host_info
+        self._tags = tags
+
+    @property
+    def top_group_id(self):
+        """Gets the top_group_id of this DataForListBanIPListOutput.  # noqa: E501
+
+
+        :return: The top_group_id of this DataForListBanIPListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._top_group_id
+
+    @top_group_id.setter
+    def top_group_id(self, top_group_id):
+        """Sets the top_group_id of this DataForListBanIPListOutput.
+
+
+        :param top_group_id: The top_group_id of this DataForListBanIPListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._top_group_id = top_group_id
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this DataForListBanIPListOutput.  # noqa: E501
+
+
+        :return: The update_time of this DataForListBanIPListOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this DataForListBanIPListOutput.
+
+
+        :param update_time: The update_time of this DataForListBanIPListOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._update_time = update_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

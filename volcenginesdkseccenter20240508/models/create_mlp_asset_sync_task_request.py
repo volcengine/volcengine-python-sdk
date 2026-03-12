@@ -49,7 +49,8 @@ class CreateMLPAssetSyncTaskRequest(object):
         self._asset_type = None
         self.discriminator = None
 
-        self.asset_type = asset_type
+        if asset_type is not None:
+            self.asset_type = asset_type
 
     @property
     def asset_type(self):
@@ -69,8 +70,6 @@ class CreateMLPAssetSyncTaskRequest(object):
         :param asset_type: The asset_type of this CreateMLPAssetSyncTaskRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and asset_type is None:
-            raise ValueError("Invalid value for `asset_type`, must not be `None`")  # noqa: E501
 
         self._asset_type = asset_type
 

@@ -42,6 +42,7 @@ class ListVulByPodRequest(object):
         'create_time_start': 'int',
         'cve_id': 'str',
         'if_high_availability': 'bool',
+        'is_real_risk_vul': 'bool',
         'leaf_group_ids': 'list[str]',
         'level': 'list[str]',
         'page_number': 'int',
@@ -66,6 +67,7 @@ class ListVulByPodRequest(object):
         'create_time_start': 'CreateTimeStart',
         'cve_id': 'CveID',
         'if_high_availability': 'IfHighAvailability',
+        'is_real_risk_vul': 'IsRealRiskVul',
         'leaf_group_ids': 'LeafGroupIDs',
         'level': 'Level',
         'page_number': 'PageNumber',
@@ -80,7 +82,7 @@ class ListVulByPodRequest(object):
         'workload_id': 'WorkloadID'
     }
 
-    def __init__(self, agent_id=None, asset_id=None, asset_type=None, cloud_providers=None, cluster_id=None, create_time_end=None, create_time_start=None, cve_id=None, if_high_availability=None, leaf_group_ids=None, level=None, page_number=None, page_size=None, sort_by=None, sort_order=None, status=None, tag=None, top_group_id=None, vuln_name=None, vuln_type_list=None, workload_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, asset_id=None, asset_type=None, cloud_providers=None, cluster_id=None, create_time_end=None, create_time_start=None, cve_id=None, if_high_availability=None, is_real_risk_vul=None, leaf_group_ids=None, level=None, page_number=None, page_size=None, sort_by=None, sort_order=None, status=None, tag=None, top_group_id=None, vuln_name=None, vuln_type_list=None, workload_id=None, _configuration=None):  # noqa: E501
         """ListVulByPodRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,6 +97,7 @@ class ListVulByPodRequest(object):
         self._create_time_start = None
         self._cve_id = None
         self._if_high_availability = None
+        self._is_real_risk_vul = None
         self._leaf_group_ids = None
         self._level = None
         self._page_number = None
@@ -126,6 +129,8 @@ class ListVulByPodRequest(object):
             self.cve_id = cve_id
         if if_high_availability is not None:
             self.if_high_availability = if_high_availability
+        if is_real_risk_vul is not None:
+            self.is_real_risk_vul = is_real_risk_vul
         if leaf_group_ids is not None:
             self.leaf_group_ids = leaf_group_ids
         if level is not None:
@@ -338,6 +343,27 @@ class ListVulByPodRequest(object):
         """
 
         self._if_high_availability = if_high_availability
+
+    @property
+    def is_real_risk_vul(self):
+        """Gets the is_real_risk_vul of this ListVulByPodRequest.  # noqa: E501
+
+
+        :return: The is_real_risk_vul of this ListVulByPodRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_real_risk_vul
+
+    @is_real_risk_vul.setter
+    def is_real_risk_vul(self, is_real_risk_vul):
+        """Sets the is_real_risk_vul of this ListVulByPodRequest.
+
+
+        :param is_real_risk_vul: The is_real_risk_vul of this ListVulByPodRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_real_risk_vul = is_real_risk_vul
 
     @property
     def leaf_group_ids(self):

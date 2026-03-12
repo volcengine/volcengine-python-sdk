@@ -33,7 +33,7 @@ class LevelConditionForUpdateRuleInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'conditions': 'list[ConditionForUpdateRuleInput]',
+        'conditions': 'list[ConvertConditionForUpdateRuleInput]',
         'level': 'str'
     }
 
@@ -63,7 +63,7 @@ class LevelConditionForUpdateRuleInput(object):
 
 
         :return: The conditions of this LevelConditionForUpdateRuleInput.  # noqa: E501
-        :rtype: list[ConditionForUpdateRuleInput]
+        :rtype: list[ConvertConditionForUpdateRuleInput]
         """
         return self._conditions
 
@@ -73,7 +73,7 @@ class LevelConditionForUpdateRuleInput(object):
 
 
         :param conditions: The conditions of this LevelConditionForUpdateRuleInput.  # noqa: E501
-        :type: list[ConditionForUpdateRuleInput]
+        :type: list[ConvertConditionForUpdateRuleInput]
         """
 
         self._conditions = conditions

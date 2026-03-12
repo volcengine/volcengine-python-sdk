@@ -39,7 +39,6 @@ class CreateFileSystemRequest(object):
         'description': 'str',
         'file_system_name': 'str',
         'instance_type': 'str',
-        'one_step': 'bool',
         'performance_density': 'str',
         'project_name': 'str',
         'provisioned_bandwidth': 'int',
@@ -54,7 +53,6 @@ class CreateFileSystemRequest(object):
         'description': 'Description',
         'file_system_name': 'FileSystemName',
         'instance_type': 'InstanceType',
-        'one_step': 'OneStep',
         'performance_density': 'PerformanceDensity',
         'project_name': 'ProjectName',
         'provisioned_bandwidth': 'ProvisionedBandwidth',
@@ -62,7 +60,7 @@ class CreateFileSystemRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, bandwidth_mode=None, burst_bandwidth=None, charge_type=None, description=None, file_system_name=None, instance_type=None, one_step=None, performance_density=None, project_name=None, provisioned_bandwidth=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth_mode=None, burst_bandwidth=None, charge_type=None, description=None, file_system_name=None, instance_type=None, performance_density=None, project_name=None, provisioned_bandwidth=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateFileSystemRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,7 +72,6 @@ class CreateFileSystemRequest(object):
         self._description = None
         self._file_system_name = None
         self._instance_type = None
-        self._one_step = None
         self._performance_density = None
         self._project_name = None
         self._provisioned_bandwidth = None
@@ -91,8 +88,6 @@ class CreateFileSystemRequest(object):
             self.description = description
         self.file_system_name = file_system_name
         self.instance_type = instance_type
-        if one_step is not None:
-            self.one_step = one_step
         self.performance_density = performance_density
         if project_name is not None:
             self.project_name = project_name
@@ -171,7 +166,7 @@ class CreateFileSystemRequest(object):
         :param charge_type: The charge_type of this CreateFileSystemRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["PayAsYouGo", "NotEnabled"]  # noqa: E501
+        allowed_values = ["PayAsYouGo"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 charge_type not in allowed_values):
             raise ValueError(
@@ -245,7 +240,7 @@ class CreateFileSystemRequest(object):
         """
         if self._configuration.client_side_validation and instance_type is None:
             raise ValueError("Invalid value for `instance_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Unknown", "Basic", "Premium", "IntelliTier"]  # noqa: E501
+        allowed_values = ["Basic", "Premium"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 instance_type not in allowed_values):
             raise ValueError(
@@ -254,27 +249,6 @@ class CreateFileSystemRequest(object):
             )
 
         self._instance_type = instance_type
-
-    @property
-    def one_step(self):
-        """Gets the one_step of this CreateFileSystemRequest.  # noqa: E501
-
-
-        :return: The one_step of this CreateFileSystemRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._one_step
-
-    @one_step.setter
-    def one_step(self, one_step):
-        """Sets the one_step of this CreateFileSystemRequest.
-
-
-        :param one_step: The one_step of this CreateFileSystemRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._one_step = one_step
 
     @property
     def performance_density(self):
@@ -296,7 +270,7 @@ class CreateFileSystemRequest(object):
         """
         if self._configuration.client_side_validation and performance_density is None:
             raise ValueError("Invalid value for `performance_density`, must not be `None`")  # noqa: E501
-        allowed_values = ["Unknown", "Basic_50", "Premium_125"]  # noqa: E501
+        allowed_values = ["Basic_50", "Premium_125"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 performance_density not in allowed_values):
             raise ValueError(

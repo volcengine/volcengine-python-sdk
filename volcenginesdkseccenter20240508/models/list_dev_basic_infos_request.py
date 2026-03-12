@@ -41,8 +41,10 @@ class ListDevBasicInfosRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'platforms': 'list[str]',
+        'protect_status': 'str',
         'regions': 'list[str]',
         'risk': 'RiskForListDevBasicInfosInput',
+        'security_enhancement': 'bool',
         'sort_by': 'str',
         'sort_order': 'str',
         'status': 'list[str]'
@@ -57,14 +59,16 @@ class ListDevBasicInfosRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'platforms': 'Platforms',
+        'protect_status': 'ProtectStatus',
         'regions': 'Regions',
         'risk': 'Risk',
+        'security_enhancement': 'SecurityEnhancement',
         'sort_by': 'SortBy',
         'sort_order': 'SortOrder',
         'status': 'Status'
     }
 
-    def __init__(self, asset_id=None, asset_ids=None, asset_name=None, ip=None, is_all=None, page_number=None, page_size=None, platforms=None, regions=None, risk=None, sort_by=None, sort_order=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, asset_id=None, asset_ids=None, asset_name=None, ip=None, is_all=None, page_number=None, page_size=None, platforms=None, protect_status=None, regions=None, risk=None, security_enhancement=None, sort_by=None, sort_order=None, status=None, _configuration=None):  # noqa: E501
         """ListDevBasicInfosRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,8 +82,10 @@ class ListDevBasicInfosRequest(object):
         self._page_number = None
         self._page_size = None
         self._platforms = None
+        self._protect_status = None
         self._regions = None
         self._risk = None
+        self._security_enhancement = None
         self._sort_by = None
         self._sort_order = None
         self._status = None
@@ -99,10 +105,14 @@ class ListDevBasicInfosRequest(object):
         self.page_size = page_size
         if platforms is not None:
             self.platforms = platforms
+        if protect_status is not None:
+            self.protect_status = protect_status
         if regions is not None:
             self.regions = regions
         if risk is not None:
             self.risk = risk
+        if security_enhancement is not None:
+            self.security_enhancement = security_enhancement
         if sort_by is not None:
             self.sort_by = sort_by
         if sort_order is not None:
@@ -283,6 +293,27 @@ class ListDevBasicInfosRequest(object):
         self._platforms = platforms
 
     @property
+    def protect_status(self):
+        """Gets the protect_status of this ListDevBasicInfosRequest.  # noqa: E501
+
+
+        :return: The protect_status of this ListDevBasicInfosRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._protect_status
+
+    @protect_status.setter
+    def protect_status(self, protect_status):
+        """Sets the protect_status of this ListDevBasicInfosRequest.
+
+
+        :param protect_status: The protect_status of this ListDevBasicInfosRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._protect_status = protect_status
+
+    @property
     def regions(self):
         """Gets the regions of this ListDevBasicInfosRequest.  # noqa: E501
 
@@ -323,6 +354,27 @@ class ListDevBasicInfosRequest(object):
         """
 
         self._risk = risk
+
+    @property
+    def security_enhancement(self):
+        """Gets the security_enhancement of this ListDevBasicInfosRequest.  # noqa: E501
+
+
+        :return: The security_enhancement of this ListDevBasicInfosRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._security_enhancement
+
+    @security_enhancement.setter
+    def security_enhancement(self, security_enhancement):
+        """Sets the security_enhancement of this ListDevBasicInfosRequest.
+
+
+        :param security_enhancement: The security_enhancement of this ListDevBasicInfosRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._security_enhancement = security_enhancement
 
     @property
     def sort_by(self):

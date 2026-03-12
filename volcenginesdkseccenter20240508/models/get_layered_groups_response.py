@@ -33,7 +33,7 @@ class GetLayeredGroupsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'list[str]'
+        'data': 'list[DataForGetLayeredGroupsOutput]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class GetLayeredGroupsResponse(object):
 
 
         :return: The data of this GetLayeredGroupsResponse.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[DataForGetLayeredGroupsOutput]
         """
         return self._data
 
@@ -68,7 +68,7 @@ class GetLayeredGroupsResponse(object):
 
 
         :param data: The data of this GetLayeredGroupsResponse.  # noqa: E501
-        :type: list[str]
+        :type: list[DataForGetLayeredGroupsOutput]
         """
 
         self._data = data
