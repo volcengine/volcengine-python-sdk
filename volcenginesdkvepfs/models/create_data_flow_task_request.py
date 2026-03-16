@@ -37,6 +37,7 @@ class CreateDataFlowTaskRequest(object):
         'data_storage_path': 'str',
         'data_type': 'str',
         'delete_policy': 'DeletePolicyForCreateDataFlowTaskInput',
+        'enable_tls_log': 'bool',
         'entry_list_file_info': 'EntryListFileInfoForCreateDataFlowTaskInput',
         'export_symlink_policy': 'str',
         'file_system_id': 'str',
@@ -51,6 +52,7 @@ class CreateDataFlowTaskRequest(object):
         'data_storage_path': 'DataStoragePath',
         'data_type': 'DataType',
         'delete_policy': 'DeletePolicy',
+        'enable_tls_log': 'EnableTlsLog',
         'entry_list_file_info': 'EntryListFileInfo',
         'export_symlink_policy': 'ExportSymlinkPolicy',
         'file_system_id': 'FileSystemId',
@@ -60,7 +62,7 @@ class CreateDataFlowTaskRequest(object):
         'task_action': 'TaskAction'
     }
 
-    def __init__(self, data_storage=None, data_storage_path=None, data_type=None, delete_policy=None, entry_list_file_info=None, export_symlink_policy=None, file_system_id=None, fileset_id=None, same_name_file_policy=None, sub_path=None, task_action=None, _configuration=None):  # noqa: E501
+    def __init__(self, data_storage=None, data_storage_path=None, data_type=None, delete_policy=None, enable_tls_log=None, entry_list_file_info=None, export_symlink_policy=None, file_system_id=None, fileset_id=None, same_name_file_policy=None, sub_path=None, task_action=None, _configuration=None):  # noqa: E501
         """CreateDataFlowTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class CreateDataFlowTaskRequest(object):
         self._data_storage_path = None
         self._data_type = None
         self._delete_policy = None
+        self._enable_tls_log = None
         self._entry_list_file_info = None
         self._export_symlink_policy = None
         self._file_system_id = None
@@ -86,6 +89,8 @@ class CreateDataFlowTaskRequest(object):
         self.data_type = data_type
         if delete_policy is not None:
             self.delete_policy = delete_policy
+        if enable_tls_log is not None:
+            self.enable_tls_log = enable_tls_log
         if entry_list_file_info is not None:
             self.entry_list_file_info = entry_list_file_info
         if export_symlink_policy is not None:
@@ -191,6 +196,27 @@ class CreateDataFlowTaskRequest(object):
         """
 
         self._delete_policy = delete_policy
+
+    @property
+    def enable_tls_log(self):
+        """Gets the enable_tls_log of this CreateDataFlowTaskRequest.  # noqa: E501
+
+
+        :return: The enable_tls_log of this CreateDataFlowTaskRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_tls_log
+
+    @enable_tls_log.setter
+    def enable_tls_log(self, enable_tls_log):
+        """Sets the enable_tls_log of this CreateDataFlowTaskRequest.
+
+
+        :param enable_tls_log: The enable_tls_log of this CreateDataFlowTaskRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_tls_log = enable_tls_log
 
     @property
     def entry_list_file_info(self):
