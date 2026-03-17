@@ -33,60 +33,34 @@ class VolumeTypeForDescribeVolumeTypeOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'created_at': 'str',
         'extra_performance_types': 'list[ExtraPerformanceTypeForDescribeVolumeTypeOutput]',
         'id': 'str',
         'zones': 'list[str]'
     }
 
     attribute_map = {
-        'created_at': 'CreatedAt',
         'extra_performance_types': 'ExtraPerformanceTypes',
         'id': 'Id',
         'zones': 'Zones'
     }
 
-    def __init__(self, created_at=None, extra_performance_types=None, id=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, extra_performance_types=None, id=None, zones=None, _configuration=None):  # noqa: E501
         """VolumeTypeForDescribeVolumeTypeOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._created_at = None
         self._extra_performance_types = None
         self._id = None
         self._zones = None
         self.discriminator = None
 
-        if created_at is not None:
-            self.created_at = created_at
         if extra_performance_types is not None:
             self.extra_performance_types = extra_performance_types
         if id is not None:
             self.id = id
         if zones is not None:
             self.zones = zones
-
-    @property
-    def created_at(self):
-        """Gets the created_at of this VolumeTypeForDescribeVolumeTypeOutput.  # noqa: E501
-
-
-        :return: The created_at of this VolumeTypeForDescribeVolumeTypeOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._created_at
-
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this VolumeTypeForDescribeVolumeTypeOutput.
-
-
-        :param created_at: The created_at of this VolumeTypeForDescribeVolumeTypeOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._created_at = created_at
 
     @property
     def extra_performance_types(self):
