@@ -37,21 +37,29 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         'asr_model': 'int',
         'bgm_policy': 'int',
         'comment': 'str',
-        'deadline': 'int',
+        'created_at': 'str',
+        'deadline': 'str',
         'drama_cover_url': 'str',
         'drama_description': 'str',
         'drama_title': 'str',
+        'dub_or_translation_task_id': 'str',
         'is_dub': 'bool',
         'need_translate_cover': 'bool',
         'need_translate_desc': 'bool',
         'need_translate_title': 'bool',
         'need_translate_title_and_desc': 'bool',
         'need_video_speed': 'bool',
+        'procedures': 'int',
+        'reference_doc': 'ReferenceDocForVideoProjectSerialDubTaskCreateInput',
         'serial_number': 'int',
         'source_lang': 'str',
+        'source_locale': 'str',
+        'state': 'int',
         'suppression_params': 'SuppressionParamsForVideoProjectSerialDubTaskCreateInput',
         'target_langs': 'list[str]',
+        'target_locale': 'list[str]',
         'target_style_map': 'TargetStyleMapForVideoProjectSerialDubTaskCreateInput',
+        'task_id': 'int',
         'task_name': 'str',
         'use_mt': 'bool'
     }
@@ -61,26 +69,34 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         'asr_model': 'asrModel',
         'bgm_policy': 'bgmPolicy',
         'comment': 'comment',
+        'created_at': 'createdAt',
         'deadline': 'deadline',
         'drama_cover_url': 'dramaCoverUrl',
         'drama_description': 'dramaDescription',
         'drama_title': 'dramaTitle',
+        'dub_or_translation_task_id': 'dubOrTranslationTaskID',
         'is_dub': 'isDub',
         'need_translate_cover': 'needTranslateCover',
         'need_translate_desc': 'needTranslateDesc',
         'need_translate_title': 'needTranslateTitle',
         'need_translate_title_and_desc': 'needTranslateTitleAndDesc',
         'need_video_speed': 'needVideoSpeed',
+        'procedures': 'procedures',
+        'reference_doc': 'referenceDoc',
         'serial_number': 'serialNumber',
         'source_lang': 'sourceLang',
+        'source_locale': 'sourceLocale',
+        'state': 'state',
         'suppression_params': 'suppressionParams',
         'target_langs': 'targetLangs',
+        'target_locale': 'targetLocale',
         'target_style_map': 'targetStyleMap',
+        'task_id': 'taskId',
         'task_name': 'taskName',
         'use_mt': 'useMT'
     }
 
-    def __init__(self, ai_remove_type=None, asr_model=None, bgm_policy=None, comment=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, is_dub=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, serial_number=None, source_lang=None, suppression_params=None, target_langs=None, target_style_map=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_remove_type=None, asr_model=None, bgm_policy=None, comment=None, created_at=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, dub_or_translation_task_id=None, is_dub=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, procedures=None, reference_doc=None, serial_number=None, source_lang=None, source_locale=None, state=None, suppression_params=None, target_langs=None, target_locale=None, target_style_map=None, task_id=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
         """TaskInfoForVideoProjectSerialDubTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,21 +106,29 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         self._asr_model = None
         self._bgm_policy = None
         self._comment = None
+        self._created_at = None
         self._deadline = None
         self._drama_cover_url = None
         self._drama_description = None
         self._drama_title = None
+        self._dub_or_translation_task_id = None
         self._is_dub = None
         self._need_translate_cover = None
         self._need_translate_desc = None
         self._need_translate_title = None
         self._need_translate_title_and_desc = None
         self._need_video_speed = None
+        self._procedures = None
+        self._reference_doc = None
         self._serial_number = None
         self._source_lang = None
+        self._source_locale = None
+        self._state = None
         self._suppression_params = None
         self._target_langs = None
+        self._target_locale = None
         self._target_style_map = None
+        self._task_id = None
         self._task_name = None
         self._use_mt = None
         self.discriminator = None
@@ -117,6 +141,8 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
             self.bgm_policy = bgm_policy
         if comment is not None:
             self.comment = comment
+        if created_at is not None:
+            self.created_at = created_at
         if deadline is not None:
             self.deadline = deadline
         if drama_cover_url is not None:
@@ -125,6 +151,8 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
             self.drama_description = drama_description
         if drama_title is not None:
             self.drama_title = drama_title
+        if dub_or_translation_task_id is not None:
+            self.dub_or_translation_task_id = dub_or_translation_task_id
         if is_dub is not None:
             self.is_dub = is_dub
         if need_translate_cover is not None:
@@ -137,16 +165,28 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
             self.need_translate_title_and_desc = need_translate_title_and_desc
         if need_video_speed is not None:
             self.need_video_speed = need_video_speed
+        if procedures is not None:
+            self.procedures = procedures
+        if reference_doc is not None:
+            self.reference_doc = reference_doc
         if serial_number is not None:
             self.serial_number = serial_number
         if source_lang is not None:
             self.source_lang = source_lang
+        if source_locale is not None:
+            self.source_locale = source_locale
+        if state is not None:
+            self.state = state
         if suppression_params is not None:
             self.suppression_params = suppression_params
         if target_langs is not None:
             self.target_langs = target_langs
+        if target_locale is not None:
+            self.target_locale = target_locale
         if target_style_map is not None:
             self.target_style_map = target_style_map
+        if task_id is not None:
+            self.task_id = task_id
         if task_name is not None:
             self.task_name = task_name
         if use_mt is not None:
@@ -237,12 +277,33 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         self._comment = comment
 
     @property
+    def created_at(self):
+        """Gets the created_at of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The created_at of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this TaskInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param created_at: The created_at of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: str
+        """
+
+        self._created_at = created_at
+
+    @property
     def deadline(self):
         """Gets the deadline of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
 
 
         :return: The deadline of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._deadline
 
@@ -252,7 +313,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
 
 
         :param deadline: The deadline of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._deadline = deadline
@@ -319,6 +380,27 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         """
 
         self._drama_title = drama_title
+
+    @property
+    def dub_or_translation_task_id(self):
+        """Gets the dub_or_translation_task_id of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The dub_or_translation_task_id of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._dub_or_translation_task_id
+
+    @dub_or_translation_task_id.setter
+    def dub_or_translation_task_id(self, dub_or_translation_task_id):
+        """Sets the dub_or_translation_task_id of this TaskInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param dub_or_translation_task_id: The dub_or_translation_task_id of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: str
+        """
+
+        self._dub_or_translation_task_id = dub_or_translation_task_id
 
     @property
     def is_dub(self):
@@ -447,6 +529,48 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         self._need_video_speed = need_video_speed
 
     @property
+    def procedures(self):
+        """Gets the procedures of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The procedures of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._procedures
+
+    @procedures.setter
+    def procedures(self, procedures):
+        """Sets the procedures of this TaskInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param procedures: The procedures of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: int
+        """
+
+        self._procedures = procedures
+
+    @property
+    def reference_doc(self):
+        """Gets the reference_doc of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The reference_doc of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: ReferenceDocForVideoProjectSerialDubTaskCreateInput
+        """
+        return self._reference_doc
+
+    @reference_doc.setter
+    def reference_doc(self, reference_doc):
+        """Sets the reference_doc of this TaskInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param reference_doc: The reference_doc of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: ReferenceDocForVideoProjectSerialDubTaskCreateInput
+        """
+
+        self._reference_doc = reference_doc
+
+    @property
     def serial_number(self):
         """Gets the serial_number of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
 
@@ -487,6 +611,48 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         """
 
         self._source_lang = source_lang
+
+    @property
+    def source_locale(self):
+        """Gets the source_locale of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The source_locale of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_locale
+
+    @source_locale.setter
+    def source_locale(self, source_locale):
+        """Sets the source_locale of this TaskInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param source_locale: The source_locale of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: str
+        """
+
+        self._source_locale = source_locale
+
+    @property
+    def state(self):
+        """Gets the state of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The state of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """Sets the state of this TaskInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param state: The state of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: int
+        """
+
+        self._state = state
 
     @property
     def suppression_params(self):
@@ -531,6 +697,27 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         self._target_langs = target_langs
 
     @property
+    def target_locale(self):
+        """Gets the target_locale of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The target_locale of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._target_locale
+
+    @target_locale.setter
+    def target_locale(self, target_locale):
+        """Sets the target_locale of this TaskInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param target_locale: The target_locale of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._target_locale = target_locale
+
+    @property
     def target_style_map(self):
         """Gets the target_style_map of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
 
@@ -550,6 +737,27 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         """
 
         self._target_style_map = target_style_map
+
+    @property
+    def task_id(self):
+        """Gets the task_id of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The task_id of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._task_id
+
+    @task_id.setter
+    def task_id(self, task_id):
+        """Sets the task_id of this TaskInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param task_id: The task_id of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: int
+        """
+
+        self._task_id = task_id
 
     @property
     def task_name(self):
