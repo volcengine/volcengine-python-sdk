@@ -33,6 +33,7 @@ class GrantPermissionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'definition': 'DefinitionForGrantPermissionInput',
         'description': 'str',
         'effect': 'str',
         'namespace_name': 'str',
@@ -44,6 +45,7 @@ class GrantPermissionRequest(object):
     }
 
     attribute_map = {
+        'definition': 'Definition',
         'description': 'Description',
         'effect': 'Effect',
         'namespace_name': 'NamespaceName',
@@ -54,12 +56,13 @@ class GrantPermissionRequest(object):
         'resource': 'Resource'
     }
 
-    def __init__(self, description=None, effect=None, namespace_name=None, operation=None, original_callers=None, policy_name=None, principal=None, resource=None, _configuration=None):  # noqa: E501
+    def __init__(self, definition=None, description=None, effect=None, namespace_name=None, operation=None, original_callers=None, policy_name=None, principal=None, resource=None, _configuration=None):  # noqa: E501
         """GrantPermissionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._definition = None
         self._description = None
         self._effect = None
         self._namespace_name = None
@@ -70,6 +73,8 @@ class GrantPermissionRequest(object):
         self._resource = None
         self.discriminator = None
 
+        if definition is not None:
+            self.definition = definition
         if description is not None:
             self.description = description
         if effect is not None:
@@ -86,6 +91,27 @@ class GrantPermissionRequest(object):
             self.principal = principal
         if resource is not None:
             self.resource = resource
+
+    @property
+    def definition(self):
+        """Gets the definition of this GrantPermissionRequest.  # noqa: E501
+
+
+        :return: The definition of this GrantPermissionRequest.  # noqa: E501
+        :rtype: DefinitionForGrantPermissionInput
+        """
+        return self._definition
+
+    @definition.setter
+    def definition(self, definition):
+        """Sets the definition of this GrantPermissionRequest.
+
+
+        :param definition: The definition of this GrantPermissionRequest.  # noqa: E501
+        :type: DefinitionForGrantPermissionInput
+        """
+
+        self._definition = definition
 
     @property
     def description(self):
