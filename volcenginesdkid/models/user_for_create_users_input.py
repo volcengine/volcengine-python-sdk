@@ -34,11 +34,14 @@ class UserForCreateUsersInput(object):
     """
     swagger_types = {
         'birthdate': 'str',
+        'departments': 'list[str]',
         'email': 'str',
         'email_verified': 'bool',
+        'external_provider_user_identifier': 'str',
         'family_name': 'str',
         'gender': 'str',
         'given_name': 'str',
+        'groups': 'list[str]',
         'locale': 'str',
         'middle_name': 'str',
         'name': 'str',
@@ -56,11 +59,14 @@ class UserForCreateUsersInput(object):
 
     attribute_map = {
         'birthdate': 'Birthdate',
+        'departments': 'Departments',
         'email': 'Email',
         'email_verified': 'EmailVerified',
+        'external_provider_user_identifier': 'ExternalProviderUserIdentifier',
         'family_name': 'FamilyName',
         'gender': 'Gender',
         'given_name': 'GivenName',
+        'groups': 'Groups',
         'locale': 'Locale',
         'middle_name': 'MiddleName',
         'name': 'Name',
@@ -76,18 +82,21 @@ class UserForCreateUsersInput(object):
         'zoneinfo': 'Zoneinfo'
     }
 
-    def __init__(self, birthdate=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, locale=None, middle_name=None, name=None, nickname=None, password=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, user_metadata=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
+    def __init__(self, birthdate=None, departments=None, email=None, email_verified=None, external_provider_user_identifier=None, family_name=None, gender=None, given_name=None, groups=None, locale=None, middle_name=None, name=None, nickname=None, password=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, user_metadata=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
         """UserForCreateUsersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._birthdate = None
+        self._departments = None
         self._email = None
         self._email_verified = None
+        self._external_provider_user_identifier = None
         self._family_name = None
         self._gender = None
         self._given_name = None
+        self._groups = None
         self._locale = None
         self._middle_name = None
         self._name = None
@@ -105,16 +114,22 @@ class UserForCreateUsersInput(object):
 
         if birthdate is not None:
             self.birthdate = birthdate
+        if departments is not None:
+            self.departments = departments
         if email is not None:
             self.email = email
         if email_verified is not None:
             self.email_verified = email_verified
+        if external_provider_user_identifier is not None:
+            self.external_provider_user_identifier = external_provider_user_identifier
         if family_name is not None:
             self.family_name = family_name
         if gender is not None:
             self.gender = gender
         if given_name is not None:
             self.given_name = given_name
+        if groups is not None:
+            self.groups = groups
         if locale is not None:
             self.locale = locale
         if middle_name is not None:
@@ -164,6 +179,27 @@ class UserForCreateUsersInput(object):
         self._birthdate = birthdate
 
     @property
+    def departments(self):
+        """Gets the departments of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The departments of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._departments
+
+    @departments.setter
+    def departments(self, departments):
+        """Sets the departments of this UserForCreateUsersInput.
+
+
+        :param departments: The departments of this UserForCreateUsersInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._departments = departments
+
+    @property
     def email(self):
         """Gets the email of this UserForCreateUsersInput.  # noqa: E501
 
@@ -204,6 +240,27 @@ class UserForCreateUsersInput(object):
         """
 
         self._email_verified = email_verified
+
+    @property
+    def external_provider_user_identifier(self):
+        """Gets the external_provider_user_identifier of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The external_provider_user_identifier of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_provider_user_identifier
+
+    @external_provider_user_identifier.setter
+    def external_provider_user_identifier(self, external_provider_user_identifier):
+        """Sets the external_provider_user_identifier of this UserForCreateUsersInput.
+
+
+        :param external_provider_user_identifier: The external_provider_user_identifier of this UserForCreateUsersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._external_provider_user_identifier = external_provider_user_identifier
 
     @property
     def family_name(self):
@@ -267,6 +324,27 @@ class UserForCreateUsersInput(object):
         """
 
         self._given_name = given_name
+
+    @property
+    def groups(self):
+        """Gets the groups of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The groups of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._groups
+
+    @groups.setter
+    def groups(self, groups):
+        """Sets the groups of this UserForCreateUsersInput.
+
+
+        :param groups: The groups of this UserForCreateUsersInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._groups = groups
 
     @property
     def locale(self):

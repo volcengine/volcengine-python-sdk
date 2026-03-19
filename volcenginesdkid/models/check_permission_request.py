@@ -36,6 +36,7 @@ class CheckPermissionRequest(object):
         'namespace_name': 'str',
         'operation': 'OperationForCheckPermissionInput',
         'original_callers': 'list[OriginalCallerForCheckPermissionInput]',
+        'permission_point_id': 'str',
         'principal': 'PrincipalForCheckPermissionInput',
         'references': 'list[ReferenceForCheckPermissionInput]',
         'resource': 'ResourceForCheckPermissionInput'
@@ -45,12 +46,13 @@ class CheckPermissionRequest(object):
         'namespace_name': 'NamespaceName',
         'operation': 'Operation',
         'original_callers': 'OriginalCallers',
+        'permission_point_id': 'PermissionPointId',
         'principal': 'Principal',
         'references': 'References',
         'resource': 'Resource'
     }
 
-    def __init__(self, namespace_name=None, operation=None, original_callers=None, principal=None, references=None, resource=None, _configuration=None):  # noqa: E501
+    def __init__(self, namespace_name=None, operation=None, original_callers=None, permission_point_id=None, principal=None, references=None, resource=None, _configuration=None):  # noqa: E501
         """CheckPermissionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CheckPermissionRequest(object):
         self._namespace_name = None
         self._operation = None
         self._original_callers = None
+        self._permission_point_id = None
         self._principal = None
         self._references = None
         self._resource = None
@@ -69,6 +72,8 @@ class CheckPermissionRequest(object):
             self.operation = operation
         if original_callers is not None:
             self.original_callers = original_callers
+        if permission_point_id is not None:
+            self.permission_point_id = permission_point_id
         if principal is not None:
             self.principal = principal
         if references is not None:
@@ -140,6 +145,27 @@ class CheckPermissionRequest(object):
         """
 
         self._original_callers = original_callers
+
+    @property
+    def permission_point_id(self):
+        """Gets the permission_point_id of this CheckPermissionRequest.  # noqa: E501
+
+
+        :return: The permission_point_id of this CheckPermissionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._permission_point_id
+
+    @permission_point_id.setter
+    def permission_point_id(self, permission_point_id):
+        """Sets the permission_point_id of this CheckPermissionRequest.
+
+
+        :param permission_point_id: The permission_point_id of this CheckPermissionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._permission_point_id = permission_point_id
 
     @property
     def principal(self):

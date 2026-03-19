@@ -33,29 +33,55 @@ class DescribeDBInstanceHAConfigResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_storage_scaling_config': 'AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput',
         'data_sync_mode': 'str',
         'nodes': 'list[NodeForDescribeDBInstanceHAConfigOutput]'
     }
 
     attribute_map = {
+        'auto_storage_scaling_config': 'AutoStorageScalingConfig',
         'data_sync_mode': 'DataSyncMode',
         'nodes': 'Nodes'
     }
 
-    def __init__(self, data_sync_mode=None, nodes=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_storage_scaling_config=None, data_sync_mode=None, nodes=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceHAConfigResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auto_storage_scaling_config = None
         self._data_sync_mode = None
         self._nodes = None
         self.discriminator = None
 
+        if auto_storage_scaling_config is not None:
+            self.auto_storage_scaling_config = auto_storage_scaling_config
         if data_sync_mode is not None:
             self.data_sync_mode = data_sync_mode
         if nodes is not None:
             self.nodes = nodes
+
+    @property
+    def auto_storage_scaling_config(self):
+        """Gets the auto_storage_scaling_config of this DescribeDBInstanceHAConfigResponse.  # noqa: E501
+
+
+        :return: The auto_storage_scaling_config of this DescribeDBInstanceHAConfigResponse.  # noqa: E501
+        :rtype: AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput
+        """
+        return self._auto_storage_scaling_config
+
+    @auto_storage_scaling_config.setter
+    def auto_storage_scaling_config(self, auto_storage_scaling_config):
+        """Sets the auto_storage_scaling_config of this DescribeDBInstanceHAConfigResponse.
+
+
+        :param auto_storage_scaling_config: The auto_storage_scaling_config of this DescribeDBInstanceHAConfigResponse.  # noqa: E501
+        :type: AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput
+        """
+
+        self._auto_storage_scaling_config = auto_storage_scaling_config
 
     @property
     def data_sync_mode(self):

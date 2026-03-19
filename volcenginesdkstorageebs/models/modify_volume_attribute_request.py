@@ -33,6 +33,8 @@ class ModifyVolumeAttributeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'delete_protection': 'bool',
+        'delete_protection_retention_days': 'int',
         'delete_with_instance': 'bool',
         'description': 'str',
         'volume_id': 'str',
@@ -40,30 +42,80 @@ class ModifyVolumeAttributeRequest(object):
     }
 
     attribute_map = {
+        'delete_protection': 'DeleteProtection',
+        'delete_protection_retention_days': 'DeleteProtectionRetentionDays',
         'delete_with_instance': 'DeleteWithInstance',
         'description': 'Description',
         'volume_id': 'VolumeId',
         'volume_name': 'VolumeName'
     }
 
-    def __init__(self, delete_with_instance=None, description=None, volume_id=None, volume_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_protection=None, delete_protection_retention_days=None, delete_with_instance=None, description=None, volume_id=None, volume_name=None, _configuration=None):  # noqa: E501
         """ModifyVolumeAttributeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._delete_protection = None
+        self._delete_protection_retention_days = None
         self._delete_with_instance = None
         self._description = None
         self._volume_id = None
         self._volume_name = None
         self.discriminator = None
 
+        if delete_protection is not None:
+            self.delete_protection = delete_protection
+        if delete_protection_retention_days is not None:
+            self.delete_protection_retention_days = delete_protection_retention_days
         if delete_with_instance is not None:
             self.delete_with_instance = delete_with_instance
         if description is not None:
             self.description = description
         self.volume_id = volume_id
         self.volume_name = volume_name
+
+    @property
+    def delete_protection(self):
+        """Gets the delete_protection of this ModifyVolumeAttributeRequest.  # noqa: E501
+
+
+        :return: The delete_protection of this ModifyVolumeAttributeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delete_protection
+
+    @delete_protection.setter
+    def delete_protection(self, delete_protection):
+        """Sets the delete_protection of this ModifyVolumeAttributeRequest.
+
+
+        :param delete_protection: The delete_protection of this ModifyVolumeAttributeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._delete_protection = delete_protection
+
+    @property
+    def delete_protection_retention_days(self):
+        """Gets the delete_protection_retention_days of this ModifyVolumeAttributeRequest.  # noqa: E501
+
+
+        :return: The delete_protection_retention_days of this ModifyVolumeAttributeRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._delete_protection_retention_days
+
+    @delete_protection_retention_days.setter
+    def delete_protection_retention_days(self, delete_protection_retention_days):
+        """Sets the delete_protection_retention_days of this ModifyVolumeAttributeRequest.
+
+
+        :param delete_protection_retention_days: The delete_protection_retention_days of this ModifyVolumeAttributeRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._delete_protection_retention_days = delete_protection_retention_days
 
     @property
     def delete_with_instance(self):

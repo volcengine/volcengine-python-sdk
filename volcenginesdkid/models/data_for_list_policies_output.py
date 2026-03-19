@@ -34,6 +34,7 @@ class DataForListPoliciesOutput(object):
     """
     swagger_types = {
         'create_time': 'str',
+        'definition': 'DefinitionForListPoliciesOutput',
         'description': 'str',
         'namespace_id': 'str',
         'policy': 'str',
@@ -45,6 +46,7 @@ class DataForListPoliciesOutput(object):
 
     attribute_map = {
         'create_time': 'CreateTime',
+        'definition': 'Definition',
         'description': 'Description',
         'namespace_id': 'NamespaceId',
         'policy': 'Policy',
@@ -54,13 +56,14 @@ class DataForListPoliciesOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, description=None, namespace_id=None, policy=None, policy_id=None, policy_name=None, trn=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, definition=None, description=None, namespace_id=None, policy=None, policy_id=None, policy_name=None, trn=None, update_time=None, _configuration=None):  # noqa: E501
         """DataForListPoliciesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._create_time = None
+        self._definition = None
         self._description = None
         self._namespace_id = None
         self._policy = None
@@ -72,6 +75,8 @@ class DataForListPoliciesOutput(object):
 
         if create_time is not None:
             self.create_time = create_time
+        if definition is not None:
+            self.definition = definition
         if description is not None:
             self.description = description
         if namespace_id is not None:
@@ -107,6 +112,27 @@ class DataForListPoliciesOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def definition(self):
+        """Gets the definition of this DataForListPoliciesOutput.  # noqa: E501
+
+
+        :return: The definition of this DataForListPoliciesOutput.  # noqa: E501
+        :rtype: DefinitionForListPoliciesOutput
+        """
+        return self._definition
+
+    @definition.setter
+    def definition(self, definition):
+        """Sets the definition of this DataForListPoliciesOutput.
+
+
+        :param definition: The definition of this DataForListPoliciesOutput.  # noqa: E501
+        :type: DefinitionForListPoliciesOutput
+        """
+
+        self._definition = definition
 
     @property
     def description(self):

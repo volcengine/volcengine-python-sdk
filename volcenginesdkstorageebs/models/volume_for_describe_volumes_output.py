@@ -38,8 +38,11 @@ class VolumeForDescribeVolumesOutput(object):
         'baseline_performance': 'BaselinePerformanceForDescribeVolumesOutput',
         'billing_type': 'int',
         'created_at': 'str',
+        'delete_protection': 'bool',
+        'delete_protection_retention_days': 'int',
         'delete_with_instance': 'bool',
         'description': 'str',
+        'detached_time': 'str',
         'error_detail': 'str',
         'expired_time': 'str',
         'extra_performance': 'ExtraPerformanceForDescribeVolumesOutput',
@@ -73,8 +76,11 @@ class VolumeForDescribeVolumesOutput(object):
         'baseline_performance': 'BaselinePerformance',
         'billing_type': 'BillingType',
         'created_at': 'CreatedAt',
+        'delete_protection': 'DeleteProtection',
+        'delete_protection_retention_days': 'DeleteProtectionRetentionDays',
         'delete_with_instance': 'DeleteWithInstance',
         'description': 'Description',
+        'detached_time': 'DetachedTime',
         'error_detail': 'ErrorDetail',
         'expired_time': 'ExpiredTime',
         'extra_performance': 'ExtraPerformance',
@@ -102,7 +108,7 @@ class VolumeForDescribeVolumesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, billing_type=None, created_at=None, delete_with_instance=None, description=None, error_detail=None, expired_time=None, extra_performance=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, placement_group_id=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, subgroup_number=None, tags=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, billing_type=None, created_at=None, delete_protection=None, delete_protection_retention_days=None, delete_with_instance=None, description=None, detached_time=None, error_detail=None, expired_time=None, extra_performance=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, placement_group_id=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, subgroup_number=None, tags=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """VolumeForDescribeVolumesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -113,8 +119,11 @@ class VolumeForDescribeVolumesOutput(object):
         self._baseline_performance = None
         self._billing_type = None
         self._created_at = None
+        self._delete_protection = None
+        self._delete_protection_retention_days = None
         self._delete_with_instance = None
         self._description = None
+        self._detached_time = None
         self._error_detail = None
         self._expired_time = None
         self._extra_performance = None
@@ -152,10 +161,16 @@ class VolumeForDescribeVolumesOutput(object):
             self.billing_type = billing_type
         if created_at is not None:
             self.created_at = created_at
+        if delete_protection is not None:
+            self.delete_protection = delete_protection
+        if delete_protection_retention_days is not None:
+            self.delete_protection_retention_days = delete_protection_retention_days
         if delete_with_instance is not None:
             self.delete_with_instance = delete_with_instance
         if description is not None:
             self.description = description
+        if detached_time is not None:
+            self.detached_time = detached_time
         if error_detail is not None:
             self.error_detail = error_detail
         if expired_time is not None:
@@ -313,6 +328,48 @@ class VolumeForDescribeVolumesOutput(object):
         self._created_at = created_at
 
     @property
+    def delete_protection(self):
+        """Gets the delete_protection of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The delete_protection of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delete_protection
+
+    @delete_protection.setter
+    def delete_protection(self, delete_protection):
+        """Sets the delete_protection of this VolumeForDescribeVolumesOutput.
+
+
+        :param delete_protection: The delete_protection of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._delete_protection = delete_protection
+
+    @property
+    def delete_protection_retention_days(self):
+        """Gets the delete_protection_retention_days of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The delete_protection_retention_days of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._delete_protection_retention_days
+
+    @delete_protection_retention_days.setter
+    def delete_protection_retention_days(self, delete_protection_retention_days):
+        """Sets the delete_protection_retention_days of this VolumeForDescribeVolumesOutput.
+
+
+        :param delete_protection_retention_days: The delete_protection_retention_days of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._delete_protection_retention_days = delete_protection_retention_days
+
+    @property
     def delete_with_instance(self):
         """Gets the delete_with_instance of this VolumeForDescribeVolumesOutput.  # noqa: E501
 
@@ -353,6 +410,27 @@ class VolumeForDescribeVolumesOutput(object):
         """
 
         self._description = description
+
+    @property
+    def detached_time(self):
+        """Gets the detached_time of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The detached_time of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._detached_time
+
+    @detached_time.setter
+    def detached_time(self, detached_time):
+        """Sets the detached_time of this VolumeForDescribeVolumesOutput.
+
+
+        :param detached_time: The detached_time of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._detached_time = detached_time
 
     @property
     def error_detail(self):

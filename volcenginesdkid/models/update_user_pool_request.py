@@ -41,7 +41,7 @@ class UpdateUserPoolRequest(object):
         'self_account_recovery_enabled': 'bool',
         'self_sign_up_enabled': 'bool',
         'sign_up_auto_verification_enabled': 'bool',
-        'sms_anonymous_sign_up_enabled': 'str',
+        'sms_anonymous_sign_up_enabled': 'bool',
         'sms_passwordless_sign_in_enabled': 'bool',
         'unconfirmed_user_sign_in_enabled': 'bool',
         'user_pool_uid': 'str'
@@ -280,7 +280,7 @@ class UpdateUserPoolRequest(object):
 
 
         :return: The sms_anonymous_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._sms_anonymous_sign_up_enabled
 
@@ -290,7 +290,7 @@ class UpdateUserPoolRequest(object):
 
 
         :param sms_anonymous_sign_up_enabled: The sms_anonymous_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._sms_anonymous_sign_up_enabled = sms_anonymous_sign_up_enabled

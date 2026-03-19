@@ -39,6 +39,7 @@ class AccountForDescribeDBAccountsOutput(object):
         'account_privileges_sql': 'list[str]',
         'account_status': 'str',
         'account_type': 'str',
+        'authentication_type': 'str',
         'global_account_privileges': 'list[str]',
         'has_table_column_privilege_db_names': 'list[str]',
         'host': 'str'
@@ -51,12 +52,13 @@ class AccountForDescribeDBAccountsOutput(object):
         'account_privileges_sql': 'AccountPrivilegesSQL',
         'account_status': 'AccountStatus',
         'account_type': 'AccountType',
+        'authentication_type': 'AuthenticationType',
         'global_account_privileges': 'GlobalAccountPrivileges',
         'has_table_column_privilege_db_names': 'HasTableColumnPrivilegeDBNames',
         'host': 'Host'
     }
 
-    def __init__(self, account_desc=None, account_name=None, account_privileges=None, account_privileges_sql=None, account_status=None, account_type=None, global_account_privileges=None, has_table_column_privilege_db_names=None, host=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, account_privileges=None, account_privileges_sql=None, account_status=None, account_type=None, authentication_type=None, global_account_privileges=None, has_table_column_privilege_db_names=None, host=None, _configuration=None):  # noqa: E501
         """AccountForDescribeDBAccountsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class AccountForDescribeDBAccountsOutput(object):
         self._account_privileges_sql = None
         self._account_status = None
         self._account_type = None
+        self._authentication_type = None
         self._global_account_privileges = None
         self._has_table_column_privilege_db_names = None
         self._host = None
@@ -85,6 +88,8 @@ class AccountForDescribeDBAccountsOutput(object):
             self.account_status = account_status
         if account_type is not None:
             self.account_type = account_type
+        if authentication_type is not None:
+            self.authentication_type = authentication_type
         if global_account_privileges is not None:
             self.global_account_privileges = global_account_privileges
         if has_table_column_privilege_db_names is not None:
@@ -217,6 +222,27 @@ class AccountForDescribeDBAccountsOutput(object):
         """
 
         self._account_type = account_type
+
+    @property
+    def authentication_type(self):
+        """Gets the authentication_type of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The authentication_type of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._authentication_type
+
+    @authentication_type.setter
+    def authentication_type(self, authentication_type):
+        """Sets the authentication_type of this AccountForDescribeDBAccountsOutput.
+
+
+        :param authentication_type: The authentication_type of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._authentication_type = authentication_type
 
     @property
     def global_account_privileges(self):

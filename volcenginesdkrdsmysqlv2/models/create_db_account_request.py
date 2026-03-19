@@ -38,6 +38,7 @@ class CreateDBAccountRequest(object):
         'account_password': 'str',
         'account_privileges': 'list[AccountPrivilegeForCreateDBAccountInput]',
         'account_type': 'str',
+        'authentication_type': 'str',
         'dry_run': 'bool',
         'host': 'str',
         'instance_id': 'str',
@@ -50,13 +51,14 @@ class CreateDBAccountRequest(object):
         'account_password': 'AccountPassword',
         'account_privileges': 'AccountPrivileges',
         'account_type': 'AccountType',
+        'authentication_type': 'AuthenticationType',
         'dry_run': 'DryRun',
         'host': 'Host',
         'instance_id': 'InstanceId',
         'table_column_privileges': 'TableColumnPrivileges'
     }
 
-    def __init__(self, account_desc=None, account_name=None, account_password=None, account_privileges=None, account_type=None, dry_run=None, host=None, instance_id=None, table_column_privileges=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, account_password=None, account_privileges=None, account_type=None, authentication_type=None, dry_run=None, host=None, instance_id=None, table_column_privileges=None, _configuration=None):  # noqa: E501
         """CreateDBAccountRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class CreateDBAccountRequest(object):
         self._account_password = None
         self._account_privileges = None
         self._account_type = None
+        self._authentication_type = None
         self._dry_run = None
         self._host = None
         self._instance_id = None
@@ -80,6 +83,8 @@ class CreateDBAccountRequest(object):
         if account_privileges is not None:
             self.account_privileges = account_privileges
         self.account_type = account_type
+        if authentication_type is not None:
+            self.authentication_type = authentication_type
         if dry_run is not None:
             self.dry_run = dry_run
         if host is not None:
@@ -198,6 +203,27 @@ class CreateDBAccountRequest(object):
             raise ValueError("Invalid value for `account_type`, must not be `None`")  # noqa: E501
 
         self._account_type = account_type
+
+    @property
+    def authentication_type(self):
+        """Gets the authentication_type of this CreateDBAccountRequest.  # noqa: E501
+
+
+        :return: The authentication_type of this CreateDBAccountRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._authentication_type
+
+    @authentication_type.setter
+    def authentication_type(self, authentication_type):
+        """Sets the authentication_type of this CreateDBAccountRequest.
+
+
+        :param authentication_type: The authentication_type of this CreateDBAccountRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._authentication_type = authentication_type
 
     @property
     def dry_run(self):

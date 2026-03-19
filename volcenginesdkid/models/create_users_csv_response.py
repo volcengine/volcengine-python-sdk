@@ -37,7 +37,8 @@ class CreateUsersCSVResponse(object):
         'errors_structured': 'list[ErrorsStructuredForCreateUsersCSVOutput]',
         'failure_count': 'int',
         'success_count': 'int',
-        'successful_uids': 'list[str]'
+        'successful_uids': 'list[str]',
+        'successful_uids_structured': 'list[SuccessfulUidsStructuredForCreateUsersCSVOutput]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class CreateUsersCSVResponse(object):
         'errors_structured': 'ErrorsStructured',
         'failure_count': 'FailureCount',
         'success_count': 'SuccessCount',
-        'successful_uids': 'SuccessfulUids'
+        'successful_uids': 'SuccessfulUids',
+        'successful_uids_structured': 'SuccessfulUidsStructured'
     }
 
-    def __init__(self, errors=None, errors_structured=None, failure_count=None, success_count=None, successful_uids=None, _configuration=None):  # noqa: E501
+    def __init__(self, errors=None, errors_structured=None, failure_count=None, success_count=None, successful_uids=None, successful_uids_structured=None, _configuration=None):  # noqa: E501
         """CreateUsersCSVResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CreateUsersCSVResponse(object):
         self._failure_count = None
         self._success_count = None
         self._successful_uids = None
+        self._successful_uids_structured = None
         self.discriminator = None
 
         if errors is not None:
@@ -71,6 +74,8 @@ class CreateUsersCSVResponse(object):
             self.success_count = success_count
         if successful_uids is not None:
             self.successful_uids = successful_uids
+        if successful_uids_structured is not None:
+            self.successful_uids_structured = successful_uids_structured
 
     @property
     def errors(self):
@@ -176,6 +181,27 @@ class CreateUsersCSVResponse(object):
         """
 
         self._successful_uids = successful_uids
+
+    @property
+    def successful_uids_structured(self):
+        """Gets the successful_uids_structured of this CreateUsersCSVResponse.  # noqa: E501
+
+
+        :return: The successful_uids_structured of this CreateUsersCSVResponse.  # noqa: E501
+        :rtype: list[SuccessfulUidsStructuredForCreateUsersCSVOutput]
+        """
+        return self._successful_uids_structured
+
+    @successful_uids_structured.setter
+    def successful_uids_structured(self, successful_uids_structured):
+        """Sets the successful_uids_structured of this CreateUsersCSVResponse.
+
+
+        :param successful_uids_structured: The successful_uids_structured of this CreateUsersCSVResponse.  # noqa: E501
+        :type: list[SuccessfulUidsStructuredForCreateUsersCSVOutput]
+        """
+
+        self._successful_uids_structured = successful_uids_structured
 
     def to_dict(self):
         """Returns the model properties as a dict"""
