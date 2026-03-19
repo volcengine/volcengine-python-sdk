@@ -33,60 +33,34 @@ class CheckItemForDescribeTaskDetailOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'check_detail': 'CheckDetailForDescribeTaskDetailOutput',
         'description': 'str',
         'item_name': 'str',
         'risk_level': 'str'
     }
 
     attribute_map = {
-        'check_detail': 'CheckDetail',
         'description': 'Description',
         'item_name': 'ItemName',
         'risk_level': 'RiskLevel'
     }
 
-    def __init__(self, check_detail=None, description=None, item_name=None, risk_level=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, item_name=None, risk_level=None, _configuration=None):  # noqa: E501
         """CheckItemForDescribeTaskDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._check_detail = None
         self._description = None
         self._item_name = None
         self._risk_level = None
         self.discriminator = None
 
-        if check_detail is not None:
-            self.check_detail = check_detail
         if description is not None:
             self.description = description
         if item_name is not None:
             self.item_name = item_name
         if risk_level is not None:
             self.risk_level = risk_level
-
-    @property
-    def check_detail(self):
-        """Gets the check_detail of this CheckItemForDescribeTaskDetailOutput.  # noqa: E501
-
-
-        :return: The check_detail of this CheckItemForDescribeTaskDetailOutput.  # noqa: E501
-        :rtype: CheckDetailForDescribeTaskDetailOutput
-        """
-        return self._check_detail
-
-    @check_detail.setter
-    def check_detail(self, check_detail):
-        """Sets the check_detail of this CheckItemForDescribeTaskDetailOutput.
-
-
-        :param check_detail: The check_detail of this CheckItemForDescribeTaskDetailOutput.  # noqa: E501
-        :type: CheckDetailForDescribeTaskDetailOutput
-        """
-
-        self._check_detail = check_detail
 
     @property
     def description(self):

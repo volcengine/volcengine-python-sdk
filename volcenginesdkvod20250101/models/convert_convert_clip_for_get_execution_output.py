@@ -33,96 +33,34 @@ class ConvertConvertClipForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cut_end': 'float',
-        'cut_start': 'float',
         'end': 'float',
-        'score': 'float',
         'start': 'float',
-        'type': 'str',
         'video_index': 'int'
     }
 
     attribute_map = {
-        'cut_end': 'CutEnd',
-        'cut_start': 'CutStart',
         'end': 'End',
-        'score': 'Score',
         'start': 'Start',
-        'type': 'Type',
         'video_index': 'VideoIndex'
     }
 
-    def __init__(self, cut_end=None, cut_start=None, end=None, score=None, start=None, type=None, video_index=None, _configuration=None):  # noqa: E501
+    def __init__(self, end=None, start=None, video_index=None, _configuration=None):  # noqa: E501
         """ConvertConvertClipForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cut_end = None
-        self._cut_start = None
         self._end = None
-        self._score = None
         self._start = None
-        self._type = None
         self._video_index = None
         self.discriminator = None
 
-        if cut_end is not None:
-            self.cut_end = cut_end
-        if cut_start is not None:
-            self.cut_start = cut_start
         if end is not None:
             self.end = end
-        if score is not None:
-            self.score = score
         if start is not None:
             self.start = start
-        if type is not None:
-            self.type = type
         if video_index is not None:
             self.video_index = video_index
-
-    @property
-    def cut_end(self):
-        """Gets the cut_end of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The cut_end of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: float
-        """
-        return self._cut_end
-
-    @cut_end.setter
-    def cut_end(self, cut_end):
-        """Sets the cut_end of this ConvertConvertClipForGetExecutionOutput.
-
-
-        :param cut_end: The cut_end of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: float
-        """
-
-        self._cut_end = cut_end
-
-    @property
-    def cut_start(self):
-        """Gets the cut_start of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The cut_start of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: float
-        """
-        return self._cut_start
-
-    @cut_start.setter
-    def cut_start(self, cut_start):
-        """Sets the cut_start of this ConvertConvertClipForGetExecutionOutput.
-
-
-        :param cut_start: The cut_start of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: float
-        """
-
-        self._cut_start = cut_start
 
     @property
     def end(self):
@@ -146,27 +84,6 @@ class ConvertConvertClipForGetExecutionOutput(object):
         self._end = end
 
     @property
-    def score(self):
-        """Gets the score of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The score of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: float
-        """
-        return self._score
-
-    @score.setter
-    def score(self, score):
-        """Sets the score of this ConvertConvertClipForGetExecutionOutput.
-
-
-        :param score: The score of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: float
-        """
-
-        self._score = score
-
-    @property
     def start(self):
         """Gets the start of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
 
@@ -186,27 +103,6 @@ class ConvertConvertClipForGetExecutionOutput(object):
         """
 
         self._start = start
-
-    @property
-    def type(self):
-        """Gets the type of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The type of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this ConvertConvertClipForGetExecutionOutput.
-
-
-        :param type: The type of this ConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._type = type
 
     @property
     def video_index(self):

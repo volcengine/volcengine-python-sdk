@@ -42,6 +42,7 @@ class GetIdentityProviderOIDCResponse(object):
         'name': 'str',
         'provider': 'str',
         'provider_options': 'ProviderOptionsForGetIdentityProviderOIDCOutput',
+        'scim_provisioning': 'ScimProvisioningForGetIdentityProviderOIDCOutput',
         'scopes_list': 'list[str]',
         'uid': 'str',
         'use_pkce': 'bool'
@@ -57,12 +58,13 @@ class GetIdentityProviderOIDCResponse(object):
         'name': 'Name',
         'provider': 'Provider',
         'provider_options': 'ProviderOptions',
+        'scim_provisioning': 'ScimProvisioning',
         'scopes_list': 'ScopesList',
         'uid': 'Uid',
         'use_pkce': 'UsePkce'
     }
 
-    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
+    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scim_provisioning=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
         """GetIdentityProviderOIDCResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class GetIdentityProviderOIDCResponse(object):
         self._name = None
         self._provider = None
         self._provider_options = None
+        self._scim_provisioning = None
         self._scopes_list = None
         self._uid = None
         self._use_pkce = None
@@ -100,6 +103,8 @@ class GetIdentityProviderOIDCResponse(object):
             self.provider = provider
         if provider_options is not None:
             self.provider_options = provider_options
+        if scim_provisioning is not None:
+            self.scim_provisioning = scim_provisioning
         if scopes_list is not None:
             self.scopes_list = scopes_list
         if uid is not None:
@@ -295,6 +300,27 @@ class GetIdentityProviderOIDCResponse(object):
         """
 
         self._provider_options = provider_options
+
+    @property
+    def scim_provisioning(self):
+        """Gets the scim_provisioning of this GetIdentityProviderOIDCResponse.  # noqa: E501
+
+
+        :return: The scim_provisioning of this GetIdentityProviderOIDCResponse.  # noqa: E501
+        :rtype: ScimProvisioningForGetIdentityProviderOIDCOutput
+        """
+        return self._scim_provisioning
+
+    @scim_provisioning.setter
+    def scim_provisioning(self, scim_provisioning):
+        """Sets the scim_provisioning of this GetIdentityProviderOIDCResponse.
+
+
+        :param scim_provisioning: The scim_provisioning of this GetIdentityProviderOIDCResponse.  # noqa: E501
+        :type: ScimProvisioningForGetIdentityProviderOIDCOutput
+        """
+
+        self._scim_provisioning = scim_provisioning
 
     @property
     def scopes_list(self):

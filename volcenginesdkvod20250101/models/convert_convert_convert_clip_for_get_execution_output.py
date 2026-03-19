@@ -33,85 +33,96 @@ class ConvertConvertConvertClipForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'dialogue': 'str',
+        'cut_end': 'float',
+        'cut_start': 'float',
         'end': 'float',
-        'offset': 'int',
         'score': 'float',
-        'snapshot': 'str',
         'start': 'float',
-        'summary': 'str',
-        'title': 'str',
+        'type': 'str',
         'video_index': 'int'
     }
 
     attribute_map = {
-        'dialogue': 'Dialogue',
+        'cut_end': 'CutEnd',
+        'cut_start': 'CutStart',
         'end': 'End',
-        'offset': 'Offset',
         'score': 'Score',
-        'snapshot': 'Snapshot',
         'start': 'Start',
-        'summary': 'Summary',
-        'title': 'Title',
+        'type': 'Type',
         'video_index': 'VideoIndex'
     }
 
-    def __init__(self, dialogue=None, end=None, offset=None, score=None, snapshot=None, start=None, summary=None, title=None, video_index=None, _configuration=None):  # noqa: E501
+    def __init__(self, cut_end=None, cut_start=None, end=None, score=None, start=None, type=None, video_index=None, _configuration=None):  # noqa: E501
         """ConvertConvertConvertClipForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._dialogue = None
+        self._cut_end = None
+        self._cut_start = None
         self._end = None
-        self._offset = None
         self._score = None
-        self._snapshot = None
         self._start = None
-        self._summary = None
-        self._title = None
+        self._type = None
         self._video_index = None
         self.discriminator = None
 
-        if dialogue is not None:
-            self.dialogue = dialogue
+        if cut_end is not None:
+            self.cut_end = cut_end
+        if cut_start is not None:
+            self.cut_start = cut_start
         if end is not None:
             self.end = end
-        if offset is not None:
-            self.offset = offset
         if score is not None:
             self.score = score
-        if snapshot is not None:
-            self.snapshot = snapshot
         if start is not None:
             self.start = start
-        if summary is not None:
-            self.summary = summary
-        if title is not None:
-            self.title = title
+        if type is not None:
+            self.type = type
         if video_index is not None:
             self.video_index = video_index
 
     @property
-    def dialogue(self):
-        """Gets the dialogue of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
+    def cut_end(self):
+        """Gets the cut_end of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The dialogue of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: str
+        :return: The cut_end of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
+        :rtype: float
         """
-        return self._dialogue
+        return self._cut_end
 
-    @dialogue.setter
-    def dialogue(self, dialogue):
-        """Sets the dialogue of this ConvertConvertConvertClipForGetExecutionOutput.
+    @cut_end.setter
+    def cut_end(self, cut_end):
+        """Sets the cut_end of this ConvertConvertConvertClipForGetExecutionOutput.
 
 
-        :param dialogue: The dialogue of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: str
+        :param cut_end: The cut_end of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
+        :type: float
         """
 
-        self._dialogue = dialogue
+        self._cut_end = cut_end
+
+    @property
+    def cut_start(self):
+        """Gets the cut_start of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The cut_start of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._cut_start
+
+    @cut_start.setter
+    def cut_start(self, cut_start):
+        """Sets the cut_start of this ConvertConvertConvertClipForGetExecutionOutput.
+
+
+        :param cut_start: The cut_start of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._cut_start = cut_start
 
     @property
     def end(self):
@@ -135,27 +146,6 @@ class ConvertConvertConvertClipForGetExecutionOutput(object):
         self._end = end
 
     @property
-    def offset(self):
-        """Gets the offset of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The offset of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._offset
-
-    @offset.setter
-    def offset(self, offset):
-        """Sets the offset of this ConvertConvertConvertClipForGetExecutionOutput.
-
-
-        :param offset: The offset of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._offset = offset
-
-    @property
     def score(self):
         """Gets the score of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
 
@@ -175,27 +165,6 @@ class ConvertConvertConvertClipForGetExecutionOutput(object):
         """
 
         self._score = score
-
-    @property
-    def snapshot(self):
-        """Gets the snapshot of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The snapshot of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._snapshot
-
-    @snapshot.setter
-    def snapshot(self, snapshot):
-        """Sets the snapshot of this ConvertConvertConvertClipForGetExecutionOutput.
-
-
-        :param snapshot: The snapshot of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._snapshot = snapshot
 
     @property
     def start(self):
@@ -219,46 +188,25 @@ class ConvertConvertConvertClipForGetExecutionOutput(object):
         self._start = start
 
     @property
-    def summary(self):
-        """Gets the summary of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
+    def type(self):
+        """Gets the type of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The summary of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
+        :return: The type of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
         :rtype: str
         """
-        return self._summary
+        return self._type
 
-    @summary.setter
-    def summary(self, summary):
-        """Sets the summary of this ConvertConvertConvertClipForGetExecutionOutput.
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ConvertConvertConvertClipForGetExecutionOutput.
 
 
-        :param summary: The summary of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
+        :param type: The type of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
         :type: str
         """
 
-        self._summary = summary
-
-    @property
-    def title(self):
-        """Gets the title of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The title of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._title
-
-    @title.setter
-    def title(self, title):
-        """Sets the title of this ConvertConvertConvertClipForGetExecutionOutput.
-
-
-        :param title: The title of this ConvertConvertConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._title = title
+        self._type = type
 
     @property
     def video_index(self):

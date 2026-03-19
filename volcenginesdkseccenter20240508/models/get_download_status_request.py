@@ -49,7 +49,8 @@ class GetDownloadStatusRequest(object):
         self._file_name = None
         self.discriminator = None
 
-        self.file_name = file_name
+        if file_name is not None:
+            self.file_name = file_name
 
     @property
     def file_name(self):
@@ -69,8 +70,6 @@ class GetDownloadStatusRequest(object):
         :param file_name: The file_name of this GetDownloadStatusRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and file_name is None:
-            raise ValueError("Invalid value for `file_name`, must not be `None`")  # noqa: E501
 
         self._file_name = file_name
 

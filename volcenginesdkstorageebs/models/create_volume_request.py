@@ -34,6 +34,8 @@ class CreateVolumeRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
+        'delete_protection': 'bool',
+        'delete_protection_retention_days': 'int',
         'description': 'str',
         'extra_performance_iops': 'int',
         'extra_performance_throughput_mb': 'int',
@@ -54,6 +56,8 @@ class CreateVolumeRequest(object):
 
     attribute_map = {
         'client_token': 'ClientToken',
+        'delete_protection': 'DeleteProtection',
+        'delete_protection_retention_days': 'DeleteProtectionRetentionDays',
         'description': 'Description',
         'extra_performance_iops': 'ExtraPerformanceIOPS',
         'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMB',
@@ -72,13 +76,15 @@ class CreateVolumeRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, description=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, instance_id=None, kind=None, placement_group_id=None, project_name=None, size=None, snapshot_id=None, subgroup_number=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, delete_protection=None, delete_protection_retention_days=None, description=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, instance_id=None, kind=None, placement_group_id=None, project_name=None, size=None, snapshot_id=None, subgroup_number=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._client_token = None
+        self._delete_protection = None
+        self._delete_protection_retention_days = None
         self._description = None
         self._extra_performance_iops = None
         self._extra_performance_throughput_mb = None
@@ -99,6 +105,10 @@ class CreateVolumeRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
+        if delete_protection is not None:
+            self.delete_protection = delete_protection
+        if delete_protection_retention_days is not None:
+            self.delete_protection_retention_days = delete_protection_retention_days
         if description is not None:
             self.description = description
         if extra_performance_iops is not None:
@@ -149,6 +159,48 @@ class CreateVolumeRequest(object):
         """
 
         self._client_token = client_token
+
+    @property
+    def delete_protection(self):
+        """Gets the delete_protection of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The delete_protection of this CreateVolumeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delete_protection
+
+    @delete_protection.setter
+    def delete_protection(self, delete_protection):
+        """Sets the delete_protection of this CreateVolumeRequest.
+
+
+        :param delete_protection: The delete_protection of this CreateVolumeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._delete_protection = delete_protection
+
+    @property
+    def delete_protection_retention_days(self):
+        """Gets the delete_protection_retention_days of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The delete_protection_retention_days of this CreateVolumeRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._delete_protection_retention_days
+
+    @delete_protection_retention_days.setter
+    def delete_protection_retention_days(self, delete_protection_retention_days):
+        """Sets the delete_protection_retention_days of this CreateVolumeRequest.
+
+
+        :param delete_protection_retention_days: The delete_protection_retention_days of this CreateVolumeRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._delete_protection_retention_days = delete_protection_retention_days
 
     @property
     def description(self):

@@ -34,7 +34,7 @@ class CustomEditForStartExecutionInput(object):
     """
     swagger_types = {
         'canvas': 'CanvasForStartExecutionInput',
-        'output': 'OutputForStartExecutionInput'
+        'output': 'ConvertOutputForStartExecutionInput'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class CustomEditForStartExecutionInput(object):
 
 
         :return: The output of this CustomEditForStartExecutionInput.  # noqa: E501
-        :rtype: OutputForStartExecutionInput
+        :rtype: ConvertOutputForStartExecutionInput
         """
         return self._output
 
@@ -94,7 +94,7 @@ class CustomEditForStartExecutionInput(object):
 
 
         :param output: The output of this CustomEditForStartExecutionInput.  # noqa: E501
-        :type: OutputForStartExecutionInput
+        :type: ConvertOutputForStartExecutionInput
         """
 
         self._output = output

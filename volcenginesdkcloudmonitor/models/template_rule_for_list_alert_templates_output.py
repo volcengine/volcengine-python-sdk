@@ -37,6 +37,7 @@ class TemplateRuleForListAlertTemplatesOutput(object):
         'check_interval': 'int',
         'condition_operator': 'str',
         'evaluation_count': 'int',
+        'evaluation_interval': 'int',
         'level_conditions': 'list[LevelConditionForListAlertTemplatesOutput]',
         'multiple_conditions': 'bool',
         'name': 'str',
@@ -49,6 +50,7 @@ class TemplateRuleForListAlertTemplatesOutput(object):
         'check_interval': 'CheckInterval',
         'condition_operator': 'ConditionOperator',
         'evaluation_count': 'EvaluationCount',
+        'evaluation_interval': 'EvaluationInterval',
         'level_conditions': 'LevelConditions',
         'multiple_conditions': 'MultipleConditions',
         'name': 'Name',
@@ -56,7 +58,7 @@ class TemplateRuleForListAlertTemplatesOutput(object):
         'sub_namespace': 'SubNamespace'
     }
 
-    def __init__(self, applied_rules=None, check_interval=None, condition_operator=None, evaluation_count=None, level_conditions=None, multiple_conditions=None, name=None, namespace=None, sub_namespace=None, _configuration=None):  # noqa: E501
+    def __init__(self, applied_rules=None, check_interval=None, condition_operator=None, evaluation_count=None, evaluation_interval=None, level_conditions=None, multiple_conditions=None, name=None, namespace=None, sub_namespace=None, _configuration=None):  # noqa: E501
         """TemplateRuleForListAlertTemplatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class TemplateRuleForListAlertTemplatesOutput(object):
         self._check_interval = None
         self._condition_operator = None
         self._evaluation_count = None
+        self._evaluation_interval = None
         self._level_conditions = None
         self._multiple_conditions = None
         self._name = None
@@ -81,6 +84,8 @@ class TemplateRuleForListAlertTemplatesOutput(object):
             self.condition_operator = condition_operator
         if evaluation_count is not None:
             self.evaluation_count = evaluation_count
+        if evaluation_interval is not None:
+            self.evaluation_interval = evaluation_interval
         if level_conditions is not None:
             self.level_conditions = level_conditions
         if multiple_conditions is not None:
@@ -175,6 +180,27 @@ class TemplateRuleForListAlertTemplatesOutput(object):
         """
 
         self._evaluation_count = evaluation_count
+
+    @property
+    def evaluation_interval(self):
+        """Gets the evaluation_interval of this TemplateRuleForListAlertTemplatesOutput.  # noqa: E501
+
+
+        :return: The evaluation_interval of this TemplateRuleForListAlertTemplatesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._evaluation_interval
+
+    @evaluation_interval.setter
+    def evaluation_interval(self, evaluation_interval):
+        """Sets the evaluation_interval of this TemplateRuleForListAlertTemplatesOutput.
+
+
+        :param evaluation_interval: The evaluation_interval of this TemplateRuleForListAlertTemplatesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._evaluation_interval = evaluation_interval
 
     @property
     def level_conditions(self):

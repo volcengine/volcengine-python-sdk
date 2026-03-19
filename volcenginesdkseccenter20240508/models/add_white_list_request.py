@@ -37,6 +37,7 @@ class AddWhiteListRequest(object):
         'is_killchain': 'bool',
         'lang': 'str',
         'match_alarm_name': 'str',
+        'match_name': 'str',
         'range': 'RangeForAddWhiteListInput',
         'rule_list': 'list[RuleListForAddWhiteListInput]',
         'type': 'str',
@@ -48,13 +49,14 @@ class AddWhiteListRequest(object):
         'is_killchain': 'IsKillchain',
         'lang': 'Lang',
         'match_alarm_name': 'MatchAlarmName',
+        'match_name': 'MatchName',
         'range': 'Range',
         'rule_list': 'RuleList',
         'type': 'Type',
         'user': 'User'
     }
 
-    def __init__(self, desc=None, is_killchain=None, lang=None, match_alarm_name=None, range=None, rule_list=None, type=None, user=None, _configuration=None):  # noqa: E501
+    def __init__(self, desc=None, is_killchain=None, lang=None, match_alarm_name=None, match_name=None, range=None, rule_list=None, type=None, user=None, _configuration=None):  # noqa: E501
         """AddWhiteListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class AddWhiteListRequest(object):
         self._is_killchain = None
         self._lang = None
         self._match_alarm_name = None
+        self._match_name = None
         self._range = None
         self._rule_list = None
         self._type = None
@@ -78,12 +81,13 @@ class AddWhiteListRequest(object):
             self.lang = lang
         if match_alarm_name is not None:
             self.match_alarm_name = match_alarm_name
+        if match_name is not None:
+            self.match_name = match_name
         if range is not None:
             self.range = range
         if rule_list is not None:
             self.rule_list = rule_list
-        if type is not None:
-            self.type = type
+        self.type = type
         if user is not None:
             self.user = user
 
@@ -172,6 +176,27 @@ class AddWhiteListRequest(object):
         self._match_alarm_name = match_alarm_name
 
     @property
+    def match_name(self):
+        """Gets the match_name of this AddWhiteListRequest.  # noqa: E501
+
+
+        :return: The match_name of this AddWhiteListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._match_name
+
+    @match_name.setter
+    def match_name(self, match_name):
+        """Sets the match_name of this AddWhiteListRequest.
+
+
+        :param match_name: The match_name of this AddWhiteListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._match_name = match_name
+
+    @property
     def range(self):
         """Gets the range of this AddWhiteListRequest.  # noqa: E501
 
@@ -231,6 +256,8 @@ class AddWhiteListRequest(object):
         :param type: The type of this AddWhiteListRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

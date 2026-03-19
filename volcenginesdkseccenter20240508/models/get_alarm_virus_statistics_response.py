@@ -40,6 +40,10 @@ class GetAlarmVirusStatisticsResponse(object):
         'alarm_processed_count': 'int',
         'alarm_total': 'int',
         'alarm_white_count': 'int',
+        'auto_ban_count': 'int',
+        'auto_ban_today_count': 'int',
+        'ban_ip_count': 'int',
+        'ban_ip_today_count': 'int',
         'isolate_file_count': 'int',
         'isolate_today_count': 'int',
         'precision_defense_count': 'int',
@@ -55,6 +59,10 @@ class GetAlarmVirusStatisticsResponse(object):
         'alarm_processed_count': 'AlarmProcessedCount',
         'alarm_total': 'AlarmTotal',
         'alarm_white_count': 'AlarmWhiteCount',
+        'auto_ban_count': 'AutoBanCount',
+        'auto_ban_today_count': 'AutoBanTodayCount',
+        'ban_ip_count': 'BanIPCount',
+        'ban_ip_today_count': 'BanIPTodayCount',
         'isolate_file_count': 'IsolateFileCount',
         'isolate_today_count': 'IsolateTodayCount',
         'precision_defense_count': 'PrecisionDefenseCount',
@@ -62,7 +70,7 @@ class GetAlarmVirusStatisticsResponse(object):
         'unhandled_today_count': 'UnhandledTodayCount'
     }
 
-    def __init__(self, alarm_critical_count=None, alarm_high_count=None, alarm_low_count=None, alarm_medium_count=None, alarm_processed_count=None, alarm_total=None, alarm_white_count=None, isolate_file_count=None, isolate_today_count=None, precision_defense_count=None, precision_defense_today_count=None, unhandled_today_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_critical_count=None, alarm_high_count=None, alarm_low_count=None, alarm_medium_count=None, alarm_processed_count=None, alarm_total=None, alarm_white_count=None, auto_ban_count=None, auto_ban_today_count=None, ban_ip_count=None, ban_ip_today_count=None, isolate_file_count=None, isolate_today_count=None, precision_defense_count=None, precision_defense_today_count=None, unhandled_today_count=None, _configuration=None):  # noqa: E501
         """GetAlarmVirusStatisticsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +83,10 @@ class GetAlarmVirusStatisticsResponse(object):
         self._alarm_processed_count = None
         self._alarm_total = None
         self._alarm_white_count = None
+        self._auto_ban_count = None
+        self._auto_ban_today_count = None
+        self._ban_ip_count = None
+        self._ban_ip_today_count = None
         self._isolate_file_count = None
         self._isolate_today_count = None
         self._precision_defense_count = None
@@ -96,6 +108,14 @@ class GetAlarmVirusStatisticsResponse(object):
             self.alarm_total = alarm_total
         if alarm_white_count is not None:
             self.alarm_white_count = alarm_white_count
+        if auto_ban_count is not None:
+            self.auto_ban_count = auto_ban_count
+        if auto_ban_today_count is not None:
+            self.auto_ban_today_count = auto_ban_today_count
+        if ban_ip_count is not None:
+            self.ban_ip_count = ban_ip_count
+        if ban_ip_today_count is not None:
+            self.ban_ip_today_count = ban_ip_today_count
         if isolate_file_count is not None:
             self.isolate_file_count = isolate_file_count
         if isolate_today_count is not None:
@@ -253,6 +273,90 @@ class GetAlarmVirusStatisticsResponse(object):
         """
 
         self._alarm_white_count = alarm_white_count
+
+    @property
+    def auto_ban_count(self):
+        """Gets the auto_ban_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+
+
+        :return: The auto_ban_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_ban_count
+
+    @auto_ban_count.setter
+    def auto_ban_count(self, auto_ban_count):
+        """Sets the auto_ban_count of this GetAlarmVirusStatisticsResponse.
+
+
+        :param auto_ban_count: The auto_ban_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_ban_count = auto_ban_count
+
+    @property
+    def auto_ban_today_count(self):
+        """Gets the auto_ban_today_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+
+
+        :return: The auto_ban_today_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_ban_today_count
+
+    @auto_ban_today_count.setter
+    def auto_ban_today_count(self, auto_ban_today_count):
+        """Sets the auto_ban_today_count of this GetAlarmVirusStatisticsResponse.
+
+
+        :param auto_ban_today_count: The auto_ban_today_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_ban_today_count = auto_ban_today_count
+
+    @property
+    def ban_ip_count(self):
+        """Gets the ban_ip_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+
+
+        :return: The ban_ip_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._ban_ip_count
+
+    @ban_ip_count.setter
+    def ban_ip_count(self, ban_ip_count):
+        """Sets the ban_ip_count of this GetAlarmVirusStatisticsResponse.
+
+
+        :param ban_ip_count: The ban_ip_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._ban_ip_count = ban_ip_count
+
+    @property
+    def ban_ip_today_count(self):
+        """Gets the ban_ip_today_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+
+
+        :return: The ban_ip_today_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._ban_ip_today_count
+
+    @ban_ip_today_count.setter
+    def ban_ip_today_count(self, ban_ip_today_count):
+        """Sets the ban_ip_today_count of this GetAlarmVirusStatisticsResponse.
+
+
+        :param ban_ip_today_count: The ban_ip_today_count of this GetAlarmVirusStatisticsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._ban_ip_today_count = ban_ip_today_count
 
     @property
     def isolate_file_count(self):

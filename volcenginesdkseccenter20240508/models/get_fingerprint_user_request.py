@@ -42,7 +42,7 @@ class GetFingerprintUserRequest(object):
         'last_login_time_end': 'int',
         'last_login_time_start': 'int',
         'leaf_group_ids': 'list[str]',
-        'page_number': 'str',
+        'page_number': 'int',
         'page_size': 'int',
         'sort_by': 'str',
         'sort_order': 'str',
@@ -320,7 +320,7 @@ class GetFingerprintUserRequest(object):
 
 
         :return: The page_number of this GetFingerprintUserRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._page_number
 
@@ -330,7 +330,7 @@ class GetFingerprintUserRequest(object):
 
 
         :param page_number: The page_number of this GetFingerprintUserRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
         if self._configuration.client_side_validation and page_number is None:
             raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501

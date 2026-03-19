@@ -33,7 +33,7 @@ class CutForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'clips': 'list[ConvertConvertClipForGetExecutionOutput]'
+        'clips': 'list[ConvertConvertConvertClipForGetExecutionOutput]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class CutForGetExecutionOutput(object):
 
 
         :return: The clips of this CutForGetExecutionOutput.  # noqa: E501
-        :rtype: list[ConvertConvertClipForGetExecutionOutput]
+        :rtype: list[ConvertConvertConvertClipForGetExecutionOutput]
         """
         return self._clips
 
@@ -68,7 +68,7 @@ class CutForGetExecutionOutput(object):
 
 
         :param clips: The clips of this CutForGetExecutionOutput.  # noqa: E501
-        :type: list[ConvertConvertClipForGetExecutionOutput]
+        :type: list[ConvertConvertConvertClipForGetExecutionOutput]
         """
 
         self._clips = clips

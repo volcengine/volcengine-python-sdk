@@ -33,40 +33,54 @@ class CveListForGetVulnInfoOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'action': 'str',
         'cve_detail_url': 'str',
         'cve_id': 'str',
         'cvss': 'str',
         'descript': 'str',
+        'exploit_link': 'str',
         'has_exploit': 'bool',
+        'has_payload': 'bool',
+        'payload_link': 'str',
         'tag': 'list[str]',
         'vuln_name': 'str'
     }
 
     attribute_map = {
+        'action': 'Action',
         'cve_detail_url': 'CveDetailUrl',
         'cve_id': 'CveID',
         'cvss': 'Cvss',
         'descript': 'Descript',
+        'exploit_link': 'ExploitLink',
         'has_exploit': 'HasExploit',
+        'has_payload': 'HasPayload',
+        'payload_link': 'PayloadLink',
         'tag': 'Tag',
         'vuln_name': 'VulnName'
     }
 
-    def __init__(self, cve_detail_url=None, cve_id=None, cvss=None, descript=None, has_exploit=None, tag=None, vuln_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, cve_detail_url=None, cve_id=None, cvss=None, descript=None, exploit_link=None, has_exploit=None, has_payload=None, payload_link=None, tag=None, vuln_name=None, _configuration=None):  # noqa: E501
         """CveListForGetVulnInfoOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._action = None
         self._cve_detail_url = None
         self._cve_id = None
         self._cvss = None
         self._descript = None
+        self._exploit_link = None
         self._has_exploit = None
+        self._has_payload = None
+        self._payload_link = None
         self._tag = None
         self._vuln_name = None
         self.discriminator = None
 
+        if action is not None:
+            self.action = action
         if cve_detail_url is not None:
             self.cve_detail_url = cve_detail_url
         if cve_id is not None:
@@ -75,12 +89,39 @@ class CveListForGetVulnInfoOutput(object):
             self.cvss = cvss
         if descript is not None:
             self.descript = descript
+        if exploit_link is not None:
+            self.exploit_link = exploit_link
         if has_exploit is not None:
             self.has_exploit = has_exploit
+        if has_payload is not None:
+            self.has_payload = has_payload
+        if payload_link is not None:
+            self.payload_link = payload_link
         if tag is not None:
             self.tag = tag
         if vuln_name is not None:
             self.vuln_name = vuln_name
+
+    @property
+    def action(self):
+        """Gets the action of this CveListForGetVulnInfoOutput.  # noqa: E501
+
+
+        :return: The action of this CveListForGetVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._action
+
+    @action.setter
+    def action(self, action):
+        """Sets the action of this CveListForGetVulnInfoOutput.
+
+
+        :param action: The action of this CveListForGetVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._action = action
 
     @property
     def cve_detail_url(self):
@@ -167,6 +208,27 @@ class CveListForGetVulnInfoOutput(object):
         self._descript = descript
 
     @property
+    def exploit_link(self):
+        """Gets the exploit_link of this CveListForGetVulnInfoOutput.  # noqa: E501
+
+
+        :return: The exploit_link of this CveListForGetVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._exploit_link
+
+    @exploit_link.setter
+    def exploit_link(self, exploit_link):
+        """Sets the exploit_link of this CveListForGetVulnInfoOutput.
+
+
+        :param exploit_link: The exploit_link of this CveListForGetVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._exploit_link = exploit_link
+
+    @property
     def has_exploit(self):
         """Gets the has_exploit of this CveListForGetVulnInfoOutput.  # noqa: E501
 
@@ -186,6 +248,48 @@ class CveListForGetVulnInfoOutput(object):
         """
 
         self._has_exploit = has_exploit
+
+    @property
+    def has_payload(self):
+        """Gets the has_payload of this CveListForGetVulnInfoOutput.  # noqa: E501
+
+
+        :return: The has_payload of this CveListForGetVulnInfoOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_payload
+
+    @has_payload.setter
+    def has_payload(self, has_payload):
+        """Sets the has_payload of this CveListForGetVulnInfoOutput.
+
+
+        :param has_payload: The has_payload of this CveListForGetVulnInfoOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_payload = has_payload
+
+    @property
+    def payload_link(self):
+        """Gets the payload_link of this CveListForGetVulnInfoOutput.  # noqa: E501
+
+
+        :return: The payload_link of this CveListForGetVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._payload_link
+
+    @payload_link.setter
+    def payload_link(self, payload_link):
+        """Sets the payload_link of this CveListForGetVulnInfoOutput.
+
+
+        :param payload_link: The payload_link of this CveListForGetVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._payload_link = payload_link
 
     @property
     def tag(self):

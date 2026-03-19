@@ -33,7 +33,7 @@ class ConvertHighlightForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'clips': 'list[ConvertClipForGetExecutionOutput]',
+        'clips': 'list[ConvertConvertClipForGetExecutionOutput]',
         'duration': 'float',
         'edits': 'list[ConvertEditForGetExecutionOutput]',
         'highlight_cuts': 'ConvertHighlightCutsForGetExecutionOutput',
@@ -78,7 +78,7 @@ class ConvertHighlightForGetExecutionOutput(object):
 
 
         :return: The clips of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
-        :rtype: list[ConvertClipForGetExecutionOutput]
+        :rtype: list[ConvertConvertClipForGetExecutionOutput]
         """
         return self._clips
 
@@ -88,7 +88,7 @@ class ConvertHighlightForGetExecutionOutput(object):
 
 
         :param clips: The clips of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
-        :type: list[ConvertClipForGetExecutionOutput]
+        :type: list[ConvertConvertClipForGetExecutionOutput]
         """
 
         self._clips = clips

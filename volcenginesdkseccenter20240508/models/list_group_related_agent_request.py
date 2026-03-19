@@ -49,7 +49,8 @@ class ListGroupRelatedAgentRequest(object):
         self._group = None
         self.discriminator = None
 
-        self.group = group
+        if group is not None:
+            self.group = group
 
     @property
     def group(self):
@@ -69,8 +70,6 @@ class ListGroupRelatedAgentRequest(object):
         :param group: The group of this ListGroupRelatedAgentRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and group is None:
-            raise ValueError("Invalid value for `group`, must not be `None`")  # noqa: E501
 
         self._group = group
 
