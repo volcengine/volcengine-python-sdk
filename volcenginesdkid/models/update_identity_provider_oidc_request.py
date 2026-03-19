@@ -42,6 +42,7 @@ class UpdateIdentityProviderOIDCRequest(object):
         'issuer': 'str',
         'name': 'str',
         'provider_options': 'ProviderOptionsForUpdateIdentityProviderOIDCInput',
+        'scim_provisioning': 'ScimProvisioningForUpdateIdentityProviderOIDCInput',
         'scopes_list': 'list[str]',
         'use_pkce': 'bool',
         'user_pool_uid': 'str'
@@ -57,12 +58,13 @@ class UpdateIdentityProviderOIDCRequest(object):
         'issuer': 'Issuer',
         'name': 'Name',
         'provider_options': 'ProviderOptions',
+        'scim_provisioning': 'ScimProvisioning',
         'scopes_list': 'ScopesList',
         'use_pkce': 'UsePkce',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, connection_uid=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider_options=None, scopes_list=None, use_pkce=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, connection_uid=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider_options=None, scim_provisioning=None, scopes_list=None, use_pkce=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderOIDCRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class UpdateIdentityProviderOIDCRequest(object):
         self._issuer = None
         self._name = None
         self._provider_options = None
+        self._scim_provisioning = None
         self._scopes_list = None
         self._use_pkce = None
         self._user_pool_uid = None
@@ -97,6 +100,8 @@ class UpdateIdentityProviderOIDCRequest(object):
             self.name = name
         if provider_options is not None:
             self.provider_options = provider_options
+        if scim_provisioning is not None:
+            self.scim_provisioning = scim_provisioning
         if scopes_list is not None:
             self.scopes_list = scopes_list
         self.use_pkce = use_pkce
@@ -296,6 +301,27 @@ class UpdateIdentityProviderOIDCRequest(object):
         """
 
         self._provider_options = provider_options
+
+    @property
+    def scim_provisioning(self):
+        """Gets the scim_provisioning of this UpdateIdentityProviderOIDCRequest.  # noqa: E501
+
+
+        :return: The scim_provisioning of this UpdateIdentityProviderOIDCRequest.  # noqa: E501
+        :rtype: ScimProvisioningForUpdateIdentityProviderOIDCInput
+        """
+        return self._scim_provisioning
+
+    @scim_provisioning.setter
+    def scim_provisioning(self, scim_provisioning):
+        """Sets the scim_provisioning of this UpdateIdentityProviderOIDCRequest.
+
+
+        :param scim_provisioning: The scim_provisioning of this UpdateIdentityProviderOIDCRequest.  # noqa: E501
+        :type: ScimProvisioningForUpdateIdentityProviderOIDCInput
+        """
+
+        self._scim_provisioning = scim_provisioning
 
     @property
     def scopes_list(self):
