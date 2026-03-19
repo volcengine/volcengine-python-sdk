@@ -275,7 +275,7 @@ class CreateSecretRequest(object):
         """
         if self._configuration.client_side_validation and secret_type is None:
             raise ValueError("Invalid value for `secret_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Generic", "IAM", "RDS", "Redis", "ECS"]  # noqa: E501
+        allowed_values = ["Generic", "IAM", "RDS", "Redis", "ECS", "PGSQL", "SQLServer"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 secret_type not in allowed_values):
             raise ValueError(
