@@ -399,13 +399,6 @@ class GetDevFingerprintProcessRequest(object):
         :param sort_order: The sort_order of this GetDevFingerprintProcessRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Asc", " Desc"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                sort_order not in allowed_values):
-            raise ValueError(
-                "Invalid value for `sort_order` ({0}), must be one of {1}"  # noqa: E501
-                .format(sort_order, allowed_values)
-            )
 
         self._sort_order = sort_order
 

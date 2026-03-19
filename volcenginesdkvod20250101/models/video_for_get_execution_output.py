@@ -33,97 +33,175 @@ class VideoForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'file_name': 'str',
-        'size': 'str',
-        'vid': 'str'
+        'bit_depth': 'int',
+        'bitrate_control': 'ConvertBitrateControlForGetExecutionOutput',
+        'codec': 'str',
+        'fps_control': 'FpsControlForGetExecutionOutput',
+        'hdr_mode': 'int',
+        'scale_control': 'ScaleControlForGetExecutionOutput'
     }
 
     attribute_map = {
-        'file_name': 'FileName',
-        'size': 'Size',
-        'vid': 'Vid'
+        'bit_depth': 'BitDepth',
+        'bitrate_control': 'BitrateControl',
+        'codec': 'Codec',
+        'fps_control': 'FpsControl',
+        'hdr_mode': 'HDRMode',
+        'scale_control': 'ScaleControl'
     }
 
-    def __init__(self, file_name=None, size=None, vid=None, _configuration=None):  # noqa: E501
+    def __init__(self, bit_depth=None, bitrate_control=None, codec=None, fps_control=None, hdr_mode=None, scale_control=None, _configuration=None):  # noqa: E501
         """VideoForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._file_name = None
-        self._size = None
-        self._vid = None
+        self._bit_depth = None
+        self._bitrate_control = None
+        self._codec = None
+        self._fps_control = None
+        self._hdr_mode = None
+        self._scale_control = None
         self.discriminator = None
 
-        if file_name is not None:
-            self.file_name = file_name
-        if size is not None:
-            self.size = size
-        if vid is not None:
-            self.vid = vid
+        if bit_depth is not None:
+            self.bit_depth = bit_depth
+        if bitrate_control is not None:
+            self.bitrate_control = bitrate_control
+        if codec is not None:
+            self.codec = codec
+        if fps_control is not None:
+            self.fps_control = fps_control
+        if hdr_mode is not None:
+            self.hdr_mode = hdr_mode
+        if scale_control is not None:
+            self.scale_control = scale_control
 
     @property
-    def file_name(self):
-        """Gets the file_name of this VideoForGetExecutionOutput.  # noqa: E501
+    def bit_depth(self):
+        """Gets the bit_depth of this VideoForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The file_name of this VideoForGetExecutionOutput.  # noqa: E501
+        :return: The bit_depth of this VideoForGetExecutionOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bit_depth
+
+    @bit_depth.setter
+    def bit_depth(self, bit_depth):
+        """Sets the bit_depth of this VideoForGetExecutionOutput.
+
+
+        :param bit_depth: The bit_depth of this VideoForGetExecutionOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bit_depth = bit_depth
+
+    @property
+    def bitrate_control(self):
+        """Gets the bitrate_control of this VideoForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The bitrate_control of this VideoForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertBitrateControlForGetExecutionOutput
+        """
+        return self._bitrate_control
+
+    @bitrate_control.setter
+    def bitrate_control(self, bitrate_control):
+        """Sets the bitrate_control of this VideoForGetExecutionOutput.
+
+
+        :param bitrate_control: The bitrate_control of this VideoForGetExecutionOutput.  # noqa: E501
+        :type: ConvertBitrateControlForGetExecutionOutput
+        """
+
+        self._bitrate_control = bitrate_control
+
+    @property
+    def codec(self):
+        """Gets the codec of this VideoForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The codec of this VideoForGetExecutionOutput.  # noqa: E501
         :rtype: str
         """
-        return self._file_name
+        return self._codec
 
-    @file_name.setter
-    def file_name(self, file_name):
-        """Sets the file_name of this VideoForGetExecutionOutput.
+    @codec.setter
+    def codec(self, codec):
+        """Sets the codec of this VideoForGetExecutionOutput.
 
 
-        :param file_name: The file_name of this VideoForGetExecutionOutput.  # noqa: E501
+        :param codec: The codec of this VideoForGetExecutionOutput.  # noqa: E501
         :type: str
         """
 
-        self._file_name = file_name
+        self._codec = codec
 
     @property
-    def size(self):
-        """Gets the size of this VideoForGetExecutionOutput.  # noqa: E501
+    def fps_control(self):
+        """Gets the fps_control of this VideoForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The size of this VideoForGetExecutionOutput.  # noqa: E501
-        :rtype: str
+        :return: The fps_control of this VideoForGetExecutionOutput.  # noqa: E501
+        :rtype: FpsControlForGetExecutionOutput
         """
-        return self._size
+        return self._fps_control
 
-    @size.setter
-    def size(self, size):
-        """Sets the size of this VideoForGetExecutionOutput.
+    @fps_control.setter
+    def fps_control(self, fps_control):
+        """Sets the fps_control of this VideoForGetExecutionOutput.
 
 
-        :param size: The size of this VideoForGetExecutionOutput.  # noqa: E501
-        :type: str
+        :param fps_control: The fps_control of this VideoForGetExecutionOutput.  # noqa: E501
+        :type: FpsControlForGetExecutionOutput
         """
 
-        self._size = size
+        self._fps_control = fps_control
 
     @property
-    def vid(self):
-        """Gets the vid of this VideoForGetExecutionOutput.  # noqa: E501
+    def hdr_mode(self):
+        """Gets the hdr_mode of this VideoForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The vid of this VideoForGetExecutionOutput.  # noqa: E501
-        :rtype: str
+        :return: The hdr_mode of this VideoForGetExecutionOutput.  # noqa: E501
+        :rtype: int
         """
-        return self._vid
+        return self._hdr_mode
 
-    @vid.setter
-    def vid(self, vid):
-        """Sets the vid of this VideoForGetExecutionOutput.
+    @hdr_mode.setter
+    def hdr_mode(self, hdr_mode):
+        """Sets the hdr_mode of this VideoForGetExecutionOutput.
 
 
-        :param vid: The vid of this VideoForGetExecutionOutput.  # noqa: E501
-        :type: str
+        :param hdr_mode: The hdr_mode of this VideoForGetExecutionOutput.  # noqa: E501
+        :type: int
         """
 
-        self._vid = vid
+        self._hdr_mode = hdr_mode
+
+    @property
+    def scale_control(self):
+        """Gets the scale_control of this VideoForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The scale_control of this VideoForGetExecutionOutput.  # noqa: E501
+        :rtype: ScaleControlForGetExecutionOutput
+        """
+        return self._scale_control
+
+    @scale_control.setter
+    def scale_control(self, scale_control):
+        """Sets the scale_control of this VideoForGetExecutionOutput.
+
+
+        :param scale_control: The scale_control of this VideoForGetExecutionOutput.  # noqa: E501
+        :type: ScaleControlForGetExecutionOutput
+        """
+
+        self._scale_control = scale_control
 
     def to_dict(self):
         """Returns the model properties as a dict"""

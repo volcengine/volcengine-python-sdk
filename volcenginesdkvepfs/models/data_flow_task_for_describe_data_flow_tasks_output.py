@@ -38,6 +38,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         'data_storage': 'str',
         'data_storage_path': 'str',
         'data_type': 'str',
+        'delete_policy': 'DeletePolicyForDescribeDataFlowTasksOutput',
         'end_time': 'str',
         'entry_list_file_info': 'EntryListFileInfoForDescribeDataFlowTasksOutput',
         'entry_list_file_url': 'str',
@@ -55,6 +56,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         'status': 'str',
         'sub_path': 'str',
         'task_action': 'str',
+        'tls_info': 'TlsInfoForDescribeDataFlowTasksOutput',
         'total_size': 'str',
         'update_time': 'str'
     }
@@ -65,6 +67,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         'data_storage': 'DataStorage',
         'data_storage_path': 'DataStoragePath',
         'data_type': 'DataType',
+        'delete_policy': 'DeletePolicy',
         'end_time': 'EndTime',
         'entry_list_file_info': 'EntryListFileInfo',
         'entry_list_file_url': 'EntryListFileUrl',
@@ -82,11 +85,12 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         'status': 'Status',
         'sub_path': 'SubPath',
         'task_action': 'TaskAction',
+        'tls_info': 'TlsInfo',
         'total_size': 'TotalSize',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, data_flow_task_id=None, data_storage=None, data_storage_path=None, data_type=None, end_time=None, entry_list_file_info=None, entry_list_file_url=None, exec_count=None, exec_size=None, export_symlink_policy=None, failed_count=None, file_system_id=None, fileset_id=None, fileset_path=None, queue_count=None, reports=None, same_name_file_policy=None, start_time=None, status=None, sub_path=None, task_action=None, total_size=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, data_flow_task_id=None, data_storage=None, data_storage_path=None, data_type=None, delete_policy=None, end_time=None, entry_list_file_info=None, entry_list_file_url=None, exec_count=None, exec_size=None, export_symlink_policy=None, failed_count=None, file_system_id=None, fileset_id=None, fileset_path=None, queue_count=None, reports=None, same_name_file_policy=None, start_time=None, status=None, sub_path=None, task_action=None, tls_info=None, total_size=None, update_time=None, _configuration=None):  # noqa: E501
         """DataFlowTaskForDescribeDataFlowTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +101,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         self._data_storage = None
         self._data_storage_path = None
         self._data_type = None
+        self._delete_policy = None
         self._end_time = None
         self._entry_list_file_info = None
         self._entry_list_file_url = None
@@ -114,6 +119,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         self._status = None
         self._sub_path = None
         self._task_action = None
+        self._tls_info = None
         self._total_size = None
         self._update_time = None
         self.discriminator = None
@@ -128,6 +134,8 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
             self.data_storage_path = data_storage_path
         if data_type is not None:
             self.data_type = data_type
+        if delete_policy is not None:
+            self.delete_policy = delete_policy
         if end_time is not None:
             self.end_time = end_time
         if entry_list_file_info is not None:
@@ -162,6 +170,8 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
             self.sub_path = sub_path
         if task_action is not None:
             self.task_action = task_action
+        if tls_info is not None:
+            self.tls_info = tls_info
         if total_size is not None:
             self.total_size = total_size
         if update_time is not None:
@@ -271,6 +281,27 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         """
 
         self._data_type = data_type
+
+    @property
+    def delete_policy(self):
+        """Gets the delete_policy of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The delete_policy of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: DeletePolicyForDescribeDataFlowTasksOutput
+        """
+        return self._delete_policy
+
+    @delete_policy.setter
+    def delete_policy(self, delete_policy):
+        """Sets the delete_policy of this DataFlowTaskForDescribeDataFlowTasksOutput.
+
+
+        :param delete_policy: The delete_policy of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: DeletePolicyForDescribeDataFlowTasksOutput
+        """
+
+        self._delete_policy = delete_policy
 
     @property
     def end_time(self):
@@ -628,6 +659,27 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         """
 
         self._task_action = task_action
+
+    @property
+    def tls_info(self):
+        """Gets the tls_info of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The tls_info of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: TlsInfoForDescribeDataFlowTasksOutput
+        """
+        return self._tls_info
+
+    @tls_info.setter
+    def tls_info(self, tls_info):
+        """Sets the tls_info of this DataFlowTaskForDescribeDataFlowTasksOutput.
+
+
+        :param tls_info: The tls_info of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: TlsInfoForDescribeDataFlowTasksOutput
+        """
+
+        self._tls_info = tls_info
 
     @property
     def total_size(self):

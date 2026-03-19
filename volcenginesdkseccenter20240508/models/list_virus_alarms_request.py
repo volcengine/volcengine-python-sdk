@@ -58,10 +58,13 @@ class ListVirusAlarmsRequest(object):
         'hostname': 'str',
         'ip': 'str',
         'image_name': 'str',
+        'last_alarm_time_end': 'int',
+        'last_alarm_time_start': 'int',
         'leaf_group_ids': 'list[str]',
         'level_list': 'list[str]',
         'mlp_instance_id': 'str',
         'name': 'str',
+        'operation_list': 'list[str]',
         'page_number': 'int',
         'page_size': 'int',
         'probe_hook': 'str',
@@ -105,10 +108,13 @@ class ListVirusAlarmsRequest(object):
         'hostname': 'Hostname',
         'ip': 'IP',
         'image_name': 'ImageName',
+        'last_alarm_time_end': 'LastAlarmTimeEnd',
+        'last_alarm_time_start': 'LastAlarmTimeStart',
         'leaf_group_ids': 'LeafGroupIDs',
         'level_list': 'LevelList',
         'mlp_instance_id': 'MlpInstanceID',
         'name': 'Name',
+        'operation_list': 'OperationList',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'probe_hook': 'ProbeHook',
@@ -126,7 +132,7 @@ class ListVirusAlarmsRequest(object):
         'white_list_name': 'WhiteListName'
     }
 
-    def __init__(self, agent_group=None, agent_group_list=None, agent_id=None, agent_id_list=None, agent_tags=None, alarm_handle_result_list=None, alarm_id=None, alert_tags=None, cloud_providers=None, cluster_id=None, cluster_name=None, cluster_region=None, cluster_tags=None, container_id=None, container_name=None, data_type=None, event_id=None, event_name=None, event_reason=None, exe=None, file_hash=None, file_path=None, hostname=None, ip=None, image_name=None, leaf_group_ids=None, level_list=None, mlp_instance_id=None, name=None, page_number=None, page_size=None, probe_hook=None, rasp_argv=None, sort_by=None, sort_order=None, status=None, task_id=None, time_end=None, time_start=None, top_group_id=None, type=None, virus_type=None, white_list_id=None, white_list_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_group=None, agent_group_list=None, agent_id=None, agent_id_list=None, agent_tags=None, alarm_handle_result_list=None, alarm_id=None, alert_tags=None, cloud_providers=None, cluster_id=None, cluster_name=None, cluster_region=None, cluster_tags=None, container_id=None, container_name=None, data_type=None, event_id=None, event_name=None, event_reason=None, exe=None, file_hash=None, file_path=None, hostname=None, ip=None, image_name=None, last_alarm_time_end=None, last_alarm_time_start=None, leaf_group_ids=None, level_list=None, mlp_instance_id=None, name=None, operation_list=None, page_number=None, page_size=None, probe_hook=None, rasp_argv=None, sort_by=None, sort_order=None, status=None, task_id=None, time_end=None, time_start=None, top_group_id=None, type=None, virus_type=None, white_list_id=None, white_list_name=None, _configuration=None):  # noqa: E501
         """ListVirusAlarmsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -157,10 +163,13 @@ class ListVirusAlarmsRequest(object):
         self._hostname = None
         self._ip = None
         self._image_name = None
+        self._last_alarm_time_end = None
+        self._last_alarm_time_start = None
         self._leaf_group_ids = None
         self._level_list = None
         self._mlp_instance_id = None
         self._name = None
+        self._operation_list = None
         self._page_number = None
         self._page_size = None
         self._probe_hook = None
@@ -228,6 +237,10 @@ class ListVirusAlarmsRequest(object):
             self.ip = ip
         if image_name is not None:
             self.image_name = image_name
+        if last_alarm_time_end is not None:
+            self.last_alarm_time_end = last_alarm_time_end
+        if last_alarm_time_start is not None:
+            self.last_alarm_time_start = last_alarm_time_start
         if leaf_group_ids is not None:
             self.leaf_group_ids = leaf_group_ids
         if level_list is not None:
@@ -236,6 +249,8 @@ class ListVirusAlarmsRequest(object):
             self.mlp_instance_id = mlp_instance_id
         if name is not None:
             self.name = name
+        if operation_list is not None:
+            self.operation_list = operation_list
         self.page_number = page_number
         self.page_size = page_size
         if probe_hook is not None:
@@ -791,6 +806,48 @@ class ListVirusAlarmsRequest(object):
         self._image_name = image_name
 
     @property
+    def last_alarm_time_end(self):
+        """Gets the last_alarm_time_end of this ListVirusAlarmsRequest.  # noqa: E501
+
+
+        :return: The last_alarm_time_end of this ListVirusAlarmsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_alarm_time_end
+
+    @last_alarm_time_end.setter
+    def last_alarm_time_end(self, last_alarm_time_end):
+        """Sets the last_alarm_time_end of this ListVirusAlarmsRequest.
+
+
+        :param last_alarm_time_end: The last_alarm_time_end of this ListVirusAlarmsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._last_alarm_time_end = last_alarm_time_end
+
+    @property
+    def last_alarm_time_start(self):
+        """Gets the last_alarm_time_start of this ListVirusAlarmsRequest.  # noqa: E501
+
+
+        :return: The last_alarm_time_start of this ListVirusAlarmsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_alarm_time_start
+
+    @last_alarm_time_start.setter
+    def last_alarm_time_start(self, last_alarm_time_start):
+        """Sets the last_alarm_time_start of this ListVirusAlarmsRequest.
+
+
+        :param last_alarm_time_start: The last_alarm_time_start of this ListVirusAlarmsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._last_alarm_time_start = last_alarm_time_start
+
+    @property
     def leaf_group_ids(self):
         """Gets the leaf_group_ids of this ListVirusAlarmsRequest.  # noqa: E501
 
@@ -873,6 +930,27 @@ class ListVirusAlarmsRequest(object):
         """
 
         self._name = name
+
+    @property
+    def operation_list(self):
+        """Gets the operation_list of this ListVirusAlarmsRequest.  # noqa: E501
+
+
+        :return: The operation_list of this ListVirusAlarmsRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._operation_list
+
+    @operation_list.setter
+    def operation_list(self, operation_list):
+        """Sets the operation_list of this ListVirusAlarmsRequest.
+
+
+        :param operation_list: The operation_list of this ListVirusAlarmsRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._operation_list = operation_list
 
     @property
     def page_number(self):

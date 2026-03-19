@@ -37,7 +37,7 @@ class ModifyAllowListRequest(object):
         'allow_list_desc': 'str',
         'allow_list_id': 'str',
         'allow_list_name': 'str',
-        'apply_db_instance_num': 'int',
+        'apply_instance_num': 'int',
         'modify_mode': 'str'
     }
 
@@ -46,11 +46,11 @@ class ModifyAllowListRequest(object):
         'allow_list_desc': 'AllowListDesc',
         'allow_list_id': 'AllowListId',
         'allow_list_name': 'AllowListName',
-        'apply_db_instance_num': 'ApplyDBInstanceNum',
+        'apply_instance_num': 'ApplyInstanceNum',
         'modify_mode': 'ModifyMode'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, apply_db_instance_num=None, modify_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, apply_instance_num=None, modify_mode=None, _configuration=None):  # noqa: E501
         """ModifyAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,7 +60,7 @@ class ModifyAllowListRequest(object):
         self._allow_list_desc = None
         self._allow_list_id = None
         self._allow_list_name = None
-        self._apply_db_instance_num = None
+        self._apply_instance_num = None
         self._modify_mode = None
         self.discriminator = None
 
@@ -70,7 +70,8 @@ class ModifyAllowListRequest(object):
             self.allow_list_desc = allow_list_desc
         self.allow_list_id = allow_list_id
         self.allow_list_name = allow_list_name
-        self.apply_db_instance_num = apply_db_instance_num
+        if apply_instance_num is not None:
+            self.apply_instance_num = apply_instance_num
         if modify_mode is not None:
             self.modify_mode = modify_mode
 
@@ -163,27 +164,25 @@ class ModifyAllowListRequest(object):
         self._allow_list_name = allow_list_name
 
     @property
-    def apply_db_instance_num(self):
-        """Gets the apply_db_instance_num of this ModifyAllowListRequest.  # noqa: E501
+    def apply_instance_num(self):
+        """Gets the apply_instance_num of this ModifyAllowListRequest.  # noqa: E501
 
 
-        :return: The apply_db_instance_num of this ModifyAllowListRequest.  # noqa: E501
+        :return: The apply_instance_num of this ModifyAllowListRequest.  # noqa: E501
         :rtype: int
         """
-        return self._apply_db_instance_num
+        return self._apply_instance_num
 
-    @apply_db_instance_num.setter
-    def apply_db_instance_num(self, apply_db_instance_num):
-        """Sets the apply_db_instance_num of this ModifyAllowListRequest.
+    @apply_instance_num.setter
+    def apply_instance_num(self, apply_instance_num):
+        """Sets the apply_instance_num of this ModifyAllowListRequest.
 
 
-        :param apply_db_instance_num: The apply_db_instance_num of this ModifyAllowListRequest.  # noqa: E501
+        :param apply_instance_num: The apply_instance_num of this ModifyAllowListRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and apply_db_instance_num is None:
-            raise ValueError("Invalid value for `apply_db_instance_num`, must not be `None`")  # noqa: E501
 
-        self._apply_db_instance_num = apply_db_instance_num
+        self._apply_instance_num = apply_instance_num
 
     @property
     def modify_mode(self):

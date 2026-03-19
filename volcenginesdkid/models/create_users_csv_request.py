@@ -33,23 +33,49 @@ class CreateUsersCSVRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'external_provider_connection_uid': 'str',
         'user_pool_uid': 'str'
     }
 
     attribute_map = {
+        'external_provider_connection_uid': 'ExternalProviderConnectionUid',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, external_provider_connection_uid=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """CreateUsersCSVRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._external_provider_connection_uid = None
         self._user_pool_uid = None
         self.discriminator = None
 
+        if external_provider_connection_uid is not None:
+            self.external_provider_connection_uid = external_provider_connection_uid
         self.user_pool_uid = user_pool_uid
+
+    @property
+    def external_provider_connection_uid(self):
+        """Gets the external_provider_connection_uid of this CreateUsersCSVRequest.  # noqa: E501
+
+
+        :return: The external_provider_connection_uid of this CreateUsersCSVRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_provider_connection_uid
+
+    @external_provider_connection_uid.setter
+    def external_provider_connection_uid(self, external_provider_connection_uid):
+        """Sets the external_provider_connection_uid of this CreateUsersCSVRequest.
+
+
+        :param external_provider_connection_uid: The external_provider_connection_uid of this CreateUsersCSVRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._external_provider_connection_uid = external_provider_connection_uid
 
     @property
     def user_pool_uid(self):

@@ -39,6 +39,7 @@ class CreateDrDBInstanceRequest(object):
         'master_instance_id': 'str',
         'master_region': 'str',
         'node_info': 'list[NodeInfoForCreateDrDBInstanceInput]',
+        'private_ip_address': 'str',
         'proxy_node_custom': 'ProxyNodeCustomForCreateDrDBInstanceInput',
         'storage_space': 'int',
         'storage_type': 'str',
@@ -53,6 +54,7 @@ class CreateDrDBInstanceRequest(object):
         'master_instance_id': 'MasterInstanceId',
         'master_region': 'MasterRegion',
         'node_info': 'NodeInfo',
+        'private_ip_address': 'PrivateIpAddress',
         'proxy_node_custom': 'ProxyNodeCustom',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
@@ -60,7 +62,7 @@ class CreateDrDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, auto_storage_scaling_config=None, deletion_protection=None, instance_name=None, master_instance_id=None, master_region=None, node_info=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_storage_scaling_config=None, deletion_protection=None, instance_name=None, master_instance_id=None, master_region=None, node_info=None, private_ip_address=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDrDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class CreateDrDBInstanceRequest(object):
         self._master_instance_id = None
         self._master_region = None
         self._node_info = None
+        self._private_ip_address = None
         self._proxy_node_custom = None
         self._storage_space = None
         self._storage_type = None
@@ -89,6 +92,8 @@ class CreateDrDBInstanceRequest(object):
         self.master_region = master_region
         if node_info is not None:
             self.node_info = node_info
+        if private_ip_address is not None:
+            self.private_ip_address = private_ip_address
         if proxy_node_custom is not None:
             self.proxy_node_custom = proxy_node_custom
         self.storage_space = storage_space
@@ -226,6 +231,27 @@ class CreateDrDBInstanceRequest(object):
         """
 
         self._node_info = node_info
+
+    @property
+    def private_ip_address(self):
+        """Gets the private_ip_address of this CreateDrDBInstanceRequest.  # noqa: E501
+
+
+        :return: The private_ip_address of this CreateDrDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_ip_address
+
+    @private_ip_address.setter
+    def private_ip_address(self, private_ip_address):
+        """Sets the private_ip_address of this CreateDrDBInstanceRequest.
+
+
+        :param private_ip_address: The private_ip_address of this CreateDrDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._private_ip_address = private_ip_address
 
     @property
     def proxy_node_custom(self):

@@ -35,6 +35,7 @@ class CheckAlarmSupportBanIPResponse(object):
     swagger_types = {
         'ban_ip': 'str',
         'ban_port_range': 'str',
+        'ban_type': 'str',
         'direction': 'str',
         'security_group_name': 'str',
         'support': 'bool'
@@ -43,12 +44,13 @@ class CheckAlarmSupportBanIPResponse(object):
     attribute_map = {
         'ban_ip': 'BanIP',
         'ban_port_range': 'BanPortRange',
+        'ban_type': 'BanType',
         'direction': 'Direction',
         'security_group_name': 'SecurityGroupName',
         'support': 'Support'
     }
 
-    def __init__(self, ban_ip=None, ban_port_range=None, direction=None, security_group_name=None, support=None, _configuration=None):  # noqa: E501
+    def __init__(self, ban_ip=None, ban_port_range=None, ban_type=None, direction=None, security_group_name=None, support=None, _configuration=None):  # noqa: E501
         """CheckAlarmSupportBanIPResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CheckAlarmSupportBanIPResponse(object):
 
         self._ban_ip = None
         self._ban_port_range = None
+        self._ban_type = None
         self._direction = None
         self._security_group_name = None
         self._support = None
@@ -65,6 +68,8 @@ class CheckAlarmSupportBanIPResponse(object):
             self.ban_ip = ban_ip
         if ban_port_range is not None:
             self.ban_port_range = ban_port_range
+        if ban_type is not None:
+            self.ban_type = ban_type
         if direction is not None:
             self.direction = direction
         if security_group_name is not None:
@@ -113,6 +118,27 @@ class CheckAlarmSupportBanIPResponse(object):
         """
 
         self._ban_port_range = ban_port_range
+
+    @property
+    def ban_type(self):
+        """Gets the ban_type of this CheckAlarmSupportBanIPResponse.  # noqa: E501
+
+
+        :return: The ban_type of this CheckAlarmSupportBanIPResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ban_type
+
+    @ban_type.setter
+    def ban_type(self, ban_type):
+        """Sets the ban_type of this CheckAlarmSupportBanIPResponse.
+
+
+        :param ban_type: The ban_type of this CheckAlarmSupportBanIPResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ban_type = ban_type
 
     @property
     def direction(self):

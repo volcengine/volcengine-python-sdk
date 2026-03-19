@@ -62,6 +62,7 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'is_feedback_enable': 'int',
         'is_header_image_enable': 'int',
         'is_language_enable': 'int',
+        'is_link_mic_enable': 'int',
         'is_live_bullet_chat': 'int',
         'is_mobile_back_image_enable': 'int',
         'is_pc_header_image_enable': 'int',
@@ -154,6 +155,7 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'is_feedback_enable': 'IsFeedbackEnable',
         'is_header_image_enable': 'IsHeaderImageEnable',
         'is_language_enable': 'IsLanguageEnable',
+        'is_link_mic_enable': 'IsLinkMicEnable',
         'is_live_bullet_chat': 'IsLiveBulletChat',
         'is_mobile_back_image_enable': 'IsMobileBackImageEnable',
         'is_pc_header_image_enable': 'IsPCHeaderImageEnable',
@@ -216,7 +218,7 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'watermark_position': 'WatermarkPosition'
     }
 
-    def __init__(self, account_id=None, activity_id=None, announcement=None, auto_reservation_window_enable=None, auto_start_config=None, auto_start_type=None, background_color=None, bind_account_level_group_id=None, color_theme_index=None, config_version=None, cover_image_url=None, default_subtitle_language=None, end_time=None, feedback_message=None, font_color=None, header_image_url=None, interaction_color=None, is_announcement_enable=None, is_auto_end_enable=None, is_auto_start_enable=None, is_avatar_show_enable=None, is_background_blur=None, is_color_sync=None, is_comment_translate_enable=None, is_countdown_enable=None, is_cover_image_enable=None, is_feedback_enable=None, is_header_image_enable=None, is_language_enable=None, is_live_bullet_chat=None, is_mobile_back_image_enable=None, is_pc_header_image_enable=None, is_page_limit_enable=None, is_pc_back_image_enable=None, is_people_count_enable=None, is_player_top_enable=None, is_preview_prompt_enable=None, is_preview_video_enable=None, is_replay_auto_online_enable=None, is_replay_bullet_chat=None, is_reservation_enable=None, is_reservation_sms_enable=None, is_share_icon_enable=None, is_thumb_up_enable=None, is_thumb_up_number_enable=None, is_time_shift=None, is_viewer_level_show_enable=None, is_watermark_image_enable=None, language_type=None, live_time=None, live_zone=None, mobile_back_image_url=None, mobile_back_image_url_default=None, mobile_background_color=None, mobile_chat_background_color=None, mobile_login_background_image_url=None, name=None, open_live_avextractor_task=None, pc_header_image_url=None, page_limit_type=None, pc_back_image_url=None, pc_back_image_url_default=None, pc_login_background_image_url=None, player_top_type=None, presenter_chat_color=None, preview_prompt=None, preview_video_cover_image=None, preview_video_id=None, preview_video_media_name=None, preview_video_review_status=None, preview_video_url=None, preview_video_vid=None, preview_video_vid_default=None, reservation_text=None, reservation_time=None, risk_warning_setting=None, share_icon_url=None, share_icon_url_default=None, site_tags=None, sms_language=None, source_subtitle_language=None, text_site_tags=None, thumb_up_effect_urls=None, thumb_up_url=None, thumb_up_url_default=None, use_default_thumb_up_effect=None, vertical_cover_image_url=None, watermark_image_url=None, watermark_position=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, activity_id=None, announcement=None, auto_reservation_window_enable=None, auto_start_config=None, auto_start_type=None, background_color=None, bind_account_level_group_id=None, color_theme_index=None, config_version=None, cover_image_url=None, default_subtitle_language=None, end_time=None, feedback_message=None, font_color=None, header_image_url=None, interaction_color=None, is_announcement_enable=None, is_auto_end_enable=None, is_auto_start_enable=None, is_avatar_show_enable=None, is_background_blur=None, is_color_sync=None, is_comment_translate_enable=None, is_countdown_enable=None, is_cover_image_enable=None, is_feedback_enable=None, is_header_image_enable=None, is_language_enable=None, is_link_mic_enable=None, is_live_bullet_chat=None, is_mobile_back_image_enable=None, is_pc_header_image_enable=None, is_page_limit_enable=None, is_pc_back_image_enable=None, is_people_count_enable=None, is_player_top_enable=None, is_preview_prompt_enable=None, is_preview_video_enable=None, is_replay_auto_online_enable=None, is_replay_bullet_chat=None, is_reservation_enable=None, is_reservation_sms_enable=None, is_share_icon_enable=None, is_thumb_up_enable=None, is_thumb_up_number_enable=None, is_time_shift=None, is_viewer_level_show_enable=None, is_watermark_image_enable=None, language_type=None, live_time=None, live_zone=None, mobile_back_image_url=None, mobile_back_image_url_default=None, mobile_background_color=None, mobile_chat_background_color=None, mobile_login_background_image_url=None, name=None, open_live_avextractor_task=None, pc_header_image_url=None, page_limit_type=None, pc_back_image_url=None, pc_back_image_url_default=None, pc_login_background_image_url=None, player_top_type=None, presenter_chat_color=None, preview_prompt=None, preview_video_cover_image=None, preview_video_id=None, preview_video_media_name=None, preview_video_review_status=None, preview_video_url=None, preview_video_vid=None, preview_video_vid_default=None, reservation_text=None, reservation_time=None, risk_warning_setting=None, share_icon_url=None, share_icon_url_default=None, site_tags=None, sms_language=None, source_subtitle_language=None, text_site_tags=None, thumb_up_effect_urls=None, thumb_up_url=None, thumb_up_url_default=None, use_default_thumb_up_effect=None, vertical_cover_image_url=None, watermark_image_url=None, watermark_position=None, _configuration=None):  # noqa: E501
         """UpdateActivityBasicConfigAPIRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -251,6 +253,7 @@ class UpdateActivityBasicConfigAPIRequest(object):
         self._is_feedback_enable = None
         self._is_header_image_enable = None
         self._is_language_enable = None
+        self._is_link_mic_enable = None
         self._is_live_bullet_chat = None
         self._is_mobile_back_image_enable = None
         self._is_pc_header_image_enable = None
@@ -370,6 +373,8 @@ class UpdateActivityBasicConfigAPIRequest(object):
             self.is_header_image_enable = is_header_image_enable
         if is_language_enable is not None:
             self.is_language_enable = is_language_enable
+        if is_link_mic_enable is not None:
+            self.is_link_mic_enable = is_link_mic_enable
         if is_live_bullet_chat is not None:
             self.is_live_bullet_chat = is_live_bullet_chat
         if is_mobile_back_image_enable is not None:
@@ -1100,6 +1105,27 @@ class UpdateActivityBasicConfigAPIRequest(object):
         """
 
         self._is_language_enable = is_language_enable
+
+    @property
+    def is_link_mic_enable(self):
+        """Gets the is_link_mic_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+
+
+        :return: The is_link_mic_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_link_mic_enable
+
+    @is_link_mic_enable.setter
+    def is_link_mic_enable(self, is_link_mic_enable):
+        """Sets the is_link_mic_enable of this UpdateActivityBasicConfigAPIRequest.
+
+
+        :param is_link_mic_enable: The is_link_mic_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._is_link_mic_enable = is_link_mic_enable
 
     @property
     def is_live_bullet_chat(self):

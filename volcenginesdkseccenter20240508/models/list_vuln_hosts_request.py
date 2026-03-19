@@ -43,6 +43,7 @@ class ListVulnHostsRequest(object):
         'cwpp_id': 'str',
         'host_name': 'str',
         'ip': 'str',
+        'is_real_risk_vul': 'bool',
         'leaf_group_ids': 'list[str]',
         'page_number': 'int',
         'page_size': 'int',
@@ -63,6 +64,7 @@ class ListVulnHostsRequest(object):
         'cwpp_id': 'CwppID',
         'host_name': 'HostName',
         'ip': 'IP',
+        'is_real_risk_vul': 'IsRealRiskVul',
         'leaf_group_ids': 'LeafGroupIDs',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -72,7 +74,7 @@ class ListVulnHostsRequest(object):
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, agent_id_list=None, agent_tags=None, asset_ids=None, asset_ip=None, asset_name=None, asset_type=None, cloud_providers=None, cwpp_id=None, host_name=None, ip=None, leaf_group_ids=None, page_number=None, page_size=None, sort_by=None, sort_order=None, status=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id_list=None, agent_tags=None, asset_ids=None, asset_ip=None, asset_name=None, asset_type=None, cloud_providers=None, cwpp_id=None, host_name=None, ip=None, is_real_risk_vul=None, leaf_group_ids=None, page_number=None, page_size=None, sort_by=None, sort_order=None, status=None, top_group_id=None, _configuration=None):  # noqa: E501
         """ListVulnHostsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class ListVulnHostsRequest(object):
         self._cwpp_id = None
         self._host_name = None
         self._ip = None
+        self._is_real_risk_vul = None
         self._leaf_group_ids = None
         self._page_number = None
         self._page_size = None
@@ -117,6 +120,8 @@ class ListVulnHostsRequest(object):
             self.host_name = host_name
         if ip is not None:
             self.ip = ip
+        if is_real_risk_vul is not None:
+            self.is_real_risk_vul = is_real_risk_vul
         if leaf_group_ids is not None:
             self.leaf_group_ids = leaf_group_ids
         self.page_number = page_number
@@ -253,13 +258,6 @@ class ListVulnHostsRequest(object):
         :param asset_type: The asset_type of this ListVulnHostsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Host", "Dev"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                asset_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `asset_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(asset_type, allowed_values)
-            )
 
         self._asset_type = asset_type
 
@@ -346,6 +344,27 @@ class ListVulnHostsRequest(object):
         """
 
         self._ip = ip
+
+    @property
+    def is_real_risk_vul(self):
+        """Gets the is_real_risk_vul of this ListVulnHostsRequest.  # noqa: E501
+
+
+        :return: The is_real_risk_vul of this ListVulnHostsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_real_risk_vul
+
+    @is_real_risk_vul.setter
+    def is_real_risk_vul(self, is_real_risk_vul):
+        """Sets the is_real_risk_vul of this ListVulnHostsRequest.
+
+
+        :param is_real_risk_vul: The is_real_risk_vul of this ListVulnHostsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_real_risk_vul = is_real_risk_vul
 
     @property
     def leaf_group_ids(self):

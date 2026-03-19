@@ -40,6 +40,8 @@ class CreatFileScanTaskRequest(object):
         'cpu_i_dle': 'str',
         'file_path': 'str',
         'leaf_group_ids': 'list[str]',
+        'scan_path_list': 'list[ScanPathListForCreatFileScanTaskInput]',
+        'scan_skip_list': 'list[str]',
         'task_name': 'str',
         'timeout': 'str',
         'top_group_id': 'str'
@@ -53,12 +55,14 @@ class CreatFileScanTaskRequest(object):
         'cpu_i_dle': 'CpuIDle',
         'file_path': 'FilePath',
         'leaf_group_ids': 'LeafGroupIDs',
+        'scan_path_list': 'ScanPathList',
+        'scan_skip_list': 'ScanSkipList',
         'task_name': 'TaskName',
         'timeout': 'Timeout',
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, action=None, agent_id_list=None, all_host=None, cloud_providers=None, cpu_i_dle=None, file_path=None, leaf_group_ids=None, task_name=None, timeout=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, agent_id_list=None, all_host=None, cloud_providers=None, cpu_i_dle=None, file_path=None, leaf_group_ids=None, scan_path_list=None, scan_skip_list=None, task_name=None, timeout=None, top_group_id=None, _configuration=None):  # noqa: E501
         """CreatFileScanTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +75,8 @@ class CreatFileScanTaskRequest(object):
         self._cpu_i_dle = None
         self._file_path = None
         self._leaf_group_ids = None
+        self._scan_path_list = None
+        self._scan_skip_list = None
         self._task_name = None
         self._timeout = None
         self._top_group_id = None
@@ -89,6 +95,10 @@ class CreatFileScanTaskRequest(object):
             self.file_path = file_path
         if leaf_group_ids is not None:
             self.leaf_group_ids = leaf_group_ids
+        if scan_path_list is not None:
+            self.scan_path_list = scan_path_list
+        if scan_skip_list is not None:
+            self.scan_skip_list = scan_skip_list
         if task_name is not None:
             self.task_name = task_name
         if timeout is not None:
@@ -244,6 +254,48 @@ class CreatFileScanTaskRequest(object):
         """
 
         self._leaf_group_ids = leaf_group_ids
+
+    @property
+    def scan_path_list(self):
+        """Gets the scan_path_list of this CreatFileScanTaskRequest.  # noqa: E501
+
+
+        :return: The scan_path_list of this CreatFileScanTaskRequest.  # noqa: E501
+        :rtype: list[ScanPathListForCreatFileScanTaskInput]
+        """
+        return self._scan_path_list
+
+    @scan_path_list.setter
+    def scan_path_list(self, scan_path_list):
+        """Sets the scan_path_list of this CreatFileScanTaskRequest.
+
+
+        :param scan_path_list: The scan_path_list of this CreatFileScanTaskRequest.  # noqa: E501
+        :type: list[ScanPathListForCreatFileScanTaskInput]
+        """
+
+        self._scan_path_list = scan_path_list
+
+    @property
+    def scan_skip_list(self):
+        """Gets the scan_skip_list of this CreatFileScanTaskRequest.  # noqa: E501
+
+
+        :return: The scan_skip_list of this CreatFileScanTaskRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._scan_skip_list
+
+    @scan_skip_list.setter
+    def scan_skip_list(self, scan_skip_list):
+        """Sets the scan_skip_list of this CreatFileScanTaskRequest.
+
+
+        :param scan_skip_list: The scan_skip_list of this CreatFileScanTaskRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._scan_skip_list = scan_skip_list
 
     @property
     def task_name(self):

@@ -39,6 +39,7 @@ class HandleVulnRequest(object):
         'asset_type': 'str',
         'before_status': 'str',
         'cwpp_id_list': 'list[str]',
+        'is_real_risk_vul': 'bool',
         'reason': 'str',
         'top_group_id': 'str'
     }
@@ -50,11 +51,12 @@ class HandleVulnRequest(object):
         'asset_type': 'AssetType',
         'before_status': 'BeforeStatus',
         'cwpp_id_list': 'CwppIDList',
+        'is_real_risk_vul': 'IsRealRiskVul',
         'reason': 'Reason',
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, after_status=None, agent_id_list=None, asset_ids=None, asset_type=None, before_status=None, cwpp_id_list=None, reason=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, after_status=None, agent_id_list=None, asset_ids=None, asset_type=None, before_status=None, cwpp_id_list=None, is_real_risk_vul=None, reason=None, top_group_id=None, _configuration=None):  # noqa: E501
         """HandleVulnRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class HandleVulnRequest(object):
         self._asset_type = None
         self._before_status = None
         self._cwpp_id_list = None
+        self._is_real_risk_vul = None
         self._reason = None
         self._top_group_id = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class HandleVulnRequest(object):
             self.before_status = before_status
         if cwpp_id_list is not None:
             self.cwpp_id_list = cwpp_id_list
+        if is_real_risk_vul is not None:
+            self.is_real_risk_vul = is_real_risk_vul
         if reason is not None:
             self.reason = reason
         if top_group_id is not None:
@@ -168,13 +173,6 @@ class HandleVulnRequest(object):
         :param asset_type: The asset_type of this HandleVulnRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Host", "Dev"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                asset_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `asset_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(asset_type, allowed_values)
-            )
 
         self._asset_type = asset_type
 
@@ -219,6 +217,27 @@ class HandleVulnRequest(object):
         """
 
         self._cwpp_id_list = cwpp_id_list
+
+    @property
+    def is_real_risk_vul(self):
+        """Gets the is_real_risk_vul of this HandleVulnRequest.  # noqa: E501
+
+
+        :return: The is_real_risk_vul of this HandleVulnRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_real_risk_vul
+
+    @is_real_risk_vul.setter
+    def is_real_risk_vul(self, is_real_risk_vul):
+        """Sets the is_real_risk_vul of this HandleVulnRequest.
+
+
+        :param is_real_risk_vul: The is_real_risk_vul of this HandleVulnRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_real_risk_vul = is_real_risk_vul
 
     @property
     def reason(self):

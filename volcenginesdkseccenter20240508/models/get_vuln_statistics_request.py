@@ -37,6 +37,7 @@ class GetVulnStatisticsRequest(object):
         'asset_id': 'str',
         'asset_type': 'str',
         'if_high_availability': 'bool',
+        'is_real_risk_vul': 'bool',
         'top_group_id': 'str'
     }
 
@@ -45,10 +46,11 @@ class GetVulnStatisticsRequest(object):
         'asset_id': 'AssetID',
         'asset_type': 'AssetType',
         'if_high_availability': 'IfHighAvailability',
+        'is_real_risk_vul': 'IsRealRiskVul',
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, agent_id=None, asset_id=None, asset_type=None, if_high_availability=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, asset_id=None, asset_type=None, if_high_availability=None, is_real_risk_vul=None, top_group_id=None, _configuration=None):  # noqa: E501
         """GetVulnStatisticsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class GetVulnStatisticsRequest(object):
         self._asset_id = None
         self._asset_type = None
         self._if_high_availability = None
+        self._is_real_risk_vul = None
         self._top_group_id = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class GetVulnStatisticsRequest(object):
             self.asset_type = asset_type
         if if_high_availability is not None:
             self.if_high_availability = if_high_availability
+        if is_real_risk_vul is not None:
+            self.is_real_risk_vul = is_real_risk_vul
         if top_group_id is not None:
             self.top_group_id = top_group_id
 
@@ -132,13 +137,6 @@ class GetVulnStatisticsRequest(object):
         :param asset_type: The asset_type of this GetVulnStatisticsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Host", "Dev"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                asset_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `asset_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(asset_type, allowed_values)
-            )
 
         self._asset_type = asset_type
 
@@ -162,6 +160,27 @@ class GetVulnStatisticsRequest(object):
         """
 
         self._if_high_availability = if_high_availability
+
+    @property
+    def is_real_risk_vul(self):
+        """Gets the is_real_risk_vul of this GetVulnStatisticsRequest.  # noqa: E501
+
+
+        :return: The is_real_risk_vul of this GetVulnStatisticsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_real_risk_vul
+
+    @is_real_risk_vul.setter
+    def is_real_risk_vul(self, is_real_risk_vul):
+        """Sets the is_real_risk_vul of this GetVulnStatisticsRequest.
+
+
+        :param is_real_risk_vul: The is_real_risk_vul of this GetVulnStatisticsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_real_risk_vul = is_real_risk_vul
 
     @property
     def top_group_id(self):

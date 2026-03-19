@@ -37,9 +37,11 @@ class ListBanIPListRequest(object):
         'ban_end_time_end_unix': 'int',
         'ban_end_time_start_unix': 'int',
         'ban_ip': 'str',
+        'ban_port': 'int',
         'ban_start_time_end_unix': 'int',
         'ban_start_time_start_unix': 'int',
         'ban_type': 'str',
+        'ban_type_list': 'list[str]',
         'cloud_providers': 'list[str]',
         'host_name': 'str',
         'ip': 'str',
@@ -58,9 +60,11 @@ class ListBanIPListRequest(object):
         'ban_end_time_end_unix': 'BanEndTimeEndUnix',
         'ban_end_time_start_unix': 'BanEndTimeStartUnix',
         'ban_ip': 'BanIP',
+        'ban_port': 'BanPort',
         'ban_start_time_end_unix': 'BanStartTimeEndUnix',
         'ban_start_time_start_unix': 'BanStartTimeStartUnix',
         'ban_type': 'BanType',
+        'ban_type_list': 'BanTypeList',
         'cloud_providers': 'CloudProviders',
         'host_name': 'HostName',
         'ip': 'IP',
@@ -74,7 +78,7 @@ class ListBanIPListRequest(object):
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, agent_id=None, ban_end_time_end_unix=None, ban_end_time_start_unix=None, ban_ip=None, ban_start_time_end_unix=None, ban_start_time_start_unix=None, ban_type=None, cloud_providers=None, host_name=None, ip=None, leaf_group_ids=None, page_number=None, page_size=None, sort_by=None, sort_order=None, status_list=None, tags=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, ban_end_time_end_unix=None, ban_end_time_start_unix=None, ban_ip=None, ban_port=None, ban_start_time_end_unix=None, ban_start_time_start_unix=None, ban_type=None, ban_type_list=None, cloud_providers=None, host_name=None, ip=None, leaf_group_ids=None, page_number=None, page_size=None, sort_by=None, sort_order=None, status_list=None, tags=None, top_group_id=None, _configuration=None):  # noqa: E501
         """ListBanIPListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,9 +88,11 @@ class ListBanIPListRequest(object):
         self._ban_end_time_end_unix = None
         self._ban_end_time_start_unix = None
         self._ban_ip = None
+        self._ban_port = None
         self._ban_start_time_end_unix = None
         self._ban_start_time_start_unix = None
         self._ban_type = None
+        self._ban_type_list = None
         self._cloud_providers = None
         self._host_name = None
         self._ip = None
@@ -108,12 +114,16 @@ class ListBanIPListRequest(object):
             self.ban_end_time_start_unix = ban_end_time_start_unix
         if ban_ip is not None:
             self.ban_ip = ban_ip
+        if ban_port is not None:
+            self.ban_port = ban_port
         if ban_start_time_end_unix is not None:
             self.ban_start_time_end_unix = ban_start_time_end_unix
         if ban_start_time_start_unix is not None:
             self.ban_start_time_start_unix = ban_start_time_start_unix
         if ban_type is not None:
             self.ban_type = ban_type
+        if ban_type_list is not None:
+            self.ban_type_list = ban_type_list
         if cloud_providers is not None:
             self.cloud_providers = cloud_providers
         if host_name is not None:
@@ -220,6 +230,27 @@ class ListBanIPListRequest(object):
         self._ban_ip = ban_ip
 
     @property
+    def ban_port(self):
+        """Gets the ban_port of this ListBanIPListRequest.  # noqa: E501
+
+
+        :return: The ban_port of this ListBanIPListRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ban_port
+
+    @ban_port.setter
+    def ban_port(self, ban_port):
+        """Sets the ban_port of this ListBanIPListRequest.
+
+
+        :param ban_port: The ban_port of this ListBanIPListRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ban_port = ban_port
+
+    @property
     def ban_start_time_end_unix(self):
         """Gets the ban_start_time_end_unix of this ListBanIPListRequest.  # noqa: E501
 
@@ -281,6 +312,27 @@ class ListBanIPListRequest(object):
         """
 
         self._ban_type = ban_type
+
+    @property
+    def ban_type_list(self):
+        """Gets the ban_type_list of this ListBanIPListRequest.  # noqa: E501
+
+
+        :return: The ban_type_list of this ListBanIPListRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ban_type_list
+
+    @ban_type_list.setter
+    def ban_type_list(self, ban_type_list):
+        """Sets the ban_type_list of this ListBanIPListRequest.
+
+
+        :param ban_type_list: The ban_type_list of this ListBanIPListRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ban_type_list = ban_type_list
 
     @property
     def cloud_providers(self):

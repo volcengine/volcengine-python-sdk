@@ -35,7 +35,6 @@ class DescribeFileSystemsRequest(object):
     swagger_types = {
         'bandwidth_mode': 'str',
         'charge_type': 'str',
-        'export_only': 'bool',
         'file_system_id': 'str',
         'file_system_name': 'str',
         'instance_type': 'str',
@@ -44,7 +43,6 @@ class DescribeFileSystemsRequest(object):
         'page_size': 'int',
         'performance_density': 'str',
         'project_name': 'str',
-        'protocol_type': 'str',
         'sort_by': 'str',
         'sort_order': 'str',
         'statuses': 'list[str]',
@@ -55,7 +53,6 @@ class DescribeFileSystemsRequest(object):
     attribute_map = {
         'bandwidth_mode': 'BandwidthMode',
         'charge_type': 'ChargeType',
-        'export_only': 'ExportOnly',
         'file_system_id': 'FileSystemId',
         'file_system_name': 'FileSystemName',
         'instance_type': 'InstanceType',
@@ -64,7 +61,6 @@ class DescribeFileSystemsRequest(object):
         'page_size': 'PageSize',
         'performance_density': 'PerformanceDensity',
         'project_name': 'ProjectName',
-        'protocol_type': 'ProtocolType',
         'sort_by': 'SortBy',
         'sort_order': 'SortOrder',
         'statuses': 'Statuses',
@@ -72,7 +68,7 @@ class DescribeFileSystemsRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, bandwidth_mode=None, charge_type=None, export_only=None, file_system_id=None, file_system_name=None, instance_type=None, language=None, page_number=None, page_size=None, performance_density=None, project_name=None, protocol_type=None, sort_by=None, sort_order=None, statuses=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth_mode=None, charge_type=None, file_system_id=None, file_system_name=None, instance_type=None, language=None, page_number=None, page_size=None, performance_density=None, project_name=None, sort_by=None, sort_order=None, statuses=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeFileSystemsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,7 +76,6 @@ class DescribeFileSystemsRequest(object):
 
         self._bandwidth_mode = None
         self._charge_type = None
-        self._export_only = None
         self._file_system_id = None
         self._file_system_name = None
         self._instance_type = None
@@ -89,7 +84,6 @@ class DescribeFileSystemsRequest(object):
         self._page_size = None
         self._performance_density = None
         self._project_name = None
-        self._protocol_type = None
         self._sort_by = None
         self._sort_order = None
         self._statuses = None
@@ -101,8 +95,6 @@ class DescribeFileSystemsRequest(object):
             self.bandwidth_mode = bandwidth_mode
         if charge_type is not None:
             self.charge_type = charge_type
-        if export_only is not None:
-            self.export_only = export_only
         if file_system_id is not None:
             self.file_system_id = file_system_id
         if file_system_name is not None:
@@ -119,8 +111,6 @@ class DescribeFileSystemsRequest(object):
             self.performance_density = performance_density
         if project_name is not None:
             self.project_name = project_name
-        if protocol_type is not None:
-            self.protocol_type = protocol_type
         if sort_by is not None:
             self.sort_by = sort_by
         if sort_order is not None:
@@ -187,27 +177,6 @@ class DescribeFileSystemsRequest(object):
             )
 
         self._charge_type = charge_type
-
-    @property
-    def export_only(self):
-        """Gets the export_only of this DescribeFileSystemsRequest.  # noqa: E501
-
-
-        :return: The export_only of this DescribeFileSystemsRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._export_only
-
-    @export_only.setter
-    def export_only(self, export_only):
-        """Sets the export_only of this DescribeFileSystemsRequest.
-
-
-        :param export_only: The export_only of this DescribeFileSystemsRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._export_only = export_only
 
     @property
     def file_system_id(self):
@@ -325,6 +294,9 @@ class DescribeFileSystemsRequest(object):
         :param page_number: The page_number of this DescribeFileSystemsRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_number is not None and page_number < 1):  # noqa: E501
+            raise ValueError("Invalid value for `page_number`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -346,6 +318,9 @@ class DescribeFileSystemsRequest(object):
         :param page_size: The page_size of this DescribeFileSystemsRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size < 1):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_size = page_size
 
@@ -397,34 +372,6 @@ class DescribeFileSystemsRequest(object):
         """
 
         self._project_name = project_name
-
-    @property
-    def protocol_type(self):
-        """Gets the protocol_type of this DescribeFileSystemsRequest.  # noqa: E501
-
-
-        :return: The protocol_type of this DescribeFileSystemsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._protocol_type
-
-    @protocol_type.setter
-    def protocol_type(self, protocol_type):
-        """Sets the protocol_type of this DescribeFileSystemsRequest.
-
-
-        :param protocol_type: The protocol_type of this DescribeFileSystemsRequest.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["NFS", "SMB", "FSX"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                protocol_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `protocol_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(protocol_type, allowed_values)
-            )
-
-        self._protocol_type = protocol_type
 
     @property
     def sort_by(self):

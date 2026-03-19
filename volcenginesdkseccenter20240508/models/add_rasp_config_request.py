@@ -34,7 +34,9 @@ class AddRaspConfigRequest(object):
     """
     swagger_types = {
         'all_process_inject': 'bool',
+        'block_uuid': 'str',
         'blocks': 'list[BlockForAddRaspConfigInput]',
+        'filter_uuid': 'str',
         'filters': 'list[FilterForAddRaspConfigInput]',
         'if_protect': 'bool',
         'inject_config_list': 'list[InjectConfigListForAddRaspConfigInput]',
@@ -49,7 +51,9 @@ class AddRaspConfigRequest(object):
 
     attribute_map = {
         'all_process_inject': 'AllProcessInject',
+        'block_uuid': 'BlockUuid',
         'blocks': 'Blocks',
+        'filter_uuid': 'FilterUuid',
         'filters': 'Filters',
         'if_protect': 'IfProtect',
         'inject_config_list': 'InjectConfigList',
@@ -62,14 +66,16 @@ class AddRaspConfigRequest(object):
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, all_process_inject=None, blocks=None, filters=None, if_protect=None, inject_config_list=None, local_project_inject=None, name=None, protect_method=None, range=None, runtime=None, switch=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, all_process_inject=None, block_uuid=None, blocks=None, filter_uuid=None, filters=None, if_protect=None, inject_config_list=None, local_project_inject=None, name=None, protect_method=None, range=None, runtime=None, switch=None, top_group_id=None, _configuration=None):  # noqa: E501
         """AddRaspConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._all_process_inject = None
+        self._block_uuid = None
         self._blocks = None
+        self._filter_uuid = None
         self._filters = None
         self._if_protect = None
         self._inject_config_list = None
@@ -84,8 +90,12 @@ class AddRaspConfigRequest(object):
 
         if all_process_inject is not None:
             self.all_process_inject = all_process_inject
+        if block_uuid is not None:
+            self.block_uuid = block_uuid
         if blocks is not None:
             self.blocks = blocks
+        if filter_uuid is not None:
+            self.filter_uuid = filter_uuid
         if filters is not None:
             self.filters = filters
         if if_protect is not None:
@@ -126,6 +136,27 @@ class AddRaspConfigRequest(object):
         self._all_process_inject = all_process_inject
 
     @property
+    def block_uuid(self):
+        """Gets the block_uuid of this AddRaspConfigRequest.  # noqa: E501
+
+
+        :return: The block_uuid of this AddRaspConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._block_uuid
+
+    @block_uuid.setter
+    def block_uuid(self, block_uuid):
+        """Sets the block_uuid of this AddRaspConfigRequest.
+
+
+        :param block_uuid: The block_uuid of this AddRaspConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._block_uuid = block_uuid
+
+    @property
     def blocks(self):
         """Gets the blocks of this AddRaspConfigRequest.  # noqa: E501
 
@@ -145,6 +176,27 @@ class AddRaspConfigRequest(object):
         """
 
         self._blocks = blocks
+
+    @property
+    def filter_uuid(self):
+        """Gets the filter_uuid of this AddRaspConfigRequest.  # noqa: E501
+
+
+        :return: The filter_uuid of this AddRaspConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._filter_uuid
+
+    @filter_uuid.setter
+    def filter_uuid(self, filter_uuid):
+        """Sets the filter_uuid of this AddRaspConfigRequest.
+
+
+        :param filter_uuid: The filter_uuid of this AddRaspConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._filter_uuid = filter_uuid
 
     @property
     def filters(self):

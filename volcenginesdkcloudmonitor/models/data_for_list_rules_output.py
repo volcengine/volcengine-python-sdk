@@ -45,6 +45,7 @@ class DataForListRulesOutput(object):
         'effect_start_at': 'str',
         'enable_state': 'str',
         'evaluation_count': 'int',
+        'evaluation_interval': 'int',
         'id': 'str',
         'level': 'str',
         'level_conditions': 'list[LevelConditionForListRulesOutput]',
@@ -82,6 +83,7 @@ class DataForListRulesOutput(object):
         'effect_start_at': 'EffectStartAt',
         'enable_state': 'EnableState',
         'evaluation_count': 'EvaluationCount',
+        'evaluation_interval': 'EvaluationInterval',
         'id': 'Id',
         'level': 'Level',
         'level_conditions': 'LevelConditions',
@@ -106,7 +108,7 @@ class DataForListRulesOutput(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, no_data=None, notification_id=None, notify_templates=None, object_group_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, resource_type=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, tags=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, evaluation_interval=None, id=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, no_data=None, notification_id=None, notify_templates=None, object_group_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, resource_type=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, tags=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """DataForListRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -124,6 +126,7 @@ class DataForListRulesOutput(object):
         self._effect_start_at = None
         self._enable_state = None
         self._evaluation_count = None
+        self._evaluation_interval = None
         self._id = None
         self._level = None
         self._level_conditions = None
@@ -172,6 +175,8 @@ class DataForListRulesOutput(object):
             self.enable_state = enable_state
         if evaluation_count is not None:
             self.evaluation_count = evaluation_count
+        if evaluation_interval is not None:
+            self.evaluation_interval = evaluation_interval
         if id is not None:
             self.id = id
         if level is not None:
@@ -468,6 +473,27 @@ class DataForListRulesOutput(object):
         """
 
         self._evaluation_count = evaluation_count
+
+    @property
+    def evaluation_interval(self):
+        """Gets the evaluation_interval of this DataForListRulesOutput.  # noqa: E501
+
+
+        :return: The evaluation_interval of this DataForListRulesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._evaluation_interval
+
+    @evaluation_interval.setter
+    def evaluation_interval(self, evaluation_interval):
+        """Sets the evaluation_interval of this DataForListRulesOutput.
+
+
+        :param evaluation_interval: The evaluation_interval of this DataForListRulesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._evaluation_interval = evaluation_interval
 
     @property
     def id(self):

@@ -34,26 +34,31 @@ class ConfigForUpdateInteractionScriptRecordConfigInput(object):
     """
     swagger_types = {
         'enable_comment': 'bool',
+        'enable_coupon': 'bool',
         'enable_product_card': 'bool'
     }
 
     attribute_map = {
         'enable_comment': 'EnableComment',
+        'enable_coupon': 'EnableCoupon',
         'enable_product_card': 'EnableProductCard'
     }
 
-    def __init__(self, enable_comment=None, enable_product_card=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable_comment=None, enable_coupon=None, enable_product_card=None, _configuration=None):  # noqa: E501
         """ConfigForUpdateInteractionScriptRecordConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._enable_comment = None
+        self._enable_coupon = None
         self._enable_product_card = None
         self.discriminator = None
 
         if enable_comment is not None:
             self.enable_comment = enable_comment
+        if enable_coupon is not None:
+            self.enable_coupon = enable_coupon
         if enable_product_card is not None:
             self.enable_product_card = enable_product_card
 
@@ -77,6 +82,27 @@ class ConfigForUpdateInteractionScriptRecordConfigInput(object):
         """
 
         self._enable_comment = enable_comment
+
+    @property
+    def enable_coupon(self):
+        """Gets the enable_coupon of this ConfigForUpdateInteractionScriptRecordConfigInput.  # noqa: E501
+
+
+        :return: The enable_coupon of this ConfigForUpdateInteractionScriptRecordConfigInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_coupon
+
+    @enable_coupon.setter
+    def enable_coupon(self, enable_coupon):
+        """Sets the enable_coupon of this ConfigForUpdateInteractionScriptRecordConfigInput.
+
+
+        :param enable_coupon: The enable_coupon of this ConfigForUpdateInteractionScriptRecordConfigInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_coupon = enable_coupon
 
     @property
     def enable_product_card(self):

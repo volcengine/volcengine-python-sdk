@@ -35,26 +35,30 @@ class GetTenantQuotaResponse(object):
     swagger_types = {
         'account_id': 'str',
         'basic_quota': 'BasicQuotaForGetTenantQuotaOutput',
+        'cap_white_list': 'CapWhiteListForGetTenantQuotaOutput',
         'expire_time': 'int',
         'id': 'str',
         'insert_time': 'int',
         'labels': 'list[str]',
         'update_time': 'int',
-        'value_added': 'ValueAddedForGetTenantQuotaOutput'
+        'value_added': 'ValueAddedForGetTenantQuotaOutput',
+        'id': 'str'
     }
 
     attribute_map = {
         'account_id': 'AccountID',
         'basic_quota': 'BasicQuota',
+        'cap_white_list': 'CapWhiteList',
         'expire_time': 'ExpireTime',
         'id': 'ID',
         'insert_time': 'InsertTime',
         'labels': 'Labels',
         'update_time': 'UpdateTime',
-        'value_added': 'ValueAdded'
+        'value_added': 'ValueAdded',
+        'id': 'id'
     }
 
-    def __init__(self, account_id=None, basic_quota=None, expire_time=None, id=None, insert_time=None, labels=None, update_time=None, value_added=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, basic_quota=None, cap_white_list=None, expire_time=None, id=None, insert_time=None, labels=None, update_time=None, value_added=None, id=None, _configuration=None):  # noqa: E501
         """GetTenantQuotaResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,18 +66,22 @@ class GetTenantQuotaResponse(object):
 
         self._account_id = None
         self._basic_quota = None
+        self._cap_white_list = None
         self._expire_time = None
         self._id = None
         self._insert_time = None
         self._labels = None
         self._update_time = None
         self._value_added = None
+        self._id = None
         self.discriminator = None
 
         if account_id is not None:
             self.account_id = account_id
         if basic_quota is not None:
             self.basic_quota = basic_quota
+        if cap_white_list is not None:
+            self.cap_white_list = cap_white_list
         if expire_time is not None:
             self.expire_time = expire_time
         if id is not None:
@@ -86,6 +94,8 @@ class GetTenantQuotaResponse(object):
             self.update_time = update_time
         if value_added is not None:
             self.value_added = value_added
+        if id is not None:
+            self.id = id
 
     @property
     def account_id(self):
@@ -128,6 +138,27 @@ class GetTenantQuotaResponse(object):
         """
 
         self._basic_quota = basic_quota
+
+    @property
+    def cap_white_list(self):
+        """Gets the cap_white_list of this GetTenantQuotaResponse.  # noqa: E501
+
+
+        :return: The cap_white_list of this GetTenantQuotaResponse.  # noqa: E501
+        :rtype: CapWhiteListForGetTenantQuotaOutput
+        """
+        return self._cap_white_list
+
+    @cap_white_list.setter
+    def cap_white_list(self, cap_white_list):
+        """Sets the cap_white_list of this GetTenantQuotaResponse.
+
+
+        :param cap_white_list: The cap_white_list of this GetTenantQuotaResponse.  # noqa: E501
+        :type: CapWhiteListForGetTenantQuotaOutput
+        """
+
+        self._cap_white_list = cap_white_list
 
     @property
     def expire_time(self):
@@ -254,6 +285,27 @@ class GetTenantQuotaResponse(object):
         """
 
         self._value_added = value_added
+
+    @property
+    def id(self):
+        """Gets the id of this GetTenantQuotaResponse.  # noqa: E501
+
+
+        :return: The id of this GetTenantQuotaResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this GetTenantQuotaResponse.
+
+
+        :param id: The id of this GetTenantQuotaResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

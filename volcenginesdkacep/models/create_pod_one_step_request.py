@@ -45,6 +45,7 @@ class CreatePodOneStepRequest(object):
         'ip_white_list': 'str',
         'image_id': 'str',
         'is_preinstall': 'bool',
+        'is_selinux_on': 'bool',
         'overlay_persist_property': 'list[OverlayPersistPropertyForCreatePodOneStepInput]',
         'overlay_property': 'list[OverlayPropertyForCreatePodOneStepInput]',
         'overlay_settings': 'list[OverlaySettingForCreatePodOneStepInput]',
@@ -71,6 +72,7 @@ class CreatePodOneStepRequest(object):
         'ip_white_list': 'IPWhiteList',
         'image_id': 'ImageId',
         'is_preinstall': 'IsPreinstall',
+        'is_selinux_on': 'IsSelinuxOn',
         'overlay_persist_property': 'OverlayPersistProperty',
         'overlay_property': 'OverlayProperty',
         'overlay_settings': 'OverlaySettings',
@@ -84,7 +86,7 @@ class CreatePodOneStepRequest(object):
         'use_phone_template': 'UsePhoneTemplate'
     }
 
-    def __init__(self, app_list=None, configuration_code=None, custom_route_id=None, dnsid=None, data_size=None, dc=None, display_layout_id=None, down_bandwidth_limit=None, host_id=None, ip_white_list=None, image_id=None, is_preinstall=None, overlay_persist_property=None, overlay_property=None, overlay_settings=None, phone_template_id=None, pod_name=None, port_mapping_rule_id_list=None, product_id=None, resource_type=None, tag_id=None, up_bandwidth_limit=None, use_phone_template=None, _configuration=None):  # noqa: E501
+    def __init__(self, app_list=None, configuration_code=None, custom_route_id=None, dnsid=None, data_size=None, dc=None, display_layout_id=None, down_bandwidth_limit=None, host_id=None, ip_white_list=None, image_id=None, is_preinstall=None, is_selinux_on=None, overlay_persist_property=None, overlay_property=None, overlay_settings=None, phone_template_id=None, pod_name=None, port_mapping_rule_id_list=None, product_id=None, resource_type=None, tag_id=None, up_bandwidth_limit=None, use_phone_template=None, _configuration=None):  # noqa: E501
         """CreatePodOneStepRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -102,6 +104,7 @@ class CreatePodOneStepRequest(object):
         self._ip_white_list = None
         self._image_id = None
         self._is_preinstall = None
+        self._is_selinux_on = None
         self._overlay_persist_property = None
         self._overlay_property = None
         self._overlay_settings = None
@@ -137,6 +140,8 @@ class CreatePodOneStepRequest(object):
             self.image_id = image_id
         if is_preinstall is not None:
             self.is_preinstall = is_preinstall
+        if is_selinux_on is not None:
+            self.is_selinux_on = is_selinux_on
         if overlay_persist_property is not None:
             self.overlay_persist_property = overlay_persist_property
         if overlay_property is not None:
@@ -414,6 +419,27 @@ class CreatePodOneStepRequest(object):
         """
 
         self._is_preinstall = is_preinstall
+
+    @property
+    def is_selinux_on(self):
+        """Gets the is_selinux_on of this CreatePodOneStepRequest.  # noqa: E501
+
+
+        :return: The is_selinux_on of this CreatePodOneStepRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_selinux_on
+
+    @is_selinux_on.setter
+    def is_selinux_on(self, is_selinux_on):
+        """Sets the is_selinux_on of this CreatePodOneStepRequest.
+
+
+        :param is_selinux_on: The is_selinux_on of this CreatePodOneStepRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_selinux_on = is_selinux_on
 
     @property
     def overlay_persist_property(self):
