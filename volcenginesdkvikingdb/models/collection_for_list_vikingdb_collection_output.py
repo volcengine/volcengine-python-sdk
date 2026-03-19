@@ -39,6 +39,7 @@ class CollectionForListVikingdbCollectionOutput(object):
         'description': 'str',
         'enable_keywords_search': 'bool',
         'fields': 'list[FieldForListVikingdbCollectionOutput]',
+        'full_text': 'list[FullTextForListVikingdbCollectionOutput]',
         'index_count': 'int',
         'index_names': 'list[str]',
         'project_name': 'str',
@@ -56,6 +57,7 @@ class CollectionForListVikingdbCollectionOutput(object):
         'description': 'Description',
         'enable_keywords_search': 'EnableKeywordsSearch',
         'fields': 'Fields',
+        'full_text': 'FullText',
         'index_count': 'IndexCount',
         'index_names': 'IndexNames',
         'project_name': 'ProjectName',
@@ -66,7 +68,7 @@ class CollectionForListVikingdbCollectionOutput(object):
         'vectorize': 'Vectorize'
     }
 
-    def __init__(self, collection_name=None, collection_stats=None, create_time=None, description=None, enable_keywords_search=None, fields=None, index_count=None, index_names=None, project_name=None, resource_id=None, tags=None, update_person=None, update_time=None, vectorize=None, _configuration=None):  # noqa: E501
+    def __init__(self, collection_name=None, collection_stats=None, create_time=None, description=None, enable_keywords_search=None, fields=None, full_text=None, index_count=None, index_names=None, project_name=None, resource_id=None, tags=None, update_person=None, update_time=None, vectorize=None, _configuration=None):  # noqa: E501
         """CollectionForListVikingdbCollectionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class CollectionForListVikingdbCollectionOutput(object):
         self._description = None
         self._enable_keywords_search = None
         self._fields = None
+        self._full_text = None
         self._index_count = None
         self._index_names = None
         self._project_name = None
@@ -100,6 +103,8 @@ class CollectionForListVikingdbCollectionOutput(object):
             self.enable_keywords_search = enable_keywords_search
         if fields is not None:
             self.fields = fields
+        if full_text is not None:
+            self.full_text = full_text
         if index_count is not None:
             self.index_count = index_count
         if index_names is not None:
@@ -242,6 +247,27 @@ class CollectionForListVikingdbCollectionOutput(object):
         """
 
         self._fields = fields
+
+    @property
+    def full_text(self):
+        """Gets the full_text of this CollectionForListVikingdbCollectionOutput.  # noqa: E501
+
+
+        :return: The full_text of this CollectionForListVikingdbCollectionOutput.  # noqa: E501
+        :rtype: list[FullTextForListVikingdbCollectionOutput]
+        """
+        return self._full_text
+
+    @full_text.setter
+    def full_text(self, full_text):
+        """Sets the full_text of this CollectionForListVikingdbCollectionOutput.
+
+
+        :param full_text: The full_text of this CollectionForListVikingdbCollectionOutput.  # noqa: E501
+        :type: list[FullTextForListVikingdbCollectionOutput]
+        """
+
+        self._full_text = full_text
 
     @property
     def index_count(self):

@@ -35,6 +35,7 @@ class CreateCollectionForMemoryRequest(object):
     swagger_types = {
         'builtin_event_types': 'list[str]',
         'builtin_profile_types': 'list[str]',
+        'collection_modal_type': 'str',
         'collection_name': 'str',
         'collection_type': 'str',
         'cpu_quota': 'int',
@@ -47,6 +48,7 @@ class CreateCollectionForMemoryRequest(object):
     attribute_map = {
         'builtin_event_types': 'BuiltinEventTypes',
         'builtin_profile_types': 'BuiltinProfileTypes',
+        'collection_modal_type': 'CollectionModalType',
         'collection_name': 'CollectionName',
         'collection_type': 'CollectionType',
         'cpu_quota': 'CpuQuota',
@@ -56,7 +58,7 @@ class CreateCollectionForMemoryRequest(object):
         'project_name': 'ProjectName'
     }
 
-    def __init__(self, builtin_event_types=None, builtin_profile_types=None, collection_name=None, collection_type=None, cpu_quota=None, custom_event_type_schemas=None, custom_profile_type_schemas=None, description=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, builtin_event_types=None, builtin_profile_types=None, collection_modal_type=None, collection_name=None, collection_type=None, cpu_quota=None, custom_event_type_schemas=None, custom_profile_type_schemas=None, description=None, project_name=None, _configuration=None):  # noqa: E501
         """CreateCollectionForMemoryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class CreateCollectionForMemoryRequest(object):
 
         self._builtin_event_types = None
         self._builtin_profile_types = None
+        self._collection_modal_type = None
         self._collection_name = None
         self._collection_type = None
         self._cpu_quota = None
@@ -77,6 +80,8 @@ class CreateCollectionForMemoryRequest(object):
             self.builtin_event_types = builtin_event_types
         if builtin_profile_types is not None:
             self.builtin_profile_types = builtin_profile_types
+        if collection_modal_type is not None:
+            self.collection_modal_type = collection_modal_type
         self.collection_name = collection_name
         if collection_type is not None:
             self.collection_type = collection_type
@@ -132,6 +137,34 @@ class CreateCollectionForMemoryRequest(object):
         """
 
         self._builtin_profile_types = builtin_profile_types
+
+    @property
+    def collection_modal_type(self):
+        """Gets the collection_modal_type of this CreateCollectionForMemoryRequest.  # noqa: E501
+
+
+        :return: The collection_modal_type of this CreateCollectionForMemoryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._collection_modal_type
+
+    @collection_modal_type.setter
+    def collection_modal_type(self, collection_modal_type):
+        """Sets the collection_modal_type of this CreateCollectionForMemoryRequest.
+
+
+        :param collection_modal_type: The collection_modal_type of this CreateCollectionForMemoryRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["text", "multimodal"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                collection_modal_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `collection_modal_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(collection_modal_type, allowed_values)
+            )
+
+        self._collection_modal_type = collection_modal_type
 
     @property
     def collection_name(self):

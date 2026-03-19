@@ -36,6 +36,7 @@ class CreateVikingdbCollectionRequest(object):
         'collection_name': 'str',
         'description': 'str',
         'fields': 'list[FieldForCreateVikingdbCollectionInput]',
+        'full_text': 'list[FullTextForCreateVikingdbCollectionInput]',
         'project_name': 'str',
         'tags': 'list[TagForCreateVikingdbCollectionInput]',
         'vectorize': 'VectorizeForCreateVikingdbCollectionInput'
@@ -45,12 +46,13 @@ class CreateVikingdbCollectionRequest(object):
         'collection_name': 'CollectionName',
         'description': 'Description',
         'fields': 'Fields',
+        'full_text': 'FullText',
         'project_name': 'ProjectName',
         'tags': 'Tags',
         'vectorize': 'Vectorize'
     }
 
-    def __init__(self, collection_name=None, description=None, fields=None, project_name=None, tags=None, vectorize=None, _configuration=None):  # noqa: E501
+    def __init__(self, collection_name=None, description=None, fields=None, full_text=None, project_name=None, tags=None, vectorize=None, _configuration=None):  # noqa: E501
         """CreateVikingdbCollectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CreateVikingdbCollectionRequest(object):
         self._collection_name = None
         self._description = None
         self._fields = None
+        self._full_text = None
         self._project_name = None
         self._tags = None
         self._vectorize = None
@@ -69,6 +72,8 @@ class CreateVikingdbCollectionRequest(object):
             self.description = description
         if fields is not None:
             self.fields = fields
+        if full_text is not None:
+            self.full_text = full_text
         if project_name is not None:
             self.project_name = project_name
         if tags is not None:
@@ -149,6 +154,27 @@ class CreateVikingdbCollectionRequest(object):
         """
 
         self._fields = fields
+
+    @property
+    def full_text(self):
+        """Gets the full_text of this CreateVikingdbCollectionRequest.  # noqa: E501
+
+
+        :return: The full_text of this CreateVikingdbCollectionRequest.  # noqa: E501
+        :rtype: list[FullTextForCreateVikingdbCollectionInput]
+        """
+        return self._full_text
+
+    @full_text.setter
+    def full_text(self, full_text):
+        """Sets the full_text of this CreateVikingdbCollectionRequest.
+
+
+        :param full_text: The full_text of this CreateVikingdbCollectionRequest.  # noqa: E501
+        :type: list[FullTextForCreateVikingdbCollectionInput]
+        """
+
+        self._full_text = full_text
 
     @property
     def project_name(self):
