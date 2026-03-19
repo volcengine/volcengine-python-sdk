@@ -44,6 +44,7 @@ class RebuildDBInstanceRequest(object):
         'instance_tags': 'list[InstanceTagForRebuildDBInstanceInput]',
         'node_info': 'list[NodeInfoForRebuildDBInstanceInput]',
         'port': 'int',
+        'private_ip_address': 'str',
         'project_name': 'str',
         'proxy_node_custom': 'ProxyNodeCustomForRebuildDBInstanceInput',
         'request_source': 'str',
@@ -65,6 +66,7 @@ class RebuildDBInstanceRequest(object):
         'instance_tags': 'InstanceTags',
         'node_info': 'NodeInfo',
         'port': 'Port',
+        'private_ip_address': 'PrivateIpAddress',
         'project_name': 'ProjectName',
         'proxy_node_custom': 'ProxyNodeCustom',
         'request_source': 'RequestSource',
@@ -74,7 +76,7 @@ class RebuildDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, instance_id=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, proxy_node_custom=None, request_source=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, instance_id=None, instance_name=None, instance_tags=None, node_info=None, port=None, private_ip_address=None, project_name=None, proxy_node_custom=None, request_source=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RebuildDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,6 +93,7 @@ class RebuildDBInstanceRequest(object):
         self._instance_tags = None
         self._node_info = None
         self._port = None
+        self._private_ip_address = None
         self._project_name = None
         self._proxy_node_custom = None
         self._request_source = None
@@ -121,6 +124,8 @@ class RebuildDBInstanceRequest(object):
             self.node_info = node_info
         if port is not None:
             self.port = port
+        if private_ip_address is not None:
+            self.private_ip_address = private_ip_address
         if project_name is not None:
             self.project_name = project_name
         if proxy_node_custom is not None:
@@ -368,6 +373,27 @@ class RebuildDBInstanceRequest(object):
         """
 
         self._port = port
+
+    @property
+    def private_ip_address(self):
+        """Gets the private_ip_address of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The private_ip_address of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_ip_address
+
+    @private_ip_address.setter
+    def private_ip_address(self, private_ip_address):
+        """Sets the private_ip_address of this RebuildDBInstanceRequest.
+
+
+        :param private_ip_address: The private_ip_address of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._private_ip_address = private_ip_address
 
     @property
     def project_name(self):

@@ -44,6 +44,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'dr_dts_task_name': 'str',
         'dr_dts_task_status': 'str',
         'dr_seconds_behind_master': 'int',
+        'engine_type': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
@@ -54,6 +55,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'master_instance_name': 'str',
         'master_region': 'str',
         'memory': 'int',
+        'new_node_spec': 'str',
         'node_number': 'str',
         'node_spec': 'str',
         'project_name': 'str',
@@ -82,6 +84,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'dr_dts_task_name': 'DrDtsTaskName',
         'dr_dts_task_status': 'DrDtsTaskStatus',
         'dr_seconds_behind_master': 'DrSecondsBehindMaster',
+        'engine_type': 'EngineType',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
@@ -92,6 +95,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'master_instance_name': 'MasterInstanceName',
         'master_region': 'MasterRegion',
         'memory': 'Memory',
+        'new_node_spec': 'NewNodeSpec',
         'node_number': 'NodeNumber',
         'node_spec': 'NodeSpec',
         'project_name': 'ProjectName',
@@ -108,7 +112,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_version=None, auto_upgrade_minor_version=None, create_time=None, current_kernel_version=None, db_engine_version=None, data_sync_mode=None, deletion_protection=None, dr_dts_task_id=None, dr_dts_task_name=None, dr_dts_task_status=None, dr_seconds_behind_master=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, master_instance_id=None, master_instance_name=None, master_region=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_version=None, auto_upgrade_minor_version=None, create_time=None, current_kernel_version=None, db_engine_version=None, data_sync_mode=None, deletion_protection=None, dr_dts_task_id=None, dr_dts_task_name=None, dr_dts_task_status=None, dr_seconds_behind_master=None, engine_type=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, master_instance_id=None, master_instance_name=None, master_region=None, memory=None, new_node_spec=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -125,6 +129,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._dr_dts_task_name = None
         self._dr_dts_task_status = None
         self._dr_seconds_behind_master = None
+        self._engine_type = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
@@ -135,6 +140,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._master_instance_name = None
         self._master_region = None
         self._memory = None
+        self._new_node_spec = None
         self._node_number = None
         self._node_spec = None
         self._project_name = None
@@ -173,6 +179,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.dr_dts_task_status = dr_dts_task_status
         if dr_seconds_behind_master is not None:
             self.dr_seconds_behind_master = dr_seconds_behind_master
+        if engine_type is not None:
+            self.engine_type = engine_type
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -193,6 +201,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.master_region = master_region
         if memory is not None:
             self.memory = memory
+        if new_node_spec is not None:
+            self.new_node_spec = new_node_spec
         if node_number is not None:
             self.node_number = node_number
         if node_spec is not None:
@@ -454,6 +464,27 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._dr_seconds_behind_master = dr_seconds_behind_master
 
     @property
+    def engine_type(self):
+        """Gets the engine_type of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The engine_type of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._engine_type
+
+    @engine_type.setter
+    def engine_type(self, engine_type):
+        """Sets the engine_type of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param engine_type: The engine_type of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._engine_type = engine_type
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
 
@@ -662,6 +693,27 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._memory = memory
+
+    @property
+    def new_node_spec(self):
+        """Gets the new_node_spec of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The new_node_spec of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._new_node_spec
+
+    @new_node_spec.setter
+    def new_node_spec(self, new_node_spec):
+        """Sets the new_node_spec of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param new_node_spec: The new_node_spec of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._new_node_spec = new_node_spec
 
     @property
     def node_number(self):

@@ -33,6 +33,7 @@ class CreatePolicyRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'definition': 'DefinitionForCreatePolicyInput',
         'description': 'str',
         'namespace_name': 'str',
         'policy': 'str',
@@ -40,24 +41,28 @@ class CreatePolicyRequest(object):
     }
 
     attribute_map = {
+        'definition': 'Definition',
         'description': 'Description',
         'namespace_name': 'NamespaceName',
         'policy': 'Policy',
         'policy_name': 'PolicyName'
     }
 
-    def __init__(self, description=None, namespace_name=None, policy=None, policy_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, definition=None, description=None, namespace_name=None, policy=None, policy_name=None, _configuration=None):  # noqa: E501
         """CreatePolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._definition = None
         self._description = None
         self._namespace_name = None
         self._policy = None
         self._policy_name = None
         self.discriminator = None
 
+        if definition is not None:
+            self.definition = definition
         if description is not None:
             self.description = description
         if namespace_name is not None:
@@ -66,6 +71,27 @@ class CreatePolicyRequest(object):
             self.policy = policy
         if policy_name is not None:
             self.policy_name = policy_name
+
+    @property
+    def definition(self):
+        """Gets the definition of this CreatePolicyRequest.  # noqa: E501
+
+
+        :return: The definition of this CreatePolicyRequest.  # noqa: E501
+        :rtype: DefinitionForCreatePolicyInput
+        """
+        return self._definition
+
+    @definition.setter
+    def definition(self, definition):
+        """Sets the definition of this CreatePolicyRequest.
+
+
+        :param definition: The definition of this CreatePolicyRequest.  # noqa: E501
+        :type: DefinitionForCreatePolicyInput
+        """
+
+        self._definition = definition
 
     @property
     def description(self):
