@@ -35,7 +35,7 @@ class VideoMattingForStartExecutionInput(object):
     swagger_types = {
         'model': 'str',
         'new_vid': 'bool',
-        'video_option': 'ConvertVideoOptionForStartExecutionInput'
+        'video_option': 'ConvertConvertVideoOptionForStartExecutionInput'
     }
 
     attribute_map = {
@@ -110,7 +110,7 @@ class VideoMattingForStartExecutionInput(object):
 
 
         :return: The video_option of this VideoMattingForStartExecutionInput.  # noqa: E501
-        :rtype: ConvertVideoOptionForStartExecutionInput
+        :rtype: ConvertConvertVideoOptionForStartExecutionInput
         """
         return self._video_option
 
@@ -120,7 +120,7 @@ class VideoMattingForStartExecutionInput(object):
 
 
         :param video_option: The video_option of this VideoMattingForStartExecutionInput.  # noqa: E501
-        :type: ConvertVideoOptionForStartExecutionInput
+        :type: ConvertConvertVideoOptionForStartExecutionInput
         """
 
         self._video_option = video_option

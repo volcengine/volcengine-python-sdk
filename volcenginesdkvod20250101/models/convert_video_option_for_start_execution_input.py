@@ -33,45 +33,227 @@ class ConvertVideoOptionForStartExecutionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'format': 'str'
+        'aspect_ratio': 'str',
+        'duration': 'int',
+        'fixed_camera': 'bool',
+        'fps': 'int',
+        'model': 'str',
+        'resolution': 'str',
+        'seed': 'str',
+        'watermark': 'bool'
     }
 
     attribute_map = {
-        'format': 'Format'
+        'aspect_ratio': 'AspectRatio',
+        'duration': 'Duration',
+        'fixed_camera': 'FixedCamera',
+        'fps': 'Fps',
+        'model': 'Model',
+        'resolution': 'Resolution',
+        'seed': 'Seed',
+        'watermark': 'Watermark'
     }
 
-    def __init__(self, format=None, _configuration=None):  # noqa: E501
+    def __init__(self, aspect_ratio=None, duration=None, fixed_camera=None, fps=None, model=None, resolution=None, seed=None, watermark=None, _configuration=None):  # noqa: E501
         """ConvertVideoOptionForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._format = None
+        self._aspect_ratio = None
+        self._duration = None
+        self._fixed_camera = None
+        self._fps = None
+        self._model = None
+        self._resolution = None
+        self._seed = None
+        self._watermark = None
         self.discriminator = None
 
-        if format is not None:
-            self.format = format
+        if aspect_ratio is not None:
+            self.aspect_ratio = aspect_ratio
+        if duration is not None:
+            self.duration = duration
+        if fixed_camera is not None:
+            self.fixed_camera = fixed_camera
+        if fps is not None:
+            self.fps = fps
+        if model is not None:
+            self.model = model
+        if resolution is not None:
+            self.resolution = resolution
+        if seed is not None:
+            self.seed = seed
+        if watermark is not None:
+            self.watermark = watermark
 
     @property
-    def format(self):
-        """Gets the format of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+    def aspect_ratio(self):
+        """Gets the aspect_ratio of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
 
 
-        :return: The format of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :return: The aspect_ratio of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
         :rtype: str
         """
-        return self._format
+        return self._aspect_ratio
 
-    @format.setter
-    def format(self, format):
-        """Sets the format of this ConvertVideoOptionForStartExecutionInput.
+    @aspect_ratio.setter
+    def aspect_ratio(self, aspect_ratio):
+        """Sets the aspect_ratio of this ConvertVideoOptionForStartExecutionInput.
 
 
-        :param format: The format of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :param aspect_ratio: The aspect_ratio of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
         :type: str
         """
 
-        self._format = format
+        self._aspect_ratio = aspect_ratio
+
+    @property
+    def duration(self):
+        """Gets the duration of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+
+
+        :return: The duration of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._duration
+
+    @duration.setter
+    def duration(self, duration):
+        """Sets the duration of this ConvertVideoOptionForStartExecutionInput.
+
+
+        :param duration: The duration of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :type: int
+        """
+
+        self._duration = duration
+
+    @property
+    def fixed_camera(self):
+        """Gets the fixed_camera of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+
+
+        :return: The fixed_camera of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fixed_camera
+
+    @fixed_camera.setter
+    def fixed_camera(self, fixed_camera):
+        """Sets the fixed_camera of this ConvertVideoOptionForStartExecutionInput.
+
+
+        :param fixed_camera: The fixed_camera of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._fixed_camera = fixed_camera
+
+    @property
+    def fps(self):
+        """Gets the fps of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+
+
+        :return: The fps of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._fps
+
+    @fps.setter
+    def fps(self, fps):
+        """Sets the fps of this ConvertVideoOptionForStartExecutionInput.
+
+
+        :param fps: The fps of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :type: int
+        """
+
+        self._fps = fps
+
+    @property
+    def model(self):
+        """Gets the model of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+
+
+        :return: The model of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._model
+
+    @model.setter
+    def model(self, model):
+        """Sets the model of this ConvertVideoOptionForStartExecutionInput.
+
+
+        :param model: The model of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :type: str
+        """
+
+        self._model = model
+
+    @property
+    def resolution(self):
+        """Gets the resolution of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+
+
+        :return: The resolution of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resolution
+
+    @resolution.setter
+    def resolution(self, resolution):
+        """Sets the resolution of this ConvertVideoOptionForStartExecutionInput.
+
+
+        :param resolution: The resolution of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :type: str
+        """
+
+        self._resolution = resolution
+
+    @property
+    def seed(self):
+        """Gets the seed of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+
+
+        :return: The seed of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._seed
+
+    @seed.setter
+    def seed(self, seed):
+        """Sets the seed of this ConvertVideoOptionForStartExecutionInput.
+
+
+        :param seed: The seed of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :type: str
+        """
+
+        self._seed = seed
+
+    @property
+    def watermark(self):
+        """Gets the watermark of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+
+
+        :return: The watermark of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._watermark
+
+    @watermark.setter
+    def watermark(self, watermark):
+        """Sets the watermark of this ConvertVideoOptionForStartExecutionInput.
+
+
+        :param watermark: The watermark of this ConvertVideoOptionForStartExecutionInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._watermark = watermark
 
     def to_dict(self):
         """Returns the model properties as a dict"""
