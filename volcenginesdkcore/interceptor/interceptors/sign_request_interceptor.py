@@ -12,8 +12,17 @@ class SignRequestInterceptor(RequestInterceptor):
 
     def intercept(self, context):
         # 新增代码。处理assume_role和assume_role_oidc和assume_role_saml
+        if context.request.credential_provider is None and not context.request.ak and not context.request.sk:
+            # No explicit credentials or provider set — use default credential chain.
+            # Cache on the interceptor instance so subsequent requests reuse the same
+            # DefaultCredentialProvider (preserving reuseLastProviderEnabled behavior).
+            from volcenginesdkcore.auth.providers.default_provider import DefaultCredentialProvider
+            if not hasattr(self, '_default_credential_provider') or self._default_credential_provider is None:
+                self._default_credential_provider = DefaultCredentialProvider()
+            context.request.credential_provider = self._default_credential_provider
+
         if context.request.credential_provider is not None:
-            credentials = context.request.credential_provider.get_credentials()  # 这会调用 _assume_role_oidc() 方法获取临时凭证
+            credentials = context.request.credential_provider.get_credentials()
             context.request.ak = credentials.ak
             context.request.sk = credentials.sk
             context.request.session_token = credentials.session_token

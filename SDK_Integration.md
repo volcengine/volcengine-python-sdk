@@ -5,11 +5,16 @@ English | [中文](SDK_Integration_zh.md)
 - [SDK Integration](#sdk-integration)
 - [Requirements](#requirements)
 - [Credentials](#credentials)
+  - [Credential Providers Overview](#credential-providers-overview)
   - [AK/SK](#aksk)
   - [STS Token](#sts-token)
   - [STS AssumeRole](#sts-assumerole)
   - [STS AssumeRoleWithOidc](#sts-assumerolewithoidc)
   - [STS AssumeRoleWithSaml](#sts-assumerolewithsaml)
+  - [Environment Variable Credential Provider](#environment-variable-credential-provider)
+  - [CLI Config Credential Provider](#cli-config-credential-provider)
+  - [ECS Role Credential Provider](#ecs-role-credential-provider)
+  - [Default Credential Provider](#default-credential-provider)
 - [Endpoint Configuration](#endpoint-configuration)
   - [Custom Endpoint](#custom-endpoint)
   - [Custom RegionId](#custom-regionid)
@@ -49,7 +54,20 @@ When calling APIs, it is recommended to integrate the SDK in your project. Using
 
 # Credentials
 
-For secure access, the Volcengine Python SDK supports authentication with `AK/SK` and `STS Token`.
+The Volcengine Python SDK supports explicit credentials and `CredentialProvider`-based automatic resolution.
+
+## Credential Providers Overview
+
+| Provider | Purpose | Refresh Support | Typical Scenario |
+| --- | --- | --- | --- |
+| `StaticCredentialProvider` | Static AK/SK(/Token) | No | Long-lived server-side credentials |
+| `StsCredentialProvider` | STS AssumeRole | Yes | Role-based temporary credentials |
+| `StsOidcCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
+| `StsSamlCredentialProvider` | STS AssumeRoleWithSAML | Yes | SAML federation |
+| `EnvironmentVariableCredentialProvider` | Read from env vars | No | CI/CD and container env injection |
+| `CLIConfigCredentialProvider` | Read from `~/.volcengine/config.json` | Depends on mode | Reuse CLI login/profile |
+| `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
+| `DefaultCredentialProvider` | Chain wrapper | Depends on delegated provider | No AK/SK in application code |
 
 ## AK/SK
 
@@ -193,6 +211,22 @@ STS AssumeRoleWithOidc obtains temporary credentials via an OIDC token.
 
 Reference: https://www.volcengine.com/docs/6257/1494877
 
+The SDK has a single OIDC implementation: `StsOidcCredentialProvider`.
+
+- Backward-compatible mode: `role_name + account_id + oidc_token` (all optional; missing values do NOT read env vars)
+- Env-aware mode: `role_trn + oidc_token_file` (all optional; missing values fall back to env vars)
+- All parameters are optional. When none are provided, the provider reads entirely from environment variables.
+
+Supported OIDC env vars:
+
+- `VOLCENGINE_OIDC_ROLE_TRN`
+- `VOLCENGINE_OIDC_TOKEN_FILE`
+- `VOLCENGINE_OIDC_ROLE_SESSION_NAME`
+- `VOLCENGINE_OIDC_ROLE_POLICY`
+- `VOLCENGINE_OIDC_STS_ENDPOINT`
+
+Backward-compatible example:
+
 ```python
 from __future__ import print_function
 import volcenginesdkcore
@@ -228,6 +262,22 @@ if __name__ == '__main__':
         api_instance.create_vpc(create_vpc_request)
     except ApiException:
         pass
+```
+
+Env-aware example:
+
+```python
+import os
+import volcenginesdkcore
+from volcenginesdkcore.auth.providers.sts_oidc_provider import StsOidcCredentialProvider
+
+os.environ["VOLCENGINE_OIDC_ROLE_TRN"] = "trn:iam::1234567890:role/oidc-role"
+os.environ["VOLCENGINE_OIDC_TOKEN_FILE"] = "/var/run/secrets/oidc/token"
+
+configuration = volcenginesdkcore.Configuration()
+configuration.region = "cn-beijing"
+configuration.credential_provider = StsOidcCredentialProvider()
+volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
 ## STS AssumeRoleWithSaml
@@ -272,6 +322,101 @@ if __name__ == '__main__':
         api_instance.create_vpc(create_vpc_request)
     except ApiException:
         pass
+```
+
+## Environment Variable Credential Provider
+
+`EnvironmentVariableCredentialProvider` reads credentials from:
+
+- `VOLCENGINE_ACCESS_KEY`
+- `VOLCENGINE_SECRET_KEY`
+- `VOLCENGINE_SESSION_TOKEN` (optional)
+
+```python
+import os
+import volcenginesdkcore
+from volcenginesdkcore.auth.providers.env_provider import EnvironmentVariableCredentialProvider
+
+os.environ["VOLCENGINE_ACCESS_KEY"] = "YourAK"
+os.environ["VOLCENGINE_SECRET_KEY"] = "YourSK"
+
+configuration = volcenginesdkcore.Configuration()
+configuration.region = "cn-beijing"
+configuration.credential_provider = EnvironmentVariableCredentialProvider()
+volcenginesdkcore.Configuration.set_default(configuration)
+```
+
+## CLI Config Credential Provider
+
+`CLIConfigCredentialProvider` reads `~/.volcengine/config.json` by default.
+
+- Config path priority: constructor `config_path` > `VOLCENGINE_CLI_CONFIG_FILE` > `~/.volcengine/config.json`
+- Profile priority: constructor `profile_name` > `VOLCENGINE_PROFILE` > `current` in config > `default`
+
+Supported modes in profile (case-insensitive):
+
+- `AK` / empty
+- `StsToken`
+- `RamRoleArn` (delegates to `StsCredentialProvider`)
+- `OIDC` (delegates to `StsOidcCredentialProvider`)
+- `EcsRole` (delegates to `EcsRoleCredentialProvider`)
+- `SSO` (delegates to `SsoCredentialProvider`)
+
+Example: explicitly use CLI provider with a specified profile and config path.
+
+```python
+import volcenginesdkcore
+from volcenginesdkcore.auth.providers.cli_config_provider import CLIConfigCredentialProvider
+
+configuration = volcenginesdkcore.Configuration()
+configuration.region = "cn-beijing"
+configuration.credential_provider = CLIConfigCredentialProvider(
+    profile_name="prod",
+    config_path="~/.volcengine/config.json",
+)
+volcenginesdkcore.Configuration.set_default(configuration)
+```
+
+## ECS Role Credential Provider
+
+`EcsRoleCredentialProvider` reads temporary credentials from ECS IMDS.
+
+- `role_name` priority: constructor arg > `VOLCENGINE_ECS_METADATA` > error (no auto-detect)
+- disable switch: `VOLCENGINE_ECS_METADATA_DISABLED=true`
+
+```python
+import volcenginesdkcore
+from volcenginesdkcore.auth.providers.ecs_role_provider import EcsRoleCredentialProvider
+
+configuration = volcenginesdkcore.Configuration()
+configuration.region = "cn-beijing"
+configuration.credential_provider = EcsRoleCredentialProvider(role_name="your-ecs-role-name")
+volcenginesdkcore.Configuration.set_default(configuration)
+```
+
+## Default Credential Provider
+
+When `ak`, `sk`, and `credential_provider` are all unset, the SDK automatically uses `DefaultCredentialProvider` — no manual configuration is needed.
+
+You can also explicitly set it if you need to customize options (e.g., `role_name`).
+
+Default chain order:
+
+1. `EnvironmentVariableCredentialProvider`
+2. `StsOidcCredentialProvider`
+3. `CLIConfigCredentialProvider`
+4. `EcsRoleCredentialProvider`
+
+By default, `reuse_last_provider_enabled=True`, so the last successful provider is reused first on later calls.
+
+```python
+import volcenginesdkcore
+from volcenginesdkcore.auth.providers.default_provider import DefaultCredentialProvider
+
+configuration = volcenginesdkcore.Configuration()
+configuration.region = "cn-beijing"
+configuration.credential_provider = DefaultCredentialProvider()
+volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
 # Endpoint Configuration
