@@ -5,6 +5,10 @@ class Credential(object):
         self.provider = provider
 
     def get(self):
+        """
+        .. deprecated::
+            Use provider.get_credentials() instead.
+        """
         if self.provider.is_expired():
             # refresh if expired
             self.provider.refresh()
