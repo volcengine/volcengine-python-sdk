@@ -62,7 +62,6 @@ class EcsRoleCredentialProvider(Provider):
 
         self._credentials = None
         self._expired_time = None
-        self._detected_role_name = None
         self._lock = threading.Lock()
 
     def retrieve(self):
@@ -108,7 +107,12 @@ class EcsRoleCredentialProvider(Provider):
     # --- roleName resolution ---
 
     def _resolve_role_name(self, imds_token):
-        """Resolve roleName: param > env > cached auto-detect > IMDS query."""
+        """Resolve roleName: param > env > auto-detect from IMDS (every time).
+
+        Not cached — roles can be dynamically unbound/rebound on the instance,
+        and IMDS is a local call (~1-5ms) so the cost is negligible.
+        This matches AWS and Alibaba Cloud SDK behavior.
+        """
         if self._role_name:
             return self._role_name
 
@@ -116,13 +120,7 @@ class EcsRoleCredentialProvider(Provider):
         if env_role:
             return env_role
 
-        # Auto-detect from IMDS, cache result for subsequent refreshes
-        if self._detected_role_name:
-            return self._detected_role_name
-
-        detected = self._auto_detect_role_name(imds_token)
-        self._detected_role_name = detected
-        return detected
+        return self._auto_detect_role_name(imds_token)
 
     def _auto_detect_role_name(self, imds_token):
         """GET role list from IMDS, extract first role name."""
