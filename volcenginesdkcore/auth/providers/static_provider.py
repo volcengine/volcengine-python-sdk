@@ -23,3 +23,6 @@ class StaticCredentialProvider(Provider):
 
     def refresh(self):
         return
+
+    def get_credentials(self):
+        return self.credentials
