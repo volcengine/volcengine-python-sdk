@@ -34,8 +34,11 @@ class CreateDBInstanceRequest(object):
     """
     swagger_types = {
         'allow_list_ids': 'list[str]',
+        'auto_renew': 'str',
         'auto_storage_scaling_config': 'AutoStorageScalingConfigForCreateDBInstanceInput',
         'charge_info': 'ChargeInfoForCreateDBInstanceInput',
+        'charge_type': 'str',
+        'db_engine': 'str',
         'db_engine_version': 'str',
         'db_param_group_id': 'str',
         'db_time_zone': 'str',
@@ -43,12 +46,16 @@ class CreateDBInstanceRequest(object):
         'enable_external_replication': 'bool',
         'engine_type': 'str',
         'instance_name': 'str',
+        'instance_spec_name': 'str',
         'instance_tags': 'list[InstanceTagForCreateDBInstanceInput]',
         'instance_type': 'str',
         'lower_case_table_names': 'str',
         'maintenance_window': 'MaintenanceWindowForCreateDBInstanceInput',
         'node_info': 'list[NodeInfoForCreateDBInstanceInput]',
+        'parameter_template_id': 'str',
         'port': 'int',
+        'prepaid_period': 'str',
+        'private_ip_address': 'str',
         'project_name': 'str',
         'proxy_node_custom': 'ProxyNodeCustomForCreateDBInstanceInput',
         'storage_space': 'int',
@@ -56,13 +63,18 @@ class CreateDBInstanceRequest(object):
         'subnet_id': 'str',
         'super_account_name': 'str',
         'super_account_password': 'str',
-        'vpc_id': 'str'
+        'used_time': 'str',
+        'vpc_id': 'str',
+        'zone': 'str'
     }
 
     attribute_map = {
         'allow_list_ids': 'AllowListIds',
+        'auto_renew': 'AutoRenew',
         'auto_storage_scaling_config': 'AutoStorageScalingConfig',
         'charge_info': 'ChargeInfo',
+        'charge_type': 'ChargeType',
+        'db_engine': 'DBEngine',
         'db_engine_version': 'DBEngineVersion',
         'db_param_group_id': 'DBParamGroupId',
         'db_time_zone': 'DBTimeZone',
@@ -70,12 +82,16 @@ class CreateDBInstanceRequest(object):
         'enable_external_replication': 'EnableExternalReplication',
         'engine_type': 'EngineType',
         'instance_name': 'InstanceName',
+        'instance_spec_name': 'InstanceSpecName',
         'instance_tags': 'InstanceTags',
         'instance_type': 'InstanceType',
         'lower_case_table_names': 'LowerCaseTableNames',
         'maintenance_window': 'MaintenanceWindow',
         'node_info': 'NodeInfo',
+        'parameter_template_id': 'ParameterTemplateId',
         'port': 'Port',
+        'prepaid_period': 'PrepaidPeriod',
+        'private_ip_address': 'PrivateIpAddress',
         'project_name': 'ProjectName',
         'proxy_node_custom': 'ProxyNodeCustom',
         'storage_space': 'StorageSpace',
@@ -83,18 +99,23 @@ class CreateDBInstanceRequest(object):
         'subnet_id': 'SubnetId',
         'super_account_name': 'SuperAccountName',
         'super_account_password': 'SuperAccountPassword',
-        'vpc_id': 'VpcId'
+        'used_time': 'UsedTime',
+        'vpc_id': 'VpcId',
+        'zone': 'Zone'
     }
 
-    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, deletion_protection=None, enable_external_replication=None, engine_type=None, instance_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_info=None, port=None, project_name=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_renew=None, auto_storage_scaling_config=None, charge_info=None, charge_type=None, db_engine=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, deletion_protection=None, enable_external_replication=None, engine_type=None, instance_name=None, instance_spec_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_info=None, parameter_template_id=None, port=None, prepaid_period=None, private_ip_address=None, project_name=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, used_time=None, vpc_id=None, zone=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list_ids = None
+        self._auto_renew = None
         self._auto_storage_scaling_config = None
         self._charge_info = None
+        self._charge_type = None
+        self._db_engine = None
         self._db_engine_version = None
         self._db_param_group_id = None
         self._db_time_zone = None
@@ -102,12 +123,16 @@ class CreateDBInstanceRequest(object):
         self._enable_external_replication = None
         self._engine_type = None
         self._instance_name = None
+        self._instance_spec_name = None
         self._instance_tags = None
         self._instance_type = None
         self._lower_case_table_names = None
         self._maintenance_window = None
         self._node_info = None
+        self._parameter_template_id = None
         self._port = None
+        self._prepaid_period = None
+        self._private_ip_address = None
         self._project_name = None
         self._proxy_node_custom = None
         self._storage_space = None
@@ -115,15 +140,23 @@ class CreateDBInstanceRequest(object):
         self._subnet_id = None
         self._super_account_name = None
         self._super_account_password = None
+        self._used_time = None
         self._vpc_id = None
+        self._zone = None
         self.discriminator = None
 
         if allow_list_ids is not None:
             self.allow_list_ids = allow_list_ids
+        if auto_renew is not None:
+            self.auto_renew = auto_renew
         if auto_storage_scaling_config is not None:
             self.auto_storage_scaling_config = auto_storage_scaling_config
         if charge_info is not None:
             self.charge_info = charge_info
+        if charge_type is not None:
+            self.charge_type = charge_type
+        if db_engine is not None:
+            self.db_engine = db_engine
         self.db_engine_version = db_engine_version
         if db_param_group_id is not None:
             self.db_param_group_id = db_param_group_id
@@ -137,6 +170,8 @@ class CreateDBInstanceRequest(object):
             self.engine_type = engine_type
         if instance_name is not None:
             self.instance_name = instance_name
+        if instance_spec_name is not None:
+            self.instance_spec_name = instance_spec_name
         if instance_tags is not None:
             self.instance_tags = instance_tags
         if instance_type is not None:
@@ -147,8 +182,14 @@ class CreateDBInstanceRequest(object):
             self.maintenance_window = maintenance_window
         if node_info is not None:
             self.node_info = node_info
+        if parameter_template_id is not None:
+            self.parameter_template_id = parameter_template_id
         if port is not None:
             self.port = port
+        if prepaid_period is not None:
+            self.prepaid_period = prepaid_period
+        if private_ip_address is not None:
+            self.private_ip_address = private_ip_address
         if project_name is not None:
             self.project_name = project_name
         if proxy_node_custom is not None:
@@ -160,7 +201,11 @@ class CreateDBInstanceRequest(object):
             self.super_account_name = super_account_name
         if super_account_password is not None:
             self.super_account_password = super_account_password
+        if used_time is not None:
+            self.used_time = used_time
         self.vpc_id = vpc_id
+        if zone is not None:
+            self.zone = zone
 
     @property
     def allow_list_ids(self):
@@ -182,6 +227,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._allow_list_ids = allow_list_ids
+
+    @property
+    def auto_renew(self):
+        """Gets the auto_renew of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The auto_renew of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._auto_renew
+
+    @auto_renew.setter
+    def auto_renew(self, auto_renew):
+        """Sets the auto_renew of this CreateDBInstanceRequest.
+
+
+        :param auto_renew: The auto_renew of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._auto_renew = auto_renew
 
     @property
     def auto_storage_scaling_config(self):
@@ -224,6 +290,48 @@ class CreateDBInstanceRequest(object):
         """
 
         self._charge_info = charge_info
+
+    @property
+    def charge_type(self):
+        """Gets the charge_type of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The charge_type of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._charge_type
+
+    @charge_type.setter
+    def charge_type(self, charge_type):
+        """Sets the charge_type of this CreateDBInstanceRequest.
+
+
+        :param charge_type: The charge_type of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._charge_type = charge_type
+
+    @property
+    def db_engine(self):
+        """Gets the db_engine of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The db_engine of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_engine
+
+    @db_engine.setter
+    def db_engine(self, db_engine):
+        """Sets the db_engine of this CreateDBInstanceRequest.
+
+
+        :param db_engine: The db_engine of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._db_engine = db_engine
 
     @property
     def db_engine_version(self):
@@ -375,6 +483,27 @@ class CreateDBInstanceRequest(object):
         self._instance_name = instance_name
 
     @property
+    def instance_spec_name(self):
+        """Gets the instance_spec_name of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The instance_spec_name of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_spec_name
+
+    @instance_spec_name.setter
+    def instance_spec_name(self, instance_spec_name):
+        """Sets the instance_spec_name of this CreateDBInstanceRequest.
+
+
+        :param instance_spec_name: The instance_spec_name of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_spec_name = instance_spec_name
+
+    @property
     def instance_tags(self):
         """Gets the instance_tags of this CreateDBInstanceRequest.  # noqa: E501
 
@@ -480,6 +609,27 @@ class CreateDBInstanceRequest(object):
         self._node_info = node_info
 
     @property
+    def parameter_template_id(self):
+        """Gets the parameter_template_id of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The parameter_template_id of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._parameter_template_id
+
+    @parameter_template_id.setter
+    def parameter_template_id(self, parameter_template_id):
+        """Sets the parameter_template_id of this CreateDBInstanceRequest.
+
+
+        :param parameter_template_id: The parameter_template_id of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._parameter_template_id = parameter_template_id
+
+    @property
     def port(self):
         """Gets the port of this CreateDBInstanceRequest.  # noqa: E501
 
@@ -499,6 +649,48 @@ class CreateDBInstanceRequest(object):
         """
 
         self._port = port
+
+    @property
+    def prepaid_period(self):
+        """Gets the prepaid_period of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The prepaid_period of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._prepaid_period
+
+    @prepaid_period.setter
+    def prepaid_period(self, prepaid_period):
+        """Sets the prepaid_period of this CreateDBInstanceRequest.
+
+
+        :param prepaid_period: The prepaid_period of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._prepaid_period = prepaid_period
+
+    @property
+    def private_ip_address(self):
+        """Gets the private_ip_address of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The private_ip_address of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_ip_address
+
+    @private_ip_address.setter
+    def private_ip_address(self, private_ip_address):
+        """Sets the private_ip_address of this CreateDBInstanceRequest.
+
+
+        :param private_ip_address: The private_ip_address of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._private_ip_address = private_ip_address
 
     @property
     def project_name(self):
@@ -654,6 +846,27 @@ class CreateDBInstanceRequest(object):
         self._super_account_password = super_account_password
 
     @property
+    def used_time(self):
+        """Gets the used_time of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The used_time of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._used_time
+
+    @used_time.setter
+    def used_time(self, used_time):
+        """Sets the used_time of this CreateDBInstanceRequest.
+
+
+        :param used_time: The used_time of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._used_time = used_time
+
+    @property
     def vpc_id(self):
         """Gets the vpc_id of this CreateDBInstanceRequest.  # noqa: E501
 
@@ -675,6 +888,27 @@ class CreateDBInstanceRequest(object):
             raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
+
+    @property
+    def zone(self):
+        """Gets the zone of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The zone of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone
+
+    @zone.setter
+    def zone(self, zone):
+        """Sets the zone of this CreateDBInstanceRequest.
+
+
+        :param zone: The zone of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._zone = zone
 
     def to_dict(self):
         """Returns the model properties as a dict"""

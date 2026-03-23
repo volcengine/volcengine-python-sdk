@@ -72,8 +72,7 @@ class ListWhiteListsRequest(object):
             self.sort_by = sort_by
         if sort_order is not None:
             self.sort_order = sort_order
-        if type is not None:
-            self.type = type
+        self.type = type
 
     @property
     def conditions(self):
@@ -202,6 +201,8 @@ class ListWhiteListsRequest(object):
         :param type: The type of this ListWhiteListsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

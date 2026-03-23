@@ -35,7 +35,7 @@ class VideoUnderstandingForGetExecutionOutput(object):
     swagger_types = {
         'model': 'ModelForGetExecutionOutput',
         'prompt': 'str',
-        'segment': 'ConvertSegmentForGetExecutionOutput',
+        'segment': 'ConvertConvertSegmentForGetExecutionOutput',
         'with_segment': 'bool'
     }
 
@@ -115,7 +115,7 @@ class VideoUnderstandingForGetExecutionOutput(object):
 
 
         :return: The segment of this VideoUnderstandingForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertSegmentForGetExecutionOutput
+        :rtype: ConvertConvertSegmentForGetExecutionOutput
         """
         return self._segment
 
@@ -125,7 +125,7 @@ class VideoUnderstandingForGetExecutionOutput(object):
 
 
         :param segment: The segment of this VideoUnderstandingForGetExecutionOutput.  # noqa: E501
-        :type: ConvertSegmentForGetExecutionOutput
+        :type: ConvertConvertSegmentForGetExecutionOutput
         """
 
         self._segment = segment

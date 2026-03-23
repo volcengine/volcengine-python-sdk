@@ -33,24 +33,29 @@ class DescribeInstanceAllowListsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'region_id': 'str'
     }
 
     attribute_map = {
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'region_id': 'RegionId'
     }
 
-    def __init__(self, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, region_id=None, _configuration=None):  # noqa: E501
         """DescribeInstanceAllowListsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
+        self._region_id = None
         self.discriminator = None
 
         if instance_id is not None:
             self.instance_id = instance_id
+        if region_id is not None:
+            self.region_id = region_id
 
     @property
     def instance_id(self):
@@ -72,6 +77,27 @@ class DescribeInstanceAllowListsRequest(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def region_id(self):
+        """Gets the region_id of this DescribeInstanceAllowListsRequest.  # noqa: E501
+
+
+        :return: The region_id of this DescribeInstanceAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._region_id
+
+    @region_id.setter
+    def region_id(self, region_id):
+        """Sets the region_id of this DescribeInstanceAllowListsRequest.
+
+
+        :param region_id: The region_id of this DescribeInstanceAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._region_id = region_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

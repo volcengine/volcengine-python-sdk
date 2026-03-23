@@ -35,12 +35,14 @@ class DataForListLoginConfigsOutput(object):
     swagger_types = {
         'agent_id_list': 'list[str]',
         'description': 'str',
+        'description_en': 'str',
         'id': 'str',
         'ip_list': 'list[str]',
         'if_all_host': 'bool',
         'leaf_group_ids': 'list[str]',
         'legal_user': 'list[str]',
         'login_config_rules': 'list[str]',
+        'login_locations': 'list[LoginLocationForListLoginConfigsOutput]',
         'single_group_path': 'str',
         'single_hostname': 'str',
         'time_intervals': 'list[str]',
@@ -52,12 +54,14 @@ class DataForListLoginConfigsOutput(object):
     attribute_map = {
         'agent_id_list': 'AgentIDList',
         'description': 'Description',
+        'description_en': 'DescriptionEn',
         'id': 'ID',
         'ip_list': 'IPList',
         'if_all_host': 'IfAllHost',
         'leaf_group_ids': 'LeafGroupIDs',
         'legal_user': 'LegalUser',
         'login_config_rules': 'LoginConfigRules',
+        'login_locations': 'LoginLocations',
         'single_group_path': 'SingleGroupPath',
         'single_hostname': 'SingleHostname',
         'time_intervals': 'TimeIntervals',
@@ -66,7 +70,7 @@ class DataForListLoginConfigsOutput(object):
         'update_user': 'UpdateUser'
     }
 
-    def __init__(self, agent_id_list=None, description=None, id=None, ip_list=None, if_all_host=None, leaf_group_ids=None, legal_user=None, login_config_rules=None, single_group_path=None, single_hostname=None, time_intervals=None, top_group_id=None, update_time=None, update_user=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id_list=None, description=None, description_en=None, id=None, ip_list=None, if_all_host=None, leaf_group_ids=None, legal_user=None, login_config_rules=None, login_locations=None, single_group_path=None, single_hostname=None, time_intervals=None, top_group_id=None, update_time=None, update_user=None, _configuration=None):  # noqa: E501
         """DataForListLoginConfigsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,12 +78,14 @@ class DataForListLoginConfigsOutput(object):
 
         self._agent_id_list = None
         self._description = None
+        self._description_en = None
         self._id = None
         self._ip_list = None
         self._if_all_host = None
         self._leaf_group_ids = None
         self._legal_user = None
         self._login_config_rules = None
+        self._login_locations = None
         self._single_group_path = None
         self._single_hostname = None
         self._time_intervals = None
@@ -92,6 +98,8 @@ class DataForListLoginConfigsOutput(object):
             self.agent_id_list = agent_id_list
         if description is not None:
             self.description = description
+        if description_en is not None:
+            self.description_en = description_en
         if id is not None:
             self.id = id
         if ip_list is not None:
@@ -104,6 +112,8 @@ class DataForListLoginConfigsOutput(object):
             self.legal_user = legal_user
         if login_config_rules is not None:
             self.login_config_rules = login_config_rules
+        if login_locations is not None:
+            self.login_locations = login_locations
         if single_group_path is not None:
             self.single_group_path = single_group_path
         if single_hostname is not None:
@@ -158,6 +168,27 @@ class DataForListLoginConfigsOutput(object):
         """
 
         self._description = description
+
+    @property
+    def description_en(self):
+        """Gets the description_en of this DataForListLoginConfigsOutput.  # noqa: E501
+
+
+        :return: The description_en of this DataForListLoginConfigsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description_en
+
+    @description_en.setter
+    def description_en(self, description_en):
+        """Sets the description_en of this DataForListLoginConfigsOutput.
+
+
+        :param description_en: The description_en of this DataForListLoginConfigsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description_en = description_en
 
     @property
     def id(self):
@@ -284,6 +315,27 @@ class DataForListLoginConfigsOutput(object):
         """
 
         self._login_config_rules = login_config_rules
+
+    @property
+    def login_locations(self):
+        """Gets the login_locations of this DataForListLoginConfigsOutput.  # noqa: E501
+
+
+        :return: The login_locations of this DataForListLoginConfigsOutput.  # noqa: E501
+        :rtype: list[LoginLocationForListLoginConfigsOutput]
+        """
+        return self._login_locations
+
+    @login_locations.setter
+    def login_locations(self, login_locations):
+        """Sets the login_locations of this DataForListLoginConfigsOutput.
+
+
+        :param login_locations: The login_locations of this DataForListLoginConfigsOutput.  # noqa: E501
+        :type: list[LoginLocationForListLoginConfigsOutput]
+        """
+
+        self._login_locations = login_locations
 
     @property
     def single_group_path(self):

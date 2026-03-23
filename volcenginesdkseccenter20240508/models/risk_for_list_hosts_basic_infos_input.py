@@ -35,6 +35,7 @@ class RiskForListHostsBasicInfosInput(object):
     swagger_types = {
         'alarm': 'bool',
         'baseline': 'bool',
+        'is_real_risk_vul': 'bool',
         'virus': 'bool',
         'vuln': 'bool'
     }
@@ -42,11 +43,12 @@ class RiskForListHostsBasicInfosInput(object):
     attribute_map = {
         'alarm': 'Alarm',
         'baseline': 'Baseline',
+        'is_real_risk_vul': 'IsRealRiskVul',
         'virus': 'Virus',
         'vuln': 'Vuln'
     }
 
-    def __init__(self, alarm=None, baseline=None, virus=None, vuln=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm=None, baseline=None, is_real_risk_vul=None, virus=None, vuln=None, _configuration=None):  # noqa: E501
         """RiskForListHostsBasicInfosInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class RiskForListHostsBasicInfosInput(object):
 
         self._alarm = None
         self._baseline = None
+        self._is_real_risk_vul = None
         self._virus = None
         self._vuln = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class RiskForListHostsBasicInfosInput(object):
             self.alarm = alarm
         if baseline is not None:
             self.baseline = baseline
+        if is_real_risk_vul is not None:
+            self.is_real_risk_vul = is_real_risk_vul
         if virus is not None:
             self.virus = virus
         if vuln is not None:
@@ -108,6 +113,27 @@ class RiskForListHostsBasicInfosInput(object):
         """
 
         self._baseline = baseline
+
+    @property
+    def is_real_risk_vul(self):
+        """Gets the is_real_risk_vul of this RiskForListHostsBasicInfosInput.  # noqa: E501
+
+
+        :return: The is_real_risk_vul of this RiskForListHostsBasicInfosInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_real_risk_vul
+
+    @is_real_risk_vul.setter
+    def is_real_risk_vul(self, is_real_risk_vul):
+        """Sets the is_real_risk_vul of this RiskForListHostsBasicInfosInput.
+
+
+        :param is_real_risk_vul: The is_real_risk_vul of this RiskForListHostsBasicInfosInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_real_risk_vul = is_real_risk_vul
 
     @property
     def virus(self):

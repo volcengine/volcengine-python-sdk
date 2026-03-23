@@ -46,6 +46,8 @@ class SetBruteForceBanConfigRequest(object):
         'manager_id': 'str',
         'operator': 'str',
         'rule_list': 'list[RuleListForSetBruteForceBanConfigInput]',
+        'single_group_path': 'str',
+        'single_hostname': 'str',
         'top_group_id': 'str'
     }
 
@@ -63,10 +65,12 @@ class SetBruteForceBanConfigRequest(object):
         'manager_id': 'ManagerID',
         'operator': 'Operator',
         'rule_list': 'RuleList',
+        'single_group_path': 'SingleGroupPath',
+        'single_hostname': 'SingleHostname',
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, account_id=None, agent_id_list=None, all_host=None, ban_scenes=None, ban_type=None, ban_type_list=None, cloud_providers=None, enable=None, id=None, leaf_group_ids=None, manager_id=None, operator=None, rule_list=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, agent_id_list=None, all_host=None, ban_scenes=None, ban_type=None, ban_type_list=None, cloud_providers=None, enable=None, id=None, leaf_group_ids=None, manager_id=None, operator=None, rule_list=None, single_group_path=None, single_hostname=None, top_group_id=None, _configuration=None):  # noqa: E501
         """SetBruteForceBanConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +89,8 @@ class SetBruteForceBanConfigRequest(object):
         self._manager_id = None
         self._operator = None
         self._rule_list = None
+        self._single_group_path = None
+        self._single_hostname = None
         self._top_group_id = None
         self.discriminator = None
 
@@ -114,6 +120,10 @@ class SetBruteForceBanConfigRequest(object):
             self.operator = operator
         if rule_list is not None:
             self.rule_list = rule_list
+        if single_group_path is not None:
+            self.single_group_path = single_group_path
+        if single_hostname is not None:
+            self.single_hostname = single_hostname
         if top_group_id is not None:
             self.top_group_id = top_group_id
 
@@ -389,6 +399,48 @@ class SetBruteForceBanConfigRequest(object):
         """
 
         self._rule_list = rule_list
+
+    @property
+    def single_group_path(self):
+        """Gets the single_group_path of this SetBruteForceBanConfigRequest.  # noqa: E501
+
+
+        :return: The single_group_path of this SetBruteForceBanConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._single_group_path
+
+    @single_group_path.setter
+    def single_group_path(self, single_group_path):
+        """Sets the single_group_path of this SetBruteForceBanConfigRequest.
+
+
+        :param single_group_path: The single_group_path of this SetBruteForceBanConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._single_group_path = single_group_path
+
+    @property
+    def single_hostname(self):
+        """Gets the single_hostname of this SetBruteForceBanConfigRequest.  # noqa: E501
+
+
+        :return: The single_hostname of this SetBruteForceBanConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._single_hostname
+
+    @single_hostname.setter
+    def single_hostname(self, single_hostname):
+        """Sets the single_hostname of this SetBruteForceBanConfigRequest.
+
+
+        :param single_hostname: The single_hostname of this SetBruteForceBanConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._single_hostname = single_hostname
 
     @property
     def top_group_id(self):

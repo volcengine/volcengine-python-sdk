@@ -49,7 +49,8 @@ class StopMLPAssetSyncTaskRequest(object):
         self._task_id = None
         self.discriminator = None
 
-        self.task_id = task_id
+        if task_id is not None:
+            self.task_id = task_id
 
     @property
     def task_id(self):
@@ -69,8 +70,6 @@ class StopMLPAssetSyncTaskRequest(object):
         :param task_id: The task_id of this StopMLPAssetSyncTaskRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and task_id is None:
-            raise ValueError("Invalid value for `task_id`, must not be `None`")  # noqa: E501
 
         self._task_id = task_id
 

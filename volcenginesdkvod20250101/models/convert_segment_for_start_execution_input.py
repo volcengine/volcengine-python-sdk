@@ -33,34 +33,65 @@ class ConvertSegmentForStartExecutionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'clip_fade': 'bool',
         'max_duration': 'float',
         'min_duration': 'float',
+        'no_file': 'bool',
         'threshold': 'float'
     }
 
     attribute_map = {
+        'clip_fade': 'ClipFade',
         'max_duration': 'MaxDuration',
         'min_duration': 'MinDuration',
+        'no_file': 'NoFile',
         'threshold': 'Threshold'
     }
 
-    def __init__(self, max_duration=None, min_duration=None, threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, clip_fade=None, max_duration=None, min_duration=None, no_file=None, threshold=None, _configuration=None):  # noqa: E501
         """ConvertSegmentForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._clip_fade = None
         self._max_duration = None
         self._min_duration = None
+        self._no_file = None
         self._threshold = None
         self.discriminator = None
 
+        if clip_fade is not None:
+            self.clip_fade = clip_fade
         if max_duration is not None:
             self.max_duration = max_duration
         if min_duration is not None:
             self.min_duration = min_duration
+        if no_file is not None:
+            self.no_file = no_file
         if threshold is not None:
             self.threshold = threshold
+
+    @property
+    def clip_fade(self):
+        """Gets the clip_fade of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+
+
+        :return: The clip_fade of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._clip_fade
+
+    @clip_fade.setter
+    def clip_fade(self, clip_fade):
+        """Sets the clip_fade of this ConvertSegmentForStartExecutionInput.
+
+
+        :param clip_fade: The clip_fade of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._clip_fade = clip_fade
 
     @property
     def max_duration(self):
@@ -103,6 +134,27 @@ class ConvertSegmentForStartExecutionInput(object):
         """
 
         self._min_duration = min_duration
+
+    @property
+    def no_file(self):
+        """Gets the no_file of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+
+
+        :return: The no_file of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._no_file
+
+    @no_file.setter
+    def no_file(self, no_file):
+        """Sets the no_file of this ConvertSegmentForStartExecutionInput.
+
+
+        :param no_file: The no_file of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._no_file = no_file
 
     @property
     def threshold(self):

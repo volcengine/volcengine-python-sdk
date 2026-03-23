@@ -177,21 +177,9 @@ class SdkCoreLogger(logging.Logger):
         # No global pollution: only subclass used for the returned logger
         # If you want to globally setLoggerClass, call logging.setLoggerClass(SdkLogger) at module init
         logger = SdkCoreLogger(name, debug=debug, log_level=log_level)
-
-        if not logger.handlers:
-            h = logging.StreamHandler()
-            if debug:
-                h.setLevel(logging.DEBUG)
-            else:
-                h.setLevel(logging.WARNING)
-            try:
-                formatter = logging.Formatter(fmt=fmt, datefmt=datefmt)
-            except TypeError:
-                # Compatibility with very old logging versions (almost never used)
-                formatter = logging.Formatter(fmt)
-            h.setFormatter(formatter)
-            logger.addHandler(h)
-
+        # Handler 的创建与切换统一由 Configuration 接管。
+        # 这里故意不注入默认 StreamHandler，避免在多个 Configuration
+        # 实例之间出现隐式共享和重复叠加。
         logger.propagate = False  # Avoid bubbling up to root logger
         return logger
 

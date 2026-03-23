@@ -33,45 +33,71 @@ class ConvertEnhanceForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'template_id': 'str'
+        'moe_enhance': 'ConvertMoeEnhanceForGetExecutionOutput',
+        'type': 'str'
     }
 
     attribute_map = {
-        'template_id': 'TemplateId'
+        'moe_enhance': 'MoeEnhance',
+        'type': 'Type'
     }
 
-    def __init__(self, template_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, moe_enhance=None, type=None, _configuration=None):  # noqa: E501
         """ConvertEnhanceForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._template_id = None
+        self._moe_enhance = None
+        self._type = None
         self.discriminator = None
 
-        if template_id is not None:
-            self.template_id = template_id
+        if moe_enhance is not None:
+            self.moe_enhance = moe_enhance
+        if type is not None:
+            self.type = type
 
     @property
-    def template_id(self):
-        """Gets the template_id of this ConvertEnhanceForGetExecutionOutput.  # noqa: E501
+    def moe_enhance(self):
+        """Gets the moe_enhance of this ConvertEnhanceForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The template_id of this ConvertEnhanceForGetExecutionOutput.  # noqa: E501
+        :return: The moe_enhance of this ConvertEnhanceForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertMoeEnhanceForGetExecutionOutput
+        """
+        return self._moe_enhance
+
+    @moe_enhance.setter
+    def moe_enhance(self, moe_enhance):
+        """Sets the moe_enhance of this ConvertEnhanceForGetExecutionOutput.
+
+
+        :param moe_enhance: The moe_enhance of this ConvertEnhanceForGetExecutionOutput.  # noqa: E501
+        :type: ConvertMoeEnhanceForGetExecutionOutput
+        """
+
+        self._moe_enhance = moe_enhance
+
+    @property
+    def type(self):
+        """Gets the type of this ConvertEnhanceForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The type of this ConvertEnhanceForGetExecutionOutput.  # noqa: E501
         :rtype: str
         """
-        return self._template_id
+        return self._type
 
-    @template_id.setter
-    def template_id(self, template_id):
-        """Sets the template_id of this ConvertEnhanceForGetExecutionOutput.
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ConvertEnhanceForGetExecutionOutput.
 
 
-        :param template_id: The template_id of this ConvertEnhanceForGetExecutionOutput.  # noqa: E501
+        :param type: The type of this ConvertEnhanceForGetExecutionOutput.  # noqa: E501
         :type: str
         """
 
-        self._template_id = template_id
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

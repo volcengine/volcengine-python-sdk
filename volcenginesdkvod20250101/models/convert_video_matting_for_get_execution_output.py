@@ -35,7 +35,7 @@ class ConvertVideoMattingForGetExecutionOutput(object):
     swagger_types = {
         'duration': 'float',
         'model': 'str',
-        'video': 'VideoForGetExecutionOutput'
+        'video': 'ConvertConvertVideoForGetExecutionOutput'
     }
 
     attribute_map = {
@@ -110,7 +110,7 @@ class ConvertVideoMattingForGetExecutionOutput(object):
 
 
         :return: The video of this ConvertVideoMattingForGetExecutionOutput.  # noqa: E501
-        :rtype: VideoForGetExecutionOutput
+        :rtype: ConvertConvertVideoForGetExecutionOutput
         """
         return self._video
 
@@ -120,7 +120,7 @@ class ConvertVideoMattingForGetExecutionOutput(object):
 
 
         :param video: The video of this ConvertVideoMattingForGetExecutionOutput.  # noqa: E501
-        :type: VideoForGetExecutionOutput
+        :type: ConvertConvertVideoForGetExecutionOutput
         """
 
         self._video = video

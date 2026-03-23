@@ -15,6 +15,8 @@ from volcenginesdkcore.endpoint import DefaultEndpointProvider
 from volcenginesdkcore.observability.debugger import sdk_core_logger
 from volcenginesdkcore.retryer.retryer import DEFAULT_RETRYER
 
+SDK_HANDLER_FLAG = "_volcengine_sdk_handler"
+
 
 class TypeWithDefault(type):
     def __init__(cls, name, bases, dct):
@@ -169,24 +171,41 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         :type: str
         """
         self.__logger_file = value
+        # Configuration 使用的是全局共享 logger，因此每次切换输出目标前，
+        # 都要先清理上一轮由 SDK 自己挂上的 handler，避免重复输出。
+        # 这里只删除带 SDK 标记的 handler，不触碰业务方自己附加的 handler。
+        removed_handlers = []
+        for _, logger in six.iteritems(self.logger):
+            for handler in list(logger.handlers):
+                if getattr(handler, SDK_HANDLER_FLAG, False):
+                    logger.removeHandler(handler)
+                    if handler not in removed_handlers:
+                        removed_handlers.append(handler)
+
+        for handler in removed_handlers:
+            handler.close()
+
+        self.logger_stream_handler = None
+        self.logger_file_handler = None
+
         if self.__logger_file:
-            # If set logging file,
-            # then add file handler and remove stream handler.
+            # If set logging file, add file handler only.
             self.logger_file_handler = logging.FileHandler(self.__logger_file)
+            setattr(self.logger_file_handler, SDK_HANDLER_FLAG, True)
             self.logger_file_handler.setFormatter(self.logger_formatter)
             for _, logger in six.iteritems(self.logger):
+                # 避免 urllib3_logger 继续向 root logger 冒泡，绕过文件模式
+                # 再次把日志打到控制台。
+                logger.propagate = False
                 logger.addHandler(self.logger_file_handler)
-                if self.logger_stream_handler:
-                    logger.removeHandler(self.logger_stream_handler)
         else:
-            # If not set logging file,
-            # then add stream handler and remove file handler.
+            # If not set logging file, add stream handler only.
             self.logger_stream_handler = logging.StreamHandler()
+            setattr(self.logger_stream_handler, SDK_HANDLER_FLAG, True)
             self.logger_stream_handler.setFormatter(self.logger_formatter)
             for _, logger in six.iteritems(self.logger):
+                logger.propagate = False
                 logger.addHandler(self.logger_stream_handler)
-                if self.logger_file_handler:
-                    logger.removeHandler(self.logger_file_handler)
 
     @property
     def debug(self):
@@ -272,7 +291,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                "OS: {env}\n" \
                "Python Version: {pyversion}\n" \
                "Version of the API: 0.1.0\n" \
-               "SDK Package Version: 5.0.13".\
+               "SDK Package Version: 5.0.19".\
             format(env=sys.platform, pyversion=sys.version)
 
     @property

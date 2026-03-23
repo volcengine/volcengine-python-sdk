@@ -45,6 +45,7 @@ class DescribeDBInstanceDetailResponse(object):
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_type': 'str',
+        'maintenance_window': 'MaintenanceWindowForDescribeDBInstanceDetailOutput',
         'master_count': 'int',
         'master_spec': 'str',
         'multi_az': 'bool',
@@ -83,6 +84,7 @@ class DescribeDBInstanceDetailResponse(object):
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_type': 'InstanceType',
+        'maintenance_window': 'MaintenanceWindow',
         'master_count': 'MasterCount',
         'master_spec': 'MasterSpec',
         'multi_az': 'MultiAZ',
@@ -108,7 +110,7 @@ class DescribeDBInstanceDetailResponse(object):
         'zone_name': 'ZoneName'
     }
 
-    def __init__(self, auto_renew=None, charge_status=None, charge_type=None, cold_storage=None, create_time=None, db_instance_endpoint=None, deletion_protection=None, enable_auth=None, engine_version=None, instance_id=None, instance_name=None, instance_type=None, master_count=None, master_spec=None, multi_az=None, primary_subnet_id=None, primary_zone_id=None, project_name=None, rs_count=None, rs_spec=None, region_id=None, standby_subnet_id=None, standby_used_storage=None, standby_zone_id=None, status=None, storage_capacity=None, storage_type=None, subnet_id=None, tags=None, used_cold_storage=None, used_storage=None, vpc_id=None, vpc_name=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_status=None, charge_type=None, cold_storage=None, create_time=None, db_instance_endpoint=None, deletion_protection=None, enable_auth=None, engine_version=None, instance_id=None, instance_name=None, instance_type=None, maintenance_window=None, master_count=None, master_spec=None, multi_az=None, primary_subnet_id=None, primary_zone_id=None, project_name=None, rs_count=None, rs_spec=None, region_id=None, standby_subnet_id=None, standby_used_storage=None, standby_zone_id=None, status=None, storage_capacity=None, storage_type=None, subnet_id=None, tags=None, used_cold_storage=None, used_storage=None, vpc_id=None, vpc_name=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -126,6 +128,7 @@ class DescribeDBInstanceDetailResponse(object):
         self._instance_id = None
         self._instance_name = None
         self._instance_type = None
+        self._maintenance_window = None
         self._master_count = None
         self._master_spec = None
         self._multi_az = None
@@ -175,6 +178,8 @@ class DescribeDBInstanceDetailResponse(object):
             self.instance_name = instance_name
         if instance_type is not None:
             self.instance_type = instance_type
+        if maintenance_window is not None:
+            self.maintenance_window = maintenance_window
         if master_count is not None:
             self.master_count = master_count
         if master_spec is not None:
@@ -473,6 +478,27 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def maintenance_window(self):
+        """Gets the maintenance_window of this DescribeDBInstanceDetailResponse.  # noqa: E501
+
+
+        :return: The maintenance_window of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :rtype: MaintenanceWindowForDescribeDBInstanceDetailOutput
+        """
+        return self._maintenance_window
+
+    @maintenance_window.setter
+    def maintenance_window(self, maintenance_window):
+        """Sets the maintenance_window of this DescribeDBInstanceDetailResponse.
+
+
+        :param maintenance_window: The maintenance_window of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :type: MaintenanceWindowForDescribeDBInstanceDetailOutput
+        """
+
+        self._maintenance_window = maintenance_window
 
     @property
     def master_count(self):

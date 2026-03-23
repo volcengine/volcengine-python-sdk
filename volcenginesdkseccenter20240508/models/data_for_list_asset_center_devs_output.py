@@ -42,8 +42,11 @@ class DataForListAssetCenterDevsOutput(object):
         'baseline': 'int',
         'ip': 'str',
         'platform': 'str',
+        'protect_status': 'str',
         'region': 'str',
+        'security_enhancement': 'bool',
         'status': 'str',
+        'update_time': 'int',
         'vul': 'int'
     }
 
@@ -57,12 +60,15 @@ class DataForListAssetCenterDevsOutput(object):
         'baseline': 'Baseline',
         'ip': 'Ip',
         'platform': 'Platform',
+        'protect_status': 'ProtectStatus',
         'region': 'Region',
+        'security_enhancement': 'SecurityEnhancement',
         'status': 'Status',
+        'update_time': 'UpdateTime',
         'vul': 'Vul'
     }
 
-    def __init__(self, account_id=None, alarm=None, asset_id=None, asset_name=None, asset_type=None, asset_uk=None, baseline=None, ip=None, platform=None, region=None, status=None, vul=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, alarm=None, asset_id=None, asset_name=None, asset_type=None, asset_uk=None, baseline=None, ip=None, platform=None, protect_status=None, region=None, security_enhancement=None, status=None, update_time=None, vul=None, _configuration=None):  # noqa: E501
         """DataForListAssetCenterDevsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,8 +83,11 @@ class DataForListAssetCenterDevsOutput(object):
         self._baseline = None
         self._ip = None
         self._platform = None
+        self._protect_status = None
         self._region = None
+        self._security_enhancement = None
         self._status = None
+        self._update_time = None
         self._vul = None
         self.discriminator = None
 
@@ -100,10 +109,16 @@ class DataForListAssetCenterDevsOutput(object):
             self.ip = ip
         if platform is not None:
             self.platform = platform
+        if protect_status is not None:
+            self.protect_status = protect_status
         if region is not None:
             self.region = region
+        if security_enhancement is not None:
+            self.security_enhancement = security_enhancement
         if status is not None:
             self.status = status
+        if update_time is not None:
+            self.update_time = update_time
         if vul is not None:
             self.vul = vul
 
@@ -297,6 +312,27 @@ class DataForListAssetCenterDevsOutput(object):
         self._platform = platform
 
     @property
+    def protect_status(self):
+        """Gets the protect_status of this DataForListAssetCenterDevsOutput.  # noqa: E501
+
+
+        :return: The protect_status of this DataForListAssetCenterDevsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._protect_status
+
+    @protect_status.setter
+    def protect_status(self, protect_status):
+        """Sets the protect_status of this DataForListAssetCenterDevsOutput.
+
+
+        :param protect_status: The protect_status of this DataForListAssetCenterDevsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._protect_status = protect_status
+
+    @property
     def region(self):
         """Gets the region of this DataForListAssetCenterDevsOutput.  # noqa: E501
 
@@ -318,6 +354,27 @@ class DataForListAssetCenterDevsOutput(object):
         self._region = region
 
     @property
+    def security_enhancement(self):
+        """Gets the security_enhancement of this DataForListAssetCenterDevsOutput.  # noqa: E501
+
+
+        :return: The security_enhancement of this DataForListAssetCenterDevsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._security_enhancement
+
+    @security_enhancement.setter
+    def security_enhancement(self, security_enhancement):
+        """Sets the security_enhancement of this DataForListAssetCenterDevsOutput.
+
+
+        :param security_enhancement: The security_enhancement of this DataForListAssetCenterDevsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._security_enhancement = security_enhancement
+
+    @property
     def status(self):
         """Gets the status of this DataForListAssetCenterDevsOutput.  # noqa: E501
 
@@ -337,6 +394,27 @@ class DataForListAssetCenterDevsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this DataForListAssetCenterDevsOutput.  # noqa: E501
+
+
+        :return: The update_time of this DataForListAssetCenterDevsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this DataForListAssetCenterDevsOutput.
+
+
+        :param update_time: The update_time of this DataForListAssetCenterDevsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._update_time = update_time
 
     @property
     def vul(self):

@@ -42,11 +42,13 @@ class CreateUserPoolClientResponse(object):
         'create_time': 'str',
         'description': 'str',
         'development_mode_enabled': 'bool',
+        'dismiss_login_page_enabled': 'bool',
         'id_token': 'IdTokenForCreateUserPoolClientOutput',
         'login_page_url': 'str',
         'logo_uri': 'str',
         'name': 'str',
         'refresh_token': 'RefreshTokenForCreateUserPoolClientOutput',
+        'skip_consent_enabled': 'bool',
         'uid': 'str',
         'update_time': 'str'
     }
@@ -61,16 +63,18 @@ class CreateUserPoolClientResponse(object):
         'create_time': 'CreateTime',
         'description': 'Description',
         'development_mode_enabled': 'DevelopmentModeEnabled',
+        'dismiss_login_page_enabled': 'DismissLoginPageEnabled',
         'id_token': 'IdToken',
         'login_page_url': 'LoginPageUrl',
         'logo_uri': 'LogoUri',
         'name': 'Name',
         'refresh_token': 'RefreshToken',
+        'skip_consent_enabled': 'SkipConsentEnabled',
         'uid': 'Uid',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_secret=None, client_type=None, create_time=None, description=None, development_mode_enabled=None, id_token=None, login_page_url=None, logo_uri=None, name=None, refresh_token=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_secret=None, client_type=None, create_time=None, description=None, development_mode_enabled=None, dismiss_login_page_enabled=None, id_token=None, login_page_url=None, logo_uri=None, name=None, refresh_token=None, skip_consent_enabled=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
         """CreateUserPoolClientResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,11 +89,13 @@ class CreateUserPoolClientResponse(object):
         self._create_time = None
         self._description = None
         self._development_mode_enabled = None
+        self._dismiss_login_page_enabled = None
         self._id_token = None
         self._login_page_url = None
         self._logo_uri = None
         self._name = None
         self._refresh_token = None
+        self._skip_consent_enabled = None
         self._uid = None
         self._update_time = None
         self.discriminator = None
@@ -112,6 +118,8 @@ class CreateUserPoolClientResponse(object):
             self.description = description
         if development_mode_enabled is not None:
             self.development_mode_enabled = development_mode_enabled
+        if dismiss_login_page_enabled is not None:
+            self.dismiss_login_page_enabled = dismiss_login_page_enabled
         if id_token is not None:
             self.id_token = id_token
         if login_page_url is not None:
@@ -122,6 +130,8 @@ class CreateUserPoolClientResponse(object):
             self.name = name
         if refresh_token is not None:
             self.refresh_token = refresh_token
+        if skip_consent_enabled is not None:
+            self.skip_consent_enabled = skip_consent_enabled
         if uid is not None:
             self.uid = uid
         if update_time is not None:
@@ -317,6 +327,27 @@ class CreateUserPoolClientResponse(object):
         self._development_mode_enabled = development_mode_enabled
 
     @property
+    def dismiss_login_page_enabled(self):
+        """Gets the dismiss_login_page_enabled of this CreateUserPoolClientResponse.  # noqa: E501
+
+
+        :return: The dismiss_login_page_enabled of this CreateUserPoolClientResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dismiss_login_page_enabled
+
+    @dismiss_login_page_enabled.setter
+    def dismiss_login_page_enabled(self, dismiss_login_page_enabled):
+        """Sets the dismiss_login_page_enabled of this CreateUserPoolClientResponse.
+
+
+        :param dismiss_login_page_enabled: The dismiss_login_page_enabled of this CreateUserPoolClientResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._dismiss_login_page_enabled = dismiss_login_page_enabled
+
+    @property
     def id_token(self):
         """Gets the id_token of this CreateUserPoolClientResponse.  # noqa: E501
 
@@ -420,6 +451,27 @@ class CreateUserPoolClientResponse(object):
         """
 
         self._refresh_token = refresh_token
+
+    @property
+    def skip_consent_enabled(self):
+        """Gets the skip_consent_enabled of this CreateUserPoolClientResponse.  # noqa: E501
+
+
+        :return: The skip_consent_enabled of this CreateUserPoolClientResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_consent_enabled
+
+    @skip_consent_enabled.setter
+    def skip_consent_enabled(self, skip_consent_enabled):
+        """Sets the skip_consent_enabled of this CreateUserPoolClientResponse.
+
+
+        :param skip_consent_enabled: The skip_consent_enabled of this CreateUserPoolClientResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._skip_consent_enabled = skip_consent_enabled
 
     @property
     def uid(self):
