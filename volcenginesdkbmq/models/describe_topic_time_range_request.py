@@ -33,23 +33,55 @@ class DescribeTopicTimeRangeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'topic_id': 'str'
+        'instance_id': 'str',
+        'topic_id': 'str',
+        'topic_name': 'str'
     }
 
     attribute_map = {
-        'topic_id': 'TopicId'
+        'instance_id': 'InstanceId',
+        'topic_id': 'TopicId',
+        'topic_name': 'TopicName'
     }
 
-    def __init__(self, topic_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, topic_id=None, topic_name=None, _configuration=None):  # noqa: E501
         """DescribeTopicTimeRangeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._instance_id = None
         self._topic_id = None
+        self._topic_name = None
         self.discriminator = None
 
-        self.topic_id = topic_id
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if topic_id is not None:
+            self.topic_id = topic_id
+        if topic_name is not None:
+            self.topic_name = topic_name
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this DescribeTopicTimeRangeRequest.  # noqa: E501
+
+
+        :return: The instance_id of this DescribeTopicTimeRangeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this DescribeTopicTimeRangeRequest.
+
+
+        :param instance_id: The instance_id of this DescribeTopicTimeRangeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def topic_id(self):
@@ -69,10 +101,29 @@ class DescribeTopicTimeRangeRequest(object):
         :param topic_id: The topic_id of this DescribeTopicTimeRangeRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and topic_id is None:
-            raise ValueError("Invalid value for `topic_id`, must not be `None`")  # noqa: E501
 
         self._topic_id = topic_id
+
+    @property
+    def topic_name(self):
+        """Gets the topic_name of this DescribeTopicTimeRangeRequest.  # noqa: E501
+
+
+        :return: The topic_name of this DescribeTopicTimeRangeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._topic_name
+
+    @topic_name.setter
+    def topic_name(self, topic_name):
+        """Sets the topic_name of this DescribeTopicTimeRangeRequest.
+
+
+        :param topic_name: The topic_name of this DescribeTopicTimeRangeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._topic_name = topic_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

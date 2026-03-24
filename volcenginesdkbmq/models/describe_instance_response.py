@@ -53,6 +53,9 @@ class DescribeInstanceResponse(object):
         'subnet_id_list': 'list[str]',
         'tags': 'list[TagForDescribeInstanceOutput]',
         'topic_limit': 'int',
+        'used_groups': 'int',
+        'used_partitions': 'int',
+        'used_topics': 'int',
         'vpc_id': 'str',
         'zone_id_list': 'list[str]'
     }
@@ -78,11 +81,14 @@ class DescribeInstanceResponse(object):
         'subnet_id_list': 'SubnetIdList',
         'tags': 'Tags',
         'topic_limit': 'TopicLimit',
+        'used_groups': 'UsedGroups',
+        'used_partitions': 'UsedPartitions',
+        'used_topics': 'UsedTopics',
         'vpc_id': 'VpcId',
         'zone_id_list': 'ZoneIdList'
     }
 
-    def __init__(self, billing_type=None, create_time=None, description=None, endpoints=None, expiration_time=None, group_limit=None, instance_id=None, message_retention=None, name=None, partition_limit=None, project_name=None, region_id=None, resource_tags=None, resources=None, security_group_id_list=None, specification=None, status=None, subnet_id_list=None, tags=None, topic_limit=None, vpc_id=None, zone_id_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, create_time=None, description=None, endpoints=None, expiration_time=None, group_limit=None, instance_id=None, message_retention=None, name=None, partition_limit=None, project_name=None, region_id=None, resource_tags=None, resources=None, security_group_id_list=None, specification=None, status=None, subnet_id_list=None, tags=None, topic_limit=None, used_groups=None, used_partitions=None, used_topics=None, vpc_id=None, zone_id_list=None, _configuration=None):  # noqa: E501
         """DescribeInstanceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -108,6 +114,9 @@ class DescribeInstanceResponse(object):
         self._subnet_id_list = None
         self._tags = None
         self._topic_limit = None
+        self._used_groups = None
+        self._used_partitions = None
+        self._used_topics = None
         self._vpc_id = None
         self._zone_id_list = None
         self.discriminator = None
@@ -152,6 +161,12 @@ class DescribeInstanceResponse(object):
             self.tags = tags
         if topic_limit is not None:
             self.topic_limit = topic_limit
+        if used_groups is not None:
+            self.used_groups = used_groups
+        if used_partitions is not None:
+            self.used_partitions = used_partitions
+        if used_topics is not None:
+            self.used_topics = used_topics
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_id_list is not None:
@@ -576,6 +591,69 @@ class DescribeInstanceResponse(object):
         """
 
         self._topic_limit = topic_limit
+
+    @property
+    def used_groups(self):
+        """Gets the used_groups of this DescribeInstanceResponse.  # noqa: E501
+
+
+        :return: The used_groups of this DescribeInstanceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._used_groups
+
+    @used_groups.setter
+    def used_groups(self, used_groups):
+        """Sets the used_groups of this DescribeInstanceResponse.
+
+
+        :param used_groups: The used_groups of this DescribeInstanceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._used_groups = used_groups
+
+    @property
+    def used_partitions(self):
+        """Gets the used_partitions of this DescribeInstanceResponse.  # noqa: E501
+
+
+        :return: The used_partitions of this DescribeInstanceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._used_partitions
+
+    @used_partitions.setter
+    def used_partitions(self, used_partitions):
+        """Sets the used_partitions of this DescribeInstanceResponse.
+
+
+        :param used_partitions: The used_partitions of this DescribeInstanceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._used_partitions = used_partitions
+
+    @property
+    def used_topics(self):
+        """Gets the used_topics of this DescribeInstanceResponse.  # noqa: E501
+
+
+        :return: The used_topics of this DescribeInstanceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._used_topics
+
+    @used_topics.setter
+    def used_topics(self, used_topics):
+        """Sets the used_topics of this DescribeInstanceResponse.
+
+
+        :param used_topics: The used_topics of this DescribeInstanceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._used_topics = used_topics
 
     @property
     def vpc_id(self):
