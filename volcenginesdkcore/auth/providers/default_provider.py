@@ -22,18 +22,24 @@ class DefaultCredentialProvider(Provider):
     PROVIDER_NAME = "DefaultCredentialProvider"
 
     def __init__(self, role_name=None,
-                 reuse_last_provider_enabled=True):
-        from .env_provider import EnvironmentVariableCredentialProvider
-        from .sts_oidc_provider import StsOidcCredentialProvider
-        from .cli_config_provider import CLIConfigCredentialProvider
-        from .ecs_role_provider import EcsRoleCredentialProvider
+                 reuse_last_provider_enabled=True,
+                 providers=None):
+        if providers is not None:
+            # Custom provider chain
+            self._providers = list(providers)
+        else:
+            # Default 4-step chain
+            from .env_provider import EnvironmentVariableCredentialProvider
+            from .sts_oidc_provider import StsOidcCredentialProvider
+            from .cli_config_provider import CLIConfigCredentialProvider
+            from .ecs_role_provider import EcsRoleCredentialProvider
 
-        self._providers = [
-            EnvironmentVariableCredentialProvider(),
-            StsOidcCredentialProvider(),
-            CLIConfigCredentialProvider(),
-            EcsRoleCredentialProvider(role_name=role_name),
-        ]
+            self._providers = [
+                EnvironmentVariableCredentialProvider(),
+                StsOidcCredentialProvider(),
+                CLIConfigCredentialProvider(),
+                EcsRoleCredentialProvider(role_name=role_name),
+            ]
         self._reuse_last_provider_enabled = reuse_last_provider_enabled
         self._last_provider = None
         self._lock = threading.Lock()
