@@ -308,6 +308,7 @@ class GenerateStreamV2ResponseData(BaseModel):
     class Config:
         populate_by_name = True
 
+
 # 自定义带默认超时的Session子类
 class SessionTimeout(requests.Session):
     def __init__(self, default_timeout=None, *args, **kwargs):
@@ -322,6 +323,7 @@ class SessionTimeout(requests.Session):
             kwargs["timeout"] = self.default_timeout
         # 调用父类的request方法，保持原有逻辑不变
         return super().request(method, url, **kwargs)
+
 
 # 定义客户端类
 class ClientV2:
