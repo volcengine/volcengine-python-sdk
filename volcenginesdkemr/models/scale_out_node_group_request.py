@@ -35,6 +35,11 @@ class ScaleOutNodeGroupRequest(object):
     swagger_types = {
         'client_token': 'str',
         'cluster_id': 'str',
+        'elastic_scheduled_instance_auto_release_at': 'str',
+        'elastic_scheduled_instance_delivery_type': 'str',
+        'elastic_scheduled_instance_end_delivery_at': 'str',
+        'elastic_scheduled_instance_start_delivery_at': 'str',
+        'elastic_scheduled_instance_type': 'str',
         'node_group_id': 'str',
         'scale_out_node_count': 'int'
     }
@@ -42,11 +47,16 @@ class ScaleOutNodeGroupRequest(object):
     attribute_map = {
         'client_token': 'ClientToken',
         'cluster_id': 'ClusterId',
+        'elastic_scheduled_instance_auto_release_at': 'ElasticScheduledInstanceAutoReleaseAt',
+        'elastic_scheduled_instance_delivery_type': 'ElasticScheduledInstanceDeliveryType',
+        'elastic_scheduled_instance_end_delivery_at': 'ElasticScheduledInstanceEndDeliveryAt',
+        'elastic_scheduled_instance_start_delivery_at': 'ElasticScheduledInstanceStartDeliveryAt',
+        'elastic_scheduled_instance_type': 'ElasticScheduledInstanceType',
         'node_group_id': 'NodeGroupId',
         'scale_out_node_count': 'ScaleOutNodeCount'
     }
 
-    def __init__(self, client_token=None, cluster_id=None, node_group_id=None, scale_out_node_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_id=None, elastic_scheduled_instance_auto_release_at=None, elastic_scheduled_instance_delivery_type=None, elastic_scheduled_instance_end_delivery_at=None, elastic_scheduled_instance_start_delivery_at=None, elastic_scheduled_instance_type=None, node_group_id=None, scale_out_node_count=None, _configuration=None):  # noqa: E501
         """ScaleOutNodeGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +64,11 @@ class ScaleOutNodeGroupRequest(object):
 
         self._client_token = None
         self._cluster_id = None
+        self._elastic_scheduled_instance_auto_release_at = None
+        self._elastic_scheduled_instance_delivery_type = None
+        self._elastic_scheduled_instance_end_delivery_at = None
+        self._elastic_scheduled_instance_start_delivery_at = None
+        self._elastic_scheduled_instance_type = None
         self._node_group_id = None
         self._scale_out_node_count = None
         self.discriminator = None
@@ -61,6 +76,16 @@ class ScaleOutNodeGroupRequest(object):
         if client_token is not None:
             self.client_token = client_token
         self.cluster_id = cluster_id
+        if elastic_scheduled_instance_auto_release_at is not None:
+            self.elastic_scheduled_instance_auto_release_at = elastic_scheduled_instance_auto_release_at
+        if elastic_scheduled_instance_delivery_type is not None:
+            self.elastic_scheduled_instance_delivery_type = elastic_scheduled_instance_delivery_type
+        if elastic_scheduled_instance_end_delivery_at is not None:
+            self.elastic_scheduled_instance_end_delivery_at = elastic_scheduled_instance_end_delivery_at
+        if elastic_scheduled_instance_start_delivery_at is not None:
+            self.elastic_scheduled_instance_start_delivery_at = elastic_scheduled_instance_start_delivery_at
+        if elastic_scheduled_instance_type is not None:
+            self.elastic_scheduled_instance_type = elastic_scheduled_instance_type
         self.node_group_id = node_group_id
         self.scale_out_node_count = scale_out_node_count
 
@@ -107,6 +132,125 @@ class ScaleOutNodeGroupRequest(object):
             raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
+
+    @property
+    def elastic_scheduled_instance_auto_release_at(self):
+        """Gets the elastic_scheduled_instance_auto_release_at of this ScaleOutNodeGroupRequest.  # noqa: E501
+
+
+        :return: The elastic_scheduled_instance_auto_release_at of this ScaleOutNodeGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._elastic_scheduled_instance_auto_release_at
+
+    @elastic_scheduled_instance_auto_release_at.setter
+    def elastic_scheduled_instance_auto_release_at(self, elastic_scheduled_instance_auto_release_at):
+        """Sets the elastic_scheduled_instance_auto_release_at of this ScaleOutNodeGroupRequest.
+
+
+        :param elastic_scheduled_instance_auto_release_at: The elastic_scheduled_instance_auto_release_at of this ScaleOutNodeGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._elastic_scheduled_instance_auto_release_at = elastic_scheduled_instance_auto_release_at
+
+    @property
+    def elastic_scheduled_instance_delivery_type(self):
+        """Gets the elastic_scheduled_instance_delivery_type of this ScaleOutNodeGroupRequest.  # noqa: E501
+
+
+        :return: The elastic_scheduled_instance_delivery_type of this ScaleOutNodeGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._elastic_scheduled_instance_delivery_type
+
+    @elastic_scheduled_instance_delivery_type.setter
+    def elastic_scheduled_instance_delivery_type(self, elastic_scheduled_instance_delivery_type):
+        """Sets the elastic_scheduled_instance_delivery_type of this ScaleOutNodeGroupRequest.
+
+
+        :param elastic_scheduled_instance_delivery_type: The elastic_scheduled_instance_delivery_type of this ScaleOutNodeGroupRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Reserve", "Immediate"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                elastic_scheduled_instance_delivery_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `elastic_scheduled_instance_delivery_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(elastic_scheduled_instance_delivery_type, allowed_values)
+            )
+
+        self._elastic_scheduled_instance_delivery_type = elastic_scheduled_instance_delivery_type
+
+    @property
+    def elastic_scheduled_instance_end_delivery_at(self):
+        """Gets the elastic_scheduled_instance_end_delivery_at of this ScaleOutNodeGroupRequest.  # noqa: E501
+
+
+        :return: The elastic_scheduled_instance_end_delivery_at of this ScaleOutNodeGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._elastic_scheduled_instance_end_delivery_at
+
+    @elastic_scheduled_instance_end_delivery_at.setter
+    def elastic_scheduled_instance_end_delivery_at(self, elastic_scheduled_instance_end_delivery_at):
+        """Sets the elastic_scheduled_instance_end_delivery_at of this ScaleOutNodeGroupRequest.
+
+
+        :param elastic_scheduled_instance_end_delivery_at: The elastic_scheduled_instance_end_delivery_at of this ScaleOutNodeGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._elastic_scheduled_instance_end_delivery_at = elastic_scheduled_instance_end_delivery_at
+
+    @property
+    def elastic_scheduled_instance_start_delivery_at(self):
+        """Gets the elastic_scheduled_instance_start_delivery_at of this ScaleOutNodeGroupRequest.  # noqa: E501
+
+
+        :return: The elastic_scheduled_instance_start_delivery_at of this ScaleOutNodeGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._elastic_scheduled_instance_start_delivery_at
+
+    @elastic_scheduled_instance_start_delivery_at.setter
+    def elastic_scheduled_instance_start_delivery_at(self, elastic_scheduled_instance_start_delivery_at):
+        """Sets the elastic_scheduled_instance_start_delivery_at of this ScaleOutNodeGroupRequest.
+
+
+        :param elastic_scheduled_instance_start_delivery_at: The elastic_scheduled_instance_start_delivery_at of this ScaleOutNodeGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._elastic_scheduled_instance_start_delivery_at = elastic_scheduled_instance_start_delivery_at
+
+    @property
+    def elastic_scheduled_instance_type(self):
+        """Gets the elastic_scheduled_instance_type of this ScaleOutNodeGroupRequest.  # noqa: E501
+
+
+        :return: The elastic_scheduled_instance_type of this ScaleOutNodeGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._elastic_scheduled_instance_type
+
+    @elastic_scheduled_instance_type.setter
+    def elastic_scheduled_instance_type(self, elastic_scheduled_instance_type):
+        """Sets the elastic_scheduled_instance_type of this ScaleOutNodeGroupRequest.
+
+
+        :param elastic_scheduled_instance_type: The elastic_scheduled_instance_type of this ScaleOutNodeGroupRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Esi", "Segmented"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                elastic_scheduled_instance_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `elastic_scheduled_instance_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(elastic_scheduled_instance_type, allowed_values)
+            )
+
+        self._elastic_scheduled_instance_type = elastic_scheduled_instance_type
 
     @property
     def node_group_id(self):

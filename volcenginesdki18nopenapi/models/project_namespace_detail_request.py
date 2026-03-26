@@ -33,7 +33,7 @@ class ProjectNamespaceDetailRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'namespace_id': 'str',
+        'namespace_id': 'int',
         'project_id': 'int'
     }
 
@@ -61,7 +61,7 @@ class ProjectNamespaceDetailRequest(object):
 
 
         :return: The namespace_id of this ProjectNamespaceDetailRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._namespace_id
 
@@ -71,7 +71,7 @@ class ProjectNamespaceDetailRequest(object):
 
 
         :param namespace_id: The namespace_id of this ProjectNamespaceDetailRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
         if self._configuration.client_side_validation and namespace_id is None:
             raise ValueError("Invalid value for `namespace_id`, must not be `None`")  # noqa: E501

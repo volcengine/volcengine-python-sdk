@@ -34,29 +34,34 @@ class AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput(object):
     """
     swagger_types = {
         'enable_storage_auto_scale': 'bool',
+        'scaling_detect_node': 'str',
         'storage_threshold': 'int',
         'storage_upper_bound': 'int'
     }
 
     attribute_map = {
         'enable_storage_auto_scale': 'EnableStorageAutoScale',
+        'scaling_detect_node': 'ScalingDetectNode',
         'storage_threshold': 'StorageThreshold',
         'storage_upper_bound': 'StorageUpperBound'
     }
 
-    def __init__(self, enable_storage_auto_scale=None, storage_threshold=None, storage_upper_bound=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable_storage_auto_scale=None, scaling_detect_node=None, storage_threshold=None, storage_upper_bound=None, _configuration=None):  # noqa: E501
         """AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._enable_storage_auto_scale = None
+        self._scaling_detect_node = None
         self._storage_threshold = None
         self._storage_upper_bound = None
         self.discriminator = None
 
         if enable_storage_auto_scale is not None:
             self.enable_storage_auto_scale = enable_storage_auto_scale
+        if scaling_detect_node is not None:
+            self.scaling_detect_node = scaling_detect_node
         if storage_threshold is not None:
             self.storage_threshold = storage_threshold
         if storage_upper_bound is not None:
@@ -82,6 +87,27 @@ class AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput(object):
         """
 
         self._enable_storage_auto_scale = enable_storage_auto_scale
+
+    @property
+    def scaling_detect_node(self):
+        """Gets the scaling_detect_node of this AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput.  # noqa: E501
+
+
+        :return: The scaling_detect_node of this AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scaling_detect_node
+
+    @scaling_detect_node.setter
+    def scaling_detect_node(self, scaling_detect_node):
+        """Sets the scaling_detect_node of this AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput.
+
+
+        :param scaling_detect_node: The scaling_detect_node of this AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput.  # noqa: E501
+        :type: str
+        """
+
+        self._scaling_detect_node = scaling_detect_node
 
     @property
     def storage_threshold(self):

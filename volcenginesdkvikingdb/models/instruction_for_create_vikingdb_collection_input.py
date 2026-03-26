@@ -34,23 +34,28 @@ class InstructionForCreateVikingdbCollectionInput(object):
     """
     swagger_types = {
         'auto_fill': 'bool',
+        'content': 'str'
     }
 
     attribute_map = {
         'auto_fill': 'AutoFill',
+        'content': 'Content'
     }
 
-    def __init__(self, auto_fill=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_fill=None, content=None, _configuration=None):  # noqa: E501
         """InstructionForCreateVikingdbCollectionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_fill = None
+        self._content = None
         self.discriminator = None
 
         if auto_fill is not None:
             self.auto_fill = auto_fill
+        if content is not None:
+            self.content = content
 
     @property
     def auto_fill(self):
@@ -73,6 +78,26 @@ class InstructionForCreateVikingdbCollectionInput(object):
 
         self._auto_fill = auto_fill
 
+    @property
+    def content(self):
+        """Gets the content of this InstructionForCreateVikingdbCollectionInput.  # noqa: E501
+
+
+        :return: The content of this InstructionForCreateVikingdbCollectionInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._content
+
+    @content.setter
+    def content(self, content):
+        """Sets the content of this InstructionForCreateVikingdbCollectionInput.
+
+
+        :param content: The content of this InstructionForCreateVikingdbCollectionInput.  # noqa: E501
+        :type: str
+        """
+
+        self._content = content
 
     def to_dict(self):
         """Returns the model properties as a dict"""

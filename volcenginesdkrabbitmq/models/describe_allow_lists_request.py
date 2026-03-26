@@ -37,7 +37,7 @@ class DescribeAllowListsRequest(object):
     }
 
     attribute_map = {
-        'region_id': 'RegionID'
+        'region_id': 'RegionId'
     }
 
     def __init__(self, region_id=None, _configuration=None):  # noqa: E501

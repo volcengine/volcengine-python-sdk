@@ -44,7 +44,7 @@ class CreateUserPoolRequest(object):
         'self_sign_up_enabled': 'bool',
         'sign_in_attributes': 'list[str]',
         'sign_up_auto_verification_enabled': 'bool',
-        'sms_anonymous_sign_up_enabled': 'str',
+        'sms_anonymous_sign_up_enabled': 'bool',
         'sms_passwordless_sign_in_enabled': 'bool',
         'tags': 'list[TagForCreateUserPoolInput]',
         'unconfirmed_user_sign_in_enabled': 'bool'
@@ -363,7 +363,7 @@ class CreateUserPoolRequest(object):
 
 
         :return: The sms_anonymous_sign_up_enabled of this CreateUserPoolRequest.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._sms_anonymous_sign_up_enabled
 
@@ -373,7 +373,7 @@ class CreateUserPoolRequest(object):
 
 
         :param sms_anonymous_sign_up_enabled: The sms_anonymous_sign_up_enabled of this CreateUserPoolRequest.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._sms_anonymous_sign_up_enabled = sms_anonymous_sign_up_enabled

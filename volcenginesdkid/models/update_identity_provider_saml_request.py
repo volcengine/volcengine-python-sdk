@@ -43,6 +43,7 @@ class UpdateIdentityProviderSAMLRequest(object):
         'idp_metadata': 'str',
         'name': 'str',
         'provider_options': 'ProviderOptionsForUpdateIdentityProviderSAMLInput',
+        'scim_provisioning': 'ScimProvisioningForUpdateIdentityProviderSAMLInput',
         'user_pool_uid': 'str'
     }
 
@@ -57,10 +58,11 @@ class UpdateIdentityProviderSAMLRequest(object):
         'idp_metadata': 'IdpMetadata',
         'name': 'Name',
         'provider_options': 'ProviderOptions',
+        'scim_provisioning': 'ScimProvisioning',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, attribute_mapping=None, claims_propagation_config=None, connection_uid=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider_options=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mapping=None, claims_propagation_config=None, connection_uid=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider_options=None, scim_provisioning=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderSAMLRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class UpdateIdentityProviderSAMLRequest(object):
         self._idp_metadata = None
         self._name = None
         self._provider_options = None
+        self._scim_provisioning = None
         self._user_pool_uid = None
         self.discriminator = None
 
@@ -98,6 +101,8 @@ class UpdateIdentityProviderSAMLRequest(object):
             self.name = name
         if provider_options is not None:
             self.provider_options = provider_options
+        if scim_provisioning is not None:
+            self.scim_provisioning = scim_provisioning
         self.user_pool_uid = user_pool_uid
 
     @property
@@ -314,6 +319,27 @@ class UpdateIdentityProviderSAMLRequest(object):
         """
 
         self._provider_options = provider_options
+
+    @property
+    def scim_provisioning(self):
+        """Gets the scim_provisioning of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+
+
+        :return: The scim_provisioning of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+        :rtype: ScimProvisioningForUpdateIdentityProviderSAMLInput
+        """
+        return self._scim_provisioning
+
+    @scim_provisioning.setter
+    def scim_provisioning(self, scim_provisioning):
+        """Sets the scim_provisioning of this UpdateIdentityProviderSAMLRequest.
+
+
+        :param scim_provisioning: The scim_provisioning of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+        :type: ScimProvisioningForUpdateIdentityProviderSAMLInput
+        """
+
+        self._scim_provisioning = scim_provisioning
 
     @property
     def user_pool_uid(self):
