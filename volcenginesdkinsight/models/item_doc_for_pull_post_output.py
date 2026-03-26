@@ -35,6 +35,7 @@ class ItemDocForPullPostOutput(object):
     swagger_types = {
         'asr': 'str',
         'content': 'str',
+        'cover_url': 'str',
         'dedup_id': 'str',
         'emotion': 'str',
         'fans_count': 'int',
@@ -56,6 +57,7 @@ class ItemDocForPullPostOutput(object):
     attribute_map = {
         'asr': 'Asr',
         'content': 'Content',
+        'cover_url': 'CoverUrl',
         'dedup_id': 'DedupID',
         'emotion': 'Emotion',
         'fans_count': 'FansCount',
@@ -74,7 +76,7 @@ class ItemDocForPullPostOutput(object):
         'locations': 'locations'
     }
 
-    def __init__(self, asr=None, content=None, dedup_id=None, emotion=None, fans_count=None, is_follow=None, main_domain=None, media_name=None, ocr=None, ocr_high=None, post_id=None, publish_time=None, reason=None, risk_type=None, summary=None, title=None, url=None, locations=None, _configuration=None):  # noqa: E501
+    def __init__(self, asr=None, content=None, cover_url=None, dedup_id=None, emotion=None, fans_count=None, is_follow=None, main_domain=None, media_name=None, ocr=None, ocr_high=None, post_id=None, publish_time=None, reason=None, risk_type=None, summary=None, title=None, url=None, locations=None, _configuration=None):  # noqa: E501
         """ItemDocForPullPostOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class ItemDocForPullPostOutput(object):
 
         self._asr = None
         self._content = None
+        self._cover_url = None
         self._dedup_id = None
         self._emotion = None
         self._fans_count = None
@@ -104,6 +107,8 @@ class ItemDocForPullPostOutput(object):
             self.asr = asr
         if content is not None:
             self.content = content
+        if cover_url is not None:
+            self.cover_url = cover_url
         if dedup_id is not None:
             self.dedup_id = dedup_id
         if emotion is not None:
@@ -178,6 +183,27 @@ class ItemDocForPullPostOutput(object):
         """
 
         self._content = content
+
+    @property
+    def cover_url(self):
+        """Gets the cover_url of this ItemDocForPullPostOutput.  # noqa: E501
+
+
+        :return: The cover_url of this ItemDocForPullPostOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cover_url
+
+    @cover_url.setter
+    def cover_url(self, cover_url):
+        """Sets the cover_url of this ItemDocForPullPostOutput.
+
+
+        :param cover_url: The cover_url of this ItemDocForPullPostOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cover_url = cover_url
 
     @property
     def dedup_id(self):
