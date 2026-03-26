@@ -34,6 +34,7 @@ class ListInstanceResourceStatsRequest(object):
     """
     swagger_types = {
         'instance_ids': 'str',
+        'project_name': 'str',
         'with_group': 'bool',
         'with_partition': 'bool',
         'with_topic': 'bool'
@@ -41,24 +42,28 @@ class ListInstanceResourceStatsRequest(object):
 
     attribute_map = {
         'instance_ids': 'InstanceIds',
+        'project_name': 'ProjectName',
         'with_group': 'WithGroup',
         'with_partition': 'WithPartition',
         'with_topic': 'WithTopic'
     }
 
-    def __init__(self, instance_ids=None, with_group=None, with_partition=None, with_topic=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_ids=None, project_name=None, with_group=None, with_partition=None, with_topic=None, _configuration=None):  # noqa: E501
         """ListInstanceResourceStatsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_ids = None
+        self._project_name = None
         self._with_group = None
         self._with_partition = None
         self._with_topic = None
         self.discriminator = None
 
         self.instance_ids = instance_ids
+        if project_name is not None:
+            self.project_name = project_name
         if with_group is not None:
             self.with_group = with_group
         if with_partition is not None:
@@ -88,6 +93,27 @@ class ListInstanceResourceStatsRequest(object):
             raise ValueError("Invalid value for `instance_ids`, must not be `None`")  # noqa: E501
 
         self._instance_ids = instance_ids
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListInstanceResourceStatsRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListInstanceResourceStatsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListInstanceResourceStatsRequest.
+
+
+        :param project_name: The project_name of this ListInstanceResourceStatsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def with_group(self):
