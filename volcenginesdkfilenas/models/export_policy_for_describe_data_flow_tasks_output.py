@@ -33,34 +33,65 @@ class ExportPolicyForDescribeDataFlowTasksOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'event_types': 'list[str]',
         'filter_info': 'FilterInfoForDescribeDataFlowTasksOutput',
         'status': 'str',
+        'tos_delete_policy': 'str',
         'type': 'str'
     }
 
     attribute_map = {
+        'event_types': 'EventTypes',
         'filter_info': 'FilterInfo',
         'status': 'Status',
+        'tos_delete_policy': 'TosDeletePolicy',
         'type': 'Type'
     }
 
-    def __init__(self, filter_info=None, status=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, event_types=None, filter_info=None, status=None, tos_delete_policy=None, type=None, _configuration=None):  # noqa: E501
         """ExportPolicyForDescribeDataFlowTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._event_types = None
         self._filter_info = None
         self._status = None
+        self._tos_delete_policy = None
         self._type = None
         self.discriminator = None
 
+        if event_types is not None:
+            self.event_types = event_types
         if filter_info is not None:
             self.filter_info = filter_info
         if status is not None:
             self.status = status
+        if tos_delete_policy is not None:
+            self.tos_delete_policy = tos_delete_policy
         if type is not None:
             self.type = type
+
+    @property
+    def event_types(self):
+        """Gets the event_types of this ExportPolicyForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The event_types of this ExportPolicyForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._event_types
+
+    @event_types.setter
+    def event_types(self, event_types):
+        """Sets the event_types of this ExportPolicyForDescribeDataFlowTasksOutput.
+
+
+        :param event_types: The event_types of this ExportPolicyForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._event_types = event_types
 
     @property
     def filter_info(self):
@@ -103,6 +134,27 @@ class ExportPolicyForDescribeDataFlowTasksOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tos_delete_policy(self):
+        """Gets the tos_delete_policy of this ExportPolicyForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The tos_delete_policy of this ExportPolicyForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tos_delete_policy
+
+    @tos_delete_policy.setter
+    def tos_delete_policy(self, tos_delete_policy):
+        """Sets the tos_delete_policy of this ExportPolicyForDescribeDataFlowTasksOutput.
+
+
+        :param tos_delete_policy: The tos_delete_policy of this ExportPolicyForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tos_delete_policy = tos_delete_policy
 
     @property
     def type(self):
