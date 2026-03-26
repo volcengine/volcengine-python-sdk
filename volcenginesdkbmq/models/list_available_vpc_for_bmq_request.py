@@ -37,6 +37,7 @@ class ListAvailableVPCForBMQRequest(object):
         'max_results': 'int',
         'name': 'str',
         'next_token': 'str',
+        'project_name': 'str',
         'vpc_ids': 'list[str]'
     }
 
@@ -45,10 +46,11 @@ class ListAvailableVPCForBMQRequest(object):
         'max_results': 'MaxResults',
         'name': 'Name',
         'next_token': 'NextToken',
+        'project_name': 'ProjectName',
         'vpc_ids': 'VpcIds'
     }
 
-    def __init__(self, instance_id=None, max_results=None, name=None, next_token=None, vpc_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, max_results=None, name=None, next_token=None, project_name=None, vpc_ids=None, _configuration=None):  # noqa: E501
         """ListAvailableVPCForBMQRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class ListAvailableVPCForBMQRequest(object):
         self._max_results = None
         self._name = None
         self._next_token = None
+        self._project_name = None
         self._vpc_ids = None
         self.discriminator = None
 
@@ -69,6 +72,7 @@ class ListAvailableVPCForBMQRequest(object):
             self.name = name
         if next_token is not None:
             self.next_token = next_token
+        self.project_name = project_name
         if vpc_ids is not None:
             self.vpc_ids = vpc_ids
 
@@ -161,6 +165,29 @@ class ListAvailableVPCForBMQRequest(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListAvailableVPCForBMQRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListAvailableVPCForBMQRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListAvailableVPCForBMQRequest.
+
+
+        :param project_name: The project_name of this ListAvailableVPCForBMQRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and project_name is None:
+            raise ValueError("Invalid value for `project_name`, must not be `None`")  # noqa: E501
+
+        self._project_name = project_name
 
     @property
     def vpc_ids(self):
