@@ -4,10 +4,14 @@ import uuid
 from datetime import datetime
 
 import dateutil.parser
+import dateutil.tz
 
-from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from .provider import Provider, CredentialValue
-import json
+
+try:
+    from urllib.parse import urlencode
+except ImportError:
+    from urllib import urlencode
 
 
 class AssumeRoleSamlCredentials:
@@ -21,7 +25,8 @@ class AssumeRoleSamlCredentials:
 
 class StsSamlCredentialProvider(Provider):
     def __init__(self, role_name, account_id, provider_name, saml_resp, duration_seconds=3600, scheme='https',
-                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60, policy=None):
+                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60,
+                 policy=None, max_retries=3, retry_interval=1):
         # self.ak = ak
         # self.sk = sk
         self.role_name = role_name
@@ -30,6 +35,8 @@ class StsSamlCredentialProvider(Provider):
         self.saml_resp = saml_resp
 
         self.timeout = timeout
+        self.max_retries = max(max_retries, 1)
+        self.retry_interval = retry_interval
         self.duration_seconds = duration_seconds
 
         self.host = host
@@ -71,22 +78,11 @@ class StsSamlCredentialProvider(Provider):
         }
         if self.policy is not None:
             params['Policy'] = self.policy
-        configuration = type.__call__(Configuration)
-
-        # configuration.ak = self.ak
-        # configuration.sk = self.sk
-        configuration.host = self.host
-        configuration.region = self.region
-        configuration.scheme = self.scheme
-        configuration.read_timeout = self.timeout
-        c = UniversalApi(ApiClient(configuration))
-        info = UniversalInfo(method='POST', service='sts', version='2018-01-01', action='AssumeRoleWithSAML',
-                             content_type='application/x-www-form-urlencoded')
-
-        resp, status_code, resp_header = c.do_call_with_http_info(info=info, body=params)
-        if 'Credentials' not in resp:
-            raise RuntimeError('failed to retrieve credentials from sts' + str(resp_header))
-        resp_cred = resp['Credentials']
+        resp = self._do_assume_role_with_saml_request(params)
+        resp_result = self._unwrap_result(resp, response_name="STS response")
+        if 'Credentials' not in resp_result:
+            raise RuntimeError('failed to retrieve credentials from sts: ' + str(resp))
+        resp_cred = resp_result['Credentials']
 
         # Parse the ISO string
         dt = dateutil.parser.parse(resp_cred['Expiration'])
@@ -98,3 +94,25 @@ class StsSamlCredentialProvider(Provider):
                                            sk=resp_cred['SecretAccessKey'],
                                            session_token=resp_cred['SessionToken'],
                                            provider_name='StsSamlCredentialProvider')
+
+    def _do_assume_role_with_saml_request(self, params):
+        url = "{}://{}/?Action={}&Version={}".format(self.scheme, self.host, "AssumeRoleWithSAML", "2018-01-01")
+        form_data = dict(params)
+        body = urlencode(form_data).encode('utf-8')
+
+        headers = {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept": "application/json",
+        }
+
+        content = self._do_http_request(
+            url=url,
+            method="POST",
+            data=body,
+            headers=headers,
+            timeout=self.timeout,
+            max_retries=self.max_retries,
+            retry_interval=self.retry_interval,
+            request_name="STS AssumeRoleWithSAML",
+        )
+        return self._parse_json_response(content, response_name="STS response")

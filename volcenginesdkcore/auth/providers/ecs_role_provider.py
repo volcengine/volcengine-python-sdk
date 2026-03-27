@@ -3,19 +3,12 @@ import json
 import logging
 import os
 import threading
-import time
 from datetime import datetime
 
 import dateutil.parser
 import dateutil.tz
 
 from .provider import Provider, CredentialValue
-
-try:
-    from urllib.request import urlopen, Request
-    from urllib.error import URLError, HTTPError
-except ImportError:
-    from urllib2 import urlopen, Request, URLError, HTTPError
 
 logger = logging.getLogger(__name__)
 
@@ -211,24 +204,12 @@ class EcsRoleCredentialProvider(Provider):
     def _do_request(self, url, method="GET", extra_headers=None):
         """Perform an HTTP request with retries."""
         timeout = self._connect_timeout + self._read_timeout
-        last_error = None
-
-        for attempt in range(self._max_retries):
-            try:
-                req = Request(url)
-                req.get_method = lambda m=method: m
-                if extra_headers:
-                    for k, v in extra_headers.items():
-                        req.add_header(k, v)
-                resp = urlopen(req, timeout=timeout)
-                return resp.read().decode('utf-8')
-            except (URLError, HTTPError, IOError, OSError) as e:
-                last_error = e
-                if attempt < self._max_retries - 1:
-                    time.sleep(self._retry_interval)
-
-        raise RuntimeError(
-            "{}: failed to connect to IMDS at '{}' after {} retries: {}".format(
-                self.PROVIDER_NAME, url, self._max_retries, last_error
-            )
+        return self._do_http_request(
+            url=url,
+            method=method,
+            headers=extra_headers,
+            timeout=timeout,
+            max_retries=self._max_retries,
+            retry_interval=self._retry_interval,
+            request_name="IMDS request",
         )

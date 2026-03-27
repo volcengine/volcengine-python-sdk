@@ -7,8 +7,12 @@ from datetime import datetime
 import dateutil.parser
 import dateutil.tz
 
-from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from .provider import Provider, CredentialValue
+
+try:
+    from urllib.parse import urlencode
+except ImportError:
+    from urllib import urlencode
 
 
 class AssumeRoleOidcCredentials:
@@ -49,7 +53,8 @@ class StsOidcCredentialProvider(Provider):
                  duration_seconds=3600, scheme='https',
                  host=None, region='cn-beijing', timeout=30,
                  expired_buffer_seconds=60, policy=None,
-                 role_trn=None, oidc_token_file=None, session_name=None):
+                 role_trn=None, oidc_token_file=None, session_name=None,
+                 max_retries=3, retry_interval=1):
 
         # Detect legacy mode: user passed oidc_token directly (old-style usage).
         # In legacy mode, we do NOT read env vars for host/policy/session_name
@@ -101,9 +106,11 @@ class StsOidcCredentialProvider(Provider):
         elif not self._legacy_mode:
             self.host = os.environ.get("VOLCENGINE_OIDC_STS_ENDPOINT", "") or "sts.volcengineapi.com"
         else:
-            self.host = "sts.volcengineapi.com"
+            self.host = "sts.volcengineapi.com"  # TODO 根据region拼接
 
         self.timeout = timeout
+        self.max_retries = max(max_retries, 1)
+        self.retry_interval = retry_interval
         self.duration_seconds = duration_seconds
         self.region = region
         self.scheme = scheme
@@ -188,24 +195,15 @@ class StsOidcCredentialProvider(Provider):
         if self.policy:
             params['Policy'] = self.policy
 
-        configuration = type.__call__(Configuration)
-        configuration.host = self.host
-        configuration.region = self.region
-        configuration.scheme = self.scheme
-        configuration.read_timeout = self.timeout
-        c = UniversalApi(ApiClient(configuration))
-        info = UniversalInfo(method='POST', service='sts', version='2018-01-01',
-                             action='AssumeRoleWithOIDC',
-                             content_type='application/x-www-form-urlencoded')
-
-        resp, status_code, resp_header = c.do_call_with_http_info(info=info, body=params)
-        if 'Credentials' not in resp:
+        resp = self._do_assume_role_with_oidc_request(params)
+        resp_result = self._unwrap_result(resp, response_name="STS response")
+        if 'Credentials' not in resp_result:
             raise RuntimeError(
                 '{}: failed to retrieve credentials from STS: {}'.format(
-                    self.PROVIDER_NAME, str(resp_header)
+                    self.PROVIDER_NAME, str(resp)
                 )
             )
-        resp_cred = resp['Credentials']
+        resp_cred = resp_result['Credentials']
 
         # Parse expiration
         dt = dateutil.parser.parse(resp_cred['Expiration'])
@@ -217,3 +215,25 @@ class StsOidcCredentialProvider(Provider):
             session_token=resp_cred['SessionToken'],
             provider_name=self.PROVIDER_NAME,
         )
+
+    def _do_assume_role_with_oidc_request(self, params):
+        url = "{}://{}/?Action={}&Version={}".format(self.scheme, self.host, "AssumeRoleWithOIDC", "2018-01-01")
+        form_data = dict(params)
+        body = urlencode(form_data).encode('utf-8')
+
+        headers = {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept": "application/json",
+        }
+
+        content = self._do_http_request(
+            url=url,
+            method="POST",
+            data=body,
+            headers=headers,
+            timeout=self.timeout,
+            max_retries=self.max_retries,
+            retry_interval=self.retry_interval,
+            request_name="STS AssumeRoleWithOIDC",
+        )
+        return self._parse_json_response(content, response_name="STS response")
