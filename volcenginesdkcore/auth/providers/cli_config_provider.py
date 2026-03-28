@@ -207,11 +207,22 @@ class CLIConfigCredentialProvider(Provider):
     def _create_oidc_delegate(self, profile, profile_name):
         from .sts_oidc_provider import StsOidcCredentialProvider
 
-        # Pass profile fields if available; StsOidcCredentialProvider will
-        # fallback to VOLCENGINE_OIDC_* env vars for any missing values.
-        oidc_token_file = (profile.get("oidc-token-file") or "").strip() or None
-        role_trn = (profile.get("role-trn") or "").strip() or None
+        role_trn = (profile.get("role-trn") or "").strip()
+        oidc_token_file = (profile.get("oidc-token-file") or "").strip()
         policy = (profile.get("policy") or "").strip() or None
+
+        if not role_trn:
+            raise RuntimeError(
+                "{}: profile '{}' mode is OIDC but role-trn is not set.".format(
+                    self.PROVIDER_NAME, profile_name
+                )
+            )
+        if not oidc_token_file:
+            raise RuntimeError(
+                "{}: profile '{}' mode is OIDC but oidc-token-file is not set.".format(
+                    self.PROVIDER_NAME, profile_name
+                )
+            )
 
         return StsOidcCredentialProvider(
             role_trn=role_trn,
