@@ -44,6 +44,7 @@ class Tasks(SyncAPIResource):
         *,
         model: str,
         content: Iterable[CreateTaskContentParam],
+        safety_identifier: Optional[str] = None,
         callback_url: Optional[str] = None,
         return_last_frame: Optional[bool] = None,
         service_tier: Optional[str] = None,
@@ -68,6 +69,7 @@ class Tasks(SyncAPIResource):
             body={
                 "model": model,
                 "content": content,
+                "safety_identifier": safety_identifier,
                 "callback_url": callback_url,
                 "return_last_frame": return_last_frame,
                 "service_tier": service_tier,
@@ -192,6 +194,7 @@ class AsyncTasks(AsyncAPIResource):
         *,
         model: str,
         content: Iterable[CreateTaskContentParam],
+        safety_identifier: Optional[str] = None,
         callback_url: Optional[str] = None,
         return_last_frame: Optional[bool] = None,
         service_tier: Optional[str] = None,
@@ -216,6 +219,7 @@ class AsyncTasks(AsyncAPIResource):
             body={
                 "model": model,
                 "content": content,
+                "safety_identifier": safety_identifier,
                 "callback_url": callback_url,
                 "return_last_frame": return_last_frame,
                 "service_tier": service_tier,
