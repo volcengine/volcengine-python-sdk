@@ -35,7 +35,7 @@ class VideoProjectTaskDetailRequest(object):
     swagger_types = {
         'project_id': 'str',
         'subtask_ids': 'str',
-        'task_id': 'int'
+        'task_id': 'str'
     }
 
     attribute_map = {
@@ -110,7 +110,7 @@ class VideoProjectTaskDetailRequest(object):
 
 
         :return: The task_id of this VideoProjectTaskDetailRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._task_id
 
@@ -120,7 +120,7 @@ class VideoProjectTaskDetailRequest(object):
 
 
         :param task_id: The task_id of this VideoProjectTaskDetailRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and task_id is None:
             raise ValueError("Invalid value for `task_id`, must not be `None`")  # noqa: E501
