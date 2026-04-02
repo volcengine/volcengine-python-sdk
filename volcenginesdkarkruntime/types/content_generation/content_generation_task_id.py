@@ -9,9 +9,14 @@
 #
 # This modified file is released under the same license.
 
+from typing import Optional
+
 from volcenginesdkarkruntime._models import BaseModel
 
 
 class ContentGenerationTaskID(BaseModel):
     id: str
     """A unique identifier for the task."""
+
+    safety_identifier: Optional[str] = None
+    """The safety identifier associated with the task."""
