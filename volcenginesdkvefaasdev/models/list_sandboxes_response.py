@@ -33,29 +33,60 @@ class ListSandboxesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'revision_count': 'RevisionCountForListSandboxesOutput',
         'sandboxes': 'list[SandboxForListSandboxesOutput]',
+        'status_count': 'dict(str, int)',
         'total': 'int'
     }
 
     attribute_map = {
+        'revision_count': 'RevisionCount',
         'sandboxes': 'Sandboxes',
+        'status_count': 'StatusCount',
         'total': 'Total'
     }
 
-    def __init__(self, sandboxes=None, total=None, _configuration=None):  # noqa: E501
+    def __init__(self, revision_count=None, sandboxes=None, status_count=None, total=None, _configuration=None):  # noqa: E501
         """ListSandboxesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._revision_count = None
         self._sandboxes = None
+        self._status_count = None
         self._total = None
         self.discriminator = None
 
+        if revision_count is not None:
+            self.revision_count = revision_count
         if sandboxes is not None:
             self.sandboxes = sandboxes
+        if status_count is not None:
+            self.status_count = status_count
         if total is not None:
             self.total = total
+
+    @property
+    def revision_count(self):
+        """Gets the revision_count of this ListSandboxesResponse.  # noqa: E501
+
+
+        :return: The revision_count of this ListSandboxesResponse.  # noqa: E501
+        :rtype: RevisionCountForListSandboxesOutput
+        """
+        return self._revision_count
+
+    @revision_count.setter
+    def revision_count(self, revision_count):
+        """Sets the revision_count of this ListSandboxesResponse.
+
+
+        :param revision_count: The revision_count of this ListSandboxesResponse.  # noqa: E501
+        :type: RevisionCountForListSandboxesOutput
+        """
+
+        self._revision_count = revision_count
 
     @property
     def sandboxes(self):
@@ -77,6 +108,27 @@ class ListSandboxesResponse(object):
         """
 
         self._sandboxes = sandboxes
+
+    @property
+    def status_count(self):
+        """Gets the status_count of this ListSandboxesResponse.  # noqa: E501
+
+
+        :return: The status_count of this ListSandboxesResponse.  # noqa: E501
+        :rtype: dict(str, int)
+        """
+        return self._status_count
+
+    @status_count.setter
+    def status_count(self, status_count):
+        """Sets the status_count of this ListSandboxesResponse.
+
+
+        :param status_count: The status_count of this ListSandboxesResponse.  # noqa: E501
+        :type: dict(str, int)
+        """
+
+        self._status_count = status_count
 
     @property
     def total(self):
