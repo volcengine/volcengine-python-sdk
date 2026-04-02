@@ -34,29 +34,34 @@ class DataForVideoProjectSerialTaskCreateOutput(object):
     """
     swagger_types = {
         'base_resp': 'BaseRespForVideoProjectSerialTaskCreateOutput',
+        'dub_task_ids': 'list[str]',
         'subtitle_file_check_reports': 'list[SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput]',
         'task_ids': 'list[str]'
     }
 
     attribute_map = {
         'base_resp': 'BaseResp',
+        'dub_task_ids': 'DubTaskIDs',
         'subtitle_file_check_reports': 'SubtitleFileCheckReports',
         'task_ids': 'TaskIDs'
     }
 
-    def __init__(self, base_resp=None, subtitle_file_check_reports=None, task_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, base_resp=None, dub_task_ids=None, subtitle_file_check_reports=None, task_ids=None, _configuration=None):  # noqa: E501
         """DataForVideoProjectSerialTaskCreateOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._base_resp = None
+        self._dub_task_ids = None
         self._subtitle_file_check_reports = None
         self._task_ids = None
         self.discriminator = None
 
         if base_resp is not None:
             self.base_resp = base_resp
+        if dub_task_ids is not None:
+            self.dub_task_ids = dub_task_ids
         if subtitle_file_check_reports is not None:
             self.subtitle_file_check_reports = subtitle_file_check_reports
         if task_ids is not None:
@@ -82,6 +87,27 @@ class DataForVideoProjectSerialTaskCreateOutput(object):
         """
 
         self._base_resp = base_resp
+
+    @property
+    def dub_task_ids(self):
+        """Gets the dub_task_ids of this DataForVideoProjectSerialTaskCreateOutput.  # noqa: E501
+
+
+        :return: The dub_task_ids of this DataForVideoProjectSerialTaskCreateOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._dub_task_ids
+
+    @dub_task_ids.setter
+    def dub_task_ids(self, dub_task_ids):
+        """Sets the dub_task_ids of this DataForVideoProjectSerialTaskCreateOutput.
+
+
+        :param dub_task_ids: The dub_task_ids of this DataForVideoProjectSerialTaskCreateOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._dub_task_ids = dub_task_ids
 
     @property
     def subtitle_file_check_reports(self):

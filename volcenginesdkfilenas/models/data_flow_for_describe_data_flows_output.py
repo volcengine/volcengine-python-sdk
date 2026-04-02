@@ -37,6 +37,7 @@ class DataFlowForDescribeDataFlowsOutput(object):
         'bucket_prefix': 'str',
         'create_time': 'str',
         'enable_bucket_versioning': 'bool',
+        'error_message': 'str',
         'evict_policy': 'EvictPolicyForDescribeDataFlowsOutput',
         'export_policy': 'ExportPolicyForDescribeDataFlowsOutput',
         'file_system_id': 'str',
@@ -61,6 +62,7 @@ class DataFlowForDescribeDataFlowsOutput(object):
         'bucket_prefix': 'BucketPrefix',
         'create_time': 'CreateTime',
         'enable_bucket_versioning': 'EnableBucketVersioning',
+        'error_message': 'ErrorMessage',
         'evict_policy': 'EvictPolicy',
         'export_policy': 'ExportPolicy',
         'file_system_id': 'FileSystemId',
@@ -80,7 +82,7 @@ class DataFlowForDescribeDataFlowsOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, bucket_name=None, bucket_prefix=None, create_time=None, enable_bucket_versioning=None, evict_policy=None, export_policy=None, file_system_id=None, file_system_path=None, id=None, import_policy=None, name=None, queue_exec=None, queue_failed=None, queue_len=None, releasing=None, running_task_number=None, same_name_file_policy=None, status=None, sync_status=None, tls_info=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_name=None, bucket_prefix=None, create_time=None, enable_bucket_versioning=None, error_message=None, evict_policy=None, export_policy=None, file_system_id=None, file_system_path=None, id=None, import_policy=None, name=None, queue_exec=None, queue_failed=None, queue_len=None, releasing=None, running_task_number=None, same_name_file_policy=None, status=None, sync_status=None, tls_info=None, update_time=None, _configuration=None):  # noqa: E501
         """DataFlowForDescribeDataFlowsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,6 +92,7 @@ class DataFlowForDescribeDataFlowsOutput(object):
         self._bucket_prefix = None
         self._create_time = None
         self._enable_bucket_versioning = None
+        self._error_message = None
         self._evict_policy = None
         self._export_policy = None
         self._file_system_id = None
@@ -117,6 +120,8 @@ class DataFlowForDescribeDataFlowsOutput(object):
             self.create_time = create_time
         if enable_bucket_versioning is not None:
             self.enable_bucket_versioning = enable_bucket_versioning
+        if error_message is not None:
+            self.error_message = error_message
         if evict_policy is not None:
             self.evict_policy = evict_policy
         if export_policy is not None:
@@ -235,6 +240,27 @@ class DataFlowForDescribeDataFlowsOutput(object):
         """
 
         self._enable_bucket_versioning = enable_bucket_versioning
+
+    @property
+    def error_message(self):
+        """Gets the error_message of this DataFlowForDescribeDataFlowsOutput.  # noqa: E501
+
+
+        :return: The error_message of this DataFlowForDescribeDataFlowsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_message
+
+    @error_message.setter
+    def error_message(self, error_message):
+        """Sets the error_message of this DataFlowForDescribeDataFlowsOutput.
+
+
+        :param error_message: The error_message of this DataFlowForDescribeDataFlowsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._error_message = error_message
 
     @property
     def evict_policy(self):

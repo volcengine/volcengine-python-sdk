@@ -36,6 +36,7 @@ class CreateDataFlowTaskRequest(object):
         'bucket_name': 'str',
         'bucket_prefix': 'str',
         'data_flow_id': 'str',
+        'delete_policy': 'DeletePolicyForCreateDataFlowTaskInput',
         'entry_list_file_bucket': 'str',
         'entry_list_file_key': 'str',
         'entry_list_file_name': 'str',
@@ -53,6 +54,7 @@ class CreateDataFlowTaskRequest(object):
         'bucket_name': 'BucketName',
         'bucket_prefix': 'BucketPrefix',
         'data_flow_id': 'DataFlowId',
+        'delete_policy': 'DeletePolicy',
         'entry_list_file_bucket': 'EntryListFileBucket',
         'entry_list_file_key': 'EntryListFileKey',
         'entry_list_file_name': 'EntryListFileName',
@@ -66,7 +68,7 @@ class CreateDataFlowTaskRequest(object):
         'type': 'Type'
     }
 
-    def __init__(self, bucket_name=None, bucket_prefix=None, data_flow_id=None, entry_list_file_bucket=None, entry_list_file_key=None, entry_list_file_name=None, evict_policy=None, export_policy=None, file_system_id=None, file_system_path=None, import_policy=None, same_name_file_policy=None, src_id=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_name=None, bucket_prefix=None, data_flow_id=None, delete_policy=None, entry_list_file_bucket=None, entry_list_file_key=None, entry_list_file_name=None, evict_policy=None, export_policy=None, file_system_id=None, file_system_path=None, import_policy=None, same_name_file_policy=None, src_id=None, type=None, _configuration=None):  # noqa: E501
         """CreateDataFlowTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class CreateDataFlowTaskRequest(object):
         self._bucket_name = None
         self._bucket_prefix = None
         self._data_flow_id = None
+        self._delete_policy = None
         self._entry_list_file_bucket = None
         self._entry_list_file_key = None
         self._entry_list_file_name = None
@@ -94,6 +97,8 @@ class CreateDataFlowTaskRequest(object):
             self.bucket_prefix = bucket_prefix
         if data_flow_id is not None:
             self.data_flow_id = data_flow_id
+        if delete_policy is not None:
+            self.delete_policy = delete_policy
         if entry_list_file_bucket is not None:
             self.entry_list_file_bucket = entry_list_file_bucket
         if entry_list_file_key is not None:
@@ -179,6 +184,27 @@ class CreateDataFlowTaskRequest(object):
         """
 
         self._data_flow_id = data_flow_id
+
+    @property
+    def delete_policy(self):
+        """Gets the delete_policy of this CreateDataFlowTaskRequest.  # noqa: E501
+
+
+        :return: The delete_policy of this CreateDataFlowTaskRequest.  # noqa: E501
+        :rtype: DeletePolicyForCreateDataFlowTaskInput
+        """
+        return self._delete_policy
+
+    @delete_policy.setter
+    def delete_policy(self, delete_policy):
+        """Sets the delete_policy of this CreateDataFlowTaskRequest.
+
+
+        :param delete_policy: The delete_policy of this CreateDataFlowTaskRequest.  # noqa: E501
+        :type: DeletePolicyForCreateDataFlowTaskInput
+        """
+
+        self._delete_policy = delete_policy
 
     @property
     def entry_list_file_bucket(self):
@@ -415,7 +441,7 @@ class CreateDataFlowTaskRequest(object):
         :param type: The type of this CreateDataFlowTaskRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Import", "Export", "Evict"]  # noqa: E501
+        allowed_values = ["Import", "Export", "Evict", "Delete"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 type not in allowed_values):
             raise ValueError(

@@ -67,14 +67,22 @@ def build_auth_token(api_client, db_user, instance_id, expires=None):
     request.service = DEFAULT_SERVICE
     request.is_presign = True
 
-    # Create interceptor chain:
-    #   ResolveEndpointInterceptor - resolves endpoint + scheme
-    #   SignRequestInterceptor     - presign URL signing
-    chain = InterceptorChain()
-    chain.append_request_interceptor(ResolveEndpointInterceptor())
-    chain.append_request_interceptor(SignRequestInterceptor())
-
     context = InterceptorContext(request=request)
-    context = chain.execute_request(context)
 
-    return '{url}?{query}'.format(url=context.request.url, query=context.request.signed_query)
+    # Step 1: Resolve endpoint to get host
+    resolve_chain = InterceptorChain()
+    resolve_chain.append_request_interceptor(ResolveEndpointInterceptor())
+    context = resolve_chain.execute_request(context)
+
+    # Step 2: Save resolved host to X-Host query param, then clear host so it won't be signed
+    resolved_host = context.request.host
+    context.request.query_params['X-Host'] = '{scheme}://{host}'.format(
+        scheme=context.request.scheme, host=resolved_host)
+    context.request.host = None
+
+    # Step 3: Sign request (host is None, won't be included in signature)
+    sign_chain = InterceptorChain()
+    sign_chain.append_request_interceptor(SignRequestInterceptor())
+    context = sign_chain.execute_request(context)
+
+    return context.request.signed_query

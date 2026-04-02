@@ -37,7 +37,8 @@ class AwardConditionForListAwardConfigsOutput(object):
         'questionnaire': 'str',
         'quiz': 'str',
         'right_quiz': 'str',
-        'vote': 'str'
+        'vote': 'str',
+        'watch_live_time': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class AwardConditionForListAwardConfigsOutput(object):
         'questionnaire': 'Questionnaire',
         'quiz': 'Quiz',
         'right_quiz': 'RightQuiz',
-        'vote': 'Vote'
+        'vote': 'Vote',
+        'watch_live_time': 'WatchLiveTime'
     }
 
-    def __init__(self, check_in=None, questionnaire=None, quiz=None, right_quiz=None, vote=None, _configuration=None):  # noqa: E501
+    def __init__(self, check_in=None, questionnaire=None, quiz=None, right_quiz=None, vote=None, watch_live_time=None, _configuration=None):  # noqa: E501
         """AwardConditionForListAwardConfigsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class AwardConditionForListAwardConfigsOutput(object):
         self._quiz = None
         self._right_quiz = None
         self._vote = None
+        self._watch_live_time = None
         self.discriminator = None
 
         if check_in is not None:
@@ -71,6 +74,8 @@ class AwardConditionForListAwardConfigsOutput(object):
             self.right_quiz = right_quiz
         if vote is not None:
             self.vote = vote
+        if watch_live_time is not None:
+            self.watch_live_time = watch_live_time
 
     @property
     def check_in(self):
@@ -176,6 +181,27 @@ class AwardConditionForListAwardConfigsOutput(object):
         """
 
         self._vote = vote
+
+    @property
+    def watch_live_time(self):
+        """Gets the watch_live_time of this AwardConditionForListAwardConfigsOutput.  # noqa: E501
+
+
+        :return: The watch_live_time of this AwardConditionForListAwardConfigsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._watch_live_time
+
+    @watch_live_time.setter
+    def watch_live_time(self, watch_live_time):
+        """Sets the watch_live_time of this AwardConditionForListAwardConfigsOutput.
+
+
+        :param watch_live_time: The watch_live_time of this AwardConditionForListAwardConfigsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._watch_live_time = watch_live_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

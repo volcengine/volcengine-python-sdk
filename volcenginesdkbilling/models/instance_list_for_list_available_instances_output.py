@@ -41,6 +41,7 @@ class InstanceListForListAvailableInstancesOutput(object):
         'instance_name': 'str',
         'payment_method': 'str',
         'product': 'str',
+        'product_name': 'str',
         'remain_renew_times': 'str',
         'renew_type': 'str',
         'renewal_duration_unit': 'str',
@@ -58,6 +59,7 @@ class InstanceListForListAvailableInstancesOutput(object):
         'instance_name': 'InstanceName',
         'payment_method': 'PaymentMethod',
         'product': 'Product',
+        'product_name': 'ProductName',
         'remain_renew_times': 'RemainRenewTimes',
         'renew_type': 'RenewType',
         'renewal_duration_unit': 'RenewalDurationUnit',
@@ -66,7 +68,7 @@ class InstanceListForListAvailableInstancesOutput(object):
         'sub_status': 'SubStatus'
     }
 
-    def __init__(self, account_id=None, begin_time=None, configuration_code=None, expired_time=None, instance_id=None, instance_name=None, payment_method=None, product=None, remain_renew_times=None, renew_type=None, renewal_duration_unit=None, renewal_times=None, status=None, sub_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, begin_time=None, configuration_code=None, expired_time=None, instance_id=None, instance_name=None, payment_method=None, product=None, product_name=None, remain_renew_times=None, renew_type=None, renewal_duration_unit=None, renewal_times=None, status=None, sub_status=None, _configuration=None):  # noqa: E501
         """InstanceListForListAvailableInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +82,7 @@ class InstanceListForListAvailableInstancesOutput(object):
         self._instance_name = None
         self._payment_method = None
         self._product = None
+        self._product_name = None
         self._remain_renew_times = None
         self._renew_type = None
         self._renewal_duration_unit = None
@@ -104,6 +107,8 @@ class InstanceListForListAvailableInstancesOutput(object):
             self.payment_method = payment_method
         if product is not None:
             self.product = product
+        if product_name is not None:
+            self.product_name = product_name
         if remain_renew_times is not None:
             self.remain_renew_times = remain_renew_times
         if renew_type is not None:
@@ -284,6 +289,27 @@ class InstanceListForListAvailableInstancesOutput(object):
         """
 
         self._product = product
+
+    @property
+    def product_name(self):
+        """Gets the product_name of this InstanceListForListAvailableInstancesOutput.  # noqa: E501
+
+
+        :return: The product_name of this InstanceListForListAvailableInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._product_name
+
+    @product_name.setter
+    def product_name(self, product_name):
+        """Sets the product_name of this InstanceListForListAvailableInstancesOutput.
+
+
+        :param product_name: The product_name of this InstanceListForListAvailableInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._product_name = product_name
 
     @property
     def remain_renew_times(self):

@@ -33,7 +33,7 @@ class VideoProjectSerialDubTaskCreateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'project_id': 'int',
+        'project_id': 'str',
         'serial_info': 'list[SerialInfoForVideoProjectSerialDubTaskCreateInput]',
         'task_info': 'TaskInfoForVideoProjectSerialDubTaskCreateInput'
     }
@@ -67,7 +67,7 @@ class VideoProjectSerialDubTaskCreateRequest(object):
 
 
         :return: The project_id of this VideoProjectSerialDubTaskCreateRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._project_id
 
@@ -77,7 +77,7 @@ class VideoProjectSerialDubTaskCreateRequest(object):
 
 
         :param project_id: The project_id of this VideoProjectSerialDubTaskCreateRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and project_id is None:
             raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
