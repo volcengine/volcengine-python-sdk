@@ -33,35 +33,48 @@ class ListSandboxesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'filters': 'list[FilterForListSandboxesInput]',
         'function_id': 'str',
-        'metadata': 'MetadataForListSandboxesInput',
+        'image_url': 'str',
+        'metadata': 'dict(str, str)',
         'page_number': 'int',
         'page_size': 'int',
-        'sandbox_id': 'str'
+        'sandbox_id': 'str',
+        'status': 'str'
     }
 
     attribute_map = {
+        'filters': 'Filters',
         'function_id': 'FunctionId',
+        'image_url': 'ImageUrl',
         'metadata': 'Metadata',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'sandbox_id': 'SandboxId'
+        'sandbox_id': 'SandboxId',
+        'status': 'Status'
     }
 
-    def __init__(self, function_id=None, metadata=None, page_number=None, page_size=None, sandbox_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, filters=None, function_id=None, image_url=None, metadata=None, page_number=None, page_size=None, sandbox_id=None, status=None, _configuration=None):  # noqa: E501
         """ListSandboxesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._filters = None
         self._function_id = None
+        self._image_url = None
         self._metadata = None
         self._page_number = None
         self._page_size = None
         self._sandbox_id = None
+        self._status = None
         self.discriminator = None
 
+        if filters is not None:
+            self.filters = filters
         self.function_id = function_id
+        if image_url is not None:
+            self.image_url = image_url
         if metadata is not None:
             self.metadata = metadata
         if page_number is not None:
@@ -70,6 +83,29 @@ class ListSandboxesRequest(object):
             self.page_size = page_size
         if sandbox_id is not None:
             self.sandbox_id = sandbox_id
+        if status is not None:
+            self.status = status
+
+    @property
+    def filters(self):
+        """Gets the filters of this ListSandboxesRequest.  # noqa: E501
+
+
+        :return: The filters of this ListSandboxesRequest.  # noqa: E501
+        :rtype: list[FilterForListSandboxesInput]
+        """
+        return self._filters
+
+    @filters.setter
+    def filters(self, filters):
+        """Sets the filters of this ListSandboxesRequest.
+
+
+        :param filters: The filters of this ListSandboxesRequest.  # noqa: E501
+        :type: list[FilterForListSandboxesInput]
+        """
+
+        self._filters = filters
 
     @property
     def function_id(self):
@@ -95,12 +131,33 @@ class ListSandboxesRequest(object):
         self._function_id = function_id
 
     @property
+    def image_url(self):
+        """Gets the image_url of this ListSandboxesRequest.  # noqa: E501
+
+
+        :return: The image_url of this ListSandboxesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_url
+
+    @image_url.setter
+    def image_url(self, image_url):
+        """Sets the image_url of this ListSandboxesRequest.
+
+
+        :param image_url: The image_url of this ListSandboxesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._image_url = image_url
+
+    @property
     def metadata(self):
         """Gets the metadata of this ListSandboxesRequest.  # noqa: E501
 
 
         :return: The metadata of this ListSandboxesRequest.  # noqa: E501
-        :rtype: MetadataForListSandboxesInput
+        :rtype: dict(str, str)
         """
         return self._metadata
 
@@ -110,7 +167,7 @@ class ListSandboxesRequest(object):
 
 
         :param metadata: The metadata of this ListSandboxesRequest.  # noqa: E501
-        :type: MetadataForListSandboxesInput
+        :type: dict(str, str)
         """
 
         self._metadata = metadata
@@ -177,6 +234,27 @@ class ListSandboxesRequest(object):
         """
 
         self._sandbox_id = sandbox_id
+
+    @property
+    def status(self):
+        """Gets the status of this ListSandboxesRequest.  # noqa: E501
+
+
+        :return: The status of this ListSandboxesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this ListSandboxesRequest.
+
+
+        :param status: The status of this ListSandboxesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""
