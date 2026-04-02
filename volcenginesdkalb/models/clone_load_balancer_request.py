@@ -36,6 +36,7 @@ class CloneLoadBalancerRequest(object):
         'bandwidth_package_id': 'str',
         'delete_protection': 'str',
         'description': 'str',
+        'dry_run': 'str',
         'eip_billing_config': 'EipBillingConfigForCloneLoadBalancerInput',
         'ipv6_bandwidth_package_id': 'str',
         'ipv6_eip_billing_config': 'Ipv6EipBillingConfigForCloneLoadBalancerInput',
@@ -50,6 +51,7 @@ class CloneLoadBalancerRequest(object):
         'bandwidth_package_id': 'BandwidthPackageId',
         'delete_protection': 'DeleteProtection',
         'description': 'Description',
+        'dry_run': 'DryRun',
         'eip_billing_config': 'EipBillingConfig',
         'ipv6_bandwidth_package_id': 'Ipv6BandwidthPackageId',
         'ipv6_eip_billing_config': 'Ipv6EipBillingConfig',
@@ -60,7 +62,7 @@ class CloneLoadBalancerRequest(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, bandwidth_package_id=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_bandwidth_package_id=None, ipv6_eip_billing_config=None, load_balancer_id=None, load_balancer_name=None, project_name=None, region_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth_package_id=None, delete_protection=None, description=None, dry_run=None, eip_billing_config=None, ipv6_bandwidth_package_id=None, ipv6_eip_billing_config=None, load_balancer_id=None, load_balancer_name=None, project_name=None, region_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """CloneLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class CloneLoadBalancerRequest(object):
         self._bandwidth_package_id = None
         self._delete_protection = None
         self._description = None
+        self._dry_run = None
         self._eip_billing_config = None
         self._ipv6_bandwidth_package_id = None
         self._ipv6_eip_billing_config = None
@@ -85,6 +88,8 @@ class CloneLoadBalancerRequest(object):
             self.delete_protection = delete_protection
         if description is not None:
             self.description = description
+        if dry_run is not None:
+            self.dry_run = dry_run
         if eip_billing_config is not None:
             self.eip_billing_config = eip_billing_config
         if ipv6_bandwidth_package_id is not None:
@@ -162,6 +167,27 @@ class CloneLoadBalancerRequest(object):
         """
 
         self._description = description
+
+    @property
+    def dry_run(self):
+        """Gets the dry_run of this CloneLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The dry_run of this CloneLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._dry_run
+
+    @dry_run.setter
+    def dry_run(self, dry_run):
+        """Sets the dry_run of this CloneLoadBalancerRequest.
+
+
+        :param dry_run: The dry_run of this CloneLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._dry_run = dry_run
 
     @property
     def eip_billing_config(self):

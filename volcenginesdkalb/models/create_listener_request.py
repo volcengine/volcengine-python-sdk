@@ -55,7 +55,8 @@ class CreateListenerRequest(object):
         'port': 'int',
         'protocol': 'str',
         'server_group_id': 'str',
-        'tags': 'list[TagForCreateListenerInput]'
+        'tags': 'list[TagForCreateListenerInput]',
+        'x_real_ip_enabled': 'str'
     }
 
     attribute_map = {
@@ -81,10 +82,11 @@ class CreateListenerRequest(object):
         'port': 'Port',
         'protocol': 'Protocol',
         'server_group_id': 'ServerGroupId',
-        'tags': 'Tags'
+        'tags': 'Tags',
+        'x_real_ip_enabled': 'XRealIpEnabled'
     }
 
-    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_name=None, load_balancer_id=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, port=None, protocol=None, server_group_id=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_name=None, load_balancer_id=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, port=None, protocol=None, server_group_id=None, tags=None, x_real_ip_enabled=None, _configuration=None):  # noqa: E501
         """CreateListenerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -113,6 +115,7 @@ class CreateListenerRequest(object):
         self._protocol = None
         self._server_group_id = None
         self._tags = None
+        self._x_real_ip_enabled = None
         self.discriminator = None
 
         if access_log_record_customized_headers_enabled is not None:
@@ -157,6 +160,8 @@ class CreateListenerRequest(object):
         self.server_group_id = server_group_id
         if tags is not None:
             self.tags = tags
+        if x_real_ip_enabled is not None:
+            self.x_real_ip_enabled = x_real_ip_enabled
 
     @property
     def access_log_record_customized_headers_enabled(self):
@@ -654,6 +659,27 @@ class CreateListenerRequest(object):
         """
 
         self._tags = tags
+
+    @property
+    def x_real_ip_enabled(self):
+        """Gets the x_real_ip_enabled of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The x_real_ip_enabled of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._x_real_ip_enabled
+
+    @x_real_ip_enabled.setter
+    def x_real_ip_enabled(self, x_real_ip_enabled):
+        """Sets the x_real_ip_enabled of this CreateListenerRequest.
+
+
+        :param x_real_ip_enabled: The x_real_ip_enabled of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._x_real_ip_enabled = x_real_ip_enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

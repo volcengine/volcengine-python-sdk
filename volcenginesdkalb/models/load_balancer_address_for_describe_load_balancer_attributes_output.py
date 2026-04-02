@@ -39,8 +39,10 @@ class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput(object):
         'eni_address': 'str',
         'eni_id': 'str',
         'eni_ipv6_address': 'str',
+        'ipv4_local_addresses': 'list[str]',
         'ipv6_eip': 'Ipv6EipForDescribeLoadBalancerAttributesOutput',
-        'ipv6_eip_id': 'str'
+        'ipv6_eip_id': 'str',
+        'ipv6_local_addresses': 'list[str]'
     }
 
     attribute_map = {
@@ -50,11 +52,13 @@ class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput(object):
         'eni_address': 'EniAddress',
         'eni_id': 'EniId',
         'eni_ipv6_address': 'EniIpv6Address',
+        'ipv4_local_addresses': 'Ipv4LocalAddresses',
         'ipv6_eip': 'Ipv6Eip',
-        'ipv6_eip_id': 'Ipv6EipId'
+        'ipv6_eip_id': 'Ipv6EipId',
+        'ipv6_local_addresses': 'Ipv6LocalAddresses'
     }
 
-    def __init__(self, eip=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, eni_ipv6_address=None, ipv6_eip=None, ipv6_eip_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, eni_ipv6_address=None, ipv4_local_addresses=None, ipv6_eip=None, ipv6_eip_id=None, ipv6_local_addresses=None, _configuration=None):  # noqa: E501
         """LoadBalancerAddressForDescribeLoadBalancerAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,8 +70,10 @@ class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput(object):
         self._eni_address = None
         self._eni_id = None
         self._eni_ipv6_address = None
+        self._ipv4_local_addresses = None
         self._ipv6_eip = None
         self._ipv6_eip_id = None
+        self._ipv6_local_addresses = None
         self.discriminator = None
 
         if eip is not None:
@@ -82,10 +88,14 @@ class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput(object):
             self.eni_id = eni_id
         if eni_ipv6_address is not None:
             self.eni_ipv6_address = eni_ipv6_address
+        if ipv4_local_addresses is not None:
+            self.ipv4_local_addresses = ipv4_local_addresses
         if ipv6_eip is not None:
             self.ipv6_eip = ipv6_eip
         if ipv6_eip_id is not None:
             self.ipv6_eip_id = ipv6_eip_id
+        if ipv6_local_addresses is not None:
+            self.ipv6_local_addresses = ipv6_local_addresses
 
     @property
     def eip(self):
@@ -214,6 +224,27 @@ class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput(object):
         self._eni_ipv6_address = eni_ipv6_address
 
     @property
+    def ipv4_local_addresses(self):
+        """Gets the ipv4_local_addresses of this LoadBalancerAddressForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The ipv4_local_addresses of this LoadBalancerAddressForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ipv4_local_addresses
+
+    @ipv4_local_addresses.setter
+    def ipv4_local_addresses(self, ipv4_local_addresses):
+        """Sets the ipv4_local_addresses of this LoadBalancerAddressForDescribeLoadBalancerAttributesOutput.
+
+
+        :param ipv4_local_addresses: The ipv4_local_addresses of this LoadBalancerAddressForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ipv4_local_addresses = ipv4_local_addresses
+
+    @property
     def ipv6_eip(self):
         """Gets the ipv6_eip of this LoadBalancerAddressForDescribeLoadBalancerAttributesOutput.  # noqa: E501
 
@@ -254,6 +285,27 @@ class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput(object):
         """
 
         self._ipv6_eip_id = ipv6_eip_id
+
+    @property
+    def ipv6_local_addresses(self):
+        """Gets the ipv6_local_addresses of this LoadBalancerAddressForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The ipv6_local_addresses of this LoadBalancerAddressForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ipv6_local_addresses
+
+    @ipv6_local_addresses.setter
+    def ipv6_local_addresses(self, ipv6_local_addresses):
+        """Sets the ipv6_local_addresses of this LoadBalancerAddressForDescribeLoadBalancerAttributesOutput.
+
+
+        :param ipv6_local_addresses: The ipv6_local_addresses of this LoadBalancerAddressForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ipv6_local_addresses = ipv6_local_addresses
 
     def to_dict(self):
         """Returns the model properties as a dict"""
