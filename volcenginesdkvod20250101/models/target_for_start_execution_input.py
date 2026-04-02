@@ -33,34 +33,60 @@ class TargetForStartExecutionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bitrate': 'int',
         'fps': 'float',
         'res': 'str',
         'res_limit': 'int'
     }
 
     attribute_map = {
+        'bitrate': 'Bitrate',
         'fps': 'Fps',
         'res': 'Res',
         'res_limit': 'ResLimit'
     }
 
-    def __init__(self, fps=None, res=None, res_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, bitrate=None, fps=None, res=None, res_limit=None, _configuration=None):  # noqa: E501
         """TargetForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bitrate = None
         self._fps = None
         self._res = None
         self._res_limit = None
         self.discriminator = None
 
+        if bitrate is not None:
+            self.bitrate = bitrate
         if fps is not None:
             self.fps = fps
         if res is not None:
             self.res = res
         if res_limit is not None:
             self.res_limit = res_limit
+
+    @property
+    def bitrate(self):
+        """Gets the bitrate of this TargetForStartExecutionInput.  # noqa: E501
+
+
+        :return: The bitrate of this TargetForStartExecutionInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bitrate
+
+    @bitrate.setter
+    def bitrate(self, bitrate):
+        """Sets the bitrate of this TargetForStartExecutionInput.
+
+
+        :param bitrate: The bitrate of this TargetForStartExecutionInput.  # noqa: E501
+        :type: int
+        """
+
+        self._bitrate = bitrate
 
     @property
     def fps(self):

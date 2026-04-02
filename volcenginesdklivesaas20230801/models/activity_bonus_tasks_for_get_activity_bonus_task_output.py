@@ -37,6 +37,7 @@ class ActivityBonusTasksForGetActivityBonusTaskOutput(object):
         'actual_start_time': 'int',
         'bonus_list': 'list[BonusListForGetActivityBonusTaskOutput]',
         'end_time': 'int',
+        'icon': 'str',
         'id': 'int',
         'name': 'str',
         'start_time': 'int',
@@ -49,6 +50,7 @@ class ActivityBonusTasksForGetActivityBonusTaskOutput(object):
         'actual_start_time': 'ActualStartTime',
         'bonus_list': 'BonusList',
         'end_time': 'EndTime',
+        'icon': 'Icon',
         'id': 'Id',
         'name': 'Name',
         'start_time': 'StartTime',
@@ -56,7 +58,7 @@ class ActivityBonusTasksForGetActivityBonusTaskOutput(object):
         'task_running_type': 'TaskRunningType'
     }
 
-    def __init__(self, actual_end_time=None, actual_start_time=None, bonus_list=None, end_time=None, id=None, name=None, start_time=None, status=None, task_running_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, actual_end_time=None, actual_start_time=None, bonus_list=None, end_time=None, icon=None, id=None, name=None, start_time=None, status=None, task_running_type=None, _configuration=None):  # noqa: E501
         """ActivityBonusTasksForGetActivityBonusTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class ActivityBonusTasksForGetActivityBonusTaskOutput(object):
         self._actual_start_time = None
         self._bonus_list = None
         self._end_time = None
+        self._icon = None
         self._id = None
         self._name = None
         self._start_time = None
@@ -81,6 +84,8 @@ class ActivityBonusTasksForGetActivityBonusTaskOutput(object):
             self.bonus_list = bonus_list
         if end_time is not None:
             self.end_time = end_time
+        if icon is not None:
+            self.icon = icon
         if id is not None:
             self.id = id
         if name is not None:
@@ -175,6 +180,27 @@ class ActivityBonusTasksForGetActivityBonusTaskOutput(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def icon(self):
+        """Gets the icon of this ActivityBonusTasksForGetActivityBonusTaskOutput.  # noqa: E501
+
+
+        :return: The icon of this ActivityBonusTasksForGetActivityBonusTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._icon
+
+    @icon.setter
+    def icon(self, icon):
+        """Sets the icon of this ActivityBonusTasksForGetActivityBonusTaskOutput.
+
+
+        :param icon: The icon of this ActivityBonusTasksForGetActivityBonusTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._icon = icon
 
     @property
     def id(self):

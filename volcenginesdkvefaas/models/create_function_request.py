@@ -40,6 +40,7 @@ class CreateFunctionRequest(object):
         'cpu_strategy': 'str',
         'description': 'str',
         'enable_apmplus': 'bool',
+        'enable_zti_token': 'str',
         'envs': 'list[EnvForCreateFunctionInput]',
         'exclusive_mode': 'bool',
         'initializer_sec': 'int',
@@ -70,6 +71,7 @@ class CreateFunctionRequest(object):
         'cpu_strategy': 'CpuStrategy',
         'description': 'Description',
         'enable_apmplus': 'EnableApmplus',
+        'enable_zti_token': 'EnableZTIToken',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
         'initializer_sec': 'InitializerSec',
@@ -92,7 +94,7 @@ class CreateFunctionRequest(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, async_task_config=None, cell=None, command=None, cpu_milli=None, cpu_strategy=None, description=None, enable_apmplus=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, cell=None, command=None, cpu_milli=None, cpu_strategy=None, description=None, enable_apmplus=None, enable_zti_token=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -105,6 +107,7 @@ class CreateFunctionRequest(object):
         self._cpu_strategy = None
         self._description = None
         self._enable_apmplus = None
+        self._enable_zti_token = None
         self._envs = None
         self._exclusive_mode = None
         self._initializer_sec = None
@@ -141,6 +144,8 @@ class CreateFunctionRequest(object):
             self.description = description
         if enable_apmplus is not None:
             self.enable_apmplus = enable_apmplus
+        if enable_zti_token is not None:
+            self.enable_zti_token = enable_zti_token
         if envs is not None:
             self.envs = envs
         if exclusive_mode is not None:
@@ -326,6 +331,27 @@ class CreateFunctionRequest(object):
         """
 
         self._enable_apmplus = enable_apmplus
+
+    @property
+    def enable_zti_token(self):
+        """Gets the enable_zti_token of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The enable_zti_token of this CreateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._enable_zti_token
+
+    @enable_zti_token.setter
+    def enable_zti_token(self, enable_zti_token):
+        """Sets the enable_zti_token of this CreateFunctionRequest.
+
+
+        :param enable_zti_token: The enable_zti_token of this CreateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._enable_zti_token = enable_zti_token
 
     @property
     def envs(self):

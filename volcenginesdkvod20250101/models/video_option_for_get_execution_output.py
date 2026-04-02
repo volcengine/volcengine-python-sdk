@@ -33,227 +33,45 @@ class VideoOptionForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'aspect_ratio': 'str',
-        'duration': 'int',
-        'fixed_camera': 'bool',
-        'fps': 'int',
-        'model': 'str',
-        'resolution': 'str',
-        'seed': 'str',
-        'watermark': 'bool'
+        'encode_mode': 'str'
     }
 
     attribute_map = {
-        'aspect_ratio': 'AspectRatio',
-        'duration': 'Duration',
-        'fixed_camera': 'FixedCamera',
-        'fps': 'Fps',
-        'model': 'Model',
-        'resolution': 'Resolution',
-        'seed': 'Seed',
-        'watermark': 'Watermark'
+        'encode_mode': 'EncodeMode'
     }
 
-    def __init__(self, aspect_ratio=None, duration=None, fixed_camera=None, fps=None, model=None, resolution=None, seed=None, watermark=None, _configuration=None):  # noqa: E501
+    def __init__(self, encode_mode=None, _configuration=None):  # noqa: E501
         """VideoOptionForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._aspect_ratio = None
-        self._duration = None
-        self._fixed_camera = None
-        self._fps = None
-        self._model = None
-        self._resolution = None
-        self._seed = None
-        self._watermark = None
+        self._encode_mode = None
         self.discriminator = None
 
-        if aspect_ratio is not None:
-            self.aspect_ratio = aspect_ratio
-        if duration is not None:
-            self.duration = duration
-        if fixed_camera is not None:
-            self.fixed_camera = fixed_camera
-        if fps is not None:
-            self.fps = fps
-        if model is not None:
-            self.model = model
-        if resolution is not None:
-            self.resolution = resolution
-        if seed is not None:
-            self.seed = seed
-        if watermark is not None:
-            self.watermark = watermark
+        if encode_mode is not None:
+            self.encode_mode = encode_mode
 
     @property
-    def aspect_ratio(self):
-        """Gets the aspect_ratio of this VideoOptionForGetExecutionOutput.  # noqa: E501
+    def encode_mode(self):
+        """Gets the encode_mode of this VideoOptionForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The aspect_ratio of this VideoOptionForGetExecutionOutput.  # noqa: E501
+        :return: The encode_mode of this VideoOptionForGetExecutionOutput.  # noqa: E501
         :rtype: str
         """
-        return self._aspect_ratio
+        return self._encode_mode
 
-    @aspect_ratio.setter
-    def aspect_ratio(self, aspect_ratio):
-        """Sets the aspect_ratio of this VideoOptionForGetExecutionOutput.
+    @encode_mode.setter
+    def encode_mode(self, encode_mode):
+        """Sets the encode_mode of this VideoOptionForGetExecutionOutput.
 
 
-        :param aspect_ratio: The aspect_ratio of this VideoOptionForGetExecutionOutput.  # noqa: E501
+        :param encode_mode: The encode_mode of this VideoOptionForGetExecutionOutput.  # noqa: E501
         :type: str
         """
 
-        self._aspect_ratio = aspect_ratio
-
-    @property
-    def duration(self):
-        """Gets the duration of this VideoOptionForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The duration of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._duration
-
-    @duration.setter
-    def duration(self, duration):
-        """Sets the duration of this VideoOptionForGetExecutionOutput.
-
-
-        :param duration: The duration of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._duration = duration
-
-    @property
-    def fixed_camera(self):
-        """Gets the fixed_camera of this VideoOptionForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The fixed_camera of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._fixed_camera
-
-    @fixed_camera.setter
-    def fixed_camera(self, fixed_camera):
-        """Sets the fixed_camera of this VideoOptionForGetExecutionOutput.
-
-
-        :param fixed_camera: The fixed_camera of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :type: bool
-        """
-
-        self._fixed_camera = fixed_camera
-
-    @property
-    def fps(self):
-        """Gets the fps of this VideoOptionForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The fps of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._fps
-
-    @fps.setter
-    def fps(self, fps):
-        """Sets the fps of this VideoOptionForGetExecutionOutput.
-
-
-        :param fps: The fps of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._fps = fps
-
-    @property
-    def model(self):
-        """Gets the model of this VideoOptionForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The model of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._model
-
-    @model.setter
-    def model(self, model):
-        """Sets the model of this VideoOptionForGetExecutionOutput.
-
-
-        :param model: The model of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._model = model
-
-    @property
-    def resolution(self):
-        """Gets the resolution of this VideoOptionForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The resolution of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._resolution
-
-    @resolution.setter
-    def resolution(self, resolution):
-        """Sets the resolution of this VideoOptionForGetExecutionOutput.
-
-
-        :param resolution: The resolution of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._resolution = resolution
-
-    @property
-    def seed(self):
-        """Gets the seed of this VideoOptionForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The seed of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._seed
-
-    @seed.setter
-    def seed(self, seed):
-        """Sets the seed of this VideoOptionForGetExecutionOutput.
-
-
-        :param seed: The seed of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._seed = seed
-
-    @property
-    def watermark(self):
-        """Gets the watermark of this VideoOptionForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The watermark of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._watermark
-
-    @watermark.setter
-    def watermark(self, watermark):
-        """Sets the watermark of this VideoOptionForGetExecutionOutput.
-
-
-        :param watermark: The watermark of this VideoOptionForGetExecutionOutput.  # noqa: E501
-        :type: bool
-        """
-
-        self._watermark = watermark
+        self._encode_mode = encode_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

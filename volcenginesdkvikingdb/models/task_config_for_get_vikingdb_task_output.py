@@ -39,6 +39,7 @@ class TaskConfigForGetVikingdbTaskOutput(object):
         'filter_conds': 'list[object]',
         'ignore_error': 'bool',
         'need_confirm': 'bool',
+        'output_fields': 'list[str]',
         'project_name': 'str',
         'resource_id': 'str',
         'tos_path': 'str',
@@ -53,6 +54,7 @@ class TaskConfigForGetVikingdbTaskOutput(object):
         'filter_conds': 'FilterConds',
         'ignore_error': 'IgnoreError',
         'need_confirm': 'NeedConfirm',
+        'output_fields': 'OutputFields',
         'project_name': 'ProjectName',
         'resource_id': 'ResourceId',
         'tos_path': 'TosPath',
@@ -60,7 +62,7 @@ class TaskConfigForGetVikingdbTaskOutput(object):
         'use_public': 'UsePublic'
     }
 
-    def __init__(self, collection_name=None, export_all=None, file_type=None, filter_conds=None, ignore_error=None, need_confirm=None, project_name=None, resource_id=None, tos_path=None, update_fields=None, use_public=None, _configuration=None):  # noqa: E501
+    def __init__(self, collection_name=None, export_all=None, file_type=None, filter_conds=None, ignore_error=None, need_confirm=None, output_fields=None, project_name=None, resource_id=None, tos_path=None, update_fields=None, use_public=None, _configuration=None):  # noqa: E501
         """TaskConfigForGetVikingdbTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class TaskConfigForGetVikingdbTaskOutput(object):
         self._filter_conds = None
         self._ignore_error = None
         self._need_confirm = None
+        self._output_fields = None
         self._project_name = None
         self._resource_id = None
         self._tos_path = None
@@ -91,6 +94,8 @@ class TaskConfigForGetVikingdbTaskOutput(object):
             self.ignore_error = ignore_error
         if need_confirm is not None:
             self.need_confirm = need_confirm
+        if output_fields is not None:
+            self.output_fields = output_fields
         if project_name is not None:
             self.project_name = project_name
         if resource_id is not None:
@@ -227,6 +232,27 @@ class TaskConfigForGetVikingdbTaskOutput(object):
         """
 
         self._need_confirm = need_confirm
+
+    @property
+    def output_fields(self):
+        """Gets the output_fields of this TaskConfigForGetVikingdbTaskOutput.  # noqa: E501
+
+
+        :return: The output_fields of this TaskConfigForGetVikingdbTaskOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._output_fields
+
+    @output_fields.setter
+    def output_fields(self, output_fields):
+        """Sets the output_fields of this TaskConfigForGetVikingdbTaskOutput.
+
+
+        :param output_fields: The output_fields of this TaskConfigForGetVikingdbTaskOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._output_fields = output_fields
 
     @property
     def project_name(self):

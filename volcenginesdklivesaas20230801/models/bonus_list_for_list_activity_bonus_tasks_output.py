@@ -35,6 +35,7 @@ class BonusListForListActivityBonusTasksOutput(object):
     swagger_types = {
         'sub_bonus': 'SubBonusForListActivityBonusTasksOutput',
         'sub_bonus_type': 'int',
+        'sub_task': 'SubTaskForListActivityBonusTasksOutput',
         'sub_task_condition': 'int',
         'sub_task_type': 'int'
     }
@@ -42,11 +43,12 @@ class BonusListForListActivityBonusTasksOutput(object):
     attribute_map = {
         'sub_bonus': 'SubBonus',
         'sub_bonus_type': 'SubBonusType',
+        'sub_task': 'SubTask',
         'sub_task_condition': 'SubTaskCondition',
         'sub_task_type': 'SubTaskType'
     }
 
-    def __init__(self, sub_bonus=None, sub_bonus_type=None, sub_task_condition=None, sub_task_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, sub_bonus=None, sub_bonus_type=None, sub_task=None, sub_task_condition=None, sub_task_type=None, _configuration=None):  # noqa: E501
         """BonusListForListActivityBonusTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class BonusListForListActivityBonusTasksOutput(object):
 
         self._sub_bonus = None
         self._sub_bonus_type = None
+        self._sub_task = None
         self._sub_task_condition = None
         self._sub_task_type = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class BonusListForListActivityBonusTasksOutput(object):
             self.sub_bonus = sub_bonus
         if sub_bonus_type is not None:
             self.sub_bonus_type = sub_bonus_type
+        if sub_task is not None:
+            self.sub_task = sub_task
         if sub_task_condition is not None:
             self.sub_task_condition = sub_task_condition
         if sub_task_type is not None:
@@ -108,6 +113,27 @@ class BonusListForListActivityBonusTasksOutput(object):
         """
 
         self._sub_bonus_type = sub_bonus_type
+
+    @property
+    def sub_task(self):
+        """Gets the sub_task of this BonusListForListActivityBonusTasksOutput.  # noqa: E501
+
+
+        :return: The sub_task of this BonusListForListActivityBonusTasksOutput.  # noqa: E501
+        :rtype: SubTaskForListActivityBonusTasksOutput
+        """
+        return self._sub_task
+
+    @sub_task.setter
+    def sub_task(self, sub_task):
+        """Sets the sub_task of this BonusListForListActivityBonusTasksOutput.
+
+
+        :param sub_task: The sub_task of this BonusListForListActivityBonusTasksOutput.  # noqa: E501
+        :type: SubTaskForListActivityBonusTasksOutput
+        """
+
+        self._sub_task = sub_task
 
     @property
     def sub_task_condition(self):

@@ -33,23 +33,34 @@ class DeleteGroupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'group_id': 'str'
+        'group_id': 'str',
+        'group_name': 'str',
+        'instance_id': 'str'
     }
 
     attribute_map = {
-        'group_id': 'GroupId'
+        'group_id': 'GroupId',
+        'group_name': 'GroupName',
+        'instance_id': 'InstanceId'
     }
 
-    def __init__(self, group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, group_id=None, group_name=None, instance_id=None, _configuration=None):  # noqa: E501
         """DeleteGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._group_id = None
+        self._group_name = None
+        self._instance_id = None
         self.discriminator = None
 
-        self.group_id = group_id
+        if group_id is not None:
+            self.group_id = group_id
+        if group_name is not None:
+            self.group_name = group_name
+        if instance_id is not None:
+            self.instance_id = instance_id
 
     @property
     def group_id(self):
@@ -69,10 +80,50 @@ class DeleteGroupRequest(object):
         :param group_id: The group_id of this DeleteGroupRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and group_id is None:
-            raise ValueError("Invalid value for `group_id`, must not be `None`")  # noqa: E501
 
         self._group_id = group_id
+
+    @property
+    def group_name(self):
+        """Gets the group_name of this DeleteGroupRequest.  # noqa: E501
+
+
+        :return: The group_name of this DeleteGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._group_name
+
+    @group_name.setter
+    def group_name(self, group_name):
+        """Sets the group_name of this DeleteGroupRequest.
+
+
+        :param group_name: The group_name of this DeleteGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._group_name = group_name
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this DeleteGroupRequest.  # noqa: E501
+
+
+        :return: The instance_id of this DeleteGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this DeleteGroupRequest.
+
+
+        :param instance_id: The instance_id of this DeleteGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -38,6 +38,7 @@ class EraseForGetExecutionOutput(object):
         'manual': 'ManualForGetExecutionOutput',
         'mode': 'str',
         'new_vid': 'bool',
+        'video_option': 'VideoOptionForGetExecutionOutput',
         'with_erase_info': 'bool'
     }
 
@@ -47,10 +48,11 @@ class EraseForGetExecutionOutput(object):
         'manual': 'Manual',
         'mode': 'Mode',
         'new_vid': 'NewVid',
+        'video_option': 'VideoOption',
         'with_erase_info': 'WithEraseInfo'
     }
 
-    def __init__(self, auto=None, erase_option=None, manual=None, mode=None, new_vid=None, with_erase_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto=None, erase_option=None, manual=None, mode=None, new_vid=None, video_option=None, with_erase_info=None, _configuration=None):  # noqa: E501
         """EraseForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class EraseForGetExecutionOutput(object):
         self._manual = None
         self._mode = None
         self._new_vid = None
+        self._video_option = None
         self._with_erase_info = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class EraseForGetExecutionOutput(object):
             self.mode = mode
         if new_vid is not None:
             self.new_vid = new_vid
+        if video_option is not None:
+            self.video_option = video_option
         if with_erase_info is not None:
             self.with_erase_info = with_erase_info
 
@@ -181,6 +186,27 @@ class EraseForGetExecutionOutput(object):
         """
 
         self._new_vid = new_vid
+
+    @property
+    def video_option(self):
+        """Gets the video_option of this EraseForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The video_option of this EraseForGetExecutionOutput.  # noqa: E501
+        :rtype: VideoOptionForGetExecutionOutput
+        """
+        return self._video_option
+
+    @video_option.setter
+    def video_option(self, video_option):
+        """Sets the video_option of this EraseForGetExecutionOutput.
+
+
+        :param video_option: The video_option of this EraseForGetExecutionOutput.  # noqa: E501
+        :type: VideoOptionForGetExecutionOutput
+        """
+
+        self._video_option = video_option
 
     @property
     def with_erase_info(self):

@@ -34,47 +34,58 @@ class DataForProjectsOutput(object):
     """
     swagger_types = {
         'created_at': 'str',
+        'creator': 'CreatorForProjectsOutput',
         'creator_id': 'str',
         'description': 'str',
         'extra': 'ExtraForProjectsOutput',
-        'id': 'int',
+        'id': 'str',
         'name': 'str',
+        'source_lang': 'str',
         'source_locale': 'str',
+        'target_langs': 'list[str]',
         'target_locales': 'list[str]',
         'updated_at': 'str'
     }
 
     attribute_map = {
         'created_at': 'createdAt',
+        'creator': 'creator',
         'creator_id': 'creatorId',
         'description': 'description',
         'extra': 'extra',
         'id': 'id',
         'name': 'name',
+        'source_lang': 'sourceLang',
         'source_locale': 'sourceLocale',
+        'target_langs': 'targetLangs',
         'target_locales': 'targetLocales',
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, created_at=None, creator_id=None, description=None, extra=None, id=None, name=None, source_locale=None, target_locales=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, creator=None, creator_id=None, description=None, extra=None, id=None, name=None, source_lang=None, source_locale=None, target_langs=None, target_locales=None, updated_at=None, _configuration=None):  # noqa: E501
         """DataForProjectsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._created_at = None
+        self._creator = None
         self._creator_id = None
         self._description = None
         self._extra = None
         self._id = None
         self._name = None
+        self._source_lang = None
         self._source_locale = None
+        self._target_langs = None
         self._target_locales = None
         self._updated_at = None
         self.discriminator = None
 
         if created_at is not None:
             self.created_at = created_at
+        if creator is not None:
+            self.creator = creator
         if creator_id is not None:
             self.creator_id = creator_id
         if description is not None:
@@ -85,8 +96,12 @@ class DataForProjectsOutput(object):
             self.id = id
         if name is not None:
             self.name = name
+        if source_lang is not None:
+            self.source_lang = source_lang
         if source_locale is not None:
             self.source_locale = source_locale
+        if target_langs is not None:
+            self.target_langs = target_langs
         if target_locales is not None:
             self.target_locales = target_locales
         if updated_at is not None:
@@ -112,6 +127,27 @@ class DataForProjectsOutput(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def creator(self):
+        """Gets the creator of this DataForProjectsOutput.  # noqa: E501
+
+
+        :return: The creator of this DataForProjectsOutput.  # noqa: E501
+        :rtype: CreatorForProjectsOutput
+        """
+        return self._creator
+
+    @creator.setter
+    def creator(self, creator):
+        """Sets the creator of this DataForProjectsOutput.
+
+
+        :param creator: The creator of this DataForProjectsOutput.  # noqa: E501
+        :type: CreatorForProjectsOutput
+        """
+
+        self._creator = creator
 
     @property
     def creator_id(self):
@@ -182,7 +218,7 @@ class DataForProjectsOutput(object):
 
 
         :return: The id of this DataForProjectsOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._id
 
@@ -192,7 +228,7 @@ class DataForProjectsOutput(object):
 
 
         :param id: The id of this DataForProjectsOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._id = id
@@ -219,6 +255,27 @@ class DataForProjectsOutput(object):
         self._name = name
 
     @property
+    def source_lang(self):
+        """Gets the source_lang of this DataForProjectsOutput.  # noqa: E501
+
+
+        :return: The source_lang of this DataForProjectsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_lang
+
+    @source_lang.setter
+    def source_lang(self, source_lang):
+        """Sets the source_lang of this DataForProjectsOutput.
+
+
+        :param source_lang: The source_lang of this DataForProjectsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._source_lang = source_lang
+
+    @property
     def source_locale(self):
         """Gets the source_locale of this DataForProjectsOutput.  # noqa: E501
 
@@ -238,6 +295,27 @@ class DataForProjectsOutput(object):
         """
 
         self._source_locale = source_locale
+
+    @property
+    def target_langs(self):
+        """Gets the target_langs of this DataForProjectsOutput.  # noqa: E501
+
+
+        :return: The target_langs of this DataForProjectsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._target_langs
+
+    @target_langs.setter
+    def target_langs(self, target_langs):
+        """Sets the target_langs of this DataForProjectsOutput.
+
+
+        :param target_langs: The target_langs of this DataForProjectsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._target_langs = target_langs
 
     @property
     def target_locales(self):

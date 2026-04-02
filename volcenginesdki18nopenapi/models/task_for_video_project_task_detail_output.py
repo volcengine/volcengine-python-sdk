@@ -37,7 +37,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
         'created_at': 'str',
         'creator': 'CreatorForVideoProjectTaskDetailOutput',
         'deadline': 'str',
-        'drama_task_workflow': 'str',
+        'drama_task_workflow': 'int',
         'duration_count': 'str',
         'id': 'str',
         'name': 'str',
@@ -45,14 +45,14 @@ class TaskForVideoProjectTaskDetailOutput(object):
         'project_name': 'str',
         'source_language': 'str',
         'source_videos': 'str',
-        'status': 'str',
+        'status': 'int',
         'target_languages': 'list[str]',
-        'task_type': 'str',
-        'translation_team': 'str',
+        'task_type': 'int',
+        'translation_team': 'int',
         'updated_at': 'str',
         'updater': 'str',
         'words_count': 'str',
-        'workflow_type': 'str'
+        'workflow_type': 'int'
     }
 
     attribute_map = {
@@ -237,7 +237,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
 
 
         :return: The drama_task_workflow of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._drama_task_workflow
 
@@ -247,7 +247,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
 
 
         :param drama_task_workflow: The drama_task_workflow of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._drama_task_workflow = drama_task_workflow
@@ -405,7 +405,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
 
 
         :return: The status of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._status
 
@@ -415,7 +415,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
 
 
         :param status: The status of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._status = status
@@ -447,7 +447,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
 
 
         :return: The task_type of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._task_type
 
@@ -457,7 +457,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
 
 
         :param task_type: The task_type of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._task_type = task_type
@@ -468,7 +468,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
 
 
         :return: The translation_team of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._translation_team
 
@@ -478,7 +478,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
 
 
         :param translation_team: The translation_team of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._translation_team = translation_team
@@ -552,7 +552,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
 
 
         :return: The workflow_type of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._workflow_type
 
@@ -562,7 +562,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
 
 
         :param workflow_type: The workflow_type of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._workflow_type = workflow_type
