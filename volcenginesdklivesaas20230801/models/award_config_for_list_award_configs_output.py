@@ -47,11 +47,14 @@ class AwardConfigForListAwardConfigsOutput(object):
         'dead_line_second': 'int',
         'id': 'int',
         'is_hide_award_num': 'int',
+        'is_manual_send_barrage_pwd': 'int',
+        'is_online_user': 'int',
         'msg_ids': 'str',
         'name': 'str',
         'open_award_time': 'int',
         'participant_count': 'int',
         'range_status': 'int',
+        'repeated_award_limit': 'int',
         'send_time': 'int',
         'show_people_number': 'int',
         'show_winner_comment': 'int',
@@ -74,11 +77,14 @@ class AwardConfigForListAwardConfigsOutput(object):
         'dead_line_second': 'DeadLineSecond',
         'id': 'Id',
         'is_hide_award_num': 'IsHideAwardNum',
+        'is_manual_send_barrage_pwd': 'IsManualSendBarragePwd',
+        'is_online_user': 'IsOnlineUser',
         'msg_ids': 'MsgIds',
         'name': 'Name',
         'open_award_time': 'OpenAwardTime',
         'participant_count': 'ParticipantCount',
         'range_status': 'RangeStatus',
+        'repeated_award_limit': 'RepeatedAwardLimit',
         'send_time': 'SendTime',
         'show_people_number': 'ShowPeopleNumber',
         'show_winner_comment': 'ShowWinnerComment',
@@ -86,7 +92,7 @@ class AwardConfigForListAwardConfigsOutput(object):
         'winner_count': 'WinnerCount'
     }
 
-    def __init__(self, activity_id=None, award_condition=None, award_floating_icon=None, award_item_info=None, award_num=None, award_send_time=None, award_send_type=None, award_theme=None, award_type=None, barrage_pwd=None, dead_line=None, dead_line_second=None, id=None, is_hide_award_num=None, msg_ids=None, name=None, open_award_time=None, participant_count=None, range_status=None, send_time=None, show_people_number=None, show_winner_comment=None, status=None, winner_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, award_condition=None, award_floating_icon=None, award_item_info=None, award_num=None, award_send_time=None, award_send_type=None, award_theme=None, award_type=None, barrage_pwd=None, dead_line=None, dead_line_second=None, id=None, is_hide_award_num=None, is_manual_send_barrage_pwd=None, is_online_user=None, msg_ids=None, name=None, open_award_time=None, participant_count=None, range_status=None, repeated_award_limit=None, send_time=None, show_people_number=None, show_winner_comment=None, status=None, winner_count=None, _configuration=None):  # noqa: E501
         """AwardConfigForListAwardConfigsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,11 +112,14 @@ class AwardConfigForListAwardConfigsOutput(object):
         self._dead_line_second = None
         self._id = None
         self._is_hide_award_num = None
+        self._is_manual_send_barrage_pwd = None
+        self._is_online_user = None
         self._msg_ids = None
         self._name = None
         self._open_award_time = None
         self._participant_count = None
         self._range_status = None
+        self._repeated_award_limit = None
         self._send_time = None
         self._show_people_number = None
         self._show_winner_comment = None
@@ -146,6 +155,10 @@ class AwardConfigForListAwardConfigsOutput(object):
             self.id = id
         if is_hide_award_num is not None:
             self.is_hide_award_num = is_hide_award_num
+        if is_manual_send_barrage_pwd is not None:
+            self.is_manual_send_barrage_pwd = is_manual_send_barrage_pwd
+        if is_online_user is not None:
+            self.is_online_user = is_online_user
         if msg_ids is not None:
             self.msg_ids = msg_ids
         if name is not None:
@@ -156,6 +169,8 @@ class AwardConfigForListAwardConfigsOutput(object):
             self.participant_count = participant_count
         if range_status is not None:
             self.range_status = range_status
+        if repeated_award_limit is not None:
+            self.repeated_award_limit = repeated_award_limit
         if send_time is not None:
             self.send_time = send_time
         if show_people_number is not None:
@@ -462,6 +477,48 @@ class AwardConfigForListAwardConfigsOutput(object):
         self._is_hide_award_num = is_hide_award_num
 
     @property
+    def is_manual_send_barrage_pwd(self):
+        """Gets the is_manual_send_barrage_pwd of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+
+
+        :return: The is_manual_send_barrage_pwd of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_manual_send_barrage_pwd
+
+    @is_manual_send_barrage_pwd.setter
+    def is_manual_send_barrage_pwd(self, is_manual_send_barrage_pwd):
+        """Sets the is_manual_send_barrage_pwd of this AwardConfigForListAwardConfigsOutput.
+
+
+        :param is_manual_send_barrage_pwd: The is_manual_send_barrage_pwd of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_manual_send_barrage_pwd = is_manual_send_barrage_pwd
+
+    @property
+    def is_online_user(self):
+        """Gets the is_online_user of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+
+
+        :return: The is_online_user of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_online_user
+
+    @is_online_user.setter
+    def is_online_user(self, is_online_user):
+        """Sets the is_online_user of this AwardConfigForListAwardConfigsOutput.
+
+
+        :param is_online_user: The is_online_user of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_online_user = is_online_user
+
+    @property
     def msg_ids(self):
         """Gets the msg_ids of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
 
@@ -565,6 +622,27 @@ class AwardConfigForListAwardConfigsOutput(object):
         """
 
         self._range_status = range_status
+
+    @property
+    def repeated_award_limit(self):
+        """Gets the repeated_award_limit of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+
+
+        :return: The repeated_award_limit of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._repeated_award_limit
+
+    @repeated_award_limit.setter
+    def repeated_award_limit(self, repeated_award_limit):
+        """Sets the repeated_award_limit of this AwardConfigForListAwardConfigsOutput.
+
+
+        :param repeated_award_limit: The repeated_award_limit of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._repeated_award_limit = repeated_award_limit
 
     @property
     def send_time(self):
