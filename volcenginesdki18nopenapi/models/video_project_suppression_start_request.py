@@ -39,7 +39,7 @@ class VideoProjectSuppressionStartRequest(object):
         'format': 'int',
         'lang': 'int',
         'manual_style': 'str',
-        'project_id': 'int',
+        'project_id': 'str',
         'start_time': 'int',
         'subtask_ids': 'list[int]'
     }
@@ -227,7 +227,7 @@ class VideoProjectSuppressionStartRequest(object):
 
 
         :return: The project_id of this VideoProjectSuppressionStartRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._project_id
 
@@ -237,7 +237,7 @@ class VideoProjectSuppressionStartRequest(object):
 
 
         :param project_id: The project_id of this VideoProjectSuppressionStartRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and project_id is None:
             raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501

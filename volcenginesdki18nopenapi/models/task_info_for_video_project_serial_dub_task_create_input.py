@@ -33,7 +33,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'ai_remove_type': 'str',
+        'ai_remove_type': 'int',
         'asr_model': 'int',
         'bgm_policy': 'int',
         'comment': 'str',
@@ -198,7 +198,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
 
 
         :return: The ai_remove_type of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._ai_remove_type
 
@@ -208,7 +208,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
 
 
         :param ai_remove_type: The ai_remove_type of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._ai_remove_type = ai_remove_type

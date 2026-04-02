@@ -35,7 +35,7 @@ class VideoGenerationForStartExecutionInput(object):
     swagger_types = {
         'new_vid': 'bool',
         'prompt': 'str',
-        'video_option': 'VideoOptionForStartExecutionInput'
+        'video_option': 'ConvertVideoOptionForStartExecutionInput'
     }
 
     attribute_map = {
@@ -110,7 +110,7 @@ class VideoGenerationForStartExecutionInput(object):
 
 
         :return: The video_option of this VideoGenerationForStartExecutionInput.  # noqa: E501
-        :rtype: VideoOptionForStartExecutionInput
+        :rtype: ConvertVideoOptionForStartExecutionInput
         """
         return self._video_option
 
@@ -120,7 +120,7 @@ class VideoGenerationForStartExecutionInput(object):
 
 
         :param video_option: The video_option of this VideoGenerationForStartExecutionInput.  # noqa: E501
-        :type: VideoOptionForStartExecutionInput
+        :type: ConvertVideoOptionForStartExecutionInput
         """
 
         self._video_option = video_option

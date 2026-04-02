@@ -9,8 +9,12 @@
 #
 # This modified file is released under the same license.
 
-__all__ = ["ContentGenerationTask"]
+__all__ = [
+    "ContentGenerationTask",
+    "ContentGenerationTool"
+]
 
+from typing import List, Optional
 from volcenginesdkarkruntime._models import BaseModel
 
 
@@ -38,12 +42,20 @@ class ContentGenerationError(BaseModel):
     """The error code for task failure"""
 
 
+class ContentGenerationTool(BaseModel):
+    type: str
+    """The content generation tool used to generate the videos."""
+
+
 class ContentGenerationTask(BaseModel):
     id: str
     """A unique identifier for the task."""
 
     model: str
     """The model used for the task."""
+
+    safety_identifier: Optional[str] = None
+    """The safety identifier associated with the task."""
 
     status: str
     """The status of the task (running, failed, queued, succeeded, cancelled)."""
@@ -104,3 +116,6 @@ class ContentGenerationTask(BaseModel):
 
     draft_task_id: str
     """The ID of the draft task, if applicable."""
+
+    tools: List[ContentGenerationTool]
+    """The list of content generation tools."""
