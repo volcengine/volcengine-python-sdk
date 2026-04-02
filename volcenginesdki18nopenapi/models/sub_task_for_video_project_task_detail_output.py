@@ -34,14 +34,14 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
     """
     swagger_types = {
         'create_time': 'str',
-        'current_stage': 'str',
+        'current_stage': 'int',
         'default_style': 'str',
-        'episode_num': 'int',
+        'episode_num': 'str',
         'id': 'str',
-        'op_status': 'str',
+        'op_status': 'int',
         'source_language': 'str',
         'source_subtitle_file_info': 'SourceSubtitleFileInfoForVideoProjectTaskDetailOutput',
-        'status': 'str',
+        'status': 'int',
         'subtask_type': 'int',
         'suppression_status': 'int',
         'suppression_video_info': 'SuppressionVideoInfoForVideoProjectTaskDetailOutput',
@@ -50,7 +50,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
         'text_ai_remove': 'bool',
         'translate_ocr_text': 'bool',
         'update_time': 'str',
-        'use_dub_task': 'str',
+        'use_dub_task': 'bool',
         'use_mt': 'bool',
         'use_ocr': 'bool',
         'vid_with_ai_remove': 'str',
@@ -189,7 +189,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
 
         :return: The current_stage of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._current_stage
 
@@ -199,7 +199,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
 
         :param current_stage: The current_stage of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._current_stage = current_stage
@@ -231,7 +231,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
 
         :return: The episode_num of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._episode_num
 
@@ -241,7 +241,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
 
         :param episode_num: The episode_num of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._episode_num = episode_num
@@ -273,7 +273,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
 
         :return: The op_status of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._op_status
 
@@ -283,7 +283,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
 
         :param op_status: The op_status of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._op_status = op_status
@@ -336,7 +336,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
 
         :return: The status of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._status
 
@@ -346,7 +346,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
 
         :param status: The status of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._status = status
@@ -525,7 +525,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
 
         :return: The use_dub_task of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._use_dub_task
 
@@ -535,7 +535,7 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
 
         :param use_dub_task: The use_dub_task of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._use_dub_task = use_dub_task
