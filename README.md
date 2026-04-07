@@ -120,7 +120,7 @@ python setup.py install --user
 ```python
 configuration = volcenginesdkcore.Configuration()
 configuration.client_side_validation = True  # 客户端是否进行参数校验
-configuration.schema = "http"  # https or http
+configuration.scheme = "http"  # https or http
 configuration.debug = False  # 是否开启调试
 configuration.logger_file = "sdk.log"
 
