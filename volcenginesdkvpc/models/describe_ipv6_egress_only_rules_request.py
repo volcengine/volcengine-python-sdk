@@ -35,7 +35,7 @@ class DescribeIpv6EgressOnlyRulesRequest(object):
     swagger_types = {
         'instance_id': 'str',
         'ipv6_address': 'str',
-        'ipv6_egress_only_rule_ids': 'str',
+        'ipv6_egress_only_rule_ids': 'list[str]',
         'ipv6_gateway_id': 'str',
         'max_results': 'int',
         'name': 'str',
@@ -129,7 +129,7 @@ class DescribeIpv6EgressOnlyRulesRequest(object):
 
 
         :return: The ipv6_egress_only_rule_ids of this DescribeIpv6EgressOnlyRulesRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._ipv6_egress_only_rule_ids
 
@@ -139,7 +139,7 @@ class DescribeIpv6EgressOnlyRulesRequest(object):
 
 
         :param ipv6_egress_only_rule_ids: The ipv6_egress_only_rule_ids of this DescribeIpv6EgressOnlyRulesRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._ipv6_egress_only_rule_ids = ipv6_egress_only_rule_ids

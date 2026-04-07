@@ -40,6 +40,7 @@ class CreateSubnetRequest(object):
         'subnet_name': 'str',
         'tags': 'list[TagForCreateSubnetInput]',
         'vpc_id': 'str',
+        'vpc_ipv6_cidr_block': 'str',
         'zone_id': 'str'
     }
 
@@ -51,10 +52,11 @@ class CreateSubnetRequest(object):
         'subnet_name': 'SubnetName',
         'tags': 'Tags',
         'vpc_id': 'VpcId',
+        'vpc_ipv6_cidr_block': 'VpcIpv6CidrBlock',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cidr_block=None, client_token=None, description=None, ipv6_cidr_block=None, subnet_name=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_block=None, client_token=None, description=None, ipv6_cidr_block=None, subnet_name=None, tags=None, vpc_id=None, vpc_ipv6_cidr_block=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateSubnetRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class CreateSubnetRequest(object):
         self._subnet_name = None
         self._tags = None
         self._vpc_id = None
+        self._vpc_ipv6_cidr_block = None
         self._zone_id = None
         self.discriminator = None
 
@@ -82,6 +85,8 @@ class CreateSubnetRequest(object):
         if tags is not None:
             self.tags = tags
         self.vpc_id = vpc_id
+        if vpc_ipv6_cidr_block is not None:
+            self.vpc_ipv6_cidr_block = vpc_ipv6_cidr_block
         self.zone_id = zone_id
 
     @property
@@ -252,6 +257,27 @@ class CreateSubnetRequest(object):
             raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
+
+    @property
+    def vpc_ipv6_cidr_block(self):
+        """Gets the vpc_ipv6_cidr_block of this CreateSubnetRequest.  # noqa: E501
+
+
+        :return: The vpc_ipv6_cidr_block of this CreateSubnetRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_ipv6_cidr_block
+
+    @vpc_ipv6_cidr_block.setter
+    def vpc_ipv6_cidr_block(self, vpc_ipv6_cidr_block):
+        """Sets the vpc_ipv6_cidr_block of this CreateSubnetRequest.
+
+
+        :param vpc_ipv6_cidr_block: The vpc_ipv6_cidr_block of this CreateSubnetRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_ipv6_cidr_block = vpc_ipv6_cidr_block
 
     @property
     def zone_id(self):

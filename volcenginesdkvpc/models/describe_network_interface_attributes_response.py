@@ -35,6 +35,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
     swagger_types = {
         'account_id': 'str',
         'associated_elastic_ip': 'AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput',
+        'attachment': 'AttachmentForDescribeNetworkInterfaceAttributesOutput',
         'created_at': 'str',
         'description': 'str',
         'device_id': 'str',
@@ -62,6 +63,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
     attribute_map = {
         'account_id': 'AccountId',
         'associated_elastic_ip': 'AssociatedElasticIp',
+        'attachment': 'Attachment',
         'created_at': 'CreatedAt',
         'description': 'Description',
         'device_id': 'DeviceId',
@@ -86,7 +88,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, associated_elastic_ip=None, created_at=None, description=None, device_id=None, i_pv6_sets=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, project_name=None, request_id=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, tags=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associated_elastic_ip=None, attachment=None, created_at=None, description=None, device_id=None, i_pv6_sets=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, project_name=None, request_id=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, tags=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeNetworkInterfaceAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,6 +96,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
 
         self._account_id = None
         self._associated_elastic_ip = None
+        self._attachment = None
         self._created_at = None
         self._description = None
         self._device_id = None
@@ -122,6 +125,8 @@ class DescribeNetworkInterfaceAttributesResponse(object):
             self.account_id = account_id
         if associated_elastic_ip is not None:
             self.associated_elastic_ip = associated_elastic_ip
+        if attachment is not None:
+            self.attachment = attachment
         if created_at is not None:
             self.created_at = created_at
         if description is not None:
@@ -208,6 +213,27 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         """
 
         self._associated_elastic_ip = associated_elastic_ip
+
+    @property
+    def attachment(self):
+        """Gets the attachment of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+
+
+        :return: The attachment of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :rtype: AttachmentForDescribeNetworkInterfaceAttributesOutput
+        """
+        return self._attachment
+
+    @attachment.setter
+    def attachment(self, attachment):
+        """Sets the attachment of this DescribeNetworkInterfaceAttributesResponse.
+
+
+        :param attachment: The attachment of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :type: AttachmentForDescribeNetworkInterfaceAttributesOutput
+        """
+
+        self._attachment = attachment
 
     @property
     def created_at(self):

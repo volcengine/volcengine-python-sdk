@@ -47,6 +47,7 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput(object):
         'traffic_mirror_session_name': 'str',
         'traffic_mirror_source_ids': 'list[str]',
         'traffic_mirror_target_id': 'str',
+        'updated_at': 'str',
         'virtual_network_id': 'int'
     }
 
@@ -65,10 +66,11 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput(object):
         'traffic_mirror_session_name': 'TrafficMirrorSessionName',
         'traffic_mirror_source_ids': 'TrafficMirrorSourceIds',
         'traffic_mirror_target_id': 'TrafficMirrorTargetId',
+        'updated_at': 'UpdatedAt',
         'virtual_network_id': 'VirtualNetworkId'
     }
 
-    def __init__(self, business_status=None, created_at=None, description=None, lock_reason=None, packet_length=None, priority=None, project_name=None, status=None, tags=None, traffic_mirror_filter_id=None, traffic_mirror_session_id=None, traffic_mirror_session_name=None, traffic_mirror_source_ids=None, traffic_mirror_target_id=None, virtual_network_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, business_status=None, created_at=None, description=None, lock_reason=None, packet_length=None, priority=None, project_name=None, status=None, tags=None, traffic_mirror_filter_id=None, traffic_mirror_session_id=None, traffic_mirror_session_name=None, traffic_mirror_source_ids=None, traffic_mirror_target_id=None, updated_at=None, virtual_network_id=None, _configuration=None):  # noqa: E501
         """TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput(object):
         self._traffic_mirror_session_name = None
         self._traffic_mirror_source_ids = None
         self._traffic_mirror_target_id = None
+        self._updated_at = None
         self._virtual_network_id = None
         self.discriminator = None
 
@@ -119,6 +122,8 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput(object):
             self.traffic_mirror_source_ids = traffic_mirror_source_ids
         if traffic_mirror_target_id is not None:
             self.traffic_mirror_target_id = traffic_mirror_target_id
+        if updated_at is not None:
+            self.updated_at = updated_at
         if virtual_network_id is not None:
             self.virtual_network_id = virtual_network_id
 
@@ -415,6 +420,27 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput(object):
         """
 
         self._traffic_mirror_target_id = traffic_mirror_target_id
+
+    @property
+    def updated_at(self):
+        """Gets the updated_at of this TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput.  # noqa: E501
+
+
+        :return: The updated_at of this TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._updated_at
+
+    @updated_at.setter
+    def updated_at(self, updated_at):
+        """Sets the updated_at of this TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput.
+
+
+        :param updated_at: The updated_at of this TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._updated_at = updated_at
 
     @property
     def virtual_network_id(self):

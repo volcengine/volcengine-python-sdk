@@ -43,7 +43,6 @@ class FlowLogForDescribeFlowLogsOutput(object):
         'lock_reason': 'str',
         'log_project_id': 'str',
         'log_topic_id': 'str',
-        'open_analyze_product_log': 'bool',
         'project_name': 'str',
         'resource_id': 'str',
         'resource_type': 'str',
@@ -65,7 +64,6 @@ class FlowLogForDescribeFlowLogsOutput(object):
         'lock_reason': 'LockReason',
         'log_project_id': 'LogProjectId',
         'log_topic_id': 'LogTopicId',
-        'open_analyze_product_log': 'OpenAnalyzeProductLog',
         'project_name': 'ProjectName',
         'resource_id': 'ResourceId',
         'resource_type': 'ResourceType',
@@ -76,7 +74,7 @@ class FlowLogForDescribeFlowLogsOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, aggregation_interval=None, business_status=None, created_at=None, description=None, flow_log_id=None, flow_log_name=None, lock_reason=None, log_project_id=None, log_topic_id=None, open_analyze_product_log=None, project_name=None, resource_id=None, resource_type=None, status=None, tags=None, traffic_type=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aggregation_interval=None, business_status=None, created_at=None, description=None, flow_log_id=None, flow_log_name=None, lock_reason=None, log_project_id=None, log_topic_id=None, project_name=None, resource_id=None, resource_type=None, status=None, tags=None, traffic_type=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
         """FlowLogForDescribeFlowLogsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,7 +90,6 @@ class FlowLogForDescribeFlowLogsOutput(object):
         self._lock_reason = None
         self._log_project_id = None
         self._log_topic_id = None
-        self._open_analyze_product_log = None
         self._project_name = None
         self._resource_id = None
         self._resource_type = None
@@ -123,8 +120,6 @@ class FlowLogForDescribeFlowLogsOutput(object):
             self.log_project_id = log_project_id
         if log_topic_id is not None:
             self.log_topic_id = log_topic_id
-        if open_analyze_product_log is not None:
-            self.open_analyze_product_log = open_analyze_product_log
         if project_name is not None:
             self.project_name = project_name
         if resource_id is not None:
@@ -351,27 +346,6 @@ class FlowLogForDescribeFlowLogsOutput(object):
         """
 
         self._log_topic_id = log_topic_id
-
-    @property
-    def open_analyze_product_log(self):
-        """Gets the open_analyze_product_log of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
-
-
-        :return: The open_analyze_product_log of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._open_analyze_product_log
-
-    @open_analyze_product_log.setter
-    def open_analyze_product_log(self, open_analyze_product_log):
-        """Sets the open_analyze_product_log of this FlowLogForDescribeFlowLogsOutput.
-
-
-        :param open_analyze_product_log: The open_analyze_product_log of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
-        :type: bool
-        """
-
-        self._open_analyze_product_log = open_analyze_product_log
 
     @property
     def project_name(self):

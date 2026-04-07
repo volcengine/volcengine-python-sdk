@@ -41,7 +41,8 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput(object):
         'status': 'str',
         'tags': 'list[TagForDescribeTrafficMirrorTargetsOutput]',
         'traffic_mirror_target_id': 'str',
-        'traffic_mirror_target_name': 'str'
+        'traffic_mirror_target_name': 'str',
+        'updated_at': 'str'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput(object):
         'status': 'Status',
         'tags': 'Tags',
         'traffic_mirror_target_id': 'TrafficMirrorTargetId',
-        'traffic_mirror_target_name': 'TrafficMirrorTargetName'
+        'traffic_mirror_target_name': 'TrafficMirrorTargetName',
+        'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, created_at=None, description=None, instance_id=None, instance_type=None, project_name=None, status=None, tags=None, traffic_mirror_target_id=None, traffic_mirror_target_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, description=None, instance_id=None, instance_type=None, project_name=None, status=None, tags=None, traffic_mirror_target_id=None, traffic_mirror_target_name=None, updated_at=None, _configuration=None):  # noqa: E501
         """TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput(object):
         self._tags = None
         self._traffic_mirror_target_id = None
         self._traffic_mirror_target_name = None
+        self._updated_at = None
         self.discriminator = None
 
         if created_at is not None:
@@ -91,6 +94,8 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput(object):
             self.traffic_mirror_target_id = traffic_mirror_target_id
         if traffic_mirror_target_name is not None:
             self.traffic_mirror_target_name = traffic_mirror_target_name
+        if updated_at is not None:
+            self.updated_at = updated_at
 
     @property
     def created_at(self):
@@ -280,6 +285,27 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput(object):
         """
 
         self._traffic_mirror_target_name = traffic_mirror_target_name
+
+    @property
+    def updated_at(self):
+        """Gets the updated_at of this TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput.  # noqa: E501
+
+
+        :return: The updated_at of this TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._updated_at
+
+    @updated_at.setter
+    def updated_at(self, updated_at):
+        """Sets the updated_at of this TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput.
+
+
+        :param updated_at: The updated_at of this TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._updated_at = updated_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""
