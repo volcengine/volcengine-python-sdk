@@ -35,16 +35,18 @@ class GetUserRequest(object):
     swagger_types = {
         'access_key_id': 'str',
         'id': 'int',
+        'pii_redaction': 'int',
         'user_name': 'str'
     }
 
     attribute_map = {
         'access_key_id': 'AccessKeyID',
         'id': 'ID',
+        'pii_redaction': 'PiiRedaction',
         'user_name': 'UserName'
     }
 
-    def __init__(self, access_key_id=None, id=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_key_id=None, id=None, pii_redaction=None, user_name=None, _configuration=None):  # noqa: E501
         """GetUserRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class GetUserRequest(object):
 
         self._access_key_id = None
         self._id = None
+        self._pii_redaction = None
         self._user_name = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class GetUserRequest(object):
             self.access_key_id = access_key_id
         if id is not None:
             self.id = id
+        if pii_redaction is not None:
+            self.pii_redaction = pii_redaction
         if user_name is not None:
             self.user_name = user_name
 
@@ -103,6 +108,27 @@ class GetUserRequest(object):
         """
 
         self._id = id
+
+    @property
+    def pii_redaction(self):
+        """Gets the pii_redaction of this GetUserRequest.  # noqa: E501
+
+
+        :return: The pii_redaction of this GetUserRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._pii_redaction
+
+    @pii_redaction.setter
+    def pii_redaction(self, pii_redaction):
+        """Sets the pii_redaction of this GetUserRequest.
+
+
+        :param pii_redaction: The pii_redaction of this GetUserRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._pii_redaction = pii_redaction
 
     @property
     def user_name(self):
