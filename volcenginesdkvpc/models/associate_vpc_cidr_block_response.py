@@ -34,6 +34,7 @@ class AssociateVpcCidrBlockResponse(object):
     """
     swagger_types = {
         'async_task_id': 'str',
+        'ipv6_cidr_blocks': 'list[Ipv6CidrBlockForAssociateVpcCidrBlockOutput]',
         'request_id': 'str',
         'secondary_cidr_blocks': 'list[str]',
         'vpc_id': 'str'
@@ -41,18 +42,20 @@ class AssociateVpcCidrBlockResponse(object):
 
     attribute_map = {
         'async_task_id': 'AsyncTaskId',
+        'ipv6_cidr_blocks': 'Ipv6CidrBlocks',
         'request_id': 'RequestId',
         'secondary_cidr_blocks': 'SecondaryCidrBlocks',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, async_task_id=None, request_id=None, secondary_cidr_blocks=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_id=None, ipv6_cidr_blocks=None, request_id=None, secondary_cidr_blocks=None, vpc_id=None, _configuration=None):  # noqa: E501
         """AssociateVpcCidrBlockResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._async_task_id = None
+        self._ipv6_cidr_blocks = None
         self._request_id = None
         self._secondary_cidr_blocks = None
         self._vpc_id = None
@@ -60,6 +63,8 @@ class AssociateVpcCidrBlockResponse(object):
 
         if async_task_id is not None:
             self.async_task_id = async_task_id
+        if ipv6_cidr_blocks is not None:
+            self.ipv6_cidr_blocks = ipv6_cidr_blocks
         if request_id is not None:
             self.request_id = request_id
         if secondary_cidr_blocks is not None:
@@ -87,6 +92,27 @@ class AssociateVpcCidrBlockResponse(object):
         """
 
         self._async_task_id = async_task_id
+
+    @property
+    def ipv6_cidr_blocks(self):
+        """Gets the ipv6_cidr_blocks of this AssociateVpcCidrBlockResponse.  # noqa: E501
+
+
+        :return: The ipv6_cidr_blocks of this AssociateVpcCidrBlockResponse.  # noqa: E501
+        :rtype: list[Ipv6CidrBlockForAssociateVpcCidrBlockOutput]
+        """
+        return self._ipv6_cidr_blocks
+
+    @ipv6_cidr_blocks.setter
+    def ipv6_cidr_blocks(self, ipv6_cidr_blocks):
+        """Sets the ipv6_cidr_blocks of this AssociateVpcCidrBlockResponse.
+
+
+        :param ipv6_cidr_blocks: The ipv6_cidr_blocks of this AssociateVpcCidrBlockResponse.  # noqa: E501
+        :type: list[Ipv6CidrBlockForAssociateVpcCidrBlockOutput]
+        """
+
+        self._ipv6_cidr_blocks = ipv6_cidr_blocks
 
     @property
     def request_id(self):

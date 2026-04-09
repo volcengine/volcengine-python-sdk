@@ -33,28 +33,106 @@ class AssociateVpcCidrBlockRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ipv6_cidr_block': 'str',
+        'ipv6_isp': 'str',
+        'ipv6_mask_len': 'int',
         'secondary_cidr_block': 'str',
         'vpc_id': 'str'
     }
 
     attribute_map = {
+        'ipv6_cidr_block': 'Ipv6CidrBlock',
+        'ipv6_isp': 'Ipv6Isp',
+        'ipv6_mask_len': 'Ipv6MaskLen',
         'secondary_cidr_block': 'SecondaryCidrBlock',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, secondary_cidr_block=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv6_cidr_block=None, ipv6_isp=None, ipv6_mask_len=None, secondary_cidr_block=None, vpc_id=None, _configuration=None):  # noqa: E501
         """AssociateVpcCidrBlockRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ipv6_cidr_block = None
+        self._ipv6_isp = None
+        self._ipv6_mask_len = None
         self._secondary_cidr_block = None
         self._vpc_id = None
         self.discriminator = None
 
+        if ipv6_cidr_block is not None:
+            self.ipv6_cidr_block = ipv6_cidr_block
+        if ipv6_isp is not None:
+            self.ipv6_isp = ipv6_isp
+        if ipv6_mask_len is not None:
+            self.ipv6_mask_len = ipv6_mask_len
         if secondary_cidr_block is not None:
             self.secondary_cidr_block = secondary_cidr_block
         self.vpc_id = vpc_id
+
+    @property
+    def ipv6_cidr_block(self):
+        """Gets the ipv6_cidr_block of this AssociateVpcCidrBlockRequest.  # noqa: E501
+
+
+        :return: The ipv6_cidr_block of this AssociateVpcCidrBlockRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_cidr_block
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, ipv6_cidr_block):
+        """Sets the ipv6_cidr_block of this AssociateVpcCidrBlockRequest.
+
+
+        :param ipv6_cidr_block: The ipv6_cidr_block of this AssociateVpcCidrBlockRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_cidr_block = ipv6_cidr_block
+
+    @property
+    def ipv6_isp(self):
+        """Gets the ipv6_isp of this AssociateVpcCidrBlockRequest.  # noqa: E501
+
+
+        :return: The ipv6_isp of this AssociateVpcCidrBlockRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_isp
+
+    @ipv6_isp.setter
+    def ipv6_isp(self, ipv6_isp):
+        """Sets the ipv6_isp of this AssociateVpcCidrBlockRequest.
+
+
+        :param ipv6_isp: The ipv6_isp of this AssociateVpcCidrBlockRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_isp = ipv6_isp
+
+    @property
+    def ipv6_mask_len(self):
+        """Gets the ipv6_mask_len of this AssociateVpcCidrBlockRequest.  # noqa: E501
+
+
+        :return: The ipv6_mask_len of this AssociateVpcCidrBlockRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ipv6_mask_len
+
+    @ipv6_mask_len.setter
+    def ipv6_mask_len(self, ipv6_mask_len):
+        """Sets the ipv6_mask_len of this AssociateVpcCidrBlockRequest.
+
+
+        :param ipv6_mask_len: The ipv6_mask_len of this AssociateVpcCidrBlockRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ipv6_mask_len = ipv6_mask_len
 
     @property
     def secondary_cidr_block(self):

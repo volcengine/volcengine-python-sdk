@@ -37,6 +37,8 @@ class ModifyVpcAttributesRequest(object):
         'dns_servers': 'list[str]',
         'enable_ipv6': 'bool',
         'ipv6_cidr_block': 'str',
+        'ipv6_isp': 'str',
+        'ipv6_mask_len': 'int',
         'vpc_id': 'str',
         'vpc_name': 'str'
     }
@@ -46,11 +48,13 @@ class ModifyVpcAttributesRequest(object):
         'dns_servers': 'DnsServers',
         'enable_ipv6': 'EnableIpv6',
         'ipv6_cidr_block': 'Ipv6CidrBlock',
+        'ipv6_isp': 'Ipv6Isp',
+        'ipv6_mask_len': 'Ipv6MaskLen',
         'vpc_id': 'VpcId',
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, description=None, dns_servers=None, enable_ipv6=None, ipv6_cidr_block=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, dns_servers=None, enable_ipv6=None, ipv6_cidr_block=None, ipv6_isp=None, ipv6_mask_len=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """ModifyVpcAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +64,8 @@ class ModifyVpcAttributesRequest(object):
         self._dns_servers = None
         self._enable_ipv6 = None
         self._ipv6_cidr_block = None
+        self._ipv6_isp = None
+        self._ipv6_mask_len = None
         self._vpc_id = None
         self._vpc_name = None
         self.discriminator = None
@@ -72,6 +78,10 @@ class ModifyVpcAttributesRequest(object):
             self.enable_ipv6 = enable_ipv6
         if ipv6_cidr_block is not None:
             self.ipv6_cidr_block = ipv6_cidr_block
+        if ipv6_isp is not None:
+            self.ipv6_isp = ipv6_isp
+        if ipv6_mask_len is not None:
+            self.ipv6_mask_len = ipv6_mask_len
         self.vpc_id = vpc_id
         if vpc_name is not None:
             self.vpc_name = vpc_name
@@ -165,6 +175,48 @@ class ModifyVpcAttributesRequest(object):
         """
 
         self._ipv6_cidr_block = ipv6_cidr_block
+
+    @property
+    def ipv6_isp(self):
+        """Gets the ipv6_isp of this ModifyVpcAttributesRequest.  # noqa: E501
+
+
+        :return: The ipv6_isp of this ModifyVpcAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_isp
+
+    @ipv6_isp.setter
+    def ipv6_isp(self, ipv6_isp):
+        """Sets the ipv6_isp of this ModifyVpcAttributesRequest.
+
+
+        :param ipv6_isp: The ipv6_isp of this ModifyVpcAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_isp = ipv6_isp
+
+    @property
+    def ipv6_mask_len(self):
+        """Gets the ipv6_mask_len of this ModifyVpcAttributesRequest.  # noqa: E501
+
+
+        :return: The ipv6_mask_len of this ModifyVpcAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ipv6_mask_len
+
+    @ipv6_mask_len.setter
+    def ipv6_mask_len(self, ipv6_mask_len):
+        """Sets the ipv6_mask_len of this ModifyVpcAttributesRequest.
+
+
+        :param ipv6_mask_len: The ipv6_mask_len of this ModifyVpcAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ipv6_mask_len = ipv6_mask_len
 
     @property
     def vpc_id(self):

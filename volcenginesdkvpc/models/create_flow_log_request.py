@@ -36,6 +36,7 @@ class CreateFlowLogRequest(object):
         'aggregation_interval': 'int',
         'client_token': 'str',
         'description': 'str',
+        'enable_index': 'bool',
         'flow_log_name': 'str',
         'log_project_name': 'str',
         'log_topic_name': 'str',
@@ -50,6 +51,7 @@ class CreateFlowLogRequest(object):
         'aggregation_interval': 'AggregationInterval',
         'client_token': 'ClientToken',
         'description': 'Description',
+        'enable_index': 'EnableIndex',
         'flow_log_name': 'FlowLogName',
         'log_project_name': 'LogProjectName',
         'log_topic_name': 'LogTopicName',
@@ -60,7 +62,7 @@ class CreateFlowLogRequest(object):
         'traffic_type': 'TrafficType'
     }
 
-    def __init__(self, aggregation_interval=None, client_token=None, description=None, flow_log_name=None, log_project_name=None, log_topic_name=None, project_name=None, resource_id=None, resource_type=None, tags=None, traffic_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, aggregation_interval=None, client_token=None, description=None, enable_index=None, flow_log_name=None, log_project_name=None, log_topic_name=None, project_name=None, resource_id=None, resource_type=None, tags=None, traffic_type=None, _configuration=None):  # noqa: E501
         """CreateFlowLogRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class CreateFlowLogRequest(object):
         self._aggregation_interval = None
         self._client_token = None
         self._description = None
+        self._enable_index = None
         self._flow_log_name = None
         self._log_project_name = None
         self._log_topic_name = None
@@ -84,6 +87,8 @@ class CreateFlowLogRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if enable_index is not None:
+            self.enable_index = enable_index
         self.flow_log_name = flow_log_name
         self.log_project_name = log_project_name
         self.log_topic_name = log_topic_name
@@ -162,6 +167,27 @@ class CreateFlowLogRequest(object):
             raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def enable_index(self):
+        """Gets the enable_index of this CreateFlowLogRequest.  # noqa: E501
+
+
+        :return: The enable_index of this CreateFlowLogRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_index
+
+    @enable_index.setter
+    def enable_index(self, enable_index):
+        """Sets the enable_index of this CreateFlowLogRequest.
+
+
+        :param enable_index: The enable_index of this CreateFlowLogRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_index = enable_index
 
     @property
     def flow_log_name(self):

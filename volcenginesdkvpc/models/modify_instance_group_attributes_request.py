@@ -33,33 +33,59 @@ class ModifyInstanceGroupAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'description': 'str',
         'instance_group_id': 'str',
         'name': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'description': 'Description',
         'instance_group_id': 'InstanceGroupId',
         'name': 'Name'
     }
 
-    def __init__(self, description=None, instance_group_id=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, instance_group_id=None, name=None, _configuration=None):  # noqa: E501
         """ModifyInstanceGroupAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._description = None
         self._instance_group_id = None
         self._name = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         self.instance_group_id = instance_group_id
         if name is not None:
             self.name = name
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyInstanceGroupAttributesRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyInstanceGroupAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyInstanceGroupAttributesRequest.
+
+
+        :param client_token: The client_token of this ModifyInstanceGroupAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):
