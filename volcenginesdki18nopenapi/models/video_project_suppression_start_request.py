@@ -41,7 +41,7 @@ class VideoProjectSuppressionStartRequest(object):
         'manual_style': 'str',
         'project_id': 'str',
         'start_time': 'int',
-        'subtask_ids': 'list[int]'
+        'subtask_ids': 'list[str]'
     }
 
     attribute_map = {
@@ -271,7 +271,7 @@ class VideoProjectSuppressionStartRequest(object):
 
 
         :return: The subtask_ids of this VideoProjectSuppressionStartRequest.  # noqa: E501
-        :rtype: list[int]
+        :rtype: list[str]
         """
         return self._subtask_ids
 
@@ -281,7 +281,7 @@ class VideoProjectSuppressionStartRequest(object):
 
 
         :param subtask_ids: The subtask_ids of this VideoProjectSuppressionStartRequest.  # noqa: E501
-        :type: list[int]
+        :type: list[str]
         """
 
         self._subtask_ids = subtask_ids

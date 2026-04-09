@@ -33,6 +33,9 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_id': 'str',
+        'available_ip_count': 'int',
+        'available_network_interface_count': 'int',
         'creation_time': 'str',
         'description': 'str',
         'project_name': 'str',
@@ -42,10 +45,15 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
         'status': 'str',
         'tags': 'list[TagForDescribeSecurityGroupsOutput]',
         'type': 'str',
+        'used_ip_count': 'int',
+        'used_network_interface_count': 'int',
         'vpc_id': 'str'
     }
 
     attribute_map = {
+        'account_id': 'AccountId',
+        'available_ip_count': 'AvailableIpCount',
+        'available_network_interface_count': 'AvailableNetworkInterfaceCount',
         'creation_time': 'CreationTime',
         'description': 'Description',
         'project_name': 'ProjectName',
@@ -55,15 +63,20 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
         'status': 'Status',
         'tags': 'Tags',
         'type': 'Type',
+        'used_ip_count': 'UsedIpCount',
+        'used_network_interface_count': 'UsedNetworkInterfaceCount',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, project_name=None, security_group_id=None, security_group_name=None, service_managed=None, status=None, tags=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, available_ip_count=None, available_network_interface_count=None, creation_time=None, description=None, project_name=None, security_group_id=None, security_group_name=None, service_managed=None, status=None, tags=None, type=None, used_ip_count=None, used_network_interface_count=None, vpc_id=None, _configuration=None):  # noqa: E501
         """SecurityGroupForDescribeSecurityGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_id = None
+        self._available_ip_count = None
+        self._available_network_interface_count = None
         self._creation_time = None
         self._description = None
         self._project_name = None
@@ -73,9 +86,17 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
         self._status = None
         self._tags = None
         self._type = None
+        self._used_ip_count = None
+        self._used_network_interface_count = None
         self._vpc_id = None
         self.discriminator = None
 
+        if account_id is not None:
+            self.account_id = account_id
+        if available_ip_count is not None:
+            self.available_ip_count = available_ip_count
+        if available_network_interface_count is not None:
+            self.available_network_interface_count = available_network_interface_count
         if creation_time is not None:
             self.creation_time = creation_time
         if description is not None:
@@ -94,8 +115,75 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
             self.tags = tags
         if type is not None:
             self.type = type
+        if used_ip_count is not None:
+            self.used_ip_count = used_ip_count
+        if used_network_interface_count is not None:
+            self.used_network_interface_count = used_network_interface_count
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+
+
+        :return: The account_id of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this SecurityGroupForDescribeSecurityGroupsOutput.
+
+
+        :param account_id: The account_id of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
+
+    @property
+    def available_ip_count(self):
+        """Gets the available_ip_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+
+
+        :return: The available_ip_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._available_ip_count
+
+    @available_ip_count.setter
+    def available_ip_count(self, available_ip_count):
+        """Sets the available_ip_count of this SecurityGroupForDescribeSecurityGroupsOutput.
+
+
+        :param available_ip_count: The available_ip_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._available_ip_count = available_ip_count
+
+    @property
+    def available_network_interface_count(self):
+        """Gets the available_network_interface_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+
+
+        :return: The available_network_interface_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._available_network_interface_count
+
+    @available_network_interface_count.setter
+    def available_network_interface_count(self, available_network_interface_count):
+        """Sets the available_network_interface_count of this SecurityGroupForDescribeSecurityGroupsOutput.
+
+
+        :param available_network_interface_count: The available_network_interface_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._available_network_interface_count = available_network_interface_count
 
     @property
     def creation_time(self):
@@ -285,6 +373,48 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
         """
 
         self._type = type
+
+    @property
+    def used_ip_count(self):
+        """Gets the used_ip_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+
+
+        :return: The used_ip_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._used_ip_count
+
+    @used_ip_count.setter
+    def used_ip_count(self, used_ip_count):
+        """Sets the used_ip_count of this SecurityGroupForDescribeSecurityGroupsOutput.
+
+
+        :param used_ip_count: The used_ip_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._used_ip_count = used_ip_count
+
+    @property
+    def used_network_interface_count(self):
+        """Gets the used_network_interface_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+
+
+        :return: The used_network_interface_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._used_network_interface_count
+
+    @used_network_interface_count.setter
+    def used_network_interface_count(self, used_network_interface_count):
+        """Sets the used_network_interface_count of this SecurityGroupForDescribeSecurityGroupsOutput.
+
+
+        :param used_network_interface_count: The used_network_interface_count of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._used_network_interface_count = used_network_interface_count
 
     @property
     def vpc_id(self):

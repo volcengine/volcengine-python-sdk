@@ -36,7 +36,6 @@ class DataForVideoProjectTaskListOutput(object):
         'all_source_languages': 'list[str]',
         'all_target_languages': 'list[str]',
         'tasks': 'list[TaskForVideoProjectTaskListOutput]',
-        'total': 'int',
         'total_count': 'str'
     }
 
@@ -44,11 +43,10 @@ class DataForVideoProjectTaskListOutput(object):
         'all_source_languages': 'allSourceLanguages',
         'all_target_languages': 'allTargetLanguages',
         'tasks': 'tasks',
-        'total': 'total',
         'total_count': 'totalCount'
     }
 
-    def __init__(self, all_source_languages=None, all_target_languages=None, tasks=None, total=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, all_source_languages=None, all_target_languages=None, tasks=None, total_count=None, _configuration=None):  # noqa: E501
         """DataForVideoProjectTaskListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,7 +55,6 @@ class DataForVideoProjectTaskListOutput(object):
         self._all_source_languages = None
         self._all_target_languages = None
         self._tasks = None
-        self._total = None
         self._total_count = None
         self.discriminator = None
 
@@ -67,8 +64,6 @@ class DataForVideoProjectTaskListOutput(object):
             self.all_target_languages = all_target_languages
         if tasks is not None:
             self.tasks = tasks
-        if total is not None:
-            self.total = total
         if total_count is not None:
             self.total_count = total_count
 
@@ -134,27 +129,6 @@ class DataForVideoProjectTaskListOutput(object):
         """
 
         self._tasks = tasks
-
-    @property
-    def total(self):
-        """Gets the total of this DataForVideoProjectTaskListOutput.  # noqa: E501
-
-
-        :return: The total of this DataForVideoProjectTaskListOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._total
-
-    @total.setter
-    def total(self, total):
-        """Sets the total of this DataForVideoProjectTaskListOutput.
-
-
-        :param total: The total of this DataForVideoProjectTaskListOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._total = total
 
     @property
     def total_count(self):

@@ -33,28 +33,54 @@ class UnassignIpv6AddressesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'ipv6_address': 'list[str]',
         'network_interface_id': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'ipv6_address': 'Ipv6Address',
         'network_interface_id': 'NetworkInterfaceId'
     }
 
-    def __init__(self, ipv6_address=None, network_interface_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, ipv6_address=None, network_interface_id=None, _configuration=None):  # noqa: E501
         """UnassignIpv6AddressesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._ipv6_address = None
         self._network_interface_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if ipv6_address is not None:
             self.ipv6_address = ipv6_address
         self.network_interface_id = network_interface_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this UnassignIpv6AddressesRequest.  # noqa: E501
+
+
+        :return: The client_token of this UnassignIpv6AddressesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this UnassignIpv6AddressesRequest.
+
+
+        :param client_token: The client_token of this UnassignIpv6AddressesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def ipv6_address(self):

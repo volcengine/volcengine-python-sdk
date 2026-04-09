@@ -33,60 +33,39 @@ class MemberForDescribeInstanceGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'enabled': 'bool',
         'id': 'str',
+        'status': 'str',
         'type': 'str',
         'weight': 'int'
     }
 
     attribute_map = {
-        'enabled': 'Enabled',
         'id': 'Id',
+        'status': 'Status',
         'type': 'Type',
         'weight': 'Weight'
     }
 
-    def __init__(self, enabled=None, id=None, type=None, weight=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, status=None, type=None, weight=None, _configuration=None):  # noqa: E501
         """MemberForDescribeInstanceGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._enabled = None
         self._id = None
+        self._status = None
         self._type = None
         self._weight = None
         self.discriminator = None
 
-        if enabled is not None:
-            self.enabled = enabled
         if id is not None:
             self.id = id
+        if status is not None:
+            self.status = status
         if type is not None:
             self.type = type
         if weight is not None:
             self.weight = weight
-
-    @property
-    def enabled(self):
-        """Gets the enabled of this MemberForDescribeInstanceGroupsOutput.  # noqa: E501
-
-
-        :return: The enabled of this MemberForDescribeInstanceGroupsOutput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._enabled
-
-    @enabled.setter
-    def enabled(self, enabled):
-        """Sets the enabled of this MemberForDescribeInstanceGroupsOutput.
-
-
-        :param enabled: The enabled of this MemberForDescribeInstanceGroupsOutput.  # noqa: E501
-        :type: bool
-        """
-
-        self._enabled = enabled
 
     @property
     def id(self):
@@ -108,6 +87,27 @@ class MemberForDescribeInstanceGroupsOutput(object):
         """
 
         self._id = id
+
+    @property
+    def status(self):
+        """Gets the status of this MemberForDescribeInstanceGroupsOutput.  # noqa: E501
+
+
+        :return: The status of this MemberForDescribeInstanceGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this MemberForDescribeInstanceGroupsOutput.
+
+
+        :param status: The status of this MemberForDescribeInstanceGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     @property
     def type(self):

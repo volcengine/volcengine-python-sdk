@@ -33,37 +33,45 @@ class RuleConditionForDescribeRulesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cookie_config': 'CookieConfigForDescribeRulesOutput',
         'header_config': 'HeaderConfigForDescribeRulesOutput',
         'host_config': 'HostConfigForDescribeRulesOutput',
         'method_config': 'MethodConfigForDescribeRulesOutput',
         'path_config': 'PathConfigForDescribeRulesOutput',
         'query_string_config': 'QueryStringConfigForDescribeRulesOutput',
+        'source_ip_config': 'SourceIpConfigForDescribeRulesOutput',
         'type': 'str'
     }
 
     attribute_map = {
+        'cookie_config': 'CookieConfig',
         'header_config': 'HeaderConfig',
         'host_config': 'HostConfig',
         'method_config': 'MethodConfig',
         'path_config': 'PathConfig',
         'query_string_config': 'QueryStringConfig',
+        'source_ip_config': 'SourceIpConfig',
         'type': 'Type'
     }
 
-    def __init__(self, header_config=None, host_config=None, method_config=None, path_config=None, query_string_config=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, cookie_config=None, header_config=None, host_config=None, method_config=None, path_config=None, query_string_config=None, source_ip_config=None, type=None, _configuration=None):  # noqa: E501
         """RuleConditionForDescribeRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cookie_config = None
         self._header_config = None
         self._host_config = None
         self._method_config = None
         self._path_config = None
         self._query_string_config = None
+        self._source_ip_config = None
         self._type = None
         self.discriminator = None
 
+        if cookie_config is not None:
+            self.cookie_config = cookie_config
         if header_config is not None:
             self.header_config = header_config
         if host_config is not None:
@@ -74,8 +82,31 @@ class RuleConditionForDescribeRulesOutput(object):
             self.path_config = path_config
         if query_string_config is not None:
             self.query_string_config = query_string_config
+        if source_ip_config is not None:
+            self.source_ip_config = source_ip_config
         if type is not None:
             self.type = type
+
+    @property
+    def cookie_config(self):
+        """Gets the cookie_config of this RuleConditionForDescribeRulesOutput.  # noqa: E501
+
+
+        :return: The cookie_config of this RuleConditionForDescribeRulesOutput.  # noqa: E501
+        :rtype: CookieConfigForDescribeRulesOutput
+        """
+        return self._cookie_config
+
+    @cookie_config.setter
+    def cookie_config(self, cookie_config):
+        """Sets the cookie_config of this RuleConditionForDescribeRulesOutput.
+
+
+        :param cookie_config: The cookie_config of this RuleConditionForDescribeRulesOutput.  # noqa: E501
+        :type: CookieConfigForDescribeRulesOutput
+        """
+
+        self._cookie_config = cookie_config
 
     @property
     def header_config(self):
@@ -181,6 +212,27 @@ class RuleConditionForDescribeRulesOutput(object):
         """
 
         self._query_string_config = query_string_config
+
+    @property
+    def source_ip_config(self):
+        """Gets the source_ip_config of this RuleConditionForDescribeRulesOutput.  # noqa: E501
+
+
+        :return: The source_ip_config of this RuleConditionForDescribeRulesOutput.  # noqa: E501
+        :rtype: SourceIpConfigForDescribeRulesOutput
+        """
+        return self._source_ip_config
+
+    @source_ip_config.setter
+    def source_ip_config(self, source_ip_config):
+        """Sets the source_ip_config of this RuleConditionForDescribeRulesOutput.
+
+
+        :param source_ip_config: The source_ip_config of this RuleConditionForDescribeRulesOutput.  # noqa: E501
+        :type: SourceIpConfigForDescribeRulesOutput
+        """
+
+        self._source_ip_config = source_ip_config
 
     @property
     def type(self):

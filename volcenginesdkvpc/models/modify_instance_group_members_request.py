@@ -34,29 +34,34 @@ class ModifyInstanceGroupMembersRequest(object):
     """
     swagger_types = {
         'append_members': 'list[AppendMemberForModifyInstanceGroupMembersInput]',
+        'client_token': 'str',
         'instance_group_id': 'str',
         'remove_members': 'list[RemoveMemberForModifyInstanceGroupMembersInput]'
     }
 
     attribute_map = {
         'append_members': 'AppendMembers',
+        'client_token': 'ClientToken',
         'instance_group_id': 'InstanceGroupId',
         'remove_members': 'RemoveMembers'
     }
 
-    def __init__(self, append_members=None, instance_group_id=None, remove_members=None, _configuration=None):  # noqa: E501
+    def __init__(self, append_members=None, client_token=None, instance_group_id=None, remove_members=None, _configuration=None):  # noqa: E501
         """ModifyInstanceGroupMembersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._append_members = None
+        self._client_token = None
         self._instance_group_id = None
         self._remove_members = None
         self.discriminator = None
 
         if append_members is not None:
             self.append_members = append_members
+        if client_token is not None:
+            self.client_token = client_token
         self.instance_group_id = instance_group_id
         if remove_members is not None:
             self.remove_members = remove_members
@@ -81,6 +86,27 @@ class ModifyInstanceGroupMembersRequest(object):
         """
 
         self._append_members = append_members
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyInstanceGroupMembersRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyInstanceGroupMembersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyInstanceGroupMembersRequest.
+
+
+        :param client_token: The client_token of this ModifyInstanceGroupMembersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def instance_group_id(self):

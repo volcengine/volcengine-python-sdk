@@ -35,16 +35,20 @@ class EipBillingConfigForCloneLoadBalancerInput(object):
     swagger_types = {
         'bandwidth': 'int',
         'eip_billing_type': 'int',
-        'isp': 'str'
+        'isp': 'str',
+        'security_protection_instance_id': 'int',
+        'security_protection_types': 'str'
     }
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
         'eip_billing_type': 'EipBillingType',
-        'isp': 'ISP'
+        'isp': 'ISP',
+        'security_protection_instance_id': 'SecurityProtectionInstanceId',
+        'security_protection_types': 'SecurityProtectionTypes'
     }
 
-    def __init__(self, bandwidth=None, eip_billing_type=None, isp=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, eip_billing_type=None, isp=None, security_protection_instance_id=None, security_protection_types=None, _configuration=None):  # noqa: E501
         """EipBillingConfigForCloneLoadBalancerInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +57,8 @@ class EipBillingConfigForCloneLoadBalancerInput(object):
         self._bandwidth = None
         self._eip_billing_type = None
         self._isp = None
+        self._security_protection_instance_id = None
+        self._security_protection_types = None
         self.discriminator = None
 
         if bandwidth is not None:
@@ -61,6 +67,10 @@ class EipBillingConfigForCloneLoadBalancerInput(object):
             self.eip_billing_type = eip_billing_type
         if isp is not None:
             self.isp = isp
+        if security_protection_instance_id is not None:
+            self.security_protection_instance_id = security_protection_instance_id
+        if security_protection_types is not None:
+            self.security_protection_types = security_protection_types
 
     @property
     def bandwidth(self):
@@ -124,6 +134,48 @@ class EipBillingConfigForCloneLoadBalancerInput(object):
         """
 
         self._isp = isp
+
+    @property
+    def security_protection_instance_id(self):
+        """Gets the security_protection_instance_id of this EipBillingConfigForCloneLoadBalancerInput.  # noqa: E501
+
+
+        :return: The security_protection_instance_id of this EipBillingConfigForCloneLoadBalancerInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._security_protection_instance_id
+
+    @security_protection_instance_id.setter
+    def security_protection_instance_id(self, security_protection_instance_id):
+        """Sets the security_protection_instance_id of this EipBillingConfigForCloneLoadBalancerInput.
+
+
+        :param security_protection_instance_id: The security_protection_instance_id of this EipBillingConfigForCloneLoadBalancerInput.  # noqa: E501
+        :type: int
+        """
+
+        self._security_protection_instance_id = security_protection_instance_id
+
+    @property
+    def security_protection_types(self):
+        """Gets the security_protection_types of this EipBillingConfigForCloneLoadBalancerInput.  # noqa: E501
+
+
+        :return: The security_protection_types of this EipBillingConfigForCloneLoadBalancerInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_protection_types
+
+    @security_protection_types.setter
+    def security_protection_types(self, security_protection_types):
+        """Sets the security_protection_types of this EipBillingConfigForCloneLoadBalancerInput.
+
+
+        :param security_protection_types: The security_protection_types of this EipBillingConfigForCloneLoadBalancerInput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_protection_types = security_protection_types
 
     def to_dict(self):
         """Returns the model properties as a dict"""

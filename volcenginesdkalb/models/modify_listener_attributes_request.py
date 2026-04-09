@@ -53,7 +53,8 @@ class ModifyListenerAttributesRequest(object):
         'pca_leaf_certificate_id': 'str',
         'pca_root_ca_certificate_id': 'str',
         'pca_sub_ca_certificate_id': 'str',
-        'server_group_id': 'str'
+        'server_group_id': 'str',
+        'x_real_ip_enabled': 'str'
     }
 
     attribute_map = {
@@ -77,10 +78,11 @@ class ModifyListenerAttributesRequest(object):
         'pca_leaf_certificate_id': 'PcaLeafCertificateId',
         'pca_root_ca_certificate_id': 'PcaRootCACertificateId',
         'pca_sub_ca_certificate_id': 'PcaSubCACertificateId',
-        'server_group_id': 'ServerGroupId'
+        'server_group_id': 'ServerGroupId',
+        'x_real_ip_enabled': 'XRealIpEnabled'
     }
 
-    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, server_group_id=None, x_real_ip_enabled=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -107,6 +109,7 @@ class ModifyListenerAttributesRequest(object):
         self._pca_root_ca_certificate_id = None
         self._pca_sub_ca_certificate_id = None
         self._server_group_id = None
+        self._x_real_ip_enabled = None
         self.discriminator = None
 
         if access_log_record_customized_headers_enabled is not None:
@@ -150,6 +153,8 @@ class ModifyListenerAttributesRequest(object):
             self.pca_sub_ca_certificate_id = pca_sub_ca_certificate_id
         if server_group_id is not None:
             self.server_group_id = server_group_id
+        if x_real_ip_enabled is not None:
+            self.x_real_ip_enabled = x_real_ip_enabled
 
     @property
     def access_log_record_customized_headers_enabled(self):
@@ -599,6 +604,27 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._server_group_id = server_group_id
+
+    @property
+    def x_real_ip_enabled(self):
+        """Gets the x_real_ip_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The x_real_ip_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._x_real_ip_enabled
+
+    @x_real_ip_enabled.setter
+    def x_real_ip_enabled(self, x_real_ip_enabled):
+        """Sets the x_real_ip_enabled of this ModifyListenerAttributesRequest.
+
+
+        :param x_real_ip_enabled: The x_real_ip_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._x_real_ip_enabled = x_real_ip_enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

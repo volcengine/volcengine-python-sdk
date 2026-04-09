@@ -33,24 +33,29 @@ class ZoneForDescribeZonesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'zone_id': 'str'
+        'zone_id': 'str',
+        'zone_type': 'str'
     }
 
     attribute_map = {
-        'zone_id': 'ZoneId'
+        'zone_id': 'ZoneId',
+        'zone_type': 'ZoneType'
     }
 
-    def __init__(self, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, zone_id=None, zone_type=None, _configuration=None):  # noqa: E501
         """ZoneForDescribeZonesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._zone_id = None
+        self._zone_type = None
         self.discriminator = None
 
         if zone_id is not None:
             self.zone_id = zone_id
+        if zone_type is not None:
+            self.zone_type = zone_type
 
     @property
     def zone_id(self):
@@ -72,6 +77,27 @@ class ZoneForDescribeZonesOutput(object):
         """
 
         self._zone_id = zone_id
+
+    @property
+    def zone_type(self):
+        """Gets the zone_type of this ZoneForDescribeZonesOutput.  # noqa: E501
+
+
+        :return: The zone_type of this ZoneForDescribeZonesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_type
+
+    @zone_type.setter
+    def zone_type(self, zone_type):
+        """Sets the zone_type of this ZoneForDescribeZonesOutput.
+
+
+        :param zone_type: The zone_type of this ZoneForDescribeZonesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_type = zone_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

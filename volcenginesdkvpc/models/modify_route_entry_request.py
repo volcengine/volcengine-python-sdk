@@ -34,29 +34,39 @@ class ModifyRouteEntryRequest(object):
     """
     swagger_types = {
         'description': 'str',
+        'next_hop_id': 'str',
+        'next_hop_type': 'str',
         'route_entry_id': 'str',
         'route_entry_name': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
+        'next_hop_id': 'NextHopId',
+        'next_hop_type': 'NextHopType',
         'route_entry_id': 'RouteEntryId',
         'route_entry_name': 'RouteEntryName'
     }
 
-    def __init__(self, description=None, route_entry_id=None, route_entry_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, next_hop_id=None, next_hop_type=None, route_entry_id=None, route_entry_name=None, _configuration=None):  # noqa: E501
         """ModifyRouteEntryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._next_hop_id = None
+        self._next_hop_type = None
         self._route_entry_id = None
         self._route_entry_name = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
+        if next_hop_id is not None:
+            self.next_hop_id = next_hop_id
+        if next_hop_type is not None:
+            self.next_hop_type = next_hop_type
         self.route_entry_id = route_entry_id
         if route_entry_name is not None:
             self.route_entry_name = route_entry_name
@@ -87,6 +97,48 @@ class ModifyRouteEntryRequest(object):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def next_hop_id(self):
+        """Gets the next_hop_id of this ModifyRouteEntryRequest.  # noqa: E501
+
+
+        :return: The next_hop_id of this ModifyRouteEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_hop_id
+
+    @next_hop_id.setter
+    def next_hop_id(self, next_hop_id):
+        """Sets the next_hop_id of this ModifyRouteEntryRequest.
+
+
+        :param next_hop_id: The next_hop_id of this ModifyRouteEntryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_hop_id = next_hop_id
+
+    @property
+    def next_hop_type(self):
+        """Gets the next_hop_type of this ModifyRouteEntryRequest.  # noqa: E501
+
+
+        :return: The next_hop_type of this ModifyRouteEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_hop_type
+
+    @next_hop_type.setter
+    def next_hop_type(self, next_hop_type):
+        """Sets the next_hop_type of this ModifyRouteEntryRequest.
+
+
+        :param next_hop_type: The next_hop_type of this ModifyRouteEntryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_hop_type = next_hop_type
 
     @property
     def route_entry_id(self):

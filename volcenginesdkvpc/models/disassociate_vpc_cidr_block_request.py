@@ -33,28 +33,54 @@ class DisassociateVpcCidrBlockRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ipv6_cidr_block': 'str',
         'secondary_cidr_block': 'str',
         'vpc_id': 'str'
     }
 
     attribute_map = {
+        'ipv6_cidr_block': 'Ipv6CidrBlock',
         'secondary_cidr_block': 'SecondaryCidrBlock',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, secondary_cidr_block=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv6_cidr_block=None, secondary_cidr_block=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DisassociateVpcCidrBlockRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ipv6_cidr_block = None
         self._secondary_cidr_block = None
         self._vpc_id = None
         self.discriminator = None
 
+        if ipv6_cidr_block is not None:
+            self.ipv6_cidr_block = ipv6_cidr_block
         if secondary_cidr_block is not None:
             self.secondary_cidr_block = secondary_cidr_block
         self.vpc_id = vpc_id
+
+    @property
+    def ipv6_cidr_block(self):
+        """Gets the ipv6_cidr_block of this DisassociateVpcCidrBlockRequest.  # noqa: E501
+
+
+        :return: The ipv6_cidr_block of this DisassociateVpcCidrBlockRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_cidr_block
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, ipv6_cidr_block):
+        """Sets the ipv6_cidr_block of this DisassociateVpcCidrBlockRequest.
+
+
+        :param ipv6_cidr_block: The ipv6_cidr_block of this DisassociateVpcCidrBlockRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_cidr_block = ipv6_cidr_block
 
     @property
     def secondary_cidr_block(self):

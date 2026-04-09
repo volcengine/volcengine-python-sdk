@@ -62,7 +62,8 @@ class ListenerForDescribeListenersOutput(object):
         'server_groups': 'list[ServerGroupForDescribeListenersOutput]',
         'status': 'str',
         'tags': 'list[TagForDescribeListenersOutput]',
-        'update_time': 'str'
+        'update_time': 'str',
+        'x_real_ip_enabled': 'str'
     }
 
     attribute_map = {
@@ -95,10 +96,11 @@ class ListenerForDescribeListenersOutput(object):
         'server_groups': 'ServerGroups',
         'status': 'Status',
         'tags': 'Tags',
-        'update_time': 'UpdateTime'
+        'update_time': 'UpdateTime',
+        'x_real_ip_enabled': 'XRealIpEnabled'
     }
 
-    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, create_time=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, load_balancer_id=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, port=None, project_name=None, protocol=None, server_group_id=None, server_groups=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, create_time=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, load_balancer_id=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, port=None, project_name=None, protocol=None, server_group_id=None, server_groups=None, status=None, tags=None, update_time=None, x_real_ip_enabled=None, _configuration=None):  # noqa: E501
         """ListenerForDescribeListenersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -134,6 +136,7 @@ class ListenerForDescribeListenersOutput(object):
         self._status = None
         self._tags = None
         self._update_time = None
+        self._x_real_ip_enabled = None
         self.discriminator = None
 
         if access_log_record_customized_headers_enabled is not None:
@@ -196,6 +199,8 @@ class ListenerForDescribeListenersOutput(object):
             self.tags = tags
         if update_time is not None:
             self.update_time = update_time
+        if x_real_ip_enabled is not None:
+            self.x_real_ip_enabled = x_real_ip_enabled
 
     @property
     def access_log_record_customized_headers_enabled(self):
@@ -826,6 +831,27 @@ class ListenerForDescribeListenersOutput(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def x_real_ip_enabled(self):
+        """Gets the x_real_ip_enabled of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The x_real_ip_enabled of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._x_real_ip_enabled
+
+    @x_real_ip_enabled.setter
+    def x_real_ip_enabled(self, x_real_ip_enabled):
+        """Sets the x_real_ip_enabled of this ListenerForDescribeListenersOutput.
+
+
+        :param x_real_ip_enabled: The x_real_ip_enabled of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._x_real_ip_enabled = x_real_ip_enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

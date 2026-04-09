@@ -38,7 +38,7 @@ class TermBaseTermGroupsRequest(object):
         'offset': 'int',
         'sort_type': 'int',
         'sorting': 'int',
-        'term_base_id': 'int'
+        'term_base_id': 'str'
     }
 
     attribute_map = {
@@ -189,7 +189,7 @@ class TermBaseTermGroupsRequest(object):
 
 
         :return: The term_base_id of this TermBaseTermGroupsRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._term_base_id
 
@@ -199,7 +199,7 @@ class TermBaseTermGroupsRequest(object):
 
 
         :param term_base_id: The term_base_id of this TermBaseTermGroupsRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and term_base_id is None:
             raise ValueError("Invalid value for `term_base_id`, must not be `None`")  # noqa: E501

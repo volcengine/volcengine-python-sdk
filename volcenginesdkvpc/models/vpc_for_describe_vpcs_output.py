@@ -40,6 +40,8 @@ class VpcForDescribeVpcsOutput(object):
         'description': 'str',
         'dns_servers': 'list[str]',
         'ipv4_gateway_id': 'str',
+        'ipv6_cidr_block': 'str',
+        'ipv6_cidr_blocks': 'list[Ipv6CidrBlockForDescribeVpcsOutput]',
         'is_default': 'bool',
         'nat_gateway_ids': 'list[str]',
         'network_acl_num': 'str',
@@ -65,6 +67,8 @@ class VpcForDescribeVpcsOutput(object):
         'description': 'Description',
         'dns_servers': 'DnsServers',
         'ipv4_gateway_id': 'Ipv4GatewayId',
+        'ipv6_cidr_block': 'Ipv6CidrBlock',
+        'ipv6_cidr_blocks': 'Ipv6CidrBlocks',
         'is_default': 'IsDefault',
         'nat_gateway_ids': 'NatGatewayIds',
         'network_acl_num': 'NetworkAclNum',
@@ -82,7 +86,7 @@ class VpcForDescribeVpcsOutput(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, ipv4_gateway_id=None, is_default=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, route_table_ids=None, secondary_cidr_blocks=None, security_group_ids=None, status=None, subnet_ids=None, support_ipv4_gateway=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, ipv4_gateway_id=None, ipv6_cidr_block=None, ipv6_cidr_blocks=None, is_default=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, route_table_ids=None, secondary_cidr_blocks=None, security_group_ids=None, status=None, subnet_ids=None, support_ipv4_gateway=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """VpcForDescribeVpcsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,6 +99,8 @@ class VpcForDescribeVpcsOutput(object):
         self._description = None
         self._dns_servers = None
         self._ipv4_gateway_id = None
+        self._ipv6_cidr_block = None
+        self._ipv6_cidr_blocks = None
         self._is_default = None
         self._nat_gateway_ids = None
         self._network_acl_num = None
@@ -126,6 +132,10 @@ class VpcForDescribeVpcsOutput(object):
             self.dns_servers = dns_servers
         if ipv4_gateway_id is not None:
             self.ipv4_gateway_id = ipv4_gateway_id
+        if ipv6_cidr_block is not None:
+            self.ipv6_cidr_block = ipv6_cidr_block
+        if ipv6_cidr_blocks is not None:
+            self.ipv6_cidr_blocks = ipv6_cidr_blocks
         if is_default is not None:
             self.is_default = is_default
         if nat_gateway_ids is not None:
@@ -303,6 +313,48 @@ class VpcForDescribeVpcsOutput(object):
         """
 
         self._ipv4_gateway_id = ipv4_gateway_id
+
+    @property
+    def ipv6_cidr_block(self):
+        """Gets the ipv6_cidr_block of this VpcForDescribeVpcsOutput.  # noqa: E501
+
+
+        :return: The ipv6_cidr_block of this VpcForDescribeVpcsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_cidr_block
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, ipv6_cidr_block):
+        """Sets the ipv6_cidr_block of this VpcForDescribeVpcsOutput.
+
+
+        :param ipv6_cidr_block: The ipv6_cidr_block of this VpcForDescribeVpcsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_cidr_block = ipv6_cidr_block
+
+    @property
+    def ipv6_cidr_blocks(self):
+        """Gets the ipv6_cidr_blocks of this VpcForDescribeVpcsOutput.  # noqa: E501
+
+
+        :return: The ipv6_cidr_blocks of this VpcForDescribeVpcsOutput.  # noqa: E501
+        :rtype: list[Ipv6CidrBlockForDescribeVpcsOutput]
+        """
+        return self._ipv6_cidr_blocks
+
+    @ipv6_cidr_blocks.setter
+    def ipv6_cidr_blocks(self, ipv6_cidr_blocks):
+        """Sets the ipv6_cidr_blocks of this VpcForDescribeVpcsOutput.
+
+
+        :param ipv6_cidr_blocks: The ipv6_cidr_blocks of this VpcForDescribeVpcsOutput.  # noqa: E501
+        :type: list[Ipv6CidrBlockForDescribeVpcsOutput]
+        """
+
+        self._ipv6_cidr_blocks = ipv6_cidr_blocks
 
     @property
     def is_default(self):
