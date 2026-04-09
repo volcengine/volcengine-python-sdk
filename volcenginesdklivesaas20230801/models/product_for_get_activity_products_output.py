@@ -33,6 +33,7 @@ class ProductForGetActivityProductsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'custom_content': 'str',
         'direct_urls': 'list[str]',
         'enable_status': 'int',
         'explain_status': 'int',
@@ -45,6 +46,7 @@ class ProductForGetActivityProductsOutput(object):
         'index': 'int',
         'introduce_image': 'str',
         'is_order_msg_enable': 'int',
+        'member_price': 'str',
         'mini_app_direct_url': 'str',
         'out_of_stock': 'int',
         'page_advertisement_type': 'int',
@@ -62,6 +64,7 @@ class ProductForGetActivityProductsOutput(object):
     }
 
     attribute_map = {
+        'custom_content': 'CustomContent',
         'direct_urls': 'DirectUrls',
         'enable_status': 'EnableStatus',
         'explain_status': 'ExplainStatus',
@@ -74,6 +77,7 @@ class ProductForGetActivityProductsOutput(object):
         'index': 'Index',
         'introduce_image': 'IntroduceImage',
         'is_order_msg_enable': 'IsOrderMsgEnable',
+        'member_price': 'MemberPrice',
         'mini_app_direct_url': 'MiniAppDirectUrl',
         'out_of_stock': 'OutOfStock',
         'page_advertisement_type': 'PageAdvertisementType',
@@ -90,12 +94,13 @@ class ProductForGetActivityProductsOutput(object):
         'title': 'Title'
     }
 
-    def __init__(self, direct_urls=None, enable_status=None, explain_status=None, explain_time=None, floating_status=None, floating_time=None, highlight=None, hot_sale=None, id=None, index=None, introduce_image=None, is_order_msg_enable=None, mini_app_direct_url=None, out_of_stock=None, page_advertisement_type=None, price_hidden=None, promotion_tag_type=None, promotion_tag_url=None, redirect_image=None, redirect_url=None, remark=None, reminder_type=None, selling_point_tag=None, stock=None, strikethrough=None, title=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_content=None, direct_urls=None, enable_status=None, explain_status=None, explain_time=None, floating_status=None, floating_time=None, highlight=None, hot_sale=None, id=None, index=None, introduce_image=None, is_order_msg_enable=None, member_price=None, mini_app_direct_url=None, out_of_stock=None, page_advertisement_type=None, price_hidden=None, promotion_tag_type=None, promotion_tag_url=None, redirect_image=None, redirect_url=None, remark=None, reminder_type=None, selling_point_tag=None, stock=None, strikethrough=None, title=None, _configuration=None):  # noqa: E501
         """ProductForGetActivityProductsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._custom_content = None
         self._direct_urls = None
         self._enable_status = None
         self._explain_status = None
@@ -108,6 +113,7 @@ class ProductForGetActivityProductsOutput(object):
         self._index = None
         self._introduce_image = None
         self._is_order_msg_enable = None
+        self._member_price = None
         self._mini_app_direct_url = None
         self._out_of_stock = None
         self._page_advertisement_type = None
@@ -124,6 +130,8 @@ class ProductForGetActivityProductsOutput(object):
         self._title = None
         self.discriminator = None
 
+        if custom_content is not None:
+            self.custom_content = custom_content
         if direct_urls is not None:
             self.direct_urls = direct_urls
         if enable_status is not None:
@@ -148,6 +156,8 @@ class ProductForGetActivityProductsOutput(object):
             self.introduce_image = introduce_image
         if is_order_msg_enable is not None:
             self.is_order_msg_enable = is_order_msg_enable
+        if member_price is not None:
+            self.member_price = member_price
         if mini_app_direct_url is not None:
             self.mini_app_direct_url = mini_app_direct_url
         if out_of_stock is not None:
@@ -176,6 +186,27 @@ class ProductForGetActivityProductsOutput(object):
             self.strikethrough = strikethrough
         if title is not None:
             self.title = title
+
+    @property
+    def custom_content(self):
+        """Gets the custom_content of this ProductForGetActivityProductsOutput.  # noqa: E501
+
+
+        :return: The custom_content of this ProductForGetActivityProductsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_content
+
+    @custom_content.setter
+    def custom_content(self, custom_content):
+        """Sets the custom_content of this ProductForGetActivityProductsOutput.
+
+
+        :param custom_content: The custom_content of this ProductForGetActivityProductsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_content = custom_content
 
     @property
     def direct_urls(self):
@@ -428,6 +459,27 @@ class ProductForGetActivityProductsOutput(object):
         """
 
         self._is_order_msg_enable = is_order_msg_enable
+
+    @property
+    def member_price(self):
+        """Gets the member_price of this ProductForGetActivityProductsOutput.  # noqa: E501
+
+
+        :return: The member_price of this ProductForGetActivityProductsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._member_price
+
+    @member_price.setter
+    def member_price(self, member_price):
+        """Sets the member_price of this ProductForGetActivityProductsOutput.
+
+
+        :param member_price: The member_price of this ProductForGetActivityProductsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._member_price = member_price
 
     @property
     def mini_app_direct_url(self):

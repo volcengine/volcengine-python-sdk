@@ -33,6 +33,7 @@ class ProductForUpdateActivityProductOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'custom_content': 'str',
         'direct_urls': 'list[str]',
         'enable_status': 'int',
         'explain_status': 'int',
@@ -62,6 +63,7 @@ class ProductForUpdateActivityProductOutput(object):
     }
 
     attribute_map = {
+        'custom_content': 'CustomContent',
         'direct_urls': 'DirectUrls',
         'enable_status': 'EnableStatus',
         'explain_status': 'ExplainStatus',
@@ -90,12 +92,13 @@ class ProductForUpdateActivityProductOutput(object):
         'title': 'Title'
     }
 
-    def __init__(self, direct_urls=None, enable_status=None, explain_status=None, explain_time=None, floating_status=None, floating_time=None, highlight=None, hot_sale=None, id=None, index=None, introduce_image=None, is_order_msg_enable=None, mini_app_direct_url=None, out_of_stock=None, page_advertisement_type=None, price_hidden=None, promotion_tag_type=None, promotion_tag_url=None, redirect_image=None, redirect_url=None, remark=None, reminder_type=None, selling_point_tag=None, stock=None, strikethrough=None, title=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_content=None, direct_urls=None, enable_status=None, explain_status=None, explain_time=None, floating_status=None, floating_time=None, highlight=None, hot_sale=None, id=None, index=None, introduce_image=None, is_order_msg_enable=None, mini_app_direct_url=None, out_of_stock=None, page_advertisement_type=None, price_hidden=None, promotion_tag_type=None, promotion_tag_url=None, redirect_image=None, redirect_url=None, remark=None, reminder_type=None, selling_point_tag=None, stock=None, strikethrough=None, title=None, _configuration=None):  # noqa: E501
         """ProductForUpdateActivityProductOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._custom_content = None
         self._direct_urls = None
         self._enable_status = None
         self._explain_status = None
@@ -124,6 +127,8 @@ class ProductForUpdateActivityProductOutput(object):
         self._title = None
         self.discriminator = None
 
+        if custom_content is not None:
+            self.custom_content = custom_content
         if direct_urls is not None:
             self.direct_urls = direct_urls
         if enable_status is not None:
@@ -176,6 +181,27 @@ class ProductForUpdateActivityProductOutput(object):
             self.strikethrough = strikethrough
         if title is not None:
             self.title = title
+
+    @property
+    def custom_content(self):
+        """Gets the custom_content of this ProductForUpdateActivityProductOutput.  # noqa: E501
+
+
+        :return: The custom_content of this ProductForUpdateActivityProductOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_content
+
+    @custom_content.setter
+    def custom_content(self, custom_content):
+        """Sets the custom_content of this ProductForUpdateActivityProductOutput.
+
+
+        :param custom_content: The custom_content of this ProductForUpdateActivityProductOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_content = custom_content
 
     @property
     def direct_urls(self):

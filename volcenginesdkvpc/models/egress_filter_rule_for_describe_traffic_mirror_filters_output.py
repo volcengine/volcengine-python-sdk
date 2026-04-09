@@ -33,49 +33,51 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'created_at': 'str',
         'description': 'str',
         'destination_cidr_block': 'str',
         'destination_port_range': 'str',
         'policy': 'str',
         'priority': 'int',
-        'project_name': 'str',
         'protocol': 'str',
         'source_cidr_block': 'str',
         'source_port_range': 'str',
         'status': 'str',
         'traffic_direction': 'str',
         'traffic_mirror_filter_id': 'str',
-        'traffic_mirror_filter_rule_id': 'str'
+        'traffic_mirror_filter_rule_id': 'str',
+        'updated_at': 'str'
     }
 
     attribute_map = {
+        'created_at': 'CreatedAt',
         'description': 'Description',
         'destination_cidr_block': 'DestinationCidrBlock',
         'destination_port_range': 'DestinationPortRange',
         'policy': 'Policy',
         'priority': 'Priority',
-        'project_name': 'ProjectName',
         'protocol': 'Protocol',
         'source_cidr_block': 'SourceCidrBlock',
         'source_port_range': 'SourcePortRange',
         'status': 'Status',
         'traffic_direction': 'TrafficDirection',
         'traffic_mirror_filter_id': 'TrafficMirrorFilterId',
-        'traffic_mirror_filter_rule_id': 'TrafficMirrorFilterRuleId'
+        'traffic_mirror_filter_rule_id': 'TrafficMirrorFilterRuleId',
+        'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, description=None, destination_cidr_block=None, destination_port_range=None, policy=None, priority=None, project_name=None, protocol=None, source_cidr_block=None, source_port_range=None, status=None, traffic_direction=None, traffic_mirror_filter_id=None, traffic_mirror_filter_rule_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, description=None, destination_cidr_block=None, destination_port_range=None, policy=None, priority=None, protocol=None, source_cidr_block=None, source_port_range=None, status=None, traffic_direction=None, traffic_mirror_filter_id=None, traffic_mirror_filter_rule_id=None, updated_at=None, _configuration=None):  # noqa: E501
         """EgressFilterRuleForDescribeTrafficMirrorFiltersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._created_at = None
         self._description = None
         self._destination_cidr_block = None
         self._destination_port_range = None
         self._policy = None
         self._priority = None
-        self._project_name = None
         self._protocol = None
         self._source_cidr_block = None
         self._source_port_range = None
@@ -83,8 +85,11 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput(object):
         self._traffic_direction = None
         self._traffic_mirror_filter_id = None
         self._traffic_mirror_filter_rule_id = None
+        self._updated_at = None
         self.discriminator = None
 
+        if created_at is not None:
+            self.created_at = created_at
         if description is not None:
             self.description = description
         if destination_cidr_block is not None:
@@ -95,8 +100,6 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput(object):
             self.policy = policy
         if priority is not None:
             self.priority = priority
-        if project_name is not None:
-            self.project_name = project_name
         if protocol is not None:
             self.protocol = protocol
         if source_cidr_block is not None:
@@ -111,6 +114,29 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput(object):
             self.traffic_mirror_filter_id = traffic_mirror_filter_id
         if traffic_mirror_filter_rule_id is not None:
             self.traffic_mirror_filter_rule_id = traffic_mirror_filter_rule_id
+        if updated_at is not None:
+            self.updated_at = updated_at
+
+    @property
+    def created_at(self):
+        """Gets the created_at of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.  # noqa: E501
+
+
+        :return: The created_at of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.
+
+
+        :param created_at: The created_at of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._created_at = created_at
 
     @property
     def description(self):
@@ -216,27 +242,6 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput(object):
         """
 
         self._priority = priority
-
-    @property
-    def project_name(self):
-        """Gets the project_name of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.  # noqa: E501
-
-
-        :return: The project_name of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_name
-
-    @project_name.setter
-    def project_name(self, project_name):
-        """Sets the project_name of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.
-
-
-        :param project_name: The project_name of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._project_name = project_name
 
     @property
     def protocol(self):
@@ -384,6 +389,27 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput(object):
         """
 
         self._traffic_mirror_filter_rule_id = traffic_mirror_filter_rule_id
+
+    @property
+    def updated_at(self):
+        """Gets the updated_at of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.  # noqa: E501
+
+
+        :return: The updated_at of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._updated_at
+
+    @updated_at.setter
+    def updated_at(self, updated_at):
+        """Sets the updated_at of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.
+
+
+        :param updated_at: The updated_at of this EgressFilterRuleForDescribeTrafficMirrorFiltersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._updated_at = updated_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

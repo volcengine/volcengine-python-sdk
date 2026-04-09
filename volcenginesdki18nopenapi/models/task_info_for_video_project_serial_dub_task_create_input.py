@@ -33,7 +33,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'ai_remove_type': 'str',
+        'ai_remove_type': 'int',
         'asr_model': 'int',
         'bgm_policy': 'int',
         'comment': 'str',
@@ -44,6 +44,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         'drama_title': 'str',
         'dub_or_translation_task_id': 'str',
         'is_dub': 'bool',
+        'llm_video_understanding_type': 'int',
         'need_translate_cover': 'bool',
         'need_translate_desc': 'bool',
         'need_translate_title': 'bool',
@@ -76,6 +77,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         'drama_title': 'dramaTitle',
         'dub_or_translation_task_id': 'dubOrTranslationTaskID',
         'is_dub': 'isDub',
+        'llm_video_understanding_type': 'llmVideoUnderstandingType',
         'need_translate_cover': 'needTranslateCover',
         'need_translate_desc': 'needTranslateDesc',
         'need_translate_title': 'needTranslateTitle',
@@ -96,7 +98,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         'use_mt': 'useMT'
     }
 
-    def __init__(self, ai_remove_type=None, asr_model=None, bgm_policy=None, comment=None, created_at=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, dub_or_translation_task_id=None, is_dub=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, procedures=None, reference_doc=None, serial_number=None, source_lang=None, source_locale=None, state=None, suppression_params=None, target_langs=None, target_locale=None, target_style_map=None, task_id=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_remove_type=None, asr_model=None, bgm_policy=None, comment=None, created_at=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, dub_or_translation_task_id=None, is_dub=None, llm_video_understanding_type=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, procedures=None, reference_doc=None, serial_number=None, source_lang=None, source_locale=None, state=None, suppression_params=None, target_langs=None, target_locale=None, target_style_map=None, task_id=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
         """TaskInfoForVideoProjectSerialDubTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -113,6 +115,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         self._drama_title = None
         self._dub_or_translation_task_id = None
         self._is_dub = None
+        self._llm_video_understanding_type = None
         self._need_translate_cover = None
         self._need_translate_desc = None
         self._need_translate_title = None
@@ -155,6 +158,8 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
             self.dub_or_translation_task_id = dub_or_translation_task_id
         if is_dub is not None:
             self.is_dub = is_dub
+        if llm_video_understanding_type is not None:
+            self.llm_video_understanding_type = llm_video_understanding_type
         if need_translate_cover is not None:
             self.need_translate_cover = need_translate_cover
         if need_translate_desc is not None:
@@ -198,7 +203,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
 
 
         :return: The ai_remove_type of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._ai_remove_type
 
@@ -208,7 +213,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
 
 
         :param ai_remove_type: The ai_remove_type of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._ai_remove_type = ai_remove_type
@@ -422,6 +427,27 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput(object):
         """
 
         self._is_dub = is_dub
+
+    @property
+    def llm_video_understanding_type(self):
+        """Gets the llm_video_understanding_type of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The llm_video_understanding_type of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._llm_video_understanding_type
+
+    @llm_video_understanding_type.setter
+    def llm_video_understanding_type(self, llm_video_understanding_type):
+        """Sets the llm_video_understanding_type of this TaskInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param llm_video_understanding_type: The llm_video_understanding_type of this TaskInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: int
+        """
+
+        self._llm_video_understanding_type = llm_video_understanding_type
 
     @property
     def need_translate_cover(self):

@@ -37,8 +37,11 @@ class CreateVpcRequest(object):
         'client_token': 'str',
         'description': 'str',
         'dns_servers': 'list[str]',
+        'dry_run': 'bool',
         'enable_ipv6': 'bool',
         'ipv6_cidr_block': 'str',
+        'ipv6_isp': 'str',
+        'ipv6_mask_len': 'int',
         'project_name': 'str',
         'tags': 'list[TagForCreateVpcInput]',
         'vpc_name': 'str'
@@ -49,14 +52,17 @@ class CreateVpcRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'dns_servers': 'DnsServers',
+        'dry_run': 'DryRun',
         'enable_ipv6': 'EnableIpv6',
         'ipv6_cidr_block': 'Ipv6CidrBlock',
+        'ipv6_isp': 'Ipv6Isp',
+        'ipv6_mask_len': 'Ipv6MaskLen',
         'project_name': 'ProjectName',
         'tags': 'Tags',
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, cidr_block=None, client_token=None, description=None, dns_servers=None, enable_ipv6=None, ipv6_cidr_block=None, project_name=None, tags=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_block=None, client_token=None, description=None, dns_servers=None, dry_run=None, enable_ipv6=None, ipv6_cidr_block=None, ipv6_isp=None, ipv6_mask_len=None, project_name=None, tags=None, vpc_name=None, _configuration=None):  # noqa: E501
         """CreateVpcRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,8 +72,11 @@ class CreateVpcRequest(object):
         self._client_token = None
         self._description = None
         self._dns_servers = None
+        self._dry_run = None
         self._enable_ipv6 = None
         self._ipv6_cidr_block = None
+        self._ipv6_isp = None
+        self._ipv6_mask_len = None
         self._project_name = None
         self._tags = None
         self._vpc_name = None
@@ -80,10 +89,16 @@ class CreateVpcRequest(object):
             self.description = description
         if dns_servers is not None:
             self.dns_servers = dns_servers
+        if dry_run is not None:
+            self.dry_run = dry_run
         if enable_ipv6 is not None:
             self.enable_ipv6 = enable_ipv6
         if ipv6_cidr_block is not None:
             self.ipv6_cidr_block = ipv6_cidr_block
+        if ipv6_isp is not None:
+            self.ipv6_isp = ipv6_isp
+        if ipv6_mask_len is not None:
+            self.ipv6_mask_len = ipv6_mask_len
         if project_name is not None:
             self.project_name = project_name
         if tags is not None:
@@ -184,6 +199,27 @@ class CreateVpcRequest(object):
         self._dns_servers = dns_servers
 
     @property
+    def dry_run(self):
+        """Gets the dry_run of this CreateVpcRequest.  # noqa: E501
+
+
+        :return: The dry_run of this CreateVpcRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dry_run
+
+    @dry_run.setter
+    def dry_run(self, dry_run):
+        """Sets the dry_run of this CreateVpcRequest.
+
+
+        :param dry_run: The dry_run of this CreateVpcRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dry_run = dry_run
+
+    @property
     def enable_ipv6(self):
         """Gets the enable_ipv6 of this CreateVpcRequest.  # noqa: E501
 
@@ -224,6 +260,48 @@ class CreateVpcRequest(object):
         """
 
         self._ipv6_cidr_block = ipv6_cidr_block
+
+    @property
+    def ipv6_isp(self):
+        """Gets the ipv6_isp of this CreateVpcRequest.  # noqa: E501
+
+
+        :return: The ipv6_isp of this CreateVpcRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_isp
+
+    @ipv6_isp.setter
+    def ipv6_isp(self, ipv6_isp):
+        """Sets the ipv6_isp of this CreateVpcRequest.
+
+
+        :param ipv6_isp: The ipv6_isp of this CreateVpcRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_isp = ipv6_isp
+
+    @property
+    def ipv6_mask_len(self):
+        """Gets the ipv6_mask_len of this CreateVpcRequest.  # noqa: E501
+
+
+        :return: The ipv6_mask_len of this CreateVpcRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ipv6_mask_len
+
+    @ipv6_mask_len.setter
+    def ipv6_mask_len(self, ipv6_mask_len):
+        """Sets the ipv6_mask_len of this CreateVpcRequest.
+
+
+        :param ipv6_mask_len: The ipv6_mask_len of this CreateVpcRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ipv6_mask_len = ipv6_mask_len
 
     @property
     def project_name(self):

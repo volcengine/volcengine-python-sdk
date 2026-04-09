@@ -37,7 +37,8 @@ class ModifySubnetAttributesRequest(object):
         'enable_ipv6': 'bool',
         'ipv6_cidr_block': 'int',
         'subnet_id': 'str',
-        'subnet_name': 'str'
+        'subnet_name': 'str',
+        'vpc_ipv6_cidr_block': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ModifySubnetAttributesRequest(object):
         'enable_ipv6': 'EnableIpv6',
         'ipv6_cidr_block': 'Ipv6CidrBlock',
         'subnet_id': 'SubnetId',
-        'subnet_name': 'SubnetName'
+        'subnet_name': 'SubnetName',
+        'vpc_ipv6_cidr_block': 'VpcIpv6CidrBlock'
     }
 
-    def __init__(self, description=None, enable_ipv6=None, ipv6_cidr_block=None, subnet_id=None, subnet_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, enable_ipv6=None, ipv6_cidr_block=None, subnet_id=None, subnet_name=None, vpc_ipv6_cidr_block=None, _configuration=None):  # noqa: E501
         """ModifySubnetAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ModifySubnetAttributesRequest(object):
         self._ipv6_cidr_block = None
         self._subnet_id = None
         self._subnet_name = None
+        self._vpc_ipv6_cidr_block = None
         self.discriminator = None
 
         if description is not None:
@@ -70,6 +73,8 @@ class ModifySubnetAttributesRequest(object):
         self.subnet_id = subnet_id
         if subnet_name is not None:
             self.subnet_name = subnet_name
+        if vpc_ipv6_cidr_block is not None:
+            self.vpc_ipv6_cidr_block = vpc_ipv6_cidr_block
 
     @property
     def description(self):
@@ -195,6 +200,27 @@ class ModifySubnetAttributesRequest(object):
             raise ValueError("Invalid value for `subnet_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._subnet_name = subnet_name
+
+    @property
+    def vpc_ipv6_cidr_block(self):
+        """Gets the vpc_ipv6_cidr_block of this ModifySubnetAttributesRequest.  # noqa: E501
+
+
+        :return: The vpc_ipv6_cidr_block of this ModifySubnetAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_ipv6_cidr_block
+
+    @vpc_ipv6_cidr_block.setter
+    def vpc_ipv6_cidr_block(self, vpc_ipv6_cidr_block):
+        """Sets the vpc_ipv6_cidr_block of this ModifySubnetAttributesRequest.
+
+
+        :param vpc_ipv6_cidr_block: The vpc_ipv6_cidr_block of this ModifySubnetAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_ipv6_cidr_block = vpc_ipv6_cidr_block
 
     def to_dict(self):
         """Returns the model properties as a dict"""

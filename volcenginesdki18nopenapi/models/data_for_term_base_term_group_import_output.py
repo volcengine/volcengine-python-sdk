@@ -33,24 +33,76 @@ class DataForTermBaseTermGroupImportOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'code': 'int',
+        'message': 'str',
         'task_id': 'int'
     }
 
     attribute_map = {
+        'code': 'code',
+        'message': 'message',
         'task_id': 'taskId'
     }
 
-    def __init__(self, task_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, code=None, message=None, task_id=None, _configuration=None):  # noqa: E501
         """DataForTermBaseTermGroupImportOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._code = None
+        self._message = None
         self._task_id = None
         self.discriminator = None
 
+        if code is not None:
+            self.code = code
+        if message is not None:
+            self.message = message
         if task_id is not None:
             self.task_id = task_id
+
+    @property
+    def code(self):
+        """Gets the code of this DataForTermBaseTermGroupImportOutput.  # noqa: E501
+
+
+        :return: The code of this DataForTermBaseTermGroupImportOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._code
+
+    @code.setter
+    def code(self, code):
+        """Sets the code of this DataForTermBaseTermGroupImportOutput.
+
+
+        :param code: The code of this DataForTermBaseTermGroupImportOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._code = code
+
+    @property
+    def message(self):
+        """Gets the message of this DataForTermBaseTermGroupImportOutput.  # noqa: E501
+
+
+        :return: The message of this DataForTermBaseTermGroupImportOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this DataForTermBaseTermGroupImportOutput.
+
+
+        :param message: The message of this DataForTermBaseTermGroupImportOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
 
     @property
     def task_id(self):

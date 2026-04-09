@@ -35,16 +35,18 @@ class ListUsersRequest(object):
     swagger_types = {
         'limit': 'int',
         'offset': 'int',
+        'pii_redaction': 'int',
         'query': 'str'
     }
 
     attribute_map = {
         'limit': 'Limit',
         'offset': 'Offset',
+        'pii_redaction': 'PiiRedaction',
         'query': 'Query'
     }
 
-    def __init__(self, limit=None, offset=None, query=None, _configuration=None):  # noqa: E501
+    def __init__(self, limit=None, offset=None, pii_redaction=None, query=None, _configuration=None):  # noqa: E501
         """ListUsersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class ListUsersRequest(object):
 
         self._limit = None
         self._offset = None
+        self._pii_redaction = None
         self._query = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class ListUsersRequest(object):
             self.limit = limit
         if offset is not None:
             self.offset = offset
+        if pii_redaction is not None:
+            self.pii_redaction = pii_redaction
         if query is not None:
             self.query = query
 
@@ -103,6 +108,27 @@ class ListUsersRequest(object):
         """
 
         self._offset = offset
+
+    @property
+    def pii_redaction(self):
+        """Gets the pii_redaction of this ListUsersRequest.  # noqa: E501
+
+
+        :return: The pii_redaction of this ListUsersRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._pii_redaction
+
+    @pii_redaction.setter
+    def pii_redaction(self, pii_redaction):
+        """Sets the pii_redaction of this ListUsersRequest.
+
+
+        :param pii_redaction: The pii_redaction of this ListUsersRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._pii_redaction = pii_redaction
 
     @property
     def query(self):

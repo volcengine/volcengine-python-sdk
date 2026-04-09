@@ -49,11 +49,13 @@ class RowForListPodOutput(object):
         'dc_info': 'DcInfoForListPodOutput',
         'display_layout_id': 'str',
         'down_bandwidth_limit': 'int',
+        'eip': 'EipForListPodOutput',
         'host_id': 'str',
         'image_id': 'str',
         'image_name': 'str',
         'intranet_ip': 'str',
         'online': 'int',
+        'phone_template_id': 'str',
         'pod_id': 'str',
         'pod_name': 'str',
         'port_mapping_rule_list': 'list[PortMappingRuleListForListPodOutput]',
@@ -81,11 +83,13 @@ class RowForListPodOutput(object):
         'dc_info': 'DcInfo',
         'display_layout_id': 'DisplayLayoutId',
         'down_bandwidth_limit': 'DownBandwidthLimit',
+        'eip': 'Eip',
         'host_id': 'HostId',
         'image_id': 'ImageId',
         'image_name': 'ImageName',
         'intranet_ip': 'IntranetIP',
         'online': 'Online',
+        'phone_template_id': 'PhoneTemplateId',
         'pod_id': 'PodId',
         'pod_name': 'PodName',
         'port_mapping_rule_list': 'PortMappingRuleList',
@@ -96,7 +100,7 @@ class RowForListPodOutput(object):
         'up_bandwidth_limit': 'UpBandwidthLimit'
     }
 
-    def __init__(self, adb=None, adb_expire_time=None, adb_status=None, aosp_version=None, archive_status=None, authority_expire_time=None, authority_status=None, configuration=None, create_at=None, custom_route_id=None, dnsid=None, data_size=None, data_size_used=None, dc_info=None, display_layout_id=None, down_bandwidth_limit=None, host_id=None, image_id=None, image_name=None, intranet_ip=None, online=None, pod_id=None, pod_name=None, port_mapping_rule_list=None, product_id=None, server_type_code=None, stream_status=None, tag=None, up_bandwidth_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, adb=None, adb_expire_time=None, adb_status=None, aosp_version=None, archive_status=None, authority_expire_time=None, authority_status=None, configuration=None, create_at=None, custom_route_id=None, dnsid=None, data_size=None, data_size_used=None, dc_info=None, display_layout_id=None, down_bandwidth_limit=None, eip=None, host_id=None, image_id=None, image_name=None, intranet_ip=None, online=None, phone_template_id=None, pod_id=None, pod_name=None, port_mapping_rule_list=None, product_id=None, server_type_code=None, stream_status=None, tag=None, up_bandwidth_limit=None, _configuration=None):  # noqa: E501
         """RowForListPodOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -118,11 +122,13 @@ class RowForListPodOutput(object):
         self._dc_info = None
         self._display_layout_id = None
         self._down_bandwidth_limit = None
+        self._eip = None
         self._host_id = None
         self._image_id = None
         self._image_name = None
         self._intranet_ip = None
         self._online = None
+        self._phone_template_id = None
         self._pod_id = None
         self._pod_name = None
         self._port_mapping_rule_list = None
@@ -165,6 +171,8 @@ class RowForListPodOutput(object):
             self.display_layout_id = display_layout_id
         if down_bandwidth_limit is not None:
             self.down_bandwidth_limit = down_bandwidth_limit
+        if eip is not None:
+            self.eip = eip
         if host_id is not None:
             self.host_id = host_id
         if image_id is not None:
@@ -175,6 +183,8 @@ class RowForListPodOutput(object):
             self.intranet_ip = intranet_ip
         if online is not None:
             self.online = online
+        if phone_template_id is not None:
+            self.phone_template_id = phone_template_id
         if pod_id is not None:
             self.pod_id = pod_id
         if pod_name is not None:
@@ -529,6 +539,27 @@ class RowForListPodOutput(object):
         self._down_bandwidth_limit = down_bandwidth_limit
 
     @property
+    def eip(self):
+        """Gets the eip of this RowForListPodOutput.  # noqa: E501
+
+
+        :return: The eip of this RowForListPodOutput.  # noqa: E501
+        :rtype: EipForListPodOutput
+        """
+        return self._eip
+
+    @eip.setter
+    def eip(self, eip):
+        """Sets the eip of this RowForListPodOutput.
+
+
+        :param eip: The eip of this RowForListPodOutput.  # noqa: E501
+        :type: EipForListPodOutput
+        """
+
+        self._eip = eip
+
+    @property
     def host_id(self):
         """Gets the host_id of this RowForListPodOutput.  # noqa: E501
 
@@ -632,6 +663,27 @@ class RowForListPodOutput(object):
         """
 
         self._online = online
+
+    @property
+    def phone_template_id(self):
+        """Gets the phone_template_id of this RowForListPodOutput.  # noqa: E501
+
+
+        :return: The phone_template_id of this RowForListPodOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._phone_template_id
+
+    @phone_template_id.setter
+    def phone_template_id(self, phone_template_id):
+        """Sets the phone_template_id of this RowForListPodOutput.
+
+
+        :param phone_template_id: The phone_template_id of this RowForListPodOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._phone_template_id = phone_template_id
 
     @property
     def pod_id(self):

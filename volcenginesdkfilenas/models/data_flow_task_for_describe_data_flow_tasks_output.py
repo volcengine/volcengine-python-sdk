@@ -37,7 +37,9 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         'bucket_prefix': 'str',
         'create_time': 'str',
         'data_flow_id': 'str',
+        'delete_policy': 'DeletePolicyForDescribeDataFlowTasksOutput',
         'end_time': 'str',
+        'entry_list_file_bucket': 'str',
         'entry_list_file_key': 'str',
         'entry_list_file_name': 'str',
         'entry_list_file_url': 'str',
@@ -62,7 +64,9 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         'bucket_prefix': 'BucketPrefix',
         'create_time': 'CreateTime',
         'data_flow_id': 'DataFlowId',
+        'delete_policy': 'DeletePolicy',
         'end_time': 'EndTime',
+        'entry_list_file_bucket': 'EntryListFileBucket',
         'entry_list_file_key': 'EntryListFileKey',
         'entry_list_file_name': 'EntryListFileName',
         'entry_list_file_url': 'EntryListFileUrl',
@@ -82,7 +86,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, bucket_name=None, bucket_prefix=None, create_time=None, data_flow_id=None, end_time=None, entry_list_file_key=None, entry_list_file_name=None, entry_list_file_url=None, evict_policy=None, export_policy=None, file_system_id=None, file_system_path=None, id=None, import_policy=None, queue_exec=None, queue_failed=None, queue_len=None, same_name_file_policy=None, start_time=None, status=None, type=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_name=None, bucket_prefix=None, create_time=None, data_flow_id=None, delete_policy=None, end_time=None, entry_list_file_bucket=None, entry_list_file_key=None, entry_list_file_name=None, entry_list_file_url=None, evict_policy=None, export_policy=None, file_system_id=None, file_system_path=None, id=None, import_policy=None, queue_exec=None, queue_failed=None, queue_len=None, same_name_file_policy=None, start_time=None, status=None, type=None, update_time=None, _configuration=None):  # noqa: E501
         """DataFlowTaskForDescribeDataFlowTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,7 +96,9 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         self._bucket_prefix = None
         self._create_time = None
         self._data_flow_id = None
+        self._delete_policy = None
         self._end_time = None
+        self._entry_list_file_bucket = None
         self._entry_list_file_key = None
         self._entry_list_file_name = None
         self._entry_list_file_url = None
@@ -120,8 +126,12 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
             self.create_time = create_time
         if data_flow_id is not None:
             self.data_flow_id = data_flow_id
+        if delete_policy is not None:
+            self.delete_policy = delete_policy
         if end_time is not None:
             self.end_time = end_time
+        if entry_list_file_bucket is not None:
+            self.entry_list_file_bucket = entry_list_file_bucket
         if entry_list_file_key is not None:
             self.entry_list_file_key = entry_list_file_key
         if entry_list_file_name is not None:
@@ -242,6 +252,27 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         self._data_flow_id = data_flow_id
 
     @property
+    def delete_policy(self):
+        """Gets the delete_policy of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The delete_policy of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: DeletePolicyForDescribeDataFlowTasksOutput
+        """
+        return self._delete_policy
+
+    @delete_policy.setter
+    def delete_policy(self, delete_policy):
+        """Sets the delete_policy of this DataFlowTaskForDescribeDataFlowTasksOutput.
+
+
+        :param delete_policy: The delete_policy of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: DeletePolicyForDescribeDataFlowTasksOutput
+        """
+
+        self._delete_policy = delete_policy
+
+    @property
     def end_time(self):
         """Gets the end_time of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
 
@@ -261,6 +292,27 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def entry_list_file_bucket(self):
+        """Gets the entry_list_file_bucket of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The entry_list_file_bucket of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._entry_list_file_bucket
+
+    @entry_list_file_bucket.setter
+    def entry_list_file_bucket(self, entry_list_file_bucket):
+        """Sets the entry_list_file_bucket of this DataFlowTaskForDescribeDataFlowTasksOutput.
+
+
+        :param entry_list_file_bucket: The entry_list_file_bucket of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._entry_list_file_bucket = entry_list_file_bucket
 
     @property
     def entry_list_file_key(self):
