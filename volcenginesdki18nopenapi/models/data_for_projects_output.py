@@ -33,11 +33,9 @@ class DataForProjectsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'comment': 'str',
         'created_at': 'str',
         'creator': 'CreatorForProjectsOutput',
-        'creator_id': 'str',
-        'description': 'str',
-        'extra': 'ExtraForProjectsOutput',
         'id': 'str',
         'name': 'str',
         'source_lang': 'str',
@@ -48,11 +46,9 @@ class DataForProjectsOutput(object):
     }
 
     attribute_map = {
+        'comment': 'comment',
         'created_at': 'createdAt',
         'creator': 'creator',
-        'creator_id': 'creatorId',
-        'description': 'description',
-        'extra': 'extra',
         'id': 'id',
         'name': 'name',
         'source_lang': 'sourceLang',
@@ -62,17 +58,15 @@ class DataForProjectsOutput(object):
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, created_at=None, creator=None, creator_id=None, description=None, extra=None, id=None, name=None, source_lang=None, source_locale=None, target_langs=None, target_locales=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, comment=None, created_at=None, creator=None, id=None, name=None, source_lang=None, source_locale=None, target_langs=None, target_locales=None, updated_at=None, _configuration=None):  # noqa: E501
         """DataForProjectsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._comment = None
         self._created_at = None
         self._creator = None
-        self._creator_id = None
-        self._description = None
-        self._extra = None
         self._id = None
         self._name = None
         self._source_lang = None
@@ -82,16 +76,12 @@ class DataForProjectsOutput(object):
         self._updated_at = None
         self.discriminator = None
 
+        if comment is not None:
+            self.comment = comment
         if created_at is not None:
             self.created_at = created_at
         if creator is not None:
             self.creator = creator
-        if creator_id is not None:
-            self.creator_id = creator_id
-        if description is not None:
-            self.description = description
-        if extra is not None:
-            self.extra = extra
         if id is not None:
             self.id = id
         if name is not None:
@@ -106,6 +96,27 @@ class DataForProjectsOutput(object):
             self.target_locales = target_locales
         if updated_at is not None:
             self.updated_at = updated_at
+
+    @property
+    def comment(self):
+        """Gets the comment of this DataForProjectsOutput.  # noqa: E501
+
+
+        :return: The comment of this DataForProjectsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._comment
+
+    @comment.setter
+    def comment(self, comment):
+        """Sets the comment of this DataForProjectsOutput.
+
+
+        :param comment: The comment of this DataForProjectsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._comment = comment
 
     @property
     def created_at(self):
@@ -148,69 +159,6 @@ class DataForProjectsOutput(object):
         """
 
         self._creator = creator
-
-    @property
-    def creator_id(self):
-        """Gets the creator_id of this DataForProjectsOutput.  # noqa: E501
-
-
-        :return: The creator_id of this DataForProjectsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this DataForProjectsOutput.
-
-
-        :param creator_id: The creator_id of this DataForProjectsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._creator_id = creator_id
-
-    @property
-    def description(self):
-        """Gets the description of this DataForProjectsOutput.  # noqa: E501
-
-
-        :return: The description of this DataForProjectsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this DataForProjectsOutput.
-
-
-        :param description: The description of this DataForProjectsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._description = description
-
-    @property
-    def extra(self):
-        """Gets the extra of this DataForProjectsOutput.  # noqa: E501
-
-
-        :return: The extra of this DataForProjectsOutput.  # noqa: E501
-        :rtype: ExtraForProjectsOutput
-        """
-        return self._extra
-
-    @extra.setter
-    def extra(self, extra):
-        """Sets the extra of this DataForProjectsOutput.
-
-
-        :param extra: The extra of this DataForProjectsOutput.  # noqa: E501
-        :type: ExtraForProjectsOutput
-        """
-
-        self._extra = extra
 
     @property
     def id(self):

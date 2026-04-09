@@ -33,17 +33,97 @@ class TermBaseTermGroupImportTaskResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'code': 'int',
+        'data': 'DataForTermBaseTermGroupImportTaskOutput',
+        'message': 'str'
     }
 
     attribute_map = {
+        'code': 'code',
+        'data': 'data',
+        'message': 'message'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, code=None, data=None, message=None, _configuration=None):  # noqa: E501
         """TermBaseTermGroupImportTaskResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._code = None
+        self._data = None
+        self._message = None
         self.discriminator = None
+
+        if code is not None:
+            self.code = code
+        if data is not None:
+            self.data = data
+        if message is not None:
+            self.message = message
+
+    @property
+    def code(self):
+        """Gets the code of this TermBaseTermGroupImportTaskResponse.  # noqa: E501
+
+
+        :return: The code of this TermBaseTermGroupImportTaskResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._code
+
+    @code.setter
+    def code(self, code):
+        """Sets the code of this TermBaseTermGroupImportTaskResponse.
+
+
+        :param code: The code of this TermBaseTermGroupImportTaskResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._code = code
+
+    @property
+    def data(self):
+        """Gets the data of this TermBaseTermGroupImportTaskResponse.  # noqa: E501
+
+
+        :return: The data of this TermBaseTermGroupImportTaskResponse.  # noqa: E501
+        :rtype: DataForTermBaseTermGroupImportTaskOutput
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this TermBaseTermGroupImportTaskResponse.
+
+
+        :param data: The data of this TermBaseTermGroupImportTaskResponse.  # noqa: E501
+        :type: DataForTermBaseTermGroupImportTaskOutput
+        """
+
+        self._data = data
+
+    @property
+    def message(self):
+        """Gets the message of this TermBaseTermGroupImportTaskResponse.  # noqa: E501
+
+
+        :return: The message of this TermBaseTermGroupImportTaskResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this TermBaseTermGroupImportTaskResponse.
+
+
+        :param message: The message of this TermBaseTermGroupImportTaskResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
 
     def to_dict(self):
         """Returns the model properties as a dict"""
