@@ -34,34 +34,50 @@ class ServerForModifyServerGroupBackendServersInput(object):
     """
     swagger_types = {
         'description': 'str',
+        'instance_id': 'str',
+        'ip': 'str',
         'port': 'int',
         'server_id': 'str',
+        'type': 'str',
         'weight': 'int'
     }
 
     attribute_map = {
         'description': 'Description',
+        'instance_id': 'InstanceId',
+        'ip': 'Ip',
         'port': 'Port',
         'server_id': 'ServerId',
+        'type': 'Type',
         'weight': 'Weight'
     }
 
-    def __init__(self, description=None, port=None, server_id=None, weight=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, instance_id=None, ip=None, port=None, server_id=None, type=None, weight=None, _configuration=None):  # noqa: E501
         """ServerForModifyServerGroupBackendServersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._instance_id = None
+        self._ip = None
         self._port = None
         self._server_id = None
+        self._type = None
         self._weight = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if ip is not None:
+            self.ip = ip
         self.port = port
-        self.server_id = server_id
+        if server_id is not None:
+            self.server_id = server_id
+        if type is not None:
+            self.type = type
         self.weight = weight
 
     @property
@@ -84,6 +100,48 @@ class ServerForModifyServerGroupBackendServersInput(object):
         """
 
         self._description = description
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this ServerForModifyServerGroupBackendServersInput.  # noqa: E501
+
+
+        :return: The instance_id of this ServerForModifyServerGroupBackendServersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this ServerForModifyServerGroupBackendServersInput.
+
+
+        :param instance_id: The instance_id of this ServerForModifyServerGroupBackendServersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
+
+    @property
+    def ip(self):
+        """Gets the ip of this ServerForModifyServerGroupBackendServersInput.  # noqa: E501
+
+
+        :return: The ip of this ServerForModifyServerGroupBackendServersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip
+
+    @ip.setter
+    def ip(self, ip):
+        """Sets the ip of this ServerForModifyServerGroupBackendServersInput.
+
+
+        :param ip: The ip of this ServerForModifyServerGroupBackendServersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._ip = ip
 
     @property
     def port(self):
@@ -126,10 +184,29 @@ class ServerForModifyServerGroupBackendServersInput(object):
         :param server_id: The server_id of this ServerForModifyServerGroupBackendServersInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and server_id is None:
-            raise ValueError("Invalid value for `server_id`, must not be `None`")  # noqa: E501
 
         self._server_id = server_id
+
+    @property
+    def type(self):
+        """Gets the type of this ServerForModifyServerGroupBackendServersInput.  # noqa: E501
+
+
+        :return: The type of this ServerForModifyServerGroupBackendServersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ServerForModifyServerGroupBackendServersInput.
+
+
+        :param type: The type of this ServerForModifyServerGroupBackendServersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     @property
     def weight(self):

@@ -33,6 +33,7 @@ class RuleActionForDescribeRulesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cors_config': 'CorsConfigForDescribeRulesOutput',
         'fixed_response_config': 'FixedResponseConfigForDescribeRulesOutput',
         'forward_group_config': 'ConvertForwardGroupConfigForDescribeRulesOutput',
         'redirect_config': 'ConvertRedirectConfigForDescribeRulesOutput',
@@ -42,6 +43,7 @@ class RuleActionForDescribeRulesOutput(object):
     }
 
     attribute_map = {
+        'cors_config': 'CorsConfig',
         'fixed_response_config': 'FixedResponseConfig',
         'forward_group_config': 'ForwardGroupConfig',
         'redirect_config': 'RedirectConfig',
@@ -50,12 +52,13 @@ class RuleActionForDescribeRulesOutput(object):
         'type': 'Type'
     }
 
-    def __init__(self, fixed_response_config=None, forward_group_config=None, redirect_config=None, rewrite_config=None, traffic_limit_config=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, cors_config=None, fixed_response_config=None, forward_group_config=None, redirect_config=None, rewrite_config=None, traffic_limit_config=None, type=None, _configuration=None):  # noqa: E501
         """RuleActionForDescribeRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cors_config = None
         self._fixed_response_config = None
         self._forward_group_config = None
         self._redirect_config = None
@@ -64,6 +67,8 @@ class RuleActionForDescribeRulesOutput(object):
         self._type = None
         self.discriminator = None
 
+        if cors_config is not None:
+            self.cors_config = cors_config
         if fixed_response_config is not None:
             self.fixed_response_config = fixed_response_config
         if forward_group_config is not None:
@@ -76,6 +81,27 @@ class RuleActionForDescribeRulesOutput(object):
             self.traffic_limit_config = traffic_limit_config
         if type is not None:
             self.type = type
+
+    @property
+    def cors_config(self):
+        """Gets the cors_config of this RuleActionForDescribeRulesOutput.  # noqa: E501
+
+
+        :return: The cors_config of this RuleActionForDescribeRulesOutput.  # noqa: E501
+        :rtype: CorsConfigForDescribeRulesOutput
+        """
+        return self._cors_config
+
+    @cors_config.setter
+    def cors_config(self, cors_config):
+        """Sets the cors_config of this RuleActionForDescribeRulesOutput.
+
+
+        :param cors_config: The cors_config of this RuleActionForDescribeRulesOutput.  # noqa: E501
+        :type: CorsConfigForDescribeRulesOutput
+        """
+
+        self._cors_config = cors_config
 
     @property
     def fixed_response_config(self):

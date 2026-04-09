@@ -61,6 +61,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'overdue_time': 'str',
         'project_name': 'str',
         'request_id': 'str',
+        'security_group_ids': 'list[str]',
         'sni_auto_match': 'str',
         'status': 'str',
         'subnet_id': 'str',
@@ -103,6 +104,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
+        'security_group_ids': 'SecurityGroupIds',
         'sni_auto_match': 'SniAutoMatch',
         'status': 'Status',
         'subnet_id': 'SubnetId',
@@ -116,7 +118,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, global_accelerators=None, health_log=None, listeners=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, sni_auto_match=None, status=None, subnet_id=None, tls_access_log=None, tags=None, type=None, update_time=None, vpc_id=None, waf_instance_id=None, waf_protection_enabled=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, global_accelerators=None, health_log=None, listeners=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, security_group_ids=None, sni_auto_match=None, status=None, subnet_id=None, tls_access_log=None, tags=None, type=None, update_time=None, vpc_id=None, waf_instance_id=None, waf_protection_enabled=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -150,6 +152,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._overdue_time = None
         self._project_name = None
         self._request_id = None
+        self._security_group_ids = None
         self._sni_auto_match = None
         self._status = None
         self._subnet_id = None
@@ -219,6 +222,8 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
+        if security_group_ids is not None:
+            self.security_group_ids = security_group_ids
         if sni_auto_match is not None:
             self.sni_auto_match = sni_auto_match
         if status is not None:
@@ -829,6 +834,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._request_id = request_id
+
+    @property
+    def security_group_ids(self):
+        """Gets the security_group_ids of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The security_group_ids of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._security_group_ids
+
+    @security_group_ids.setter
+    def security_group_ids(self, security_group_ids):
+        """Sets the security_group_ids of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param security_group_ids: The security_group_ids of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._security_group_ids = security_group_ids
 
     @property
     def sni_auto_match(self):
