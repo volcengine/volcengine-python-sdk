@@ -106,7 +106,7 @@ class StsOidcCredentialProvider(Provider):
         elif not self._legacy_mode:
             self.host = os.environ.get("VOLCENGINE_OIDC_STS_ENDPOINT", "") or "sts.volcengineapi.com"
         else:
-            self.host = "sts.volcengineapi.com"  # TODO 根据region拼接
+            self.host = "sts.volcengineapi.com"
 
         self.timeout = timeout
         self.max_retries = max(max_retries, 1)
