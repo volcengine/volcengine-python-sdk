@@ -34,30 +34,25 @@ class DescribeDBProxyPriceDetailRequest(object):
     """
     swagger_types = {
         'instance_id': 'str',
-        'project_name': 'str',
         'proxy_node_custom': 'ProxyNodeCustomForDescribeDBProxyPriceDetailInput'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
-        'project_name': 'ProjectName',
         'proxy_node_custom': 'ProxyNodeCustom'
     }
 
-    def __init__(self, instance_id=None, project_name=None, proxy_node_custom=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, proxy_node_custom=None, _configuration=None):  # noqa: E501
         """DescribeDBProxyPriceDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
-        self._project_name = None
         self._proxy_node_custom = None
         self.discriminator = None
 
         self.instance_id = instance_id
-        if project_name is not None:
-            self.project_name = project_name
         if proxy_node_custom is not None:
             self.proxy_node_custom = proxy_node_custom
 
@@ -83,27 +78,6 @@ class DescribeDBProxyPriceDetailRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
-
-    @property
-    def project_name(self):
-        """Gets the project_name of this DescribeDBProxyPriceDetailRequest.  # noqa: E501
-
-
-        :return: The project_name of this DescribeDBProxyPriceDetailRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_name
-
-    @project_name.setter
-    def project_name(self, project_name):
-        """Sets the project_name of this DescribeDBProxyPriceDetailRequest.
-
-
-        :param project_name: The project_name of this DescribeDBProxyPriceDetailRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._project_name = project_name
 
     @property
     def proxy_node_custom(self):

@@ -34,7 +34,7 @@ class DescribeNonWhiteSessionListRequest(object):
     """
     swagger_types = {
         'disassociate_allow_list_infos': 'list[DisassociateAllowListInfoForDescribeNonWhiteSessionListInput]',
-        'instance_ids': 'str'
+        'instance_ids': 'list[str]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class DescribeNonWhiteSessionListRequest(object):
 
 
         :return: The instance_ids of this DescribeNonWhiteSessionListRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._instance_ids
 
@@ -94,7 +94,7 @@ class DescribeNonWhiteSessionListRequest(object):
 
 
         :param instance_ids: The instance_ids of this DescribeNonWhiteSessionListRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._instance_ids = instance_ids
