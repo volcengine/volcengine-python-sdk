@@ -48,7 +48,8 @@ class ListForListCouponsOutput(object):
         'remark': 'str',
         'status': 'int',
         'total_amount': 'float',
-        'usage_limit': 'int'
+        'usage_limit': 'int',
+        'void_reason': 'str'
     }
 
     attribute_map = {
@@ -67,10 +68,11 @@ class ListForListCouponsOutput(object):
         'remark': 'Remark',
         'status': 'Status',
         'total_amount': 'TotalAmount',
-        'usage_limit': 'UsageLimit'
+        'usage_limit': 'UsageLimit',
+        'void_reason': 'VoidReason'
     }
 
-    def __init__(self, account_id=None, acquire_time=None, amount_limit=None, assigned_owner_id_list=None, begin_time=None, coupon_id=None, coupon_name=None, expired_time=None, order_type_limit=None, pay_type_limit=None, product_limit_list=None, remaining_amount=None, remark=None, status=None, total_amount=None, usage_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, acquire_time=None, amount_limit=None, assigned_owner_id_list=None, begin_time=None, coupon_id=None, coupon_name=None, expired_time=None, order_type_limit=None, pay_type_limit=None, product_limit_list=None, remaining_amount=None, remark=None, status=None, total_amount=None, usage_limit=None, void_reason=None, _configuration=None):  # noqa: E501
         """ListForListCouponsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,6 +94,7 @@ class ListForListCouponsOutput(object):
         self._status = None
         self._total_amount = None
         self._usage_limit = None
+        self._void_reason = None
         self.discriminator = None
 
         if account_id is not None:
@@ -126,6 +129,8 @@ class ListForListCouponsOutput(object):
             self.total_amount = total_amount
         if usage_limit is not None:
             self.usage_limit = usage_limit
+        if void_reason is not None:
+            self.void_reason = void_reason
 
     @property
     def account_id(self):
@@ -462,6 +467,27 @@ class ListForListCouponsOutput(object):
         """
 
         self._usage_limit = usage_limit
+
+    @property
+    def void_reason(self):
+        """Gets the void_reason of this ListForListCouponsOutput.  # noqa: E501
+
+
+        :return: The void_reason of this ListForListCouponsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._void_reason
+
+    @void_reason.setter
+    def void_reason(self, void_reason):
+        """Sets the void_reason of this ListForListCouponsOutput.
+
+
+        :param void_reason: The void_reason of this ListForListCouponsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._void_reason = void_reason
 
     def to_dict(self):
         """Returns the model properties as a dict"""
