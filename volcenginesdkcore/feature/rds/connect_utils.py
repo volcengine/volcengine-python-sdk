@@ -76,7 +76,7 @@ def build_auth_token(api_client, db_user, instance_id, expires=None):
 
     # Step 2: Save resolved host to X-Host query param, then clear host so it won't be signed
     resolved_host = context.request.host
-    context.request.query_params['X-Host'] = '{scheme}://{host}'.format(
+    context.request.query_params['X-HOST'] = '{scheme}://{host}'.format(
         scheme=context.request.scheme, host=resolved_host)
     context.request.host = None
 
