@@ -47,6 +47,7 @@ class DataForDescribeVpcFirewallAclRuleListOutput(object):
         'destination_domain_list': 'list[str]',
         'destination_group_type': 'str',
         'destination_type': 'str',
+        'domain_resolution_mode': 'str',
         'effect_status': 'int',
         'end_time': 'int',
         'hit_cnt': 'int',
@@ -86,6 +87,7 @@ class DataForDescribeVpcFirewallAclRuleListOutput(object):
         'destination_domain_list': 'DestinationDomainList',
         'destination_group_type': 'DestinationGroupType',
         'destination_type': 'DestinationType',
+        'domain_resolution_mode': 'DomainResolutionMode',
         'effect_status': 'EffectStatus',
         'end_time': 'EndTime',
         'hit_cnt': 'HitCnt',
@@ -110,7 +112,7 @@ class DataForDescribeVpcFirewallAclRuleListOutput(object):
         'vpc_firewall_name': 'VpcFirewallName'
     }
 
-    def __init__(self, account_id=None, action=None, description=None, dest_port=None, dest_port_group_type=None, dest_port_list=None, dest_port_list_v1=None, dest_port_type=None, destination=None, destination_cidr_list=None, destination_cidr_list_v1=None, destination_domain_list=None, destination_group_type=None, destination_type=None, effect_status=None, end_time=None, hit_cnt=None, is_effected=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_cidr_list=None, source_cidr_list_v1=None, source_group_type=None, source_type=None, start_time=None, status=None, update_time=None, use_count=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, action=None, description=None, dest_port=None, dest_port_group_type=None, dest_port_list=None, dest_port_list_v1=None, dest_port_type=None, destination=None, destination_cidr_list=None, destination_cidr_list_v1=None, destination_domain_list=None, destination_group_type=None, destination_type=None, domain_resolution_mode=None, effect_status=None, end_time=None, hit_cnt=None, is_effected=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_cidr_list=None, source_cidr_list_v1=None, source_group_type=None, source_type=None, start_time=None, status=None, update_time=None, use_count=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
         """DataForDescribeVpcFirewallAclRuleListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -130,6 +132,7 @@ class DataForDescribeVpcFirewallAclRuleListOutput(object):
         self._destination_domain_list = None
         self._destination_group_type = None
         self._destination_type = None
+        self._domain_resolution_mode = None
         self._effect_status = None
         self._end_time = None
         self._hit_cnt = None
@@ -182,6 +185,8 @@ class DataForDescribeVpcFirewallAclRuleListOutput(object):
             self.destination_group_type = destination_group_type
         if destination_type is not None:
             self.destination_type = destination_type
+        if domain_resolution_mode is not None:
+            self.domain_resolution_mode = domain_resolution_mode
         if effect_status is not None:
             self.effect_status = effect_status
         if end_time is not None:
@@ -520,6 +525,27 @@ class DataForDescribeVpcFirewallAclRuleListOutput(object):
         """
 
         self._destination_type = destination_type
+
+    @property
+    def domain_resolution_mode(self):
+        """Gets the domain_resolution_mode of this DataForDescribeVpcFirewallAclRuleListOutput.  # noqa: E501
+
+
+        :return: The domain_resolution_mode of this DataForDescribeVpcFirewallAclRuleListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain_resolution_mode
+
+    @domain_resolution_mode.setter
+    def domain_resolution_mode(self, domain_resolution_mode):
+        """Sets the domain_resolution_mode of this DataForDescribeVpcFirewallAclRuleListOutput.
+
+
+        :param domain_resolution_mode: The domain_resolution_mode of this DataForDescribeVpcFirewallAclRuleListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._domain_resolution_mode = domain_resolution_mode
 
     @property
     def effect_status(self):

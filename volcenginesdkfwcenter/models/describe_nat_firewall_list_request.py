@@ -39,6 +39,7 @@ class DescribeNatFirewallListRequest(object):
         'nat_firewall_name': 'str',
         'nat_gateway_id': 'str',
         'nat_gateway_name': 'str',
+        'order_dir': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -54,6 +55,7 @@ class DescribeNatFirewallListRequest(object):
         'nat_firewall_name': 'NatFirewallName',
         'nat_gateway_id': 'NatGatewayId',
         'nat_gateway_name': 'NatGatewayName',
+        'order_dir': 'OrderDir',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
@@ -62,7 +64,7 @@ class DescribeNatFirewallListRequest(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, cloud_firewall_id=None, firewall_status=None, nat_firewall_id=None, nat_firewall_name=None, nat_gateway_id=None, nat_gateway_name=None, page_number=None, page_size=None, project_name=None, region_code=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_firewall_id=None, firewall_status=None, nat_firewall_id=None, nat_firewall_name=None, nat_gateway_id=None, nat_gateway_name=None, order_dir=None, page_number=None, page_size=None, project_name=None, region_code=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """DescribeNatFirewallListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class DescribeNatFirewallListRequest(object):
         self._nat_firewall_name = None
         self._nat_gateway_id = None
         self._nat_gateway_name = None
+        self._order_dir = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
@@ -94,6 +97,8 @@ class DescribeNatFirewallListRequest(object):
             self.nat_gateway_id = nat_gateway_id
         if nat_gateway_name is not None:
             self.nat_gateway_name = nat_gateway_name
+        if order_dir is not None:
+            self.order_dir = order_dir
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -232,6 +237,34 @@ class DescribeNatFirewallListRequest(object):
         """
 
         self._nat_gateway_name = nat_gateway_name
+
+    @property
+    def order_dir(self):
+        """Gets the order_dir of this DescribeNatFirewallListRequest.  # noqa: E501
+
+
+        :return: The order_dir of this DescribeNatFirewallListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_dir
+
+    @order_dir.setter
+    def order_dir(self, order_dir):
+        """Sets the order_dir of this DescribeNatFirewallListRequest.
+
+
+        :param order_dir: The order_dir of this DescribeNatFirewallListRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["asc", "desc"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                order_dir not in allowed_values):
+            raise ValueError(
+                "Invalid value for `order_dir` ({0}), must be one of {1}"  # noqa: E501
+                .format(order_dir, allowed_values)
+            )
+
+        self._order_dir = order_dir
 
     @property
     def page_number(self):
