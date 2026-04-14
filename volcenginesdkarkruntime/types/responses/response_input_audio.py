@@ -9,8 +9,6 @@
 #
 # This modified file is released under the same license.
 
-from __future__ import annotations
-
 from typing import Optional
 
 from typing_extensions import Literal
@@ -29,5 +27,3 @@ class ResponseInputAudio(BaseModel):
     audio_url: str
 
     file_id: Optional[str] = None
-
-    audio_bytes: Optional[bytes] = None

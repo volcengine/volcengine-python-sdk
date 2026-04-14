@@ -28,5 +28,3 @@ class ResponseInputAudioParam(TypedDict, total=False):
     audio_url: Required[str]
 
     file_id: Optional[str]
-
-    audio_bytes: Optional[bytes]
