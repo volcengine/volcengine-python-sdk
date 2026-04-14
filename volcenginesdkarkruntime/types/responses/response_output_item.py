@@ -14,6 +14,7 @@ from typing import Union
 from typing_extensions import Annotated, TypeAlias
 
 from ..._utils import PropertyInfo
+from .item_agent_tool_call import ItemAgentToolCall
 from .item_doubao_app_call import ItemDoubaoAppCall
 from .item_function_image_process import ItemFunctionImageProcess
 from .response_function_tool_call import ResponseFunctionToolCall
@@ -37,6 +38,7 @@ ResponseOutputItem: TypeAlias = Annotated[
         McpCall,
         ResponseKnowledgeSearchItem,
         ItemDoubaoAppCall,
+        ItemAgentToolCall,
     ],
     PropertyInfo(discriminator="type"),
 ]
