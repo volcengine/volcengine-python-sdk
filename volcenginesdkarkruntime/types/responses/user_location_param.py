@@ -14,7 +14,6 @@ from __future__ import annotations
 from typing import Optional
 from typing_extensions import Literal, Required, TypedDict
 
-
 __all__ = ["UserLocationParam"]
 
 

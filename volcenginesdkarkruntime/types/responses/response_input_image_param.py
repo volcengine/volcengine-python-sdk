@@ -16,7 +16,6 @@ from typing_extensions import Literal, Required, TypedDict
 
 from .response_input_image_pixel_limit_param import ResponseInputImagePixelLimit
 
-
 __all__ = ["ResponseInputImageParam"]
 
 
