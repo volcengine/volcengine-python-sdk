@@ -48,7 +48,8 @@ class ListUserBehaviorDataAPIV2Request(object):
         'play_status': 'int',
         'scroll_id': 'str',
         'start_time': 'int',
-        'user_id': 'int'
+        'user_id': 'int',
+        'user_ids': 'list[int]'
     }
 
     attribute_map = {
@@ -67,10 +68,11 @@ class ListUserBehaviorDataAPIV2Request(object):
         'play_status': 'PlayStatus',
         'scroll_id': 'ScrollId',
         'start_time': 'StartTime',
-        'user_id': 'UserId'
+        'user_id': 'UserId',
+        'user_ids': 'UserIds'
     }
 
-    def __init__(self, activity_id=None, channel=None, end_time=None, external_user_id=None, extra=None, inviter_external_id=None, inviter_id=None, is_merge=None, is_merge_user_id=None, name=None, page_item_count=None, page_no=None, play_status=None, scroll_id=None, start_time=None, user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, channel=None, end_time=None, external_user_id=None, extra=None, inviter_external_id=None, inviter_id=None, is_merge=None, is_merge_user_id=None, name=None, page_item_count=None, page_no=None, play_status=None, scroll_id=None, start_time=None, user_id=None, user_ids=None, _configuration=None):  # noqa: E501
         """ListUserBehaviorDataAPIV2Request - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,6 +94,7 @@ class ListUserBehaviorDataAPIV2Request(object):
         self._scroll_id = None
         self._start_time = None
         self._user_id = None
+        self._user_ids = None
         self.discriminator = None
 
         self.activity_id = activity_id
@@ -125,6 +128,8 @@ class ListUserBehaviorDataAPIV2Request(object):
             self.start_time = start_time
         if user_id is not None:
             self.user_id = user_id
+        if user_ids is not None:
+            self.user_ids = user_ids
 
     @property
     def activity_id(self):
@@ -463,6 +468,27 @@ class ListUserBehaviorDataAPIV2Request(object):
         """
 
         self._user_id = user_id
+
+    @property
+    def user_ids(self):
+        """Gets the user_ids of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+
+
+        :return: The user_ids of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._user_ids
+
+    @user_ids.setter
+    def user_ids(self, user_ids):
+        """Sets the user_ids of this ListUserBehaviorDataAPIV2Request.
+
+
+        :param user_ids: The user_ids of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._user_ids = user_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

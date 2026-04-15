@@ -34,6 +34,7 @@ class ItemForGetActivityReservationAPIV2Output(object):
     """
     swagger_types = {
         'channel': 'str',
+        'client_type': 'str',
         'external_id': 'str',
         'extra': 'str',
         'ip': 'str',
@@ -47,6 +48,7 @@ class ItemForGetActivityReservationAPIV2Output(object):
 
     attribute_map = {
         'channel': 'Channel',
+        'client_type': 'ClientType',
         'external_id': 'ExternalId',
         'extra': 'Extra',
         'ip': 'Ip',
@@ -58,13 +60,14 @@ class ItemForGetActivityReservationAPIV2Output(object):
         'user_id': 'UserId'
     }
 
-    def __init__(self, channel=None, external_id=None, extra=None, ip=None, ip_address=None, nick_name=None, submit_time=None, tel_reserve=None, user_device=None, user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, channel=None, client_type=None, external_id=None, extra=None, ip=None, ip_address=None, nick_name=None, submit_time=None, tel_reserve=None, user_device=None, user_id=None, _configuration=None):  # noqa: E501
         """ItemForGetActivityReservationAPIV2Output - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._channel = None
+        self._client_type = None
         self._external_id = None
         self._extra = None
         self._ip = None
@@ -78,6 +81,8 @@ class ItemForGetActivityReservationAPIV2Output(object):
 
         if channel is not None:
             self.channel = channel
+        if client_type is not None:
+            self.client_type = client_type
         if external_id is not None:
             self.external_id = external_id
         if extra is not None:
@@ -117,6 +122,27 @@ class ItemForGetActivityReservationAPIV2Output(object):
         """
 
         self._channel = channel
+
+    @property
+    def client_type(self):
+        """Gets the client_type of this ItemForGetActivityReservationAPIV2Output.  # noqa: E501
+
+
+        :return: The client_type of this ItemForGetActivityReservationAPIV2Output.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_type
+
+    @client_type.setter
+    def client_type(self, client_type):
+        """Sets the client_type of this ItemForGetActivityReservationAPIV2Output.
+
+
+        :param client_type: The client_type of this ItemForGetActivityReservationAPIV2Output.  # noqa: E501
+        :type: str
+        """
+
+        self._client_type = client_type
 
     @property
     def external_id(self):
