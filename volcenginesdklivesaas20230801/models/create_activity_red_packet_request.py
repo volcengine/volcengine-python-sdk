@@ -34,6 +34,7 @@ class CreateActivityRedPacketRequest(object):
     """
     swagger_types = {
         'activity_id': 'int',
+        'animation': 'int',
         'auto_send_time': 'int',
         'award_condition': 'AwardConditionForCreateActivityRedPacketInput',
         'barrage_pwd': 'str',
@@ -62,6 +63,7 @@ class CreateActivityRedPacketRequest(object):
 
     attribute_map = {
         'activity_id': 'ActivityID',
+        'animation': 'Animation',
         'auto_send_time': 'AutoSendTime',
         'award_condition': 'AwardCondition',
         'barrage_pwd': 'BarragePwd',
@@ -88,13 +90,14 @@ class CreateActivityRedPacketRequest(object):
         'vip_user_info_id': 'VipUserInfoId'
     }
 
-    def __init__(self, activity_id=None, auto_send_time=None, award_condition=None, barrage_pwd=None, black_user_info_id=None, claim_failure_text=None, claim_success_text=None, custom_redirect_url=None, dead_line=None, enable_custom_redirect=None, enable_mini_app=None, is_open_sms_notification=None, mini_app_id=None, mini_app_redirect_url=None, name=None, open_red_packet_type=None, range_status=None, red_packet_cover_image=None, red_packet_number=None, red_packet_type=None, repeated_award_limit=None, rewards_points_config=None, send_red_packet_type=None, total_amount=None, vip_user_info_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, animation=None, auto_send_time=None, award_condition=None, barrage_pwd=None, black_user_info_id=None, claim_failure_text=None, claim_success_text=None, custom_redirect_url=None, dead_line=None, enable_custom_redirect=None, enable_mini_app=None, is_open_sms_notification=None, mini_app_id=None, mini_app_redirect_url=None, name=None, open_red_packet_type=None, range_status=None, red_packet_cover_image=None, red_packet_number=None, red_packet_type=None, repeated_award_limit=None, rewards_points_config=None, send_red_packet_type=None, total_amount=None, vip_user_info_id=None, _configuration=None):  # noqa: E501
         """CreateActivityRedPacketRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._activity_id = None
+        self._animation = None
         self._auto_send_time = None
         self._award_condition = None
         self._barrage_pwd = None
@@ -122,6 +125,8 @@ class CreateActivityRedPacketRequest(object):
         self.discriminator = None
 
         self.activity_id = activity_id
+        if animation is not None:
+            self.animation = animation
         if auto_send_time is not None:
             self.auto_send_time = auto_send_time
         if award_condition is not None:
@@ -193,6 +198,27 @@ class CreateActivityRedPacketRequest(object):
             raise ValueError("Invalid value for `activity_id`, must not be `None`")  # noqa: E501
 
         self._activity_id = activity_id
+
+    @property
+    def animation(self):
+        """Gets the animation of this CreateActivityRedPacketRequest.  # noqa: E501
+
+
+        :return: The animation of this CreateActivityRedPacketRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._animation
+
+    @animation.setter
+    def animation(self, animation):
+        """Sets the animation of this CreateActivityRedPacketRequest.
+
+
+        :param animation: The animation of this CreateActivityRedPacketRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._animation = animation
 
     @property
     def auto_send_time(self):

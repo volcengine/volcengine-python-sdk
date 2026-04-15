@@ -34,6 +34,8 @@ class UpdateActivityRedPacketRequest(object):
     """
     swagger_types = {
         'activity_id': 'int',
+        'animation': 'int',
+        'auto_send_time': 'int',
         'award_condition': 'AwardConditionForUpdateActivityRedPacketInput',
         'barrage_pwd': 'str',
         'black_user_info_id': 'int',
@@ -55,12 +57,15 @@ class UpdateActivityRedPacketRequest(object):
         'red_packet_type': 'int',
         'repeated_award_limit': 'int',
         'rewards_points_config': 'RewardsPointsConfigForUpdateActivityRedPacketInput',
+        'send_red_packet_type': 'int',
         'total_amount': 'int',
         'vip_user_info_id': 'int'
     }
 
     attribute_map = {
         'activity_id': 'ActivityID',
+        'animation': 'Animation',
+        'auto_send_time': 'AutoSendTime',
         'award_condition': 'AwardCondition',
         'barrage_pwd': 'BarragePwd',
         'black_user_info_id': 'BlackUserInfoId',
@@ -82,17 +87,20 @@ class UpdateActivityRedPacketRequest(object):
         'red_packet_type': 'RedPacketType',
         'repeated_award_limit': 'RepeatedAwardLimit',
         'rewards_points_config': 'RewardsPointsConfig',
+        'send_red_packet_type': 'SendRedPacketType',
         'total_amount': 'TotalAmount',
         'vip_user_info_id': 'VipUserInfoId'
     }
 
-    def __init__(self, activity_id=None, award_condition=None, barrage_pwd=None, black_user_info_id=None, claim_failure_text=None, claim_success_text=None, custom_redirect_url=None, dead_line=None, enable_custom_redirect=None, enable_mini_app=None, is_open_sms_notification=None, mini_app_id=None, mini_app_redirect_url=None, name=None, open_red_packet_type=None, range_status=None, red_packet_cover_image=None, red_packet_id=None, red_packet_number=None, red_packet_type=None, repeated_award_limit=None, rewards_points_config=None, total_amount=None, vip_user_info_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, animation=None, auto_send_time=None, award_condition=None, barrage_pwd=None, black_user_info_id=None, claim_failure_text=None, claim_success_text=None, custom_redirect_url=None, dead_line=None, enable_custom_redirect=None, enable_mini_app=None, is_open_sms_notification=None, mini_app_id=None, mini_app_redirect_url=None, name=None, open_red_packet_type=None, range_status=None, red_packet_cover_image=None, red_packet_id=None, red_packet_number=None, red_packet_type=None, repeated_award_limit=None, rewards_points_config=None, send_red_packet_type=None, total_amount=None, vip_user_info_id=None, _configuration=None):  # noqa: E501
         """UpdateActivityRedPacketRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._activity_id = None
+        self._animation = None
+        self._auto_send_time = None
         self._award_condition = None
         self._barrage_pwd = None
         self._black_user_info_id = None
@@ -114,11 +122,16 @@ class UpdateActivityRedPacketRequest(object):
         self._red_packet_type = None
         self._repeated_award_limit = None
         self._rewards_points_config = None
+        self._send_red_packet_type = None
         self._total_amount = None
         self._vip_user_info_id = None
         self.discriminator = None
 
         self.activity_id = activity_id
+        if animation is not None:
+            self.animation = animation
+        if auto_send_time is not None:
+            self.auto_send_time = auto_send_time
         if award_condition is not None:
             self.award_condition = award_condition
         if barrage_pwd is not None:
@@ -160,6 +173,8 @@ class UpdateActivityRedPacketRequest(object):
             self.repeated_award_limit = repeated_award_limit
         if rewards_points_config is not None:
             self.rewards_points_config = rewards_points_config
+        if send_red_packet_type is not None:
+            self.send_red_packet_type = send_red_packet_type
         if total_amount is not None:
             self.total_amount = total_amount
         if vip_user_info_id is not None:
@@ -187,6 +202,48 @@ class UpdateActivityRedPacketRequest(object):
             raise ValueError("Invalid value for `activity_id`, must not be `None`")  # noqa: E501
 
         self._activity_id = activity_id
+
+    @property
+    def animation(self):
+        """Gets the animation of this UpdateActivityRedPacketRequest.  # noqa: E501
+
+
+        :return: The animation of this UpdateActivityRedPacketRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._animation
+
+    @animation.setter
+    def animation(self, animation):
+        """Sets the animation of this UpdateActivityRedPacketRequest.
+
+
+        :param animation: The animation of this UpdateActivityRedPacketRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._animation = animation
+
+    @property
+    def auto_send_time(self):
+        """Gets the auto_send_time of this UpdateActivityRedPacketRequest.  # noqa: E501
+
+
+        :return: The auto_send_time of this UpdateActivityRedPacketRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_send_time
+
+    @auto_send_time.setter
+    def auto_send_time(self, auto_send_time):
+        """Sets the auto_send_time of this UpdateActivityRedPacketRequest.
+
+
+        :param auto_send_time: The auto_send_time of this UpdateActivityRedPacketRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_send_time = auto_send_time
 
     @property
     def award_condition(self):
@@ -630,6 +687,27 @@ class UpdateActivityRedPacketRequest(object):
         """
 
         self._rewards_points_config = rewards_points_config
+
+    @property
+    def send_red_packet_type(self):
+        """Gets the send_red_packet_type of this UpdateActivityRedPacketRequest.  # noqa: E501
+
+
+        :return: The send_red_packet_type of this UpdateActivityRedPacketRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._send_red_packet_type
+
+    @send_red_packet_type.setter
+    def send_red_packet_type(self, send_red_packet_type):
+        """Sets the send_red_packet_type of this UpdateActivityRedPacketRequest.
+
+
+        :param send_red_packet_type: The send_red_packet_type of this UpdateActivityRedPacketRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._send_red_packet_type = send_red_packet_type
 
     @property
     def total_amount(self):
