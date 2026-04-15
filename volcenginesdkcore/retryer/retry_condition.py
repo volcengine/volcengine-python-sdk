@@ -121,6 +121,6 @@ class DefaultRetryCondition(RetryCondition):
         try:
             return json.loads(data)
         except Exception as e:
-            sdk_core_logger.warning("Failed to parse response data as JSON: {}".format(e))
-            sdk_core_logger.warning(traceback.format_exc())
+            sdk_core_logger.debug_retry("Failed to parse response data as JSON: {}".format(e))
+            sdk_core_logger.debug_retry(traceback.format_exc())
         return {}

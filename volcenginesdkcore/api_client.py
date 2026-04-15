@@ -144,7 +144,7 @@ class ApiClient(object):
                     _request_timeout=interceptor_context.request.request_timeout)
                 self.last_response = response_data
             except Exception as e:
-                sdk_core_logger.warning("request error: {}".format(e))
+                sdk_core_logger.debug("request error: {}".format(e))
                 retry_err = e
                 if retry_count >= num_max_retries:
                     raise e
