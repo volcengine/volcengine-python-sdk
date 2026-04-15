@@ -24,6 +24,9 @@ class InputTokensDetails(BaseModel):
     [More on prompt caching](https://platform.openai.com/docs/guides/prompt-caching).
     """
 
+    audio_tokens: Optional[int] = None
+    """The number of audio tokens consumed in the input."""
+
 
 class OutputTokensDetails(BaseModel):
     reasoning_tokens: int
