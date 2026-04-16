@@ -13,4 +13,8 @@ from typing_extensions import Literal, TypeAlias
 
 __all__ = ["ResponseIncludable"]
 
-ResponseIncludable: TypeAlias = Literal["message.input_image.image_url",]
+ResponseIncludable: TypeAlias = Literal[
+    "message.input_image.image_url",
+    "reasoning.encrypted_content",
+    "message.input_audio.audio_url",
+]

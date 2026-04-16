@@ -19,7 +19,6 @@ from .response_function_tool_call_item import ResponseFunctionToolCallItem
 from .response_function_tool_call_output_item import ResponseFunctionToolCallOutputItem
 from .response_mcp_item import McpListTools, McpApprovalRequest, McpCall
 
-
 __all__ = [
     "ResponseItem",
 ]

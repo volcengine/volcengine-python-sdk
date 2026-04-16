@@ -11,20 +11,18 @@
 
 from __future__ import annotations
 
-from typing import Optional
 from typing_extensions import Literal, Required, TypedDict
 
-__all__ = ["UserLocationParam"]
+__all__ = ["ChatCompletionContentPartAudioParam", "AudioURL"]
 
 
-class UserLocationParam(TypedDict, total=False):
-    type: Required[Literal["approximate"]]
-    """The type of the user location. Always `approximate`."""
-    city: Optional[str]
-    """The city of the user location."""
-    country: Optional[str]
-    """The country of the user location."""
-    region: Optional[str]
-    """The region of the user location."""
-    timezone: Optional[float]
-    """The timezone of the user location."""
+class AudioURL(TypedDict, total=False):
+    url: Required[str]
+    """Either a URL of the audio or the base64 encoded audio data."""
+
+
+class ChatCompletionContentPartAudioParam(TypedDict, total=False):
+    audio_url: Required[AudioURL]
+
+    type: Required[Literal["audio_url"]]
+    """The type of the content part."""
