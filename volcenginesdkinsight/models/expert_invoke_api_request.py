@@ -41,7 +41,7 @@ class ExpertInvokeAPIRequest(object):
         'expert_id': 'int',
         'fans_cnt': 'int',
         'ocr': 'str',
-        'origin_id': 'int',
+        'origin_id': 'str',
         'title': 'str',
         'url': 'str'
     }
@@ -277,7 +277,7 @@ class ExpertInvokeAPIRequest(object):
 
 
         :return: The origin_id of this ExpertInvokeAPIRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._origin_id
 
@@ -287,7 +287,7 @@ class ExpertInvokeAPIRequest(object):
 
 
         :param origin_id: The origin_id of this ExpertInvokeAPIRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._origin_id = origin_id
