@@ -35,6 +35,7 @@ class CreateSandboxRequest(object):
     swagger_types = {
         '_async': 'bool',
         'cpu_milli': 'int',
+        'empty_dir_volume': 'list[EmptyDirVolumeForCreateSandboxInput]',
         'envs': 'list[EnvForCreateSandboxInput]',
         'function_id': 'str',
         'instance_image_info': 'InstanceImageInfoForCreateSandboxInput',
@@ -45,6 +46,7 @@ class CreateSandboxRequest(object):
         'metadata': 'dict(str, str)',
         'request_timeout': 'int',
         'session_id': 'str',
+        'sidecars': 'list[SidecarForCreateSandboxInput]',
         'timeout': 'int',
         'timeout_unit': 'str'
     }
@@ -52,6 +54,7 @@ class CreateSandboxRequest(object):
     attribute_map = {
         '_async': 'Async',
         'cpu_milli': 'CpuMilli',
+        'empty_dir_volume': 'EmptyDirVolume',
         'envs': 'Envs',
         'function_id': 'FunctionId',
         'instance_image_info': 'InstanceImageInfo',
@@ -62,11 +65,12 @@ class CreateSandboxRequest(object):
         'metadata': 'Metadata',
         'request_timeout': 'RequestTimeout',
         'session_id': 'SessionId',
+        'sidecars': 'Sidecars',
         'timeout': 'Timeout',
         'timeout_unit': 'TimeoutUnit'
     }
 
-    def __init__(self, _async=None, cpu_milli=None, envs=None, function_id=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, session_id=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, _async=None, cpu_milli=None, empty_dir_volume=None, envs=None, function_id=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, session_id=None, sidecars=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
         """CreateSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +78,7 @@ class CreateSandboxRequest(object):
 
         self.__async = None
         self._cpu_milli = None
+        self._empty_dir_volume = None
         self._envs = None
         self._function_id = None
         self._instance_image_info = None
@@ -84,6 +89,7 @@ class CreateSandboxRequest(object):
         self._metadata = None
         self._request_timeout = None
         self._session_id = None
+        self._sidecars = None
         self._timeout = None
         self._timeout_unit = None
         self.discriminator = None
@@ -92,6 +98,8 @@ class CreateSandboxRequest(object):
             self._async = _async
         if cpu_milli is not None:
             self.cpu_milli = cpu_milli
+        if empty_dir_volume is not None:
+            self.empty_dir_volume = empty_dir_volume
         if envs is not None:
             self.envs = envs
         self.function_id = function_id
@@ -111,6 +119,8 @@ class CreateSandboxRequest(object):
             self.request_timeout = request_timeout
         if session_id is not None:
             self.session_id = session_id
+        if sidecars is not None:
+            self.sidecars = sidecars
         if timeout is not None:
             self.timeout = timeout
         if timeout_unit is not None:
@@ -157,6 +167,27 @@ class CreateSandboxRequest(object):
         """
 
         self._cpu_milli = cpu_milli
+
+    @property
+    def empty_dir_volume(self):
+        """Gets the empty_dir_volume of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The empty_dir_volume of this CreateSandboxRequest.  # noqa: E501
+        :rtype: list[EmptyDirVolumeForCreateSandboxInput]
+        """
+        return self._empty_dir_volume
+
+    @empty_dir_volume.setter
+    def empty_dir_volume(self, empty_dir_volume):
+        """Sets the empty_dir_volume of this CreateSandboxRequest.
+
+
+        :param empty_dir_volume: The empty_dir_volume of this CreateSandboxRequest.  # noqa: E501
+        :type: list[EmptyDirVolumeForCreateSandboxInput]
+        """
+
+        self._empty_dir_volume = empty_dir_volume
 
     @property
     def envs(self):
@@ -369,6 +400,27 @@ class CreateSandboxRequest(object):
         """
 
         self._session_id = session_id
+
+    @property
+    def sidecars(self):
+        """Gets the sidecars of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The sidecars of this CreateSandboxRequest.  # noqa: E501
+        :rtype: list[SidecarForCreateSandboxInput]
+        """
+        return self._sidecars
+
+    @sidecars.setter
+    def sidecars(self, sidecars):
+        """Sets the sidecars of this CreateSandboxRequest.
+
+
+        :param sidecars: The sidecars of this CreateSandboxRequest.  # noqa: E501
+        :type: list[SidecarForCreateSandboxInput]
+        """
+
+        self._sidecars = sidecars
 
     @property
     def timeout(self):

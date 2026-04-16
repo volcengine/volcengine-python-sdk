@@ -42,7 +42,8 @@ class ConfigForCreateOauth2CredentialProviderInput(object):
         'metadata': 'str',
         'oauth2_discovery': 'Oauth2DiscoveryForCreateOauth2CredentialProviderInput',
         'redirect_url': 'str',
-        'scopes': 'list[str]'
+        'scopes': 'list[str]',
+        'secret_storage': 'SecretStorageForCreateOauth2CredentialProviderInput'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class ConfigForCreateOauth2CredentialProviderInput(object):
         'metadata': 'Metadata',
         'oauth2_discovery': 'Oauth2Discovery',
         'redirect_url': 'RedirectUrl',
-        'scopes': 'Scopes'
+        'scopes': 'Scopes',
+        'secret_storage': 'SecretStorage'
     }
 
-    def __init__(self, client_id=None, client_secret=None, custom_parameters=None, flow=None, force_authentication=None, max_expires=None, metadata=None, oauth2_discovery=None, redirect_url=None, scopes=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_id=None, client_secret=None, custom_parameters=None, flow=None, force_authentication=None, max_expires=None, metadata=None, oauth2_discovery=None, redirect_url=None, scopes=None, secret_storage=None, _configuration=None):  # noqa: E501
         """ConfigForCreateOauth2CredentialProviderInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class ConfigForCreateOauth2CredentialProviderInput(object):
         self._oauth2_discovery = None
         self._redirect_url = None
         self._scopes = None
+        self._secret_storage = None
         self.discriminator = None
 
         if client_id is not None:
@@ -96,6 +99,8 @@ class ConfigForCreateOauth2CredentialProviderInput(object):
             self.redirect_url = redirect_url
         if scopes is not None:
             self.scopes = scopes
+        if secret_storage is not None:
+            self.secret_storage = secret_storage
 
     @property
     def client_id(self):
@@ -313,6 +318,27 @@ class ConfigForCreateOauth2CredentialProviderInput(object):
         """
 
         self._scopes = scopes
+
+    @property
+    def secret_storage(self):
+        """Gets the secret_storage of this ConfigForCreateOauth2CredentialProviderInput.  # noqa: E501
+
+
+        :return: The secret_storage of this ConfigForCreateOauth2CredentialProviderInput.  # noqa: E501
+        :rtype: SecretStorageForCreateOauth2CredentialProviderInput
+        """
+        return self._secret_storage
+
+    @secret_storage.setter
+    def secret_storage(self, secret_storage):
+        """Sets the secret_storage of this ConfigForCreateOauth2CredentialProviderInput.
+
+
+        :param secret_storage: The secret_storage of this ConfigForCreateOauth2CredentialProviderInput.  # noqa: E501
+        :type: SecretStorageForCreateOauth2CredentialProviderInput
+        """
+
+        self._secret_storage = secret_storage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

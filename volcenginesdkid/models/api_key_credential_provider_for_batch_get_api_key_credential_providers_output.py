@@ -36,6 +36,7 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput(object)
         'created_at': 'str',
         'credential_provider_trn': 'str',
         'name': 'str',
+        'project_name': 'str',
         'updated_at': 'str'
     }
 
@@ -43,10 +44,11 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput(object)
         'created_at': 'CreatedAt',
         'credential_provider_trn': 'CredentialProviderTrn',
         'name': 'Name',
+        'project_name': 'ProjectName',
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, created_at=None, credential_provider_trn=None, name=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, credential_provider_trn=None, name=None, project_name=None, updated_at=None, _configuration=None):  # noqa: E501
         """ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput(object)
         self._created_at = None
         self._credential_provider_trn = None
         self._name = None
+        self._project_name = None
         self._updated_at = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput(object)
             self.credential_provider_trn = credential_provider_trn
         if name is not None:
             self.name = name
+        if project_name is not None:
+            self.project_name = project_name
         if updated_at is not None:
             self.updated_at = updated_at
 
@@ -129,6 +134,27 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput(object)
         """
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput.  # noqa: E501
+
+
+        :return: The project_name of this ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput.
+
+
+        :param project_name: The project_name of this ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def updated_at(self):

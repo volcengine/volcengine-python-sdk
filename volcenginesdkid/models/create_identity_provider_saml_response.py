@@ -45,6 +45,7 @@ class CreateIdentityProviderSAMLResponse(object):
         'provider': 'str',
         'provider_options': 'ProviderOptionsForCreateIdentityProviderSAMLOutput',
         'scim_provisioning': 'ScimProvisioningForCreateIdentityProviderSAMLOutput',
+        'sp_metadata': 'str',
         'uid': 'str'
     }
 
@@ -61,10 +62,11 @@ class CreateIdentityProviderSAMLResponse(object):
         'provider': 'Provider',
         'provider_options': 'ProviderOptions',
         'scim_provisioning': 'ScimProvisioning',
+        'sp_metadata': 'SpMetadata',
         'uid': 'Uid'
     }
 
-    def __init__(self, attribute_mapping=None, certificate=None, claims_propagation_config=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider=None, provider_options=None, scim_provisioning=None, uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mapping=None, certificate=None, claims_propagation_config=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider=None, provider_options=None, scim_provisioning=None, sp_metadata=None, uid=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderSAMLResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class CreateIdentityProviderSAMLResponse(object):
         self._provider = None
         self._provider_options = None
         self._scim_provisioning = None
+        self._sp_metadata = None
         self._uid = None
         self.discriminator = None
 
@@ -109,6 +112,8 @@ class CreateIdentityProviderSAMLResponse(object):
             self.provider_options = provider_options
         if scim_provisioning is not None:
             self.scim_provisioning = scim_provisioning
+        if sp_metadata is not None:
+            self.sp_metadata = sp_metadata
         if uid is not None:
             self.uid = uid
 
@@ -363,6 +368,27 @@ class CreateIdentityProviderSAMLResponse(object):
         """
 
         self._scim_provisioning = scim_provisioning
+
+    @property
+    def sp_metadata(self):
+        """Gets the sp_metadata of this CreateIdentityProviderSAMLResponse.  # noqa: E501
+
+
+        :return: The sp_metadata of this CreateIdentityProviderSAMLResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._sp_metadata
+
+    @sp_metadata.setter
+    def sp_metadata(self, sp_metadata):
+        """Sets the sp_metadata of this CreateIdentityProviderSAMLResponse.
+
+
+        :param sp_metadata: The sp_metadata of this CreateIdentityProviderSAMLResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._sp_metadata = sp_metadata
 
     @property
     def uid(self):

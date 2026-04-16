@@ -57,6 +57,7 @@ class ModifyBackupPolicyResponse(object):
         'instance_id': 'str',
         'keep_cross_backup_enable_after_released': 'bool',
         'lock_ddl_time': 'int',
+        'lock_ddl_time_second': 'int',
         'log_backup_retention_day': 'int',
         'public_download_enable': 'bool',
         'retention_policy_synced': 'bool'
@@ -87,12 +88,13 @@ class ModifyBackupPolicyResponse(object):
         'instance_id': 'InstanceId',
         'keep_cross_backup_enable_after_released': 'KeepCrossBackupEnableAfterReleased',
         'lock_ddl_time': 'LockDDLTime',
+        'lock_ddl_time_second': 'LockDDLTimeSecond',
         'log_backup_retention_day': 'LogBackupRetentionDay',
         'public_download_enable': 'PublicDownloadEnable',
         'retention_policy_synced': 'RetentionPolicySynced'
     }
 
-    def __init__(self, binlog_backup_all_retention=None, binlog_backup_enabled=None, binlog_backup_encryption_enabled=None, binlog_file_counts_enable=None, binlog_limit_count=None, binlog_local_retention_hour=None, binlog_space_limit_enable=None, binlog_storage_percentage=None, data_backup_all_retention=None, data_backup_encryption_enabled=None, data_backup_retention_day=None, data_full_backup_periods=None, data_full_backup_start_utc_hour=None, data_full_backup_time=None, data_incr_backup_periods=None, data_keep_days_after_released=None, data_keep_policy_after_released=None, high_frequency_snapshot_backup_enable=None, high_frequency_snapshot_backup_second_period=None, hourly_incr_backup_enable=None, incr_backup_hour_period=None, instance_id=None, keep_cross_backup_enable_after_released=None, lock_ddl_time=None, log_backup_retention_day=None, public_download_enable=None, retention_policy_synced=None, _configuration=None):  # noqa: E501
+    def __init__(self, binlog_backup_all_retention=None, binlog_backup_enabled=None, binlog_backup_encryption_enabled=None, binlog_file_counts_enable=None, binlog_limit_count=None, binlog_local_retention_hour=None, binlog_space_limit_enable=None, binlog_storage_percentage=None, data_backup_all_retention=None, data_backup_encryption_enabled=None, data_backup_retention_day=None, data_full_backup_periods=None, data_full_backup_start_utc_hour=None, data_full_backup_time=None, data_incr_backup_periods=None, data_keep_days_after_released=None, data_keep_policy_after_released=None, high_frequency_snapshot_backup_enable=None, high_frequency_snapshot_backup_second_period=None, hourly_incr_backup_enable=None, incr_backup_hour_period=None, instance_id=None, keep_cross_backup_enable_after_released=None, lock_ddl_time=None, lock_ddl_time_second=None, log_backup_retention_day=None, public_download_enable=None, retention_policy_synced=None, _configuration=None):  # noqa: E501
         """ModifyBackupPolicyResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -122,6 +124,7 @@ class ModifyBackupPolicyResponse(object):
         self._instance_id = None
         self._keep_cross_backup_enable_after_released = None
         self._lock_ddl_time = None
+        self._lock_ddl_time_second = None
         self._log_backup_retention_day = None
         self._public_download_enable = None
         self._retention_policy_synced = None
@@ -175,6 +178,8 @@ class ModifyBackupPolicyResponse(object):
             self.keep_cross_backup_enable_after_released = keep_cross_backup_enable_after_released
         if lock_ddl_time is not None:
             self.lock_ddl_time = lock_ddl_time
+        if lock_ddl_time_second is not None:
+            self.lock_ddl_time_second = lock_ddl_time_second
         if log_backup_retention_day is not None:
             self.log_backup_retention_day = log_backup_retention_day
         if public_download_enable is not None:
@@ -685,6 +690,27 @@ class ModifyBackupPolicyResponse(object):
         """
 
         self._lock_ddl_time = lock_ddl_time
+
+    @property
+    def lock_ddl_time_second(self):
+        """Gets the lock_ddl_time_second of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The lock_ddl_time_second of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._lock_ddl_time_second
+
+    @lock_ddl_time_second.setter
+    def lock_ddl_time_second(self, lock_ddl_time_second):
+        """Sets the lock_ddl_time_second of this ModifyBackupPolicyResponse.
+
+
+        :param lock_ddl_time_second: The lock_ddl_time_second of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._lock_ddl_time_second = lock_ddl_time_second
 
     @property
     def log_backup_retention_day(self):

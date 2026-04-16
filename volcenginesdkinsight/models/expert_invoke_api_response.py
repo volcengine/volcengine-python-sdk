@@ -33,45 +33,409 @@ class ExpertInvokeAPIResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'result': 'ResultForExpertInvokeAPIOutput'
+        'asr': 'str',
+        'content': 'str',
+        'domain_level': 'int',
+        'fans_cnt': 'int',
+        'has_risk': 'bool',
+        'ocr': 'str',
+        'origin_id': 'str',
+        'related': 'bool',
+        'related_reason': 'str',
+        'risk_level': 'str',
+        'risk_reason': 'str',
+        'risk_tags': 'list[str]',
+        'suggestion': 'str',
+        'summary': 'str',
+        'title': 'str'
     }
 
     attribute_map = {
-        'result': 'Result'
+        'asr': 'Asr',
+        'content': 'Content',
+        'domain_level': 'DomainLevel',
+        'fans_cnt': 'FansCnt',
+        'has_risk': 'HasRisk',
+        'ocr': 'Ocr',
+        'origin_id': 'OriginId',
+        'related': 'Related',
+        'related_reason': 'RelatedReason',
+        'risk_level': 'RiskLevel',
+        'risk_reason': 'RiskReason',
+        'risk_tags': 'RiskTags',
+        'suggestion': 'Suggestion',
+        'summary': 'Summary',
+        'title': 'Title'
     }
 
-    def __init__(self, result=None, _configuration=None):  # noqa: E501
+    def __init__(self, asr=None, content=None, domain_level=None, fans_cnt=None, has_risk=None, ocr=None, origin_id=None, related=None, related_reason=None, risk_level=None, risk_reason=None, risk_tags=None, suggestion=None, summary=None, title=None, _configuration=None):  # noqa: E501
         """ExpertInvokeAPIResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._result = None
+        self._asr = None
+        self._content = None
+        self._domain_level = None
+        self._fans_cnt = None
+        self._has_risk = None
+        self._ocr = None
+        self._origin_id = None
+        self._related = None
+        self._related_reason = None
+        self._risk_level = None
+        self._risk_reason = None
+        self._risk_tags = None
+        self._suggestion = None
+        self._summary = None
+        self._title = None
         self.discriminator = None
 
-        if result is not None:
-            self.result = result
+        if asr is not None:
+            self.asr = asr
+        if content is not None:
+            self.content = content
+        if domain_level is not None:
+            self.domain_level = domain_level
+        if fans_cnt is not None:
+            self.fans_cnt = fans_cnt
+        if has_risk is not None:
+            self.has_risk = has_risk
+        if ocr is not None:
+            self.ocr = ocr
+        if origin_id is not None:
+            self.origin_id = origin_id
+        if related is not None:
+            self.related = related
+        if related_reason is not None:
+            self.related_reason = related_reason
+        if risk_level is not None:
+            self.risk_level = risk_level
+        if risk_reason is not None:
+            self.risk_reason = risk_reason
+        if risk_tags is not None:
+            self.risk_tags = risk_tags
+        if suggestion is not None:
+            self.suggestion = suggestion
+        if summary is not None:
+            self.summary = summary
+        if title is not None:
+            self.title = title
 
     @property
-    def result(self):
-        """Gets the result of this ExpertInvokeAPIResponse.  # noqa: E501
+    def asr(self):
+        """Gets the asr of this ExpertInvokeAPIResponse.  # noqa: E501
 
 
-        :return: The result of this ExpertInvokeAPIResponse.  # noqa: E501
-        :rtype: ResultForExpertInvokeAPIOutput
+        :return: The asr of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: str
         """
-        return self._result
+        return self._asr
 
-    @result.setter
-    def result(self, result):
-        """Sets the result of this ExpertInvokeAPIResponse.
+    @asr.setter
+    def asr(self, asr):
+        """Sets the asr of this ExpertInvokeAPIResponse.
 
 
-        :param result: The result of this ExpertInvokeAPIResponse.  # noqa: E501
-        :type: ResultForExpertInvokeAPIOutput
+        :param asr: The asr of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: str
         """
 
-        self._result = result
+        self._asr = asr
+
+    @property
+    def content(self):
+        """Gets the content of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The content of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._content
+
+    @content.setter
+    def content(self, content):
+        """Sets the content of this ExpertInvokeAPIResponse.
+
+
+        :param content: The content of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._content = content
+
+    @property
+    def domain_level(self):
+        """Gets the domain_level of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The domain_level of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._domain_level
+
+    @domain_level.setter
+    def domain_level(self, domain_level):
+        """Sets the domain_level of this ExpertInvokeAPIResponse.
+
+
+        :param domain_level: The domain_level of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._domain_level = domain_level
+
+    @property
+    def fans_cnt(self):
+        """Gets the fans_cnt of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The fans_cnt of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._fans_cnt
+
+    @fans_cnt.setter
+    def fans_cnt(self, fans_cnt):
+        """Sets the fans_cnt of this ExpertInvokeAPIResponse.
+
+
+        :param fans_cnt: The fans_cnt of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._fans_cnt = fans_cnt
+
+    @property
+    def has_risk(self):
+        """Gets the has_risk of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The has_risk of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_risk
+
+    @has_risk.setter
+    def has_risk(self, has_risk):
+        """Sets the has_risk of this ExpertInvokeAPIResponse.
+
+
+        :param has_risk: The has_risk of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_risk = has_risk
+
+    @property
+    def ocr(self):
+        """Gets the ocr of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The ocr of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ocr
+
+    @ocr.setter
+    def ocr(self, ocr):
+        """Sets the ocr of this ExpertInvokeAPIResponse.
+
+
+        :param ocr: The ocr of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ocr = ocr
+
+    @property
+    def origin_id(self):
+        """Gets the origin_id of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The origin_id of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_id
+
+    @origin_id.setter
+    def origin_id(self, origin_id):
+        """Sets the origin_id of this ExpertInvokeAPIResponse.
+
+
+        :param origin_id: The origin_id of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_id = origin_id
+
+    @property
+    def related(self):
+        """Gets the related of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The related of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._related
+
+    @related.setter
+    def related(self, related):
+        """Sets the related of this ExpertInvokeAPIResponse.
+
+
+        :param related: The related of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._related = related
+
+    @property
+    def related_reason(self):
+        """Gets the related_reason of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The related_reason of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._related_reason
+
+    @related_reason.setter
+    def related_reason(self, related_reason):
+        """Sets the related_reason of this ExpertInvokeAPIResponse.
+
+
+        :param related_reason: The related_reason of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._related_reason = related_reason
+
+    @property
+    def risk_level(self):
+        """Gets the risk_level of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The risk_level of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._risk_level
+
+    @risk_level.setter
+    def risk_level(self, risk_level):
+        """Sets the risk_level of this ExpertInvokeAPIResponse.
+
+
+        :param risk_level: The risk_level of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._risk_level = risk_level
+
+    @property
+    def risk_reason(self):
+        """Gets the risk_reason of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The risk_reason of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._risk_reason
+
+    @risk_reason.setter
+    def risk_reason(self, risk_reason):
+        """Sets the risk_reason of this ExpertInvokeAPIResponse.
+
+
+        :param risk_reason: The risk_reason of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._risk_reason = risk_reason
+
+    @property
+    def risk_tags(self):
+        """Gets the risk_tags of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The risk_tags of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._risk_tags
+
+    @risk_tags.setter
+    def risk_tags(self, risk_tags):
+        """Sets the risk_tags of this ExpertInvokeAPIResponse.
+
+
+        :param risk_tags: The risk_tags of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._risk_tags = risk_tags
+
+    @property
+    def suggestion(self):
+        """Gets the suggestion of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The suggestion of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._suggestion
+
+    @suggestion.setter
+    def suggestion(self, suggestion):
+        """Sets the suggestion of this ExpertInvokeAPIResponse.
+
+
+        :param suggestion: The suggestion of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._suggestion = suggestion
+
+    @property
+    def summary(self):
+        """Gets the summary of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The summary of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._summary
+
+    @summary.setter
+    def summary(self, summary):
+        """Sets the summary of this ExpertInvokeAPIResponse.
+
+
+        :param summary: The summary of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._summary = summary
+
+    @property
+    def title(self):
+        """Gets the title of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The title of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this ExpertInvokeAPIResponse.
+
+
+        :param title: The title of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._title = title
 
     def to_dict(self):
         """Returns the model properties as a dict"""

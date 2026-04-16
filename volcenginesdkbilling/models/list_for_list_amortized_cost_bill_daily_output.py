@@ -46,6 +46,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'billing_mode': 'str',
         'busi_period': 'str',
         'business_mode': 'str',
+        'charge_item_code': 'str',
         'config_name': 'str',
         'configuration_code': 'str',
         'count': 'str',
@@ -172,6 +173,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'billing_mode': 'BillingMode',
         'busi_period': 'BusiPeriod',
         'business_mode': 'BusinessMode',
+        'charge_item_code': 'ChargeItemCode',
         'config_name': 'ConfigName',
         'configuration_code': 'ConfigurationCode',
         'count': 'Count',
@@ -284,7 +286,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'zone_code': 'ZoneCode'
     }
 
-    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, main_contract_number=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_posttax_amount=None, now_amortized_pre_tax_payable_amount=None, now_amortized_pre_tax_real_value=None, now_amortized_preferential_bill_amount=None, now_amortized_pretax_amount=None, now_amortized_real_value=None, now_amortized_round_amount=None, now_amortized_saving_plan_original_amount=None, now_amortized_settle_payable_amount=None, now_amortized_settle_posttax_amount=None, now_amortized_settle_pre_tax_payable_amount=None, now_amortized_settle_pre_tax_real_value=None, now_amortized_settle_pretax_amount=None, now_amortized_settle_real_value=None, now_amortized_settle_tax_amount=None, now_amortized_tax_amount=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, region_code=None, resource_id=None, round_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tax=None, tax_rate=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, charge_item_code=None, config_name=None, configuration_code=None, count=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, main_contract_number=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_posttax_amount=None, now_amortized_pre_tax_payable_amount=None, now_amortized_pre_tax_real_value=None, now_amortized_preferential_bill_amount=None, now_amortized_pretax_amount=None, now_amortized_real_value=None, now_amortized_round_amount=None, now_amortized_saving_plan_original_amount=None, now_amortized_settle_payable_amount=None, now_amortized_settle_posttax_amount=None, now_amortized_settle_pre_tax_payable_amount=None, now_amortized_settle_pre_tax_real_value=None, now_amortized_settle_pretax_amount=None, now_amortized_settle_real_value=None, now_amortized_settle_tax_amount=None, now_amortized_tax_amount=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, region_code=None, resource_id=None, round_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tax=None, tax_rate=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
         """ListForListAmortizedCostBillDailyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -303,6 +305,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._billing_mode = None
         self._busi_period = None
         self._business_mode = None
+        self._charge_item_code = None
         self._config_name = None
         self._configuration_code = None
         self._count = None
@@ -441,6 +444,8 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.busi_period = busi_period
         if business_mode is not None:
             self.business_mode = business_mode
+        if charge_item_code is not None:
+            self.charge_item_code = charge_item_code
         if config_name is not None:
             self.config_name = config_name
         if configuration_code is not None:
@@ -934,6 +939,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._business_mode = business_mode
+
+    @property
+    def charge_item_code(self):
+        """Gets the charge_item_code of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The charge_item_code of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._charge_item_code
+
+    @charge_item_code.setter
+    def charge_item_code(self, charge_item_code):
+        """Sets the charge_item_code of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param charge_item_code: The charge_item_code of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._charge_item_code = charge_item_code
 
     @property
     def config_name(self):

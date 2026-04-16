@@ -35,6 +35,7 @@ class CheckInListForGetCheckInListAPIOutput(object):
     swagger_types = {
         'activity_id': 'int',
         'auto_send_time': 'int',
+        'cannot_watch_live_prompt': 'str',
         'cannot_wathc_live_when_not_check_in': 'int',
         'check_in_count': 'int',
         'check_in_id': 'str',
@@ -54,6 +55,7 @@ class CheckInListForGetCheckInListAPIOutput(object):
     attribute_map = {
         'activity_id': 'ActivityId',
         'auto_send_time': 'AutoSendTime',
+        'cannot_watch_live_prompt': 'CannotWatchLivePrompt',
         'cannot_wathc_live_when_not_check_in': 'CannotWathcLiveWhenNotCheckIn',
         'check_in_count': 'CheckInCount',
         'check_in_id': 'CheckInId',
@@ -70,7 +72,7 @@ class CheckInListForGetCheckInListAPIOutput(object):
         'status': 'Status'
     }
 
-    def __init__(self, activity_id=None, auto_send_time=None, cannot_wathc_live_when_not_check_in=None, check_in_count=None, check_in_id=None, check_in_info=None, check_in_name=None, comment_content=None, deadline=None, deadline_second=None, is_send_comment=None, need_person_info=None, open_check_time=None, send_type=None, start_time=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, auto_send_time=None, cannot_watch_live_prompt=None, cannot_wathc_live_when_not_check_in=None, check_in_count=None, check_in_id=None, check_in_info=None, check_in_name=None, comment_content=None, deadline=None, deadline_second=None, is_send_comment=None, need_person_info=None, open_check_time=None, send_type=None, start_time=None, status=None, _configuration=None):  # noqa: E501
         """CheckInListForGetCheckInListAPIOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class CheckInListForGetCheckInListAPIOutput(object):
 
         self._activity_id = None
         self._auto_send_time = None
+        self._cannot_watch_live_prompt = None
         self._cannot_wathc_live_when_not_check_in = None
         self._check_in_count = None
         self._check_in_id = None
@@ -98,6 +101,8 @@ class CheckInListForGetCheckInListAPIOutput(object):
             self.activity_id = activity_id
         if auto_send_time is not None:
             self.auto_send_time = auto_send_time
+        if cannot_watch_live_prompt is not None:
+            self.cannot_watch_live_prompt = cannot_watch_live_prompt
         if cannot_wathc_live_when_not_check_in is not None:
             self.cannot_wathc_live_when_not_check_in = cannot_wathc_live_when_not_check_in
         if check_in_count is not None:
@@ -168,6 +173,27 @@ class CheckInListForGetCheckInListAPIOutput(object):
         """
 
         self._auto_send_time = auto_send_time
+
+    @property
+    def cannot_watch_live_prompt(self):
+        """Gets the cannot_watch_live_prompt of this CheckInListForGetCheckInListAPIOutput.  # noqa: E501
+
+
+        :return: The cannot_watch_live_prompt of this CheckInListForGetCheckInListAPIOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cannot_watch_live_prompt
+
+    @cannot_watch_live_prompt.setter
+    def cannot_watch_live_prompt(self, cannot_watch_live_prompt):
+        """Sets the cannot_watch_live_prompt of this CheckInListForGetCheckInListAPIOutput.
+
+
+        :param cannot_watch_live_prompt: The cannot_watch_live_prompt of this CheckInListForGetCheckInListAPIOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cannot_watch_live_prompt = cannot_watch_live_prompt
 
     @property
     def cannot_wathc_live_when_not_check_in(self):

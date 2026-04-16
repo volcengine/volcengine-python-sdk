@@ -34,28 +34,33 @@ class GetCheckInListAPIRequest(object):
     """
     swagger_types = {
         'activity_id': 'int',
+        'check_in_id': 'str',
         'page_count': 'int',
         'page_no': 'int'
     }
 
     attribute_map = {
         'activity_id': 'ActivityId',
+        'check_in_id': 'CheckInId',
         'page_count': 'PageCount',
         'page_no': 'PageNo'
     }
 
-    def __init__(self, activity_id=None, page_count=None, page_no=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, check_in_id=None, page_count=None, page_no=None, _configuration=None):  # noqa: E501
         """GetCheckInListAPIRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._activity_id = None
+        self._check_in_id = None
         self._page_count = None
         self._page_no = None
         self.discriminator = None
 
         self.activity_id = activity_id
+        if check_in_id is not None:
+            self.check_in_id = check_in_id
         if page_count is not None:
             self.page_count = page_count
         if page_no is not None:
@@ -83,6 +88,27 @@ class GetCheckInListAPIRequest(object):
             raise ValueError("Invalid value for `activity_id`, must not be `None`")  # noqa: E501
 
         self._activity_id = activity_id
+
+    @property
+    def check_in_id(self):
+        """Gets the check_in_id of this GetCheckInListAPIRequest.  # noqa: E501
+
+
+        :return: The check_in_id of this GetCheckInListAPIRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._check_in_id
+
+    @check_in_id.setter
+    def check_in_id(self, check_in_id):
+        """Sets the check_in_id of this GetCheckInListAPIRequest.
+
+
+        :param check_in_id: The check_in_id of this GetCheckInListAPIRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._check_in_id = check_in_id
 
     @property
     def page_count(self):

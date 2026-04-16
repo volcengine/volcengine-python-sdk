@@ -37,6 +37,7 @@ class CreateOauth2CredentialProviderDcrRequest(object):
         'config': 'ConfigForCreateOauth2CredentialProviderDcrInput',
         'name': 'str',
         'pool_name': 'str',
+        'project_name': 'str',
         'vendor': 'int'
     }
 
@@ -45,10 +46,11 @@ class CreateOauth2CredentialProviderDcrRequest(object):
         'config': 'Config',
         'name': 'Name',
         'pool_name': 'PoolName',
+        'project_name': 'ProjectName',
         'vendor': 'Vendor'
     }
 
-    def __init__(self, client_metadata=None, config=None, name=None, pool_name=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_metadata=None, config=None, name=None, pool_name=None, project_name=None, vendor=None, _configuration=None):  # noqa: E501
         """CreateOauth2CredentialProviderDcrRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class CreateOauth2CredentialProviderDcrRequest(object):
         self._config = None
         self._name = None
         self._pool_name = None
+        self._project_name = None
         self._vendor = None
         self.discriminator = None
 
@@ -68,6 +71,8 @@ class CreateOauth2CredentialProviderDcrRequest(object):
         self.name = name
         if pool_name is not None:
             self.pool_name = pool_name
+        if project_name is not None:
+            self.project_name = project_name
         self.vendor = vendor
 
     @property
@@ -155,6 +160,27 @@ class CreateOauth2CredentialProviderDcrRequest(object):
         """
 
         self._pool_name = pool_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateOauth2CredentialProviderDcrRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateOauth2CredentialProviderDcrRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateOauth2CredentialProviderDcrRequest.
+
+
+        :param project_name: The project_name of this CreateOauth2CredentialProviderDcrRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def vendor(self):

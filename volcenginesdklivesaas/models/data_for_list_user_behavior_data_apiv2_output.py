@@ -37,6 +37,7 @@ class DataForListUserBehaviorDataAPIV2Output(object):
         'avatar_url': 'str',
         'channel_name': 'str',
         'check_in_number': 'int',
+        'client_type': 'str',
         'comment_counts': 'int',
         'cookie': 'int',
         'employee_no': 'str',
@@ -63,6 +64,7 @@ class DataForListUserBehaviorDataAPIV2Output(object):
         'user_id': 'int',
         'user_name': 'str',
         'user_tel': 'str',
+        'video_view_duration': 'VideoViewDurationForListUserBehaviorDataAPIV2Output',
         'view_duration': 'int',
         'viewer_level_order': 'int',
         'watch_time': 'int'
@@ -73,6 +75,7 @@ class DataForListUserBehaviorDataAPIV2Output(object):
         'avatar_url': 'AvatarUrl',
         'channel_name': 'ChannelName',
         'check_in_number': 'CheckInNumber',
+        'client_type': 'ClientType',
         'comment_counts': 'CommentCounts',
         'cookie': 'Cookie',
         'employee_no': 'EmployeeNo',
@@ -99,12 +102,13 @@ class DataForListUserBehaviorDataAPIV2Output(object):
         'user_id': 'UserId',
         'user_name': 'UserName',
         'user_tel': 'UserTel',
+        'video_view_duration': 'VideoViewDuration',
         'view_duration': 'ViewDuration',
         'viewer_level_order': 'ViewerLevelOrder',
         'watch_time': 'WatchTime'
     }
 
-    def __init__(self, access_time=None, avatar_url=None, channel_name=None, check_in_number=None, comment_counts=None, cookie=None, employee_no=None, external_user_id=None, extra=None, ip=None, invite_code=None, inviter_avatar=None, inviter_external_id=None, inviter_id=None, inviter_name=None, join_at=None, leave_at=None, level_name=None, mute_number=None, no_interact_number=None, os=None, region=None, shift_screen_number=None, silence_status=None, thumb_up_number=None, user_credit=None, user_device=None, user_id=None, user_name=None, user_tel=None, view_duration=None, viewer_level_order=None, watch_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_time=None, avatar_url=None, channel_name=None, check_in_number=None, client_type=None, comment_counts=None, cookie=None, employee_no=None, external_user_id=None, extra=None, ip=None, invite_code=None, inviter_avatar=None, inviter_external_id=None, inviter_id=None, inviter_name=None, join_at=None, leave_at=None, level_name=None, mute_number=None, no_interact_number=None, os=None, region=None, shift_screen_number=None, silence_status=None, thumb_up_number=None, user_credit=None, user_device=None, user_id=None, user_name=None, user_tel=None, video_view_duration=None, view_duration=None, viewer_level_order=None, watch_time=None, _configuration=None):  # noqa: E501
         """DataForListUserBehaviorDataAPIV2Output - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -114,6 +118,7 @@ class DataForListUserBehaviorDataAPIV2Output(object):
         self._avatar_url = None
         self._channel_name = None
         self._check_in_number = None
+        self._client_type = None
         self._comment_counts = None
         self._cookie = None
         self._employee_no = None
@@ -140,6 +145,7 @@ class DataForListUserBehaviorDataAPIV2Output(object):
         self._user_id = None
         self._user_name = None
         self._user_tel = None
+        self._video_view_duration = None
         self._view_duration = None
         self._viewer_level_order = None
         self._watch_time = None
@@ -153,6 +159,8 @@ class DataForListUserBehaviorDataAPIV2Output(object):
             self.channel_name = channel_name
         if check_in_number is not None:
             self.check_in_number = check_in_number
+        if client_type is not None:
+            self.client_type = client_type
         if comment_counts is not None:
             self.comment_counts = comment_counts
         if cookie is not None:
@@ -205,6 +213,8 @@ class DataForListUserBehaviorDataAPIV2Output(object):
             self.user_name = user_name
         if user_tel is not None:
             self.user_tel = user_tel
+        if video_view_duration is not None:
+            self.video_view_duration = video_view_duration
         if view_duration is not None:
             self.view_duration = view_duration
         if viewer_level_order is not None:
@@ -295,6 +305,27 @@ class DataForListUserBehaviorDataAPIV2Output(object):
         """
 
         self._check_in_number = check_in_number
+
+    @property
+    def client_type(self):
+        """Gets the client_type of this DataForListUserBehaviorDataAPIV2Output.  # noqa: E501
+
+
+        :return: The client_type of this DataForListUserBehaviorDataAPIV2Output.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_type
+
+    @client_type.setter
+    def client_type(self, client_type):
+        """Sets the client_type of this DataForListUserBehaviorDataAPIV2Output.
+
+
+        :param client_type: The client_type of this DataForListUserBehaviorDataAPIV2Output.  # noqa: E501
+        :type: str
+        """
+
+        self._client_type = client_type
 
     @property
     def comment_counts(self):
@@ -841,6 +872,27 @@ class DataForListUserBehaviorDataAPIV2Output(object):
         """
 
         self._user_tel = user_tel
+
+    @property
+    def video_view_duration(self):
+        """Gets the video_view_duration of this DataForListUserBehaviorDataAPIV2Output.  # noqa: E501
+
+
+        :return: The video_view_duration of this DataForListUserBehaviorDataAPIV2Output.  # noqa: E501
+        :rtype: VideoViewDurationForListUserBehaviorDataAPIV2Output
+        """
+        return self._video_view_duration
+
+    @video_view_duration.setter
+    def video_view_duration(self, video_view_duration):
+        """Sets the video_view_duration of this DataForListUserBehaviorDataAPIV2Output.
+
+
+        :param video_view_duration: The video_view_duration of this DataForListUserBehaviorDataAPIV2Output.  # noqa: E501
+        :type: VideoViewDurationForListUserBehaviorDataAPIV2Output
+        """
+
+        self._video_view_duration = video_view_duration
 
     @property
     def view_duration(self):
