@@ -35,16 +35,18 @@ class SwitchOverRequest(object):
     swagger_types = {
         'client_token': 'str',
         'instance_id': 'str',
-        'target_primary_node_id': 'str'
+        'target_primary_node_id': 'str',
+        'target_primary_node_ids': 'list[str]'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
         'instance_id': 'InstanceId',
-        'target_primary_node_id': 'TargetPrimaryNodeId'
+        'target_primary_node_id': 'TargetPrimaryNodeId',
+        'target_primary_node_ids': 'TargetPrimaryNodeIds'
     }
 
-    def __init__(self, client_token=None, instance_id=None, target_primary_node_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, instance_id=None, target_primary_node_id=None, target_primary_node_ids=None, _configuration=None):  # noqa: E501
         """SwitchOverRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,12 +55,16 @@ class SwitchOverRequest(object):
         self._client_token = None
         self._instance_id = None
         self._target_primary_node_id = None
+        self._target_primary_node_ids = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
         self.instance_id = instance_id
-        self.target_primary_node_id = target_primary_node_id
+        if target_primary_node_id is not None:
+            self.target_primary_node_id = target_primary_node_id
+        if target_primary_node_ids is not None:
+            self.target_primary_node_ids = target_primary_node_ids
 
     @property
     def client_token(self):
@@ -122,10 +128,29 @@ class SwitchOverRequest(object):
         :param target_primary_node_id: The target_primary_node_id of this SwitchOverRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and target_primary_node_id is None:
-            raise ValueError("Invalid value for `target_primary_node_id`, must not be `None`")  # noqa: E501
 
         self._target_primary_node_id = target_primary_node_id
+
+    @property
+    def target_primary_node_ids(self):
+        """Gets the target_primary_node_ids of this SwitchOverRequest.  # noqa: E501
+
+
+        :return: The target_primary_node_ids of this SwitchOverRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._target_primary_node_ids
+
+    @target_primary_node_ids.setter
+    def target_primary_node_ids(self, target_primary_node_ids):
+        """Sets the target_primary_node_ids of this SwitchOverRequest.
+
+
+        :param target_primary_node_ids: The target_primary_node_ids of this SwitchOverRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._target_primary_node_ids = target_primary_node_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""
