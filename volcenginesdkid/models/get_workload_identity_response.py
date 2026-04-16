@@ -37,6 +37,7 @@ class GetWorkloadIdentityResponse(object):
         'category': 'str',
         'created_at': 'str',
         'description': 'str',
+        'meta_data': 'list[MetaDataForGetWorkloadIdentityOutput]',
         'name': 'str',
         'source': 'str',
         'trn': 'str',
@@ -49,6 +50,7 @@ class GetWorkloadIdentityResponse(object):
         'category': 'Category',
         'created_at': 'CreatedAt',
         'description': 'Description',
+        'meta_data': 'MetaData',
         'name': 'Name',
         'source': 'Source',
         'trn': 'Trn',
@@ -56,7 +58,7 @@ class GetWorkloadIdentityResponse(object):
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, allowed_resource_oauth2_return_urls=None, category=None, created_at=None, description=None, name=None, source=None, trn=None, updated_at=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_resource_oauth2_return_urls=None, category=None, created_at=None, description=None, meta_data=None, name=None, source=None, trn=None, updated_at=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """GetWorkloadIdentityResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class GetWorkloadIdentityResponse(object):
         self._category = None
         self._created_at = None
         self._description = None
+        self._meta_data = None
         self._name = None
         self._source = None
         self._trn = None
@@ -81,6 +84,8 @@ class GetWorkloadIdentityResponse(object):
             self.created_at = created_at
         if description is not None:
             self.description = description
+        if meta_data is not None:
+            self.meta_data = meta_data
         if name is not None:
             self.name = name
         if source is not None:
@@ -175,6 +180,27 @@ class GetWorkloadIdentityResponse(object):
         """
 
         self._description = description
+
+    @property
+    def meta_data(self):
+        """Gets the meta_data of this GetWorkloadIdentityResponse.  # noqa: E501
+
+
+        :return: The meta_data of this GetWorkloadIdentityResponse.  # noqa: E501
+        :rtype: list[MetaDataForGetWorkloadIdentityOutput]
+        """
+        return self._meta_data
+
+    @meta_data.setter
+    def meta_data(self, meta_data):
+        """Sets the meta_data of this GetWorkloadIdentityResponse.
+
+
+        :param meta_data: The meta_data of this GetWorkloadIdentityResponse.  # noqa: E501
+        :type: list[MetaDataForGetWorkloadIdentityOutput]
+        """
+
+        self._meta_data = meta_data
 
     @property
     def name(self):

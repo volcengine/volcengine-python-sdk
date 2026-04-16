@@ -33,6 +33,7 @@ class GetRoleCredentialsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'duration_seconds': 'int',
         'identity_token': 'str',
         'pool_name': 'str',
         'provider_name': 'str',
@@ -42,6 +43,7 @@ class GetRoleCredentialsRequest(object):
     }
 
     attribute_map = {
+        'duration_seconds': 'DurationSeconds',
         'identity_token': 'IdentityToken',
         'pool_name': 'PoolName',
         'provider_name': 'ProviderName',
@@ -50,12 +52,13 @@ class GetRoleCredentialsRequest(object):
         'with_oidc': 'WithOIDC'
     }
 
-    def __init__(self, identity_token=None, pool_name=None, provider_name=None, requested_role_trn=None, role_session_name=None, with_oidc=None, _configuration=None):  # noqa: E501
+    def __init__(self, duration_seconds=None, identity_token=None, pool_name=None, provider_name=None, requested_role_trn=None, role_session_name=None, with_oidc=None, _configuration=None):  # noqa: E501
         """GetRoleCredentialsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._duration_seconds = None
         self._identity_token = None
         self._pool_name = None
         self._provider_name = None
@@ -64,6 +67,8 @@ class GetRoleCredentialsRequest(object):
         self._with_oidc = None
         self.discriminator = None
 
+        if duration_seconds is not None:
+            self.duration_seconds = duration_seconds
         self.identity_token = identity_token
         if pool_name is not None:
             self.pool_name = pool_name
@@ -74,6 +79,27 @@ class GetRoleCredentialsRequest(object):
             self.role_session_name = role_session_name
         if with_oidc is not None:
             self.with_oidc = with_oidc
+
+    @property
+    def duration_seconds(self):
+        """Gets the duration_seconds of this GetRoleCredentialsRequest.  # noqa: E501
+
+
+        :return: The duration_seconds of this GetRoleCredentialsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._duration_seconds
+
+    @duration_seconds.setter
+    def duration_seconds(self, duration_seconds):
+        """Sets the duration_seconds of this GetRoleCredentialsRequest.
+
+
+        :param duration_seconds: The duration_seconds of this GetRoleCredentialsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._duration_seconds = duration_seconds
 
     @property
     def identity_token(self):

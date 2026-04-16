@@ -37,8 +37,11 @@ class CreateUserPoolClientRequest(object):
         'client_type': 'str',
         'description': 'str',
         'development_mode_enabled': 'bool',
+        'device_flow_enabled': 'bool',
+        'dismiss_login_page_enabled': 'bool',
         'logo_uri': 'str',
         'name': 'str',
+        'skip_consent_enabled': 'bool',
         'user_pool_uid': 'str'
     }
 
@@ -47,12 +50,15 @@ class CreateUserPoolClientRequest(object):
         'client_type': 'ClientType',
         'description': 'Description',
         'development_mode_enabled': 'DevelopmentModeEnabled',
+        'device_flow_enabled': 'DeviceFlowEnabled',
+        'dismiss_login_page_enabled': 'DismissLoginPageEnabled',
         'logo_uri': 'LogoUri',
         'name': 'Name',
+        'skip_consent_enabled': 'SkipConsentEnabled',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, allowed_callback_urls=None, client_type=None, description=None, development_mode_enabled=None, logo_uri=None, name=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_callback_urls=None, client_type=None, description=None, development_mode_enabled=None, device_flow_enabled=None, dismiss_login_page_enabled=None, logo_uri=None, name=None, skip_consent_enabled=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """CreateUserPoolClientRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,8 +68,11 @@ class CreateUserPoolClientRequest(object):
         self._client_type = None
         self._description = None
         self._development_mode_enabled = None
+        self._device_flow_enabled = None
+        self._dismiss_login_page_enabled = None
         self._logo_uri = None
         self._name = None
+        self._skip_consent_enabled = None
         self._user_pool_uid = None
         self.discriminator = None
 
@@ -74,9 +83,15 @@ class CreateUserPoolClientRequest(object):
             self.description = description
         if development_mode_enabled is not None:
             self.development_mode_enabled = development_mode_enabled
+        if device_flow_enabled is not None:
+            self.device_flow_enabled = device_flow_enabled
+        if dismiss_login_page_enabled is not None:
+            self.dismiss_login_page_enabled = dismiss_login_page_enabled
         if logo_uri is not None:
             self.logo_uri = logo_uri
         self.name = name
+        if skip_consent_enabled is not None:
+            self.skip_consent_enabled = skip_consent_enabled
         self.user_pool_uid = user_pool_uid
 
     @property
@@ -166,6 +181,48 @@ class CreateUserPoolClientRequest(object):
         self._development_mode_enabled = development_mode_enabled
 
     @property
+    def device_flow_enabled(self):
+        """Gets the device_flow_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+
+
+        :return: The device_flow_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._device_flow_enabled
+
+    @device_flow_enabled.setter
+    def device_flow_enabled(self, device_flow_enabled):
+        """Sets the device_flow_enabled of this CreateUserPoolClientRequest.
+
+
+        :param device_flow_enabled: The device_flow_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._device_flow_enabled = device_flow_enabled
+
+    @property
+    def dismiss_login_page_enabled(self):
+        """Gets the dismiss_login_page_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+
+
+        :return: The dismiss_login_page_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dismiss_login_page_enabled
+
+    @dismiss_login_page_enabled.setter
+    def dismiss_login_page_enabled(self, dismiss_login_page_enabled):
+        """Sets the dismiss_login_page_enabled of this CreateUserPoolClientRequest.
+
+
+        :param dismiss_login_page_enabled: The dismiss_login_page_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dismiss_login_page_enabled = dismiss_login_page_enabled
+
+    @property
     def logo_uri(self):
         """Gets the logo_uri of this CreateUserPoolClientRequest.  # noqa: E501
 
@@ -208,6 +265,27 @@ class CreateUserPoolClientRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def skip_consent_enabled(self):
+        """Gets the skip_consent_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+
+
+        :return: The skip_consent_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_consent_enabled
+
+    @skip_consent_enabled.setter
+    def skip_consent_enabled(self, skip_consent_enabled):
+        """Sets the skip_consent_enabled of this CreateUserPoolClientRequest.
+
+
+        :param skip_consent_enabled: The skip_consent_enabled of this CreateUserPoolClientRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._skip_consent_enabled = skip_consent_enabled
 
     @property
     def user_pool_uid(self):

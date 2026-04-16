@@ -35,6 +35,7 @@ class DataForListIdentityProvidersOutput(object):
     swagger_types = {
         'connection_type': 'str',
         'create_time': 'str',
+        'enabled': 'bool',
         'name': 'str',
         'provider': 'str',
         'uid': 'str',
@@ -44,13 +45,14 @@ class DataForListIdentityProvidersOutput(object):
     attribute_map = {
         'connection_type': 'ConnectionType',
         'create_time': 'CreateTime',
+        'enabled': 'Enabled',
         'name': 'Name',
         'provider': 'Provider',
         'uid': 'Uid',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, connection_type=None, create_time=None, name=None, provider=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection_type=None, create_time=None, enabled=None, name=None, provider=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
         """DataForListIdentityProvidersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class DataForListIdentityProvidersOutput(object):
 
         self._connection_type = None
         self._create_time = None
+        self._enabled = None
         self._name = None
         self._provider = None
         self._uid = None
@@ -68,6 +71,8 @@ class DataForListIdentityProvidersOutput(object):
             self.connection_type = connection_type
         if create_time is not None:
             self.create_time = create_time
+        if enabled is not None:
+            self.enabled = enabled
         if name is not None:
             self.name = name
         if provider is not None:
@@ -118,6 +123,27 @@ class DataForListIdentityProvidersOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def enabled(self):
+        """Gets the enabled of this DataForListIdentityProvidersOutput.  # noqa: E501
+
+
+        :return: The enabled of this DataForListIdentityProvidersOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled):
+        """Sets the enabled of this DataForListIdentityProvidersOutput.
+
+
+        :param enabled: The enabled of this DataForListIdentityProvidersOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enabled = enabled
 
     @property
     def name(self):

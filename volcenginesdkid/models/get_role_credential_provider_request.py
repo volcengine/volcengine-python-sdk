@@ -33,54 +33,28 @@ class GetRoleCredentialProviderRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'config': 'ConfigForGetRoleCredentialProviderInput',
         'name': 'str',
         'pool_name': 'str'
     }
 
     attribute_map = {
-        'config': 'Config',
         'name': 'Name',
         'pool_name': 'PoolName'
     }
 
-    def __init__(self, config=None, name=None, pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, pool_name=None, _configuration=None):  # noqa: E501
         """GetRoleCredentialProviderRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._config = None
         self._name = None
         self._pool_name = None
         self.discriminator = None
 
-        if config is not None:
-            self.config = config
         self.name = name
         if pool_name is not None:
             self.pool_name = pool_name
-
-    @property
-    def config(self):
-        """Gets the config of this GetRoleCredentialProviderRequest.  # noqa: E501
-
-
-        :return: The config of this GetRoleCredentialProviderRequest.  # noqa: E501
-        :rtype: ConfigForGetRoleCredentialProviderInput
-        """
-        return self._config
-
-    @config.setter
-    def config(self, config):
-        """Sets the config of this GetRoleCredentialProviderRequest.
-
-
-        :param config: The config of this GetRoleCredentialProviderRequest.  # noqa: E501
-        :type: ConfigForGetRoleCredentialProviderInput
-        """
-
-        self._config = config
 
     @property
     def name(self):

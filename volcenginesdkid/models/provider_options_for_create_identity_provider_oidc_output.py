@@ -37,7 +37,8 @@ class ProviderOptionsForCreateIdentityProviderOIDCOutput(object):
         'is_auto_creation': 'bool',
         'is_auto_update': 'bool',
         'is_creation_allowed': 'bool',
-        'is_linking_allowed': 'bool'
+        'is_linking_allowed': 'bool',
+        'user_linking_prompt_enabled': 'bool'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ProviderOptionsForCreateIdentityProviderOIDCOutput(object):
         'is_auto_creation': 'IsAutoCreation',
         'is_auto_update': 'IsAutoUpdate',
         'is_creation_allowed': 'IsCreationAllowed',
-        'is_linking_allowed': 'IsLinkingAllowed'
+        'is_linking_allowed': 'IsLinkingAllowed',
+        'user_linking_prompt_enabled': 'UserLinkingPromptEnabled'
     }
 
-    def __init__(self, auto_linking=None, is_auto_creation=None, is_auto_update=None, is_creation_allowed=None, is_linking_allowed=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_linking=None, is_auto_creation=None, is_auto_update=None, is_creation_allowed=None, is_linking_allowed=None, user_linking_prompt_enabled=None, _configuration=None):  # noqa: E501
         """ProviderOptionsForCreateIdentityProviderOIDCOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ProviderOptionsForCreateIdentityProviderOIDCOutput(object):
         self._is_auto_update = None
         self._is_creation_allowed = None
         self._is_linking_allowed = None
+        self._user_linking_prompt_enabled = None
         self.discriminator = None
 
         if auto_linking is not None:
@@ -71,6 +74,8 @@ class ProviderOptionsForCreateIdentityProviderOIDCOutput(object):
             self.is_creation_allowed = is_creation_allowed
         if is_linking_allowed is not None:
             self.is_linking_allowed = is_linking_allowed
+        if user_linking_prompt_enabled is not None:
+            self.user_linking_prompt_enabled = user_linking_prompt_enabled
 
     @property
     def auto_linking(self):
@@ -176,6 +181,27 @@ class ProviderOptionsForCreateIdentityProviderOIDCOutput(object):
         """
 
         self._is_linking_allowed = is_linking_allowed
+
+    @property
+    def user_linking_prompt_enabled(self):
+        """Gets the user_linking_prompt_enabled of this ProviderOptionsForCreateIdentityProviderOIDCOutput.  # noqa: E501
+
+
+        :return: The user_linking_prompt_enabled of this ProviderOptionsForCreateIdentityProviderOIDCOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._user_linking_prompt_enabled
+
+    @user_linking_prompt_enabled.setter
+    def user_linking_prompt_enabled(self, user_linking_prompt_enabled):
+        """Sets the user_linking_prompt_enabled of this ProviderOptionsForCreateIdentityProviderOIDCOutput.
+
+
+        :param user_linking_prompt_enabled: The user_linking_prompt_enabled of this ProviderOptionsForCreateIdentityProviderOIDCOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._user_linking_prompt_enabled = user_linking_prompt_enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""
