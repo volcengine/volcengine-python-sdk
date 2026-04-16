@@ -34,7 +34,7 @@ class DeletePolicyResponse(object):
     """
     swagger_types = {
         'message': 'str',
-        'success': 'int'
+        'success': 'bool'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class DeletePolicyResponse(object):
 
 
         :return: The success of this DeletePolicyResponse.  # noqa: E501
-        :rtype: int
+        :rtype: bool
         """
         return self._success
 
@@ -94,7 +94,7 @@ class DeletePolicyResponse(object):
 
 
         :param success: The success of this DeletePolicyResponse.  # noqa: E501
-        :type: int
+        :type: bool
         """
 
         self._success = success

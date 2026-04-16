@@ -36,6 +36,7 @@ class CreateWorkloadIdentityRequest(object):
         'allowed_resource_oauth2_return_urls': 'list[str]',
         'category': 'str',
         'description': 'str',
+        'meta_data': 'list[MetaDataForCreateWorkloadIdentityInput]',
         'name': 'str',
         'workload_pool_name': 'str'
     }
@@ -44,11 +45,12 @@ class CreateWorkloadIdentityRequest(object):
         'allowed_resource_oauth2_return_urls': 'AllowedResourceOauth2ReturnUrls',
         'category': 'Category',
         'description': 'Description',
+        'meta_data': 'MetaData',
         'name': 'Name',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, allowed_resource_oauth2_return_urls=None, category=None, description=None, name=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_resource_oauth2_return_urls=None, category=None, description=None, meta_data=None, name=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """CreateWorkloadIdentityRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class CreateWorkloadIdentityRequest(object):
         self._allowed_resource_oauth2_return_urls = None
         self._category = None
         self._description = None
+        self._meta_data = None
         self._name = None
         self._workload_pool_name = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class CreateWorkloadIdentityRequest(object):
             self.category = category
         if description is not None:
             self.description = description
+        if meta_data is not None:
+            self.meta_data = meta_data
         self.name = name
         if workload_pool_name is not None:
             self.workload_pool_name = workload_pool_name
@@ -133,6 +138,27 @@ class CreateWorkloadIdentityRequest(object):
         """
 
         self._description = description
+
+    @property
+    def meta_data(self):
+        """Gets the meta_data of this CreateWorkloadIdentityRequest.  # noqa: E501
+
+
+        :return: The meta_data of this CreateWorkloadIdentityRequest.  # noqa: E501
+        :rtype: list[MetaDataForCreateWorkloadIdentityInput]
+        """
+        return self._meta_data
+
+    @meta_data.setter
+    def meta_data(self, meta_data):
+        """Sets the meta_data of this CreateWorkloadIdentityRequest.
+
+
+        :param meta_data: The meta_data of this CreateWorkloadIdentityRequest.  # noqa: E501
+        :type: list[MetaDataForCreateWorkloadIdentityInput]
+        """
+
+        self._meta_data = meta_data
 
     @property
     def name(self):

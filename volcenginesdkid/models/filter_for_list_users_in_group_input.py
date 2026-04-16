@@ -34,70 +34,126 @@ class FilterForListUsersInGroupInput(object):
     """
     swagger_types = {
         'connection': 'str',
+        'department_uid': 'str',
         'email': 'str',
+        'email_is_null_or_empty': 'bool',
+        'email_phone_name_is_null_or_empty': 'bool',
         'family_name': 'str',
+        'family_name_is_null_or_empty': 'bool',
         'gender': 'str',
+        'gender_is_null_or_empty': 'bool',
         'given_name': 'str',
+        'given_name_is_null_or_empty': 'bool',
+        'group_uid': 'str',
         'latest_browser': 'str',
         'latest_login_method': 'str',
         'locale': 'str',
         'middle_name': 'str',
+        'middle_name_is_null_or_empty': 'bool',
         'name': 'str',
+        'name_is_null_or_empty': 'bool',
         'nickname': 'str',
+        'nickname_is_null_or_empty': 'bool',
         'phone_number': 'str',
+        'phone_number_is_null_or_empty': 'bool',
         'preferred_username': 'str',
-        'website': 'str'
+        'preferred_username_is_null_or_empty': 'bool',
+        'user_uids_or': 'list[str]',
+        'website': 'str',
+        'website_is_null_or_empty': 'bool'
     }
 
     attribute_map = {
         'connection': 'Connection',
+        'department_uid': 'DepartmentUid',
         'email': 'Email',
+        'email_is_null_or_empty': 'EmailIsNullOrEmpty',
+        'email_phone_name_is_null_or_empty': 'EmailPhoneNameIsNullOrEmpty',
         'family_name': 'FamilyName',
+        'family_name_is_null_or_empty': 'FamilyNameIsNullOrEmpty',
         'gender': 'Gender',
+        'gender_is_null_or_empty': 'GenderIsNullOrEmpty',
         'given_name': 'GivenName',
+        'given_name_is_null_or_empty': 'GivenNameIsNullOrEmpty',
+        'group_uid': 'GroupUid',
         'latest_browser': 'LatestBrowser',
         'latest_login_method': 'LatestLoginMethod',
         'locale': 'Locale',
         'middle_name': 'MiddleName',
+        'middle_name_is_null_or_empty': 'MiddleNameIsNullOrEmpty',
         'name': 'Name',
+        'name_is_null_or_empty': 'NameIsNullOrEmpty',
         'nickname': 'Nickname',
+        'nickname_is_null_or_empty': 'NicknameIsNullOrEmpty',
         'phone_number': 'PhoneNumber',
+        'phone_number_is_null_or_empty': 'PhoneNumberIsNullOrEmpty',
         'preferred_username': 'PreferredUsername',
-        'website': 'Website'
+        'preferred_username_is_null_or_empty': 'PreferredUsernameIsNullOrEmpty',
+        'user_uids_or': 'UserUidsOr',
+        'website': 'Website',
+        'website_is_null_or_empty': 'WebsiteIsNullOrEmpty'
     }
 
-    def __init__(self, connection=None, email=None, family_name=None, gender=None, given_name=None, latest_browser=None, latest_login_method=None, locale=None, middle_name=None, name=None, nickname=None, phone_number=None, preferred_username=None, website=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection=None, department_uid=None, email=None, email_is_null_or_empty=None, email_phone_name_is_null_or_empty=None, family_name=None, family_name_is_null_or_empty=None, gender=None, gender_is_null_or_empty=None, given_name=None, given_name_is_null_or_empty=None, group_uid=None, latest_browser=None, latest_login_method=None, locale=None, middle_name=None, middle_name_is_null_or_empty=None, name=None, name_is_null_or_empty=None, nickname=None, nickname_is_null_or_empty=None, phone_number=None, phone_number_is_null_or_empty=None, preferred_username=None, preferred_username_is_null_or_empty=None, user_uids_or=None, website=None, website_is_null_or_empty=None, _configuration=None):  # noqa: E501
         """FilterForListUsersInGroupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._connection = None
+        self._department_uid = None
         self._email = None
+        self._email_is_null_or_empty = None
+        self._email_phone_name_is_null_or_empty = None
         self._family_name = None
+        self._family_name_is_null_or_empty = None
         self._gender = None
+        self._gender_is_null_or_empty = None
         self._given_name = None
+        self._given_name_is_null_or_empty = None
+        self._group_uid = None
         self._latest_browser = None
         self._latest_login_method = None
         self._locale = None
         self._middle_name = None
+        self._middle_name_is_null_or_empty = None
         self._name = None
+        self._name_is_null_or_empty = None
         self._nickname = None
+        self._nickname_is_null_or_empty = None
         self._phone_number = None
+        self._phone_number_is_null_or_empty = None
         self._preferred_username = None
+        self._preferred_username_is_null_or_empty = None
+        self._user_uids_or = None
         self._website = None
+        self._website_is_null_or_empty = None
         self.discriminator = None
 
         if connection is not None:
             self.connection = connection
+        if department_uid is not None:
+            self.department_uid = department_uid
         if email is not None:
             self.email = email
+        if email_is_null_or_empty is not None:
+            self.email_is_null_or_empty = email_is_null_or_empty
+        if email_phone_name_is_null_or_empty is not None:
+            self.email_phone_name_is_null_or_empty = email_phone_name_is_null_or_empty
         if family_name is not None:
             self.family_name = family_name
+        if family_name_is_null_or_empty is not None:
+            self.family_name_is_null_or_empty = family_name_is_null_or_empty
         if gender is not None:
             self.gender = gender
+        if gender_is_null_or_empty is not None:
+            self.gender_is_null_or_empty = gender_is_null_or_empty
         if given_name is not None:
             self.given_name = given_name
+        if given_name_is_null_or_empty is not None:
+            self.given_name_is_null_or_empty = given_name_is_null_or_empty
+        if group_uid is not None:
+            self.group_uid = group_uid
         if latest_browser is not None:
             self.latest_browser = latest_browser
         if latest_login_method is not None:
@@ -106,16 +162,30 @@ class FilterForListUsersInGroupInput(object):
             self.locale = locale
         if middle_name is not None:
             self.middle_name = middle_name
+        if middle_name_is_null_or_empty is not None:
+            self.middle_name_is_null_or_empty = middle_name_is_null_or_empty
         if name is not None:
             self.name = name
+        if name_is_null_or_empty is not None:
+            self.name_is_null_or_empty = name_is_null_or_empty
         if nickname is not None:
             self.nickname = nickname
+        if nickname_is_null_or_empty is not None:
+            self.nickname_is_null_or_empty = nickname_is_null_or_empty
         if phone_number is not None:
             self.phone_number = phone_number
+        if phone_number_is_null_or_empty is not None:
+            self.phone_number_is_null_or_empty = phone_number_is_null_or_empty
         if preferred_username is not None:
             self.preferred_username = preferred_username
+        if preferred_username_is_null_or_empty is not None:
+            self.preferred_username_is_null_or_empty = preferred_username_is_null_or_empty
+        if user_uids_or is not None:
+            self.user_uids_or = user_uids_or
         if website is not None:
             self.website = website
+        if website_is_null_or_empty is not None:
+            self.website_is_null_or_empty = website_is_null_or_empty
 
     @property
     def connection(self):
@@ -139,6 +209,27 @@ class FilterForListUsersInGroupInput(object):
         self._connection = connection
 
     @property
+    def department_uid(self):
+        """Gets the department_uid of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The department_uid of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._department_uid
+
+    @department_uid.setter
+    def department_uid(self, department_uid):
+        """Sets the department_uid of this FilterForListUsersInGroupInput.
+
+
+        :param department_uid: The department_uid of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._department_uid = department_uid
+
+    @property
     def email(self):
         """Gets the email of this FilterForListUsersInGroupInput.  # noqa: E501
 
@@ -158,6 +249,48 @@ class FilterForListUsersInGroupInput(object):
         """
 
         self._email = email
+
+    @property
+    def email_is_null_or_empty(self):
+        """Gets the email_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The email_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._email_is_null_or_empty
+
+    @email_is_null_or_empty.setter
+    def email_is_null_or_empty(self, email_is_null_or_empty):
+        """Sets the email_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param email_is_null_or_empty: The email_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._email_is_null_or_empty = email_is_null_or_empty
+
+    @property
+    def email_phone_name_is_null_or_empty(self):
+        """Gets the email_phone_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The email_phone_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._email_phone_name_is_null_or_empty
+
+    @email_phone_name_is_null_or_empty.setter
+    def email_phone_name_is_null_or_empty(self, email_phone_name_is_null_or_empty):
+        """Sets the email_phone_name_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param email_phone_name_is_null_or_empty: The email_phone_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._email_phone_name_is_null_or_empty = email_phone_name_is_null_or_empty
 
     @property
     def family_name(self):
@@ -181,6 +314,27 @@ class FilterForListUsersInGroupInput(object):
         self._family_name = family_name
 
     @property
+    def family_name_is_null_or_empty(self):
+        """Gets the family_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The family_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._family_name_is_null_or_empty
+
+    @family_name_is_null_or_empty.setter
+    def family_name_is_null_or_empty(self, family_name_is_null_or_empty):
+        """Sets the family_name_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param family_name_is_null_or_empty: The family_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._family_name_is_null_or_empty = family_name_is_null_or_empty
+
+    @property
     def gender(self):
         """Gets the gender of this FilterForListUsersInGroupInput.  # noqa: E501
 
@@ -202,6 +356,27 @@ class FilterForListUsersInGroupInput(object):
         self._gender = gender
 
     @property
+    def gender_is_null_or_empty(self):
+        """Gets the gender_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The gender_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._gender_is_null_or_empty
+
+    @gender_is_null_or_empty.setter
+    def gender_is_null_or_empty(self, gender_is_null_or_empty):
+        """Sets the gender_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param gender_is_null_or_empty: The gender_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._gender_is_null_or_empty = gender_is_null_or_empty
+
+    @property
     def given_name(self):
         """Gets the given_name of this FilterForListUsersInGroupInput.  # noqa: E501
 
@@ -221,6 +396,48 @@ class FilterForListUsersInGroupInput(object):
         """
 
         self._given_name = given_name
+
+    @property
+    def given_name_is_null_or_empty(self):
+        """Gets the given_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The given_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._given_name_is_null_or_empty
+
+    @given_name_is_null_or_empty.setter
+    def given_name_is_null_or_empty(self, given_name_is_null_or_empty):
+        """Sets the given_name_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param given_name_is_null_or_empty: The given_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._given_name_is_null_or_empty = given_name_is_null_or_empty
+
+    @property
+    def group_uid(self):
+        """Gets the group_uid of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The group_uid of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._group_uid
+
+    @group_uid.setter
+    def group_uid(self, group_uid):
+        """Sets the group_uid of this FilterForListUsersInGroupInput.
+
+
+        :param group_uid: The group_uid of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._group_uid = group_uid
 
     @property
     def latest_browser(self):
@@ -307,6 +524,27 @@ class FilterForListUsersInGroupInput(object):
         self._middle_name = middle_name
 
     @property
+    def middle_name_is_null_or_empty(self):
+        """Gets the middle_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The middle_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._middle_name_is_null_or_empty
+
+    @middle_name_is_null_or_empty.setter
+    def middle_name_is_null_or_empty(self, middle_name_is_null_or_empty):
+        """Sets the middle_name_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param middle_name_is_null_or_empty: The middle_name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._middle_name_is_null_or_empty = middle_name_is_null_or_empty
+
+    @property
     def name(self):
         """Gets the name of this FilterForListUsersInGroupInput.  # noqa: E501
 
@@ -326,6 +564,27 @@ class FilterForListUsersInGroupInput(object):
         """
 
         self._name = name
+
+    @property
+    def name_is_null_or_empty(self):
+        """Gets the name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._name_is_null_or_empty
+
+    @name_is_null_or_empty.setter
+    def name_is_null_or_empty(self, name_is_null_or_empty):
+        """Sets the name_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param name_is_null_or_empty: The name_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._name_is_null_or_empty = name_is_null_or_empty
 
     @property
     def nickname(self):
@@ -349,6 +608,27 @@ class FilterForListUsersInGroupInput(object):
         self._nickname = nickname
 
     @property
+    def nickname_is_null_or_empty(self):
+        """Gets the nickname_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The nickname_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._nickname_is_null_or_empty
+
+    @nickname_is_null_or_empty.setter
+    def nickname_is_null_or_empty(self, nickname_is_null_or_empty):
+        """Sets the nickname_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param nickname_is_null_or_empty: The nickname_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._nickname_is_null_or_empty = nickname_is_null_or_empty
+
+    @property
     def phone_number(self):
         """Gets the phone_number of this FilterForListUsersInGroupInput.  # noqa: E501
 
@@ -368,6 +648,27 @@ class FilterForListUsersInGroupInput(object):
         """
 
         self._phone_number = phone_number
+
+    @property
+    def phone_number_is_null_or_empty(self):
+        """Gets the phone_number_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The phone_number_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._phone_number_is_null_or_empty
+
+    @phone_number_is_null_or_empty.setter
+    def phone_number_is_null_or_empty(self, phone_number_is_null_or_empty):
+        """Sets the phone_number_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param phone_number_is_null_or_empty: The phone_number_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._phone_number_is_null_or_empty = phone_number_is_null_or_empty
 
     @property
     def preferred_username(self):
@@ -391,6 +692,48 @@ class FilterForListUsersInGroupInput(object):
         self._preferred_username = preferred_username
 
     @property
+    def preferred_username_is_null_or_empty(self):
+        """Gets the preferred_username_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The preferred_username_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._preferred_username_is_null_or_empty
+
+    @preferred_username_is_null_or_empty.setter
+    def preferred_username_is_null_or_empty(self, preferred_username_is_null_or_empty):
+        """Sets the preferred_username_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param preferred_username_is_null_or_empty: The preferred_username_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._preferred_username_is_null_or_empty = preferred_username_is_null_or_empty
+
+    @property
+    def user_uids_or(self):
+        """Gets the user_uids_or of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The user_uids_or of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._user_uids_or
+
+    @user_uids_or.setter
+    def user_uids_or(self, user_uids_or):
+        """Sets the user_uids_or of this FilterForListUsersInGroupInput.
+
+
+        :param user_uids_or: The user_uids_or of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._user_uids_or = user_uids_or
+
+    @property
     def website(self):
         """Gets the website of this FilterForListUsersInGroupInput.  # noqa: E501
 
@@ -410,6 +753,27 @@ class FilterForListUsersInGroupInput(object):
         """
 
         self._website = website
+
+    @property
+    def website_is_null_or_empty(self):
+        """Gets the website_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The website_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._website_is_null_or_empty
+
+    @website_is_null_or_empty.setter
+    def website_is_null_or_empty(self, website_is_null_or_empty):
+        """Sets the website_is_null_or_empty of this FilterForListUsersInGroupInput.
+
+
+        :param website_is_null_or_empty: The website_is_null_or_empty of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._website_is_null_or_empty = website_is_null_or_empty
 
     def to_dict(self):
         """Returns the model properties as a dict"""

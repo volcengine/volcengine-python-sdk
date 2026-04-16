@@ -33,28 +33,63 @@ class CreateRoleCredentialProviderRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'config': 'ConfigForCreateRoleCredentialProviderInput',
         'name': 'str',
-        'pool_name': 'str'
+        'pool_name': 'str',
+        'project_name': 'str',
+        'vendor': 'int'
     }
 
     attribute_map = {
+        'config': 'Config',
         'name': 'Name',
-        'pool_name': 'PoolName'
+        'pool_name': 'PoolName',
+        'project_name': 'ProjectName',
+        'vendor': 'Vendor'
     }
 
-    def __init__(self, name=None, pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, config=None, name=None, pool_name=None, project_name=None, vendor=None, _configuration=None):  # noqa: E501
         """CreateRoleCredentialProviderRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._config = None
         self._name = None
         self._pool_name = None
+        self._project_name = None
+        self._vendor = None
         self.discriminator = None
 
+        if config is not None:
+            self.config = config
         self.name = name
         if pool_name is not None:
             self.pool_name = pool_name
+        if project_name is not None:
+            self.project_name = project_name
+        self.vendor = vendor
+
+    @property
+    def config(self):
+        """Gets the config of this CreateRoleCredentialProviderRequest.  # noqa: E501
+
+
+        :return: The config of this CreateRoleCredentialProviderRequest.  # noqa: E501
+        :rtype: ConfigForCreateRoleCredentialProviderInput
+        """
+        return self._config
+
+    @config.setter
+    def config(self, config):
+        """Sets the config of this CreateRoleCredentialProviderRequest.
+
+
+        :param config: The config of this CreateRoleCredentialProviderRequest.  # noqa: E501
+        :type: ConfigForCreateRoleCredentialProviderInput
+        """
+
+        self._config = config
 
     @property
     def name(self):
@@ -99,6 +134,50 @@ class CreateRoleCredentialProviderRequest(object):
         """
 
         self._pool_name = pool_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateRoleCredentialProviderRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateRoleCredentialProviderRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateRoleCredentialProviderRequest.
+
+
+        :param project_name: The project_name of this CreateRoleCredentialProviderRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def vendor(self):
+        """Gets the vendor of this CreateRoleCredentialProviderRequest.  # noqa: E501
+
+
+        :return: The vendor of this CreateRoleCredentialProviderRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._vendor
+
+    @vendor.setter
+    def vendor(self, vendor):
+        """Sets the vendor of this CreateRoleCredentialProviderRequest.
+
+
+        :param vendor: The vendor of this CreateRoleCredentialProviderRequest.  # noqa: E501
+        :type: int
+        """
+        if self._configuration.client_side_validation and vendor is None:
+            raise ValueError("Invalid value for `vendor`, must not be `None`")  # noqa: E501
+
+        self._vendor = vendor
 
     def to_dict(self):
         """Returns the model properties as a dict"""

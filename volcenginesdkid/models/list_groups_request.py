@@ -67,8 +67,7 @@ class ListGroupsRequest(object):
         if filter is not None:
             self.filter = filter
         self.page_number = page_number
-        if page_size is not None:
-            self.page_size = page_size
+        self.page_size = page_size
         if sort_direction is not None:
             self.sort_direction = sort_direction
         if sort_field is not None:
@@ -137,6 +136,8 @@ class ListGroupsRequest(object):
         :param page_size: The page_size of this ListGroupsRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and page_size is None:
+            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
 

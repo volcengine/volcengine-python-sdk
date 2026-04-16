@@ -33,32 +33,63 @@ class ListRoleCredentialProvidersRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'filter': 'FilterForListRoleCredentialProvidersInput',
         'page_number': 'int',
         'page_size': 'int',
-        'pool_name': 'str'
+        'sort_desc': 'bool',
+        'sort_field': 'str'
     }
 
     attribute_map = {
+        'filter': 'Filter',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'pool_name': 'PoolName'
+        'sort_desc': 'SortDesc',
+        'sort_field': 'SortField'
     }
 
-    def __init__(self, page_number=None, page_size=None, pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, page_number=None, page_size=None, sort_desc=None, sort_field=None, _configuration=None):  # noqa: E501
         """ListRoleCredentialProvidersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._filter = None
         self._page_number = None
         self._page_size = None
-        self._pool_name = None
+        self._sort_desc = None
+        self._sort_field = None
         self.discriminator = None
 
+        if filter is not None:
+            self.filter = filter
         self.page_number = page_number
         self.page_size = page_size
-        if pool_name is not None:
-            self.pool_name = pool_name
+        if sort_desc is not None:
+            self.sort_desc = sort_desc
+        if sort_field is not None:
+            self.sort_field = sort_field
+
+    @property
+    def filter(self):
+        """Gets the filter of this ListRoleCredentialProvidersRequest.  # noqa: E501
+
+
+        :return: The filter of this ListRoleCredentialProvidersRequest.  # noqa: E501
+        :rtype: FilterForListRoleCredentialProvidersInput
+        """
+        return self._filter
+
+    @filter.setter
+    def filter(self, filter):
+        """Sets the filter of this ListRoleCredentialProvidersRequest.
+
+
+        :param filter: The filter of this ListRoleCredentialProvidersRequest.  # noqa: E501
+        :type: FilterForListRoleCredentialProvidersInput
+        """
+
+        self._filter = filter
 
     @property
     def page_number(self):
@@ -107,25 +138,46 @@ class ListRoleCredentialProvidersRequest(object):
         self._page_size = page_size
 
     @property
-    def pool_name(self):
-        """Gets the pool_name of this ListRoleCredentialProvidersRequest.  # noqa: E501
+    def sort_desc(self):
+        """Gets the sort_desc of this ListRoleCredentialProvidersRequest.  # noqa: E501
 
 
-        :return: The pool_name of this ListRoleCredentialProvidersRequest.  # noqa: E501
+        :return: The sort_desc of this ListRoleCredentialProvidersRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sort_desc
+
+    @sort_desc.setter
+    def sort_desc(self, sort_desc):
+        """Sets the sort_desc of this ListRoleCredentialProvidersRequest.
+
+
+        :param sort_desc: The sort_desc of this ListRoleCredentialProvidersRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sort_desc = sort_desc
+
+    @property
+    def sort_field(self):
+        """Gets the sort_field of this ListRoleCredentialProvidersRequest.  # noqa: E501
+
+
+        :return: The sort_field of this ListRoleCredentialProvidersRequest.  # noqa: E501
         :rtype: str
         """
-        return self._pool_name
+        return self._sort_field
 
-    @pool_name.setter
-    def pool_name(self, pool_name):
-        """Sets the pool_name of this ListRoleCredentialProvidersRequest.
+    @sort_field.setter
+    def sort_field(self, sort_field):
+        """Sets the sort_field of this ListRoleCredentialProvidersRequest.
 
 
-        :param pool_name: The pool_name of this ListRoleCredentialProvidersRequest.  # noqa: E501
+        :param sort_field: The sort_field of this ListRoleCredentialProvidersRequest.  # noqa: E501
         :type: str
         """
 
-        self._pool_name = pool_name
+        self._sort_field = sort_field
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,11 +36,14 @@ class DataForListUsersInGroupOutput(object):
         'birthdate': 'str',
         'connection': 'str',
         'create_time': 'str',
+        'department_uids': 'list[str]',
         'email': 'str',
         'email_verified': 'bool',
+        'external_identities': 'list[ExternalIdentityForListUsersInGroupOutput]',
         'family_name': 'str',
         'gender': 'str',
         'given_name': 'str',
+        'group_uids': 'list[str]',
         'latest_browser': 'str',
         'latest_login': 'str',
         'latest_login_method': 'str',
@@ -67,11 +70,14 @@ class DataForListUsersInGroupOutput(object):
         'birthdate': 'Birthdate',
         'connection': 'Connection',
         'create_time': 'CreateTime',
+        'department_uids': 'DepartmentUids',
         'email': 'Email',
         'email_verified': 'EmailVerified',
+        'external_identities': 'ExternalIdentities',
         'family_name': 'FamilyName',
         'gender': 'Gender',
         'given_name': 'GivenName',
+        'group_uids': 'GroupUids',
         'latest_browser': 'LatestBrowser',
         'latest_login': 'LatestLogin',
         'latest_login_method': 'LatestLoginMethod',
@@ -94,7 +100,7 @@ class DataForListUsersInGroupOutput(object):
         'zoneinfo': 'Zoneinfo'
     }
 
-    def __init__(self, birthdate=None, connection=None, create_time=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, latest_browser=None, latest_login=None, latest_login_method=None, locale=None, middle_name=None, name=None, nickname=None, num_logins=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, sub=None, uid=None, update_time=None, user_metadata=None, user_state=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
+    def __init__(self, birthdate=None, connection=None, create_time=None, department_uids=None, email=None, email_verified=None, external_identities=None, family_name=None, gender=None, given_name=None, group_uids=None, latest_browser=None, latest_login=None, latest_login_method=None, locale=None, middle_name=None, name=None, nickname=None, num_logins=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, sub=None, uid=None, update_time=None, user_metadata=None, user_state=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
         """DataForListUsersInGroupOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,11 +109,14 @@ class DataForListUsersInGroupOutput(object):
         self._birthdate = None
         self._connection = None
         self._create_time = None
+        self._department_uids = None
         self._email = None
         self._email_verified = None
+        self._external_identities = None
         self._family_name = None
         self._gender = None
         self._given_name = None
+        self._group_uids = None
         self._latest_browser = None
         self._latest_login = None
         self._latest_login_method = None
@@ -136,16 +145,22 @@ class DataForListUsersInGroupOutput(object):
             self.connection = connection
         if create_time is not None:
             self.create_time = create_time
+        if department_uids is not None:
+            self.department_uids = department_uids
         if email is not None:
             self.email = email
         if email_verified is not None:
             self.email_verified = email_verified
+        if external_identities is not None:
+            self.external_identities = external_identities
         if family_name is not None:
             self.family_name = family_name
         if gender is not None:
             self.gender = gender
         if given_name is not None:
             self.given_name = given_name
+        if group_uids is not None:
+            self.group_uids = group_uids
         if latest_browser is not None:
             self.latest_browser = latest_browser
         if latest_login is not None:
@@ -251,6 +266,27 @@ class DataForListUsersInGroupOutput(object):
         self._create_time = create_time
 
     @property
+    def department_uids(self):
+        """Gets the department_uids of this DataForListUsersInGroupOutput.  # noqa: E501
+
+
+        :return: The department_uids of this DataForListUsersInGroupOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._department_uids
+
+    @department_uids.setter
+    def department_uids(self, department_uids):
+        """Sets the department_uids of this DataForListUsersInGroupOutput.
+
+
+        :param department_uids: The department_uids of this DataForListUsersInGroupOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._department_uids = department_uids
+
+    @property
     def email(self):
         """Gets the email of this DataForListUsersInGroupOutput.  # noqa: E501
 
@@ -291,6 +327,27 @@ class DataForListUsersInGroupOutput(object):
         """
 
         self._email_verified = email_verified
+
+    @property
+    def external_identities(self):
+        """Gets the external_identities of this DataForListUsersInGroupOutput.  # noqa: E501
+
+
+        :return: The external_identities of this DataForListUsersInGroupOutput.  # noqa: E501
+        :rtype: list[ExternalIdentityForListUsersInGroupOutput]
+        """
+        return self._external_identities
+
+    @external_identities.setter
+    def external_identities(self, external_identities):
+        """Sets the external_identities of this DataForListUsersInGroupOutput.
+
+
+        :param external_identities: The external_identities of this DataForListUsersInGroupOutput.  # noqa: E501
+        :type: list[ExternalIdentityForListUsersInGroupOutput]
+        """
+
+        self._external_identities = external_identities
 
     @property
     def family_name(self):
@@ -354,6 +411,27 @@ class DataForListUsersInGroupOutput(object):
         """
 
         self._given_name = given_name
+
+    @property
+    def group_uids(self):
+        """Gets the group_uids of this DataForListUsersInGroupOutput.  # noqa: E501
+
+
+        :return: The group_uids of this DataForListUsersInGroupOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._group_uids
+
+    @group_uids.setter
+    def group_uids(self, group_uids):
+        """Sets the group_uids of this DataForListUsersInGroupOutput.
+
+
+        :param group_uids: The group_uids of this DataForListUsersInGroupOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._group_uids = group_uids
 
     @property
     def latest_browser(self):

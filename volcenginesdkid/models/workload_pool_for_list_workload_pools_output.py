@@ -41,6 +41,7 @@ class WorkloadPoolForListWorkloadPoolsOutput(object):
         'total_credentials': 'int',
         'total_workloads': 'int',
         'trn': 'str',
+        'trust_anchors': 'list[str]',
         'updated_at': 'str',
         'workload_pool_id': 'str',
         'workload_pool_name': 'str'
@@ -55,12 +56,13 @@ class WorkloadPoolForListWorkloadPoolsOutput(object):
         'total_credentials': 'TotalCredentials',
         'total_workloads': 'TotalWorkloads',
         'trn': 'Trn',
+        'trust_anchors': 'TrustAnchors',
         'updated_at': 'UpdatedAt',
         'workload_pool_id': 'WorkloadPoolId',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, created_at=None, description=None, discovery_url=None, project_name=None, tags=None, total_credentials=None, total_workloads=None, trn=None, updated_at=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, description=None, discovery_url=None, project_name=None, tags=None, total_credentials=None, total_workloads=None, trn=None, trust_anchors=None, updated_at=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """WorkloadPoolForListWorkloadPoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class WorkloadPoolForListWorkloadPoolsOutput(object):
         self._total_credentials = None
         self._total_workloads = None
         self._trn = None
+        self._trust_anchors = None
         self._updated_at = None
         self._workload_pool_id = None
         self._workload_pool_name = None
@@ -95,6 +98,8 @@ class WorkloadPoolForListWorkloadPoolsOutput(object):
             self.total_workloads = total_workloads
         if trn is not None:
             self.trn = trn
+        if trust_anchors is not None:
+            self.trust_anchors = trust_anchors
         if updated_at is not None:
             self.updated_at = updated_at
         if workload_pool_id is not None:
@@ -269,6 +274,27 @@ class WorkloadPoolForListWorkloadPoolsOutput(object):
         """
 
         self._trn = trn
+
+    @property
+    def trust_anchors(self):
+        """Gets the trust_anchors of this WorkloadPoolForListWorkloadPoolsOutput.  # noqa: E501
+
+
+        :return: The trust_anchors of this WorkloadPoolForListWorkloadPoolsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._trust_anchors
+
+    @trust_anchors.setter
+    def trust_anchors(self, trust_anchors):
+        """Sets the trust_anchors of this WorkloadPoolForListWorkloadPoolsOutput.
+
+
+        :param trust_anchors: The trust_anchors of this WorkloadPoolForListWorkloadPoolsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._trust_anchors = trust_anchors
 
     @property
     def updated_at(self):

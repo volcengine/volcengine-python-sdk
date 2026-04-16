@@ -35,6 +35,7 @@ class FilterForListGroupsForUserInput(object):
     swagger_types = {
         'description': 'str',
         'group_id_token_name': 'str',
+        'group_uids_or': 'list[str]',
         'name': 'str',
         'source': 'str'
     }
@@ -42,11 +43,12 @@ class FilterForListGroupsForUserInput(object):
     attribute_map = {
         'description': 'Description',
         'group_id_token_name': 'GroupIdTokenName',
+        'group_uids_or': 'GroupUidsOr',
         'name': 'Name',
         'source': 'Source'
     }
 
-    def __init__(self, description=None, group_id_token_name=None, name=None, source=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, group_id_token_name=None, group_uids_or=None, name=None, source=None, _configuration=None):  # noqa: E501
         """FilterForListGroupsForUserInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class FilterForListGroupsForUserInput(object):
 
         self._description = None
         self._group_id_token_name = None
+        self._group_uids_or = None
         self._name = None
         self._source = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class FilterForListGroupsForUserInput(object):
             self.description = description
         if group_id_token_name is not None:
             self.group_id_token_name = group_id_token_name
+        if group_uids_or is not None:
+            self.group_uids_or = group_uids_or
         if name is not None:
             self.name = name
         if source is not None:
@@ -108,6 +113,27 @@ class FilterForListGroupsForUserInput(object):
         """
 
         self._group_id_token_name = group_id_token_name
+
+    @property
+    def group_uids_or(self):
+        """Gets the group_uids_or of this FilterForListGroupsForUserInput.  # noqa: E501
+
+
+        :return: The group_uids_or of this FilterForListGroupsForUserInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._group_uids_or
+
+    @group_uids_or.setter
+    def group_uids_or(self, group_uids_or):
+        """Sets the group_uids_or of this FilterForListGroupsForUserInput.
+
+
+        :param group_uids_or: The group_uids_or of this FilterForListGroupsForUserInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._group_uids_or = group_uids_or
 
     @property
     def name(self):
