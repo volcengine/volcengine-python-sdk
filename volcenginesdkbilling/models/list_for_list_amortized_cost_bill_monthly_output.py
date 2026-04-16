@@ -67,7 +67,9 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         'billing_mode': 'str',
         'busi_period': 'str',
         'business_mode': 'str',
+        'charge_item_code': 'str',
         'config_name': 'str',
+        'configuration_code': 'str',
         'count': 'str',
         'country_region': 'str',
         'coupon_amount': 'str',
@@ -236,7 +238,9 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         'billing_mode': 'BillingMode',
         'busi_period': 'BusiPeriod',
         'business_mode': 'BusinessMode',
+        'charge_item_code': 'ChargeItemCode',
         'config_name': 'ConfigName',
+        'configuration_code': 'ConfigurationCode',
         'count': 'Count',
         'country_region': 'CountryRegion',
         'coupon_amount': 'CouponAmount',
@@ -370,7 +374,7 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         'zone': 'Zone'
     }
 
-    def __init__(self, amortized_begin_time=None, amortized_day_num=None, amortized_end_time=None, amortized_month=None, amortized_type=None, before_amortized_coupon_amount=None, before_amortized_discount_bill_amount=None, before_amortized_original_bill_amount=None, before_amortized_paid_amount=None, before_amortized_payable_amount=None, before_amortized_posttax_amount=None, before_amortized_pre_tax_payable_amount=None, before_amortized_pre_tax_real_value=None, before_amortized_preferential_bill_amount=None, before_amortized_pretax_amount=None, before_amortized_real_value=None, before_amortized_round_amount=None, before_amortized_saving_plan_original_amount=None, before_amortized_settle_payable_amount=None, before_amortized_settle_posttax_amount=None, before_amortized_settle_pre_tax_payable_amount=None, before_amortized_settle_pre_tax_real_value=None, before_amortized_settle_pretax_amount=None, before_amortized_settle_real_value=None, before_amortized_settle_tax_amount=None, before_amortized_tax_amount=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, count=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, effective_factor=None, element=None, expand_field=None, expense_time=None, factor=None, instance_name=None, instance_no=None, main_contract_number=None, market_price=None, measure_interval=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_posttax_amount=None, now_amortized_pre_tax_payable_amount=None, now_amortized_pre_tax_real_value=None, now_amortized_preferential_bill_amount=None, now_amortized_pretax_amount=None, now_amortized_real_value=None, now_amortized_round_amount=None, now_amortized_saving_plan_original_amount=None, now_amortized_settle_payable_amount=None, now_amortized_settle_posttax_amount=None, now_amortized_settle_pre_tax_payable_amount=None, now_amortized_settle_pre_tax_real_value=None, now_amortized_settle_pretax_amount=None, now_amortized_settle_real_value=None, now_amortized_settle_tax_amount=None, now_amortized_tax_amount=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, resource_id=None, round_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tax=None, tax_rate=None, un_amortized_saving_plan_original_amount=None, unamortized_coupon_amount=None, unamortized_discount_bill_amount=None, unamortized_original_bill_amount=None, unamortized_paid_amount=None, unamortized_payable_amount=None, unamortized_posttax_amount=None, unamortized_pre_tax_payable_amount=None, unamortized_pre_tax_real_value=None, unamortized_preferential_bill_amount=None, unamortized_pretax_amount=None, unamortized_real_value=None, unamortized_round_amount=None, unamortized_settle_payable_amount=None, unamortized_settle_posttax_amount=None, unamortized_settle_pre_tax_payable_amount=None, unamortized_settle_pre_tax_real_value=None, unamortized_settle_pretax_amount=None, unamortized_settle_real_value=None, unamortized_settle_tax_amount=None, unamortized_tax_amount=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, _configuration=None):  # noqa: E501
+    def __init__(self, amortized_begin_time=None, amortized_day_num=None, amortized_end_time=None, amortized_month=None, amortized_type=None, before_amortized_coupon_amount=None, before_amortized_discount_bill_amount=None, before_amortized_original_bill_amount=None, before_amortized_paid_amount=None, before_amortized_payable_amount=None, before_amortized_posttax_amount=None, before_amortized_pre_tax_payable_amount=None, before_amortized_pre_tax_real_value=None, before_amortized_preferential_bill_amount=None, before_amortized_pretax_amount=None, before_amortized_real_value=None, before_amortized_round_amount=None, before_amortized_saving_plan_original_amount=None, before_amortized_settle_payable_amount=None, before_amortized_settle_posttax_amount=None, before_amortized_settle_pre_tax_payable_amount=None, before_amortized_settle_pre_tax_real_value=None, before_amortized_settle_pretax_amount=None, before_amortized_settle_real_value=None, before_amortized_settle_tax_amount=None, before_amortized_tax_amount=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, charge_item_code=None, config_name=None, configuration_code=None, count=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, effective_factor=None, element=None, expand_field=None, expense_time=None, factor=None, instance_name=None, instance_no=None, main_contract_number=None, market_price=None, measure_interval=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_posttax_amount=None, now_amortized_pre_tax_payable_amount=None, now_amortized_pre_tax_real_value=None, now_amortized_preferential_bill_amount=None, now_amortized_pretax_amount=None, now_amortized_real_value=None, now_amortized_round_amount=None, now_amortized_saving_plan_original_amount=None, now_amortized_settle_payable_amount=None, now_amortized_settle_posttax_amount=None, now_amortized_settle_pre_tax_payable_amount=None, now_amortized_settle_pre_tax_real_value=None, now_amortized_settle_pretax_amount=None, now_amortized_settle_real_value=None, now_amortized_settle_tax_amount=None, now_amortized_tax_amount=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, resource_id=None, round_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tax=None, tax_rate=None, un_amortized_saving_plan_original_amount=None, unamortized_coupon_amount=None, unamortized_discount_bill_amount=None, unamortized_original_bill_amount=None, unamortized_paid_amount=None, unamortized_payable_amount=None, unamortized_posttax_amount=None, unamortized_pre_tax_payable_amount=None, unamortized_pre_tax_real_value=None, unamortized_preferential_bill_amount=None, unamortized_pretax_amount=None, unamortized_real_value=None, unamortized_round_amount=None, unamortized_settle_payable_amount=None, unamortized_settle_posttax_amount=None, unamortized_settle_pre_tax_payable_amount=None, unamortized_settle_pre_tax_real_value=None, unamortized_settle_pretax_amount=None, unamortized_settle_real_value=None, unamortized_settle_tax_amount=None, unamortized_tax_amount=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, _configuration=None):  # noqa: E501
         """ListForListAmortizedCostBillMonthlyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -410,7 +414,9 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         self._billing_mode = None
         self._busi_period = None
         self._business_mode = None
+        self._charge_item_code = None
         self._config_name = None
+        self._configuration_code = None
         self._count = None
         self._country_region = None
         self._coupon_amount = None
@@ -612,8 +618,12 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
             self.busi_period = busi_period
         if business_mode is not None:
             self.business_mode = business_mode
+        if charge_item_code is not None:
+            self.charge_item_code = charge_item_code
         if config_name is not None:
             self.config_name = config_name
+        if configuration_code is not None:
+            self.configuration_code = configuration_code
         if count is not None:
             self.count = count
         if country_region is not None:
@@ -1592,6 +1602,27 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         self._business_mode = business_mode
 
     @property
+    def charge_item_code(self):
+        """Gets the charge_item_code of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The charge_item_code of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._charge_item_code
+
+    @charge_item_code.setter
+    def charge_item_code(self, charge_item_code):
+        """Sets the charge_item_code of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param charge_item_code: The charge_item_code of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._charge_item_code = charge_item_code
+
+    @property
     def config_name(self):
         """Gets the config_name of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
 
@@ -1611,6 +1642,27 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         """
 
         self._config_name = config_name
+
+    @property
+    def configuration_code(self):
+        """Gets the configuration_code of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The configuration_code of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._configuration_code
+
+    @configuration_code.setter
+    def configuration_code(self, configuration_code):
+        """Sets the configuration_code of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param configuration_code: The configuration_code of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._configuration_code = configuration_code
 
     @property
     def count(self):
