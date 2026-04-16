@@ -34,6 +34,7 @@ class DescribeCrossBackupPolicyResponse(object):
     """
     swagger_types = {
         'backup_enabled': 'bool',
+        'cross_backup_all_retention': 'bool',
         'cross_backup_region': 'str',
         'instance_id': 'str',
         'log_backup_enabled': 'bool',
@@ -42,19 +43,21 @@ class DescribeCrossBackupPolicyResponse(object):
 
     attribute_map = {
         'backup_enabled': 'BackupEnabled',
+        'cross_backup_all_retention': 'CrossBackupAllRetention',
         'cross_backup_region': 'CrossBackupRegion',
         'instance_id': 'InstanceId',
         'log_backup_enabled': 'LogBackupEnabled',
         'retention': 'Retention'
     }
 
-    def __init__(self, backup_enabled=None, cross_backup_region=None, instance_id=None, log_backup_enabled=None, retention=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_enabled=None, cross_backup_all_retention=None, cross_backup_region=None, instance_id=None, log_backup_enabled=None, retention=None, _configuration=None):  # noqa: E501
         """DescribeCrossBackupPolicyResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._backup_enabled = None
+        self._cross_backup_all_retention = None
         self._cross_backup_region = None
         self._instance_id = None
         self._log_backup_enabled = None
@@ -63,6 +66,8 @@ class DescribeCrossBackupPolicyResponse(object):
 
         if backup_enabled is not None:
             self.backup_enabled = backup_enabled
+        if cross_backup_all_retention is not None:
+            self.cross_backup_all_retention = cross_backup_all_retention
         if cross_backup_region is not None:
             self.cross_backup_region = cross_backup_region
         if instance_id is not None:
@@ -92,6 +97,27 @@ class DescribeCrossBackupPolicyResponse(object):
         """
 
         self._backup_enabled = backup_enabled
+
+    @property
+    def cross_backup_all_retention(self):
+        """Gets the cross_backup_all_retention of this DescribeCrossBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The cross_backup_all_retention of this DescribeCrossBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cross_backup_all_retention
+
+    @cross_backup_all_retention.setter
+    def cross_backup_all_retention(self, cross_backup_all_retention):
+        """Sets the cross_backup_all_retention of this DescribeCrossBackupPolicyResponse.
+
+
+        :param cross_backup_all_retention: The cross_backup_all_retention of this DescribeCrossBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._cross_backup_all_retention = cross_backup_all_retention
 
     @property
     def cross_backup_region(self):

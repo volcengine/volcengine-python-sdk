@@ -48,7 +48,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         'instance_type': 'str',
         'lower_case_table_names': 'str',
         'maintenance_window': 'MaintenanceWindowForDescribeDBInstancesOutput',
-        'new_node_spec': 'str',
         'node_cpu_used_percentage': 'float',
         'node_memory_used_percentage': 'float',
         'node_number': 'int',
@@ -56,7 +55,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         'node_spec': 'str',
         'project_name': 'str',
         'region_id': 'str',
-        'seconds_monitor_config': 'str',
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
@@ -83,7 +81,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         'instance_type': 'InstanceType',
         'lower_case_table_names': 'LowerCaseTableNames',
         'maintenance_window': 'MaintenanceWindow',
-        'new_node_spec': 'NewNodeSpec',
         'node_cpu_used_percentage': 'NodeCPUUsedPercentage',
         'node_memory_used_percentage': 'NodeMemoryUsedPercentage',
         'node_number': 'NodeNumber',
@@ -91,7 +88,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         'node_spec': 'NodeSpec',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
-        'seconds_monitor_config': 'SecondsMonitorConfig',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
@@ -102,7 +98,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, current_kernel_version=None, db_engine_version=None, deletion_protection=None, dr_dts_task_id=None, engine_type=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, new_node_spec=None, node_cpu_used_percentage=None, node_memory_used_percentage=None, node_number=None, node_space_used_percentage=None, node_spec=None, project_name=None, region_id=None, seconds_monitor_config=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, current_kernel_version=None, db_engine_version=None, deletion_protection=None, dr_dts_task_id=None, engine_type=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_cpu_used_percentage=None, node_memory_used_percentage=None, node_number=None, node_space_used_percentage=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -123,7 +119,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._instance_type = None
         self._lower_case_table_names = None
         self._maintenance_window = None
-        self._new_node_spec = None
         self._node_cpu_used_percentage = None
         self._node_memory_used_percentage = None
         self._node_number = None
@@ -131,7 +126,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._node_spec = None
         self._project_name = None
         self._region_id = None
-        self._seconds_monitor_config = None
         self._storage_space = None
         self._storage_type = None
         self._subnet_id = None
@@ -172,8 +166,6 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.lower_case_table_names = lower_case_table_names
         if maintenance_window is not None:
             self.maintenance_window = maintenance_window
-        if new_node_spec is not None:
-            self.new_node_spec = new_node_spec
         if node_cpu_used_percentage is not None:
             self.node_cpu_used_percentage = node_cpu_used_percentage
         if node_memory_used_percentage is not None:
@@ -188,8 +180,6 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.project_name = project_name
         if region_id is not None:
             self.region_id = region_id
-        if seconds_monitor_config is not None:
-            self.seconds_monitor_config = seconds_monitor_config
         if storage_space is not None:
             self.storage_space = storage_space
         if storage_type is not None:
@@ -523,27 +513,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._maintenance_window = maintenance_window
 
     @property
-    def new_node_spec(self):
-        """Gets the new_node_spec of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-
-
-        :return: The new_node_spec of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._new_node_spec
-
-    @new_node_spec.setter
-    def new_node_spec(self, new_node_spec):
-        """Sets the new_node_spec of this InstanceForDescribeDBInstancesOutput.
-
-
-        :param new_node_spec: The new_node_spec of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._new_node_spec = new_node_spec
-
-    @property
     def node_cpu_used_percentage(self):
         """Gets the node_cpu_used_percentage of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -689,27 +658,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._region_id = region_id
-
-    @property
-    def seconds_monitor_config(self):
-        """Gets the seconds_monitor_config of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-
-
-        :return: The seconds_monitor_config of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._seconds_monitor_config
-
-    @seconds_monitor_config.setter
-    def seconds_monitor_config(self, seconds_monitor_config):
-        """Sets the seconds_monitor_config of this InstanceForDescribeDBInstancesOutput.
-
-
-        :param seconds_monitor_config: The seconds_monitor_config of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._seconds_monitor_config = seconds_monitor_config
 
     @property
     def storage_space(self):
