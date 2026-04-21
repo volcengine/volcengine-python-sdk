@@ -267,6 +267,8 @@ if __name__ == '__main__':
     configuration.credential_provider = StsOidcCredentialProvider(
         role_name="Your role name",  # 必填，账号的角色TRN，如trn:iam::2110400000:role/role123  ,此处填写role123
         account_id="Your account id",  # 必填，账号的角色TRN，如trn:iam::2110400000:role/role123  ,此处填写2110400000
+        # 也可以直接传完整 role_trn（优先级高于 role_name + account_id）：
+        # role_trn="trn:iam::2110400000:role/role123",
         oidc_token="your oidc token",  # 必填，生成的oidcToken，如ey********
         duration_seconds=3600,  # 非必填，有效期默认3600秒
         scheme="https",  # 非必填，域名前缀，默认https
@@ -274,7 +276,9 @@ if __name__ == '__main__':
         region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-beijing
         timeout=30,  # 非必填，请求超时时间，默认30秒
         expired_buffer_seconds=60,  # 非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
-        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' # 非必填，授权策略，默认为空
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}', # 非必填，授权策略，默认为空
+        max_retries=3,     # 非必填，HTTP 重试次数（最小 1），默认 3
+        retry_interval=1,  # 非必填，重试间隔秒数，默认 1
     )
 
     # set default configuration
@@ -324,7 +328,13 @@ STS AssumeRoleWithSaml（Security Token Service）是火山引擎提供的临时
 > 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
 > 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
 
-支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。  
+支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。
+
+角色 TRN 的解析优先级（与 OIDC 一致）：
+
+- `role_trn`（显式）优先。
+- 否则使用 `role_name + account_id` 拼成 `trn:iam::{account_id}:role/{role_name}`。
+- 如果只传 `role_trn`，会从中解析出 `account_id` 以构造 `SAMLProviderTrn`。
 
 **代码示例：**
 ```python
@@ -344,6 +354,8 @@ if __name__ == '__main__':
     configuration.credential_provider = StsSamlCredentialProvider(
         role_name="Your role name",  # 必填，账号的角色TRN，如trn:iam::2110400000:role/role123,此处填写role123
         account_id="Your account id",  # 必填，账号的角色TRN，如trn:iam::2110400000:saml-provider/role123,此处填写2110400000
+        # 也可以直接传完整 role_trn（优先级高于 role_name + account_id）：
+        # role_trn="trn:iam::2110400000:role/role123",
         provider_name="your provider name",# 必填，认证provider的TRN，如trn:iam::2110400000:saml-provider/provider123,此处填写provider123
         saml_resp="your saml resp",  # 必填，认证获取到的SAML的断言
         duration_seconds=3600,  # 非必填，有效期默认3600秒
@@ -352,7 +364,9 @@ if __name__ == '__main__':
         region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-beijing
         timeout=30,  # 非必填，请求超时时间，默认30秒
         expired_buffer_seconds=60,  # 非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
-        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' # 非必填，授权策略，默认为空
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}', # 非必填，授权策略，默认为空
+        max_retries=3,     # 非必填，HTTP 重试次数（最小 1），默认 3
+        retry_interval=1,  # 非必填，重试间隔秒数，默认 1
     )
 
     # set default configuration

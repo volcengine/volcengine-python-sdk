@@ -24,15 +24,35 @@ class AssumeRoleSamlCredentials:
 
 
 class StsSamlCredentialProvider(Provider):
-    def __init__(self, role_name, account_id, provider_name, saml_resp, duration_seconds=3600, scheme='https',
+    """Obtains temporary credentials via STS AssumeRoleWithSAML.
+
+    Role TRN resolution:
+      - role_trn (explicit) takes priority.
+      - Otherwise falls back to role_name + account_id, which are
+        assembled into 'trn:iam::{account_id}:role/{role_name}'.
+      - If neither is resolvable, refresh() raises RuntimeError.
+    """
+
+    PROVIDER_NAME = "StsSamlCredentialProvider"
+
+    def __init__(self, role_name=None, account_id=None, provider_name=None, saml_resp=None,
+                 duration_seconds=3600, scheme='https',
                  host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60,
-                 policy=None, max_retries=3, retry_interval=1):
+                 policy=None, role_trn=None, max_retries=3, retry_interval=1):
         # self.ak = ak
         # self.sk = sk
         self.role_name = role_name
         self.account_id = account_id
         self.provider_name = provider_name
         self.saml_resp = saml_resp
+
+        # role_trn resolution: explicit > role_name + account_id
+        if role_trn:
+            self._role_trn = role_trn
+        elif role_name and account_id:
+            self._role_trn = 'trn:iam::' + account_id + ':role/' + role_name
+        else:
+            self._role_trn = None
 
         self.timeout = timeout
         self.max_retries = max(max_retries, 1)
@@ -68,12 +88,44 @@ class StsSamlCredentialProvider(Provider):
         self.refresh()
         return self.credentials
 
+    @staticmethod
+    def _extract_account_id_from_role_trn(role_trn):
+        """Parse 'trn:iam::{account_id}:role/{role_name}' and return account_id, or None."""
+        if not role_trn:
+            return None
+        parts = role_trn.split(':')
+        # Expect: ['trn', 'iam', '', '{account_id}', 'role/{role_name}']
+        if len(parts) >= 4 and parts[0] == 'trn' and parts[1] == 'iam' and parts[3]:
+            return parts[3]
+        return None
+
     def _assume_role_saml(self):
+        if not self._role_trn:
+            raise RuntimeError(
+                "{}: role_trn not provided. Set role_trn or (role_name + account_id).".format(self.PROVIDER_NAME)
+            )
+        if not self.provider_name:
+            raise RuntimeError(
+                "{}: provider_name is required.".format(self.PROVIDER_NAME)
+            )
+        if not self.saml_resp:
+            raise RuntimeError(
+                "{}: saml_resp is required.".format(self.PROVIDER_NAME)
+            )
+
+        # SAMLProviderTrn needs account_id. If caller only passed role_trn, parse it out.
+        account_id = self.account_id or self._extract_account_id_from_role_trn(self._role_trn)
+        if not account_id:
+            raise RuntimeError(
+                "{}: failed to resolve account_id for SAMLProviderTrn. "
+                "Set account_id or pass a well-formed role_trn.".format(self.PROVIDER_NAME)
+            )
+
         params = {
             'DurationSeconds': self.duration_seconds,
             'RoleSessionName': uuid.uuid4().hex,
-            'RoleTrn': 'trn:iam::' + self.account_id + ':role/' + self.role_name,
-            'SAMLProviderTrn': 'trn:iam::' + self.account_id + ':saml-provider/' + self.provider_name,
+            'RoleTrn': self._role_trn,
+            'SAMLProviderTrn': 'trn:iam::' + account_id + ':saml-provider/' + self.provider_name,
             'SAMLResp': self.saml_resp,
         }
         if self.policy is not None:

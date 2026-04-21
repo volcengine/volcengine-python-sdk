@@ -241,6 +241,8 @@ if __name__ == '__main__':
     configuration.credential_provider = StsOidcCredentialProvider(
         role_name="Your role name",
         account_id="Your account id",
+        # Alternatively, pass the full role_trn directly (overrides role_name + account_id):
+        # role_trn="trn:iam::2110400000:role/role123",
         oidc_token="your oidc token",
         duration_seconds=3600,
         scheme="https",
@@ -248,7 +250,9 @@ if __name__ == '__main__':
         region="cn-beijing",
         timeout=30,
         expired_buffer_seconds=60,
-        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}'
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}',
+        max_retries=3,     # optional, HTTP retry attempts (min 1), defaults to 3
+        retry_interval=1,  # optional, seconds between retries, defaults to 1
     )
 
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -286,6 +290,12 @@ STS AssumeRoleWithSaml obtains temporary credentials via a SAML assertion.
 
 Reference: https://www.volcengine.com/docs/6257/1631607
 
+Role TRN resolution (same style as OIDC):
+
+- `role_trn` (explicit) takes priority.
+- Otherwise `role_name + account_id` is assembled into `trn:iam::{account_id}:role/{role_name}`.
+- When only `role_trn` is passed, `account_id` is parsed out of it for building `SAMLProviderTrn`.
+
 ```python
 from __future__ import print_function
 import volcenginesdkcore
@@ -300,6 +310,8 @@ if __name__ == '__main__':
     configuration.credential_provider = StsSamlCredentialProvider(
         role_name="Your role name",
         account_id="Your account id",
+        # Alternatively, pass the full role_trn directly (overrides role_name + account_id):
+        # role_trn="trn:iam::2110400000:role/role123",
         provider_name="your provider name",
         saml_resp="your saml resp",
         duration_seconds=3600,
@@ -308,7 +320,9 @@ if __name__ == '__main__':
         region="cn-beijing",
         timeout=30,
         expired_buffer_seconds=60,
-        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}'
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}',
+        max_retries=3,     # optional, HTTP retry attempts (min 1), defaults to 3
+        retry_interval=1,  # optional, seconds between retries, defaults to 1
     )
 
     volcenginesdkcore.Configuration.set_default(configuration)
