@@ -244,7 +244,12 @@ Role TRN resolution (same style as OIDC):
 
 - `role_trn` (explicit) takes priority.
 - Otherwise `role_name + account_id` is assembled into `trn:iam::{account_id}:role/{role_name}`.
-- When only `role_trn` is passed, `account_id` is parsed out of it for building `SAMLProviderTrn`.
+
+SAML Provider TRN resolution:
+
+- `saml_provider_trn` (explicit) takes priority.
+- Otherwise `account_id + provider_name` is assembled into `trn:iam::{account_id}:saml-provider/{provider_name}`.
+- When only `role_trn + provider_name` are passed, `account_id` is parsed out of `role_trn` and combined with `provider_name`.
 
 ```python
 from __future__ import print_function
@@ -263,6 +268,8 @@ if __name__ == '__main__':
         # Alternatively, pass the full role_trn directly (overrides role_name + account_id):
         # role_trn="trn:iam::2110400000:role/role123",
         provider_name="your provider name",
+        # Alternatively, pass the full saml_provider_trn directly (overrides account_id + provider_name):
+        # saml_provider_trn="trn:iam::2110400000:saml-provider/provider123",
         saml_resp="your saml resp",
         duration_seconds=3600,
         scheme="https",

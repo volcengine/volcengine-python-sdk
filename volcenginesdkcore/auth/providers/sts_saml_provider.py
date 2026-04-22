@@ -26,6 +26,14 @@ class StsSamlCredentialProvider(Provider):
       - Otherwise falls back to role_name + account_id, which are
         assembled into 'trn:iam::{account_id}:role/{role_name}'.
       - If neither is resolvable, refresh() raises RuntimeError.
+
+    SAML Provider TRN resolution:
+      - saml_provider_trn (explicit) takes priority.
+      - Otherwise falls back to account_id + provider_name, which are
+        assembled into 'trn:iam::{account_id}:saml-provider/{provider_name}'.
+      - If account_id is missing but role_trn is provided, account_id is
+        parsed out of role_trn and combined with provider_name.
+      - If none of the above is resolvable, refresh() raises RuntimeError.
     """
 
     PROVIDER_NAME = "StsSamlCredentialProvider"
@@ -33,7 +41,7 @@ class StsSamlCredentialProvider(Provider):
     def __init__(self, role_name=None, account_id=None, provider_name=None, saml_resp=None,
                  duration_seconds=3600, scheme='https',
                  host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60,
-                 policy=None, role_trn=None, max_retries=3, retry_interval=1):
+                 policy=None, role_trn=None, saml_provider_trn=None, max_retries=3, retry_interval=1):
         # self.ak = ak
         # self.sk = sk
         self.role_name = role_name
@@ -48,6 +56,19 @@ class StsSamlCredentialProvider(Provider):
             self._role_trn = 'trn:iam::' + account_id + ':role/' + role_name
         else:
             self._role_trn = None
+
+        # saml_provider_trn resolution:
+        # explicit > account_id + provider_name > (account_id parsed from role_trn) + provider_name
+        if saml_provider_trn:
+            self._saml_provider_trn = saml_provider_trn
+        elif provider_name:
+            resolved_account_id = account_id or self._extract_account_id_from_role_trn(self._role_trn)
+            if resolved_account_id:
+                self._saml_provider_trn = 'trn:iam::' + resolved_account_id + ':saml-provider/' + provider_name
+            else:
+                self._saml_provider_trn = None
+        else:
+            self._saml_provider_trn = None
 
         self.timeout = timeout
         self.max_retries = max(max_retries, 1)
@@ -99,28 +120,22 @@ class StsSamlCredentialProvider(Provider):
             raise RuntimeError(
                 "{}: role_trn not provided. Set role_trn or (role_name + account_id).".format(self.PROVIDER_NAME)
             )
-        if not self.provider_name:
+        if not self._saml_provider_trn:
             raise RuntimeError(
-                "{}: provider_name is required.".format(self.PROVIDER_NAME)
+                "{}: saml_provider_trn not provided. "
+                "Set saml_provider_trn, or (account_id + provider_name), "
+                "or (role_trn + provider_name).".format(self.PROVIDER_NAME)
             )
         if not self.saml_resp:
             raise RuntimeError(
                 "{}: saml_resp is required.".format(self.PROVIDER_NAME)
             )
 
-        # SAMLProviderTrn needs account_id. If caller only passed role_trn, parse it out.
-        account_id = self.account_id or self._extract_account_id_from_role_trn(self._role_trn)
-        if not account_id:
-            raise RuntimeError(
-                "{}: failed to resolve account_id for SAMLProviderTrn. "
-                "Set account_id or pass a well-formed role_trn.".format(self.PROVIDER_NAME)
-            )
-
         params = {
             'DurationSeconds': self.duration_seconds,
             'RoleSessionName': uuid.uuid4().hex,
             'RoleTrn': self._role_trn,
-            'SAMLProviderTrn': 'trn:iam::' + account_id + ':saml-provider/' + self.provider_name,
+            'SAMLProviderTrn': self._saml_provider_trn,
             'SAMLResp': self.saml_resp,
         }
         if self.policy is not None:

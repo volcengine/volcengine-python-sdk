@@ -284,7 +284,12 @@ STS AssumeRoleWithSaml（Security Token Service）是火山引擎提供的临时
 
 - `role_trn`（显式）优先。
 - 否则使用 `role_name + account_id` 拼成 `trn:iam::{account_id}:role/{role_name}`。
-- 如果只传 `role_trn`，会从中解析出 `account_id` 以构造 `SAMLProviderTrn`。
+
+SAML Provider TRN 的解析优先级：
+
+- `saml_provider_trn`（显式）优先。
+- 否则使用 `account_id + provider_name` 拼成 `trn:iam::{account_id}:saml-provider/{provider_name}`。
+- 如果只传 `role_trn + provider_name`，会从 `role_trn` 解析出 `account_id`，再和 `provider_name` 拼接。
 
 **代码示例：**
 ```python
@@ -307,6 +312,8 @@ if __name__ == '__main__':
         # 也可以直接传完整 role_trn（优先级高于 role_name + account_id）：
         # role_trn="trn:iam::2110400000:role/role123",
         provider_name="your provider name",# 必填，认证provider的TRN，如trn:iam::2110400000:saml-provider/provider123,此处填写provider123
+        # 也可以直接传完整 saml_provider_trn（优先级高于 account_id + provider_name）：
+        # saml_provider_trn="trn:iam::2110400000:saml-provider/provider123",
         saml_resp="your saml resp",  # 必填，认证获取到的SAML的断言
         duration_seconds=3600,  # 非必填，有效期默认3600秒
         scheme="https",  # 非必填，域名前缀，默认https
