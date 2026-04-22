@@ -1,4 +1,4 @@
-English | [中文](0-Overview-zh.md)
+Overview[(中文)](0-Overview-zh.md) | [Credentials →](1-Credentials.md)
 
 ---
 
