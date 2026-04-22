@@ -8,11 +8,6 @@ import dateutil.tz
 
 from .provider import Provider, CredentialValue
 
-try:
-    from urllib.parse import urlencode
-except ImportError:
-    from urllib import urlencode
-
 
 class AssumeRoleSamlCredentials:
     def __init__(self, ak, sk, session_token, current_time, expired_time):
@@ -130,10 +125,23 @@ class StsSamlCredentialProvider(Provider):
         }
         if self.policy is not None:
             params['Policy'] = self.policy
-        resp = self._do_assume_role_with_saml_request(params)
-        resp_result = self._unwrap_result(resp, response_name="STS response")
+        resp_result = self._sts_call(
+            action='AssumeRoleWithSAML',
+            version='2018-01-01',
+            params=params,
+            host=self.host,
+            scheme=self.scheme,
+            region=self.region,
+            timeout=self.timeout,
+            max_retries=self.max_retries,
+            retry_interval=self.retry_interval,
+        )
         if 'Credentials' not in resp_result:
-            raise RuntimeError('failed to retrieve credentials from sts: ' + str(resp))
+            raise RuntimeError(
+                '{}: failed to retrieve credentials from STS: {}'.format(
+                    self.PROVIDER_NAME, str(resp_result)
+                )
+            )
         resp_cred = resp_result['Credentials']
 
         # Parse the ISO string
@@ -147,24 +155,3 @@ class StsSamlCredentialProvider(Provider):
                                            session_token=resp_cred['SessionToken'],
                                            provider_name='StsSamlCredentialProvider')
 
-    def _do_assume_role_with_saml_request(self, params):
-        url = "{}://{}/?Action={}&Version={}".format(self.scheme, self.host, "AssumeRoleWithSAML", "2018-01-01")
-        form_data = dict(params)
-        body = urlencode(form_data).encode('utf-8')
-
-        headers = {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Accept": "application/json",
-        }
-
-        content = self._do_http_request(
-            url=url,
-            method="POST",
-            data=body,
-            headers=headers,
-            timeout=self.timeout,
-            max_retries=self.max_retries,
-            retry_interval=self.retry_interval,
-            request_name="STS AssumeRoleWithSAML",
-        )
-        return self._parse_json_response(content, response_name="STS response")

@@ -9,11 +9,6 @@ import dateutil.tz
 
 from .provider import Provider, CredentialValue
 
-try:
-    from urllib.parse import urlencode
-except ImportError:
-    from urllib import urlencode
-
 
 class AssumeRoleOidcCredentials:
     def __init__(self, ak, sk, session_token, current_time, expired_time):
@@ -195,12 +190,21 @@ class StsOidcCredentialProvider(Provider):
         if self.policy:
             params['Policy'] = self.policy
 
-        resp = self._do_assume_role_with_oidc_request(params)
-        resp_result = self._unwrap_result(resp, response_name="STS response")
+        resp_result = self._sts_call(
+            action='AssumeRoleWithOIDC',
+            version='2018-01-01',
+            params=params,
+            host=self.host,
+            scheme=self.scheme,
+            region=self.region,
+            timeout=self.timeout,
+            max_retries=self.max_retries,
+            retry_interval=self.retry_interval,
+        )
         if 'Credentials' not in resp_result:
             raise RuntimeError(
                 '{}: failed to retrieve credentials from STS: {}'.format(
-                    self.PROVIDER_NAME, str(resp)
+                    self.PROVIDER_NAME, str(resp_result)
                 )
             )
         resp_cred = resp_result['Credentials']
@@ -216,24 +220,3 @@ class StsOidcCredentialProvider(Provider):
             provider_name=self.PROVIDER_NAME,
         )
 
-    def _do_assume_role_with_oidc_request(self, params):
-        url = "{}://{}/?Action={}&Version={}".format(self.scheme, self.host, "AssumeRoleWithOIDC", "2018-01-01")
-        form_data = dict(params)
-        body = urlencode(form_data).encode('utf-8')
-
-        headers = {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Accept": "application/json",
-        }
-
-        content = self._do_http_request(
-            url=url,
-            method="POST",
-            data=body,
-            headers=headers,
-            timeout=self.timeout,
-            max_retries=self.max_retries,
-            retry_interval=self.retry_interval,
-            request_name="STS AssumeRoleWithOIDC",
-        )
-        return self._parse_json_response(content, response_name="STS response")
