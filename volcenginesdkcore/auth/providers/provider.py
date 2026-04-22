@@ -94,8 +94,8 @@ class Provider(object):
         # retryer (DEFAULT_RETRYER is a module-level singleton shared across
         # Configurations). Configuration exposes retryer via a getter-only
         # property; swap the underlying __retryer via name mangling.
-        import copy as _copy
-        fresh._Configuration__retryer = _copy.deepcopy(fresh.retryer)
+        import copy
+        fresh._Configuration__retryer = copy.deepcopy(fresh.retryer)
         # Provider semantics: max_retries = TOTAL attempts (legacy from
         # _do_http_request's for-loop). Configuration semantics:
         # num_max_retries = retries AFTER the initial attempt. Convert.
