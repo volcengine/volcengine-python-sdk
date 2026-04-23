@@ -59,7 +59,24 @@ class DefaultCredentialProvider(Provider):
             try:
                 provider.refresh()
                 return
-            except Exception:
+            except Exception as e:
+                # Do not silently swallow — users need a breadcrumb to
+                # diagnose why the cached provider stopped working before
+                # the full chain is re-traversed.
+                #
+                # Log only the exception class + a truncated str(e): the
+                # inner provider may embed upstream HTTP response bodies or
+                # other sensitive payloads in its RuntimeError message, so
+                # %r-ing the whole exception object could leak secrets.
+                err_msg = str(e)
+                if len(err_msg) > 200:
+                    err_msg = err_msg[:200] + "...(truncated)"
+                logger.warning(
+                    "%s: cached provider %s failed to refresh credentials (%s: %s); "
+                    "falling back to full chain",
+                    self.PROVIDER_NAME, type(provider).__name__,
+                    type(e).__name__, err_msg,
+                )
                 with self._lock:
                     self._last_provider = None
         self.get_credentials()
@@ -73,7 +90,22 @@ class DefaultCredentialProvider(Provider):
                     creds = provider.get_credentials()
                     if creds is not None:
                         return creds
-                except Exception:
+                except Exception as e:
+                    # See refresh() — log instead of swallowing so that a
+                    # broken cached provider is visible rather than silently
+                    # triggering a full chain traversal every call. Keep the
+                    # payload narrow (class name + truncated str) to avoid
+                    # leaking secrets that a provider may have embedded in
+                    # its exception message (e.g. upstream OAuth error body).
+                    err_msg = str(e)
+                    if len(err_msg) > 200:
+                        err_msg = err_msg[:200] + "...(truncated)"
+                    logger.warning(
+                        "%s: cached provider %s failed to return credentials (%s: %s); "
+                        "falling back to full chain",
+                        self.PROVIDER_NAME, type(provider).__name__,
+                        type(e).__name__, err_msg,
+                    )
                     with self._lock:
                         self._last_provider = None
 
