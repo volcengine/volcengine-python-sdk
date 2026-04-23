@@ -40,6 +40,7 @@ class AddNatFirewallControlPolicyRequest(object):
         'destination': 'str',
         'destination_type': 'str',
         'direction': 'str',
+        'domain_resolution_mode': 'str',
         'end_time': 'int',
         'nat_firewall_id': 'str',
         'prio': 'int',
@@ -62,6 +63,7 @@ class AddNatFirewallControlPolicyRequest(object):
         'destination': 'Destination',
         'destination_type': 'DestinationType',
         'direction': 'Direction',
+        'domain_resolution_mode': 'DomainResolutionMode',
         'end_time': 'EndTime',
         'nat_firewall_id': 'NatFirewallId',
         'prio': 'Prio',
@@ -76,7 +78,7 @@ class AddNatFirewallControlPolicyRequest(object):
         'status': 'Status'
     }
 
-    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_type=None, direction=None, end_time=None, nat_firewall_id=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, source=None, source_type=None, start_time=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_type=None, direction=None, domain_resolution_mode=None, end_time=None, nat_firewall_id=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, source=None, source_type=None, start_time=None, status=None, _configuration=None):  # noqa: E501
         """AddNatFirewallControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +91,7 @@ class AddNatFirewallControlPolicyRequest(object):
         self._destination = None
         self._destination_type = None
         self._direction = None
+        self._domain_resolution_mode = None
         self._end_time = None
         self._nat_firewall_id = None
         self._prio = None
@@ -113,6 +116,8 @@ class AddNatFirewallControlPolicyRequest(object):
         self.destination = destination
         self.destination_type = destination_type
         self.direction = direction
+        if domain_resolution_mode is not None:
+            self.domain_resolution_mode = domain_resolution_mode
         if end_time is not None:
             self.end_time = end_time
         self.nat_firewall_id = nat_firewall_id
@@ -316,6 +321,34 @@ class AddNatFirewallControlPolicyRequest(object):
             )
 
         self._direction = direction
+
+    @property
+    def domain_resolution_mode(self):
+        """Gets the domain_resolution_mode of this AddNatFirewallControlPolicyRequest.  # noqa: E501
+
+
+        :return: The domain_resolution_mode of this AddNatFirewallControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain_resolution_mode
+
+    @domain_resolution_mode.setter
+    def domain_resolution_mode(self, domain_resolution_mode):
+        """Sets the domain_resolution_mode of this AddNatFirewallControlPolicyRequest.
+
+
+        :param domain_resolution_mode: The domain_resolution_mode of this AddNatFirewallControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["fqdn", "dns"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                domain_resolution_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `domain_resolution_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(domain_resolution_mode, allowed_values)
+            )
+
+        self._domain_resolution_mode = domain_resolution_mode
 
     @property
     def end_time(self):

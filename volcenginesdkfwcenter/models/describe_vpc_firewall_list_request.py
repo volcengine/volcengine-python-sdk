@@ -35,6 +35,7 @@ class DescribeVpcFirewallListRequest(object):
     swagger_types = {
         'cloud_firewall_id': 'str',
         'firewall_status': 'list[str]',
+        'order_dir': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -50,6 +51,7 @@ class DescribeVpcFirewallListRequest(object):
     attribute_map = {
         'cloud_firewall_id': 'CloudFirewallId',
         'firewall_status': 'FirewallStatus',
+        'order_dir': 'OrderDir',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
@@ -62,7 +64,7 @@ class DescribeVpcFirewallListRequest(object):
         'vpc_firewall_name': 'VpcFirewallName'
     }
 
-    def __init__(self, cloud_firewall_id=None, firewall_status=None, page_number=None, page_size=None, project_name=None, region_code=None, route_mode=None, route_policy_status=None, transit_router_id=None, transit_router_name=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_firewall_id=None, firewall_status=None, order_dir=None, page_number=None, page_size=None, project_name=None, region_code=None, route_mode=None, route_policy_status=None, transit_router_id=None, transit_router_name=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
         """DescribeVpcFirewallListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class DescribeVpcFirewallListRequest(object):
 
         self._cloud_firewall_id = None
         self._firewall_status = None
+        self._order_dir = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
@@ -86,6 +89,8 @@ class DescribeVpcFirewallListRequest(object):
             self.cloud_firewall_id = cloud_firewall_id
         if firewall_status is not None:
             self.firewall_status = firewall_status
+        if order_dir is not None:
+            self.order_dir = order_dir
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -148,6 +153,34 @@ class DescribeVpcFirewallListRequest(object):
         """
 
         self._firewall_status = firewall_status
+
+    @property
+    def order_dir(self):
+        """Gets the order_dir of this DescribeVpcFirewallListRequest.  # noqa: E501
+
+
+        :return: The order_dir of this DescribeVpcFirewallListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_dir
+
+    @order_dir.setter
+    def order_dir(self, order_dir):
+        """Sets the order_dir of this DescribeVpcFirewallListRequest.
+
+
+        :param order_dir: The order_dir of this DescribeVpcFirewallListRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["asc", "desc"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                order_dir not in allowed_values):
+            raise ValueError(
+                "Invalid value for `order_dir` ({0}), must be one of {1}"  # noqa: E501
+                .format(order_dir, allowed_values)
+            )
+
+        self._order_dir = order_dir
 
     @property
     def page_number(self):

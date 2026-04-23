@@ -36,6 +36,7 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         'action': 'list[str]',
         'description': 'str',
         'destination': 'str',
+        'ip_type': 'str',
         'order_dir': 'str',
         'page_number': 'int',
         'page_size': 'int',
@@ -51,6 +52,7 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         'action': 'Action',
         'description': 'Description',
         'destination': 'Destination',
+        'ip_type': 'IpType',
         'order_dir': 'OrderDir',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -62,7 +64,7 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         'vpc_firewall_id': 'VpcFirewallId'
     }
 
-    def __init__(self, action=None, description=None, destination=None, order_dir=None, page_number=None, page_size=None, proto=None, repeat_type=None, rule_id=None, source=None, status=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, destination=None, ip_type=None, order_dir=None, page_number=None, page_size=None, proto=None, repeat_type=None, rule_id=None, source=None, status=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
         """DescribeVpcFirewallAclRuleListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         self._action = None
         self._description = None
         self._destination = None
+        self._ip_type = None
         self._order_dir = None
         self._page_number = None
         self._page_size = None
@@ -88,6 +91,8 @@ class DescribeVpcFirewallAclRuleListRequest(object):
             self.description = description
         if destination is not None:
             self.destination = destination
+        if ip_type is not None:
+            self.ip_type = ip_type
         if order_dir is not None:
             self.order_dir = order_dir
         if page_number is not None:
@@ -168,6 +173,34 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         """
 
         self._destination = destination
+
+    @property
+    def ip_type(self):
+        """Gets the ip_type of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+
+
+        :return: The ip_type of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_type
+
+    @ip_type.setter
+    def ip_type(self, ip_type):
+        """Sets the ip_type of this DescribeVpcFirewallAclRuleListRequest.
+
+
+        :param ip_type: The ip_type of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["v4", "v6"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ip_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `ip_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(ip_type, allowed_values)
+            )
+
+        self._ip_type = ip_type
 
     @property
     def order_dir(self):

@@ -50,10 +50,12 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         'destination_group_type': 'str',
         'destination_type': 'str',
         'direction': 'str',
+        'domain_resolution_mode': 'str',
         'effect_status': 'int',
         'end_time': 'int',
         'firewall_id': 'str',
         'hit_cnt': 'int',
+        'insert_time': 'str',
         'ip_type': 'str',
         'is_effected': 'bool',
         'last_hit_time': 'int',
@@ -94,10 +96,12 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         'destination_group_type': 'DestinationGroupType',
         'destination_type': 'DestinationType',
         'direction': 'Direction',
+        'domain_resolution_mode': 'DomainResolutionMode',
         'effect_status': 'EffectStatus',
         'end_time': 'EndTime',
         'firewall_id': 'FirewallId',
         'hit_cnt': 'HitCnt',
+        'insert_time': 'InsertTime',
         'ip_type': 'IpType',
         'is_effected': 'IsEffected',
         'last_hit_time': 'LastHitTime',
@@ -120,7 +124,7 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         'use_count': 'UseCount'
     }
 
-    def __init__(self, account_id=None, action=None, description=None, dest_port=None, dest_port_group_list=None, dest_port_group_type=None, dest_port_list=None, dest_port_list_v1=None, dest_port_type=None, destination=None, destination_cidr_list=None, destination_cidr_list_v1=None, destination_domain_list=None, destination_group_list=None, destination_group_type=None, destination_type=None, direction=None, effect_status=None, end_time=None, firewall_id=None, hit_cnt=None, ip_type=None, is_effected=None, last_hit_time=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_cidr_list=None, source_cidr_list_v1=None, source_group_list=None, source_group_type=None, source_type=None, start_time=None, status=None, update_time=None, use_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, action=None, description=None, dest_port=None, dest_port_group_list=None, dest_port_group_type=None, dest_port_list=None, dest_port_list_v1=None, dest_port_type=None, destination=None, destination_cidr_list=None, destination_cidr_list_v1=None, destination_domain_list=None, destination_group_list=None, destination_group_type=None, destination_type=None, direction=None, domain_resolution_mode=None, effect_status=None, end_time=None, firewall_id=None, hit_cnt=None, insert_time=None, ip_type=None, is_effected=None, last_hit_time=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_cidr_list=None, source_cidr_list_v1=None, source_group_list=None, source_group_type=None, source_type=None, start_time=None, status=None, update_time=None, use_count=None, _configuration=None):  # noqa: E501
         """DataForDescribeNatFirewallControlPolicyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -143,10 +147,12 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         self._destination_group_type = None
         self._destination_type = None
         self._direction = None
+        self._domain_resolution_mode = None
         self._effect_status = None
         self._end_time = None
         self._firewall_id = None
         self._hit_cnt = None
+        self._insert_time = None
         self._ip_type = None
         self._is_effected = None
         self._last_hit_time = None
@@ -203,6 +209,8 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
             self.destination_type = destination_type
         if direction is not None:
             self.direction = direction
+        if domain_resolution_mode is not None:
+            self.domain_resolution_mode = domain_resolution_mode
         if effect_status is not None:
             self.effect_status = effect_status
         if end_time is not None:
@@ -211,6 +219,8 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
             self.firewall_id = firewall_id
         if hit_cnt is not None:
             self.hit_cnt = hit_cnt
+        if insert_time is not None:
+            self.insert_time = insert_time
         if ip_type is not None:
             self.ip_type = ip_type
         if is_effected is not None:
@@ -610,6 +620,27 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         self._direction = direction
 
     @property
+    def domain_resolution_mode(self):
+        """Gets the domain_resolution_mode of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+
+
+        :return: The domain_resolution_mode of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain_resolution_mode
+
+    @domain_resolution_mode.setter
+    def domain_resolution_mode(self, domain_resolution_mode):
+        """Sets the domain_resolution_mode of this DataForDescribeNatFirewallControlPolicyOutput.
+
+
+        :param domain_resolution_mode: The domain_resolution_mode of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._domain_resolution_mode = domain_resolution_mode
+
+    @property
     def effect_status(self):
         """Gets the effect_status of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
 
@@ -692,6 +723,27 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         """
 
         self._hit_cnt = hit_cnt
+
+    @property
+    def insert_time(self):
+        """Gets the insert_time of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+
+
+        :return: The insert_time of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._insert_time
+
+    @insert_time.setter
+    def insert_time(self, insert_time):
+        """Sets the insert_time of this DataForDescribeNatFirewallControlPolicyOutput.
+
+
+        :param insert_time: The insert_time of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._insert_time = insert_time
 
     @property
     def ip_type(self):

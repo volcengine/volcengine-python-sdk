@@ -35,6 +35,8 @@ class AssetListRequest(object):
     swagger_types = {
         'internet_firewall_id': 'str',
         'asset': 'str',
+        'asset_ip': 'list[str]',
+        'asset_name': 'list[str]',
         'asset_type': 'list[str]',
         'current_page': 'int',
         'instance_type': 'list[str]',
@@ -48,6 +50,8 @@ class AssetListRequest(object):
     attribute_map = {
         'internet_firewall_id': 'InternetFirewallId',
         'asset': 'asset',
+        'asset_ip': 'asset_ip',
+        'asset_name': 'asset_name',
         'asset_type': 'asset_type',
         'current_page': 'current_page',
         'instance_type': 'instance_type',
@@ -58,7 +62,7 @@ class AssetListRequest(object):
         'stat': 'stat'
     }
 
-    def __init__(self, internet_firewall_id=None, asset=None, asset_type=None, current_page=None, instance_type=None, ip_type=None, order_dir=None, page_size=None, region_code=None, stat=None, _configuration=None):  # noqa: E501
+    def __init__(self, internet_firewall_id=None, asset=None, asset_ip=None, asset_name=None, asset_type=None, current_page=None, instance_type=None, ip_type=None, order_dir=None, page_size=None, region_code=None, stat=None, _configuration=None):  # noqa: E501
         """AssetListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +70,8 @@ class AssetListRequest(object):
 
         self._internet_firewall_id = None
         self._asset = None
+        self._asset_ip = None
+        self._asset_name = None
         self._asset_type = None
         self._current_page = None
         self._instance_type = None
@@ -80,6 +86,10 @@ class AssetListRequest(object):
             self.internet_firewall_id = internet_firewall_id
         if asset is not None:
             self.asset = asset
+        if asset_ip is not None:
+            self.asset_ip = asset_ip
+        if asset_name is not None:
+            self.asset_name = asset_name
         if asset_type is not None:
             self.asset_type = asset_type
         if current_page is not None:
@@ -138,6 +148,48 @@ class AssetListRequest(object):
         """
 
         self._asset = asset
+
+    @property
+    def asset_ip(self):
+        """Gets the asset_ip of this AssetListRequest.  # noqa: E501
+
+
+        :return: The asset_ip of this AssetListRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._asset_ip
+
+    @asset_ip.setter
+    def asset_ip(self, asset_ip):
+        """Sets the asset_ip of this AssetListRequest.
+
+
+        :param asset_ip: The asset_ip of this AssetListRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._asset_ip = asset_ip
+
+    @property
+    def asset_name(self):
+        """Gets the asset_name of this AssetListRequest.  # noqa: E501
+
+
+        :return: The asset_name of this AssetListRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._asset_name
+
+    @asset_name.setter
+    def asset_name(self, asset_name):
+        """Sets the asset_name of this AssetListRequest.
+
+
+        :param asset_name: The asset_name of this AssetListRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._asset_name = asset_name
 
     @property
     def asset_type(self):
