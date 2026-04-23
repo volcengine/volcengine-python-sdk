@@ -33,7 +33,6 @@ class CreateDrDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'auto_storage_scaling_config': 'AutoStorageScalingConfigForCreateDrDBInstanceInput',
         'deletion_protection': 'str',
         'instance_name': 'str',
         'master_instance_id': 'str',
@@ -48,7 +47,6 @@ class CreateDrDBInstanceRequest(object):
     }
 
     attribute_map = {
-        'auto_storage_scaling_config': 'AutoStorageScalingConfig',
         'deletion_protection': 'DeletionProtection',
         'instance_name': 'InstanceName',
         'master_instance_id': 'MasterInstanceId',
@@ -62,13 +60,12 @@ class CreateDrDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, auto_storage_scaling_config=None, deletion_protection=None, instance_name=None, master_instance_id=None, master_region=None, node_info=None, private_ip_address=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, deletion_protection=None, instance_name=None, master_instance_id=None, master_region=None, node_info=None, private_ip_address=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDrDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._auto_storage_scaling_config = None
         self._deletion_protection = None
         self._instance_name = None
         self._master_instance_id = None
@@ -82,8 +79,6 @@ class CreateDrDBInstanceRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
-        if auto_storage_scaling_config is not None:
-            self.auto_storage_scaling_config = auto_storage_scaling_config
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
         if instance_name is not None:
@@ -101,27 +96,6 @@ class CreateDrDBInstanceRequest(object):
             self.storage_type = storage_type
         self.subnet_id = subnet_id
         self.vpc_id = vpc_id
-
-    @property
-    def auto_storage_scaling_config(self):
-        """Gets the auto_storage_scaling_config of this CreateDrDBInstanceRequest.  # noqa: E501
-
-
-        :return: The auto_storage_scaling_config of this CreateDrDBInstanceRequest.  # noqa: E501
-        :rtype: AutoStorageScalingConfigForCreateDrDBInstanceInput
-        """
-        return self._auto_storage_scaling_config
-
-    @auto_storage_scaling_config.setter
-    def auto_storage_scaling_config(self, auto_storage_scaling_config):
-        """Sets the auto_storage_scaling_config of this CreateDrDBInstanceRequest.
-
-
-        :param auto_storage_scaling_config: The auto_storage_scaling_config of this CreateDrDBInstanceRequest.  # noqa: E501
-        :type: AutoStorageScalingConfigForCreateDrDBInstanceInput
-        """
-
-        self._auto_storage_scaling_config = auto_storage_scaling_config
 
     @property
     def deletion_protection(self):

@@ -1,0 +1,75 @@
+# .github/workflows/main.yml (Python)
+name: Release Python SDK
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.changelog/v*.md'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write  # Required for PyPI trusted publishing
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Extract Version
+        id: version
+        run: |
+          VERSION=$(grep -oP "version\s*=\s*['\"]?\K[^'\"]+" pyproject.toml 2>/dev/null)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: Build Package
+        run: python -m build
+
+      - name: Create Tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a ${{ steps.version.outputs.tag }} -m "Release ${{ steps.version.outputs.tag }}"
+          git push origin ${{ steps.version.outputs.tag }}
+
+      - name: Read Changelog
+        id: changelog
+        run: |
+          CHANGELOG_FILE=".changelog/${{ steps.version.outputs.tag }}.md"
+          if [ -f "$CHANGELOG_FILE" ]; then
+            delimiter="$(openssl rand -hex 8)"
+            echo "content<<$delimiter" >> $GITHUB_OUTPUT
+            cat "$CHANGELOG_FILE" >> $GITHUB_OUTPUT
+            echo "" >> $GITHUB_OUTPUT
+            echo "$delimiter" >> $GITHUB_OUTPUT
+          else
+            echo "content=Release ${{ steps.version.outputs.tag }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Release ${{ steps.version.outputs.tag }}
+          body: ${{ steps.changelog.outputs.content }}
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+

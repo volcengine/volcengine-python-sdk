@@ -36,6 +36,7 @@ class FilterForListCredentialProvidersInput(object):
         'flow': 'str',
         'name': 'str',
         'pool_name': 'str',
+        'project_name': 'str',
         'type': 'str',
         'vendor': 'int'
     }
@@ -44,11 +45,12 @@ class FilterForListCredentialProvidersInput(object):
         'flow': 'Flow',
         'name': 'Name',
         'pool_name': 'PoolName',
+        'project_name': 'ProjectName',
         'type': 'Type',
         'vendor': 'Vendor'
     }
 
-    def __init__(self, flow=None, name=None, pool_name=None, type=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, flow=None, name=None, pool_name=None, project_name=None, type=None, vendor=None, _configuration=None):  # noqa: E501
         """FilterForListCredentialProvidersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class FilterForListCredentialProvidersInput(object):
         self._flow = None
         self._name = None
         self._pool_name = None
+        self._project_name = None
         self._type = None
         self._vendor = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class FilterForListCredentialProvidersInput(object):
             self.name = name
         if pool_name is not None:
             self.pool_name = pool_name
+        if project_name is not None:
+            self.project_name = project_name
         if type is not None:
             self.type = type
         if vendor is not None:
@@ -141,6 +146,27 @@ class FilterForListCredentialProvidersInput(object):
         """
 
         self._pool_name = pool_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this FilterForListCredentialProvidersInput.  # noqa: E501
+
+
+        :return: The project_name of this FilterForListCredentialProvidersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this FilterForListCredentialProvidersInput.
+
+
+        :param project_name: The project_name of this FilterForListCredentialProvidersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def type(self):

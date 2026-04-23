@@ -39,6 +39,7 @@ class GetOauth2CredentialProviderResponse(object):
         'dcr_client_info': 'DcrClientInfoForGetOauth2CredentialProviderOutput',
         'name': 'str',
         'pool_name': 'str',
+        'project_name': 'str',
         'secret_trn': 'str',
         'updated_at': 'str',
         'vendor': 'int'
@@ -51,12 +52,13 @@ class GetOauth2CredentialProviderResponse(object):
         'dcr_client_info': 'DcrClientInfo',
         'name': 'Name',
         'pool_name': 'PoolName',
+        'project_name': 'ProjectName',
         'secret_trn': 'SecretTrn',
         'updated_at': 'UpdatedAt',
         'vendor': 'Vendor'
     }
 
-    def __init__(self, config=None, created_at=None, credential_provider_trn=None, dcr_client_info=None, name=None, pool_name=None, secret_trn=None, updated_at=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, config=None, created_at=None, credential_provider_trn=None, dcr_client_info=None, name=None, pool_name=None, project_name=None, secret_trn=None, updated_at=None, vendor=None, _configuration=None):  # noqa: E501
         """GetOauth2CredentialProviderResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class GetOauth2CredentialProviderResponse(object):
         self._dcr_client_info = None
         self._name = None
         self._pool_name = None
+        self._project_name = None
         self._secret_trn = None
         self._updated_at = None
         self._vendor = None
@@ -85,6 +88,8 @@ class GetOauth2CredentialProviderResponse(object):
             self.name = name
         if pool_name is not None:
             self.pool_name = pool_name
+        if project_name is not None:
+            self.project_name = project_name
         if secret_trn is not None:
             self.secret_trn = secret_trn
         if updated_at is not None:
@@ -217,6 +222,27 @@ class GetOauth2CredentialProviderResponse(object):
         """
 
         self._pool_name = pool_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this GetOauth2CredentialProviderResponse.  # noqa: E501
+
+
+        :return: The project_name of this GetOauth2CredentialProviderResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this GetOauth2CredentialProviderResponse.
+
+
+        :param project_name: The project_name of this GetOauth2CredentialProviderResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def secret_trn(self):

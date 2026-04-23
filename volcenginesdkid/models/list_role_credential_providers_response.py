@@ -33,24 +33,81 @@ class ListRoleCredentialProvidersResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'role_credential_providers': 'list[RoleCredentialProviderForListRoleCredentialProvidersOutput]'
+        'page_number': 'int',
+        'page_size': 'int',
+        'role_credential_providers': 'list[RoleCredentialProviderForListRoleCredentialProvidersOutput]',
+        'total_count': 'int'
     }
 
     attribute_map = {
-        'role_credential_providers': 'RoleCredentialProviders'
+        'page_number': 'PageNumber',
+        'page_size': 'PageSize',
+        'role_credential_providers': 'RoleCredentialProviders',
+        'total_count': 'TotalCount'
     }
 
-    def __init__(self, role_credential_providers=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, role_credential_providers=None, total_count=None, _configuration=None):  # noqa: E501
         """ListRoleCredentialProvidersResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._page_number = None
+        self._page_size = None
         self._role_credential_providers = None
+        self._total_count = None
         self.discriminator = None
 
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
         if role_credential_providers is not None:
             self.role_credential_providers = role_credential_providers
+        if total_count is not None:
+            self.total_count = total_count
+
+    @property
+    def page_number(self):
+        """Gets the page_number of this ListRoleCredentialProvidersResponse.  # noqa: E501
+
+
+        :return: The page_number of this ListRoleCredentialProvidersResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_number
+
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this ListRoleCredentialProvidersResponse.
+
+
+        :param page_number: The page_number of this ListRoleCredentialProvidersResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._page_number = page_number
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this ListRoleCredentialProvidersResponse.  # noqa: E501
+
+
+        :return: The page_size of this ListRoleCredentialProvidersResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this ListRoleCredentialProvidersResponse.
+
+
+        :param page_size: The page_size of this ListRoleCredentialProvidersResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
 
     @property
     def role_credential_providers(self):
@@ -72,6 +129,27 @@ class ListRoleCredentialProvidersResponse(object):
         """
 
         self._role_credential_providers = role_credential_providers
+
+    @property
+    def total_count(self):
+        """Gets the total_count of this ListRoleCredentialProvidersResponse.  # noqa: E501
+
+
+        :return: The total_count of this ListRoleCredentialProvidersResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_count
+
+    @total_count.setter
+    def total_count(self, total_count):
+        """Sets the total_count of this ListRoleCredentialProvidersResponse.
+
+
+        :param total_count: The total_count of this ListRoleCredentialProvidersResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total_count = total_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

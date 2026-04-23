@@ -34,15 +34,17 @@ class CashSubBonusForGetActivityBonusTaskOutput(object):
     """
     swagger_types = {
         'amount_tenths_unit': 'int',
-        'limit_count': 'int'
+        'limit_count': 'int',
+        'withdraw_config': 'WithdrawConfigForGetActivityBonusTaskOutput'
     }
 
     attribute_map = {
         'amount_tenths_unit': 'AmountTenthsUnit',
-        'limit_count': 'LimitCount'
+        'limit_count': 'LimitCount',
+        'withdraw_config': 'WithdrawConfig'
     }
 
-    def __init__(self, amount_tenths_unit=None, limit_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, amount_tenths_unit=None, limit_count=None, withdraw_config=None, _configuration=None):  # noqa: E501
         """CashSubBonusForGetActivityBonusTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class CashSubBonusForGetActivityBonusTaskOutput(object):
 
         self._amount_tenths_unit = None
         self._limit_count = None
+        self._withdraw_config = None
         self.discriminator = None
 
         if amount_tenths_unit is not None:
             self.amount_tenths_unit = amount_tenths_unit
         if limit_count is not None:
             self.limit_count = limit_count
+        if withdraw_config is not None:
+            self.withdraw_config = withdraw_config
 
     @property
     def amount_tenths_unit(self):
@@ -98,6 +103,27 @@ class CashSubBonusForGetActivityBonusTaskOutput(object):
         """
 
         self._limit_count = limit_count
+
+    @property
+    def withdraw_config(self):
+        """Gets the withdraw_config of this CashSubBonusForGetActivityBonusTaskOutput.  # noqa: E501
+
+
+        :return: The withdraw_config of this CashSubBonusForGetActivityBonusTaskOutput.  # noqa: E501
+        :rtype: WithdrawConfigForGetActivityBonusTaskOutput
+        """
+        return self._withdraw_config
+
+    @withdraw_config.setter
+    def withdraw_config(self, withdraw_config):
+        """Sets the withdraw_config of this CashSubBonusForGetActivityBonusTaskOutput.
+
+
+        :param withdraw_config: The withdraw_config of this CashSubBonusForGetActivityBonusTaskOutput.  # noqa: E501
+        :type: WithdrawConfigForGetActivityBonusTaskOutput
+        """
+
+        self._withdraw_config = withdraw_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""

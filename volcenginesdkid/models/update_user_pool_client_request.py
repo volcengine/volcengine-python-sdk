@@ -40,10 +40,12 @@ class UpdateUserPoolClientRequest(object):
         'client_uid': 'str',
         'description': 'str',
         'development_mode_enabled': 'bool',
+        'dismiss_login_page_enabled': 'bool',
         'id_token': 'IdTokenForUpdateUserPoolClientInput',
         'logo_uri': 'str',
         'name': 'str',
         'refresh_token': 'RefreshTokenForUpdateUserPoolClientInput',
+        'skip_consent_enabled': 'bool',
         'user_pool_uid': 'str'
     }
 
@@ -55,14 +57,16 @@ class UpdateUserPoolClientRequest(object):
         'client_uid': 'ClientUid',
         'description': 'Description',
         'development_mode_enabled': 'DevelopmentModeEnabled',
+        'dismiss_login_page_enabled': 'DismissLoginPageEnabled',
         'id_token': 'IdToken',
         'logo_uri': 'LogoUri',
         'name': 'Name',
         'refresh_token': 'RefreshToken',
+        'skip_consent_enabled': 'SkipConsentEnabled',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_uid=None, description=None, development_mode_enabled=None, id_token=None, logo_uri=None, name=None, refresh_token=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_uid=None, description=None, development_mode_enabled=None, dismiss_login_page_enabled=None, id_token=None, logo_uri=None, name=None, refresh_token=None, skip_consent_enabled=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateUserPoolClientRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,10 +79,12 @@ class UpdateUserPoolClientRequest(object):
         self._client_uid = None
         self._description = None
         self._development_mode_enabled = None
+        self._dismiss_login_page_enabled = None
         self._id_token = None
         self._logo_uri = None
         self._name = None
         self._refresh_token = None
+        self._skip_consent_enabled = None
         self._user_pool_uid = None
         self.discriminator = None
 
@@ -95,6 +101,8 @@ class UpdateUserPoolClientRequest(object):
             self.description = description
         if development_mode_enabled is not None:
             self.development_mode_enabled = development_mode_enabled
+        if dismiss_login_page_enabled is not None:
+            self.dismiss_login_page_enabled = dismiss_login_page_enabled
         if id_token is not None:
             self.id_token = id_token
         if logo_uri is not None:
@@ -103,6 +111,8 @@ class UpdateUserPoolClientRequest(object):
             self.name = name
         if refresh_token is not None:
             self.refresh_token = refresh_token
+        if skip_consent_enabled is not None:
+            self.skip_consent_enabled = skip_consent_enabled
         self.user_pool_uid = user_pool_uid
 
     @property
@@ -255,6 +265,27 @@ class UpdateUserPoolClientRequest(object):
         self._development_mode_enabled = development_mode_enabled
 
     @property
+    def dismiss_login_page_enabled(self):
+        """Gets the dismiss_login_page_enabled of this UpdateUserPoolClientRequest.  # noqa: E501
+
+
+        :return: The dismiss_login_page_enabled of this UpdateUserPoolClientRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dismiss_login_page_enabled
+
+    @dismiss_login_page_enabled.setter
+    def dismiss_login_page_enabled(self, dismiss_login_page_enabled):
+        """Sets the dismiss_login_page_enabled of this UpdateUserPoolClientRequest.
+
+
+        :param dismiss_login_page_enabled: The dismiss_login_page_enabled of this UpdateUserPoolClientRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dismiss_login_page_enabled = dismiss_login_page_enabled
+
+    @property
     def id_token(self):
         """Gets the id_token of this UpdateUserPoolClientRequest.  # noqa: E501
 
@@ -337,6 +368,27 @@ class UpdateUserPoolClientRequest(object):
         """
 
         self._refresh_token = refresh_token
+
+    @property
+    def skip_consent_enabled(self):
+        """Gets the skip_consent_enabled of this UpdateUserPoolClientRequest.  # noqa: E501
+
+
+        :return: The skip_consent_enabled of this UpdateUserPoolClientRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_consent_enabled
+
+    @skip_consent_enabled.setter
+    def skip_consent_enabled(self, skip_consent_enabled):
+        """Sets the skip_consent_enabled of this UpdateUserPoolClientRequest.
+
+
+        :param skip_consent_enabled: The skip_consent_enabled of this UpdateUserPoolClientRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._skip_consent_enabled = skip_consent_enabled
 
     @property
     def user_pool_uid(self):

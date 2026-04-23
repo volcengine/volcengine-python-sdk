@@ -20,6 +20,9 @@ from .chat_completion_content_part_image_param import (
 from .chat_completion_content_part_video_param import (
     ChatCompletionContentPartVideoParam,
 )
+from .chat_completion_content_part_audio_param import (
+    ChatCompletionContentPartAudioParam,
+)
 
 __all__ = ["ChatCompletionContentPartParam"]
 
@@ -27,4 +30,5 @@ ChatCompletionContentPartParam = Union[
     ChatCompletionContentPartTextParam,
     ChatCompletionContentPartImageParam,
     ChatCompletionContentPartVideoParam,
+    ChatCompletionContentPartAudioParam,
 ]

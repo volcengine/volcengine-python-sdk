@@ -130,103 +130,6 @@ class RDSMYSQLV2Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def add_tag_from_user_backup_info(self, body, **kwargs):  # noqa: E501
-        """add_tag_from_user_backup_info  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_tag_from_user_backup_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AddTagFromUserBackupInfoRequest body: (required)
-        :return: AddTagFromUserBackupInfoResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.add_tag_from_user_backup_info_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.add_tag_from_user_backup_info_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def add_tag_from_user_backup_info_with_http_info(self, body, **kwargs):  # noqa: E501
-        """add_tag_from_user_backup_info  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_tag_from_user_backup_info_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AddTagFromUserBackupInfoRequest body: (required)
-        :return: AddTagFromUserBackupInfoResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method add_tag_from_user_backup_info" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `add_tag_from_user_backup_info`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/AddTagFromUserBackupInfo/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddTagFromUserBackupInfoResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def add_tags_to_resource(self, body, **kwargs):  # noqa: E501
         """add_tags_to_resource  # noqa: E501
 
@@ -414,200 +317,6 @@ class RDSMYSQLV2Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='AssociateAllowListResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def associate_user_backup(self, body, **kwargs):  # noqa: E501
-        """associate_user_backup  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.associate_user_backup(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AssociateUserBackupRequest body: (required)
-        :return: AssociateUserBackupResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.associate_user_backup_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.associate_user_backup_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def associate_user_backup_with_http_info(self, body, **kwargs):  # noqa: E501
-        """associate_user_backup  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.associate_user_backup_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AssociateUserBackupRequest body: (required)
-        :return: AssociateUserBackupResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method associate_user_backup" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `associate_user_backup`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/AssociateUserBackup/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AssociateUserBackupResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def check_user_upload_backup(self, body, **kwargs):  # noqa: E501
-        """check_user_upload_backup  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.check_user_upload_backup(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CheckUserUploadBackupRequest body: (required)
-        :return: CheckUserUploadBackupResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.check_user_upload_backup_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.check_user_upload_backup_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def check_user_upload_backup_with_http_info(self, body, **kwargs):  # noqa: E501
-        """check_user_upload_backup  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.check_user_upload_backup_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CheckUserUploadBackupRequest body: (required)
-        :return: CheckUserUploadBackupResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method check_user_upload_backup" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `check_user_upload_backup`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/CheckUserUploadBackup/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CheckUserUploadBackupResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3130,103 +2839,6 @@ class RDSMYSQLV2Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DeleteParameterTemplateResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def delete_user_upload_backup(self, body, **kwargs):  # noqa: E501
-        """delete_user_upload_backup  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_user_upload_backup(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteUserUploadBackupRequest body: (required)
-        :return: DeleteUserUploadBackupResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_user_upload_backup_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_user_upload_backup_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def delete_user_upload_backup_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete_user_upload_backup  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_user_upload_backup_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteUserUploadBackupRequest body: (required)
-        :return: DeleteUserUploadBackupResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_user_upload_backup" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete_user_upload_backup`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DeleteUserUploadBackup/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DeleteUserUploadBackupResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8666,200 +8278,6 @@ class RDSMYSQLV2Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def describe_user_tos_backup_associate(self, body, **kwargs):  # noqa: E501
-        """describe_user_tos_backup_associate  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_user_tos_backup_associate(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeUserTosBackupAssociateRequest body: (required)
-        :return: DescribeUserTosBackupAssociateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.describe_user_tos_backup_associate_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.describe_user_tos_backup_associate_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def describe_user_tos_backup_associate_with_http_info(self, body, **kwargs):  # noqa: E501
-        """describe_user_tos_backup_associate  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_user_tos_backup_associate_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeUserTosBackupAssociateRequest body: (required)
-        :return: DescribeUserTosBackupAssociateResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method describe_user_tos_backup_associate" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `describe_user_tos_backup_associate`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DescribeUserTosBackupAssociate/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DescribeUserTosBackupAssociateResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def describe_user_upload_backups(self, body, **kwargs):  # noqa: E501
-        """describe_user_upload_backups  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_user_upload_backups(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeUserUploadBackupsRequest body: (required)
-        :return: DescribeUserUploadBackupsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.describe_user_upload_backups_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.describe_user_upload_backups_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def describe_user_upload_backups_with_http_info(self, body, **kwargs):  # noqa: E501
-        """describe_user_upload_backups  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_user_upload_backups_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeUserUploadBackupsRequest body: (required)
-        :return: DescribeUserUploadBackupsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method describe_user_upload_backups" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `describe_user_upload_backups`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DescribeUserUploadBackups/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DescribeUserUploadBackupsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def disassociate_allow_list(self, body, **kwargs):  # noqa: E501
         """disassociate_allow_list  # noqa: E501
 
@@ -9920,6 +9338,103 @@ class RDSMYSQLV2Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ModifyBackupEncryptionPolicyResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_backup_name(self, body, **kwargs):  # noqa: E501
+        """modify_backup_name  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_backup_name(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyBackupNameRequest body: (required)
+        :return: ModifyBackupNameResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_backup_name_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_backup_name_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_backup_name_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_backup_name  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_backup_name_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyBackupNameRequest body: (required)
+        :return: ModifyBackupNameResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_backup_name" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_backup_name`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyBackupName/2022-01-01/rds_mysql/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyBackupNameResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -13322,103 +12837,6 @@ class RDSMYSQLV2Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def remove_tag_from_user_backup_info(self, body, **kwargs):  # noqa: E501
-        """remove_tag_from_user_backup_info  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_tag_from_user_backup_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param RemoveTagFromUserBackupInfoRequest body: (required)
-        :return: RemoveTagFromUserBackupInfoResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.remove_tag_from_user_backup_info_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.remove_tag_from_user_backup_info_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def remove_tag_from_user_backup_info_with_http_info(self, body, **kwargs):  # noqa: E501
-        """remove_tag_from_user_backup_info  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_tag_from_user_backup_info_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param RemoveTagFromUserBackupInfoRequest body: (required)
-        :return: RemoveTagFromUserBackupInfoResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method remove_tag_from_user_backup_info" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `remove_tag_from_user_backup_info`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/RemoveTagFromUserBackupInfo/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RemoveTagFromUserBackupInfoResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def remove_tags_from_resource(self, body, **kwargs):  # noqa: E501
         """remove_tags_from_resource  # noqa: E501
 
@@ -13994,103 +13412,6 @@ class RDSMYSQLV2Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='RestoreToNewInstanceResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def restore_to_new_instance_from_user_tos(self, body, **kwargs):  # noqa: E501
-        """restore_to_new_instance_from_user_tos  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.restore_to_new_instance_from_user_tos(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param RestoreToNewInstanceFromUserTosRequest body: (required)
-        :return: RestoreToNewInstanceFromUserTosResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.restore_to_new_instance_from_user_tos_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.restore_to_new_instance_from_user_tos_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def restore_to_new_instance_from_user_tos_with_http_info(self, body, **kwargs):  # noqa: E501
-        """restore_to_new_instance_from_user_tos  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.restore_to_new_instance_from_user_tos_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param RestoreToNewInstanceFromUserTosRequest body: (required)
-        :return: RestoreToNewInstanceFromUserTosResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method restore_to_new_instance_from_user_tos" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `restore_to_new_instance_from_user_tos`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/RestoreToNewInstanceFromUserTos/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RestoreToNewInstanceFromUserTosResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

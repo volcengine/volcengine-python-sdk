@@ -40,6 +40,7 @@ class DataForListGroupsForUserOutput(object):
         'name': 'str',
         'precedence': 'int',
         'source': 'str',
+        'total_count_of_group_member': 'int',
         'uid': 'str',
         'update_time': 'str',
         'user_pool_uid': 'str'
@@ -53,12 +54,13 @@ class DataForListGroupsForUserOutput(object):
         'name': 'Name',
         'precedence': 'Precedence',
         'source': 'Source',
+        'total_count_of_group_member': 'TotalCountOfGroupMember',
         'uid': 'Uid',
         'update_time': 'UpdateTime',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, create_time=None, description=None, group_id_token_name=None, iam_role_trn=None, name=None, precedence=None, source=None, uid=None, update_time=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, group_id_token_name=None, iam_role_trn=None, name=None, precedence=None, source=None, total_count_of_group_member=None, uid=None, update_time=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """DataForListGroupsForUserOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DataForListGroupsForUserOutput(object):
         self._name = None
         self._precedence = None
         self._source = None
+        self._total_count_of_group_member = None
         self._uid = None
         self._update_time = None
         self._user_pool_uid = None
@@ -90,6 +93,8 @@ class DataForListGroupsForUserOutput(object):
             self.precedence = precedence
         if source is not None:
             self.source = source
+        if total_count_of_group_member is not None:
+            self.total_count_of_group_member = total_count_of_group_member
         if uid is not None:
             self.uid = uid
         if update_time is not None:
@@ -243,6 +248,27 @@ class DataForListGroupsForUserOutput(object):
         """
 
         self._source = source
+
+    @property
+    def total_count_of_group_member(self):
+        """Gets the total_count_of_group_member of this DataForListGroupsForUserOutput.  # noqa: E501
+
+
+        :return: The total_count_of_group_member of this DataForListGroupsForUserOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_count_of_group_member
+
+    @total_count_of_group_member.setter
+    def total_count_of_group_member(self, total_count_of_group_member):
+        """Sets the total_count_of_group_member of this DataForListGroupsForUserOutput.
+
+
+        :param total_count_of_group_member: The total_count_of_group_member of this DataForListGroupsForUserOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._total_count_of_group_member = total_count_of_group_member
 
     @property
     def uid(self):

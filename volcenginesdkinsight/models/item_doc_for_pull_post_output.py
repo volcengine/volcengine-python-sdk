@@ -37,6 +37,7 @@ class ItemDocForPullPostOutput(object):
         'content': 'str',
         'cover_url': 'str',
         'dedup_id': 'str',
+        'doc_status': 'str',
         'emotion': 'str',
         'fans_count': 'int',
         'is_follow': 'bool',
@@ -59,6 +60,7 @@ class ItemDocForPullPostOutput(object):
         'content': 'Content',
         'cover_url': 'CoverUrl',
         'dedup_id': 'DedupID',
+        'doc_status': 'DocStatus',
         'emotion': 'Emotion',
         'fans_count': 'FansCount',
         'is_follow': 'IsFollow',
@@ -76,7 +78,7 @@ class ItemDocForPullPostOutput(object):
         'locations': 'locations'
     }
 
-    def __init__(self, asr=None, content=None, cover_url=None, dedup_id=None, emotion=None, fans_count=None, is_follow=None, main_domain=None, media_name=None, ocr=None, ocr_high=None, post_id=None, publish_time=None, reason=None, risk_type=None, summary=None, title=None, url=None, locations=None, _configuration=None):  # noqa: E501
+    def __init__(self, asr=None, content=None, cover_url=None, dedup_id=None, doc_status=None, emotion=None, fans_count=None, is_follow=None, main_domain=None, media_name=None, ocr=None, ocr_high=None, post_id=None, publish_time=None, reason=None, risk_type=None, summary=None, title=None, url=None, locations=None, _configuration=None):  # noqa: E501
         """ItemDocForPullPostOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class ItemDocForPullPostOutput(object):
         self._content = None
         self._cover_url = None
         self._dedup_id = None
+        self._doc_status = None
         self._emotion = None
         self._fans_count = None
         self._is_follow = None
@@ -111,6 +114,8 @@ class ItemDocForPullPostOutput(object):
             self.cover_url = cover_url
         if dedup_id is not None:
             self.dedup_id = dedup_id
+        if doc_status is not None:
+            self.doc_status = doc_status
         if emotion is not None:
             self.emotion = emotion
         if fans_count is not None:
@@ -225,6 +230,27 @@ class ItemDocForPullPostOutput(object):
         """
 
         self._dedup_id = dedup_id
+
+    @property
+    def doc_status(self):
+        """Gets the doc_status of this ItemDocForPullPostOutput.  # noqa: E501
+
+
+        :return: The doc_status of this ItemDocForPullPostOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._doc_status
+
+    @doc_status.setter
+    def doc_status(self, doc_status):
+        """Sets the doc_status of this ItemDocForPullPostOutput.
+
+
+        :param doc_status: The doc_status of this ItemDocForPullPostOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._doc_status = doc_status
 
     @property
     def emotion(self):

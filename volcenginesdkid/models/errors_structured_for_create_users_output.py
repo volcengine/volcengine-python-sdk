@@ -33,34 +33,65 @@ class ErrorsStructuredForCreateUsersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'duplicated_user_uid': 'str',
         'error': 'str',
+        'error_type': 'str',
         'field': 'str',
         'index': 'int'
     }
 
     attribute_map = {
+        'duplicated_user_uid': 'DuplicatedUserUid',
         'error': 'Error',
+        'error_type': 'ErrorType',
         'field': 'Field',
         'index': 'Index'
     }
 
-    def __init__(self, error=None, field=None, index=None, _configuration=None):  # noqa: E501
+    def __init__(self, duplicated_user_uid=None, error=None, error_type=None, field=None, index=None, _configuration=None):  # noqa: E501
         """ErrorsStructuredForCreateUsersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._duplicated_user_uid = None
         self._error = None
+        self._error_type = None
         self._field = None
         self._index = None
         self.discriminator = None
 
+        if duplicated_user_uid is not None:
+            self.duplicated_user_uid = duplicated_user_uid
         if error is not None:
             self.error = error
+        if error_type is not None:
+            self.error_type = error_type
         if field is not None:
             self.field = field
         if index is not None:
             self.index = index
+
+    @property
+    def duplicated_user_uid(self):
+        """Gets the duplicated_user_uid of this ErrorsStructuredForCreateUsersOutput.  # noqa: E501
+
+
+        :return: The duplicated_user_uid of this ErrorsStructuredForCreateUsersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._duplicated_user_uid
+
+    @duplicated_user_uid.setter
+    def duplicated_user_uid(self, duplicated_user_uid):
+        """Sets the duplicated_user_uid of this ErrorsStructuredForCreateUsersOutput.
+
+
+        :param duplicated_user_uid: The duplicated_user_uid of this ErrorsStructuredForCreateUsersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._duplicated_user_uid = duplicated_user_uid
 
     @property
     def error(self):
@@ -82,6 +113,27 @@ class ErrorsStructuredForCreateUsersOutput(object):
         """
 
         self._error = error
+
+    @property
+    def error_type(self):
+        """Gets the error_type of this ErrorsStructuredForCreateUsersOutput.  # noqa: E501
+
+
+        :return: The error_type of this ErrorsStructuredForCreateUsersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_type
+
+    @error_type.setter
+    def error_type(self, error_type):
+        """Sets the error_type of this ErrorsStructuredForCreateUsersOutput.
+
+
+        :param error_type: The error_type of this ErrorsStructuredForCreateUsersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._error_type = error_type
 
     @property
     def field(self):

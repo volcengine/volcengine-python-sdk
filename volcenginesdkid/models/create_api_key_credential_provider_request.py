@@ -36,17 +36,21 @@ class CreateApiKeyCredentialProviderRequest(object):
         'api_key': 'str',
         'api_key_metadata': 'list[ApiKeyMetadataForCreateApiKeyCredentialProviderInput]',
         'name': 'str',
-        'pool_name': 'str'
+        'pool_name': 'str',
+        'project_name': 'str',
+        'secret_storage': 'SecretStorageForCreateApiKeyCredentialProviderInput'
     }
 
     attribute_map = {
         'api_key': 'ApiKey',
         'api_key_metadata': 'ApiKeyMetadata',
         'name': 'Name',
-        'pool_name': 'PoolName'
+        'pool_name': 'PoolName',
+        'project_name': 'ProjectName',
+        'secret_storage': 'SecretStorage'
     }
 
-    def __init__(self, api_key=None, api_key_metadata=None, name=None, pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_key=None, api_key_metadata=None, name=None, pool_name=None, project_name=None, secret_storage=None, _configuration=None):  # noqa: E501
         """CreateApiKeyCredentialProviderRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +60,8 @@ class CreateApiKeyCredentialProviderRequest(object):
         self._api_key_metadata = None
         self._name = None
         self._pool_name = None
+        self._project_name = None
+        self._secret_storage = None
         self.discriminator = None
 
         self.api_key = api_key
@@ -64,6 +70,10 @@ class CreateApiKeyCredentialProviderRequest(object):
         self.name = name
         if pool_name is not None:
             self.pool_name = pool_name
+        if project_name is not None:
+            self.project_name = project_name
+        if secret_storage is not None:
+            self.secret_storage = secret_storage
 
     @property
     def api_key(self):
@@ -152,6 +162,48 @@ class CreateApiKeyCredentialProviderRequest(object):
         """
 
         self._pool_name = pool_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateApiKeyCredentialProviderRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateApiKeyCredentialProviderRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateApiKeyCredentialProviderRequest.
+
+
+        :param project_name: The project_name of this CreateApiKeyCredentialProviderRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def secret_storage(self):
+        """Gets the secret_storage of this CreateApiKeyCredentialProviderRequest.  # noqa: E501
+
+
+        :return: The secret_storage of this CreateApiKeyCredentialProviderRequest.  # noqa: E501
+        :rtype: SecretStorageForCreateApiKeyCredentialProviderInput
+        """
+        return self._secret_storage
+
+    @secret_storage.setter
+    def secret_storage(self, secret_storage):
+        """Sets the secret_storage of this CreateApiKeyCredentialProviderRequest.
+
+
+        :param secret_storage: The secret_storage of this CreateApiKeyCredentialProviderRequest.  # noqa: E501
+        :type: SecretStorageForCreateApiKeyCredentialProviderInput
+        """
+
+        self._secret_storage = secret_storage
 
     def to_dict(self):
         """Returns the model properties as a dict"""
