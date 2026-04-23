@@ -35,11 +35,12 @@ class DataForDescribeVpcFirewallListOutput(object):
     swagger_types = {
         'bandwidth': 'int',
         'bypass_status': 'str',
+        'enable_ipv6': 'bool',
         'err_message': 'str',
         'firewall_status': 'str',
         'instance_type': 'int',
         'peak_traffic_within7_day': 'int',
-        'project_name': 'str',
+        'project_name_for_tr': 'str',
         'region': 'str',
         'route_mode': 'str',
         'route_policy_status': 'str',
@@ -59,11 +60,12 @@ class DataForDescribeVpcFirewallListOutput(object):
     attribute_map = {
         'bandwidth': 'Bandwidth',
         'bypass_status': 'BypassStatus',
+        'enable_ipv6': 'EnableIpv6',
         'err_message': 'ErrMessage',
         'firewall_status': 'FirewallStatus',
         'instance_type': 'InstanceType',
         'peak_traffic_within7_day': 'PeakTrafficWithin7Day',
-        'project_name': 'ProjectName',
+        'project_name_for_tr': 'ProjectNameForTR',
         'region': 'Region',
         'route_mode': 'RouteMode',
         'route_policy_status': 'RoutePolicyStatus',
@@ -80,7 +82,7 @@ class DataForDescribeVpcFirewallListOutput(object):
         'vpc_firewall_name': 'VpcFirewallName'
     }
 
-    def __init__(self, bandwidth=None, bypass_status=None, err_message=None, firewall_status=None, instance_type=None, peak_traffic_within7_day=None, project_name=None, region=None, route_mode=None, route_policy_status=None, schedule_end_time=None, schedule_start_time=None, transit_router_description=None, transit_router_id=None, transit_router_name=None, upgrade_progress=None, upgrade_status=None, upgrade_version_code=None, version_code=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bypass_status=None, enable_ipv6=None, err_message=None, firewall_status=None, instance_type=None, peak_traffic_within7_day=None, project_name_for_tr=None, region=None, route_mode=None, route_policy_status=None, schedule_end_time=None, schedule_start_time=None, transit_router_description=None, transit_router_id=None, transit_router_name=None, upgrade_progress=None, upgrade_status=None, upgrade_version_code=None, version_code=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
         """DataForDescribeVpcFirewallListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,11 +90,12 @@ class DataForDescribeVpcFirewallListOutput(object):
 
         self._bandwidth = None
         self._bypass_status = None
+        self._enable_ipv6 = None
         self._err_message = None
         self._firewall_status = None
         self._instance_type = None
         self._peak_traffic_within7_day = None
-        self._project_name = None
+        self._project_name_for_tr = None
         self._region = None
         self._route_mode = None
         self._route_policy_status = None
@@ -113,6 +116,8 @@ class DataForDescribeVpcFirewallListOutput(object):
             self.bandwidth = bandwidth
         if bypass_status is not None:
             self.bypass_status = bypass_status
+        if enable_ipv6 is not None:
+            self.enable_ipv6 = enable_ipv6
         if err_message is not None:
             self.err_message = err_message
         if firewall_status is not None:
@@ -121,8 +126,8 @@ class DataForDescribeVpcFirewallListOutput(object):
             self.instance_type = instance_type
         if peak_traffic_within7_day is not None:
             self.peak_traffic_within7_day = peak_traffic_within7_day
-        if project_name is not None:
-            self.project_name = project_name
+        if project_name_for_tr is not None:
+            self.project_name_for_tr = project_name_for_tr
         if region is not None:
             self.region = region
         if route_mode is not None:
@@ -193,6 +198,27 @@ class DataForDescribeVpcFirewallListOutput(object):
         """
 
         self._bypass_status = bypass_status
+
+    @property
+    def enable_ipv6(self):
+        """Gets the enable_ipv6 of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The enable_ipv6 of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_ipv6
+
+    @enable_ipv6.setter
+    def enable_ipv6(self, enable_ipv6):
+        """Sets the enable_ipv6 of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param enable_ipv6: The enable_ipv6 of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_ipv6 = enable_ipv6
 
     @property
     def err_message(self):
@@ -279,25 +305,25 @@ class DataForDescribeVpcFirewallListOutput(object):
         self._peak_traffic_within7_day = peak_traffic_within7_day
 
     @property
-    def project_name(self):
-        """Gets the project_name of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+    def project_name_for_tr(self):
+        """Gets the project_name_for_tr of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
 
 
-        :return: The project_name of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :return: The project_name_for_tr of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
         :rtype: str
         """
-        return self._project_name
+        return self._project_name_for_tr
 
-    @project_name.setter
-    def project_name(self, project_name):
-        """Sets the project_name of this DataForDescribeVpcFirewallListOutput.
+    @project_name_for_tr.setter
+    def project_name_for_tr(self, project_name_for_tr):
+        """Sets the project_name_for_tr of this DataForDescribeVpcFirewallListOutput.
 
 
-        :param project_name: The project_name of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :param project_name_for_tr: The project_name_for_tr of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
         :type: str
         """
 
-        self._project_name = project_name
+        self._project_name_for_tr = project_name_for_tr
 
     @property
     def region(self):

@@ -39,7 +39,9 @@ class ModifyVpcFirewallAclRuleRequest(object):
         'dest_port_type': 'str',
         'destination': 'str',
         'destination_type': 'str',
+        'domain_resolution_mode': 'str',
         'end_time': 'int',
+        'ip_type': 'str',
         'proto': 'str',
         'repeat_days': 'list[int]',
         'repeat_end_time': 'str',
@@ -60,7 +62,9 @@ class ModifyVpcFirewallAclRuleRequest(object):
         'dest_port_type': 'DestPortType',
         'destination': 'Destination',
         'destination_type': 'DestinationType',
+        'domain_resolution_mode': 'DomainResolutionMode',
         'end_time': 'EndTime',
+        'ip_type': 'IpType',
         'proto': 'Proto',
         'repeat_days': 'RepeatDays',
         'repeat_end_time': 'RepeatEndTime',
@@ -74,7 +78,7 @@ class ModifyVpcFirewallAclRuleRequest(object):
         'vpc_firewall_id': 'VpcFirewallId'
     }
 
-    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_type=None, end_time=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_type=None, start_time=None, status=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_type=None, domain_resolution_mode=None, end_time=None, ip_type=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_type=None, start_time=None, status=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
         """ModifyVpcFirewallAclRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,7 +90,9 @@ class ModifyVpcFirewallAclRuleRequest(object):
         self._dest_port_type = None
         self._destination = None
         self._destination_type = None
+        self._domain_resolution_mode = None
         self._end_time = None
+        self._ip_type = None
         self._proto = None
         self._repeat_days = None
         self._repeat_end_time = None
@@ -109,8 +115,12 @@ class ModifyVpcFirewallAclRuleRequest(object):
             self.dest_port_type = dest_port_type
         self.destination = destination
         self.destination_type = destination_type
+        if domain_resolution_mode is not None:
+            self.domain_resolution_mode = domain_resolution_mode
         if end_time is not None:
             self.end_time = end_time
+        if ip_type is not None:
+            self.ip_type = ip_type
         self.proto = proto
         if repeat_days is not None:
             self.repeat_days = repeat_days
@@ -283,6 +293,34 @@ class ModifyVpcFirewallAclRuleRequest(object):
         self._destination_type = destination_type
 
     @property
+    def domain_resolution_mode(self):
+        """Gets the domain_resolution_mode of this ModifyVpcFirewallAclRuleRequest.  # noqa: E501
+
+
+        :return: The domain_resolution_mode of this ModifyVpcFirewallAclRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain_resolution_mode
+
+    @domain_resolution_mode.setter
+    def domain_resolution_mode(self, domain_resolution_mode):
+        """Sets the domain_resolution_mode of this ModifyVpcFirewallAclRuleRequest.
+
+
+        :param domain_resolution_mode: The domain_resolution_mode of this ModifyVpcFirewallAclRuleRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["fqdn", "dns"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                domain_resolution_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `domain_resolution_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(domain_resolution_mode, allowed_values)
+            )
+
+        self._domain_resolution_mode = domain_resolution_mode
+
+    @property
     def end_time(self):
         """Gets the end_time of this ModifyVpcFirewallAclRuleRequest.  # noqa: E501
 
@@ -302,6 +340,34 @@ class ModifyVpcFirewallAclRuleRequest(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def ip_type(self):
+        """Gets the ip_type of this ModifyVpcFirewallAclRuleRequest.  # noqa: E501
+
+
+        :return: The ip_type of this ModifyVpcFirewallAclRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_type
+
+    @ip_type.setter
+    def ip_type(self, ip_type):
+        """Sets the ip_type of this ModifyVpcFirewallAclRuleRequest.
+
+
+        :param ip_type: The ip_type of this ModifyVpcFirewallAclRuleRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["v4", "v6"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ip_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `ip_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(ip_type, allowed_values)
+            )
+
+        self._ip_type = ip_type
 
     @property
     def proto(self):

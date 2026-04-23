@@ -34,31 +34,26 @@ class ModelConfigForCreateClawOmniInstanceInput(object):
     """
     swagger_types = {
         'model_id': 'str',
-        'model_name': 'str',
         'model_source': 'str'
     }
 
     attribute_map = {
         'model_id': 'ModelId',
-        'model_name': 'ModelName',
         'model_source': 'ModelSource'
     }
 
-    def __init__(self, model_id=None, model_name=None, model_source=None, _configuration=None):  # noqa: E501
+    def __init__(self, model_id=None, model_source=None, _configuration=None):  # noqa: E501
         """ModelConfigForCreateClawOmniInstanceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._model_id = None
-        self._model_name = None
         self._model_source = None
         self.discriminator = None
 
         if model_id is not None:
             self.model_id = model_id
-        if model_name is not None:
-            self.model_name = model_name
         if model_source is not None:
             self.model_source = model_source
 
@@ -82,27 +77,6 @@ class ModelConfigForCreateClawOmniInstanceInput(object):
         """
 
         self._model_id = model_id
-
-    @property
-    def model_name(self):
-        """Gets the model_name of this ModelConfigForCreateClawOmniInstanceInput.  # noqa: E501
-
-
-        :return: The model_name of this ModelConfigForCreateClawOmniInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._model_name
-
-    @model_name.setter
-    def model_name(self, model_name):
-        """Sets the model_name of this ModelConfigForCreateClawOmniInstanceInput.
-
-
-        :param model_name: The model_name of this ModelConfigForCreateClawOmniInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._model_name = model_name
 
     @property
     def model_source(self):

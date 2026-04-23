@@ -35,6 +35,7 @@ class CreateClawOmniInstanceRequest(object):
     swagger_types = {
         'cpu_milli': 'int',
         'description': 'str',
+        'env_vars': 'list[EnvVarForCreateClawOmniInstanceInput]',
         'expired_action': 'str',
         'image': 'str',
         'memory_mb': 'int',
@@ -50,6 +51,7 @@ class CreateClawOmniInstanceRequest(object):
     attribute_map = {
         'cpu_milli': 'CpuMilli',
         'description': 'Description',
+        'env_vars': 'EnvVars',
         'expired_action': 'ExpiredAction',
         'image': 'Image',
         'memory_mb': 'MemoryMb',
@@ -62,7 +64,7 @@ class CreateClawOmniInstanceRequest(object):
         'timeout': 'Timeout'
     }
 
-    def __init__(self, cpu_milli=None, description=None, expired_action=None, image=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, tags=None, timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_milli=None, description=None, env_vars=None, expired_action=None, image=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, tags=None, timeout=None, _configuration=None):  # noqa: E501
         """CreateClawOmniInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class CreateClawOmniInstanceRequest(object):
 
         self._cpu_milli = None
         self._description = None
+        self._env_vars = None
         self._expired_action = None
         self._image = None
         self._memory_mb = None
@@ -85,6 +88,8 @@ class CreateClawOmniInstanceRequest(object):
         self.cpu_milli = cpu_milli
         if description is not None:
             self.description = description
+        if env_vars is not None:
+            self.env_vars = env_vars
         if expired_action is not None:
             self.expired_action = expired_action
         self.image = image
@@ -145,6 +150,27 @@ class CreateClawOmniInstanceRequest(object):
         """
 
         self._description = description
+
+    @property
+    def env_vars(self):
+        """Gets the env_vars of this CreateClawOmniInstanceRequest.  # noqa: E501
+
+
+        :return: The env_vars of this CreateClawOmniInstanceRequest.  # noqa: E501
+        :rtype: list[EnvVarForCreateClawOmniInstanceInput]
+        """
+        return self._env_vars
+
+    @env_vars.setter
+    def env_vars(self, env_vars):
+        """Sets the env_vars of this CreateClawOmniInstanceRequest.
+
+
+        :param env_vars: The env_vars of this CreateClawOmniInstanceRequest.  # noqa: E501
+        :type: list[EnvVarForCreateClawOmniInstanceInput]
+        """
+
+        self._env_vars = env_vars
 
     @property
     def expired_action(self):

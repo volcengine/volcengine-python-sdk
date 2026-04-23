@@ -139,9 +139,6 @@ class DescribeAddressBookRequest(object):
         :param page_number: The page_number of this DescribeAddressBookRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                page_number is not None and page_number > 100):  # noqa: E501
-            raise ValueError("Invalid value for `page_number`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._page_number = page_number
 
