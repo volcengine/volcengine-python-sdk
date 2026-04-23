@@ -11,12 +11,6 @@ from datetime import datetime
 
 from .provider import Provider, CredentialValue
 
-try:
-    from urllib.request import urlopen, Request
-    from urllib.error import URLError, HTTPError
-except ImportError:
-    from urllib2 import urlopen, Request, URLError, HTTPError
-
 _DEFAULT_REGION = "cn-beijing"
 _OAUTH_BASE_URL_TEMPLATE = "https://cloudidentity-oauth.{}.volces.com"
 _PORTAL_BASE_URL_TEMPLATE = "https://cloudidentity-portal.{}.volces.com"
@@ -349,34 +343,6 @@ def _parse_rfc3339(value):
     raise ValueError("cannot parse expires_at: {}".format(value))
 
 
-def _http_request(url, method="GET", body=None, headers=None, timeout=_HTTP_TIMEOUT):
-    """Perform an HTTP request with retries. Returns (status_code, response_body_str)."""
-    last_error = None
-    for attempt in range(_HTTP_MAX_RETRIES):
-        try:
-            if body is not None:
-                data = body.encode("utf-8") if isinstance(body, str) else body
-            else:
-                data = None
-            req = Request(url, data=data)
-            req.get_method = lambda m=method: m
-            if headers:
-                for k, v in headers.items():
-                    req.add_header(k, v)
-            resp = urlopen(req, timeout=timeout)
-            return resp.getcode(), resp.read().decode("utf-8")
-        except HTTPError as e:
-            return e.code, e.read().decode("utf-8")
-        except (URLError, IOError, OSError) as e:
-            last_error = e
-            if attempt < _HTTP_MAX_RETRIES - 1:
-                time.sleep(_HTTP_RETRY_INTERVAL)
-
-    raise RuntimeError("HTTP request to '{}' failed after {} retries: {}".format(
-        url, _HTTP_MAX_RETRIES, last_error
-    ))
-
-
 def _write_json_file_atomic(path, data):
     """Write JSON data to a file atomically."""
     dir_name = os.path.dirname(path)
@@ -560,26 +526,28 @@ class SsoCredentialProvider(Provider):
             _OAUTH_BASE_URL_TEMPLATE.format(self._region)
         )
 
-        request_body = json.dumps({
-            "grant_type": "refresh_token",
-            "client_id": client_id,
-            "client_secret": client_secret,
-            "refresh_token": refresh_token,
-        })
-
-        status, resp_body = _http_request(
+        # Pass a dict body; RESTClient auto-serializes with Content-Type:
+        # application/json (see volcenginesdkcore/rest.py). Do NOT json.dumps
+        # here or it will be double-encoded.
+        resp_body = self._do_http_request(
             oauth_url,
             method="POST",
-            body=request_body,
+            data={
+                "grant_type": "refresh_token",
+                "client_id": client_id,
+                "client_secret": client_secret,
+                "refresh_token": refresh_token,
+            },
             headers={"Content-Type": "application/json"},
+            timeout=_HTTP_TIMEOUT,
+            max_retries=_HTTP_MAX_RETRIES,
+            retry_interval=_HTTP_RETRY_INTERVAL,
+            request_name="OAuth token refresh",
+            # OAuth refresh_token grants may rotate the refresh token on use;
+            # replaying a successful-but-response-lost POST would invalidate
+            # the local refresh_token. Fail fast on 5xx instead.
+            retry_on_5xx=False,
         )
-
-        if status // 100 != 2:
-            raise RuntimeError(
-                "{}: OAuth token refresh failed (status {}): {}".format(
-                    self.PROVIDER_NAME, status, resp_body
-                )
-            )
 
         try:
             resp_data = json.loads(resp_body)
@@ -631,21 +599,18 @@ class SsoCredentialProvider(Provider):
             urlencode({"account_id": self._account_id, "role_name": self._role_name}),
         )
 
-        status, resp_body = _http_request(
+        resp_body = self._do_http_request(
             portal_url,
             method="GET",
             headers={
                 "Accept": "application/json",
                 _PORTAL_ACCESS_TOKEN_HEADER: access_token,
             },
+            timeout=_HTTP_TIMEOUT,
+            max_retries=_HTTP_MAX_RETRIES,
+            retry_interval=_HTTP_RETRY_INTERVAL,
+            request_name="Portal GetRoleCredentials",
         )
-
-        if status // 100 != 2:
-            raise RuntimeError(
-                "{}: Portal GetRoleCredentials failed (status {}): {}".format(
-                    self.PROVIDER_NAME, status, resp_body
-                )
-            )
 
         try:
             resp_data = json.loads(resp_body)

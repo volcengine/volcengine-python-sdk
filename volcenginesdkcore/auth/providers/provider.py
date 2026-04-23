@@ -1,13 +1,10 @@
 # coding=utf-8
 import abc
 import json
+import logging
 import time
 
-try:
-    from urllib.request import urlopen, Request
-    from urllib.error import URLError, HTTPError
-except ImportError:
-    from urllib2 import urlopen, Request, URLError, HTTPError
+logger = logging.getLogger(__name__)
 
 
 class CredentialValue:
@@ -131,39 +128,125 @@ class Provider(object):
         )
 
     def _do_http_request(self, url, method="GET", data=None, headers=None, timeout=None,
-                         max_retries=1, retry_interval=0, request_name=None):
-        last_error = None
+                         max_retries=1, retry_interval=0, request_name=None,
+                         retry_on_5xx=True):
+        """Invoke an arbitrary HTTP(S) endpoint through the SDK's RESTClient.
 
-        for attempt in range(max(max_retries, 1)):
+        Routing through `RESTClientObject` (constructed from `Configuration()`)
+        ensures the credential-provider transport honors the same TLS/proxy
+        settings as every other SDK API call:
+          - `verify_ssl`, `ssl_ca_cert`, `cert_file`, `key_file`,
+            `assert_hostname`
+          - `proxy` / `http_proxy` / `https_proxy` (plus HTTP_PROXY /
+            HTTPS_PROXY environment variables)
+          - `connect_timeout` / `read_timeout` / connection pool sizing
+
+        Unlike `_sts_call` (which goes through `ApiClient`), this path skips
+        the OpenAPI semantics layer (signing, Action/Version path parsing,
+        response unwrapping) -- it's meant for non-OpenAPI endpoints such as
+        the SSO OAuth token endpoint, the SSO Portal, and ECS IMDSv2.
+
+        Args:
+          url: Fully-qualified request URL. Query string may be pre-embedded;
+               RESTClient will not second-encode it.
+          method: HTTP method.
+          data: Request body. When `Content-Type` is JSON, RESTClient will
+                `json.dumps` a dict automatically; pass a str/bytes to
+                bypass. For GET/HEAD, pass None.
+          headers: Request headers dict.
+          timeout: Total request timeout (seconds). Passed as
+                   `_request_timeout` to RESTClient.
+          max_retries: Total number of attempts (including the first).
+          retry_interval: Seconds to sleep between retries.
+          request_name: Human-readable name used in error messages.
+          retry_on_5xx: If True (default) retry on HTTP 5xx responses. Pass
+                        False for non-idempotent POSTs where replay may be
+                        unsafe (e.g. OAuth refresh_token grants that rotate
+                        the refresh token on use).
+
+        Returns:
+          Response body as a decoded str.
+
+        Raises:
+          RuntimeError on non-2xx HTTP response or transport failure.
+        """
+        # Late imports to avoid circular deps (auth.providers is imported
+        # indirectly by volcenginesdkcore/__init__.py).
+        from volcenginesdkcore import Configuration
+        from volcenginesdkcore.rest import RESTClientObject, ApiException
+        import urllib3
+
+        attempts = max(max_retries, 1)
+        # Configuration() returns a shallow copy of the user's default config
+        # via TypeWithDefault, so TLS/proxy/timeout settings propagate.
+        rest_client = RESTClientObject(Configuration())
+
+        last_error = None
+        for attempt in range(attempts):
             try:
-                req = Request(url, data=data)
-                req.get_method = lambda m=method: m
-                if headers:
-                    for k, v in headers.items():
-                        req.add_header(k, v)
-                resp = urlopen(req, timeout=timeout)
-                return resp.read().decode('utf-8')
-            except HTTPError as e:
-                # 5xx retry
-                if e.code >= 500:
-                    last_error = e
-                    if attempt < max(max_retries, 1) - 1:
-                        time.sleep(retry_interval)
-                else:
-                    content = e.read().decode('utf-8')
+                logger.debug(
+                    "%s: RESTClient attempt %d/%d %s %s",
+                    self.PROVIDER_NAME, attempt + 1, attempts, method, url,
+                )
+                r = rest_client.request(
+                    method=method,
+                    url=url,
+                    body=data,
+                    headers=headers,
+                    _request_timeout=timeout,
+                )
+                body = r.data
+                # Py3: already decoded by RESTClient; Py2: still bytes (== str).
+                if isinstance(body, bytes):
+                    try:
+                        body = body.decode('utf-8')
+                    except (UnicodeDecodeError, AttributeError):
+                        pass
+                return body
+            except ApiException as e:
+                status = e.status or 0
+                err_body = e.body
+                if isinstance(err_body, bytes):
+                    try:
+                        err_body = err_body.decode('utf-8')
+                    except (UnicodeDecodeError, AttributeError):
+                        err_body = repr(err_body)
+                # status == 0 signals a transport-level failure (e.g. SSL,
+                # DNS) converted by RESTClient; no point retrying.
+                if status == 0:
                     raise RuntimeError(
-                        "{}: {} failed with HTTP {}: {}".format(
-                            self.PROVIDER_NAME, request_name or "request", e.code, content
+                        "{}: {} failed at '{}' (transport error): {}".format(
+                            self.PROVIDER_NAME, request_name or "request", url, e.reason,
                         )
                     )
-            except (URLError, IOError, OSError) as e:
+                if retry_on_5xx and status >= 500:
+                    last_error = RuntimeError(
+                        "HTTP {}: {}".format(status, err_body)
+                    )
+                    logger.debug(
+                        "%s: HTTP %s on attempt %d/%d: %s",
+                        self.PROVIDER_NAME, status, attempt + 1, attempts, err_body,
+                    )
+                    if attempt < attempts - 1:
+                        time.sleep(retry_interval)
+                    continue
+                raise RuntimeError(
+                    "{}: {} failed with HTTP {}: {}".format(
+                        self.PROVIDER_NAME, request_name or "request", status, err_body,
+                    )
+                )
+            except (urllib3.exceptions.HTTPError, IOError, OSError) as e:
                 last_error = e
-                if attempt < max(max_retries, 1) - 1:
+                logger.debug(
+                    "%s: transport error on attempt %d/%d: %r",
+                    self.PROVIDER_NAME, attempt + 1, attempts, e,
+                )
+                if attempt < attempts - 1:
                     time.sleep(retry_interval)
 
         raise RuntimeError(
             "{}: failed to call {} at '{}' after {} retries: {}".format(
-                self.PROVIDER_NAME, request_name or "request", url, max(max_retries, 1), last_error
+                self.PROVIDER_NAME, request_name or "request", url, attempts, last_error,
             )
         )
 
