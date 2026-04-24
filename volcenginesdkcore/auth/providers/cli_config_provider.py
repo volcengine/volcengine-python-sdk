@@ -196,7 +196,11 @@ class CLIConfigCredentialProvider(Provider):
                 )
             )
 
-        return StsCredentialProvider(ak=ak, sk=sk, role_name=role_name, account_id=account_id)
+        kwargs = dict(ak=ak, sk=sk, role_name=role_name, account_id=account_id)
+        region = (profile.get("region") or "").strip()
+        if region:
+            kwargs["region"] = region
+        return StsCredentialProvider(**kwargs)
 
     def _create_oidc_delegate(self, profile, profile_name):
         from .sts_oidc_provider import StsOidcCredentialProvider
@@ -218,11 +222,11 @@ class CLIConfigCredentialProvider(Provider):
                 )
             )
 
-        return StsOidcCredentialProvider(
-            role_trn=role_trn,
-            oidc_token_file=oidc_token_file,
-            policy=policy,
-        )
+        kwargs = dict(role_trn=role_trn, oidc_token_file=oidc_token_file, policy=policy)
+        region = (profile.get("region") or "").strip()
+        if region:
+            kwargs["region"] = region
+        return StsOidcCredentialProvider(**kwargs)
 
     def _create_ecs_role_delegate(self, profile, profile_name):
         from .ecs_role_provider import EcsRoleCredentialProvider
