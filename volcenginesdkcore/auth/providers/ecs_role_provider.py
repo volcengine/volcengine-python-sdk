@@ -47,6 +47,12 @@ class EcsRoleCredentialProvider(Provider):
 
     def __init__(self, role_name=None, connect_timeout=1, read_timeout=1,
                  max_retries=3, retry_interval=1, expired_buffer_seconds=300):
+        if os.environ.get("VOLCENGINE_ECS_METADATA_DISABLED", "").lower() == "true":
+            raise ValueError(
+                "{}: IMDS credentials are disabled via "
+                "VOLCENGINE_ECS_METADATA_DISABLED=true.".format(self.PROVIDER_NAME)
+            )
+
         self._role_name = role_name
         self._connect_timeout = connect_timeout
         self._read_timeout = read_timeout
@@ -72,13 +78,6 @@ class EcsRoleCredentialProvider(Provider):
                 self._refresh_credentials()
 
     def get_credentials(self):
-        disabled = os.environ.get("VOLCENGINE_ECS_METADATA_DISABLED", "").lower()
-        if disabled == "true":
-            raise RuntimeError(
-                "{}: IMDS is disabled via VOLCENGINE_ECS_METADATA_DISABLED=true.".format(
-                    self.PROVIDER_NAME
-                )
-            )
         self.refresh()
         return self._credentials
 
