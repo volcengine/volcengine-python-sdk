@@ -203,8 +203,11 @@ class EcsRoleCredentialProvider(Provider):
 
     def _do_request(self, url, method="GET", extra_headers=None):
         """Perform an HTTP request with retries."""
+        # Late imports to avoid circular deps (auth.providers is imported
+        # indirectly by volcenginesdkcore/__init__.py).
+        from volcenginesdkcore import ApiClient, Configuration
         timeout = self._connect_timeout + self._read_timeout
-        return self._do_http_request(
+        return ApiClient(Configuration())._do_http_request(
             url=url,
             method=method,
             headers=extra_headers,
@@ -212,4 +215,5 @@ class EcsRoleCredentialProvider(Provider):
             max_retries=self._max_retries,
             retry_interval=self._retry_interval,
             request_name="IMDS request",
+            provider_name=self.PROVIDER_NAME,
         )
