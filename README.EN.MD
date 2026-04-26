@@ -197,7 +197,7 @@ if __name__ == '__main__':
         print("Exception when calling ECSApi->run_instances: %s\n" % e)
 ```
 
-For more examples, see: [SDK Integration Guide](./SDK_Integration.md)
+For more examples, see: [SDK Integration Guide](./docs/0-Overview.md)
 
 ### FAQ
 
