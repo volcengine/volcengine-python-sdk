@@ -55,9 +55,7 @@ class CLIConfigCredentialProvider(Provider):
         mode = raw_mode.lower().strip()
 
         if mode in ("ak", ""):
-            self._static_cred = self._read_ak_mode(profile, profile_name, require_token=False)
-        elif mode == "ststoken":
-            self._static_cred = self._read_ak_mode(profile, profile_name, require_token=True)
+            self._static_cred = self._read_ak_mode(profile, profile_name)
         elif mode == "ramrolearn":
             self._static_cred = None
             self._delegate = self._create_ram_role_arn_delegate(profile, profile_name)
@@ -77,9 +75,9 @@ class CLIConfigCredentialProvider(Provider):
 
     def _load_profile(self):
         config_path = (
-            self._config_path
-            or os.environ.get("VOLCENGINE_CLI_CONFIG_FILE")
-            or os.path.expanduser("~/.volcengine/config.json")
+                self._config_path
+                or os.environ.get("VOLCENGINE_CLI_CONFIG_FILE")
+                or os.path.expanduser("~/.volcengine/config.json")
         )
         self._resolved_config_path = config_path
 
@@ -142,7 +140,7 @@ class CLIConfigCredentialProvider(Provider):
             return self._delegate.get_credentials()
         return self._static_cred
 
-    def _read_ak_mode(self, profile, profile_name, require_token=False):
+    def _read_ak_mode(self, profile, profile_name):
         ak = profile.get("access-key", "").strip()
         sk = profile.get("secret-key", "").strip()
 
@@ -154,13 +152,6 @@ class CLIConfigCredentialProvider(Provider):
             )
 
         session_token = profile.get("session-token", "").strip() or None
-
-        if require_token and not session_token:
-            raise RuntimeError(
-                "{}: profile '{}' mode is StsToken but session-token is not set.".format(
-                    self.PROVIDER_NAME, profile_name
-                )
-            )
 
         return CredentialValue(
             ak=ak,
@@ -287,9 +278,9 @@ class CLIConfigCredentialProvider(Provider):
             )
 
         config_path = self._resolved_config_path or (
-            self._config_path
-            or os.environ.get("VOLCENGINE_CLI_CONFIG_FILE")
-            or os.path.expanduser("~/.volcengine/config.json")
+                self._config_path
+                or os.environ.get("VOLCENGINE_CLI_CONFIG_FILE")
+                or os.path.expanduser("~/.volcengine/config.json")
         )
         cache_dir = os.path.join(os.path.dirname(config_path), "sso", "cache")
 
