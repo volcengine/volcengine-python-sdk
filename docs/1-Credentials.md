@@ -336,6 +336,8 @@ Supported modes in profile (case-insensitive):
 Example: explicitly use CLI provider with a specified profile and config path.
 
 ```python
+import os
+
 import volcenginesdkcore
 from volcenginesdkcore.auth.providers.cli_config_provider import CLIConfigCredentialProvider
 
@@ -343,7 +345,7 @@ configuration = volcenginesdkcore.Configuration()
 configuration.region = "cn-beijing"
 configuration.credential_provider = CLIConfigCredentialProvider(
     profile_name="prod",
-    config_path="~/.volcengine/config.json",
+    config_path=os.path.expanduser("~/.volcengine/config.json"),
 )
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
