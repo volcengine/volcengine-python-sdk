@@ -495,6 +495,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'cloudmonitor': ServiceEndpointInfo(
+        service='cloudmonitor',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {
