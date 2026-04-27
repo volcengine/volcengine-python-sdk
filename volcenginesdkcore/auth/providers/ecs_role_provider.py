@@ -16,8 +16,8 @@ logger = logging.getLogger(__name__)
 # ECS IMDSv2 endpoint and protocol
 _IMDS_ENDPOINT = "http://100.96.0.96"
 _IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/{role_name}"  # GET
-_IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user"  # GET
-_IMDS_TOKEN_PATH = "/latest/api/token"  # GET
+_IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?fetchuserrole=true"  # GET
+_IMDS_TOKEN_PATH = "/latest/api/token"  # PUT
 
 # ECS IMDSv2 headers
 _IMDS_TOKEN_TTL_HEADER = "X-volc-ecs-metadata-token-ttl-seconds"
@@ -35,9 +35,9 @@ class EcsRoleCredentialProvider(Provider):
     """Obtains temporary credentials from the ECS Instance Metadata Service (IMDSv2).
 
     Flow:
-      1. GET token from IMDSv2 (every time, no cache)
+      1. PUT to get IMDSv2 token (fresh every time)
       2. Resolve roleName: param > env > auto-detect from IMDS
-      3. POST to get STS credentials with token header
+      3. GET STS credentials with token header
 
     roleName priority: constructor param > VOLCENGINE_ECS_METADATA env > auto-detect from IMDS.
     Disabled when VOLCENGINE_ECS_METADATA_DISABLED=true.
@@ -84,10 +84,10 @@ class EcsRoleCredentialProvider(Provider):
     # --- IMDSv2 token ---
 
     def _get_imdsv2_token(self):
-        """GET a fresh IMDSv2 token. Not cached — fetched every time."""
+        """Fetch a fresh IMDSv2 token via PUT."""
         url = _IMDS_ENDPOINT + _IMDS_TOKEN_PATH
         headers = {_IMDS_TOKEN_TTL_HEADER: _IMDS_TOKEN_TTL_SECONDS}
-        body = self._do_request(url, method="GET", extra_headers=headers)
+        body = self._do_request(url, method="PUT", extra_headers=headers)
         token = body.strip()
         if not token:
             raise RuntimeError(
@@ -154,7 +154,7 @@ class EcsRoleCredentialProvider(Provider):
     # --- Credential refresh ---
 
     def _refresh_credentials(self):
-        # Step 1: Get IMDSv2 token (fresh every time)
+        # Step 1: Get IMDSv2 token
         imds_token = self._get_imdsv2_token()
 
         # Step 2: Resolve role name
