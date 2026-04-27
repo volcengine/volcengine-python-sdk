@@ -11,18 +11,22 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
+from typing_extensions import Literal, Optional, Required, TypedDict
 
 __all__ = ["ChatCompletionContentPartAudioParam", "AudioURL"]
 
 
 class AudioURL(TypedDict, total=False):
-    url: Required[str]
-    """Either a URL of the audio or the base64 encoded audio data."""
+    url: Optional[str]
+    """Either a URL of the audio."""
+    data: Optional[str]
+    """Base64 encoded audio data."""
+    format: Required[str]
+    """audio encoding format"""
 
 
 class ChatCompletionContentPartAudioParam(TypedDict, total=False):
     audio_url: Required[AudioURL]
 
-    type: Required[Literal["audio_url"]]
+    type: Required[Literal["input_audio"]]
     """The type of the content part."""
