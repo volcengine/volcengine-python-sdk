@@ -36,6 +36,7 @@ class NetworkSettingsForCreateWorkspaceInput(object):
         'eip_id': 'str',
         'internet_protocol': 'str',
         'shared_private_network': 'bool',
+        'shared_public_network': 'bool',
         'subnet_id': 'str',
         'vpc_id': 'str'
     }
@@ -44,11 +45,12 @@ class NetworkSettingsForCreateWorkspaceInput(object):
         'eip_id': 'EipId',
         'internet_protocol': 'InternetProtocol',
         'shared_private_network': 'SharedPrivateNetwork',
+        'shared_public_network': 'SharedPublicNetwork',
         'subnet_id': 'SubnetId',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, eip_id=None, internet_protocol=None, shared_private_network=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_id=None, internet_protocol=None, shared_private_network=None, shared_public_network=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """NetworkSettingsForCreateWorkspaceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class NetworkSettingsForCreateWorkspaceInput(object):
         self._eip_id = None
         self._internet_protocol = None
         self._shared_private_network = None
+        self._shared_public_network = None
         self._subnet_id = None
         self._vpc_id = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class NetworkSettingsForCreateWorkspaceInput(object):
             self.internet_protocol = internet_protocol
         if shared_private_network is not None:
             self.shared_private_network = shared_private_network
+        if shared_public_network is not None:
+            self.shared_public_network = shared_public_network
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if vpc_id is not None:
@@ -141,6 +146,27 @@ class NetworkSettingsForCreateWorkspaceInput(object):
         """
 
         self._shared_private_network = shared_private_network
+
+    @property
+    def shared_public_network(self):
+        """Gets the shared_public_network of this NetworkSettingsForCreateWorkspaceInput.  # noqa: E501
+
+
+        :return: The shared_public_network of this NetworkSettingsForCreateWorkspaceInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._shared_public_network
+
+    @shared_public_network.setter
+    def shared_public_network(self, shared_public_network):
+        """Sets the shared_public_network of this NetworkSettingsForCreateWorkspaceInput.
+
+
+        :param shared_public_network: The shared_public_network of this NetworkSettingsForCreateWorkspaceInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._shared_public_network = shared_public_network
 
     @property
     def subnet_id(self):

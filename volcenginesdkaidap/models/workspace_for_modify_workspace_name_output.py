@@ -34,9 +34,11 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'baas_compute_settings': 'BaasComputeSettingsForModifyWorkspaceNameOutput',
         'compute_settings': 'ComputeSettingsForModifyWorkspaceNameOutput',
         'create_time': 'str',
         'creation_source': 'str',
+        'dns_visibility': 'bool',
         'deletion_protection_status': 'str',
         'engine_type': 'str',
         'engine_version': 'str',
@@ -60,9 +62,11 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
 
     attribute_map = {
         'account_id': 'AccountId',
+        'baas_compute_settings': 'BaasComputeSettings',
         'compute_settings': 'ComputeSettings',
         'create_time': 'CreateTime',
         'creation_source': 'CreationSource',
+        'dns_visibility': 'DNSVisibility',
         'deletion_protection_status': 'DeletionProtectionStatus',
         'engine_type': 'EngineType',
         'engine_version': 'EngineVersion',
@@ -84,16 +88,18 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         'workspace_usage': 'WorkspaceUsage'
     }
 
-    def __init__(self, account_id=None, compute_settings=None, create_time=None, creation_source=None, deletion_protection_status=None, engine_type=None, engine_version=None, internet_protocol=None, project_name=None, region_id=None, shared_private_network=None, status_changed_time=None, storage_size=None, storage_type=None, subnet_id=None, update_time=None, vpc_id=None, workspace_id=None, workspace_name=None, workspace_setting=None, workspace_status=None, workspace_tags=None, workspace_usage=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, baas_compute_settings=None, compute_settings=None, create_time=None, creation_source=None, dns_visibility=None, deletion_protection_status=None, engine_type=None, engine_version=None, internet_protocol=None, project_name=None, region_id=None, shared_private_network=None, status_changed_time=None, storage_size=None, storage_type=None, subnet_id=None, update_time=None, vpc_id=None, workspace_id=None, workspace_name=None, workspace_setting=None, workspace_status=None, workspace_tags=None, workspace_usage=None, _configuration=None):  # noqa: E501
         """WorkspaceForModifyWorkspaceNameOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._baas_compute_settings = None
         self._compute_settings = None
         self._create_time = None
         self._creation_source = None
+        self._dns_visibility = None
         self._deletion_protection_status = None
         self._engine_type = None
         self._engine_version = None
@@ -117,12 +123,16 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
 
         if account_id is not None:
             self.account_id = account_id
+        if baas_compute_settings is not None:
+            self.baas_compute_settings = baas_compute_settings
         if compute_settings is not None:
             self.compute_settings = compute_settings
         if create_time is not None:
             self.create_time = create_time
         if creation_source is not None:
             self.creation_source = creation_source
+        if dns_visibility is not None:
+            self.dns_visibility = dns_visibility
         if deletion_protection_status is not None:
             self.deletion_protection_status = deletion_protection_status
         if engine_type is not None:
@@ -182,6 +192,27 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def baas_compute_settings(self):
+        """Gets the baas_compute_settings of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+
+
+        :return: The baas_compute_settings of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :rtype: BaasComputeSettingsForModifyWorkspaceNameOutput
+        """
+        return self._baas_compute_settings
+
+    @baas_compute_settings.setter
+    def baas_compute_settings(self, baas_compute_settings):
+        """Sets the baas_compute_settings of this WorkspaceForModifyWorkspaceNameOutput.
+
+
+        :param baas_compute_settings: The baas_compute_settings of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :type: BaasComputeSettingsForModifyWorkspaceNameOutput
+        """
+
+        self._baas_compute_settings = baas_compute_settings
 
     @property
     def compute_settings(self):
@@ -245,6 +276,27 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         """
 
         self._creation_source = creation_source
+
+    @property
+    def dns_visibility(self):
+        """Gets the dns_visibility of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+
+
+        :return: The dns_visibility of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dns_visibility
+
+    @dns_visibility.setter
+    def dns_visibility(self, dns_visibility):
+        """Sets the dns_visibility of this WorkspaceForModifyWorkspaceNameOutput.
+
+
+        :param dns_visibility: The dns_visibility of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._dns_visibility = dns_visibility
 
     @property
     def deletion_protection_status(self):
