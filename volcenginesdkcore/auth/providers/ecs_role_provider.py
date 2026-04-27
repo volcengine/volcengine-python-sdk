@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 # ECS IMDSv2 endpoint and protocol
 _IMDS_ENDPOINT = "http://100.96.0.96"
-_IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/{role_name}"  # POST
+_IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/{role_name}"  # GET
 _IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user"  # GET
 _IMDS_TOKEN_PATH = "/latest/api/token"  # GET
 
@@ -160,10 +160,10 @@ class EcsRoleCredentialProvider(Provider):
         # Step 2: Resolve role name
         role_name = self._resolve_role_name(imds_token)
 
-        # Step 3: POST to get credentials
+        # Step 3: GET to get credentials
         url = _IMDS_ENDPOINT + _IMDS_CREDENTIALS_PATH.format(role_name=role_name)
         headers = {_IMDS_TOKEN_HEADER: imds_token}
-        body = self._do_request(url, method="POST", extra_headers=headers)
+        body = self._do_request(url, method="GET", extra_headers=headers)
 
         try:
             data = json.loads(body)
