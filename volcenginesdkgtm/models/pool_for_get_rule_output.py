@@ -33,7 +33,7 @@ class PoolForGetRuleOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'address': 'list[AddressForGetRuleOutput]',
+        'addresses': 'list[AddressForGetRuleOutput]',
         'inactive_addr_count': 'int',
         'name': 'str',
         'pool_id': 'str',
@@ -41,28 +41,28 @@ class PoolForGetRuleOutput(object):
     }
 
     attribute_map = {
-        'address': 'Address',
+        'addresses': 'Addresses',
         'inactive_addr_count': 'InactiveAddrCount',
         'name': 'Name',
         'pool_id': 'PoolId',
         'weight': 'Weight'
     }
 
-    def __init__(self, address=None, inactive_addr_count=None, name=None, pool_id=None, weight=None, _configuration=None):  # noqa: E501
+    def __init__(self, addresses=None, inactive_addr_count=None, name=None, pool_id=None, weight=None, _configuration=None):  # noqa: E501
         """PoolForGetRuleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._address = None
+        self._addresses = None
         self._inactive_addr_count = None
         self._name = None
         self._pool_id = None
         self._weight = None
         self.discriminator = None
 
-        if address is not None:
-            self.address = address
+        if addresses is not None:
+            self.addresses = addresses
         if inactive_addr_count is not None:
             self.inactive_addr_count = inactive_addr_count
         if name is not None:
@@ -73,25 +73,25 @@ class PoolForGetRuleOutput(object):
             self.weight = weight
 
     @property
-    def address(self):
-        """Gets the address of this PoolForGetRuleOutput.  # noqa: E501
+    def addresses(self):
+        """Gets the addresses of this PoolForGetRuleOutput.  # noqa: E501
 
 
-        :return: The address of this PoolForGetRuleOutput.  # noqa: E501
+        :return: The addresses of this PoolForGetRuleOutput.  # noqa: E501
         :rtype: list[AddressForGetRuleOutput]
         """
-        return self._address
+        return self._addresses
 
-    @address.setter
-    def address(self, address):
-        """Sets the address of this PoolForGetRuleOutput.
+    @addresses.setter
+    def addresses(self, addresses):
+        """Sets the addresses of this PoolForGetRuleOutput.
 
 
-        :param address: The address of this PoolForGetRuleOutput.  # noqa: E501
+        :param addresses: The addresses of this PoolForGetRuleOutput.  # noqa: E501
         :type: list[AddressForGetRuleOutput]
         """
 
-        self._address = address
+        self._addresses = addresses
 
     @property
     def inactive_addr_count(self):
