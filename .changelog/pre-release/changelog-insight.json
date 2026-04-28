@@ -1,0 +1,5 @@
+{
+  "description": "INSIGHT: 新增 AgentChat",
+  "modules": "service/insight",
+  "type": "feature"
+}
