@@ -41,7 +41,6 @@ class GetTLSInfoResponse(object):
         'port_change_topic_config': 'PortChangeTopicConfigForGetTLSInfoOutput',
         'process_start_topic_config': 'ProcessStartTopicConfigForGetTLSInfoOutput',
         'project_id': 'str',
-        'project_id': 'str',
         'quota_total': 'int',
         'quota_used': 'int',
         'storage_days': 'int',
@@ -61,7 +60,6 @@ class GetTLSInfoResponse(object):
         'port_change_topic_config': 'PortChangeTopicConfig',
         'process_start_topic_config': 'ProcessStartTopicConfig',
         'project_id': 'ProjectID',
-        'project_id': 'ProjectId',
         'quota_total': 'QuotaTotal',
         'quota_used': 'QuotaUsed',
         'storage_days': 'StorageDays',
@@ -72,7 +70,7 @@ class GetTLSInfoResponse(object):
         'vuln_topic_id': 'VulnTopicId'
     }
 
-    def __init__(self, alarm_topic_config=None, authorized=None, bash_audit_topic_config=None, login_topic_config=None, open=None, port_change_topic_config=None, process_start_topic_config=None, project_id=None, project_id=None, quota_total=None, quota_used=None, storage_days=None, threshold=None, topic_id=None, varmor_topic_config=None, vuln_topic_config=None, vuln_topic_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_topic_config=None, authorized=None, bash_audit_topic_config=None, login_topic_config=None, open=None, port_change_topic_config=None, process_start_topic_config=None, project_id=None, quota_total=None, quota_used=None, storage_days=None, threshold=None, topic_id=None, varmor_topic_config=None, vuln_topic_config=None, vuln_topic_id=None, _configuration=None):  # noqa: E501
         """GetTLSInfoResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,7 +83,6 @@ class GetTLSInfoResponse(object):
         self._open = None
         self._port_change_topic_config = None
         self._process_start_topic_config = None
-        self._project_id = None
         self._project_id = None
         self._quota_total = None
         self._quota_used = None
@@ -111,8 +108,6 @@ class GetTLSInfoResponse(object):
             self.port_change_topic_config = port_change_topic_config
         if process_start_topic_config is not None:
             self.process_start_topic_config = process_start_topic_config
-        if project_id is not None:
-            self.project_id = project_id
         if project_id is not None:
             self.project_id = project_id
         if quota_total is not None:
@@ -278,27 +273,6 @@ class GetTLSInfoResponse(object):
         """
 
         self._process_start_topic_config = process_start_topic_config
-
-    @property
-    def project_id(self):
-        """Gets the project_id of this GetTLSInfoResponse.  # noqa: E501
-
-
-        :return: The project_id of this GetTLSInfoResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_id
-
-    @project_id.setter
-    def project_id(self, project_id):
-        """Sets the project_id of this GetTLSInfoResponse.
-
-
-        :param project_id: The project_id of this GetTLSInfoResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._project_id = project_id
 
     @property
     def project_id(self):

@@ -38,13 +38,15 @@ class DataForListAutoDefenseRulesOutput(object):
         'create_user': 'str',
         'data_type': 'int',
         'enable': 'bool',
+        'harm_level': 'str',
         'range': 'RangeForListAutoDefenseRulesOutput',
         'rule_desc': 'str',
         'rule_id': 'str',
         'rule_type': 'str',
         'type': 'str',
         'update_time': 'int',
-        'update_user': 'str'
+        'update_user': 'str',
+        'user_auto_defense_rule': 'UserAutoDefenseRuleForListAutoDefenseRulesOutput'
     }
 
     attribute_map = {
@@ -53,16 +55,18 @@ class DataForListAutoDefenseRulesOutput(object):
         'create_user': 'CreateUser',
         'data_type': 'DataType',
         'enable': 'Enable',
+        'harm_level': 'HarmLevel',
         'range': 'Range',
         'rule_desc': 'RuleDesc',
         'rule_id': 'RuleID',
         'rule_type': 'RuleType',
         'type': 'Type',
         'update_time': 'UpdateTime',
-        'update_user': 'UpdateUser'
+        'update_user': 'UpdateUser',
+        'user_auto_defense_rule': 'UserAutoDefenseRule'
     }
 
-    def __init__(self, action=None, create_time=None, create_user=None, data_type=None, enable=None, range=None, rule_desc=None, rule_id=None, rule_type=None, type=None, update_time=None, update_user=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, create_time=None, create_user=None, data_type=None, enable=None, harm_level=None, range=None, rule_desc=None, rule_id=None, rule_type=None, type=None, update_time=None, update_user=None, user_auto_defense_rule=None, _configuration=None):  # noqa: E501
         """DataForListAutoDefenseRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +77,7 @@ class DataForListAutoDefenseRulesOutput(object):
         self._create_user = None
         self._data_type = None
         self._enable = None
+        self._harm_level = None
         self._range = None
         self._rule_desc = None
         self._rule_id = None
@@ -80,6 +85,7 @@ class DataForListAutoDefenseRulesOutput(object):
         self._type = None
         self._update_time = None
         self._update_user = None
+        self._user_auto_defense_rule = None
         self.discriminator = None
 
         if action is not None:
@@ -92,6 +98,8 @@ class DataForListAutoDefenseRulesOutput(object):
             self.data_type = data_type
         if enable is not None:
             self.enable = enable
+        if harm_level is not None:
+            self.harm_level = harm_level
         if range is not None:
             self.range = range
         if rule_desc is not None:
@@ -106,6 +114,8 @@ class DataForListAutoDefenseRulesOutput(object):
             self.update_time = update_time
         if update_user is not None:
             self.update_user = update_user
+        if user_auto_defense_rule is not None:
+            self.user_auto_defense_rule = user_auto_defense_rule
 
     @property
     def action(self):
@@ -211,6 +221,27 @@ class DataForListAutoDefenseRulesOutput(object):
         """
 
         self._enable = enable
+
+    @property
+    def harm_level(self):
+        """Gets the harm_level of this DataForListAutoDefenseRulesOutput.  # noqa: E501
+
+
+        :return: The harm_level of this DataForListAutoDefenseRulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._harm_level
+
+    @harm_level.setter
+    def harm_level(self, harm_level):
+        """Sets the harm_level of this DataForListAutoDefenseRulesOutput.
+
+
+        :param harm_level: The harm_level of this DataForListAutoDefenseRulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._harm_level = harm_level
 
     @property
     def range(self):
@@ -358,6 +389,27 @@ class DataForListAutoDefenseRulesOutput(object):
         """
 
         self._update_user = update_user
+
+    @property
+    def user_auto_defense_rule(self):
+        """Gets the user_auto_defense_rule of this DataForListAutoDefenseRulesOutput.  # noqa: E501
+
+
+        :return: The user_auto_defense_rule of this DataForListAutoDefenseRulesOutput.  # noqa: E501
+        :rtype: UserAutoDefenseRuleForListAutoDefenseRulesOutput
+        """
+        return self._user_auto_defense_rule
+
+    @user_auto_defense_rule.setter
+    def user_auto_defense_rule(self, user_auto_defense_rule):
+        """Sets the user_auto_defense_rule of this DataForListAutoDefenseRulesOutput.
+
+
+        :param user_auto_defense_rule: The user_auto_defense_rule of this DataForListAutoDefenseRulesOutput.  # noqa: E501
+        :type: UserAutoDefenseRuleForListAutoDefenseRulesOutput
+        """
+
+        self._user_auto_defense_rule = user_auto_defense_rule
 
     def to_dict(self):
         """Returns the model properties as a dict"""

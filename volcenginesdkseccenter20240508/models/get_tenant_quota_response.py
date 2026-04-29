@@ -41,8 +41,7 @@ class GetTenantQuotaResponse(object):
         'insert_time': 'int',
         'labels': 'list[str]',
         'update_time': 'int',
-        'value_added': 'ValueAddedForGetTenantQuotaOutput',
-        'id': 'str'
+        'value_added': 'ValueAddedForGetTenantQuotaOutput'
     }
 
     attribute_map = {
@@ -54,11 +53,10 @@ class GetTenantQuotaResponse(object):
         'insert_time': 'InsertTime',
         'labels': 'Labels',
         'update_time': 'UpdateTime',
-        'value_added': 'ValueAdded',
-        'id': 'id'
+        'value_added': 'ValueAdded'
     }
 
-    def __init__(self, account_id=None, basic_quota=None, cap_white_list=None, expire_time=None, id=None, insert_time=None, labels=None, update_time=None, value_added=None, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, basic_quota=None, cap_white_list=None, expire_time=None, id=None, insert_time=None, labels=None, update_time=None, value_added=None, _configuration=None):  # noqa: E501
         """GetTenantQuotaResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,7 +71,6 @@ class GetTenantQuotaResponse(object):
         self._labels = None
         self._update_time = None
         self._value_added = None
-        self._id = None
         self.discriminator = None
 
         if account_id is not None:
@@ -94,8 +91,6 @@ class GetTenantQuotaResponse(object):
             self.update_time = update_time
         if value_added is not None:
             self.value_added = value_added
-        if id is not None:
-            self.id = id
 
     @property
     def account_id(self):
@@ -285,27 +280,6 @@ class GetTenantQuotaResponse(object):
         """
 
         self._value_added = value_added
-
-    @property
-    def id(self):
-        """Gets the id of this GetTenantQuotaResponse.  # noqa: E501
-
-
-        :return: The id of this GetTenantQuotaResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this GetTenantQuotaResponse.
-
-
-        :param id: The id of this GetTenantQuotaResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
