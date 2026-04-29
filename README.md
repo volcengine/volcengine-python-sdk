@@ -211,3 +211,7 @@ if __name__ == '__main__':
 ### FAQ ###
 
 关于 SDK 使用时碰到的常见问题，请查看 [FAQ](FAQ.md)
+
+## Security and privacy
+This project takes security seriously. 
+For vulnerability reporting and supported versions, see [SECURITY.md](SECURITY.md)
