@@ -33,6 +33,7 @@ class ModifyVolumeAttributeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'burst_enabled': 'bool',
         'delete_protection': 'bool',
         'delete_protection_retention_days': 'int',
         'delete_with_instance': 'bool',
@@ -42,6 +43,7 @@ class ModifyVolumeAttributeRequest(object):
     }
 
     attribute_map = {
+        'burst_enabled': 'BurstEnabled',
         'delete_protection': 'DeleteProtection',
         'delete_protection_retention_days': 'DeleteProtectionRetentionDays',
         'delete_with_instance': 'DeleteWithInstance',
@@ -50,12 +52,13 @@ class ModifyVolumeAttributeRequest(object):
         'volume_name': 'VolumeName'
     }
 
-    def __init__(self, delete_protection=None, delete_protection_retention_days=None, delete_with_instance=None, description=None, volume_id=None, volume_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, burst_enabled=None, delete_protection=None, delete_protection_retention_days=None, delete_with_instance=None, description=None, volume_id=None, volume_name=None, _configuration=None):  # noqa: E501
         """ModifyVolumeAttributeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._burst_enabled = None
         self._delete_protection = None
         self._delete_protection_retention_days = None
         self._delete_with_instance = None
@@ -64,6 +67,8 @@ class ModifyVolumeAttributeRequest(object):
         self._volume_name = None
         self.discriminator = None
 
+        if burst_enabled is not None:
+            self.burst_enabled = burst_enabled
         if delete_protection is not None:
             self.delete_protection = delete_protection
         if delete_protection_retention_days is not None:
@@ -74,6 +79,27 @@ class ModifyVolumeAttributeRequest(object):
             self.description = description
         self.volume_id = volume_id
         self.volume_name = volume_name
+
+    @property
+    def burst_enabled(self):
+        """Gets the burst_enabled of this ModifyVolumeAttributeRequest.  # noqa: E501
+
+
+        :return: The burst_enabled of this ModifyVolumeAttributeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._burst_enabled
+
+    @burst_enabled.setter
+    def burst_enabled(self, burst_enabled):
+        """Sets the burst_enabled of this ModifyVolumeAttributeRequest.
+
+
+        :param burst_enabled: The burst_enabled of this ModifyVolumeAttributeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._burst_enabled = burst_enabled
 
     @property
     def delete_protection(self):
