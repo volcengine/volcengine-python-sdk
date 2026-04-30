@@ -113,6 +113,8 @@ python setup.py install --user
 
 (or `sudo python setup.py install` to install the package for all users)
 
+SDK 详细使用文档（凭证配置、Endpoint、Transport、超时、重试、异常处理、Debug）请参考：[SDK 接入文档](./docs/0-Overview-zh.md)
+
 ### Configuration Usage ###
 
 步骤一：启动时初始化，配置 Configuration 全局默认参数
@@ -205,8 +207,6 @@ if __name__ == '__main__':
         print("Exception when calling ECSApi->run_instances: %s\n" % e)
 
 ```
-
-更多代码示例请参考：[SDK接入文档](./docs/0-Overview-zh.md)
 
 ### FAQ ###
 

@@ -38,8 +38,8 @@ volcenginesdkcore.Configuration.set_default(configuration)
 
 # 接口级别运行时参数设置,会覆盖全局配置
 runtime_options = RuntimeOption(
-  region =  "cn-beijing",
-  client_side_validation = True, # 开启客户端校验,默认开启
+    region="cn-beijing",
+    client_side_validation=True, # 开启客户端校验,默认开启
 )
 api_instance = volcenginesdkecs.ECSApi()
 create_command_request = volcenginesdkecs.CreateCommandRequest(
@@ -88,8 +88,8 @@ configuration.ak = "Your ak"
 configuration.sk = "Your sk"
 configuration.use_dual_stack = True # // 定义是否启用双栈网络（IPv4 + IPv6）访问地址，默认false
 configuration.custom_bootstrap_region = {
-  "custom_example_region1": {},
-  "custom_example_region2": {},
+    "custom_example_region1": {},
+    "custom_example_region2": {},
 } # 自定义自动寻址Region列表
 volcenginesdkcore.Configuration.set_default(configuration)
 ```

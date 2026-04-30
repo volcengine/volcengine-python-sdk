@@ -42,8 +42,8 @@ volcenginesdkcore.Configuration.set_default(configuration)
 
 # 接口级别运行时参数设置,会覆盖全局配置
 runtime_options = RuntimeOption(
-  scheme =  "http",
-  client_side_validation = True, # 开启客户端校验,默认开启
+    scheme="http",
+    client_side_validation=True, # 开启客户端校验,默认开启
 )
 api_instance = volcenginesdkecs.ECSApi()
 create_command_request = volcenginesdkecs.CreateCommandRequest(

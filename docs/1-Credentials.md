@@ -45,9 +45,9 @@ volcenginesdkcore.Configuration.set_default(configuration)
 
 # Per-request runtime options (override global configuration)
 runtime_options = RuntimeOption(
-  ak="Your ak",
-  sk="Your sk",
-  client_side_validation=True,
+    ak="Your ak",
+    sk="Your sk",
+    client_side_validation=True,
 )
 
 api_instance = volcenginesdkecs.ECSApi()
@@ -89,10 +89,10 @@ volcenginesdkcore.Configuration.set_default(configuration)
 
 # Per-request runtime options
 runtime_options = RuntimeOption(
-  ak="Your ak",
-  sk="Your sk",
-  session_token="Your session token",
-  client_side_validation=True,
+    ak="Your ak",
+    sk="Your sk",
+    session_token="Your session token",
+    client_side_validation=True,
 )
 
 api_instance = volcenginesdkecs.ECSApi()

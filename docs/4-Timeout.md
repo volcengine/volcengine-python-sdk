@@ -20,9 +20,9 @@ configuration.read_timeout = 10
 volcenginesdkcore.Configuration.set_default(configuration)
 
 runtime_options = RuntimeOption(
-  connect_timeout=10,
-  read_timeout=20,
-  client_side_validation=True,
+    connect_timeout=10,
+    read_timeout=20,
+    client_side_validation=True,
 )
 ```
 

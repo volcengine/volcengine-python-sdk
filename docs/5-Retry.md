@@ -44,9 +44,9 @@ The default retry condition includes:
 from volcenginesdkcore.retryer.retry_condition import RetryCondition
 
 class CustomRetryCondition(RetryCondition):
-  def should_retry(self, response, err):
-      retry_error_codes = self.retry_error_codes
-      return False
+    def should_retry(self, response, err):
+        retry_error_codes = self.retry_error_codes
+        return False
 ```
 
 2. Reuse the default condition logic:
@@ -55,9 +55,9 @@ class CustomRetryCondition(RetryCondition):
 from volcenginesdkcore.retryer.retry_condition import DefaultRetryCondition
 
 class CustomRetryCondition(DefaultRetryCondition):
-  def should_retry(self, response, err):
-      should_retry = super(CustomRetryCondition, self).should_retry(response, err)
-      return False
+    def should_retry(self, response, err):
+        should_retry = super(CustomRetryCondition, self).should_retry(response, err)
+        return False
 ```
 
 ## Backoff Strategy

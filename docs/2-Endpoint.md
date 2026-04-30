@@ -38,8 +38,8 @@ volcenginesdkcore.Configuration.set_default(configuration)
 
 # API-level runtime parameter settings, overrides global configuration
 runtime_options = RuntimeOption(
-  region =  "cn-beijing",
-  client_side_validation = True, # Enable client-side validation, enabled by default
+    region="cn-beijing",
+    client_side_validation=True, # Enable client-side validation, enabled by default
 )
 api_instance = volcenginesdkecs.ECSApi()
 create_command_request = volcenginesdkecs.CreateCommandRequest(
@@ -93,8 +93,8 @@ configuration.ak = "Your ak"
 configuration.sk = "Your sk"
 configuration.use_dual_stack = True # Enable dual-stack network (IPv4 + IPv6) access, default is False
 configuration.custom_bootstrap_region = {
-  "custom_example_region1": {},
-  "custom_example_region2": {},
+    "custom_example_region1": {},
+    "custom_example_region2": {},
 } # Custom auto-resolution region list
 volcenginesdkcore.Configuration.set_default(configuration)
 ```

@@ -24,9 +24,9 @@ volcenginesdkcore.Configuration.set_default(configuration)
 
 # 接口级别运行时参数设置,会覆盖全局配置
 runtime_options = RuntimeOption(
-  connect_timeout=10, # 设置connect_timeout,单位秒
-  read_timeout=20, # 设置read_timeout,单位秒
-  client_side_validation = True, # 开启客户端校验,默认开启
+    connect_timeout=10, # 设置connect_timeout,单位秒
+    read_timeout=20, # 设置read_timeout,单位秒
+    client_side_validation = True, # 开启客户端校验,默认开启
 )
 api_instance = volcenginesdkecs.ECSApi()
 create_command_request = volcenginesdkecs.CreateCommandRequest(

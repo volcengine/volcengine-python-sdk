@@ -35,9 +35,14 @@ create_command_request = volcenginesdkecs.CreateCommandRequest(
     name="Your command name",
     type="command",
 )
-network_error_exceptions = (urllib3.exceptions.NewConnectionError, urllib3.exceptions.ConnectTimeoutError,
-                                    urllib3.exceptions.ReadTimeoutError, urllib3.exceptions.ProtocolError,
-                                    socket.timeout, socket.gaierror)
+network_error_exceptions = (
+    urllib3.exceptions.NewConnectionError,
+    urllib3.exceptions.ConnectTimeoutError,
+    urllib3.exceptions.ReadTimeoutError,
+    urllib3.exceptions.ProtocolError,
+    socket.timeout,
+    socket.gaierror,
+)
 
 try:
     api_instance.create_command(create_command_request)

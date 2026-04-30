@@ -28,14 +28,14 @@ volcenginesdkcore.Configuration.set_default(configuration)
 
 # 接口级别配置
 runtime_options = RuntimeOption(
-  auto_retry = True, # 开启自动重试,默认开启
-  num_max_retries = 4, # 最大重试次数，默认3次
-  min_retry_delay_ms = 200, # 最小重试延迟毫秒，默认300毫秒
-  max_retry_delay_ms = 6000, # 最大重试延迟毫秒，默认300000毫秒
-  backoff_strategy = ExponentialWithRandomJitterBackoffStrategy(), # 重试策略，默认ExponentialWithRandomJitterBackoffStrategy
-  retry_condition = DefaultRetryCondition(), # 重试条件，默认DefaultRetryCondition
-  retry_error_codes = {"AccessDenied"}, # 重试错误码，默认为空集合，需要用户自定义
-  client_side_validation = True, # 开启客户端校验,默认开启
+    auto_retry = True, # 开启自动重试,默认开启
+    num_max_retries = 4, # 最大重试次数，默认3次
+    min_retry_delay_ms = 200, # 最小重试延迟毫秒，默认300毫秒
+    max_retry_delay_ms = 6000, # 最大重试延迟毫秒，默认300000毫秒
+    backoff_strategy = ExponentialWithRandomJitterBackoffStrategy(), # 重试策略，默认ExponentialWithRandomJitterBackoffStrategy
+    retry_condition = DefaultRetryCondition(), # 重试条件，默认DefaultRetryCondition
+    retry_error_codes = {"AccessDenied"}, # 重试错误码，默认为空集合，需要用户自定义
+    client_side_validation = True, # 开启客户端校验,默认开启
 )
 api_instance = volcenginesdkecs.ECSApi()
 create_command_request = volcenginesdkecs.CreateCommandRequest(
@@ -68,31 +68,31 @@ except ApiException as e:
 ```python
 from volcenginesdkcore.retryer.retry_condition import RetryCondition
 class CustomRetryCondition(RetryCondition):
-  def should_retry(
-          self,
-          response,
-          err
-  ):
-      # type: (RESTResponse, Exception) -> bool
-      retry_error_codes = self.retry_error_codes # 可以获取到用户自定义的错误码
-      #................实现自己逻辑
+    def should_retry(
+        self,
+        response,
+        err
+    ):
+        # type: (RESTResponse, Exception) -> bool
+        retry_error_codes = self.retry_error_codes # 可以获取到用户自定义的错误码
+        #................实现自己逻辑
 
-      return False
+        return False
 ```
 2. 复用默认DefaultRetryCondition逻辑
 ```python
 from volcenginesdkcore.retryer.retry_condition import DefaultRetryCondition
 class CustomRetryCondition(DefaultRetryCondition):
-  def should_retry(
-          self,
-          response,
-          err
-  ):
-      # type: (RESTResponse, Exception) -> bool
-      should_retry = super(CustomRetryCondition, self).should_retry(response, err)
-      #..................实现自己逻辑
+    def should_retry(
+        self,
+        response,
+        err
+    ):
+        # type: (RESTResponse, Exception) -> bool
+        should_retry = super(CustomRetryCondition, self).should_retry(response, err)
+        #..................实现自己逻辑
 
-      return False
+        return False
 ```
 
 ## 退避策略

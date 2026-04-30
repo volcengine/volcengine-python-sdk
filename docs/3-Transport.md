@@ -44,8 +44,8 @@ volcenginesdkcore.Configuration.set_default(configuration)
 
 # API-level runtime parameter settings, overrides global configuration
 runtime_options = RuntimeOption(
-  scheme="http",
-  client_side_validation=True, # Enable client-side validation, enabled by default
+    scheme="http",
+    client_side_validation=True, # Enable client-side validation, enabled by default
 )
 api_instance = volcenginesdkecs.ECSApi()
 create_command_request = volcenginesdkecs.CreateCommandRequest(
