@@ -33,15 +33,13 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'create_at': 'int',
-        'id': 'int',
+        'create_at': 'str',
+        'id': 'str',
         'speaker_desc': 'str',
-        'speaker_id': 'int',
+        'speaker_id': 'str',
         'speaker_name': 'str',
         'speaker_type': 'int',
-        'status': 'int',
-        'update_at': 'int',
-        'voices': 'list[VoiceForVideoEditorGetSpeakersOutput]'
+        'update_at': 'str'
     }
 
     attribute_map = {
@@ -51,12 +49,10 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
         'speaker_id': 'speakerId',
         'speaker_name': 'speakerName',
         'speaker_type': 'speakerType',
-        'status': 'status',
-        'update_at': 'updateAt',
-        'voices': 'voices'
+        'update_at': 'updateAt'
     }
 
-    def __init__(self, create_at=None, id=None, speaker_desc=None, speaker_id=None, speaker_name=None, speaker_type=None, status=None, update_at=None, voices=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_at=None, id=None, speaker_desc=None, speaker_id=None, speaker_name=None, speaker_type=None, update_at=None, _configuration=None):  # noqa: E501
         """SubTaskSpeakerForVideoEditorGetSpeakersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,9 +64,7 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
         self._speaker_id = None
         self._speaker_name = None
         self._speaker_type = None
-        self._status = None
         self._update_at = None
-        self._voices = None
         self.discriminator = None
 
         if create_at is not None:
@@ -85,12 +79,8 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
             self.speaker_name = speaker_name
         if speaker_type is not None:
             self.speaker_type = speaker_type
-        if status is not None:
-            self.status = status
         if update_at is not None:
             self.update_at = update_at
-        if voices is not None:
-            self.voices = voices
 
     @property
     def create_at(self):
@@ -98,7 +88,7 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
 
 
         :return: The create_at of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._create_at
 
@@ -108,7 +98,7 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
 
 
         :param create_at: The create_at of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._create_at = create_at
@@ -119,7 +109,7 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
 
 
         :return: The id of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._id
 
@@ -129,7 +119,7 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
 
 
         :param id: The id of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._id = id
@@ -161,7 +151,7 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
 
 
         :return: The speaker_id of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._speaker_id
 
@@ -171,7 +161,7 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
 
 
         :param speaker_id: The speaker_id of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._speaker_id = speaker_id
@@ -219,33 +209,12 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
         self._speaker_type = speaker_type
 
     @property
-    def status(self):
-        """Gets the status of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-
-
-        :return: The status of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.
-
-
-        :param status: The status of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._status = status
-
-    @property
     def update_at(self):
         """Gets the update_at of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
 
 
         :return: The update_at of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._update_at
 
@@ -255,31 +224,10 @@ class SubTaskSpeakerForVideoEditorGetSpeakersOutput(object):
 
 
         :param update_at: The update_at of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._update_at = update_at
-
-    @property
-    def voices(self):
-        """Gets the voices of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-
-
-        :return: The voices of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :rtype: list[VoiceForVideoEditorGetSpeakersOutput]
-        """
-        return self._voices
-
-    @voices.setter
-    def voices(self, voices):
-        """Sets the voices of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.
-
-
-        :param voices: The voices of this SubTaskSpeakerForVideoEditorGetSpeakersOutput.  # noqa: E501
-        :type: list[VoiceForVideoEditorGetSpeakersOutput]
-        """
-
-        self._voices = voices
 
     def to_dict(self):
         """Returns the model properties as a dict"""

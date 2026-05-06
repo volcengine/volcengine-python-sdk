@@ -35,7 +35,7 @@ class VideoEditorAddEmotionTagRequest(object):
     swagger_types = {
         'emotion_tag': 'str',
         'name': 'str',
-        'subtask_id': 'int'
+        'subtask_id': 'str'
     }
 
     attribute_map = {
@@ -111,7 +111,7 @@ class VideoEditorAddEmotionTagRequest(object):
 
 
         :return: The subtask_id of this VideoEditorAddEmotionTagRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._subtask_id
 
@@ -121,7 +121,7 @@ class VideoEditorAddEmotionTagRequest(object):
 
 
         :param subtask_id: The subtask_id of this VideoEditorAddEmotionTagRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and subtask_id is None:
             raise ValueError("Invalid value for `subtask_id`, must not be `None`")  # noqa: E501

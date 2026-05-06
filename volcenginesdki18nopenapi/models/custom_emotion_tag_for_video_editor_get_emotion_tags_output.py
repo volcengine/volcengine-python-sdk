@@ -33,14 +33,13 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'create_time': 'int',
+        'create_time': 'str',
         'emotion_tag': 'str',
-        'id': 'int',
+        'id': 'str',
         'name': 'str',
         'operator': 'str',
-        'task_id': 'int',
-        'type': 'int',
-        'voice_id': 'str'
+        'task_id': 'str',
+        'type': 'int'
     }
 
     attribute_map = {
@@ -50,11 +49,10 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
         'name': 'name',
         'operator': 'operator',
         'task_id': 'taskId',
-        'type': 'type',
-        'voice_id': 'voiceId'
+        'type': 'type'
     }
 
-    def __init__(self, create_time=None, emotion_tag=None, id=None, name=None, operator=None, task_id=None, type=None, voice_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, emotion_tag=None, id=None, name=None, operator=None, task_id=None, type=None, _configuration=None):  # noqa: E501
         """CustomEmotionTagForVideoEditorGetEmotionTagsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,7 +65,6 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
         self._operator = None
         self._task_id = None
         self._type = None
-        self._voice_id = None
         self.discriminator = None
 
         if create_time is not None:
@@ -84,8 +81,6 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
             self.task_id = task_id
         if type is not None:
             self.type = type
-        if voice_id is not None:
-            self.voice_id = voice_id
 
     @property
     def create_time(self):
@@ -93,7 +88,7 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
 
 
         :return: The create_time of this CustomEmotionTagForVideoEditorGetEmotionTagsOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._create_time
 
@@ -103,7 +98,7 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
 
 
         :param create_time: The create_time of this CustomEmotionTagForVideoEditorGetEmotionTagsOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._create_time = create_time
@@ -135,7 +130,7 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
 
 
         :return: The id of this CustomEmotionTagForVideoEditorGetEmotionTagsOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._id
 
@@ -145,7 +140,7 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
 
 
         :param id: The id of this CustomEmotionTagForVideoEditorGetEmotionTagsOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._id = id
@@ -198,7 +193,7 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
 
 
         :return: The task_id of this CustomEmotionTagForVideoEditorGetEmotionTagsOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._task_id
 
@@ -208,7 +203,7 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
 
 
         :param task_id: The task_id of this CustomEmotionTagForVideoEditorGetEmotionTagsOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._task_id = task_id
@@ -233,27 +228,6 @@ class CustomEmotionTagForVideoEditorGetEmotionTagsOutput(object):
         """
 
         self._type = type
-
-    @property
-    def voice_id(self):
-        """Gets the voice_id of this CustomEmotionTagForVideoEditorGetEmotionTagsOutput.  # noqa: E501
-
-
-        :return: The voice_id of this CustomEmotionTagForVideoEditorGetEmotionTagsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._voice_id
-
-    @voice_id.setter
-    def voice_id(self, voice_id):
-        """Sets the voice_id of this CustomEmotionTagForVideoEditorGetEmotionTagsOutput.
-
-
-        :param voice_id: The voice_id of this CustomEmotionTagForVideoEditorGetEmotionTagsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._voice_id = voice_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

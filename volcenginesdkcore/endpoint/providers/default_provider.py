@@ -495,6 +495,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'i18n_openapi': ServiceEndpointInfo(
+        service='i18n_openapi',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {
