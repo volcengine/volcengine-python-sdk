@@ -4,10 +4,9 @@ import uuid
 from datetime import datetime
 
 import dateutil.parser
+import dateutil.tz
 
-from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from .provider import Provider, CredentialValue
-import json
 
 
 class AssumeRoleSamlCredentials:
@@ -20,8 +19,29 @@ class AssumeRoleSamlCredentials:
 
 
 class StsSamlCredentialProvider(Provider):
-    def __init__(self, role_name, account_id, provider_name, saml_resp, duration_seconds=3600, scheme='https',
-                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60, policy=None):
+    """Obtains temporary credentials via STS AssumeRoleWithSAML.
+
+    Role TRN resolution:
+      - role_trn (explicit) takes priority.
+      - Otherwise falls back to role_name + account_id, which are
+        assembled into 'trn:iam::{account_id}:role/{role_name}'.
+      - If neither is resolvable, refresh() raises RuntimeError.
+
+    SAML Provider TRN resolution:
+      - saml_provider_trn (explicit) takes priority.
+      - Otherwise falls back to account_id + provider_name, which are
+        assembled into 'trn:iam::{account_id}:saml-provider/{provider_name}'.
+      - If account_id is missing but role_trn is provided, account_id is
+        parsed out of role_trn and combined with provider_name.
+      - If none of the above is resolvable, refresh() raises RuntimeError.
+    """
+
+    PROVIDER_NAME = "StsSamlCredentialProvider"
+
+    def __init__(self, role_name=None, account_id=None, provider_name=None, saml_resp=None,
+                 duration_seconds=3600, scheme='https',
+                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60,
+                 policy=None, role_trn=None, saml_provider_trn=None, max_retries=3, retry_interval=1):
         # self.ak = ak
         # self.sk = sk
         self.role_name = role_name
@@ -29,7 +49,30 @@ class StsSamlCredentialProvider(Provider):
         self.provider_name = provider_name
         self.saml_resp = saml_resp
 
+        # role_trn resolution: explicit > role_name + account_id
+        if role_trn:
+            self._role_trn = role_trn
+        elif role_name and account_id:
+            self._role_trn = 'trn:iam::' + account_id + ':role/' + role_name
+        else:
+            self._role_trn = None
+
+        # saml_provider_trn resolution:
+        # explicit > account_id + provider_name > (account_id parsed from role_trn) + provider_name
+        if saml_provider_trn:
+            self._saml_provider_trn = saml_provider_trn
+        elif provider_name:
+            resolved_account_id = account_id or self._extract_account_id_from_role_trn(self._role_trn)
+            if resolved_account_id:
+                self._saml_provider_trn = 'trn:iam::' + resolved_account_id + ':saml-provider/' + provider_name
+            else:
+                self._saml_provider_trn = None
+        else:
+            self._saml_provider_trn = None
+
         self.timeout = timeout
+        self.max_retries = max(max_retries, 1)
+        self.retry_interval = retry_interval
         self.duration_seconds = duration_seconds
 
         self.host = host
@@ -61,32 +104,62 @@ class StsSamlCredentialProvider(Provider):
         self.refresh()
         return self.credentials
 
+    @staticmethod
+    def _extract_account_id_from_role_trn(role_trn):
+        """Parse 'trn:iam::{account_id}:role/{role_name}' and return account_id, or None."""
+        if not role_trn:
+            return None
+        parts = role_trn.split(':')
+        # Expect: ['trn', 'iam', '', '{account_id}', 'role/{role_name}']
+        if len(parts) >= 4 and parts[0] == 'trn' and parts[1] == 'iam' and parts[3]:
+            return parts[3]
+        return None
+
     def _assume_role_saml(self):
+        if not self._role_trn:
+            raise RuntimeError(
+                "{}: role_trn not provided. Set role_trn or (role_name + account_id).".format(self.PROVIDER_NAME)
+            )
+        if not self._saml_provider_trn:
+            raise RuntimeError(
+                "{}: saml_provider_trn not provided. "
+                "Set saml_provider_trn, or (account_id + provider_name), "
+                "or (role_trn + provider_name).".format(self.PROVIDER_NAME)
+            )
+        if not self.saml_resp:
+            raise RuntimeError(
+                "{}: saml_resp is required.".format(self.PROVIDER_NAME)
+            )
+
         params = {
             'DurationSeconds': self.duration_seconds,
             'RoleSessionName': uuid.uuid4().hex,
-            'RoleTrn': 'trn:iam::' + self.account_id + ':role/' + self.role_name,
-            'SAMLProviderTrn': 'trn:iam::' + self.account_id + ':saml-provider/' + self.provider_name,
+            'RoleTrn': self._role_trn,
+            'SAMLProviderTrn': self._saml_provider_trn,
             'SAMLResp': self.saml_resp,
         }
         if self.policy is not None:
             params['Policy'] = self.policy
-        configuration = type.__call__(Configuration)
-
-        # configuration.ak = self.ak
-        # configuration.sk = self.sk
-        configuration.host = self.host
-        configuration.region = self.region
-        configuration.scheme = self.scheme
-        configuration.read_timeout = self.timeout
-        c = UniversalApi(ApiClient(configuration))
-        info = UniversalInfo(method='POST', service='sts', version='2018-01-01', action='AssumeRoleWithSAML',
-                             content_type='application/x-www-form-urlencoded')
-
-        resp, status_code, resp_header = c.do_call_with_http_info(info=info, body=params)
-        if 'Credentials' not in resp:
-            raise RuntimeError('failed to retrieve credentials from sts' + str(resp_header))
-        resp_cred = resp['Credentials']
+        from volcenginesdkcore import ApiClient, Configuration
+        resp_result = ApiClient(Configuration())._sts_call(
+            action='AssumeRoleWithSAML',
+            version='2018-01-01',
+            params=params,
+            host=self.host,
+            scheme=self.scheme,
+            region=self.region,
+            timeout=self.timeout,
+            max_retries=self.max_retries,
+            retry_interval=self.retry_interval,
+            provider_name=self.PROVIDER_NAME,
+        )
+        if 'Credentials' not in resp_result:
+            raise RuntimeError(
+                'failed to retrieve credentials from sts: {}:{}'.format(
+                    self.PROVIDER_NAME, str(resp_result)
+                )
+            )
+        resp_cred = resp_result['Credentials']
 
         # Parse the ISO string
         dt = dateutil.parser.parse(resp_cred['Expiration'])

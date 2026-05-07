@@ -501,6 +501,32 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'cloudmonitor': ServiceEndpointInfo(
+        service='cloudmonitor',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'cbr': ServiceEndpointInfo(
+        service='cbr',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+
+    'arkclaw': ServiceEndpointInfo(
+        service='arkclaw',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+
+    'i18n_openapi': ServiceEndpointInfo(
+        service='i18n_openapi',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {
