@@ -150,7 +150,7 @@ if __name__ == '__main__':
         duration_seconds=3600,  # 非必填，有效期默认3600秒
         scheme="https",  # 非必填，域名前缀，默认https
         host="sts.volcengineapi.com",  # 非必填，请求域名，默认sts.volcengineapi.com
-        region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-north-1
+        region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-beijing
         timeout=30,  # 非必填，请求超时时间，默认30秒
         expired_buffer_seconds=60, #非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
         policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' # 非必填，授权策略，默认为空
@@ -409,9 +409,13 @@ volcenginesdkcore.Configuration.set_default(configuration)
 
 ### ECS Role 凭证 Provider
 
+> 🚨 **当前版本限制**
+>
+> **当前版本暂不支持从 IMDS 自动探测角色名**，必须通过构造参数或 `VOLCENGINE_ECS_METADATA` 环境变量显式传入角色名。后续版本将支持自动探测，敬请关注版本发布通知。
+
 `EcsRoleCredentialProvider` 从 ECS IMDS 获取临时凭证：
 
-- `role_name` 优先级：构造参数 > `VOLCENGINE_ECS_METADATA` > 报错（不自动探测）
+- `role_name` 优先级：构造参数 > `VOLCENGINE_ECS_METADATA` > 从 IMDS 自动探测
 - 禁用开关：`VOLCENGINE_ECS_METADATA_DISABLED=true`
 
 ```python
