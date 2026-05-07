@@ -33,17 +33,97 @@ class TermBaseTermGroupsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'data': 'list[DataForTermBaseTermGroupsOutput]',
+        'pagination': 'PaginationForTermBaseTermGroupsOutput',
+        'total': 'int'
     }
 
     attribute_map = {
+        'data': 'data',
+        'pagination': 'pagination',
+        'total': 'total'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, pagination=None, total=None, _configuration=None):  # noqa: E501
         """TermBaseTermGroupsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._data = None
+        self._pagination = None
+        self._total = None
         self.discriminator = None
+
+        if data is not None:
+            self.data = data
+        if pagination is not None:
+            self.pagination = pagination
+        if total is not None:
+            self.total = total
+
+    @property
+    def data(self):
+        """Gets the data of this TermBaseTermGroupsResponse.  # noqa: E501
+
+
+        :return: The data of this TermBaseTermGroupsResponse.  # noqa: E501
+        :rtype: list[DataForTermBaseTermGroupsOutput]
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this TermBaseTermGroupsResponse.
+
+
+        :param data: The data of this TermBaseTermGroupsResponse.  # noqa: E501
+        :type: list[DataForTermBaseTermGroupsOutput]
+        """
+
+        self._data = data
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this TermBaseTermGroupsResponse.  # noqa: E501
+
+
+        :return: The pagination of this TermBaseTermGroupsResponse.  # noqa: E501
+        :rtype: PaginationForTermBaseTermGroupsOutput
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this TermBaseTermGroupsResponse.
+
+
+        :param pagination: The pagination of this TermBaseTermGroupsResponse.  # noqa: E501
+        :type: PaginationForTermBaseTermGroupsOutput
+        """
+
+        self._pagination = pagination
+
+    @property
+    def total(self):
+        """Gets the total of this TermBaseTermGroupsResponse.  # noqa: E501
+
+
+        :return: The total of this TermBaseTermGroupsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total
+
+    @total.setter
+    def total(self, total):
+        """Sets the total of this TermBaseTermGroupsResponse.
+
+
+        :param total: The total of this TermBaseTermGroupsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total = total
 
     def to_dict(self):
         """Returns the model properties as a dict"""

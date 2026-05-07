@@ -2,3 +2,7 @@ from .static_provider import StaticCredentialProvider
 from .sts_provider import StsCredentialProvider
 from .sts_oidc_provider import StsOidcCredentialProvider
 from .sts_saml_provider import StsSamlCredentialProvider
+from .env_provider import EnvironmentVariableCredentialProvider
+from .cli_config_provider import CLIConfigCredentialProvider
+from .ecs_role_provider import EcsRoleCredentialProvider
+from .default_provider import DefaultCredentialProvider

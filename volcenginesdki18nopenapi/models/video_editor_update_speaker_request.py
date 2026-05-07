@@ -33,9 +33,9 @@ class VideoEditorUpdateSpeakerRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
+        'id': 'str',
         'speaker_name': 'str',
-        'subtask_id': 'int'
+        'subtask_id': 'str'
     }
 
     attribute_map = {
@@ -65,7 +65,7 @@ class VideoEditorUpdateSpeakerRequest(object):
 
 
         :return: The id of this VideoEditorUpdateSpeakerRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._id
 
@@ -75,7 +75,7 @@ class VideoEditorUpdateSpeakerRequest(object):
 
 
         :param id: The id of this VideoEditorUpdateSpeakerRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and id is None:
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
@@ -111,7 +111,7 @@ class VideoEditorUpdateSpeakerRequest(object):
 
 
         :return: The subtask_id of this VideoEditorUpdateSpeakerRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._subtask_id
 
@@ -121,7 +121,7 @@ class VideoEditorUpdateSpeakerRequest(object):
 
 
         :param subtask_id: The subtask_id of this VideoEditorUpdateSpeakerRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and subtask_id is None:
             raise ValueError("Invalid value for `subtask_id`, must not be `None`")  # noqa: E501
