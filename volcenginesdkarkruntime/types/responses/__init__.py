@@ -12,6 +12,8 @@
 from __future__ import annotations
 
 from .tool import Tool as Tool
+from .session import Session as Session
+from .item_agent_tool_call import ItemAgentToolCall as ItemAgentToolCall
 from .response import Response as Response
 from .tool_param import ToolParam as ToolParam
 from .function_tool import FunctionTool as FunctionTool

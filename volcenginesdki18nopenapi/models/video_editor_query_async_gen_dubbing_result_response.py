@@ -33,97 +33,45 @@ class VideoEditorQueryAsyncGenDubbingResultResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'status': 'int',
-        'tos_url': 'str',
-        'tos_url_list': 'list[str]'
+        'data': 'DataForVideoEditorQueryAsyncGenDubbingResultOutput'
     }
 
     attribute_map = {
-        'status': 'status',
-        'tos_url': 'tosUrl',
-        'tos_url_list': 'tosUrlList'
+        'data': 'data'
     }
 
-    def __init__(self, status=None, tos_url=None, tos_url_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, _configuration=None):  # noqa: E501
         """VideoEditorQueryAsyncGenDubbingResultResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._status = None
-        self._tos_url = None
-        self._tos_url_list = None
+        self._data = None
         self.discriminator = None
 
-        if status is not None:
-            self.status = status
-        if tos_url is not None:
-            self.tos_url = tos_url
-        if tos_url_list is not None:
-            self.tos_url_list = tos_url_list
+        if data is not None:
+            self.data = data
 
     @property
-    def status(self):
-        """Gets the status of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
+    def data(self):
+        """Gets the data of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
 
 
-        :return: The status of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
-        :rtype: int
+        :return: The data of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
+        :rtype: DataForVideoEditorQueryAsyncGenDubbingResultOutput
         """
-        return self._status
+        return self._data
 
-    @status.setter
-    def status(self, status):
-        """Sets the status of this VideoEditorQueryAsyncGenDubbingResultResponse.
-
-
-        :param status: The status of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._status = status
-
-    @property
-    def tos_url(self):
-        """Gets the tos_url of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
+    @data.setter
+    def data(self, data):
+        """Sets the data of this VideoEditorQueryAsyncGenDubbingResultResponse.
 
 
-        :return: The tos_url of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._tos_url
-
-    @tos_url.setter
-    def tos_url(self, tos_url):
-        """Sets the tos_url of this VideoEditorQueryAsyncGenDubbingResultResponse.
-
-
-        :param tos_url: The tos_url of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
-        :type: str
+        :param data: The data of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
+        :type: DataForVideoEditorQueryAsyncGenDubbingResultOutput
         """
 
-        self._tos_url = tos_url
-
-    @property
-    def tos_url_list(self):
-        """Gets the tos_url_list of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
-
-
-        :return: The tos_url_list of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._tos_url_list
-
-    @tos_url_list.setter
-    def tos_url_list(self, tos_url_list):
-        """Sets the tos_url_list of this VideoEditorQueryAsyncGenDubbingResultResponse.
-
-
-        :param tos_url_list: The tos_url_list of this VideoEditorQueryAsyncGenDubbingResultResponse.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._tos_url_list = tos_url_list
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,11 +34,9 @@ class GetGtmResponse(object):
     """
     swagger_types = {
         'access_mode': 'str',
-        'address_type': 'str',
         'alarm_id': 'str',
         'cname': 'str',
         'create_time': 'str',
-        'created_time': 'str',
         'domain': 'str',
         'gtm_id': 'str',
         'last_operator': 'str',
@@ -50,17 +48,14 @@ class GetGtmResponse(object):
         'state': 'str',
         'ttl': 'int',
         'update_time': 'str',
-        'updated_time': 'str',
         'zone_type': 'str'
     }
 
     attribute_map = {
         'access_mode': 'AccessMode',
-        'address_type': 'AddressType',
         'alarm_id': 'AlarmId',
         'cname': 'Cname',
         'create_time': 'CreateTime',
-        'created_time': 'CreatedTime',
         'domain': 'Domain',
         'gtm_id': 'GtmId',
         'last_operator': 'LastOperator',
@@ -72,22 +67,19 @@ class GetGtmResponse(object):
         'state': 'State',
         'ttl': 'Ttl',
         'update_time': 'UpdateTime',
-        'updated_time': 'UpdatedTime',
         'zone_type': 'ZoneType'
     }
 
-    def __init__(self, access_mode=None, address_type=None, alarm_id=None, cname=None, create_time=None, created_time=None, domain=None, gtm_id=None, last_operator=None, owner=None, policy_type=None, project_name=None, remark=None, spec_name=None, state=None, ttl=None, update_time=None, updated_time=None, zone_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, alarm_id=None, cname=None, create_time=None, domain=None, gtm_id=None, last_operator=None, owner=None, policy_type=None, project_name=None, remark=None, spec_name=None, state=None, ttl=None, update_time=None, zone_type=None, _configuration=None):  # noqa: E501
         """GetGtmResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._access_mode = None
-        self._address_type = None
         self._alarm_id = None
         self._cname = None
         self._create_time = None
-        self._created_time = None
         self._domain = None
         self._gtm_id = None
         self._last_operator = None
@@ -99,22 +91,17 @@ class GetGtmResponse(object):
         self._state = None
         self._ttl = None
         self._update_time = None
-        self._updated_time = None
         self._zone_type = None
         self.discriminator = None
 
         if access_mode is not None:
             self.access_mode = access_mode
-        if address_type is not None:
-            self.address_type = address_type
         if alarm_id is not None:
             self.alarm_id = alarm_id
         if cname is not None:
             self.cname = cname
         if create_time is not None:
             self.create_time = create_time
-        if created_time is not None:
-            self.created_time = created_time
         if domain is not None:
             self.domain = domain
         if gtm_id is not None:
@@ -137,8 +124,6 @@ class GetGtmResponse(object):
             self.ttl = ttl
         if update_time is not None:
             self.update_time = update_time
-        if updated_time is not None:
-            self.updated_time = updated_time
         if zone_type is not None:
             self.zone_type = zone_type
 
@@ -162,27 +147,6 @@ class GetGtmResponse(object):
         """
 
         self._access_mode = access_mode
-
-    @property
-    def address_type(self):
-        """Gets the address_type of this GetGtmResponse.  # noqa: E501
-
-
-        :return: The address_type of this GetGtmResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._address_type
-
-    @address_type.setter
-    def address_type(self, address_type):
-        """Sets the address_type of this GetGtmResponse.
-
-
-        :param address_type: The address_type of this GetGtmResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._address_type = address_type
 
     @property
     def alarm_id(self):
@@ -246,27 +210,6 @@ class GetGtmResponse(object):
         """
 
         self._create_time = create_time
-
-    @property
-    def created_time(self):
-        """Gets the created_time of this GetGtmResponse.  # noqa: E501
-
-
-        :return: The created_time of this GetGtmResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._created_time
-
-    @created_time.setter
-    def created_time(self, created_time):
-        """Sets the created_time of this GetGtmResponse.
-
-
-        :param created_time: The created_time of this GetGtmResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._created_time = created_time
 
     @property
     def domain(self):
@@ -498,27 +441,6 @@ class GetGtmResponse(object):
         """
 
         self._update_time = update_time
-
-    @property
-    def updated_time(self):
-        """Gets the updated_time of this GetGtmResponse.  # noqa: E501
-
-
-        :return: The updated_time of this GetGtmResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._updated_time
-
-    @updated_time.setter
-    def updated_time(self, updated_time):
-        """Sets the updated_time of this GetGtmResponse.
-
-
-        :param updated_time: The updated_time of this GetGtmResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._updated_time = updated_time
 
     @property
     def zone_type(self):

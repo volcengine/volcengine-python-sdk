@@ -14,6 +14,12 @@ from typing import Union
 from typing_extensions import Annotated, TypeAlias
 
 from ..._utils import PropertyInfo
+from .response_agent_tool_call_completed_event import (
+    ResponseAgentToolCallCompletedEvent,
+)
+from .response_agent_tool_call_in_progress_event import (
+    ResponseAgentToolCallInProgressEvent,
+)
 from .response_completed_event import ResponseCompletedEvent
 from .response_content_part_added_event import ResponseContentPartAddedEvent
 from .response_content_part_done_event import ResponseContentPartDoneEvent
@@ -185,6 +191,8 @@ ResponseStreamEvent: TypeAlias = Annotated[
         ResponseDoubaoAppCallReasoningSearchCompletedEvent,
         ResponseDoubaoAppCallBlockAddedEvent,
         ResponseDoubaoAppCallBlockDoneEvent,
+        ResponseAgentToolCallInProgressEvent,
+        ResponseAgentToolCallCompletedEvent,
     ],
     PropertyInfo(discriminator="type"),
 ]

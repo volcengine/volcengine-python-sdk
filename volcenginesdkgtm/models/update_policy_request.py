@@ -58,8 +58,7 @@ class UpdatePolicyRequest(object):
         self.gtm_id = gtm_id
         if policy is not None:
             self.policy = policy
-        if policy_type is not None:
-            self.policy_type = policy_type
+        self.policy_type = policy_type
 
     @property
     def gtm_id(self):
@@ -123,6 +122,8 @@ class UpdatePolicyRequest(object):
         :param policy_type: The policy_type of this UpdatePolicyRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and policy_type is None:
+            raise ValueError("Invalid value for `policy_type`, must not be `None`")  # noqa: E501
 
         self._policy_type = policy_type
 
