@@ -1,0 +1,5 @@
+{
+  "description": "ARKCLAW: 新增 ResetClawOmniInstance；修改 GetClawOmniInstance, ListClawOmniInstances, CreateClawOmniInstance",
+  "modules": "service/arkclaw",
+  "type": "feature"
+}
