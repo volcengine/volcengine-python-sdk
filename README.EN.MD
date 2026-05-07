@@ -110,6 +110,8 @@ python setup.py install --user
 
 (Or `sudo python setup.py install` to install for all users)
 
+For detailed SDK documentation (credentials, endpoint, transport, timeout, retry, error handling, debugging), see: [SDK Integration Guide](./docs/0-Overview.md)
+
 ### Configuration Usage
 
 Step 1: initialize and configure global defaults
@@ -196,8 +198,6 @@ if __name__ == '__main__':
     except ApiException as e:
         print("Exception when calling ECSApi->run_instances: %s\n" % e)
 ```
-
-For more examples, see: [SDK Integration Guide](./SDK_Integration.md)
 
 ### FAQ
 
