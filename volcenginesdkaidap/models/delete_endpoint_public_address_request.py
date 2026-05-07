@@ -56,7 +56,8 @@ class DeleteEndpointPublicAddressRequest(object):
         self.discriminator = None
 
         self.branch_id = branch_id
-        self.endpoint_id = endpoint_id
+        if endpoint_id is not None:
+            self.endpoint_id = endpoint_id
         self.workspace_id = workspace_id
 
     @property
@@ -100,8 +101,6 @@ class DeleteEndpointPublicAddressRequest(object):
         :param endpoint_id: The endpoint_id of this DeleteEndpointPublicAddressRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and endpoint_id is None:
-            raise ValueError("Invalid value for `endpoint_id`, must not be `None`")  # noqa: E501
 
         self._endpoint_id = endpoint_id
 

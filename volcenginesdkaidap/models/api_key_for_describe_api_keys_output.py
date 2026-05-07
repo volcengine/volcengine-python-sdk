@@ -34,7 +34,6 @@ class APIKeyForDescribeAPIKeysOutput(object):
     """
     swagger_types = {
         'create_time': 'str',
-        'expire_time': 'str',
         'key': 'str',
         'name': 'str',
         'type': 'str'
@@ -42,20 +41,18 @@ class APIKeyForDescribeAPIKeysOutput(object):
 
     attribute_map = {
         'create_time': 'CreateTime',
-        'expire_time': 'ExpireTime',
         'key': 'Key',
         'name': 'Name',
         'type': 'Type'
     }
 
-    def __init__(self, create_time=None, expire_time=None, key=None, name=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, key=None, name=None, type=None, _configuration=None):  # noqa: E501
         """APIKeyForDescribeAPIKeysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._create_time = None
-        self._expire_time = None
         self._key = None
         self._name = None
         self._type = None
@@ -63,8 +60,6 @@ class APIKeyForDescribeAPIKeysOutput(object):
 
         if create_time is not None:
             self.create_time = create_time
-        if expire_time is not None:
-            self.expire_time = expire_time
         if key is not None:
             self.key = key
         if name is not None:
@@ -92,27 +87,6 @@ class APIKeyForDescribeAPIKeysOutput(object):
         """
 
         self._create_time = create_time
-
-    @property
-    def expire_time(self):
-        """Gets the expire_time of this APIKeyForDescribeAPIKeysOutput.  # noqa: E501
-
-
-        :return: The expire_time of this APIKeyForDescribeAPIKeysOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._expire_time
-
-    @expire_time.setter
-    def expire_time(self, expire_time):
-        """Sets the expire_time of this APIKeyForDescribeAPIKeysOutput.
-
-
-        :param expire_time: The expire_time of this APIKeyForDescribeAPIKeysOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._expire_time = expire_time
 
     @property
     def key(self):

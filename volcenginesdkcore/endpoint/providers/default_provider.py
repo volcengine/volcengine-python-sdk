@@ -495,6 +495,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'aidap': ServiceEndpointInfo(
+        service='aidap',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
     'gtm': ServiceEndpointInfo(
         service='gtm',
         is_global=True,
@@ -507,6 +513,7 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+
     'cbr': ServiceEndpointInfo(
         service='cbr',
         is_global=False,
