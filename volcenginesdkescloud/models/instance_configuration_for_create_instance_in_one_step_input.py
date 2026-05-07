@@ -472,7 +472,7 @@ class InstanceConfigurationForCreateInstanceInOneStepInput(object):
         :param version: The version of this InstanceConfigurationForCreateInstanceInOneStepInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["V6_7", "V7_10", "V7_TLS", "V7_BYTE", "OPEN_SEARCH_2_9"]  # noqa: E501
+        allowed_values = ["V6_7", "V6_8", "V7_10", "V8_18", "OPEN_SEARCH_2_9", "OPEN_SEARCH_3_3"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 version not in allowed_values):
             raise ValueError(

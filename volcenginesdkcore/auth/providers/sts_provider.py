@@ -19,13 +19,16 @@ class AssumeRoleCredentials:
 
 class StsCredentialProvider(Provider):
     def __init__(self, ak, sk, role_name, account_id, duration_seconds=3600, scheme='https',
-                 host='sts.volcengineapi.com', region='cn-north-1', timeout=30, expired_buffer_seconds=60, policy=None):
+                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60, policy=None,
+                 max_retries=3, retry_interval=1):
         self.ak = ak
         self.sk = sk
         self.role_name = role_name
         self.account_id = account_id
 
         self.timeout = timeout
+        self.max_retries = max(max_retries, 1)
+        self.retry_interval = retry_interval
         self.duration_seconds = duration_seconds
 
         self.host = host
@@ -72,6 +75,23 @@ class StsCredentialProvider(Provider):
         configuration.region = self.region
         configuration.scheme = self.scheme
         configuration.read_timeout = self.timeout
+
+        # Retry: apply provider-level retry semantics to this STS call only.
+        # Deep-copy the retryer so we don't mutate DEFAULT_RETRYER (module-level
+        # singleton shared across Configurations). Configuration exposes retryer
+        # via a getter-only property; swap the underlying __retryer via name
+        # mangling.
+        import copy
+        configuration._Configuration__retryer = copy.deepcopy(configuration.retryer)
+        # Provider semantics: max_retries = TOTAL attempts. Configuration
+        # semantics: num_max_retries = retries AFTER the initial attempt.
+        configuration.num_max_retries = max(self.max_retries - 1, 0)
+        # Provider retry_interval is seconds; Configuration uses ms.
+        # Collapse the exponential-backoff range to a fixed delay.
+        delay_ms = int(self.retry_interval * 1000)
+        configuration.min_retry_delay_ms = delay_ms
+        configuration.max_retry_delay_ms = delay_ms
+
         c = UniversalApi(ApiClient(configuration))
         info = UniversalInfo(method='GET', service='sts', version='2018-01-01', action='AssumeRole',
                              content_type='text/plain')

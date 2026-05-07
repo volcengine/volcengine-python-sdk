@@ -33,39 +33,70 @@ class DataForProjectUsersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'avatar': 'str',
         'create_at': 'str',
+        'name': 'str',
         'role': 'int',
         'updated_at': 'str',
-        'user_id': 'int'
+        'user_id': 'str'
     }
 
     attribute_map = {
+        'avatar': 'avatar',
         'create_at': 'createAt',
+        'name': 'name',
         'role': 'role',
         'updated_at': 'updatedAt',
         'user_id': 'userId'
     }
 
-    def __init__(self, create_at=None, role=None, updated_at=None, user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, avatar=None, create_at=None, name=None, role=None, updated_at=None, user_id=None, _configuration=None):  # noqa: E501
         """DataForProjectUsersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._avatar = None
         self._create_at = None
+        self._name = None
         self._role = None
         self._updated_at = None
         self._user_id = None
         self.discriminator = None
 
+        if avatar is not None:
+            self.avatar = avatar
         if create_at is not None:
             self.create_at = create_at
+        if name is not None:
+            self.name = name
         if role is not None:
             self.role = role
         if updated_at is not None:
             self.updated_at = updated_at
         if user_id is not None:
             self.user_id = user_id
+
+    @property
+    def avatar(self):
+        """Gets the avatar of this DataForProjectUsersOutput.  # noqa: E501
+
+
+        :return: The avatar of this DataForProjectUsersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._avatar
+
+    @avatar.setter
+    def avatar(self, avatar):
+        """Sets the avatar of this DataForProjectUsersOutput.
+
+
+        :param avatar: The avatar of this DataForProjectUsersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._avatar = avatar
 
     @property
     def create_at(self):
@@ -87,6 +118,27 @@ class DataForProjectUsersOutput(object):
         """
 
         self._create_at = create_at
+
+    @property
+    def name(self):
+        """Gets the name of this DataForProjectUsersOutput.  # noqa: E501
+
+
+        :return: The name of this DataForProjectUsersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this DataForProjectUsersOutput.
+
+
+        :param name: The name of this DataForProjectUsersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def role(self):
@@ -136,7 +188,7 @@ class DataForProjectUsersOutput(object):
 
 
         :return: The user_id of this DataForProjectUsersOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._user_id
 
@@ -146,7 +198,7 @@ class DataForProjectUsersOutput(object):
 
 
         :param user_id: The user_id of this DataForProjectUsersOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._user_id = user_id
