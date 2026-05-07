@@ -203,3 +203,6 @@ if __name__ == '__main__':
 
 For common issues when using the SDK, see [FAQ](FAQ.EN.md).
 
+## Security and privacy
+This project takes security seriously. 
+For vulnerability reporting and supported versions, see [SECURITY.md](SECURITY.md)
