@@ -60,7 +60,7 @@ except ApiException as e:
             print("Error Code: {}".format(response_meta_data.get("Error").get("Code")))
             print("Error Message: {}".format(response_meta_data.get("Error").get("Message")))
 except Exception as e:
-    print("4.其它错误:%s", e)
+    print("4.其它错误:%s" % e)
 ```
 
 ---
