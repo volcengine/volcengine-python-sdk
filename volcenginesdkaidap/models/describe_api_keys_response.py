@@ -33,24 +33,29 @@ class DescribeAPIKeysResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'api_keys': 'list[APIKeyForDescribeAPIKeysOutput]'
+        'api_keys': 'list[APIKeyForDescribeAPIKeysOutput]',
+        'total': 'int'
     }
 
     attribute_map = {
-        'api_keys': 'APIKeys'
+        'api_keys': 'APIKeys',
+        'total': 'Total'
     }
 
-    def __init__(self, api_keys=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_keys=None, total=None, _configuration=None):  # noqa: E501
         """DescribeAPIKeysResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._api_keys = None
+        self._total = None
         self.discriminator = None
 
         if api_keys is not None:
             self.api_keys = api_keys
+        if total is not None:
+            self.total = total
 
     @property
     def api_keys(self):
@@ -72,6 +77,27 @@ class DescribeAPIKeysResponse(object):
         """
 
         self._api_keys = api_keys
+
+    @property
+    def total(self):
+        """Gets the total of this DescribeAPIKeysResponse.  # noqa: E501
+
+
+        :return: The total of this DescribeAPIKeysResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total
+
+    @total.setter
+    def total(self, total):
+        """Sets the total of this DescribeAPIKeysResponse.
+
+
+        :param total: The total of this DescribeAPIKeysResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total = total
 
     def to_dict(self):
         """Returns the model properties as a dict"""

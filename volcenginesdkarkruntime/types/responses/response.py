@@ -22,6 +22,7 @@ from .response_incomplete_details import IncompleteDetails
 from .response_output_item import ResponseOutputItem
 from .response_text_config import ResponseTextConfig
 from .response_usage import ResponseUsage
+from .session import Session
 from .tool import Tool
 from .tool_choice_function import ToolChoiceFunction
 from .tool_choice_knowledge_search import ToolChoiceKnowledgeSearch
@@ -116,3 +117,5 @@ class Response(BaseModel):
 
     reasoning: Optional[Reasoning] = None
     """Configuration options for reasoning models"""
+
+    session: Optional[Session] = None

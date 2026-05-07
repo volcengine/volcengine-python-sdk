@@ -44,6 +44,7 @@ class CreateEventRuleRequest(object):
         'filter_pattern': 'dict(str, object)',
         'level': 'str',
         'message_queue': 'list[MessageQueueForCreateEventRuleInput]',
+        'notification_id': 'str',
         'notify_templates': 'list[NotifyTemplateForCreateEventRuleInput]',
         'rule_name': 'str',
         'status': 'str',
@@ -63,6 +64,7 @@ class CreateEventRuleRequest(object):
         'filter_pattern': 'FilterPattern',
         'level': 'Level',
         'message_queue': 'MessageQueue',
+        'notification_id': 'NotificationId',
         'notify_templates': 'NotifyTemplates',
         'rule_name': 'RuleName',
         'status': 'Status',
@@ -70,7 +72,7 @@ class CreateEventRuleRequest(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, contact_group_ids=None, contact_methods=None, description=None, effective_time=None, endpoint=None, event_bus_name=None, event_source=None, event_type=None, filter_pattern=None, level=None, message_queue=None, notify_templates=None, rule_name=None, status=None, tls_target=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, contact_group_ids=None, contact_methods=None, description=None, effective_time=None, endpoint=None, event_bus_name=None, event_source=None, event_type=None, filter_pattern=None, level=None, message_queue=None, notification_id=None, notify_templates=None, rule_name=None, status=None, tls_target=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """CreateEventRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class CreateEventRuleRequest(object):
         self._filter_pattern = None
         self._level = None
         self._message_queue = None
+        self._notification_id = None
         self._notify_templates = None
         self._rule_name = None
         self._status = None
@@ -113,6 +116,8 @@ class CreateEventRuleRequest(object):
         self.level = level
         if message_queue is not None:
             self.message_queue = message_queue
+        if notification_id is not None:
+            self.notification_id = notification_id
         if notify_templates is not None:
             self.notify_templates = notify_templates
         self.rule_name = rule_name
@@ -366,6 +371,27 @@ class CreateEventRuleRequest(object):
         """
 
         self._message_queue = message_queue
+
+    @property
+    def notification_id(self):
+        """Gets the notification_id of this CreateEventRuleRequest.  # noqa: E501
+
+
+        :return: The notification_id of this CreateEventRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._notification_id
+
+    @notification_id.setter
+    def notification_id(self, notification_id):
+        """Sets the notification_id of this CreateEventRuleRequest.
+
+
+        :param notification_id: The notification_id of this CreateEventRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._notification_id = notification_id
 
     @property
     def notify_templates(self):

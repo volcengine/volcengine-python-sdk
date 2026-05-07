@@ -33,35 +33,73 @@ class VideoTermBasesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'keyword': 'str',
         'limit': 'int',
         'offset': 'int',
         'project_id': 'str',
-        'target_project': 'str'
+        'target_project': 'str',
+        'term_base_id': 'str',
+        'term_base_type': 'int'
     }
 
     attribute_map = {
+        'keyword': 'keyword',
         'limit': 'limit',
         'offset': 'offset',
         'project_id': 'projectId',
-        'target_project': 'targetProject'
+        'target_project': 'targetProject',
+        'term_base_id': 'termBaseId',
+        'term_base_type': 'termBaseType'
     }
 
-    def __init__(self, limit=None, offset=None, project_id=None, target_project=None, _configuration=None):  # noqa: E501
+    def __init__(self, keyword=None, limit=None, offset=None, project_id=None, target_project=None, term_base_id=None, term_base_type=None, _configuration=None):  # noqa: E501
         """VideoTermBasesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._keyword = None
         self._limit = None
         self._offset = None
         self._project_id = None
         self._target_project = None
+        self._term_base_id = None
+        self._term_base_type = None
         self.discriminator = None
 
-        self.limit = limit
-        self.offset = offset
+        if keyword is not None:
+            self.keyword = keyword
+        if limit is not None:
+            self.limit = limit
+        if offset is not None:
+            self.offset = offset
         self.project_id = project_id
         self.target_project = target_project
+        if term_base_id is not None:
+            self.term_base_id = term_base_id
+        if term_base_type is not None:
+            self.term_base_type = term_base_type
+
+    @property
+    def keyword(self):
+        """Gets the keyword of this VideoTermBasesRequest.  # noqa: E501
+
+
+        :return: The keyword of this VideoTermBasesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._keyword
+
+    @keyword.setter
+    def keyword(self, keyword):
+        """Sets the keyword of this VideoTermBasesRequest.
+
+
+        :param keyword: The keyword of this VideoTermBasesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._keyword = keyword
 
     @property
     def limit(self):
@@ -81,8 +119,6 @@ class VideoTermBasesRequest(object):
         :param limit: The limit of this VideoTermBasesRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and limit is None:
-            raise ValueError("Invalid value for `limit`, must not be `None`")  # noqa: E501
 
         self._limit = limit
 
@@ -104,8 +140,6 @@ class VideoTermBasesRequest(object):
         :param offset: The offset of this VideoTermBasesRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and offset is None:
-            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
 
         self._offset = offset
 
@@ -154,6 +188,48 @@ class VideoTermBasesRequest(object):
             raise ValueError("Invalid value for `target_project`, must not be `None`")  # noqa: E501
 
         self._target_project = target_project
+
+    @property
+    def term_base_id(self):
+        """Gets the term_base_id of this VideoTermBasesRequest.  # noqa: E501
+
+
+        :return: The term_base_id of this VideoTermBasesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._term_base_id
+
+    @term_base_id.setter
+    def term_base_id(self, term_base_id):
+        """Sets the term_base_id of this VideoTermBasesRequest.
+
+
+        :param term_base_id: The term_base_id of this VideoTermBasesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._term_base_id = term_base_id
+
+    @property
+    def term_base_type(self):
+        """Gets the term_base_type of this VideoTermBasesRequest.  # noqa: E501
+
+
+        :return: The term_base_type of this VideoTermBasesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._term_base_type
+
+    @term_base_type.setter
+    def term_base_type(self, term_base_type):
+        """Sets the term_base_type of this VideoTermBasesRequest.
+
+
+        :param term_base_type: The term_base_type of this VideoTermBasesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._term_base_type = term_base_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

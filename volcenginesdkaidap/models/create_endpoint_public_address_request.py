@@ -59,8 +59,10 @@ class CreateEndpointPublicAddressRequest(object):
         self.discriminator = None
 
         self.branch_id = branch_id
-        self.eip_id = eip_id
-        self.endpoint_id = endpoint_id
+        if eip_id is not None:
+            self.eip_id = eip_id
+        if endpoint_id is not None:
+            self.endpoint_id = endpoint_id
         self.workspace_id = workspace_id
 
     @property
@@ -104,8 +106,6 @@ class CreateEndpointPublicAddressRequest(object):
         :param eip_id: The eip_id of this CreateEndpointPublicAddressRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and eip_id is None:
-            raise ValueError("Invalid value for `eip_id`, must not be `None`")  # noqa: E501
 
         self._eip_id = eip_id
 
@@ -127,8 +127,6 @@ class CreateEndpointPublicAddressRequest(object):
         :param endpoint_id: The endpoint_id of this CreateEndpointPublicAddressRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and endpoint_id is None:
-            raise ValueError("Invalid value for `endpoint_id`, must not be `None`")  # noqa: E501
 
         self._endpoint_id = endpoint_id
 

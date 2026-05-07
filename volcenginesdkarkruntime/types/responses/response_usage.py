@@ -27,6 +27,9 @@ class InputTokensDetails(BaseModel):
     audio_tokens: Optional[int] = None
     """The number of audio tokens consumed in the input."""
 
+    audio_cached_tokens: Optional[int] = None
+    """The number of audio tokens that were retrieved from the cache."""
+
 
 class OutputTokensDetails(BaseModel):
     reasoning_tokens: int

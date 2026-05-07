@@ -34,25 +34,36 @@ class DescribeAPIKeysRequest(object):
     """
     swagger_types = {
         'branch_id': 'str',
+        'limit': 'int',
+        'offset': 'int',
         'workspace_id': 'str'
     }
 
     attribute_map = {
         'branch_id': 'BranchId',
+        'limit': 'Limit',
+        'offset': 'Offset',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, branch_id=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, branch_id=None, limit=None, offset=None, workspace_id=None, _configuration=None):  # noqa: E501
         """DescribeAPIKeysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._branch_id = None
+        self._limit = None
+        self._offset = None
         self._workspace_id = None
         self.discriminator = None
 
-        self.branch_id = branch_id
+        if branch_id is not None:
+            self.branch_id = branch_id
+        if limit is not None:
+            self.limit = limit
+        if offset is not None:
+            self.offset = offset
         self.workspace_id = workspace_id
 
     @property
@@ -73,10 +84,50 @@ class DescribeAPIKeysRequest(object):
         :param branch_id: The branch_id of this DescribeAPIKeysRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and branch_id is None:
-            raise ValueError("Invalid value for `branch_id`, must not be `None`")  # noqa: E501
 
         self._branch_id = branch_id
+
+    @property
+    def limit(self):
+        """Gets the limit of this DescribeAPIKeysRequest.  # noqa: E501
+
+
+        :return: The limit of this DescribeAPIKeysRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._limit
+
+    @limit.setter
+    def limit(self, limit):
+        """Sets the limit of this DescribeAPIKeysRequest.
+
+
+        :param limit: The limit of this DescribeAPIKeysRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._limit = limit
+
+    @property
+    def offset(self):
+        """Gets the offset of this DescribeAPIKeysRequest.  # noqa: E501
+
+
+        :return: The offset of this DescribeAPIKeysRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._offset
+
+    @offset.setter
+    def offset(self, offset):
+        """Sets the offset of this DescribeAPIKeysRequest.
+
+
+        :param offset: The offset of this DescribeAPIKeysRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._offset = offset
 
     @property
     def workspace_id(self):

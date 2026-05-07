@@ -167,6 +167,10 @@ ServiceInfos = {
     "smc": ServiceInfo("smc", True),
     "livesaas": ServiceInfo("livesaas", True),
     "insight": ServiceInfo("insight", True),
+    "aidap": ServiceInfo("aidap", False),
+    "cbr": ServiceInfo("cbr", False),
+    "arkclaw": ServiceInfo("arkclaw", False),
+    "i18n_openapi": ServiceInfo("i18n_openapi", True),
 }
 
 

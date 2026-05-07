@@ -50,6 +50,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         'space_id': 'str',
         'status': 'str',
         'tags': 'list[TagForGetClawOmniInstanceOutput]',
+        'template_id': 'str',
         'updated_at': 'str'
     }
 
@@ -71,10 +72,11 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         'space_id': 'SpaceId',
         'status': 'Status',
         'tags': 'Tags',
+        'template_id': 'TemplateId',
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, cpu_milli=None, created_at=None, description=None, endpoint=None, expired_action=None, expired_at=None, id=None, image=None, internal_endpoint=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_milli=None, created_at=None, description=None, endpoint=None, expired_action=None, expired_at=None, id=None, image=None, internal_endpoint=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, status=None, tags=None, template_id=None, updated_at=None, _configuration=None):  # noqa: E501
         """ClawOmniInstanceForGetClawOmniInstanceOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +99,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         self._space_id = None
         self._status = None
         self._tags = None
+        self._template_id = None
         self._updated_at = None
         self.discriminator = None
 
@@ -134,6 +137,8 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
             self.status = status
         if tags is not None:
             self.tags = tags
+        if template_id is not None:
+            self.template_id = template_id
         if updated_at is not None:
             self.updated_at = updated_at
 
@@ -493,6 +498,27 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         """
 
         self._tags = tags
+
+    @property
+    def template_id(self):
+        """Gets the template_id of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+
+
+        :return: The template_id of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._template_id
+
+    @template_id.setter
+    def template_id(self, template_id):
+        """Sets the template_id of this ClawOmniInstanceForGetClawOmniInstanceOutput.
+
+
+        :param template_id: The template_id of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._template_id = template_id
 
     @property
     def updated_at(self):

@@ -33,71 +33,45 @@ class VideoEditorGetEmotionTagsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'built_in_emotion_tags': 'list[BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput]',
-        'custom_emotion_tags': 'list[CustomEmotionTagForVideoEditorGetEmotionTagsOutput]'
+        'data': 'DataForVideoEditorGetEmotionTagsOutput'
     }
 
     attribute_map = {
-        'built_in_emotion_tags': 'builtInEmotionTags',
-        'custom_emotion_tags': 'customEmotionTags'
+        'data': 'data'
     }
 
-    def __init__(self, built_in_emotion_tags=None, custom_emotion_tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, _configuration=None):  # noqa: E501
         """VideoEditorGetEmotionTagsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._built_in_emotion_tags = None
-        self._custom_emotion_tags = None
+        self._data = None
         self.discriminator = None
 
-        if built_in_emotion_tags is not None:
-            self.built_in_emotion_tags = built_in_emotion_tags
-        if custom_emotion_tags is not None:
-            self.custom_emotion_tags = custom_emotion_tags
+        if data is not None:
+            self.data = data
 
     @property
-    def built_in_emotion_tags(self):
-        """Gets the built_in_emotion_tags of this VideoEditorGetEmotionTagsResponse.  # noqa: E501
+    def data(self):
+        """Gets the data of this VideoEditorGetEmotionTagsResponse.  # noqa: E501
 
 
-        :return: The built_in_emotion_tags of this VideoEditorGetEmotionTagsResponse.  # noqa: E501
-        :rtype: list[BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput]
+        :return: The data of this VideoEditorGetEmotionTagsResponse.  # noqa: E501
+        :rtype: DataForVideoEditorGetEmotionTagsOutput
         """
-        return self._built_in_emotion_tags
+        return self._data
 
-    @built_in_emotion_tags.setter
-    def built_in_emotion_tags(self, built_in_emotion_tags):
-        """Sets the built_in_emotion_tags of this VideoEditorGetEmotionTagsResponse.
-
-
-        :param built_in_emotion_tags: The built_in_emotion_tags of this VideoEditorGetEmotionTagsResponse.  # noqa: E501
-        :type: list[BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput]
-        """
-
-        self._built_in_emotion_tags = built_in_emotion_tags
-
-    @property
-    def custom_emotion_tags(self):
-        """Gets the custom_emotion_tags of this VideoEditorGetEmotionTagsResponse.  # noqa: E501
+    @data.setter
+    def data(self, data):
+        """Sets the data of this VideoEditorGetEmotionTagsResponse.
 
 
-        :return: The custom_emotion_tags of this VideoEditorGetEmotionTagsResponse.  # noqa: E501
-        :rtype: list[CustomEmotionTagForVideoEditorGetEmotionTagsOutput]
-        """
-        return self._custom_emotion_tags
-
-    @custom_emotion_tags.setter
-    def custom_emotion_tags(self, custom_emotion_tags):
-        """Sets the custom_emotion_tags of this VideoEditorGetEmotionTagsResponse.
-
-
-        :param custom_emotion_tags: The custom_emotion_tags of this VideoEditorGetEmotionTagsResponse.  # noqa: E501
-        :type: list[CustomEmotionTagForVideoEditorGetEmotionTagsOutput]
+        :param data: The data of this VideoEditorGetEmotionTagsResponse.  # noqa: E501
+        :type: DataForVideoEditorGetEmotionTagsOutput
         """
 
-        self._custom_emotion_tags = custom_emotion_tags
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

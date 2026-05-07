@@ -35,6 +35,7 @@ class ModifyComputeSettingsRequest(object):
     swagger_types = {
         'auto_scaling_limit_max_cu': 'float',
         'auto_scaling_limit_min_cu': 'float',
+        'service_type': 'str',
         'suspend_timeout_seconds': 'int',
         'workspace_id': 'str'
     }
@@ -42,11 +43,12 @@ class ModifyComputeSettingsRequest(object):
     attribute_map = {
         'auto_scaling_limit_max_cu': 'AutoScalingLimitMaxCU',
         'auto_scaling_limit_min_cu': 'AutoScalingLimitMinCU',
+        'service_type': 'ServiceType',
         'suspend_timeout_seconds': 'SuspendTimeoutSeconds',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, suspend_timeout_seconds=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, service_type=None, suspend_timeout_seconds=None, workspace_id=None, _configuration=None):  # noqa: E501
         """ModifyComputeSettingsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,12 +56,15 @@ class ModifyComputeSettingsRequest(object):
 
         self._auto_scaling_limit_max_cu = None
         self._auto_scaling_limit_min_cu = None
+        self._service_type = None
         self._suspend_timeout_seconds = None
         self._workspace_id = None
         self.discriminator = None
 
         self.auto_scaling_limit_max_cu = auto_scaling_limit_max_cu
         self.auto_scaling_limit_min_cu = auto_scaling_limit_min_cu
+        if service_type is not None:
+            self.service_type = service_type
         if suspend_timeout_seconds is not None:
             self.suspend_timeout_seconds = suspend_timeout_seconds
         self.workspace_id = workspace_id
@@ -109,6 +114,34 @@ class ModifyComputeSettingsRequest(object):
             raise ValueError("Invalid value for `auto_scaling_limit_min_cu`, must not be `None`")  # noqa: E501
 
         self._auto_scaling_limit_min_cu = auto_scaling_limit_min_cu
+
+    @property
+    def service_type(self):
+        """Gets the service_type of this ModifyComputeSettingsRequest.  # noqa: E501
+
+
+        :return: The service_type of this ModifyComputeSettingsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_type
+
+    @service_type.setter
+    def service_type(self, service_type):
+        """Sets the service_type of this ModifyComputeSettingsRequest.
+
+
+        :param service_type: The service_type of this ModifyComputeSettingsRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Database", "Supabase"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                service_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `service_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(service_type, allowed_values)
+            )
+
+        self._service_type = service_type
 
     @property
     def suspend_timeout_seconds(self):

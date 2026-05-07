@@ -33,8 +33,8 @@ class VideoEditorSyncSpeakerToSubTaskRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'subtask_id': 'int'
+        'id': 'str',
+        'subtask_id': 'str'
     }
 
     attribute_map = {
@@ -61,7 +61,7 @@ class VideoEditorSyncSpeakerToSubTaskRequest(object):
 
 
         :return: The id of this VideoEditorSyncSpeakerToSubTaskRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._id
 
@@ -71,7 +71,7 @@ class VideoEditorSyncSpeakerToSubTaskRequest(object):
 
 
         :param id: The id of this VideoEditorSyncSpeakerToSubTaskRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and id is None:
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
@@ -84,7 +84,7 @@ class VideoEditorSyncSpeakerToSubTaskRequest(object):
 
 
         :return: The subtask_id of this VideoEditorSyncSpeakerToSubTaskRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._subtask_id
 
@@ -94,7 +94,7 @@ class VideoEditorSyncSpeakerToSubTaskRequest(object):
 
 
         :param subtask_id: The subtask_id of this VideoEditorSyncSpeakerToSubTaskRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and subtask_id is None:
             raise ValueError("Invalid value for `subtask_id`, must not be `None`")  # noqa: E501
