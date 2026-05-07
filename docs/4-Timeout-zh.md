@@ -2,14 +2,17 @@
 
 ---
 
-# 超时配置
+## 超时配置
+
 > **默认**
-> * `connect_timeout` - 30s
-> * `read_timeout` - 30s
+>
+> - `connect_timeout` - 30s
+> - `read_timeout` - 30s
 
 **代码示例：**
 
-支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。
+支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`；`RuntimeOption`设置会覆盖`configuration`全局配置。
+
 ```python
 import volcenginesdkcore,volcenginesdkecs
 from volcenginesdkcore.rest import ApiException

@@ -2,9 +2,11 @@
 
 ---
 
-# Debugging
+## Debugging
 
-## Enable Debug Mode
+To help with troubleshooting and debugging when handling requests, the SDK supports logging with multiple levels. Configure your logging settings based on your needs to get detailed request/response information and improve observability.
+
+### Enable Debug Mode
 
 ```python
 import volcenginesdkcore
@@ -15,7 +17,7 @@ configuration.debug = True
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## Set Debug Level
+### Set Debug Level
 
 ```python
 import volcenginesdkcore
@@ -29,7 +31,7 @@ configuration.log_level = LogLevel.LOG_DEBUG_WITH_CONFIG.mask | LogLevel.LOG_DEB
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-# Log Output
+### Log Output
 
 ```python
 import volcenginesdkcore

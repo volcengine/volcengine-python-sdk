@@ -2,11 +2,14 @@
 
 ---
 
-# 重试机制
+## 重试机制
 
-请求的处理逻辑内置了网络异常重试逻辑，即当遇到网络异常问题或限流错误时，系统会自动尝试重新发起请求，以确保服务的稳定性和可靠性。若请求因业务逻辑错误而报错，例如参数错误、资源不存在等情况，SDK将不会执行重试操作，这是因为业务层面的错误通常需要应用程序根据具体的错误信息做出相应的处理或调整，而非简单地重复尝试。
-## 重试代码配置
-支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。
+请求的处理逻辑内置了网络异常重试逻辑，即当遇到网络异常问题或限流错误时，系统会自动尝试重新发起请求，以确保服务的稳定性和可靠性。若请求因业务逻辑错误而报错，例如参数错误、资源不存在等情况，SDK 将不会执行重试操作，这是因为业务层面的错误通常需要应用程序根据具体的错误信息做出相应的处理或调整，而非简单地重复尝试。
+
+### 重试代码配置
+
+支持 `configuration` 级别全局配置和接口级别的运行时参数设置 `RuntimeOption`；`RuntimeOption` 设置会覆盖 `configuration` 全局配置。
+
 ```python
 import volcenginesdkcore,volcenginesdkecs
 from volcenginesdkcore.rest import ApiException
@@ -52,19 +55,26 @@ except ApiException as e:
 
 ```
 
-## 重试条件
-重试条件定义了哪些情况下需要进行重试。SDK内置了默认的重试条件，用户也可以根据自己的业务需求，自定义重试条件。
-### 默认重试条件
-默认重试条件`DefaultRetryCondition`，其中包含以下重试条件：
-1. 网络错误会进行重试
-2. 服务端限流错误会进行重试
-3. 包含客户自定义的错误码`retry_error_codes`
+### 重试条件
 
-### 自定义重试条件
+重试条件定义了哪些情况下需要进行重试。SDK 内置了默认的重试条件，用户也可以根据自己的业务需求，自定义重试条件。
+
+#### 默认重试条件
+
+默认重试条件 `DefaultRetryCondition`，其中包含以下重试条件：
+
+1. 网络错误会进行重试。
+2. 服务端限流错误会进行重试。
+3. 包含客户自定义的错误码 `retry_error_codes`。
+
+#### 自定义重试条件
+
 用户可以根据自己的业务需求，自定义重试条件。
 
 **代码示例：**
-1. 继承基类RetryCondition 实现def should_retry(self, response, err)
+
+1. 继承基类 `RetryCondition`，实现 `def should_retry(self, response, err)`：
+
 ```python
 from volcenginesdkcore.retryer.retry_condition import RetryCondition
 class CustomRetryCondition(RetryCondition):
@@ -79,7 +89,9 @@ class CustomRetryCondition(RetryCondition):
 
         return False
 ```
-2. 复用默认DefaultRetryCondition逻辑
+
+2. 复用默认 `DefaultRetryCondition` 逻辑：
+
 ```python
 from volcenginesdkcore.retryer.retry_condition import DefaultRetryCondition
 class CustomRetryCondition(DefaultRetryCondition):
@@ -95,22 +107,32 @@ class CustomRetryCondition(DefaultRetryCondition):
         return False
 ```
 
-## 退避策略
-退避策略定义了在重试时，每次重试之间的延迟时间。SDK内置了默认的退避策略，用户也可以根据自己的业务需求，自定义退避策略。
-> **默认**
-> * ExponentialWithRandomJitterBackoffStrategy
-### 内置退避策略
-| 策略名称 | 说明 | 公式（边界值：`min_retry_delay` 最小延迟时间，`max_retry_delay` 最大延迟时间）                                                     |
-| -------- | ---- |-------------------------------------------------------------------------------------|
-| `NoBackoffStrategy` | 不使用退避。每次重试立即执行，零延时。 | `delay=0.0`                                                                           |
-| `ExponentialBackoffStrategy` | 每次重试延时按 2ⁿ 级数增长，受最小/最大延时约束。可快速降低请求频率。 | `delay=min(min_retry_delay*2ⁿ, max_retry_delay)`                                      |
-| `ExponentialWithRandomJitterBackoffStrategy` |    在 [base, 2·base] 之间取值：始终 ≥ base，抖动幅度与基线等宽。 | `base = min(min_retry_delay · 2ⁿ,  max_retry_delay )`  <br/>`delay = base + U(0, base)` |
+### 退避策略
 
-### 自定义退避策略
+退避策略定义了在重试时，每次重试之间的延迟时间。SDK 内置了默认的退避策略，用户也可以根据自己的业务需求，自定义退避策略。
+
+> **默认**
+>
+> - `ExponentialWithRandomJitterBackoffStrategy`
+
+#### 内置退避策略
+
+边界值说明：`min_retry_delay` 最小延迟时间，`max_retry_delay` 最大延迟时间，`n` 为重试次数。
+
+| 策略名称 | 说明 | 公式 |
+|---|---|---|
+| `NoBackoffStrategy` | 不使用退避。每次重试立即执行，零延时。 | `delay = 0.0` |
+| `ExponentialBackoffStrategy` | 每次重试延时按 2ⁿ 级数增长，受最小/最大延时约束。可快速降低请求频率。 | `delay = min(min_retry_delay * 2ⁿ, max_retry_delay)` |
+| `ExponentialWithRandomJitterBackoffStrategy` | 在 `[base, 2·base]` 之间取值：始终 ≥ `base`，抖动幅度与基线等宽。 | `base = min(min_retry_delay · 2ⁿ, max_retry_delay)`<br/>`delay = base + U(0, base)` |
+
+#### 自定义退避策略
+
 用户可以根据自己的需求，自定义退避策略。
 
 **代码示例：**
-1. 继承基类`BackoffStrategy`，实现函数`def compute_delay(self, retry_count)`
+
+1. 继承基类 `BackoffStrategy`，实现函数 `def compute_delay(self, retry_count)`：
+
 ```python
 from volcenginesdkcore.retryer.backoff_strategy import BackoffStrategy
 class CustomBackoffStrategy(BackoffStrategy):
@@ -122,7 +144,9 @@ class CustomBackoffStrategy(BackoffStrategy):
         #.....实现自己逻辑
         return 0.0
 ```
-2. 也可以复用内置退避策略`ExponentialBackoffStrategy`或`ExponentialWithRandomJitterBackoffStrategy`
+
+2. 也可以复用内置退避策略 `ExponentialBackoffStrategy` 或 `ExponentialWithRandomJitterBackoffStrategy`：
+
 ```python
 from volcenginesdkcore.retryer.backoff_strategy import ExponentialBackoffStrategy
 class CustomBackoffStrategy(ExponentialBackoffStrategy):

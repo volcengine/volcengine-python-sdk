@@ -2,13 +2,15 @@
 
 ---
 
-# Http连接池配置
+## HTTP 连接池配置
 
 > **默认**
-> * `num_pools` - 4  最多支持的主机数量；适用场景：当你对同一主机发起多个并发请求时，应该增大此值
-> * `connection_pool_maxsize` - `multiprocessing.cpu_count() * 5` 每个主机最大连接数；适用场景：当你需要同时连接多个不同主机时，应该增大此值
+>
+> - `num_pools` - 4：最多支持的主机数量；适用场景：当你对同一主机发起多个并发请求时，应该增大此值
+> - `connection_pool_maxsize` - `multiprocessing.cpu_count() * 5`：每个主机最大连接数；适用场景：当你需要同时连接多个不同主机时，应该增大此值
 
 **代码示例：**
+
 ```python
 import volcenginesdkcore
 configuration = volcenginesdkcore.Configuration()
@@ -19,16 +21,18 @@ configuration.connection_pool_maxsize=10 # 每个主机最大连接数
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-# Https请求配置
+## HTTPS 请求配置
 
-## 指定scheme
+### 指定 scheme
 
 > **默认**
-> * `scheme` - `https`
+>
+> - `scheme` - `https`
 
 **代码示例：**
 
-支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。
+支持 `configuration` 级别全局配置和接口级别的运行时参数设置 `RuntimeOption`；`RuntimeOption` 设置会覆盖 `configuration` 全局配置。
+
 ```python
 import volcenginesdkcore,volcenginesdkecs
 from volcenginesdkcore.rest import ApiException
@@ -59,12 +63,30 @@ except ApiException as e:
     pass
 ```
 
-# Http(s)代理配置
+### 忽略 SSL 验证
 
-> - **默认**
->   无代理
+> **默认**
+>
+> - `verify_ssl` - `True`
 
-## 配置Http(s)代理
+**代码示例：**
+
+```python
+import volcenginesdkcore
+configuration = volcenginesdkcore.Configuration()
+configuration.ak = "Your ak"
+configuration.sk = "Your sk"
+configuration.verify_ssl=False # 忽略SSL验证
+volcenginesdkcore.Configuration.set_default(configuration)
+```
+
+## HTTP(S) 代理配置
+
+> **默认**
+>
+> - 无代理
+
+### 配置 HTTP(S) 代理
 
 ```python
 import volcenginesdkcore,volcenginesdkecs
@@ -80,30 +102,15 @@ volcenginesdkcore.Configuration.set_default(configuration)
 api_instance = volcenginesdkecs.ECSApi()
 ```
 
-## 注意事项
+### 注意事项
 
-支持通过以下环境变量配置代理:
+支持通过以下环境变量配置代理：
 
-http_proxy/HTTP_PROXY, https_proxy/HTTPS_PROXY, no_proxy/NO_PROXY
+- `http_proxy` / `HTTP_PROXY`
+- `https_proxy` / `HTTPS_PROXY`
+- `no_proxy` / `NO_PROXY`
 
-优先级：代码 > 环境变量
-
-
-## 忽略SSL验证
-
-> **默认**
-> * `verify_ssl` - `True`
-
-**代码示例：**
-
-```python
-import volcenginesdkcore
-configuration = volcenginesdkcore.Configuration()
-configuration.ak = "Your ak"
-configuration.sk = "Your sk"
-configuration.verify_ssl=False # 忽略SSL验证
-volcenginesdkcore.Configuration.set_default(configuration)
-```
+优先级：代码 > 环境变量。
 
 ---
 

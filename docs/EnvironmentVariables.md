@@ -2,13 +2,13 @@
 
 ---
 
-# Environment Variables
+## Environment Variables
 
 This page consolidates all credential-related environment variables supported by the SDK, for easy deployment / CI injection. Other categories (Region, TLS, etc.) can be appended here as new sections later.
 
-## How to Set
+### How to Set
 
-### Linux / macOS
+#### Linux / macOS
 
 Temporary (current shell only):
 
@@ -22,7 +22,7 @@ To persist, put the `export` lines in `~/.bashrc`, `~/.zshrc`, or your shell's s
 
 Verify with `echo $VOLCENGINE_ACCESS_KEY`.
 
-### Windows
+#### Windows
 
 Command line (run as Administrator):
 
@@ -38,9 +38,9 @@ GUI: **This PC** → right-click → **Properties** → **Advanced system settin
 
 Verify: open a new command prompt and run `echo %VOLCENGINE_ACCESS_KEY%`.
 
-## Credentials
+### Credentials
 
-### Basic AK/SK/Token
+#### Basic AK/SK/Token
 
 | Variable | Description | Required |
 |---|---|:-:|
@@ -48,7 +48,7 @@ Verify: open a new command prompt and run `echo %VOLCENGINE_ACCESS_KEY%`.
 | `VOLCENGINE_SECRET_KEY` | Secret Key | ✅ |
 | `VOLCENGINE_SESSION_TOKEN` | STS session token | ❌ |
 
-### OIDC (AssumeRoleWithOIDC)
+#### OIDC (AssumeRoleWithOIDC)
 
 | Variable | Description | Required |
 |---|---|:-:|
@@ -58,21 +58,21 @@ Verify: open a new command prompt and run `echo %VOLCENGINE_ACCESS_KEY%`.
 | `VOLCENGINE_OIDC_ROLE_POLICY` | Session policy JSON | ❌ |
 | `VOLCENGINE_OIDC_STS_ENDPOINT` | STS endpoint host | ❌ |
 
-### ECS IMDS
+#### ECS IMDS
 
 | Variable | Description |
 |---|---|
 | `VOLCENGINE_ECS_METADATA` | ECS instance role name; if unset, auto-discovered from IMDS |
 | `VOLCENGINE_ECS_METADATA_DISABLED` | Set to `true` to disable IMDS credential retrieval |
 
-### CLI Config File
+#### CLI Config File
 
 | Variable | Description |
 |---|---|
 | `VOLCENGINE_CLI_CONFIG_FILE` | Config file path; defaults to `~/.volcengine/config.json` |
 | `VOLCENGINE_PROFILE` | Profile name to use |
 
-### Legacy Compatibility Variables (`VOLCSTACK_*`)
+#### Legacy Compatibility Variables (`VOLCSTACK_*`)
 
 Early SDKs used the `VOLCSTACK_*` prefix. When the corresponding `VOLCENGINE_*` variable is unset, the following are used as fallbacks. **New code should use `VOLCENGINE_*` only.**
 
@@ -85,7 +85,7 @@ Early SDKs used the `VOLCSTACK_*` prefix. When the corresponding `VOLCENGINE_*` 
 
 > The Go SDK has a few additional legacy `VOLCSTACK_*` variables (shared-credentials file path, legacy AssumeRole settings, etc.) that are not listed here. Please migrate to the `VOLCENGINE_*` interfaces documented on this page.
 
-### Default Credential Chain
+#### Default Credential Chain
 
 When no credentials are explicitly configured, all four SDKs try the following providers in order; the first one that succeeds is used:
 
@@ -94,7 +94,7 @@ When no credentials are explicitly configured, all four SDKs try the following p
 3. CLI Config Provider (`~/.volcengine/config.json`)
 4. ECS IMDS Provider
 
-### Priority Summary
+#### Priority Summary
 
 | Item | Priority (high → low) |
 |---|---|
@@ -102,7 +102,7 @@ When no credentials are explicitly configured, all four SDKs try the following p
 | Profile | constructor arg > `VOLCENGINE_PROFILE` > `VOLCSTACK_PROFILE` (Go/PHP only) > `current` field in config > `default` |
 | ECS role name | constructor arg > `VOLCENGINE_ECS_METADATA` > IMDS auto-discovery |
 
-## See Also
+### See Also
 
 - [Credentials](1-Credentials.md) — Per-provider code-level usage
 

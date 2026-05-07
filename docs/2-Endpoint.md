@@ -2,12 +2,13 @@
 
 ---
 
-# Endpoint Configuration
-
-## Custom Endpoint
+## Endpoint Configuration
 
 > **Default**
-> * When no endpoint is specified, the SDK uses [Automatic Endpoint Resolution](#automatic-endpoint-resolution).
+>
+> If `Endpoint` is not specified, the SDK uses [Automatic Endpoint Resolution](#automatic-endpoint-resolution).
+
+### Custom Endpoint
 
 You can specify a custom endpoint when initializing the client:
 
@@ -20,7 +21,7 @@ configuration.host = "<example>.<regionId>.volcengineapi.com" # Custom Endpoint
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## Custom RegionId
+### Custom RegionId
 
 **Code Example:**
 
@@ -55,36 +56,38 @@ except ApiException as e:
     pass
 ```
 
-## Automatic Endpoint Resolution
+### Automatic Endpoint Resolution
 
 > **Default**
-> * Automatic resolution is enabled by default; no manual endpoint specification is needed.
+>
+> Automatic resolution is enabled by default; no manual endpoint specification is needed.
 
 To simplify user configuration, Volcengine provides a flexible automatic Endpoint resolution mechanism. Users do not need to manually specify service addresses; the SDK automatically constructs a reasonable access address based on the service name, region, and other information, and supports user-defined DualStack (dual-stack) settings.
 
-### Default Endpoint Resolution
+#### Default Endpoint Resolution
 
-**Default Endpoint Resolution Logic**
+##### Resolution Logic
 
 1. **Whether to auto-resolve the Region**
-Built-in auto-resolution region list reference: [`./volcenginesdkcore/endpoint/providers/default_provider.py#bootstrap_region`](./volcenginesdkcore/endpoint/providers/default_provider.py#L458).
-The SDK only performs automatic resolution for certain preset regions (e.g., `cn-beijing-autodriving`, `ap-southeast-2`) or user-configured regions; other regions default to the endpoint: `open.volcengineapi.com`.
-Users can extend the region list via the environment variable `VOLC_BOOTSTRAP_REGION_LIST_CONF` or by specifying `custom_bootstrap_region` in code.
+
+    Built-in auto-resolution region list reference: [`./volcenginesdkcore/endpoint/providers/default_provider.py#bootstrap_region`](./volcenginesdkcore/endpoint/providers/default_provider.py#L458).
+
+    The SDK only performs automatic resolution for certain preset regions (e.g., `cn-beijing-autodriving`, `ap-southeast-2`) or user-configured regions; other regions default to the endpoint: `open.volcengineapi.com`.
+
+    Users can extend the region list via the environment variable `VOLC_BOOTSTRAP_REGION_LIST_CONF` or by specifying `custom_bootstrap_region` in code.
 
 2. **DualStack Support (IPv6)**
-The SDK supports dual-stack network (IPv4 + IPv6) access addresses. Automatic enabling conditions:
-Explicitly pass the `use_dual_stack` parameter, or set the environment variable `VOLC_ENABLE_DUALSTACK`. Priority: `use_dual_stack` > `VOLC_ENABLE_DUALSTACK`.
-When enabled, the domain suffix switches from `volcengineapi.com` to `volcengine-api.com`.
 
-3. **Endpoint construction based on service name and region**, with the following rules:
-**Global services (e.g., CDN, IAM)**
-Use `<ServiceName>.volcengineapi.com` (or `volcengine-api.com` when dual-stack is enabled).
-Example: `cdn.volcengineapi.com`
-**Regional services (e.g., ECS, RDS)**
-Use `<ServiceName>.<Region>.volcengineapi.com` as the default endpoint.
-Example: `ecs.cn-beijing.volcengineapi.com`
+    The SDK supports dual-stack network (IPv4 + IPv6) access addresses. Automatic enabling conditions: explicitly pass the `use_dual_stack` parameter, or set the environment variable `VOLC_ENABLE_DUALSTACK`. Priority: `use_dual_stack` > `VOLC_ENABLE_DUALSTACK`.
 
-**Code Example:**
+    When enabled, the domain suffix switches from `volcengineapi.com` to `volcengine-api.com`.
+
+3. **Endpoint construction based on service name and region**
+
+    - **Global services (e.g., `CDN`, `IAM`)**: Use `<ServiceName>.volcengineapi.com` (or `volcengine-api.com` when dual-stack is enabled). Example: `cdn.volcengineapi.com`.
+    - **Regional services (e.g., `ECS`, `RDS`)**: Use `<ServiceName>.<Region>.volcengineapi.com` as the default endpoint. Example: `ecs.cn-beijing.volcengineapi.com`.
+
+##### Code Example
 
 ```python
 import volcenginesdkcore
@@ -99,9 +102,9 @@ configuration.custom_bootstrap_region = {
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-### Standard Endpoint Resolution
+#### Standard Endpoint Resolution
 
-**Standard Resolution Rules**
+##### Resolution Rules
 
 | Global Service | DualStack | Format |
 |---|---|---|
@@ -110,10 +113,9 @@ volcenginesdkcore.Configuration.set_default(configuration)
 | No | Yes | `{Service}.{region}.volcengine-api.com` |
 | No | No | `{Service}.{region}.volcengineapi.com` |
 
-**Code Example:**
+Whether a service is global is determined by the service itself and cannot be modified. Reference list: [`./volcenginesdkcore/endpoint/providers/standard_provider.py#ServiceInfos`](./volcenginesdkcore/endpoint/providers/standard_provider.py#L51).
 
-Whether a service is global depends on the specific service being called and cannot be modified.
-Reference list: [`./volcenginesdkcore/endpoint/providers/standard_provider.py#ServiceInfos`](./volcenginesdkcore/endpoint/providers/standard_provider.py#L51).
+##### Code Example
 
 ```python
 import volcenginesdkcore

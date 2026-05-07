@@ -2,11 +2,11 @@
 
 ---
 
-# Error Handling
+## Error Handling
 
 When calling APIs, different types of errors may be returned. You can adopt targeted handling strategies based on the specific error type and error code. For example, you can retry on network errors, and adjust parameters or fix business logic for business errors, thereby improving system robustness and user experience.
 
-Error Classification:
+### Error Classification
 
 | Error Type | Description | Returned Error Type | Notes |
 |---|---|---|---|
@@ -15,7 +15,7 @@ Error Classification:
 | `3. Server Error` | Request reaches the server, returns a business logic error | `volcenginesdkcore.rest.ApiException` | status != 0 indicates a server-side error |
 | `4. Other Errors` | Any other errors not covered above | `Exception` | Catch-all error handling |
 
-**Code Example:**
+### Code Example
 
 ```python
 import json

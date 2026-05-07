@@ -2,11 +2,11 @@
 
 ---
 
-# Credentials
+## Credentials
 
 The Volcengine Python SDK supports explicit credentials and `CredentialProvider`-based automatic resolution.
 
-## Credential Providers Overview
+### Credential Providers Overview
 
 | Provider | Purpose | Refresh Support | Typical Scenario |
 | --- | --- | --- | --- |
@@ -19,11 +19,11 @@ The Volcengine Python SDK supports explicit credentials and `CredentialProvider`
 | `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
 | `DefaultCredentialProvider` | Chain wrapper | Depends on delegated provider | No AK/SK in application code |
 
-## AK/SK
+### AK/SK
 
 AK/SK is a pair of permanent access keys created in the Volcengine console. The SDK signs each request to authenticate.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Do not embed or expose AK/SK in client-side applications.
 > 2. Use a configuration center or environment variables.
@@ -65,11 +65,11 @@ except ApiException:
     pass
 ```
 
-## STS Token
+### STS Token
 
 STS (Security Token Service) provides temporary credentials (temporary AK/SK and Token).
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Least privilege.
 > 2. Use a reasonable TTL. Shorter is safer; avoid exceeding 1 hour.
@@ -110,7 +110,7 @@ except ApiException:
     pass
 ```
 
-## STS AssumeRole
+### STS AssumeRole
 
 STS AssumeRole obtains temporary credentials by assuming an IAM role. Use the role credentials to perform actual API calls.
 
@@ -155,7 +155,7 @@ if __name__ == '__main__':
         pass
 ```
 
-## STS AssumeRoleWithOidc
+### STS AssumeRoleWithOidc
 
 STS AssumeRoleWithOidc obtains temporary credentials via an OIDC token.
 
@@ -234,7 +234,7 @@ configuration.credential_provider = StsOidcCredentialProvider()
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## STS AssumeRoleWithSaml
+### STS AssumeRoleWithSaml
 
 STS AssumeRoleWithSaml obtains temporary credentials via a SAML assertion.
 
@@ -295,7 +295,7 @@ if __name__ == '__main__':
         pass
 ```
 
-## Environment Variable Credential Provider
+### Environment Variable Credential Provider
 
 `EnvironmentVariableCredentialProvider` reads credentials from:
 
@@ -317,7 +317,7 @@ configuration.credential_provider = EnvironmentVariableCredentialProvider()
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## CLI Config Credential Provider
+### CLI Config Credential Provider
 
 `CLIConfigCredentialProvider` reads `~/.volcengine/config.json` by default.
 
@@ -350,7 +350,7 @@ configuration.credential_provider = CLIConfigCredentialProvider(
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## ECS Role Credential Provider
+### ECS Role Credential Provider
 
 `EcsRoleCredentialProvider` reads temporary credentials from ECS IMDS.
 
@@ -367,7 +367,7 @@ configuration.credential_provider = EcsRoleCredentialProvider(role_name="your-ec
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## Default Credential Provider
+### Default Credential Provider
 
 When `ak`, `sk`, and `credential_provider` are all unset, the SDK automatically uses `DefaultCredentialProvider` — no manual configuration is needed.
 

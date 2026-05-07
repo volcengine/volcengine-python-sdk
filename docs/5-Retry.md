@@ -2,11 +2,11 @@
 
 ---
 
-# Retries
+## Retries
 
 The SDK retries on network errors and throttling. Business logic errors are not retried.
 
-## Retry Code Configuration
+### Retry Code Configuration
 
 ```python
 import volcenginesdkcore
@@ -26,9 +26,9 @@ configuration.retry_error_codes = {"AccessDenied"}
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## Retry Conditions
+### Retry Conditions
 
-### Default Retry Conditions
+#### Default Retry Conditions
 
 The default retry condition includes:
 
@@ -36,7 +36,7 @@ The default retry condition includes:
 2. Retry on server throttling errors.
 3. Retry on user-specified error codes (`retry_error_codes`).
 
-### Custom Retry Conditions
+#### Custom Retry Conditions
 
 1. Implement your own retry condition:
 
@@ -60,17 +60,17 @@ class CustomRetryCondition(DefaultRetryCondition):
         return False
 ```
 
-## Backoff Strategy
+### Backoff Strategy
 
-### Built-in Backoff Strategies
+#### Built-in Backoff Strategies
 
 | Name | Description | Formula |
 |---|---|---|
-| `NoBackoffStrategy` | No backoff, retry immediately | `delay=0.0` |
-| `ExponentialBackoffStrategy` | Exponential backoff with bounds | `delay=min(min_retry_delay*2^n, max_retry_delay)` |
-| `ExponentialWithRandomJitterBackoffStrategy` | Exponential with jitter | `base=min(min_retry_delay*2^n, max_retry_delay)`; `delay=base+U(0,base)` |
+| `NoBackoffStrategy` | No backoff, retry immediately | `delay = 0.0` |
+| `ExponentialBackoffStrategy` | Exponential backoff with bounds | `delay = min(min_retry_delay * 2ⁿ, max_retry_delay)` |
+| `ExponentialWithRandomJitterBackoffStrategy` | Exponential with jitter | `base = min(min_retry_delay · 2ⁿ, max_retry_delay)`<br/>`delay = base + U(0, base)` |
 
-### Custom Backoff Strategies
+#### Custom Backoff Strategies
 
 1. Implement your own strategy:
 

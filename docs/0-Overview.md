@@ -2,16 +2,16 @@ Overview[(中文)](0-Overview-zh.md) | [Credentials →](1-Credentials.md)
 
 ---
 
-# SDK Integration
+## SDK Integration
 
 When calling APIs, it is recommended to integrate the SDK in your project. Using the SDK simplifies development, speeds up integration, and reduces long-term maintenance costs.
 
-# Requirements
+## Requirements
 
 1. Python version **>= 2.7**.
 2. If using Ark runtime (`volcenginesdkarkruntime`), Python version **>= 3.6** is required.
 
-# Table of Contents
+## Table of Contents
 
 1. [Credentials](1-Credentials.md) — AK/SK, STS, AssumeRole, OIDC, SAML, ECS Role, Default Chain
 2. [Endpoint Configuration](2-Endpoint.md) — Custom Endpoint, RegionId, Automatic Resolution

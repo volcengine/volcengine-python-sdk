@@ -2,11 +2,11 @@
 
 ---
 
-# 访问凭据
+## 访问凭据
 
 为保障资源访问安全，火山引擎 Python SDK 支持显式凭证和 `CredentialProvider` 自动解析两种方式。
 
-## CredentialProvider 总览
+### CredentialProvider 总览
 
 | Provider | 用途 | 是否自动刷新 | 典型场景 |
 | --- | --- | --- | --- |
@@ -19,11 +19,11 @@
 | `EcsRoleCredentialProvider` | 读取 ECS IMDS | 是 | ECS 实例角色 |
 | `DefaultCredentialProvider` | 默认链包装 | 取决于代理 Provider | 业务代码不写 AK/SK |
 
-## AK、SK设置
+### AK、SK设置
 
 AK/SK 是由火山引擎用户在控制台创建的一对永久访问密钥。SDK 使用该密钥对每次请求进行签名，从而完成身份验证。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
 > 1. 不得在客户端嵌入或暴露 AK/SK。
 > 2. 推荐使用配置中心或环境变量存储密钥。
@@ -31,7 +31,8 @@ AK/SK 是由火山引擎用户在控制台创建的一对永久访问密钥。SD
 
 **代码示例：**
 
-支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。
+支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`；`RuntimeOption`设置会覆盖`configuration`全局配置。
+
 ```python
 import volcenginesdkcore,volcenginesdkecs
 from volcenginesdkcore.rest import ApiException
@@ -64,18 +65,19 @@ except ApiException as e:
     pass
 ```
 
-## STS Token设置
+### STS Token设置
 
 STS（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
 > 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
 
-支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。
+支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`；`RuntimeOption`设置会覆盖`configuration`全局配置。
 
 **代码示例：**
+
 ```python
 import volcenginesdkcore,volcenginesdkecs
 from volcenginesdkcore.rest import ApiException
@@ -109,19 +111,21 @@ try:
 except ApiException as e:
     pass
 ```
-## STS AssumeRole示例
+
+### STS AssumeRole示例
 
 STS AssumeRole（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
-<br>
-此接口使用IAM子账号角色进行 AssumeRole 操作后，获取到IAM子用户的信息后，发起真正的API请求，参考如下
-<br>
-连接地址：https://www.volcengine.com/docs/6257/86374
-> ⚠️ 注意事项
+
+此接口使用IAM子账号角色进行 AssumeRole 操作后，获取到IAM子用户的信息后，发起真正的 API 请求，参考如下：
+
+参考文档：https://www.volcengine.com/docs/6257/86374
+
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
 > 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
 
-支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。
+支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`；`RuntimeOption`设置会覆盖`configuration`全局配置。
 
 **代码示例：**
 
@@ -149,7 +153,7 @@ if __name__ == '__main__':
         region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-north-1
         timeout=30,  # 非必填，请求超时时间，默认30秒
         expired_buffer_seconds=60, #非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
-        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}}' # 非必填，授权策略，默认为空
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' # 非必填，授权策略，默认为空
     )
 
     # set default configuration
@@ -170,19 +174,20 @@ if __name__ == '__main__':
         pass
 ```
 
-## STS AssumeRoleWithOidc示例
+### STS AssumeRoleWithOidc示例
 
 STS AssumeRoleOIDC（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过oidc_token在服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
-<br>
-此接口使用oidc身份提供商角色使用oidc_token进行 AssumeRoleWithOidc 操作后，获取到用户的信息后，发起真正的API请求，参考如下
-<br>
-连接地址：https://www.volcengine.com/docs/6257/1494877
-> ⚠️ 注意事项
+
+此接口使用oidc身份提供商角色使用oidc_token进行 AssumeRoleWithOidc 操作后，获取到用户的信息后，发起真正的 API 请求，参考如下：
+
+参考文档：https://www.volcengine.com/docs/6257/1494877
+
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
 > 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
 
-支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。
+支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`；`RuntimeOption`设置会覆盖`configuration`全局配置。
 
 当前 SDK 的 OIDC 只有一个实现：`StsOidcCredentialProvider`。
 
@@ -226,7 +231,7 @@ if __name__ == '__main__':
         region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-beijing
         timeout=30,  # 非必填，请求超时时间，默认30秒
         expired_buffer_seconds=60,  # 非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
-        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}}', # 非必填，授权策略，默认为空
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}', # 非必填，授权策略，默认为空
         max_retries=3,     # 非必填，HTTP 重试次数（最小 1），默认 3
         retry_interval=1,  # 非必填，重试间隔秒数，默认 1
     )
@@ -266,19 +271,20 @@ configuration.credential_provider = StsOidcCredentialProvider()
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## STS AssumeRoleWithSaml示例
+### STS AssumeRoleWithSaml示例
 
 STS AssumeRoleWithSaml（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过saml_token在服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
-<br>
-此接口使用saml身份提供商角色使用saml_resp进行 AssumeRoleWithSaml 操作后，获取到用户的信息后，发起真正的API请求，参考如下
-<br>
-连接地址：https://www.volcengine.com/docs/6257/1631607
-> ⚠️ 注意事项
+
+此接口使用saml身份提供商角色使用saml_resp进行 AssumeRoleWithSaml 操作后，获取到用户的信息后，发起真正的 API 请求，参考如下：
+
+参考文档：https://www.volcengine.com/docs/6257/1631607
+
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
 > 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
 
-支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。
+支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`；`RuntimeOption`设置会覆盖`configuration`全局配置。
 
 角色 TRN 的解析优先级（与 OIDC 一致）：
 
@@ -292,6 +298,7 @@ SAML Provider TRN 的解析优先级：
 - 如果只传 `role_trn + provider_name`，会从 `role_trn` 解析出 `account_id`，再和 `provider_name` 拼接。
 
 **代码示例：**
+
 ```python
 # Example Code generated by Beijing Volcanoengine Technology.
 from __future__ import print_function
@@ -321,7 +328,7 @@ if __name__ == '__main__':
         region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-beijing
         timeout=30,  # 非必填，请求超时时间，默认30秒
         expired_buffer_seconds=60,  # 非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
-        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}}', # 非必填，授权策略，默认为空
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}', # 非必填，授权策略，默认为空
         max_retries=3,     # 非必填，HTTP 重试次数（最小 1），默认 3
         retry_interval=1,  # 非必填，重试间隔秒数，默认 1
     )
@@ -345,7 +352,7 @@ if __name__ == '__main__':
 
 ```
 
-## 环境变量凭证 Provider
+### 环境变量凭证 Provider
 
 `EnvironmentVariableCredentialProvider` 读取以下环境变量：
 
@@ -367,7 +374,7 @@ configuration.credential_provider = EnvironmentVariableCredentialProvider()
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## CLI 配置凭证 Provider
+### CLI 配置凭证 Provider
 
 `CLIConfigCredentialProvider` 默认读取 `~/.volcengine/config.json`。
 
@@ -400,7 +407,7 @@ configuration.credential_provider = CLIConfigCredentialProvider(
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## ECS Role 凭证 Provider
+### ECS Role 凭证 Provider
 
 `EcsRoleCredentialProvider` 从 ECS IMDS 获取临时凭证：
 
@@ -417,7 +424,7 @@ configuration.credential_provider = EcsRoleCredentialProvider(role_name="your-ec
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## 默认凭证 Provider
+### 默认凭证 Provider
 
 当 `ak`、`sk` 和 `credential_provider` 均未设置时，SDK 自动使用 `DefaultCredentialProvider`，无需手动配置。
 

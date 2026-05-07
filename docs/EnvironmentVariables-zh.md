@@ -2,13 +2,13 @@
 
 ---
 
-# 环境变量
+## 环境变量
 
 本页集中列出 SDK 支持的所有 credential 相关环境变量，便于部署/CI 环境注入。后续如需新增其他类别（Region、TLS 等），可直接追加章节。
 
-## 设置方法
+### 设置方法
 
-### Linux / macOS
+#### Linux / macOS
 
 临时（当前 shell 生效）：
 
@@ -22,7 +22,7 @@ export VOLCENGINE_SESSION_TOKEN=your-session-token
 
 校验：`echo $VOLCENGINE_ACCESS_KEY` 返回预期值即设置成功。
 
-### Windows
+#### Windows
 
 命令行（以管理员身份运行）：
 
@@ -38,9 +38,9 @@ setx VOLCENGINE_SESSION_TOKEN your-session-token /M
 
 校验：新开命令提示符执行 `echo %VOLCENGINE_ACCESS_KEY%`。
 
-## Credentials
+### Credentials
 
-### 基础 AK/SK/Token
+#### 基础 AK/SK/Token
 
 | 变量 | 说明 | 必填 |
 |---|---|:-:|
@@ -48,7 +48,7 @@ setx VOLCENGINE_SESSION_TOKEN your-session-token /M
 | `VOLCENGINE_SECRET_KEY` | Secret Key | ✅ |
 | `VOLCENGINE_SESSION_TOKEN` | STS 临时凭证 Session Token | ❌ |
 
-### OIDC（AssumeRoleWithOIDC）
+#### OIDC（AssumeRoleWithOIDC）
 
 | 变量 | 说明 | 必填 |
 |---|---|:-:|
@@ -58,21 +58,21 @@ setx VOLCENGINE_SESSION_TOKEN your-session-token /M
 | `VOLCENGINE_OIDC_ROLE_POLICY` | 会话权限策略 JSON | ❌ |
 | `VOLCENGINE_OIDC_STS_ENDPOINT` | STS 域名 | ❌ |
 
-### ECS IMDS
+#### ECS IMDS
 
 | 变量 | 说明 |
 |---|---|
 | `VOLCENGINE_ECS_METADATA` | 指定 ECS 实例角色名；不设置则从 IMDS 自动探测 |
 | `VOLCENGINE_ECS_METADATA_DISABLED` | 设为 `true` 禁用 IMDS 凭证获取 |
 
-### CLI 配置文件
+#### CLI 配置文件
 
 | 变量 | 说明 |
 |---|---|
 | `VOLCENGINE_CLI_CONFIG_FILE` | 配置文件路径，默认 `~/.volcengine/config.json` |
 | `VOLCENGINE_PROFILE` | 使用的 profile 名 |
 
-### 历史兼容变量（`VOLCSTACK_*`）
+#### 历史兼容变量（`VOLCSTACK_*`）
 
 早期 SDK 使用 `VOLCSTACK_*` 前缀。当同名 `VOLCENGINE_*` 变量未设置时，下列变量会作为 fallback 生效。**新代码请统一使用 `VOLCENGINE_*`。**
 
@@ -85,7 +85,7 @@ setx VOLCENGINE_SESSION_TOKEN your-session-token /M
 
 > Go SDK 另有少量历史遗留 `VOLCSTACK_*` 变量（共享凭证文件路径、AssumeRole 角色等），未列入本页；建议迁移到本页列出的 `VOLCENGINE_*` 接口。
 
-### 默认凭证链顺序
+#### 默认凭证链顺序
 
 未显式配置凭证时，四端 SDK 均按以下顺序依次尝试，首个成功的 Provider 生效：
 
@@ -94,7 +94,7 @@ setx VOLCENGINE_SESSION_TOKEN your-session-token /M
 3. CLI 配置 Provider（`~/.volcengine/config.json`）
 4. ECS IMDS Provider
 
-### 优先级总表
+#### 优先级总表
 
 | 项 | 优先级（高 → 低） |
 |---|---|
@@ -102,7 +102,7 @@ setx VOLCENGINE_SESSION_TOKEN your-session-token /M
 | Profile | 构造参数 > `VOLCENGINE_PROFILE` > `VOLCSTACK_PROFILE`（仅 Go/PHP）> 配置中的 `current` > `default` |
 | ECS Role 名称 | 构造参数 > `VOLCENGINE_ECS_METADATA` > IMDS 自动探测 |
 
-## 相关文档
+### 相关文档
 
 - [访问凭据](1-Credentials-zh.md) — 各 Provider 的代码级用法
 

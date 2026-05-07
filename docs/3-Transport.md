@@ -2,9 +2,10 @@
 
 ---
 
-# HTTP Connection Pool
+## HTTP Connection Pool
 
 > **Default**
+>
 > - `num_pools`: 4 — Maximum number of hosts supported; increase this when making concurrent requests to the same host.
 > - `connection_pool_maxsize`: `multiprocessing.cpu_count() * 5` — Maximum connections per host; increase this when connecting to many different hosts simultaneously.
 
@@ -20,11 +21,13 @@ configuration.connection_pool_maxsize = 10 # Maximum connections per host
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-# HTTPS Request Configuration
+## HTTPS Request Configuration
 
-## Specify Scheme
+### Specify Scheme
 
-> **Default**: `scheme=https`
+> **Default**
+>
+> - `scheme`: `https`
 
 **Code Example:**
 
@@ -61,12 +64,30 @@ except ApiException as e:
     pass
 ```
 
-# HTTP(S) Proxy
+### Ignore SSL Verification
 
 > **Default**
-> No proxy.
+>
+> - `verify_ssl`: `True`
 
-## Configure HTTP(S) Proxy
+**Code Example:**
+
+```python
+import volcenginesdkcore
+configuration = volcenginesdkcore.Configuration()
+configuration.ak = "Your ak"
+configuration.sk = "Your sk"
+configuration.verify_ssl = False # Ignore SSL verification
+volcenginesdkcore.Configuration.set_default(configuration)
+```
+
+## HTTP(S) Proxy
+
+> **Default**
+>
+> - No proxy
+
+### Configure HTTP(S) Proxy
 
 ```python
 import volcenginesdkcore, volcenginesdkecs
@@ -82,28 +103,15 @@ volcenginesdkcore.Configuration.set_default(configuration)
 api_instance = volcenginesdkecs.ECSApi()
 ```
 
-## Notes
+### Notes
 
 Supported environment variables for proxy configuration:
 
-- `http_proxy`/`HTTP_PROXY`, `https_proxy`/`HTTPS_PROXY`, `no_proxy`/`NO_PROXY`
+- `http_proxy` / `HTTP_PROXY`
+- `https_proxy` / `HTTPS_PROXY`
+- `no_proxy` / `NO_PROXY`
 
 Priority: code > environment variables.
-
-## Ignore SSL Verification
-
-> **Default**: `verify_ssl=True`
-
-**Code Example:**
-
-```python
-import volcenginesdkcore
-configuration = volcenginesdkcore.Configuration()
-configuration.ak = "Your ak"
-configuration.sk = "Your sk"
-configuration.verify_ssl = False # Ignore SSL verification
-volcenginesdkcore.Configuration.set_default(configuration)
-```
 
 ---
 

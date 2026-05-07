@@ -2,9 +2,10 @@
 
 ---
 
-# Timeouts
+## Timeouts
 
 > **Default**
+>
 > - `connect_timeout`: 30s
 > - `read_timeout`: 30s
 
