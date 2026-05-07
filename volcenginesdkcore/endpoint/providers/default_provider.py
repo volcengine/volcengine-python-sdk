@@ -495,6 +495,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'insight': ServiceEndpointInfo(
+        service='insight',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
     'aidap': ServiceEndpointInfo(
         service='aidap',
         is_global=False,

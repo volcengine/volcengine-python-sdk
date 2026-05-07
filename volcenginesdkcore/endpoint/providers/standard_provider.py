@@ -166,6 +166,7 @@ ServiceInfos = {
     "eco_partner": ServiceInfo("eco_partner", True),
     "smc": ServiceInfo("smc", True),
     "livesaas": ServiceInfo("livesaas", True),
+    "insight": ServiceInfo("insight", True),
     "aidap": ServiceInfo("aidap", False),
     "cbr": ServiceInfo("cbr", False),
     "arkclaw": ServiceInfo("arkclaw", False),
