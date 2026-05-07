@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 # ECS IMDSv2 endpoint and protocol
 _IMDS_ENDPOINT = "http://100.96.0.96"
 _IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/{role_name}"  # GET
-_IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?fetchuserrole=true"  # GET
+_IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user&format=json"  # GET
 _IMDS_TOKEN_PATH = "/latest/api/token"  # PUT
 
 # ECS IMDSv2 headers
