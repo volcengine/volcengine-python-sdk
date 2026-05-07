@@ -33,8 +33,8 @@ class VideoEditorDeleteSpeakerRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'subtask_id': 'int',
+        'id': 'str',
+        'subtask_id': 'str',
         'type': 'int'
     }
 
@@ -57,8 +57,7 @@ class VideoEditorDeleteSpeakerRequest(object):
 
         self.id = id
         self.subtask_id = subtask_id
-        if type is not None:
-            self.type = type
+        self.type = type
 
     @property
     def id(self):
@@ -66,7 +65,7 @@ class VideoEditorDeleteSpeakerRequest(object):
 
 
         :return: The id of this VideoEditorDeleteSpeakerRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._id
 
@@ -76,7 +75,7 @@ class VideoEditorDeleteSpeakerRequest(object):
 
 
         :param id: The id of this VideoEditorDeleteSpeakerRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and id is None:
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
@@ -89,7 +88,7 @@ class VideoEditorDeleteSpeakerRequest(object):
 
 
         :return: The subtask_id of this VideoEditorDeleteSpeakerRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._subtask_id
 
@@ -99,7 +98,7 @@ class VideoEditorDeleteSpeakerRequest(object):
 
 
         :param subtask_id: The subtask_id of this VideoEditorDeleteSpeakerRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self._configuration.client_side_validation and subtask_id is None:
             raise ValueError("Invalid value for `subtask_id`, must not be `None`")  # noqa: E501
@@ -124,6 +123,8 @@ class VideoEditorDeleteSpeakerRequest(object):
         :param type: The type of this VideoEditorDeleteSpeakerRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

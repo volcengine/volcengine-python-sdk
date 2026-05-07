@@ -34,44 +34,61 @@ class TermBaseTermGroupsRequest(object):
     """
     swagger_types = {
         'case_sensitive': 'int',
+        'keyword': 'str',
         'limit': 'int',
         'offset': 'int',
+        'sort_locale': 'str',
         'sort_type': 'int',
         'sorting': 'int',
+        'tags': 'str',
         'term_base_id': 'str'
     }
 
     attribute_map = {
         'case_sensitive': 'caseSensitive',
+        'keyword': 'keyword',
         'limit': 'limit',
         'offset': 'offset',
+        'sort_locale': 'sortLocale',
         'sort_type': 'sortType',
         'sorting': 'sorting',
+        'tags': 'tags',
         'term_base_id': 'termBaseId'
     }
 
-    def __init__(self, case_sensitive=None, limit=None, offset=None, sort_type=None, sorting=None, term_base_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, case_sensitive=None, keyword=None, limit=None, offset=None, sort_locale=None, sort_type=None, sorting=None, tags=None, term_base_id=None, _configuration=None):  # noqa: E501
         """TermBaseTermGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._case_sensitive = None
+        self._keyword = None
         self._limit = None
         self._offset = None
+        self._sort_locale = None
         self._sort_type = None
         self._sorting = None
+        self._tags = None
         self._term_base_id = None
         self.discriminator = None
 
         if case_sensitive is not None:
             self.case_sensitive = case_sensitive
-        self.limit = limit
-        self.offset = offset
+        if keyword is not None:
+            self.keyword = keyword
+        if limit is not None:
+            self.limit = limit
+        if offset is not None:
+            self.offset = offset
+        if sort_locale is not None:
+            self.sort_locale = sort_locale
         if sort_type is not None:
             self.sort_type = sort_type
         if sorting is not None:
             self.sorting = sorting
+        if tags is not None:
+            self.tags = tags
         self.term_base_id = term_base_id
 
     @property
@@ -96,6 +113,27 @@ class TermBaseTermGroupsRequest(object):
         self._case_sensitive = case_sensitive
 
     @property
+    def keyword(self):
+        """Gets the keyword of this TermBaseTermGroupsRequest.  # noqa: E501
+
+
+        :return: The keyword of this TermBaseTermGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._keyword
+
+    @keyword.setter
+    def keyword(self, keyword):
+        """Sets the keyword of this TermBaseTermGroupsRequest.
+
+
+        :param keyword: The keyword of this TermBaseTermGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._keyword = keyword
+
+    @property
     def limit(self):
         """Gets the limit of this TermBaseTermGroupsRequest.  # noqa: E501
 
@@ -113,8 +151,6 @@ class TermBaseTermGroupsRequest(object):
         :param limit: The limit of this TermBaseTermGroupsRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and limit is None:
-            raise ValueError("Invalid value for `limit`, must not be `None`")  # noqa: E501
 
         self._limit = limit
 
@@ -136,10 +172,29 @@ class TermBaseTermGroupsRequest(object):
         :param offset: The offset of this TermBaseTermGroupsRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and offset is None:
-            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
 
         self._offset = offset
+
+    @property
+    def sort_locale(self):
+        """Gets the sort_locale of this TermBaseTermGroupsRequest.  # noqa: E501
+
+
+        :return: The sort_locale of this TermBaseTermGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_locale
+
+    @sort_locale.setter
+    def sort_locale(self, sort_locale):
+        """Sets the sort_locale of this TermBaseTermGroupsRequest.
+
+
+        :param sort_locale: The sort_locale of this TermBaseTermGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_locale = sort_locale
 
     @property
     def sort_type(self):
@@ -182,6 +237,27 @@ class TermBaseTermGroupsRequest(object):
         """
 
         self._sorting = sorting
+
+    @property
+    def tags(self):
+        """Gets the tags of this TermBaseTermGroupsRequest.  # noqa: E501
+
+
+        :return: The tags of this TermBaseTermGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this TermBaseTermGroupsRequest.
+
+
+        :param tags: The tags of this TermBaseTermGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._tags = tags
 
     @property
     def term_base_id(self):

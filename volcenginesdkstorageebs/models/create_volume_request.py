@@ -33,6 +33,7 @@ class CreateVolumeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'burst_enabled': 'bool',
         'client_token': 'str',
         'delete_protection': 'bool',
         'delete_protection_retention_days': 'int',
@@ -55,6 +56,7 @@ class CreateVolumeRequest(object):
     }
 
     attribute_map = {
+        'burst_enabled': 'BurstEnabled',
         'client_token': 'ClientToken',
         'delete_protection': 'DeleteProtection',
         'delete_protection_retention_days': 'DeleteProtectionRetentionDays',
@@ -76,12 +78,13 @@ class CreateVolumeRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, delete_protection=None, delete_protection_retention_days=None, description=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, instance_id=None, kind=None, placement_group_id=None, project_name=None, size=None, snapshot_id=None, subgroup_number=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, burst_enabled=None, client_token=None, delete_protection=None, delete_protection_retention_days=None, description=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, instance_id=None, kind=None, placement_group_id=None, project_name=None, size=None, snapshot_id=None, subgroup_number=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._burst_enabled = None
         self._client_token = None
         self._delete_protection = None
         self._delete_protection_retention_days = None
@@ -103,6 +106,8 @@ class CreateVolumeRequest(object):
         self._zone_id = None
         self.discriminator = None
 
+        if burst_enabled is not None:
+            self.burst_enabled = burst_enabled
         if client_token is not None:
             self.client_token = client_token
         if delete_protection is not None:
@@ -138,6 +143,27 @@ class CreateVolumeRequest(object):
         self.volume_type = volume_type
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def burst_enabled(self):
+        """Gets the burst_enabled of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The burst_enabled of this CreateVolumeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._burst_enabled
+
+    @burst_enabled.setter
+    def burst_enabled(self, burst_enabled):
+        """Sets the burst_enabled of this CreateVolumeRequest.
+
+
+        :param burst_enabled: The burst_enabled of this CreateVolumeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._burst_enabled = burst_enabled
 
     @property
     def client_token(self):

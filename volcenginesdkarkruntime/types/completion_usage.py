@@ -22,6 +22,8 @@ class PromptTokensDetails(BaseModel):
     """Number of tokens provisioned in the prompt."""
     audio_tokens: Optional[int] = None
     """Number of audio tokens in the prompt."""
+    audio_cached_tokens: Optional[int] = None
+    """Number of audio tokens hit cache."""
 
 
 class CompletionTokensDetails(BaseModel):
