@@ -39,9 +39,7 @@ class DataForProjectsOutput(object):
         'id': 'str',
         'name': 'str',
         'source_lang': 'str',
-        'source_locale': 'str',
         'target_langs': 'list[str]',
-        'target_locales': 'list[str]',
         'updated_at': 'str'
     }
 
@@ -52,13 +50,11 @@ class DataForProjectsOutput(object):
         'id': 'id',
         'name': 'name',
         'source_lang': 'sourceLang',
-        'source_locale': 'sourceLocale',
         'target_langs': 'targetLangs',
-        'target_locales': 'targetLocales',
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, comment=None, created_at=None, creator=None, id=None, name=None, source_lang=None, source_locale=None, target_langs=None, target_locales=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, comment=None, created_at=None, creator=None, id=None, name=None, source_lang=None, target_langs=None, updated_at=None, _configuration=None):  # noqa: E501
         """DataForProjectsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,9 +66,7 @@ class DataForProjectsOutput(object):
         self._id = None
         self._name = None
         self._source_lang = None
-        self._source_locale = None
         self._target_langs = None
-        self._target_locales = None
         self._updated_at = None
         self.discriminator = None
 
@@ -88,12 +82,8 @@ class DataForProjectsOutput(object):
             self.name = name
         if source_lang is not None:
             self.source_lang = source_lang
-        if source_locale is not None:
-            self.source_locale = source_locale
         if target_langs is not None:
             self.target_langs = target_langs
-        if target_locales is not None:
-            self.target_locales = target_locales
         if updated_at is not None:
             self.updated_at = updated_at
 
@@ -224,27 +214,6 @@ class DataForProjectsOutput(object):
         self._source_lang = source_lang
 
     @property
-    def source_locale(self):
-        """Gets the source_locale of this DataForProjectsOutput.  # noqa: E501
-
-
-        :return: The source_locale of this DataForProjectsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_locale
-
-    @source_locale.setter
-    def source_locale(self, source_locale):
-        """Sets the source_locale of this DataForProjectsOutput.
-
-
-        :param source_locale: The source_locale of this DataForProjectsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._source_locale = source_locale
-
-    @property
     def target_langs(self):
         """Gets the target_langs of this DataForProjectsOutput.  # noqa: E501
 
@@ -264,27 +233,6 @@ class DataForProjectsOutput(object):
         """
 
         self._target_langs = target_langs
-
-    @property
-    def target_locales(self):
-        """Gets the target_locales of this DataForProjectsOutput.  # noqa: E501
-
-
-        :return: The target_locales of this DataForProjectsOutput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._target_locales
-
-    @target_locales.setter
-    def target_locales(self, target_locales):
-        """Sets the target_locales of this DataForProjectsOutput.
-
-
-        :param target_locales: The target_locales of this DataForProjectsOutput.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._target_locales = target_locales
 
     @property
     def updated_at(self):

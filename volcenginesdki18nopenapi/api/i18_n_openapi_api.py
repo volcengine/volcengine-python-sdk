@@ -7287,13 +7287,13 @@ class I18NOPENAPIApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/VideoEditorAddEmotionTag/2021-05-21/i18n_openapi/get/text_plain/', 'GET',
+            '/VideoEditorAddEmotionTag/2021-05-21/i18n_openapi/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -7384,13 +7384,13 @@ class I18NOPENAPIApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/VideoEditorAddSpeaker/2021-05-21/i18n_openapi/get/text_plain/', 'GET',
+            '/VideoEditorAddSpeaker/2021-05-21/i18n_openapi/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -7398,6 +7398,200 @@ class I18NOPENAPIApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='VideoEditorAddSpeakerResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_editor_add_subtitle(self, body, **kwargs):  # noqa: E501
+        """video_editor_add_subtitle  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_add_subtitle(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorAddSubtitleRequest body: (required)
+        :return: VideoEditorAddSubtitleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_editor_add_subtitle_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.video_editor_add_subtitle_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def video_editor_add_subtitle_with_http_info(self, body, **kwargs):  # noqa: E501
+        """video_editor_add_subtitle  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_add_subtitle_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorAddSubtitleRequest body: (required)
+        :return: VideoEditorAddSubtitleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_editor_add_subtitle" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `video_editor_add_subtitle`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/VideoEditorAddSubtitle/2021-05-21/i18n_openapi/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VideoEditorAddSubtitleResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_editor_ai_mtby_segment(self, body, **kwargs):  # noqa: E501
+        """video_editor_ai_mtby_segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_ai_mtby_segment(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorAiMTBySegmentRequest body: (required)
+        :return: VideoEditorAiMTBySegmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_editor_ai_mtby_segment_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.video_editor_ai_mtby_segment_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def video_editor_ai_mtby_segment_with_http_info(self, body, **kwargs):  # noqa: E501
+        """video_editor_ai_mtby_segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_ai_mtby_segment_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorAiMTBySegmentRequest body: (required)
+        :return: VideoEditorAiMTBySegmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_editor_ai_mtby_segment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `video_editor_ai_mtby_segment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/VideoEditorAiMTBySegment/2021-05-21/i18n_openapi/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VideoEditorAiMTBySegmentResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7502,6 +7696,200 @@ class I18NOPENAPIApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def video_editor_batch_add_subtitle(self, body, **kwargs):  # noqa: E501
+        """video_editor_batch_add_subtitle  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_batch_add_subtitle(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorBatchAddSubtitleRequest body: (required)
+        :return: VideoEditorBatchAddSubtitleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_editor_batch_add_subtitle_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.video_editor_batch_add_subtitle_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def video_editor_batch_add_subtitle_with_http_info(self, body, **kwargs):  # noqa: E501
+        """video_editor_batch_add_subtitle  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_batch_add_subtitle_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorBatchAddSubtitleRequest body: (required)
+        :return: VideoEditorBatchAddSubtitleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_editor_batch_add_subtitle" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `video_editor_batch_add_subtitle`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/VideoEditorBatchAddSubtitle/2021-05-21/i18n_openapi/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VideoEditorBatchAddSubtitleResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_editor_batch_update_style(self, body, **kwargs):  # noqa: E501
+        """video_editor_batch_update_style  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_batch_update_style(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorBatchUpdateStyleRequest body: (required)
+        :return: VideoEditorBatchUpdateStyleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_editor_batch_update_style_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.video_editor_batch_update_style_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def video_editor_batch_update_style_with_http_info(self, body, **kwargs):  # noqa: E501
+        """video_editor_batch_update_style  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_batch_update_style_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorBatchUpdateStyleRequest body: (required)
+        :return: VideoEditorBatchUpdateStyleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_editor_batch_update_style" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `video_editor_batch_update_style`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/VideoEditorBatchUpdateStyle/2021-05-21/i18n_openapi/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VideoEditorBatchUpdateStyleResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def video_editor_delete_emotion_tag(self, body, **kwargs):  # noqa: E501
         """video_editor_delete_emotion_tag  # noqa: E501
 
@@ -7578,13 +7966,13 @@ class I18NOPENAPIApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/VideoEditorDeleteEmotionTag/2021-05-21/i18n_openapi/get/text_plain/', 'GET',
+            '/VideoEditorDeleteEmotionTag/2021-05-21/i18n_openapi/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -7675,13 +8063,13 @@ class I18NOPENAPIApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/VideoEditorDeleteSpeaker/2021-05-21/i18n_openapi/get/text_plain/', 'GET',
+            '/VideoEditorDeleteSpeaker/2021-05-21/i18n_openapi/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -7689,6 +8077,200 @@ class I18NOPENAPIApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='VideoEditorDeleteSpeakerResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_editor_delete_subtitle(self, body, **kwargs):  # noqa: E501
+        """video_editor_delete_subtitle  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_delete_subtitle(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorDeleteSubtitleRequest body: (required)
+        :return: VideoEditorDeleteSubtitleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_editor_delete_subtitle_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.video_editor_delete_subtitle_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def video_editor_delete_subtitle_with_http_info(self, body, **kwargs):  # noqa: E501
+        """video_editor_delete_subtitle  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_delete_subtitle_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorDeleteSubtitleRequest body: (required)
+        :return: VideoEditorDeleteSubtitleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_editor_delete_subtitle" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `video_editor_delete_subtitle`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/VideoEditorDeleteSubtitle/2021-05-21/i18n_openapi/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VideoEditorDeleteSubtitleResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_editor_download_subtitle_file_url(self, body, **kwargs):  # noqa: E501
+        """video_editor_download_subtitle_file_url  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_download_subtitle_file_url(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorDownloadSubtitleFileUrlRequest body: (required)
+        :return: VideoEditorDownloadSubtitleFileUrlResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_editor_download_subtitle_file_url_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.video_editor_download_subtitle_file_url_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def video_editor_download_subtitle_file_url_with_http_info(self, body, **kwargs):  # noqa: E501
+        """video_editor_download_subtitle_file_url  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_download_subtitle_file_url_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorDownloadSubtitleFileUrlRequest body: (required)
+        :return: VideoEditorDownloadSubtitleFileUrlResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_editor_download_subtitle_file_url" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `video_editor_download_subtitle_file_url`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/VideoEditorDownloadSubtitleFileUrl/2021-05-21/i18n_openapi/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VideoEditorDownloadSubtitleFileUrlResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8084,6 +8666,103 @@ class I18NOPENAPIApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def video_editor_query_aimtby_segment_result(self, body, **kwargs):  # noqa: E501
+        """video_editor_query_aimtby_segment_result  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_query_aimtby_segment_result(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorQueryAIMTBySegmentResultRequest body: (required)
+        :return: VideoEditorQueryAIMTBySegmentResultResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_editor_query_aimtby_segment_result_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.video_editor_query_aimtby_segment_result_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def video_editor_query_aimtby_segment_result_with_http_info(self, body, **kwargs):  # noqa: E501
+        """video_editor_query_aimtby_segment_result  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_query_aimtby_segment_result_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorQueryAIMTBySegmentResultRequest body: (required)
+        :return: VideoEditorQueryAIMTBySegmentResultResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_editor_query_aimtby_segment_result" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `video_editor_query_aimtby_segment_result`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/VideoEditorQueryAIMTBySegmentResult/2021-05-21/i18n_openapi/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VideoEditorQueryAIMTBySegmentResultResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def video_editor_query_async_gen_dubbing_result(self, body, **kwargs):  # noqa: E501
         """video_editor_query_async_gen_dubbing_result  # noqa: E501
 
@@ -8451,13 +9130,13 @@ class I18NOPENAPIApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/VideoEditorSyncSpeakerToSubTask/2021-05-21/i18n_openapi/get/text_plain/', 'GET',
+            '/VideoEditorSyncSpeakerToSubTask/2021-05-21/i18n_openapi/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -8465,6 +9144,103 @@ class I18NOPENAPIApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='VideoEditorSyncSpeakerToSubTaskResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_editor_update_global_style(self, body, **kwargs):  # noqa: E501
+        """video_editor_update_global_style  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_update_global_style(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorUpdateGlobalStyleRequest body: (required)
+        :return: VideoEditorUpdateGlobalStyleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_editor_update_global_style_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.video_editor_update_global_style_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def video_editor_update_global_style_with_http_info(self, body, **kwargs):  # noqa: E501
+        """video_editor_update_global_style  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_editor_update_global_style_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VideoEditorUpdateGlobalStyleRequest body: (required)
+        :return: VideoEditorUpdateGlobalStyleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_editor_update_global_style" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `video_editor_update_global_style`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/VideoEditorUpdateGlobalStyle/2021-05-21/i18n_openapi/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VideoEditorUpdateGlobalStyleResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8548,13 +9324,13 @@ class I18NOPENAPIApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/VideoEditorUpdateSpeaker/2021-05-21/i18n_openapi/get/text_plain/', 'GET',
+            '/VideoEditorUpdateSpeaker/2021-05-21/i18n_openapi/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
