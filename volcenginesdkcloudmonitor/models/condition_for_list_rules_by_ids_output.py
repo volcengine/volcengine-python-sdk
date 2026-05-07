@@ -40,6 +40,7 @@ class ConditionForListRulesByIdsOutput(object):
         'metric_unit': 'str',
         'period': 'str',
         'statistics': 'str',
+        'sub_namespace': 'str',
         'threshold': 'str'
     }
 
@@ -51,10 +52,11 @@ class ConditionForListRulesByIdsOutput(object):
         'metric_unit': 'MetricUnit',
         'period': 'Period',
         'statistics': 'Statistics',
+        'sub_namespace': 'SubNamespace',
         'threshold': 'Threshold'
     }
 
-    def __init__(self, comparison_operator=None, display_name=None, evaluation_window=None, metric_name=None, metric_unit=None, period=None, statistics=None, threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, comparison_operator=None, display_name=None, evaluation_window=None, metric_name=None, metric_unit=None, period=None, statistics=None, sub_namespace=None, threshold=None, _configuration=None):  # noqa: E501
         """ConditionForListRulesByIdsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class ConditionForListRulesByIdsOutput(object):
         self._metric_unit = None
         self._period = None
         self._statistics = None
+        self._sub_namespace = None
         self._threshold = None
         self.discriminator = None
 
@@ -84,6 +87,8 @@ class ConditionForListRulesByIdsOutput(object):
             self.period = period
         if statistics is not None:
             self.statistics = statistics
+        if sub_namespace is not None:
+            self.sub_namespace = sub_namespace
         if threshold is not None:
             self.threshold = threshold
 
@@ -233,6 +238,27 @@ class ConditionForListRulesByIdsOutput(object):
         """
 
         self._statistics = statistics
+
+    @property
+    def sub_namespace(self):
+        """Gets the sub_namespace of this ConditionForListRulesByIdsOutput.  # noqa: E501
+
+
+        :return: The sub_namespace of this ConditionForListRulesByIdsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sub_namespace
+
+    @sub_namespace.setter
+    def sub_namespace(self, sub_namespace):
+        """Sets the sub_namespace of this ConditionForListRulesByIdsOutput.
+
+
+        :param sub_namespace: The sub_namespace of this ConditionForListRulesByIdsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._sub_namespace = sub_namespace
 
     @property
     def threshold(self):
