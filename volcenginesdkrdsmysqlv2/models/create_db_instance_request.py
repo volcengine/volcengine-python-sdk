@@ -65,7 +65,6 @@ class CreateDBInstanceRequest(object):
         'super_account_password': 'str',
         'used_time': 'str',
         'vpc_id': 'str',
-        'vpc_id': 'str',
         'zone': 'str'
     }
 
@@ -101,12 +100,11 @@ class CreateDBInstanceRequest(object):
         'super_account_name': 'SuperAccountName',
         'super_account_password': 'SuperAccountPassword',
         'used_time': 'UsedTime',
-        'vpc_id': 'VpcID',
         'vpc_id': 'VpcId',
         'zone': 'Zone'
     }
 
-    def __init__(self, allow_list_ids=None, auto_renew=None, auto_storage_scaling_config=None, charge_info=None, charge_type=None, db_engine=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, deletion_protection=None, enable_external_replication=None, engine_type=None, instance_name=None, instance_spec_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_info=None, parameter_template_id=None, port=None, prepaid_period=None, private_ip_address=None, project_name=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, used_time=None, vpc_id=None, vpc_id=None, zone=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_renew=None, auto_storage_scaling_config=None, charge_info=None, charge_type=None, db_engine=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, deletion_protection=None, enable_external_replication=None, engine_type=None, instance_name=None, instance_spec_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_info=None, parameter_template_id=None, port=None, prepaid_period=None, private_ip_address=None, project_name=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, used_time=None, vpc_id=None, zone=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -143,7 +141,6 @@ class CreateDBInstanceRequest(object):
         self._super_account_name = None
         self._super_account_password = None
         self._used_time = None
-        self._vpc_id = None
         self._vpc_id = None
         self._zone = None
         self.discriminator = None
@@ -206,8 +203,6 @@ class CreateDBInstanceRequest(object):
             self.super_account_password = super_account_password
         if used_time is not None:
             self.used_time = used_time
-        if vpc_id is not None:
-            self.vpc_id = vpc_id
         self.vpc_id = vpc_id
         if zone is not None:
             self.zone = zone
@@ -870,27 +865,6 @@ class CreateDBInstanceRequest(object):
         """
 
         self._used_time = used_time
-
-    @property
-    def vpc_id(self):
-        """Gets the vpc_id of this CreateDBInstanceRequest.  # noqa: E501
-
-
-        :return: The vpc_id of this CreateDBInstanceRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._vpc_id
-
-    @vpc_id.setter
-    def vpc_id(self, vpc_id):
-        """Sets the vpc_id of this CreateDBInstanceRequest.
-
-
-        :param vpc_id: The vpc_id of this CreateDBInstanceRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._vpc_id = vpc_id
 
     @property
     def vpc_id(self):

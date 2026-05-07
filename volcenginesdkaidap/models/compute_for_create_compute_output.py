@@ -43,7 +43,9 @@ class ComputeForCreateComputeOutput(object):
         'create_time': 'str',
         'creation_source': 'str',
         'disabled': 'bool',
+        'enable_analytics': 'str',
         'last_active_time': 'str',
+        'service_type': 'str',
         'status_changed_time': 'str',
         'suspended_time': 'str',
         'update_time': 'str',
@@ -61,14 +63,16 @@ class ComputeForCreateComputeOutput(object):
         'create_time': 'CreateTime',
         'creation_source': 'CreationSource',
         'disabled': 'Disabled',
+        'enable_analytics': 'EnableAnalytics',
         'last_active_time': 'LastActiveTime',
+        'service_type': 'ServiceType',
         'status_changed_time': 'StatusChangedTime',
         'suspended_time': 'SuspendedTime',
         'update_time': 'UpdateTime',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, branch_id=None, compute_id=None, compute_name=None, compute_role=None, compute_status=None, create_time=None, creation_source=None, disabled=None, last_active_time=None, status_changed_time=None, suspended_time=None, update_time=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, branch_id=None, compute_id=None, compute_name=None, compute_role=None, compute_status=None, create_time=None, creation_source=None, disabled=None, enable_analytics=None, last_active_time=None, service_type=None, status_changed_time=None, suspended_time=None, update_time=None, workspace_id=None, _configuration=None):  # noqa: E501
         """ComputeForCreateComputeOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,7 +88,9 @@ class ComputeForCreateComputeOutput(object):
         self._create_time = None
         self._creation_source = None
         self._disabled = None
+        self._enable_analytics = None
         self._last_active_time = None
+        self._service_type = None
         self._status_changed_time = None
         self._suspended_time = None
         self._update_time = None
@@ -111,8 +117,12 @@ class ComputeForCreateComputeOutput(object):
             self.creation_source = creation_source
         if disabled is not None:
             self.disabled = disabled
+        if enable_analytics is not None:
+            self.enable_analytics = enable_analytics
         if last_active_time is not None:
             self.last_active_time = last_active_time
+        if service_type is not None:
+            self.service_type = service_type
         if status_changed_time is not None:
             self.status_changed_time = status_changed_time
         if suspended_time is not None:
@@ -333,6 +343,27 @@ class ComputeForCreateComputeOutput(object):
         self._disabled = disabled
 
     @property
+    def enable_analytics(self):
+        """Gets the enable_analytics of this ComputeForCreateComputeOutput.  # noqa: E501
+
+
+        :return: The enable_analytics of this ComputeForCreateComputeOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._enable_analytics
+
+    @enable_analytics.setter
+    def enable_analytics(self, enable_analytics):
+        """Sets the enable_analytics of this ComputeForCreateComputeOutput.
+
+
+        :param enable_analytics: The enable_analytics of this ComputeForCreateComputeOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._enable_analytics = enable_analytics
+
+    @property
     def last_active_time(self):
         """Gets the last_active_time of this ComputeForCreateComputeOutput.  # noqa: E501
 
@@ -352,6 +383,27 @@ class ComputeForCreateComputeOutput(object):
         """
 
         self._last_active_time = last_active_time
+
+    @property
+    def service_type(self):
+        """Gets the service_type of this ComputeForCreateComputeOutput.  # noqa: E501
+
+
+        :return: The service_type of this ComputeForCreateComputeOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_type
+
+    @service_type.setter
+    def service_type(self, service_type):
+        """Sets the service_type of this ComputeForCreateComputeOutput.
+
+
+        :param service_type: The service_type of this ComputeForCreateComputeOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._service_type = service_type
 
     @property
     def status_changed_time(self):

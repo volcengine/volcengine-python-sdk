@@ -33,71 +33,45 @@ class DataForVideoProjectTaskBatchStartAIFlowOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'status_code': 'str',
-        'status_message': 'str'
+        'base_resp': 'BaseRespForVideoProjectTaskBatchStartAIFlowOutput'
     }
 
     attribute_map = {
-        'status_code': 'statusCode',
-        'status_message': 'statusMessage'
+        'base_resp': 'baseResp'
     }
 
-    def __init__(self, status_code=None, status_message=None, _configuration=None):  # noqa: E501
+    def __init__(self, base_resp=None, _configuration=None):  # noqa: E501
         """DataForVideoProjectTaskBatchStartAIFlowOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._status_code = None
-        self._status_message = None
+        self._base_resp = None
         self.discriminator = None
 
-        if status_code is not None:
-            self.status_code = status_code
-        if status_message is not None:
-            self.status_message = status_message
+        if base_resp is not None:
+            self.base_resp = base_resp
 
     @property
-    def status_code(self):
-        """Gets the status_code of this DataForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
+    def base_resp(self):
+        """Gets the base_resp of this DataForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
 
 
-        :return: The status_code of this DataForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
-        :rtype: str
+        :return: The base_resp of this DataForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
+        :rtype: BaseRespForVideoProjectTaskBatchStartAIFlowOutput
         """
-        return self._status_code
+        return self._base_resp
 
-    @status_code.setter
-    def status_code(self, status_code):
-        """Sets the status_code of this DataForVideoProjectTaskBatchStartAIFlowOutput.
-
-
-        :param status_code: The status_code of this DataForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._status_code = status_code
-
-    @property
-    def status_message(self):
-        """Gets the status_message of this DataForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
+    @base_resp.setter
+    def base_resp(self, base_resp):
+        """Sets the base_resp of this DataForVideoProjectTaskBatchStartAIFlowOutput.
 
 
-        :return: The status_message of this DataForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._status_message
-
-    @status_message.setter
-    def status_message(self, status_message):
-        """Sets the status_message of this DataForVideoProjectTaskBatchStartAIFlowOutput.
-
-
-        :param status_message: The status_message of this DataForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
-        :type: str
+        :param base_resp: The base_resp of this DataForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
+        :type: BaseRespForVideoProjectTaskBatchStartAIFlowOutput
         """
 
-        self._status_message = status_message
+        self._base_resp = base_resp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

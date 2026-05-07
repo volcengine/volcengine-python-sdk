@@ -90,7 +90,7 @@ class BranchSettingsForCreateBranchInput(object):
         :param init_source: The init_source of this BranchSettingsForCreateBranchInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["None", "ParentData", "SchemeOnly"]  # noqa: E501
+        allowed_values = ["None", "ParentData", "SchemaOnly"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 init_source not in allowed_values):
             raise ValueError(

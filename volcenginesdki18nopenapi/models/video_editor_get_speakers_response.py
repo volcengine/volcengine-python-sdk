@@ -33,71 +33,45 @@ class VideoEditorGetSpeakersResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'sub_task_speakers': 'list[SubTaskSpeakerForVideoEditorGetSpeakersOutput]',
-        'task_speakers': 'list[TaskSpeakerForVideoEditorGetSpeakersOutput]'
+        'data': 'DataForVideoEditorGetSpeakersOutput'
     }
 
     attribute_map = {
-        'sub_task_speakers': 'subTaskSpeakers',
-        'task_speakers': 'taskSpeakers'
+        'data': 'data'
     }
 
-    def __init__(self, sub_task_speakers=None, task_speakers=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, _configuration=None):  # noqa: E501
         """VideoEditorGetSpeakersResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._sub_task_speakers = None
-        self._task_speakers = None
+        self._data = None
         self.discriminator = None
 
-        if sub_task_speakers is not None:
-            self.sub_task_speakers = sub_task_speakers
-        if task_speakers is not None:
-            self.task_speakers = task_speakers
+        if data is not None:
+            self.data = data
 
     @property
-    def sub_task_speakers(self):
-        """Gets the sub_task_speakers of this VideoEditorGetSpeakersResponse.  # noqa: E501
+    def data(self):
+        """Gets the data of this VideoEditorGetSpeakersResponse.  # noqa: E501
 
 
-        :return: The sub_task_speakers of this VideoEditorGetSpeakersResponse.  # noqa: E501
-        :rtype: list[SubTaskSpeakerForVideoEditorGetSpeakersOutput]
+        :return: The data of this VideoEditorGetSpeakersResponse.  # noqa: E501
+        :rtype: DataForVideoEditorGetSpeakersOutput
         """
-        return self._sub_task_speakers
+        return self._data
 
-    @sub_task_speakers.setter
-    def sub_task_speakers(self, sub_task_speakers):
-        """Sets the sub_task_speakers of this VideoEditorGetSpeakersResponse.
-
-
-        :param sub_task_speakers: The sub_task_speakers of this VideoEditorGetSpeakersResponse.  # noqa: E501
-        :type: list[SubTaskSpeakerForVideoEditorGetSpeakersOutput]
-        """
-
-        self._sub_task_speakers = sub_task_speakers
-
-    @property
-    def task_speakers(self):
-        """Gets the task_speakers of this VideoEditorGetSpeakersResponse.  # noqa: E501
+    @data.setter
+    def data(self, data):
+        """Sets the data of this VideoEditorGetSpeakersResponse.
 
 
-        :return: The task_speakers of this VideoEditorGetSpeakersResponse.  # noqa: E501
-        :rtype: list[TaskSpeakerForVideoEditorGetSpeakersOutput]
-        """
-        return self._task_speakers
-
-    @task_speakers.setter
-    def task_speakers(self, task_speakers):
-        """Sets the task_speakers of this VideoEditorGetSpeakersResponse.
-
-
-        :param task_speakers: The task_speakers of this VideoEditorGetSpeakersResponse.  # noqa: E501
-        :type: list[TaskSpeakerForVideoEditorGetSpeakersOutput]
+        :param data: The data of this VideoEditorGetSpeakersResponse.  # noqa: E501
+        :type: DataForVideoEditorGetSpeakersOutput
         """
 
-        self._task_speakers = task_speakers
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

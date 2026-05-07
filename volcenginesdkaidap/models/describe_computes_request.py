@@ -34,25 +34,30 @@ class DescribeComputesRequest(object):
     """
     swagger_types = {
         'branch_id': 'str',
+        'service_type': 'str',
         'workspace_id': 'str'
     }
 
     attribute_map = {
         'branch_id': 'BranchId',
+        'service_type': 'ServiceType',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, branch_id=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, branch_id=None, service_type=None, workspace_id=None, _configuration=None):  # noqa: E501
         """DescribeComputesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._branch_id = None
+        self._service_type = None
         self._workspace_id = None
         self.discriminator = None
 
         self.branch_id = branch_id
+        if service_type is not None:
+            self.service_type = service_type
         self.workspace_id = workspace_id
 
     @property
@@ -77,6 +82,34 @@ class DescribeComputesRequest(object):
             raise ValueError("Invalid value for `branch_id`, must not be `None`")  # noqa: E501
 
         self._branch_id = branch_id
+
+    @property
+    def service_type(self):
+        """Gets the service_type of this DescribeComputesRequest.  # noqa: E501
+
+
+        :return: The service_type of this DescribeComputesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_type
+
+    @service_type.setter
+    def service_type(self, service_type):
+        """Sets the service_type of this DescribeComputesRequest.
+
+
+        :param service_type: The service_type of this DescribeComputesRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Database", "Supabase"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                service_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `service_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(service_type, allowed_values)
+            )
+
+        self._service_type = service_type
 
     @property
     def workspace_id(self):

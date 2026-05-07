@@ -46,7 +46,8 @@ class DataForListEventRulesOutput(object):
         'event_type': 'list[str]',
         'filter_pattern': 'dict(str, object)',
         'level': 'str',
-        'message_queue': 'MessageQueueForListEventRulesOutput',
+        'message_queue': 'list[MessageQueueForListEventRulesOutput]',
+        'notification_id': 'str',
         'notify_templates': 'list[NotifyTemplateForListEventRulesOutput]',
         'region': 'str',
         'rule_id': 'str',
@@ -72,6 +73,7 @@ class DataForListEventRulesOutput(object):
         'filter_pattern': 'FilterPattern',
         'level': 'Level',
         'message_queue': 'MessageQueue',
+        'notification_id': 'NotificationId',
         'notify_templates': 'NotifyTemplates',
         'region': 'Region',
         'rule_id': 'RuleId',
@@ -82,7 +84,7 @@ class DataForListEventRulesOutput(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, account_id=None, contact_group_ids=None, contact_methods=None, created_at=None, description=None, effect_end_at=None, effect_start_at=None, enable_state=None, endpoint=None, event_bus_name=None, event_type=None, filter_pattern=None, level=None, message_queue=None, notify_templates=None, region=None, rule_id=None, rule_name=None, source=None, tls_target=None, updated_at=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, contact_group_ids=None, contact_methods=None, created_at=None, description=None, effect_end_at=None, effect_start_at=None, enable_state=None, endpoint=None, event_bus_name=None, event_type=None, filter_pattern=None, level=None, message_queue=None, notification_id=None, notify_templates=None, region=None, rule_id=None, rule_name=None, source=None, tls_target=None, updated_at=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """DataForListEventRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -102,6 +104,7 @@ class DataForListEventRulesOutput(object):
         self._filter_pattern = None
         self._level = None
         self._message_queue = None
+        self._notification_id = None
         self._notify_templates = None
         self._region = None
         self._rule_id = None
@@ -140,6 +143,8 @@ class DataForListEventRulesOutput(object):
             self.level = level
         if message_queue is not None:
             self.message_queue = message_queue
+        if notification_id is not None:
+            self.notification_id = notification_id
         if notify_templates is not None:
             self.notify_templates = notify_templates
         if region is not None:
@@ -436,7 +441,7 @@ class DataForListEventRulesOutput(object):
 
 
         :return: The message_queue of this DataForListEventRulesOutput.  # noqa: E501
-        :rtype: MessageQueueForListEventRulesOutput
+        :rtype: list[MessageQueueForListEventRulesOutput]
         """
         return self._message_queue
 
@@ -446,10 +451,31 @@ class DataForListEventRulesOutput(object):
 
 
         :param message_queue: The message_queue of this DataForListEventRulesOutput.  # noqa: E501
-        :type: MessageQueueForListEventRulesOutput
+        :type: list[MessageQueueForListEventRulesOutput]
         """
 
         self._message_queue = message_queue
+
+    @property
+    def notification_id(self):
+        """Gets the notification_id of this DataForListEventRulesOutput.  # noqa: E501
+
+
+        :return: The notification_id of this DataForListEventRulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._notification_id
+
+    @notification_id.setter
+    def notification_id(self, notification_id):
+        """Sets the notification_id of this DataForListEventRulesOutput.
+
+
+        :param notification_id: The notification_id of this DataForListEventRulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._notification_id = notification_id
 
     @property
     def notify_templates(self):

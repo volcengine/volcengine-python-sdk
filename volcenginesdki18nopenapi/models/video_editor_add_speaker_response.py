@@ -33,45 +33,45 @@ class VideoEditorAddSpeakerResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int'
+        'data': 'DataForVideoEditorAddSpeakerOutput'
     }
 
     attribute_map = {
-        'id': 'id'
+        'data': 'data'
     }
 
-    def __init__(self, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, _configuration=None):  # noqa: E501
         """VideoEditorAddSpeakerResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._id = None
+        self._data = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
+        if data is not None:
+            self.data = data
 
     @property
-    def id(self):
-        """Gets the id of this VideoEditorAddSpeakerResponse.  # noqa: E501
+    def data(self):
+        """Gets the data of this VideoEditorAddSpeakerResponse.  # noqa: E501
 
 
-        :return: The id of this VideoEditorAddSpeakerResponse.  # noqa: E501
-        :rtype: int
+        :return: The data of this VideoEditorAddSpeakerResponse.  # noqa: E501
+        :rtype: DataForVideoEditorAddSpeakerOutput
         """
-        return self._id
+        return self._data
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this VideoEditorAddSpeakerResponse.
+    @data.setter
+    def data(self, data):
+        """Sets the data of this VideoEditorAddSpeakerResponse.
 
 
-        :param id: The id of this VideoEditorAddSpeakerResponse.  # noqa: E501
-        :type: int
+        :param data: The data of this VideoEditorAddSpeakerResponse.  # noqa: E501
+        :type: DataForVideoEditorAddSpeakerOutput
         """
 
-        self._id = id
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

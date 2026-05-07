@@ -35,6 +35,7 @@ class SubForVideoEditorSaveSubtitleInput(object):
     swagger_types = {
         'ai_voice_id': 'str',
         'effect_type': 'str',
+        'emotion_tag': 'str',
         'end_time': 'str',
         'segment_id': 'str',
         'source': 'SourceForVideoEditorSaveSubtitleInput',
@@ -49,6 +50,7 @@ class SubForVideoEditorSaveSubtitleInput(object):
     attribute_map = {
         'ai_voice_id': 'aiVoiceId',
         'effect_type': 'effectType',
+        'emotion_tag': 'emotionTag',
         'end_time': 'endTime',
         'segment_id': 'segmentId',
         'source': 'source',
@@ -60,7 +62,7 @@ class SubForVideoEditorSaveSubtitleInput(object):
         'voice_tos_url': 'voiceTosUrl'
     }
 
-    def __init__(self, ai_voice_id=None, effect_type=None, end_time=None, segment_id=None, source=None, source_style=None, speaker_id=None, start_time=None, target=None, target_style=None, voice_tos_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_voice_id=None, effect_type=None, emotion_tag=None, end_time=None, segment_id=None, source=None, source_style=None, speaker_id=None, start_time=None, target=None, target_style=None, voice_tos_url=None, _configuration=None):  # noqa: E501
         """SubForVideoEditorSaveSubtitleInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class SubForVideoEditorSaveSubtitleInput(object):
 
         self._ai_voice_id = None
         self._effect_type = None
+        self._emotion_tag = None
         self._end_time = None
         self._segment_id = None
         self._source = None
@@ -83,6 +86,8 @@ class SubForVideoEditorSaveSubtitleInput(object):
             self.ai_voice_id = ai_voice_id
         if effect_type is not None:
             self.effect_type = effect_type
+        if emotion_tag is not None:
+            self.emotion_tag = emotion_tag
         if end_time is not None:
             self.end_time = end_time
         if segment_id is not None:
@@ -143,6 +148,27 @@ class SubForVideoEditorSaveSubtitleInput(object):
         """
 
         self._effect_type = effect_type
+
+    @property
+    def emotion_tag(self):
+        """Gets the emotion_tag of this SubForVideoEditorSaveSubtitleInput.  # noqa: E501
+
+
+        :return: The emotion_tag of this SubForVideoEditorSaveSubtitleInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._emotion_tag
+
+    @emotion_tag.setter
+    def emotion_tag(self, emotion_tag):
+        """Sets the emotion_tag of this SubForVideoEditorSaveSubtitleInput.
+
+
+        :param emotion_tag: The emotion_tag of this SubForVideoEditorSaveSubtitleInput.  # noqa: E501
+        :type: str
+        """
+
+        self._emotion_tag = emotion_tag
 
     @property
     def end_time(self):

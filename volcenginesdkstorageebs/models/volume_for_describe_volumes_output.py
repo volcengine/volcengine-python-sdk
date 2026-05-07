@@ -37,6 +37,7 @@ class VolumeForDescribeVolumesOutput(object):
         'auto_snapshot_policy_name': 'str',
         'baseline_performance': 'BaselinePerformanceForDescribeVolumesOutput',
         'billing_type': 'int',
+        'burst_enabled': 'bool',
         'created_at': 'str',
         'delete_protection': 'bool',
         'delete_protection_retention_days': 'int',
@@ -75,6 +76,7 @@ class VolumeForDescribeVolumesOutput(object):
         'auto_snapshot_policy_name': 'AutoSnapshotPolicyName',
         'baseline_performance': 'BaselinePerformance',
         'billing_type': 'BillingType',
+        'burst_enabled': 'BurstEnabled',
         'created_at': 'CreatedAt',
         'delete_protection': 'DeleteProtection',
         'delete_protection_retention_days': 'DeleteProtectionRetentionDays',
@@ -108,7 +110,7 @@ class VolumeForDescribeVolumesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, billing_type=None, created_at=None, delete_protection=None, delete_protection_retention_days=None, delete_with_instance=None, description=None, detached_time=None, error_detail=None, expired_time=None, extra_performance=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, placement_group_id=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, subgroup_number=None, tags=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, billing_type=None, burst_enabled=None, created_at=None, delete_protection=None, delete_protection_retention_days=None, delete_with_instance=None, description=None, detached_time=None, error_detail=None, expired_time=None, extra_performance=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, placement_group_id=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, subgroup_number=None, tags=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """VolumeForDescribeVolumesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -118,6 +120,7 @@ class VolumeForDescribeVolumesOutput(object):
         self._auto_snapshot_policy_name = None
         self._baseline_performance = None
         self._billing_type = None
+        self._burst_enabled = None
         self._created_at = None
         self._delete_protection = None
         self._delete_protection_retention_days = None
@@ -159,6 +162,8 @@ class VolumeForDescribeVolumesOutput(object):
             self.baseline_performance = baseline_performance
         if billing_type is not None:
             self.billing_type = billing_type
+        if burst_enabled is not None:
+            self.burst_enabled = burst_enabled
         if created_at is not None:
             self.created_at = created_at
         if delete_protection is not None:
@@ -305,6 +310,27 @@ class VolumeForDescribeVolumesOutput(object):
         """
 
         self._billing_type = billing_type
+
+    @property
+    def burst_enabled(self):
+        """Gets the burst_enabled of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The burst_enabled of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._burst_enabled
+
+    @burst_enabled.setter
+    def burst_enabled(self, burst_enabled):
+        """Sets the burst_enabled of this VolumeForDescribeVolumesOutput.
+
+
+        :param burst_enabled: The burst_enabled of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._burst_enabled = burst_enabled
 
     @property
     def created_at(self):

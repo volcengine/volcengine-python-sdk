@@ -45,6 +45,7 @@ class CreateClawOmniInstanceRequest(object):
         'soul': 'str',
         'space_id': 'str',
         'tags': 'list[TagForCreateClawOmniInstanceInput]',
+        'template_id': 'str',
         'timeout': 'int'
     }
 
@@ -61,10 +62,11 @@ class CreateClawOmniInstanceRequest(object):
         'soul': 'Soul',
         'space_id': 'SpaceId',
         'tags': 'Tags',
+        'template_id': 'TemplateId',
         'timeout': 'Timeout'
     }
 
-    def __init__(self, cpu_milli=None, description=None, env_vars=None, expired_action=None, image=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, tags=None, timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_milli=None, description=None, env_vars=None, expired_action=None, image=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, tags=None, template_id=None, timeout=None, _configuration=None):  # noqa: E501
         """CreateClawOmniInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,17 +84,20 @@ class CreateClawOmniInstanceRequest(object):
         self._soul = None
         self._space_id = None
         self._tags = None
+        self._template_id = None
         self._timeout = None
         self.discriminator = None
 
-        self.cpu_milli = cpu_milli
+        if cpu_milli is not None:
+            self.cpu_milli = cpu_milli
         if description is not None:
             self.description = description
         if env_vars is not None:
             self.env_vars = env_vars
         if expired_action is not None:
             self.expired_action = expired_action
-        self.image = image
+        if image is not None:
+            self.image = image
         self.memory_mb = memory_mb
         if model_config is not None:
             self.model_config = model_config
@@ -105,6 +110,8 @@ class CreateClawOmniInstanceRequest(object):
         self.space_id = space_id
         if tags is not None:
             self.tags = tags
+        if template_id is not None:
+            self.template_id = template_id
         self.timeout = timeout
 
     @property
@@ -125,8 +132,6 @@ class CreateClawOmniInstanceRequest(object):
         :param cpu_milli: The cpu_milli of this CreateClawOmniInstanceRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and cpu_milli is None:
-            raise ValueError("Invalid value for `cpu_milli`, must not be `None`")  # noqa: E501
 
         self._cpu_milli = cpu_milli
 
@@ -211,8 +216,6 @@ class CreateClawOmniInstanceRequest(object):
         :param image: The image of this CreateClawOmniInstanceRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and image is None:
-            raise ValueError("Invalid value for `image`, must not be `None`")  # noqa: E501
 
         self._image = image
 
@@ -366,6 +369,27 @@ class CreateClawOmniInstanceRequest(object):
         """
 
         self._tags = tags
+
+    @property
+    def template_id(self):
+        """Gets the template_id of this CreateClawOmniInstanceRequest.  # noqa: E501
+
+
+        :return: The template_id of this CreateClawOmniInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._template_id
+
+    @template_id.setter
+    def template_id(self, template_id):
+        """Sets the template_id of this CreateClawOmniInstanceRequest.
+
+
+        :param template_id: The template_id of this CreateClawOmniInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._template_id = template_id
 
     @property
     def timeout(self):
