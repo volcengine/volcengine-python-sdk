@@ -1,0 +1,5 @@
+{
+  "description": "CBR: 新增 ListExternalAccounts, CheckExternalAccountRole, CreateExternalAccount, DeleteExternalAccount",
+  "modules": "service/cbr",
+  "type": "feature"
+}
