@@ -34,16 +34,19 @@ class ItemForListNodesOutput(object):
     """
     swagger_types = {
         'additional_container_storage_enabled': 'bool',
+        'affinity_group_id': 'str',
         'cluster_id': 'str',
         'container_storage_path': 'str',
         'create_client_token': 'str',
         'create_time': 'str',
+        'gpu_driver_version': 'str',
         'id': 'str',
         'image_id': 'str',
         'initialize_script': 'str',
         'instance_id': 'str',
         'is_virtual': 'bool',
         'kubernetes_config': 'KubernetesConfigForListNodesOutput',
+        'metadata_name': 'str',
         'name': 'str',
         'node_pool_id': 'str',
         'pre_script': 'str',
@@ -55,16 +58,19 @@ class ItemForListNodesOutput(object):
 
     attribute_map = {
         'additional_container_storage_enabled': 'AdditionalContainerStorageEnabled',
+        'affinity_group_id': 'AffinityGroupId',
         'cluster_id': 'ClusterId',
         'container_storage_path': 'ContainerStoragePath',
         'create_client_token': 'CreateClientToken',
         'create_time': 'CreateTime',
+        'gpu_driver_version': 'GpuDriverVersion',
         'id': 'Id',
         'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
         'instance_id': 'InstanceId',
         'is_virtual': 'IsVirtual',
         'kubernetes_config': 'KubernetesConfig',
+        'metadata_name': 'MetadataName',
         'name': 'Name',
         'node_pool_id': 'NodePoolId',
         'pre_script': 'PreScript',
@@ -74,23 +80,26 @@ class ItemForListNodesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, id=None, image_id=None, initialize_script=None, instance_id=None, is_virtual=None, kubernetes_config=None, name=None, node_pool_id=None, pre_script=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, affinity_group_id=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, gpu_driver_version=None, id=None, image_id=None, initialize_script=None, instance_id=None, is_virtual=None, kubernetes_config=None, metadata_name=None, name=None, node_pool_id=None, pre_script=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
         """ItemForListNodesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._additional_container_storage_enabled = None
+        self._affinity_group_id = None
         self._cluster_id = None
         self._container_storage_path = None
         self._create_client_token = None
         self._create_time = None
+        self._gpu_driver_version = None
         self._id = None
         self._image_id = None
         self._initialize_script = None
         self._instance_id = None
         self._is_virtual = None
         self._kubernetes_config = None
+        self._metadata_name = None
         self._name = None
         self._node_pool_id = None
         self._pre_script = None
@@ -102,6 +111,8 @@ class ItemForListNodesOutput(object):
 
         if additional_container_storage_enabled is not None:
             self.additional_container_storage_enabled = additional_container_storage_enabled
+        if affinity_group_id is not None:
+            self.affinity_group_id = affinity_group_id
         if cluster_id is not None:
             self.cluster_id = cluster_id
         if container_storage_path is not None:
@@ -110,6 +121,8 @@ class ItemForListNodesOutput(object):
             self.create_client_token = create_client_token
         if create_time is not None:
             self.create_time = create_time
+        if gpu_driver_version is not None:
+            self.gpu_driver_version = gpu_driver_version
         if id is not None:
             self.id = id
         if image_id is not None:
@@ -122,6 +135,8 @@ class ItemForListNodesOutput(object):
             self.is_virtual = is_virtual
         if kubernetes_config is not None:
             self.kubernetes_config = kubernetes_config
+        if metadata_name is not None:
+            self.metadata_name = metadata_name
         if name is not None:
             self.name = name
         if node_pool_id is not None:
@@ -157,6 +172,27 @@ class ItemForListNodesOutput(object):
         """
 
         self._additional_container_storage_enabled = additional_container_storage_enabled
+
+    @property
+    def affinity_group_id(self):
+        """Gets the affinity_group_id of this ItemForListNodesOutput.  # noqa: E501
+
+
+        :return: The affinity_group_id of this ItemForListNodesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._affinity_group_id
+
+    @affinity_group_id.setter
+    def affinity_group_id(self, affinity_group_id):
+        """Sets the affinity_group_id of this ItemForListNodesOutput.
+
+
+        :param affinity_group_id: The affinity_group_id of this ItemForListNodesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._affinity_group_id = affinity_group_id
 
     @property
     def cluster_id(self):
@@ -241,6 +277,27 @@ class ItemForListNodesOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def gpu_driver_version(self):
+        """Gets the gpu_driver_version of this ItemForListNodesOutput.  # noqa: E501
+
+
+        :return: The gpu_driver_version of this ItemForListNodesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._gpu_driver_version
+
+    @gpu_driver_version.setter
+    def gpu_driver_version(self, gpu_driver_version):
+        """Sets the gpu_driver_version of this ItemForListNodesOutput.
+
+
+        :param gpu_driver_version: The gpu_driver_version of this ItemForListNodesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._gpu_driver_version = gpu_driver_version
 
     @property
     def id(self):
@@ -367,6 +424,27 @@ class ItemForListNodesOutput(object):
         """
 
         self._kubernetes_config = kubernetes_config
+
+    @property
+    def metadata_name(self):
+        """Gets the metadata_name of this ItemForListNodesOutput.  # noqa: E501
+
+
+        :return: The metadata_name of this ItemForListNodesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._metadata_name
+
+    @metadata_name.setter
+    def metadata_name(self, metadata_name):
+        """Sets the metadata_name of this ItemForListNodesOutput.
+
+
+        :param metadata_name: The metadata_name of this ItemForListNodesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._metadata_name = metadata_name
 
     @property
     def name(self):

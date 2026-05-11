@@ -33,6 +33,9 @@ class DataVolumeForListNodePoolsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'extra_performance_iops': 'int',
+        'extra_performance_throughput_mb': 'int',
+        'extra_performance_type_id': 'str',
         'file_system': 'str',
         'mount_point': 'str',
         'placement_group_id': 'str',
@@ -43,6 +46,9 @@ class DataVolumeForListNodePoolsOutput(object):
     }
 
     attribute_map = {
+        'extra_performance_iops': 'ExtraPerformanceIops',
+        'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMb',
+        'extra_performance_type_id': 'ExtraPerformanceTypeId',
         'file_system': 'FileSystem',
         'mount_point': 'MountPoint',
         'placement_group_id': 'PlacementGroupId',
@@ -52,12 +58,15 @@ class DataVolumeForListNodePoolsOutput(object):
         'type': 'Type'
     }
 
-    def __init__(self, file_system=None, mount_point=None, placement_group_id=None, size=None, snapshot_id=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, file_system=None, mount_point=None, placement_group_id=None, size=None, snapshot_id=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
         """DataVolumeForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._extra_performance_iops = None
+        self._extra_performance_throughput_mb = None
+        self._extra_performance_type_id = None
         self._file_system = None
         self._mount_point = None
         self._placement_group_id = None
@@ -67,6 +76,12 @@ class DataVolumeForListNodePoolsOutput(object):
         self._type = None
         self.discriminator = None
 
+        if extra_performance_iops is not None:
+            self.extra_performance_iops = extra_performance_iops
+        if extra_performance_throughput_mb is not None:
+            self.extra_performance_throughput_mb = extra_performance_throughput_mb
+        if extra_performance_type_id is not None:
+            self.extra_performance_type_id = extra_performance_type_id
         if file_system is not None:
             self.file_system = file_system
         if mount_point is not None:
@@ -81,6 +96,69 @@ class DataVolumeForListNodePoolsOutput(object):
             self.subgroup_number = subgroup_number
         if type is not None:
             self.type = type
+
+    @property
+    def extra_performance_iops(self):
+        """Gets the extra_performance_iops of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The extra_performance_iops of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_iops
+
+    @extra_performance_iops.setter
+    def extra_performance_iops(self, extra_performance_iops):
+        """Sets the extra_performance_iops of this DataVolumeForListNodePoolsOutput.
+
+
+        :param extra_performance_iops: The extra_performance_iops of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_iops = extra_performance_iops
+
+    @property
+    def extra_performance_throughput_mb(self):
+        """Gets the extra_performance_throughput_mb of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The extra_performance_throughput_mb of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_throughput_mb
+
+    @extra_performance_throughput_mb.setter
+    def extra_performance_throughput_mb(self, extra_performance_throughput_mb):
+        """Sets the extra_performance_throughput_mb of this DataVolumeForListNodePoolsOutput.
+
+
+        :param extra_performance_throughput_mb: The extra_performance_throughput_mb of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_throughput_mb = extra_performance_throughput_mb
+
+    @property
+    def extra_performance_type_id(self):
+        """Gets the extra_performance_type_id of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The extra_performance_type_id of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._extra_performance_type_id
+
+    @extra_performance_type_id.setter
+    def extra_performance_type_id(self, extra_performance_type_id):
+        """Sets the extra_performance_type_id of this DataVolumeForListNodePoolsOutput.
+
+
+        :param extra_performance_type_id: The extra_performance_type_id of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._extra_performance_type_id = extra_performance_type_id
 
     @property
     def file_system(self):

@@ -33,24 +33,50 @@ class ListSupportedImagesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'intersection_items': 'list[IntersectionItemForListSupportedImagesOutput]',
         'items': 'list[ItemForListSupportedImagesOutput]'
     }
 
     attribute_map = {
+        'intersection_items': 'IntersectionItems',
         'items': 'Items'
     }
 
-    def __init__(self, items=None, _configuration=None):  # noqa: E501
+    def __init__(self, intersection_items=None, items=None, _configuration=None):  # noqa: E501
         """ListSupportedImagesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._intersection_items = None
         self._items = None
         self.discriminator = None
 
+        if intersection_items is not None:
+            self.intersection_items = intersection_items
         if items is not None:
             self.items = items
+
+    @property
+    def intersection_items(self):
+        """Gets the intersection_items of this ListSupportedImagesResponse.  # noqa: E501
+
+
+        :return: The intersection_items of this ListSupportedImagesResponse.  # noqa: E501
+        :rtype: list[IntersectionItemForListSupportedImagesOutput]
+        """
+        return self._intersection_items
+
+    @intersection_items.setter
+    def intersection_items(self, intersection_items):
+        """Sets the intersection_items of this ListSupportedImagesResponse.
+
+
+        :param intersection_items: The intersection_items of this ListSupportedImagesResponse.  # noqa: E501
+        :type: list[IntersectionItemForListSupportedImagesOutput]
+        """
+
+        self._intersection_items = intersection_items
 
     @property
     def items(self):

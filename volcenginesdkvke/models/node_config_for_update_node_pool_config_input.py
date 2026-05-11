@@ -34,9 +34,11 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
     """
     swagger_types = {
         'additional_container_storage_enabled': 'bool',
+        'affinity_group_config': 'AffinityGroupConfigForUpdateNodePoolConfigInput',
         'auto_renew': 'bool',
         'auto_renew_period': 'int',
         'data_volumes': 'list[DataVolumeForUpdateNodePoolConfigInput]',
+        'gpu_driver_version': 'str',
         'hostname': 'str',
         'hpc_cluster_ids': 'list[str]',
         'image_id': 'str',
@@ -60,9 +62,11 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
 
     attribute_map = {
         'additional_container_storage_enabled': 'AdditionalContainerStorageEnabled',
+        'affinity_group_config': 'AffinityGroupConfig',
         'auto_renew': 'AutoRenew',
         'auto_renew_period': 'AutoRenewPeriod',
         'data_volumes': 'DataVolumes',
+        'gpu_driver_version': 'GpuDriverVersion',
         'hostname': 'Hostname',
         'hpc_cluster_ids': 'HpcClusterIds',
         'image_id': 'ImageId',
@@ -84,16 +88,18 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hostname=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_name=None, instance_type_ids=None, instances_distribution=None, name_prefix=None, network_traffic_mode=None, period=None, pre_script=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, affinity_group_config=None, auto_renew=None, auto_renew_period=None, data_volumes=None, gpu_driver_version=None, hostname=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_name=None, instance_type_ids=None, instances_distribution=None, name_prefix=None, network_traffic_mode=None, period=None, pre_script=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._additional_container_storage_enabled = None
+        self._affinity_group_config = None
         self._auto_renew = None
         self._auto_renew_period = None
         self._data_volumes = None
+        self._gpu_driver_version = None
         self._hostname = None
         self._hpc_cluster_ids = None
         self._image_id = None
@@ -117,12 +123,16 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
 
         if additional_container_storage_enabled is not None:
             self.additional_container_storage_enabled = additional_container_storage_enabled
+        if affinity_group_config is not None:
+            self.affinity_group_config = affinity_group_config
         if auto_renew is not None:
             self.auto_renew = auto_renew
         if auto_renew_period is not None:
             self.auto_renew_period = auto_renew_period
         if data_volumes is not None:
             self.data_volumes = data_volumes
+        if gpu_driver_version is not None:
+            self.gpu_driver_version = gpu_driver_version
         if hostname is not None:
             self.hostname = hostname
         if hpc_cluster_ids is not None:
@@ -182,6 +192,27 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         """
 
         self._additional_container_storage_enabled = additional_container_storage_enabled
+
+    @property
+    def affinity_group_config(self):
+        """Gets the affinity_group_config of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The affinity_group_config of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: AffinityGroupConfigForUpdateNodePoolConfigInput
+        """
+        return self._affinity_group_config
+
+    @affinity_group_config.setter
+    def affinity_group_config(self, affinity_group_config):
+        """Sets the affinity_group_config of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param affinity_group_config: The affinity_group_config of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: AffinityGroupConfigForUpdateNodePoolConfigInput
+        """
+
+        self._affinity_group_config = affinity_group_config
 
     @property
     def auto_renew(self):
@@ -245,6 +276,27 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         """
 
         self._data_volumes = data_volumes
+
+    @property
+    def gpu_driver_version(self):
+        """Gets the gpu_driver_version of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The gpu_driver_version of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._gpu_driver_version
+
+    @gpu_driver_version.setter
+    def gpu_driver_version(self, gpu_driver_version):
+        """Sets the gpu_driver_version of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param gpu_driver_version: The gpu_driver_version of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._gpu_driver_version = gpu_driver_version
 
     @property
     def hostname(self):
