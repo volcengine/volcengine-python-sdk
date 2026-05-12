@@ -38,15 +38,15 @@ class ListHostRequest(object):
         'dc': 'str',
         'expire_time_before': 'str',
         'host_id': 'str',
-        'host_id_list': 'str',
+        'host_id_list': 'list[str]',
         'max_results': 'int',
         'next_token': 'str',
         'pod_id': 'str',
-        'pod_id_list': 'str',
+        'pod_id_list': 'list[str]',
         'product_id': 'str',
         'region': 'str',
         'resource_set_id': 'str',
-        'status_list': 'str',
+        'status_list': 'list[int]',
         'sync_renew_type': 'bool',
         'use_status': 'int',
         'volc_region': 'str'
@@ -242,7 +242,7 @@ class ListHostRequest(object):
 
 
         :return: The host_id_list of this ListHostRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._host_id_list
 
@@ -252,7 +252,7 @@ class ListHostRequest(object):
 
 
         :param host_id_list: The host_id_list of this ListHostRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._host_id_list = host_id_list
@@ -326,7 +326,7 @@ class ListHostRequest(object):
 
 
         :return: The pod_id_list of this ListHostRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._pod_id_list
 
@@ -336,7 +336,7 @@ class ListHostRequest(object):
 
 
         :param pod_id_list: The pod_id_list of this ListHostRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._pod_id_list = pod_id_list
@@ -412,7 +412,7 @@ class ListHostRequest(object):
 
 
         :return: The status_list of this ListHostRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[int]
         """
         return self._status_list
 
@@ -422,7 +422,7 @@ class ListHostRequest(object):
 
 
         :param status_list: The status_list of this ListHostRequest.  # noqa: E501
-        :type: str
+        :type: list[int]
         """
 
         self._status_list = status_list

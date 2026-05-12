@@ -43,6 +43,7 @@ class RowForListAOSPImageOutput(object):
         'image_size': 'int',
         'image_status': 'int',
         'image_status_str': 'str',
+        'platform_type': 'str',
         'preheat_status': 'int',
         'update_at': 'int',
         'upload_image_status': 'int'
@@ -59,12 +60,13 @@ class RowForListAOSPImageOutput(object):
         'image_size': 'ImageSize',
         'image_status': 'ImageStatus',
         'image_status_str': 'ImageStatusStr',
+        'platform_type': 'PlatformType',
         'preheat_status': 'PreheatStatus',
         'update_at': 'UpdateAt',
         'upload_image_status': 'UploadImageStatus'
     }
 
-    def __init__(self, aosp_version=None, create_at=None, image_download_url=None, image_id=None, image_name=None, image_remark=None, image_resource_type=None, image_size=None, image_status=None, image_status_str=None, preheat_status=None, update_at=None, upload_image_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, aosp_version=None, create_at=None, image_download_url=None, image_id=None, image_name=None, image_remark=None, image_resource_type=None, image_size=None, image_status=None, image_status_str=None, platform_type=None, preheat_status=None, update_at=None, upload_image_status=None, _configuration=None):  # noqa: E501
         """RowForListAOSPImageOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +82,7 @@ class RowForListAOSPImageOutput(object):
         self._image_size = None
         self._image_status = None
         self._image_status_str = None
+        self._platform_type = None
         self._preheat_status = None
         self._update_at = None
         self._upload_image_status = None
@@ -105,6 +108,8 @@ class RowForListAOSPImageOutput(object):
             self.image_status = image_status
         if image_status_str is not None:
             self.image_status_str = image_status_str
+        if platform_type is not None:
+            self.platform_type = platform_type
         if preheat_status is not None:
             self.preheat_status = preheat_status
         if update_at is not None:
@@ -321,6 +326,27 @@ class RowForListAOSPImageOutput(object):
         """
 
         self._image_status_str = image_status_str
+
+    @property
+    def platform_type(self):
+        """Gets the platform_type of this RowForListAOSPImageOutput.  # noqa: E501
+
+
+        :return: The platform_type of this RowForListAOSPImageOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._platform_type
+
+    @platform_type.setter
+    def platform_type(self, platform_type):
+        """Sets the platform_type of this RowForListAOSPImageOutput.
+
+
+        :param platform_type: The platform_type of this RowForListAOSPImageOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._platform_type = platform_type
 
     @property
     def preheat_status(self):
