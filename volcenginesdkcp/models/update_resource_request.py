@@ -54,7 +54,7 @@ class UpdateResourceRequest(object):
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._configuration = None
+        self._configuration_property = None
         self._description = None
         self._id = None
         self._name = None
@@ -78,7 +78,7 @@ class UpdateResourceRequest(object):
         :return: The configuration of this UpdateResourceRequest.  # noqa: E501
         :rtype: ConfigurationForUpdateResourceInput
         """
-        return self._configuration
+        return self._configuration_property
 
     @configuration.setter
     def configuration(self, configuration):
@@ -89,7 +89,7 @@ class UpdateResourceRequest(object):
         :type: ConfigurationForUpdateResourceInput
         """
 
-        self._configuration = configuration
+        self._configuration_property = configuration
 
     @property
     def description(self):

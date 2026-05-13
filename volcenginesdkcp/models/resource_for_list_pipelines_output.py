@@ -48,7 +48,7 @@ class ResourceForListPipelinesOutput(object):
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._configuration = None
+        self._configuration_property = None
         self._id = None
         self.discriminator = None
 
@@ -65,7 +65,7 @@ class ResourceForListPipelinesOutput(object):
         :return: The configuration of this ResourceForListPipelinesOutput.  # noqa: E501
         :rtype: ConfigurationForListPipelinesOutput
         """
-        return self._configuration
+        return self._configuration_property
 
     @configuration.setter
     def configuration(self, configuration):
@@ -76,7 +76,7 @@ class ResourceForListPipelinesOutput(object):
         :type: ConfigurationForListPipelinesOutput
         """
 
-        self._configuration = configuration
+        self._configuration_property = configuration
 
     @property
     def id(self):

@@ -60,7 +60,7 @@ class CreateTriggerRequest(object):
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._configuration = None
+        self._configuration_property = None
         self._description = None
         self._name = None
         self._parameters = None
@@ -91,7 +91,7 @@ class CreateTriggerRequest(object):
         :return: The configuration of this CreateTriggerRequest.  # noqa: E501
         :rtype: ConfigurationForCreateTriggerInput
         """
-        return self._configuration
+        return self._configuration_property
 
     @configuration.setter
     def configuration(self, configuration):
@@ -102,7 +102,7 @@ class CreateTriggerRequest(object):
         :type: ConfigurationForCreateTriggerInput
         """
 
-        self._configuration = configuration
+        self._configuration_property = configuration
 
     @property
     def description(self):

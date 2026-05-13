@@ -54,7 +54,7 @@ class CreateResourceRequest(object):
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._configuration = None
+        self._configuration_property = None
         self._description = None
         self._name = None
         self._type = None
@@ -77,7 +77,7 @@ class CreateResourceRequest(object):
         :return: The configuration of this CreateResourceRequest.  # noqa: E501
         :rtype: ConfigurationForCreateResourceInput
         """
-        return self._configuration
+        return self._configuration_property
 
     @configuration.setter
     def configuration(self, configuration):
@@ -88,7 +88,7 @@ class CreateResourceRequest(object):
         :type: ConfigurationForCreateResourceInput
         """
 
-        self._configuration = configuration
+        self._configuration_property = configuration
 
     @property
     def description(self):

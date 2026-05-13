@@ -62,7 +62,7 @@ class ItemForListResourcesOutput(object):
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._configuration = None
+        self._configuration_property = None
         self._create_time = None
         self._creator = None
         self._description = None
@@ -100,7 +100,7 @@ class ItemForListResourcesOutput(object):
         :return: The configuration of this ItemForListResourcesOutput.  # noqa: E501
         :rtype: ConfigurationForListResourcesOutput
         """
-        return self._configuration
+        return self._configuration_property
 
     @configuration.setter
     def configuration(self, configuration):
@@ -111,7 +111,7 @@ class ItemForListResourcesOutput(object):
         :type: ConfigurationForListResourcesOutput
         """
 
-        self._configuration = configuration
+        self._configuration_property = configuration
 
     @property
     def create_time(self):

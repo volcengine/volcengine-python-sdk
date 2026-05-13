@@ -68,7 +68,7 @@ class ItemForListTriggersOutput(object):
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._configuration = None
+        self._configuration_property = None
         self._create_time = None
         self._creator = None
         self._description = None
@@ -115,7 +115,7 @@ class ItemForListTriggersOutput(object):
         :return: The configuration of this ItemForListTriggersOutput.  # noqa: E501
         :rtype: ConfigurationForListTriggersOutput
         """
-        return self._configuration
+        return self._configuration_property
 
     @configuration.setter
     def configuration(self, configuration):
@@ -126,7 +126,7 @@ class ItemForListTriggersOutput(object):
         :type: ConfigurationForListTriggersOutput
         """
 
-        self._configuration = configuration
+        self._configuration_property = configuration
 
     @property
     def create_time(self):
