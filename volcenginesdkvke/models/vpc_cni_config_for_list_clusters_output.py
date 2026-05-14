@@ -34,15 +34,17 @@ class VpcCniConfigForListClustersOutput(object):
     """
     swagger_types = {
         'subnet_ids': 'list[str]',
-        'trunk_eni_enabled': 'bool'
+        'trunk_eni_enabled': 'bool',
+        'vci_subnet_ids': 'list[str]'
     }
 
     attribute_map = {
         'subnet_ids': 'SubnetIds',
-        'trunk_eni_enabled': 'TrunkEniEnabled'
+        'trunk_eni_enabled': 'TrunkEniEnabled',
+        'vci_subnet_ids': 'VciSubnetIds'
     }
 
-    def __init__(self, subnet_ids=None, trunk_eni_enabled=None, _configuration=None):  # noqa: E501
+    def __init__(self, subnet_ids=None, trunk_eni_enabled=None, vci_subnet_ids=None, _configuration=None):  # noqa: E501
         """VpcCniConfigForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class VpcCniConfigForListClustersOutput(object):
 
         self._subnet_ids = None
         self._trunk_eni_enabled = None
+        self._vci_subnet_ids = None
         self.discriminator = None
 
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
         if trunk_eni_enabled is not None:
             self.trunk_eni_enabled = trunk_eni_enabled
+        if vci_subnet_ids is not None:
+            self.vci_subnet_ids = vci_subnet_ids
 
     @property
     def subnet_ids(self):
@@ -98,6 +103,27 @@ class VpcCniConfigForListClustersOutput(object):
         """
 
         self._trunk_eni_enabled = trunk_eni_enabled
+
+    @property
+    def vci_subnet_ids(self):
+        """Gets the vci_subnet_ids of this VpcCniConfigForListClustersOutput.  # noqa: E501
+
+
+        :return: The vci_subnet_ids of this VpcCniConfigForListClustersOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._vci_subnet_ids
+
+    @vci_subnet_ids.setter
+    def vci_subnet_ids(self, vci_subnet_ids):
+        """Sets the vci_subnet_ids of this VpcCniConfigForListClustersOutput.
+
+
+        :param vci_subnet_ids: The vci_subnet_ids of this VpcCniConfigForListClustersOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._vci_subnet_ids = vci_subnet_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

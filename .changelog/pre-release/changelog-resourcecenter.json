@@ -1,0 +1,5 @@
+{
+  "description": "RESOURCECENTER: 新增 GetMultiAccountResourceCenterStatus, SearchMultiAccountResources, CreateQuery, DeleteQuery, DisableMultiAccountResourceCenter, GetExampleQuery, ListExampleQueries, ListQueries, UpdateQuery, EnableMultiAccountResourceCenter, ExecuteSQLQuery, GetMultiAccountResourceCounts, GetQuery；修改 SearchResources",
+  "modules": "service/resourcecenter",
+  "type": "breaking-change"
+}

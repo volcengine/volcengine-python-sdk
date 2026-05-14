@@ -34,6 +34,7 @@ class ExecContainerImageCommitmentRequest(object):
     """
     swagger_types = {
         'auth_config': 'AuthConfigForExecContainerImageCommitmentInput',
+        'client_token': 'str',
         'container_name': 'str',
         'image_spec': 'ImageSpecForExecContainerImageCommitmentInput',
         'instance_id': 'str',
@@ -42,19 +43,21 @@ class ExecContainerImageCommitmentRequest(object):
 
     attribute_map = {
         'auth_config': 'AuthConfig',
+        'client_token': 'ClientToken',
         'container_name': 'ContainerName',
         'image_spec': 'ImageSpec',
         'instance_id': 'InstanceId',
         'pause': 'Pause'
     }
 
-    def __init__(self, auth_config=None, container_name=None, image_spec=None, instance_id=None, pause=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_config=None, client_token=None, container_name=None, image_spec=None, instance_id=None, pause=None, _configuration=None):  # noqa: E501
         """ExecContainerImageCommitmentRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auth_config = None
+        self._client_token = None
         self._container_name = None
         self._image_spec = None
         self._instance_id = None
@@ -63,6 +66,8 @@ class ExecContainerImageCommitmentRequest(object):
 
         if auth_config is not None:
             self.auth_config = auth_config
+        if client_token is not None:
+            self.client_token = client_token
         self.container_name = container_name
         if image_spec is not None:
             self.image_spec = image_spec
@@ -90,6 +95,27 @@ class ExecContainerImageCommitmentRequest(object):
         """
 
         self._auth_config = auth_config
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ExecContainerImageCommitmentRequest.  # noqa: E501
+
+
+        :return: The client_token of this ExecContainerImageCommitmentRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ExecContainerImageCommitmentRequest.
+
+
+        :param client_token: The client_token of this ExecContainerImageCommitmentRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def container_name(self):

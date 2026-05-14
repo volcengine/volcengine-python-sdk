@@ -37,8 +37,10 @@ class DescribeLensTasksRequest(object):
         'lens_policy_id': 'str',
         'lens_task_id': 'str',
         'lens_task_name': 'str',
+        'master_task_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'schedule_type': 'str',
         'status': 'list[str]'
     }
 
@@ -47,12 +49,14 @@ class DescribeLensTasksRequest(object):
         'lens_policy_id': 'LensPolicyId',
         'lens_task_id': 'LensTaskId',
         'lens_task_name': 'LensTaskName',
+        'master_task_id': 'MasterTaskId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'schedule_type': 'ScheduleType',
         'status': 'Status'
     }
 
-    def __init__(self, file_system_id=None, lens_policy_id=None, lens_task_id=None, lens_task_name=None, page_number=None, page_size=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_system_id=None, lens_policy_id=None, lens_task_id=None, lens_task_name=None, master_task_id=None, page_number=None, page_size=None, schedule_type=None, status=None, _configuration=None):  # noqa: E501
         """DescribeLensTasksRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,8 +66,10 @@ class DescribeLensTasksRequest(object):
         self._lens_policy_id = None
         self._lens_task_id = None
         self._lens_task_name = None
+        self._master_task_id = None
         self._page_number = None
         self._page_size = None
+        self._schedule_type = None
         self._status = None
         self.discriminator = None
 
@@ -75,10 +81,14 @@ class DescribeLensTasksRequest(object):
             self.lens_task_id = lens_task_id
         if lens_task_name is not None:
             self.lens_task_name = lens_task_name
+        if master_task_id is not None:
+            self.master_task_id = master_task_id
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if schedule_type is not None:
+            self.schedule_type = schedule_type
         if status is not None:
             self.status = status
 
@@ -167,6 +177,27 @@ class DescribeLensTasksRequest(object):
         self._lens_task_name = lens_task_name
 
     @property
+    def master_task_id(self):
+        """Gets the master_task_id of this DescribeLensTasksRequest.  # noqa: E501
+
+
+        :return: The master_task_id of this DescribeLensTasksRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._master_task_id
+
+    @master_task_id.setter
+    def master_task_id(self, master_task_id):
+        """Sets the master_task_id of this DescribeLensTasksRequest.
+
+
+        :param master_task_id: The master_task_id of this DescribeLensTasksRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._master_task_id = master_task_id
+
+    @property
     def page_number(self):
         """Gets the page_number of this DescribeLensTasksRequest.  # noqa: E501
 
@@ -207,6 +238,34 @@ class DescribeLensTasksRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def schedule_type(self):
+        """Gets the schedule_type of this DescribeLensTasksRequest.  # noqa: E501
+
+
+        :return: The schedule_type of this DescribeLensTasksRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._schedule_type
+
+    @schedule_type.setter
+    def schedule_type(self, schedule_type):
+        """Sets the schedule_type of this DescribeLensTasksRequest.
+
+
+        :param schedule_type: The schedule_type of this DescribeLensTasksRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Once", "Timed"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                schedule_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `schedule_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(schedule_type, allowed_values)
+            )
+
+        self._schedule_type = schedule_type
 
     @property
     def status(self):

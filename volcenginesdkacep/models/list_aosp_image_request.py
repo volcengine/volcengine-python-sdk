@@ -41,6 +41,7 @@ class ListAOSPImageRequest(object):
         'is_public': 'bool',
         'max_results': 'int',
         'next_token': 'str',
+        'platform_type': 'str',
         'product_id': 'str'
     }
 
@@ -53,10 +54,11 @@ class ListAOSPImageRequest(object):
         'is_public': 'IsPublic',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
+        'platform_type': 'PlatformType',
         'product_id': 'ProductId'
     }
 
-    def __init__(self, aosp_version=None, expand_scope=None, image_id_list=None, image_name=None, image_status=None, is_public=None, max_results=None, next_token=None, product_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, aosp_version=None, expand_scope=None, image_id_list=None, image_name=None, image_status=None, is_public=None, max_results=None, next_token=None, platform_type=None, product_id=None, _configuration=None):  # noqa: E501
         """ListAOSPImageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class ListAOSPImageRequest(object):
         self._is_public = None
         self._max_results = None
         self._next_token = None
+        self._platform_type = None
         self._product_id = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class ListAOSPImageRequest(object):
             self.max_results = max_results
         if next_token is not None:
             self.next_token = next_token
+        if platform_type is not None:
+            self.platform_type = platform_type
         self.product_id = product_id
 
     @property
@@ -258,6 +263,27 @@ class ListAOSPImageRequest(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def platform_type(self):
+        """Gets the platform_type of this ListAOSPImageRequest.  # noqa: E501
+
+
+        :return: The platform_type of this ListAOSPImageRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._platform_type
+
+    @platform_type.setter
+    def platform_type(self, platform_type):
+        """Sets the platform_type of this ListAOSPImageRequest.
+
+
+        :param platform_type: The platform_type of this ListAOSPImageRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._platform_type = platform_type
 
     @property
     def product_id(self):

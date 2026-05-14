@@ -35,6 +35,7 @@ class ResourceForSearchResourcesOutput(object):
     swagger_types = {
         'account_id': 'int',
         'create_time': 'str',
+        'identifier': 'str',
         'private_ip_address': 'list[str]',
         'project_name': 'str',
         'public_ip_address': 'list[str]',
@@ -43,12 +44,14 @@ class ResourceForSearchResourcesOutput(object):
         'resource_name': 'str',
         'resource_type': 'str',
         'service': 'str',
-        'tags': 'list[TagForSearchResourcesOutput]'
+        'tags': 'list[TagForSearchResourcesOutput]',
+        'type_name': 'str'
     }
 
     attribute_map = {
         'account_id': 'AccountID',
         'create_time': 'CreateTime',
+        'identifier': 'Identifier',
         'private_ip_address': 'PrivateIpAddress',
         'project_name': 'ProjectName',
         'public_ip_address': 'PublicIpAddress',
@@ -57,10 +60,11 @@ class ResourceForSearchResourcesOutput(object):
         'resource_name': 'ResourceName',
         'resource_type': 'ResourceType',
         'service': 'Service',
-        'tags': 'Tags'
+        'tags': 'Tags',
+        'type_name': 'TypeName'
     }
 
-    def __init__(self, account_id=None, create_time=None, private_ip_address=None, project_name=None, public_ip_address=None, region=None, resource_id=None, resource_name=None, resource_type=None, service=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, create_time=None, identifier=None, private_ip_address=None, project_name=None, public_ip_address=None, region=None, resource_id=None, resource_name=None, resource_type=None, service=None, tags=None, type_name=None, _configuration=None):  # noqa: E501
         """ResourceForSearchResourcesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +72,7 @@ class ResourceForSearchResourcesOutput(object):
 
         self._account_id = None
         self._create_time = None
+        self._identifier = None
         self._private_ip_address = None
         self._project_name = None
         self._public_ip_address = None
@@ -77,12 +82,15 @@ class ResourceForSearchResourcesOutput(object):
         self._resource_type = None
         self._service = None
         self._tags = None
+        self._type_name = None
         self.discriminator = None
 
         if account_id is not None:
             self.account_id = account_id
         if create_time is not None:
             self.create_time = create_time
+        if identifier is not None:
+            self.identifier = identifier
         if private_ip_address is not None:
             self.private_ip_address = private_ip_address
         if project_name is not None:
@@ -101,6 +109,8 @@ class ResourceForSearchResourcesOutput(object):
             self.service = service
         if tags is not None:
             self.tags = tags
+        if type_name is not None:
+            self.type_name = type_name
 
     @property
     def account_id(self):
@@ -143,6 +153,27 @@ class ResourceForSearchResourcesOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def identifier(self):
+        """Gets the identifier of this ResourceForSearchResourcesOutput.  # noqa: E501
+
+
+        :return: The identifier of this ResourceForSearchResourcesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._identifier
+
+    @identifier.setter
+    def identifier(self, identifier):
+        """Sets the identifier of this ResourceForSearchResourcesOutput.
+
+
+        :param identifier: The identifier of this ResourceForSearchResourcesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._identifier = identifier
 
     @property
     def private_ip_address(self):
@@ -332,6 +363,27 @@ class ResourceForSearchResourcesOutput(object):
         """
 
         self._tags = tags
+
+    @property
+    def type_name(self):
+        """Gets the type_name of this ResourceForSearchResourcesOutput.  # noqa: E501
+
+
+        :return: The type_name of this ResourceForSearchResourcesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type_name
+
+    @type_name.setter
+    def type_name(self, type_name):
+        """Sets the type_name of this ResourceForSearchResourcesOutput.
+
+
+        :param type_name: The type_name of this ResourceForSearchResourcesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._type_name = type_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

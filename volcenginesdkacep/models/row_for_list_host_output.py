@@ -43,11 +43,13 @@ class RowForListHostOutput(object):
         'dc': 'str',
         'expire_at': 'int',
         'host_id': 'str',
+        'last_reboot_time': 'str',
         'pod_id_list': 'list[str]',
         'pod_num_available': 'int',
         'pod_num_on_host': 'int',
         'product_id': 'str',
         'region': 'str',
+        'renew_type': 'int',
         'resource_set_id': 'str',
         'server_type_code': 'str',
         'status': 'int',
@@ -65,18 +67,20 @@ class RowForListHostOutput(object):
         'dc': 'Dc',
         'expire_at': 'ExpireAt',
         'host_id': 'HostId',
+        'last_reboot_time': 'LastRebootTime',
         'pod_id_list': 'PodIdList',
         'pod_num_available': 'PodNumAvailable',
         'pod_num_on_host': 'PodNumOnHost',
         'product_id': 'ProductId',
         'region': 'Region',
+        'renew_type': 'RenewType',
         'resource_set_id': 'ResourceSetId',
         'server_type_code': 'ServerTypeCode',
         'status': 'Status',
         'volc_region': 'VolcRegion'
     }
 
-    def __init__(self, account_id=None, authority_expire_time=None, authority_status=None, charge_type=None, configuration_code=None, configuration_name=None, create_at=None, dc=None, expire_at=None, host_id=None, pod_id_list=None, pod_num_available=None, pod_num_on_host=None, product_id=None, region=None, resource_set_id=None, server_type_code=None, status=None, volc_region=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, authority_expire_time=None, authority_status=None, charge_type=None, configuration_code=None, configuration_name=None, create_at=None, dc=None, expire_at=None, host_id=None, last_reboot_time=None, pod_id_list=None, pod_num_available=None, pod_num_on_host=None, product_id=None, region=None, renew_type=None, resource_set_id=None, server_type_code=None, status=None, volc_region=None, _configuration=None):  # noqa: E501
         """RowForListHostOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,11 +96,13 @@ class RowForListHostOutput(object):
         self._dc = None
         self._expire_at = None
         self._host_id = None
+        self._last_reboot_time = None
         self._pod_id_list = None
         self._pod_num_available = None
         self._pod_num_on_host = None
         self._product_id = None
         self._region = None
+        self._renew_type = None
         self._resource_set_id = None
         self._server_type_code = None
         self._status = None
@@ -123,6 +129,8 @@ class RowForListHostOutput(object):
             self.expire_at = expire_at
         if host_id is not None:
             self.host_id = host_id
+        if last_reboot_time is not None:
+            self.last_reboot_time = last_reboot_time
         if pod_id_list is not None:
             self.pod_id_list = pod_id_list
         if pod_num_available is not None:
@@ -133,6 +141,8 @@ class RowForListHostOutput(object):
             self.product_id = product_id
         if region is not None:
             self.region = region
+        if renew_type is not None:
+            self.renew_type = renew_type
         if resource_set_id is not None:
             self.resource_set_id = resource_set_id
         if server_type_code is not None:
@@ -353,6 +363,27 @@ class RowForListHostOutput(object):
         self._host_id = host_id
 
     @property
+    def last_reboot_time(self):
+        """Gets the last_reboot_time of this RowForListHostOutput.  # noqa: E501
+
+
+        :return: The last_reboot_time of this RowForListHostOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_reboot_time
+
+    @last_reboot_time.setter
+    def last_reboot_time(self, last_reboot_time):
+        """Sets the last_reboot_time of this RowForListHostOutput.
+
+
+        :param last_reboot_time: The last_reboot_time of this RowForListHostOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._last_reboot_time = last_reboot_time
+
+    @property
     def pod_id_list(self):
         """Gets the pod_id_list of this RowForListHostOutput.  # noqa: E501
 
@@ -456,6 +487,27 @@ class RowForListHostOutput(object):
         """
 
         self._region = region
+
+    @property
+    def renew_type(self):
+        """Gets the renew_type of this RowForListHostOutput.  # noqa: E501
+
+
+        :return: The renew_type of this RowForListHostOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._renew_type
+
+    @renew_type.setter
+    def renew_type(self, renew_type):
+        """Sets the renew_type of this RowForListHostOutput.
+
+
+        :param renew_type: The renew_type of this RowForListHostOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._renew_type = renew_type
 
     @property
     def resource_set_id(self):

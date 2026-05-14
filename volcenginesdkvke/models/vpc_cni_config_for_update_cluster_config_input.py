@@ -33,24 +33,29 @@ class VpcCniConfigForUpdateClusterConfigInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'subnet_ids': 'list[str]'
+        'subnet_ids': 'list[str]',
+        'vci_subnet_ids': 'list[str]'
     }
 
     attribute_map = {
-        'subnet_ids': 'SubnetIds'
+        'subnet_ids': 'SubnetIds',
+        'vci_subnet_ids': 'VciSubnetIds'
     }
 
-    def __init__(self, subnet_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, subnet_ids=None, vci_subnet_ids=None, _configuration=None):  # noqa: E501
         """VpcCniConfigForUpdateClusterConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._subnet_ids = None
+        self._vci_subnet_ids = None
         self.discriminator = None
 
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
+        if vci_subnet_ids is not None:
+            self.vci_subnet_ids = vci_subnet_ids
 
     @property
     def subnet_ids(self):
@@ -72,6 +77,27 @@ class VpcCniConfigForUpdateClusterConfigInput(object):
         """
 
         self._subnet_ids = subnet_ids
+
+    @property
+    def vci_subnet_ids(self):
+        """Gets the vci_subnet_ids of this VpcCniConfigForUpdateClusterConfigInput.  # noqa: E501
+
+
+        :return: The vci_subnet_ids of this VpcCniConfigForUpdateClusterConfigInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._vci_subnet_ids
+
+    @vci_subnet_ids.setter
+    def vci_subnet_ids(self, vci_subnet_ids):
+        """Sets the vci_subnet_ids of this VpcCniConfigForUpdateClusterConfigInput.
+
+
+        :param vci_subnet_ids: The vci_subnet_ids of this VpcCniConfigForUpdateClusterConfigInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._vci_subnet_ids = vci_subnet_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

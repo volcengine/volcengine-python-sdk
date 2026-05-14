@@ -33,10 +33,12 @@ class FilterForListNodesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'affinity_group_ids': 'list[str]',
         'cluster_ids': 'list[str]',
         'create_client_token': 'str',
         'ids': 'list[str]',
         'instance_ids': 'list[str]',
+        'metadata_name': 'str',
         'name': 'str',
         'node_pool_ids': 'list[str]',
         'statuses': 'list[StatusForListNodesInput]',
@@ -44,32 +46,38 @@ class FilterForListNodesInput(object):
     }
 
     attribute_map = {
+        'affinity_group_ids': 'AffinityGroupIds',
         'cluster_ids': 'ClusterIds',
         'create_client_token': 'CreateClientToken',
         'ids': 'Ids',
         'instance_ids': 'InstanceIds',
+        'metadata_name': 'MetadataName',
         'name': 'Name',
         'node_pool_ids': 'NodePoolIds',
         'statuses': 'Statuses',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, cluster_ids=None, create_client_token=None, ids=None, instance_ids=None, name=None, node_pool_ids=None, statuses=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, affinity_group_ids=None, cluster_ids=None, create_client_token=None, ids=None, instance_ids=None, metadata_name=None, name=None, node_pool_ids=None, statuses=None, zone_ids=None, _configuration=None):  # noqa: E501
         """FilterForListNodesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._affinity_group_ids = None
         self._cluster_ids = None
         self._create_client_token = None
         self._ids = None
         self._instance_ids = None
+        self._metadata_name = None
         self._name = None
         self._node_pool_ids = None
         self._statuses = None
         self._zone_ids = None
         self.discriminator = None
 
+        if affinity_group_ids is not None:
+            self.affinity_group_ids = affinity_group_ids
         if cluster_ids is not None:
             self.cluster_ids = cluster_ids
         if create_client_token is not None:
@@ -78,6 +86,8 @@ class FilterForListNodesInput(object):
             self.ids = ids
         if instance_ids is not None:
             self.instance_ids = instance_ids
+        if metadata_name is not None:
+            self.metadata_name = metadata_name
         if name is not None:
             self.name = name
         if node_pool_ids is not None:
@@ -86,6 +96,27 @@ class FilterForListNodesInput(object):
             self.statuses = statuses
         if zone_ids is not None:
             self.zone_ids = zone_ids
+
+    @property
+    def affinity_group_ids(self):
+        """Gets the affinity_group_ids of this FilterForListNodesInput.  # noqa: E501
+
+
+        :return: The affinity_group_ids of this FilterForListNodesInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._affinity_group_ids
+
+    @affinity_group_ids.setter
+    def affinity_group_ids(self, affinity_group_ids):
+        """Sets the affinity_group_ids of this FilterForListNodesInput.
+
+
+        :param affinity_group_ids: The affinity_group_ids of this FilterForListNodesInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._affinity_group_ids = affinity_group_ids
 
     @property
     def cluster_ids(self):
@@ -170,6 +201,27 @@ class FilterForListNodesInput(object):
         """
 
         self._instance_ids = instance_ids
+
+    @property
+    def metadata_name(self):
+        """Gets the metadata_name of this FilterForListNodesInput.  # noqa: E501
+
+
+        :return: The metadata_name of this FilterForListNodesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._metadata_name
+
+    @metadata_name.setter
+    def metadata_name(self, metadata_name):
+        """Sets the metadata_name of this FilterForListNodesInput.
+
+
+        :param metadata_name: The metadata_name of this FilterForListNodesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._metadata_name = metadata_name
 
     @property
     def name(self):

@@ -33,24 +33,34 @@ class ListSupportedImagesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'instance_type_ids': 'list[str]'
+        'instance_type_ids': 'list[str]',
+        'intersection': 'bool',
+        'kubernetes_version': 'str'
     }
 
     attribute_map = {
-        'instance_type_ids': 'InstanceTypeIds'
+        'instance_type_ids': 'InstanceTypeIds',
+        'intersection': 'Intersection',
+        'kubernetes_version': 'KubernetesVersion'
     }
 
-    def __init__(self, instance_type_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_type_ids=None, intersection=None, kubernetes_version=None, _configuration=None):  # noqa: E501
         """ListSupportedImagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_type_ids = None
+        self._intersection = None
+        self._kubernetes_version = None
         self.discriminator = None
 
         if instance_type_ids is not None:
             self.instance_type_ids = instance_type_ids
+        if intersection is not None:
+            self.intersection = intersection
+        if kubernetes_version is not None:
+            self.kubernetes_version = kubernetes_version
 
     @property
     def instance_type_ids(self):
@@ -72,6 +82,48 @@ class ListSupportedImagesRequest(object):
         """
 
         self._instance_type_ids = instance_type_ids
+
+    @property
+    def intersection(self):
+        """Gets the intersection of this ListSupportedImagesRequest.  # noqa: E501
+
+
+        :return: The intersection of this ListSupportedImagesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._intersection
+
+    @intersection.setter
+    def intersection(self, intersection):
+        """Sets the intersection of this ListSupportedImagesRequest.
+
+
+        :param intersection: The intersection of this ListSupportedImagesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._intersection = intersection
+
+    @property
+    def kubernetes_version(self):
+        """Gets the kubernetes_version of this ListSupportedImagesRequest.  # noqa: E501
+
+
+        :return: The kubernetes_version of this ListSupportedImagesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._kubernetes_version
+
+    @kubernetes_version.setter
+    def kubernetes_version(self, kubernetes_version):
+        """Sets the kubernetes_version of this ListSupportedImagesRequest.
+
+
+        :param kubernetes_version: The kubernetes_version of this ListSupportedImagesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._kubernetes_version = kubernetes_version
 
     def to_dict(self):
         """Returns the model properties as a dict"""
