@@ -36,6 +36,7 @@ class ConfigForListRemedyConfigsOutput(object):
         'action': 'ActionForListRemedyConfigsOutput',
         'auto_restore_schedule': 'bool',
         'drain': 'DrainForListRemedyConfigsOutput',
+        'iaas_events': 'list[str]',
         'intervene_cordon': 'InterveneCordonForListRemedyConfigsOutput',
         'intervene_drain': 'InterveneDrainForListRemedyConfigsOutput'
     }
@@ -44,11 +45,12 @@ class ConfigForListRemedyConfigsOutput(object):
         'action': 'Action',
         'auto_restore_schedule': 'AutoRestoreSchedule',
         'drain': 'Drain',
+        'iaas_events': 'IaasEvents',
         'intervene_cordon': 'InterveneCordon',
         'intervene_drain': 'InterveneDrain'
     }
 
-    def __init__(self, action=None, auto_restore_schedule=None, drain=None, intervene_cordon=None, intervene_drain=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, auto_restore_schedule=None, drain=None, iaas_events=None, intervene_cordon=None, intervene_drain=None, _configuration=None):  # noqa: E501
         """ConfigForListRemedyConfigsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class ConfigForListRemedyConfigsOutput(object):
         self._action = None
         self._auto_restore_schedule = None
         self._drain = None
+        self._iaas_events = None
         self._intervene_cordon = None
         self._intervene_drain = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class ConfigForListRemedyConfigsOutput(object):
             self.auto_restore_schedule = auto_restore_schedule
         if drain is not None:
             self.drain = drain
+        if iaas_events is not None:
+            self.iaas_events = iaas_events
         if intervene_cordon is not None:
             self.intervene_cordon = intervene_cordon
         if intervene_drain is not None:
@@ -134,6 +139,27 @@ class ConfigForListRemedyConfigsOutput(object):
         """
 
         self._drain = drain
+
+    @property
+    def iaas_events(self):
+        """Gets the iaas_events of this ConfigForListRemedyConfigsOutput.  # noqa: E501
+
+
+        :return: The iaas_events of this ConfigForListRemedyConfigsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._iaas_events
+
+    @iaas_events.setter
+    def iaas_events(self, iaas_events):
+        """Sets the iaas_events of this ConfigForListRemedyConfigsOutput.
+
+
+        :param iaas_events: The iaas_events of this ConfigForListRemedyConfigsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._iaas_events = iaas_events
 
     @property
     def intervene_cordon(self):

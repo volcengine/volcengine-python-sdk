@@ -37,6 +37,7 @@ class CreateNodesRequest(object):
         'client_token': 'str',
         'cluster_id': 'str',
         'container_storage_path': 'str',
+        'gpu_driver_version': 'str',
         'image_id': 'str',
         'initialize_script': 'str',
         'instance_ids': 'list[str]',
@@ -52,6 +53,7 @@ class CreateNodesRequest(object):
         'client_token': 'ClientToken',
         'cluster_id': 'ClusterId',
         'container_storage_path': 'ContainerStoragePath',
+        'gpu_driver_version': 'GpuDriverVersion',
         'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
         'instance_ids': 'InstanceIds',
@@ -62,7 +64,7 @@ class CreateNodesRequest(object):
         'skip_replace_system': 'SkipReplaceSystem'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, client_token=None, cluster_id=None, container_storage_path=None, image_id=None, initialize_script=None, instance_ids=None, keep_instance_name=None, kubernetes_config=None, node_pool_id=None, pre_script=None, skip_replace_system=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, client_token=None, cluster_id=None, container_storage_path=None, gpu_driver_version=None, image_id=None, initialize_script=None, instance_ids=None, keep_instance_name=None, kubernetes_config=None, node_pool_id=None, pre_script=None, skip_replace_system=None, _configuration=None):  # noqa: E501
         """CreateNodesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class CreateNodesRequest(object):
         self._client_token = None
         self._cluster_id = None
         self._container_storage_path = None
+        self._gpu_driver_version = None
         self._image_id = None
         self._initialize_script = None
         self._instance_ids = None
@@ -89,6 +92,8 @@ class CreateNodesRequest(object):
         self.cluster_id = cluster_id
         if container_storage_path is not None:
             self.container_storage_path = container_storage_path
+        if gpu_driver_version is not None:
+            self.gpu_driver_version = gpu_driver_version
         if image_id is not None:
             self.image_id = image_id
         if initialize_script is not None:
@@ -191,6 +196,27 @@ class CreateNodesRequest(object):
         """
 
         self._container_storage_path = container_storage_path
+
+    @property
+    def gpu_driver_version(self):
+        """Gets the gpu_driver_version of this CreateNodesRequest.  # noqa: E501
+
+
+        :return: The gpu_driver_version of this CreateNodesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._gpu_driver_version
+
+    @gpu_driver_version.setter
+    def gpu_driver_version(self, gpu_driver_version):
+        """Sets the gpu_driver_version of this CreateNodesRequest.
+
+
+        :param gpu_driver_version: The gpu_driver_version of this CreateNodesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._gpu_driver_version = gpu_driver_version
 
     @property
     def image_id(self):

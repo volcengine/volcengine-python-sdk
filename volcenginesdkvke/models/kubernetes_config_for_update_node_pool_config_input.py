@@ -41,6 +41,7 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
         'name_prefix': 'str',
         'name_suffix': 'str',
         'name_use_hostname': 'bool',
+        'runtime': 'RuntimeForUpdateNodePoolConfigInput',
         'taints': 'list[TaintForUpdateNodePoolConfigInput]'
     }
 
@@ -53,10 +54,11 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
         'name_prefix': 'NamePrefix',
         'name_suffix': 'NameSuffix',
         'name_use_hostname': 'NameUseHostname',
+        'runtime': 'Runtime',
         'taints': 'Taints'
     }
 
-    def __init__(self, auto_sync_disabled=None, containerd_config=None, cordon=None, kubelet_config=None, labels=None, name_prefix=None, name_suffix=None, name_use_hostname=None, taints=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_sync_disabled=None, containerd_config=None, cordon=None, kubelet_config=None, labels=None, name_prefix=None, name_suffix=None, name_use_hostname=None, runtime=None, taints=None, _configuration=None):  # noqa: E501
         """KubernetesConfigForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
         self._name_prefix = None
         self._name_suffix = None
         self._name_use_hostname = None
+        self._runtime = None
         self._taints = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
             self.name_suffix = name_suffix
         if name_use_hostname is not None:
             self.name_use_hostname = name_use_hostname
+        if runtime is not None:
+            self.runtime = runtime
         if taints is not None:
             self.taints = taints
 
@@ -259,6 +264,27 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
         """
 
         self._name_use_hostname = name_use_hostname
+
+    @property
+    def runtime(self):
+        """Gets the runtime of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The runtime of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: RuntimeForUpdateNodePoolConfigInput
+        """
+        return self._runtime
+
+    @runtime.setter
+    def runtime(self, runtime):
+        """Sets the runtime of this KubernetesConfigForUpdateNodePoolConfigInput.
+
+
+        :param runtime: The runtime of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: RuntimeForUpdateNodePoolConfigInput
+        """
+
+        self._runtime = runtime
 
     @property
     def taints(self):
