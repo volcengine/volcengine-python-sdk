@@ -23,6 +23,12 @@ class ImageURL(TypedDict, total=False):
     detail: Literal["auto", "low", "high"]
     """Specifies the detail level of the image."""
 
+    min_pixels: int
+    """Minimum number of pixels for the image."""
+
+    max_pixels: int
+    """Maximum number of pixels for the image."""
+
 
 class ChatCompletionContentPartImageParam(TypedDict, total=False):
     image_url: Required[ImageURL]
