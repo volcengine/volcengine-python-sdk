@@ -54,3 +54,6 @@ class ChatCompletionMessage(BaseModel):
 
     reasoning_content: Optional[str] = None
     """The reasoning content of the message."""
+
+    encrypted_content: Optional[str] = None
+    """The encrypted reasoning content of the message."""
