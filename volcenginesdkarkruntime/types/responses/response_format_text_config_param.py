@@ -16,9 +16,10 @@ from typing_extensions import TypeAlias
 
 from ..shared_params.response_format_text import ResponseFormatText
 from ..shared_params.response_format_json_object import ResponseFormatJSONObject
+from ..shared_params.response_format_json_schema import ResponseFormatJSONSchema
 
 __all__ = ["ResponseFormatTextConfigParam"]
 
 ResponseFormatTextConfigParam: TypeAlias = Union[
-    ResponseFormatText, ResponseFormatJSONObject
+    ResponseFormatText, ResponseFormatJSONObject, ResponseFormatJSONSchema
 ]
