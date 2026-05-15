@@ -22,7 +22,7 @@ class ResponseInputVideoParam(TypedDict, total=False):
     type: Required[Literal["input_video"]]
     """The type of the input item. Always `input_video`."""
 
-    video_url: Required[str]
+    video_url: Optional[str]
     """The URL of the video to be sent to the model. A fully qualified URL or base64 encoded video in a data URL."""
 
     file_id: Optional[str]
