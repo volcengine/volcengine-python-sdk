@@ -71,6 +71,7 @@ setx VOLCENGINE_SESSION_TOKEN your-session-token /M
 |---|---|
 | `VOLCENGINE_CLI_CONFIG_FILE` | 配置文件路径，默认 `~/.volcengine/config.json` |
 | `VOLCENGINE_PROFILE` | 使用的 profile 名 |
+| `VOLCENGINE_LOGIN_CACHE_DIRECTORY` | 可选的 console-login 缓存目录，默认 `<配置文件目录>/login/cache` |
 
 #### 历史兼容变量（`VOLCSTACK_*`）
 

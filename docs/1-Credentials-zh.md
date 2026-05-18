@@ -388,7 +388,8 @@ volcenginesdkcore.Configuration.set_default(configuration)
 - `RamRoleArn`（委托给 `StsCredentialProvider`）
 - `OIDC`（委托给 `StsOidcCredentialProvider`）
 - `EcsRole`（委托给 `EcsRoleCredentialProvider`）
-- `SSO`（委托给 `SsoCredentialProvider`）
+- `SSO` 从 CLI sso 缓存读取 STS 凭证  
+- `console-login` 从 CLI console-login 缓存读取 STS 凭证  
 
 **主动指定 CLI Provider 示例：**
 

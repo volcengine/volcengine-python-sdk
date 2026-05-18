@@ -331,7 +331,8 @@ Supported modes in profile (case-insensitive):
 - `RamRoleArn` (delegates to `StsCredentialProvider`)
 - `OIDC` (delegates to `StsOidcCredentialProvider`)
 - `EcsRole` (delegates to `EcsRoleCredentialProvider`)
-- `SSO` (delegates to `SsoCredentialProvider`)
+- `SSO` Reads STS credentials from the CLI sso cache 
+- `console-login` Reads STS credentials from the CLI console-login cache 
 
 Example: explicitly use CLI provider with a specified profile and config path.
 

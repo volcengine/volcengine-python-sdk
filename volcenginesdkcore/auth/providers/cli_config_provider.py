@@ -7,7 +7,8 @@ import tempfile
 import threading
 import time
 
-from datetime import datetime
+import dateutil.parser
+import six
 
 from .provider import Provider, CredentialValue
 
@@ -18,6 +19,7 @@ _PORTAL_ACCESS_TOKEN_HEADER = "x-bd-cloudidentity-bearer-token"
 _HTTP_TIMEOUT = 30
 _HTTP_MAX_RETRIES = 3
 _HTTP_RETRY_INTERVAL = 1
+_LOGIN_CACHE_DIRECTORY_ENV = "VOLCENGINE_LOGIN_CACHE_DIRECTORY"
 
 
 class CLIConfigCredentialProvider(Provider):
@@ -35,6 +37,7 @@ class CLIConfigCredentialProvider(Provider):
       - "OIDC": delegate to StsOidcCredentialProvider
       - "EcsRole": delegate to EcsRoleCredentialProvider
       - "sso": delegate to SsoCredentialProvider
+      - "console-login": read CLI console-login cache only. Refresh is handled by CLI.
       - Other modes: raise RuntimeError (unsupported)
     """
 
@@ -50,6 +53,9 @@ class CLIConfigCredentialProvider(Provider):
         self._resolved_config_path = None
 
     def _init_delegate(self):
+        self._delegate = None
+        self._static_cred = None
+
         profile, profile_name, config = self._load_profile()
         raw_mode = profile.get("mode", "") or ""
         mode = raw_mode.lower().strip()
@@ -68,6 +74,9 @@ class CLIConfigCredentialProvider(Provider):
         elif mode == "sso":
             self._static_cred = None
             self._delegate = self._create_sso_delegate(profile, profile_name, config)
+        elif mode == "console-login":
+            self._static_cred = None
+            self._delegate = self._create_console_login_delegate(profile, profile_name)
         else:
             raise RuntimeError(
                 "{}: unsupported mode: {}".format(self.PROVIDER_NAME, mode)
@@ -294,6 +303,29 @@ class CLIConfigCredentialProvider(Provider):
             cache_dir=cache_dir,
         )
 
+    def _create_console_login_delegate(self, profile, profile_name):
+        login_session = (profile.get("login-session") or "").strip()
+        if not login_session:
+            raise RuntimeError(
+                "{}: profile '{}' mode is console-login but login-session is not set; run 've login' first.".format(
+                    self.PROVIDER_NAME, profile_name
+                )
+            )
+
+        config_path = self._resolved_config_path or (
+                self._config_path
+                or os.environ.get("VOLCENGINE_CLI_CONFIG_FILE")
+                or os.path.expanduser("~/.volcengine/config.json")
+        )
+        cache_dir = (
+                os.environ.get(_LOGIN_CACHE_DIRECTORY_ENV)
+                or os.path.join(os.path.dirname(config_path), "login", "cache")
+        )
+        return ConsoleLoginCredentialProvider(
+            login_session=login_session,
+            cache_dir=cache_dir,
+        )
+
 
 def _unix_timestamp_to_epoch(ts):
     """Convert a Unix timestamp (seconds, milliseconds, microseconds, or
@@ -316,26 +348,24 @@ def _token_cache_filename(start_url, session_name):
     return "{}.json".format(digest)
 
 
+def _login_cache_filename(login_session):
+    return "{}.json".format(hashlib.sha1(login_session.encode("utf-8")).hexdigest())
+
+
 def _parse_rfc3339(value):
-    """Parse an RFC 3339 timestamp string into a datetime (UTC)."""
+    """Parse an RFC 3339 timestamp string into a datetime.
+
+    Uses python-dateutil (already a project dependency) for Py2/Py3
+    compatibility; handles trailing 'Z' and explicit timezone offsets
+    (e.g. '+08:00') uniformly.
+    """
     value = value.strip()
     if not value:
         raise ValueError("expires_at is empty")
-    # Python 3.7+ datetime.fromisoformat doesn't handle trailing Z
-    if value.endswith("Z"):
-        value = value[:-1] + "+00:00"
     try:
-        return datetime.fromisoformat(value)
-    except (ValueError, AttributeError):
-        pass
-    # Fallback for Python < 3.7 or unusual formats
-    for fmt in ("%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%S.%f%z",
-                "%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M:%S.%f"):
-        try:
-            return datetime.strptime(value, fmt)
-        except ValueError:
-            continue
-    raise ValueError("cannot parse expires_at: {}".format(value))
+        return dateutil.parser.parse(value)
+    except (ValueError, OverflowError, TypeError) as e:
+        raise ValueError("cannot parse expires_at: {}: {}".format(value, e))
 
 
 def _rfc3339_to_epoch(value):
@@ -344,6 +374,79 @@ def _rfc3339_to_epoch(value):
         utc_dt = exp_dt - exp_dt.utcoffset()
         return calendar.timegm(utc_dt.timetuple())
     return calendar.timegm(exp_dt.timetuple())
+
+
+def _console_login_cache_expiration(token_cache, cache_path, provider_name):
+    issued_at = (token_cache.get("issued_at") or "").strip()
+    if not issued_at:
+        raise RuntimeError(
+            "{}: console-login token cache '{}' does not contain issued_at.".format(
+                provider_name, cache_path
+            )
+        )
+    expires_in = token_cache.get("expires_in", 0)
+    try:
+        expires_in = int(expires_in)
+    except (TypeError, ValueError):
+        expires_in = 0
+    if expires_in <= 0:
+        raise RuntimeError(
+            "{}: console-login token cache '{}' does not contain valid expires_in.".format(
+                provider_name, cache_path
+            )
+        )
+    try:
+        issued_at_epoch = _rfc3339_to_epoch(issued_at)
+    except ValueError as e:
+        raise RuntimeError(
+            "{}: failed to parse console-login issued_at in '{}': {}".format(
+                provider_name, cache_path, e
+            )
+        )
+    return issued_at_epoch + expires_in
+
+
+def _parse_console_login_access_token(access_token, cache_path, provider_name):
+    if isinstance(access_token, dict):
+        sts_creds = access_token
+    elif isinstance(access_token, six.string_types):
+        try:
+            sts_creds = json.loads(access_token)
+        except ValueError as e:
+            raise RuntimeError(
+                "{}: failed to parse console-login access_token in '{}': {}".format(
+                    provider_name, cache_path, e
+                )
+            )
+    else:
+        raise RuntimeError(
+            "{}: console-login token cache '{}' does not contain valid access_token.".format(
+                provider_name, cache_path
+            )
+        )
+
+    if not isinstance(sts_creds, dict):
+        raise RuntimeError(
+            "{}: console-login access_token in '{}' is not an object.".format(
+                provider_name, cache_path
+            )
+        )
+
+    ak = (sts_creds.get("access_key_id") or "").strip()
+    sk = (sts_creds.get("secret_access_key") or "").strip()
+    token = (sts_creds.get("session_token") or "").strip()
+    if not ak or not sk or not token:
+        raise RuntimeError(
+            "{}: console-login access_token in '{}' is missing STS credential fields.".format(
+                provider_name, cache_path
+            )
+        )
+
+    return {
+        "access_key_id": ak,
+        "secret_access_key": sk,
+        "session_token": token,
+    }
 
 
 def _write_json_file_atomic(path, data):
@@ -361,6 +464,87 @@ def _write_json_file_atomic(path, data):
         except OSError:
             pass
         raise
+
+
+class ConsoleLoginCredentialProvider(Provider):
+    """Reads STS credentials from the CLI 've login' cache file.
+
+    The cache file is produced and refreshed by the CLI (running 've login'
+    rewrites it). This provider only re-reads the file from disk when the
+    in-memory STS credential is near expiry, picking up any newer token
+    the CLI has written.
+    """
+
+    PROVIDER_NAME = "ConsoleLoginCredentialProvider"
+
+    def __init__(self, login_session, cache_dir):
+        self._login_session = login_session
+        self._cache_dir = cache_dir
+
+        self._credentials = None
+        self._expiration = None  # epoch seconds
+        self._lock = threading.Lock()
+
+    def retrieve(self):
+        return self.get_credentials()
+
+    def is_expired(self):
+        if self._credentials is None:
+            return True
+        if self._expiration is not None:
+            return time.time() >= self._expiration - 60
+        return False
+
+    def refresh(self):
+        with self._lock:
+            if self.is_expired():
+                self._do_refresh()
+
+    def get_credentials(self):
+        self.refresh()
+        return self._credentials
+
+    def _do_refresh(self):
+        cache_path = os.path.join(
+            self._cache_dir, _login_cache_filename(self._login_session)
+        )
+        if not os.path.isfile(cache_path):
+            raise RuntimeError(
+                "{}: console-login token cache file '{}' does not exist; run 've login' first.".format(
+                    self.PROVIDER_NAME, cache_path
+                )
+            )
+
+        with open(cache_path, 'r') as f:
+            try:
+                token_cache = json.load(f)
+            except ValueError as e:
+                raise RuntimeError(
+                    "{}: failed to parse console-login token cache '{}': {}".format(
+                        self.PROVIDER_NAME, cache_path, e
+                    )
+                )
+
+        exp_epoch = _console_login_cache_expiration(
+            token_cache, cache_path, self.PROVIDER_NAME
+        )
+        if time.time() >= exp_epoch - 60:
+            raise RuntimeError(
+                "{}: console-login token cache '{}' has expired or is about to expire; run 've login' to refresh it.".format(
+                    self.PROVIDER_NAME, cache_path
+                )
+            )
+
+        sts_creds = _parse_console_login_access_token(
+            token_cache.get("access_token"), cache_path, self.PROVIDER_NAME
+        )
+        self._credentials = CredentialValue(
+            ak=sts_creds["access_key_id"],
+            sk=sts_creds["secret_access_key"],
+            session_token=sts_creds["session_token"],
+            provider_name=self.PROVIDER_NAME,
+        )
+        self._expiration = exp_epoch
 
 
 class SsoCredentialProvider(Provider):
