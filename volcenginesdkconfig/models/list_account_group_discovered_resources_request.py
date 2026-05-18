@@ -37,8 +37,10 @@ class ListAccountGroupDiscoveredResourcesRequest(object):
         'max_results': 'int',
         'next_token': 'str',
         'regions': 'list[str]',
+        'resource_account_id': 'int',
         'resource_identifiers': 'list[str]',
         'resource_ids': 'list[str]',
+        'resource_name': 'str',
         'resource_status': 'str',
         'resource_types': 'list[str]'
     }
@@ -48,13 +50,15 @@ class ListAccountGroupDiscoveredResourcesRequest(object):
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
         'regions': 'Regions',
+        'resource_account_id': 'ResourceAccountId',
         'resource_identifiers': 'ResourceIdentifiers',
         'resource_ids': 'ResourceIds',
+        'resource_name': 'ResourceName',
         'resource_status': 'ResourceStatus',
         'resource_types': 'ResourceTypes'
     }
 
-    def __init__(self, account_group_id=None, max_results=None, next_token=None, regions=None, resource_identifiers=None, resource_ids=None, resource_status=None, resource_types=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_group_id=None, max_results=None, next_token=None, regions=None, resource_account_id=None, resource_identifiers=None, resource_ids=None, resource_name=None, resource_status=None, resource_types=None, _configuration=None):  # noqa: E501
         """ListAccountGroupDiscoveredResourcesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,8 +68,10 @@ class ListAccountGroupDiscoveredResourcesRequest(object):
         self._max_results = None
         self._next_token = None
         self._regions = None
+        self._resource_account_id = None
         self._resource_identifiers = None
         self._resource_ids = None
+        self._resource_name = None
         self._resource_status = None
         self._resource_types = None
         self.discriminator = None
@@ -77,10 +83,14 @@ class ListAccountGroupDiscoveredResourcesRequest(object):
             self.next_token = next_token
         if regions is not None:
             self.regions = regions
+        if resource_account_id is not None:
+            self.resource_account_id = resource_account_id
         if resource_identifiers is not None:
             self.resource_identifiers = resource_identifiers
         if resource_ids is not None:
             self.resource_ids = resource_ids
+        if resource_name is not None:
+            self.resource_name = resource_name
         if resource_status is not None:
             self.resource_status = resource_status
         if resource_types is not None:
@@ -176,6 +186,27 @@ class ListAccountGroupDiscoveredResourcesRequest(object):
         self._regions = regions
 
     @property
+    def resource_account_id(self):
+        """Gets the resource_account_id of this ListAccountGroupDiscoveredResourcesRequest.  # noqa: E501
+
+
+        :return: The resource_account_id of this ListAccountGroupDiscoveredResourcesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._resource_account_id
+
+    @resource_account_id.setter
+    def resource_account_id(self, resource_account_id):
+        """Sets the resource_account_id of this ListAccountGroupDiscoveredResourcesRequest.
+
+
+        :param resource_account_id: The resource_account_id of this ListAccountGroupDiscoveredResourcesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._resource_account_id = resource_account_id
+
+    @property
     def resource_identifiers(self):
         """Gets the resource_identifiers of this ListAccountGroupDiscoveredResourcesRequest.  # noqa: E501
 
@@ -216,6 +247,27 @@ class ListAccountGroupDiscoveredResourcesRequest(object):
         """
 
         self._resource_ids = resource_ids
+
+    @property
+    def resource_name(self):
+        """Gets the resource_name of this ListAccountGroupDiscoveredResourcesRequest.  # noqa: E501
+
+
+        :return: The resource_name of this ListAccountGroupDiscoveredResourcesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_name
+
+    @resource_name.setter
+    def resource_name(self, resource_name):
+        """Sets the resource_name of this ListAccountGroupDiscoveredResourcesRequest.
+
+
+        :param resource_name: The resource_name of this ListAccountGroupDiscoveredResourcesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_name = resource_name
 
     @property
     def resource_status(self):

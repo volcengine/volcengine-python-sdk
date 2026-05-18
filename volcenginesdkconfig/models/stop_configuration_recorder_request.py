@@ -71,6 +71,13 @@ class StopConfigurationRecorderRequest(object):
         """
         if self._configuration.client_side_validation and recorder_type is None:
             raise ValueError("Invalid value for `recorder_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["SingleAccount", "Organization"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                recorder_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `recorder_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(recorder_type, allowed_values)
+            )
 
         self._recorder_type = recorder_type
 

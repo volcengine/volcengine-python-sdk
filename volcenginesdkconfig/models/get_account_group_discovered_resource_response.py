@@ -35,10 +35,12 @@ class GetAccountGroupDiscoveredResourceResponse(object):
     swagger_types = {
         'account_id': 'str',
         'configuration': 'dict(str, object)',
+        'configuration_capture_time': 'str',
         'is_deleted': 'bool',
         'project_name': 'str',
         'region': 'str',
         'relationships': 'list[RelationshipForGetAccountGroupDiscoveredResourceOutput]',
+        'resource_creation_time': 'str',
         'resource_id': 'str',
         'resource_identifier': 'str',
         'resource_name': 'str',
@@ -49,10 +51,12 @@ class GetAccountGroupDiscoveredResourceResponse(object):
     attribute_map = {
         'account_id': 'AccountId',
         'configuration': 'Configuration',
+        'configuration_capture_time': 'ConfigurationCaptureTime',
         'is_deleted': 'IsDeleted',
         'project_name': 'ProjectName',
         'region': 'Region',
         'relationships': 'Relationships',
+        'resource_creation_time': 'ResourceCreationTime',
         'resource_id': 'ResourceId',
         'resource_identifier': 'ResourceIdentifier',
         'resource_name': 'ResourceName',
@@ -60,7 +64,7 @@ class GetAccountGroupDiscoveredResourceResponse(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, account_id=None, configuration=None, is_deleted=None, project_name=None, region=None, relationships=None, resource_id=None, resource_identifier=None, resource_name=None, resource_type=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, configuration=None, configuration_capture_time=None, is_deleted=None, project_name=None, region=None, relationships=None, resource_creation_time=None, resource_id=None, resource_identifier=None, resource_name=None, resource_type=None, tags=None, _configuration=None):  # noqa: E501
         """GetAccountGroupDiscoveredResourceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,10 +72,12 @@ class GetAccountGroupDiscoveredResourceResponse(object):
 
         self._account_id = None
         self._configuration = None
+        self._configuration_capture_time = None
         self._is_deleted = None
         self._project_name = None
         self._region = None
         self._relationships = None
+        self._resource_creation_time = None
         self._resource_id = None
         self._resource_identifier = None
         self._resource_name = None
@@ -83,6 +89,8 @@ class GetAccountGroupDiscoveredResourceResponse(object):
             self.account_id = account_id
         if configuration is not None:
             self.configuration = configuration
+        if configuration_capture_time is not None:
+            self.configuration_capture_time = configuration_capture_time
         if is_deleted is not None:
             self.is_deleted = is_deleted
         if project_name is not None:
@@ -91,6 +99,8 @@ class GetAccountGroupDiscoveredResourceResponse(object):
             self.region = region
         if relationships is not None:
             self.relationships = relationships
+        if resource_creation_time is not None:
+            self.resource_creation_time = resource_creation_time
         if resource_id is not None:
             self.resource_id = resource_id
         if resource_identifier is not None:
@@ -143,6 +153,27 @@ class GetAccountGroupDiscoveredResourceResponse(object):
         """
 
         self._configuration = configuration
+
+    @property
+    def configuration_capture_time(self):
+        """Gets the configuration_capture_time of this GetAccountGroupDiscoveredResourceResponse.  # noqa: E501
+
+
+        :return: The configuration_capture_time of this GetAccountGroupDiscoveredResourceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._configuration_capture_time
+
+    @configuration_capture_time.setter
+    def configuration_capture_time(self, configuration_capture_time):
+        """Sets the configuration_capture_time of this GetAccountGroupDiscoveredResourceResponse.
+
+
+        :param configuration_capture_time: The configuration_capture_time of this GetAccountGroupDiscoveredResourceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._configuration_capture_time = configuration_capture_time
 
     @property
     def is_deleted(self):
@@ -227,6 +258,27 @@ class GetAccountGroupDiscoveredResourceResponse(object):
         """
 
         self._relationships = relationships
+
+    @property
+    def resource_creation_time(self):
+        """Gets the resource_creation_time of this GetAccountGroupDiscoveredResourceResponse.  # noqa: E501
+
+
+        :return: The resource_creation_time of this GetAccountGroupDiscoveredResourceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_creation_time
+
+    @resource_creation_time.setter
+    def resource_creation_time(self, resource_creation_time):
+        """Sets the resource_creation_time of this GetAccountGroupDiscoveredResourceResponse.
+
+
+        :param resource_creation_time: The resource_creation_time of this GetAccountGroupDiscoveredResourceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_creation_time = resource_creation_time
 
     @property
     def resource_id(self):

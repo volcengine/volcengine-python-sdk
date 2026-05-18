@@ -34,15 +34,17 @@ class ListAccountGroupMembersResponse(object):
     """
     swagger_types = {
         'account_list': 'list[AccountListForListAccountGroupMembersOutput]',
-        'next_token': 'str'
+        'next_token': 'str',
+        'total_count': 'int'
     }
 
     attribute_map = {
         'account_list': 'AccountList',
-        'next_token': 'NextToken'
+        'next_token': 'NextToken',
+        'total_count': 'TotalCount'
     }
 
-    def __init__(self, account_list=None, next_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_list=None, next_token=None, total_count=None, _configuration=None):  # noqa: E501
         """ListAccountGroupMembersResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class ListAccountGroupMembersResponse(object):
 
         self._account_list = None
         self._next_token = None
+        self._total_count = None
         self.discriminator = None
 
         if account_list is not None:
             self.account_list = account_list
         if next_token is not None:
             self.next_token = next_token
+        if total_count is not None:
+            self.total_count = total_count
 
     @property
     def account_list(self):
@@ -98,6 +103,27 @@ class ListAccountGroupMembersResponse(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def total_count(self):
+        """Gets the total_count of this ListAccountGroupMembersResponse.  # noqa: E501
+
+
+        :return: The total_count of this ListAccountGroupMembersResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_count
+
+    @total_count.setter
+    def total_count(self, total_count):
+        """Sets the total_count of this ListAccountGroupMembersResponse.
+
+
+        :param total_count: The total_count of this ListAccountGroupMembersResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total_count = total_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""
