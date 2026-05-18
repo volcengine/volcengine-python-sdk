@@ -39,12 +39,14 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         'description': 'str',
         'ipv6_enabled': 'bool',
         'peer_transit_router_id': 'str',
+        'peer_transit_router_owner_id': 'str',
         'peer_transit_router_region_id': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeTransitRouterPeerAttachmentsOutput]',
         'transit_router_attachment_id': 'str',
         'transit_router_attachment_name': 'str',
         'transit_router_bandwidth_package_id': 'str',
+        'transit_router_bandwidth_package_owner_id': 'str',
         'transit_router_forward_policy_table_id': 'str',
         'transit_router_id': 'str',
         'transit_router_route_table_id': 'str',
@@ -60,12 +62,14 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         'description': 'Description',
         'ipv6_enabled': 'Ipv6Enabled',
         'peer_transit_router_id': 'PeerTransitRouterId',
+        'peer_transit_router_owner_id': 'PeerTransitRouterOwnerId',
         'peer_transit_router_region_id': 'PeerTransitRouterRegionId',
         'status': 'Status',
         'tags': 'Tags',
         'transit_router_attachment_id': 'TransitRouterAttachmentId',
         'transit_router_attachment_name': 'TransitRouterAttachmentName',
         'transit_router_bandwidth_package_id': 'TransitRouterBandwidthPackageId',
+        'transit_router_bandwidth_package_owner_id': 'TransitRouterBandwidthPackageOwnerId',
         'transit_router_forward_policy_table_id': 'TransitRouterForwardPolicyTableId',
         'transit_router_id': 'TransitRouterId',
         'transit_router_route_table_id': 'TransitRouterRouteTableId',
@@ -74,7 +78,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, auto_publish_route_enabled=None, bandwidth=None, creation_time=None, description=None, ipv6_enabled=None, peer_transit_router_id=None, peer_transit_router_region_id=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_traffic_qos_marking_policy_id=None, transit_router_traffic_qos_queue_policy_id=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_publish_route_enabled=None, bandwidth=None, creation_time=None, description=None, ipv6_enabled=None, peer_transit_router_id=None, peer_transit_router_owner_id=None, peer_transit_router_region_id=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, transit_router_bandwidth_package_owner_id=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_traffic_qos_marking_policy_id=None, transit_router_traffic_qos_queue_policy_id=None, update_time=None, _configuration=None):  # noqa: E501
         """TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,12 +90,14 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         self._description = None
         self._ipv6_enabled = None
         self._peer_transit_router_id = None
+        self._peer_transit_router_owner_id = None
         self._peer_transit_router_region_id = None
         self._status = None
         self._tags = None
         self._transit_router_attachment_id = None
         self._transit_router_attachment_name = None
         self._transit_router_bandwidth_package_id = None
+        self._transit_router_bandwidth_package_owner_id = None
         self._transit_router_forward_policy_table_id = None
         self._transit_router_id = None
         self._transit_router_route_table_id = None
@@ -112,6 +118,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
             self.ipv6_enabled = ipv6_enabled
         if peer_transit_router_id is not None:
             self.peer_transit_router_id = peer_transit_router_id
+        if peer_transit_router_owner_id is not None:
+            self.peer_transit_router_owner_id = peer_transit_router_owner_id
         if peer_transit_router_region_id is not None:
             self.peer_transit_router_region_id = peer_transit_router_region_id
         if status is not None:
@@ -124,6 +132,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
             self.transit_router_attachment_name = transit_router_attachment_name
         if transit_router_bandwidth_package_id is not None:
             self.transit_router_bandwidth_package_id = transit_router_bandwidth_package_id
+        if transit_router_bandwidth_package_owner_id is not None:
+            self.transit_router_bandwidth_package_owner_id = transit_router_bandwidth_package_owner_id
         if transit_router_forward_policy_table_id is not None:
             self.transit_router_forward_policy_table_id = transit_router_forward_policy_table_id
         if transit_router_id is not None:
@@ -264,6 +274,27 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         self._peer_transit_router_id = peer_transit_router_id
 
     @property
+    def peer_transit_router_owner_id(self):
+        """Gets the peer_transit_router_owner_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+
+
+        :return: The peer_transit_router_owner_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._peer_transit_router_owner_id
+
+    @peer_transit_router_owner_id.setter
+    def peer_transit_router_owner_id(self, peer_transit_router_owner_id):
+        """Sets the peer_transit_router_owner_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.
+
+
+        :param peer_transit_router_owner_id: The peer_transit_router_owner_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._peer_transit_router_owner_id = peer_transit_router_owner_id
+
+    @property
     def peer_transit_router_region_id(self):
         """Gets the peer_transit_router_region_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
 
@@ -388,6 +419,27 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         """
 
         self._transit_router_bandwidth_package_id = transit_router_bandwidth_package_id
+
+    @property
+    def transit_router_bandwidth_package_owner_id(self):
+        """Gets the transit_router_bandwidth_package_owner_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+
+
+        :return: The transit_router_bandwidth_package_owner_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_bandwidth_package_owner_id
+
+    @transit_router_bandwidth_package_owner_id.setter
+    def transit_router_bandwidth_package_owner_id(self, transit_router_bandwidth_package_owner_id):
+        """Sets the transit_router_bandwidth_package_owner_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.
+
+
+        :param transit_router_bandwidth_package_owner_id: The transit_router_bandwidth_package_owner_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_bandwidth_package_owner_id = transit_router_bandwidth_package_owner_id
 
     @property
     def transit_router_forward_policy_table_id(self):

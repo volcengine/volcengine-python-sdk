@@ -33,27 +33,53 @@ class EnableTransitRouterRouteTablePropagationRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'propagation_granularity': 'str',
         'transit_router_attachment_id': 'str',
         'transit_router_route_table_id': 'str'
     }
 
     attribute_map = {
+        'propagation_granularity': 'PropagationGranularity',
         'transit_router_attachment_id': 'TransitRouterAttachmentId',
         'transit_router_route_table_id': 'TransitRouterRouteTableId'
     }
 
-    def __init__(self, transit_router_attachment_id=None, transit_router_route_table_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, propagation_granularity=None, transit_router_attachment_id=None, transit_router_route_table_id=None, _configuration=None):  # noqa: E501
         """EnableTransitRouterRouteTablePropagationRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._propagation_granularity = None
         self._transit_router_attachment_id = None
         self._transit_router_route_table_id = None
         self.discriminator = None
 
+        if propagation_granularity is not None:
+            self.propagation_granularity = propagation_granularity
         self.transit_router_attachment_id = transit_router_attachment_id
         self.transit_router_route_table_id = transit_router_route_table_id
+
+    @property
+    def propagation_granularity(self):
+        """Gets the propagation_granularity of this EnableTransitRouterRouteTablePropagationRequest.  # noqa: E501
+
+
+        :return: The propagation_granularity of this EnableTransitRouterRouteTablePropagationRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._propagation_granularity
+
+    @propagation_granularity.setter
+    def propagation_granularity(self, propagation_granularity):
+        """Sets the propagation_granularity of this EnableTransitRouterRouteTablePropagationRequest.
+
+
+        :param propagation_granularity: The propagation_granularity of this EnableTransitRouterRouteTablePropagationRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._propagation_granularity = propagation_granularity
 
     @property
     def transit_router_attachment_id(self):
