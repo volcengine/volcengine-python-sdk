@@ -46,7 +46,10 @@ class CreateClawOmniInstanceRequest(object):
         'space_id': 'str',
         'tags': 'list[TagForCreateClawOmniInstanceInput]',
         'template_id': 'str',
-        'timeout': 'int'
+        'timeout': 'int',
+        'token_limit_per_day': 'int',
+        'token_limit_per_min': 'int',
+        'token_limit_per_week': 'int'
     }
 
     attribute_map = {
@@ -63,10 +66,13 @@ class CreateClawOmniInstanceRequest(object):
         'space_id': 'SpaceId',
         'tags': 'Tags',
         'template_id': 'TemplateId',
-        'timeout': 'Timeout'
+        'timeout': 'Timeout',
+        'token_limit_per_day': 'TokenLimitPerDay',
+        'token_limit_per_min': 'TokenLimitPerMin',
+        'token_limit_per_week': 'TokenLimitPerWeek'
     }
 
-    def __init__(self, cpu_milli=None, description=None, env_vars=None, expired_action=None, image=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, tags=None, template_id=None, timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_milli=None, description=None, env_vars=None, expired_action=None, image=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, tags=None, template_id=None, timeout=None, token_limit_per_day=None, token_limit_per_min=None, token_limit_per_week=None, _configuration=None):  # noqa: E501
         """CreateClawOmniInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +92,9 @@ class CreateClawOmniInstanceRequest(object):
         self._tags = None
         self._template_id = None
         self._timeout = None
+        self._token_limit_per_day = None
+        self._token_limit_per_min = None
+        self._token_limit_per_week = None
         self.discriminator = None
 
         if cpu_milli is not None:
@@ -113,6 +122,12 @@ class CreateClawOmniInstanceRequest(object):
         if template_id is not None:
             self.template_id = template_id
         self.timeout = timeout
+        if token_limit_per_day is not None:
+            self.token_limit_per_day = token_limit_per_day
+        if token_limit_per_min is not None:
+            self.token_limit_per_min = token_limit_per_min
+        if token_limit_per_week is not None:
+            self.token_limit_per_week = token_limit_per_week
 
     @property
     def cpu_milli(self):
@@ -413,6 +428,69 @@ class CreateClawOmniInstanceRequest(object):
             raise ValueError("Invalid value for `timeout`, must not be `None`")  # noqa: E501
 
         self._timeout = timeout
+
+    @property
+    def token_limit_per_day(self):
+        """Gets the token_limit_per_day of this CreateClawOmniInstanceRequest.  # noqa: E501
+
+
+        :return: The token_limit_per_day of this CreateClawOmniInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._token_limit_per_day
+
+    @token_limit_per_day.setter
+    def token_limit_per_day(self, token_limit_per_day):
+        """Sets the token_limit_per_day of this CreateClawOmniInstanceRequest.
+
+
+        :param token_limit_per_day: The token_limit_per_day of this CreateClawOmniInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._token_limit_per_day = token_limit_per_day
+
+    @property
+    def token_limit_per_min(self):
+        """Gets the token_limit_per_min of this CreateClawOmniInstanceRequest.  # noqa: E501
+
+
+        :return: The token_limit_per_min of this CreateClawOmniInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._token_limit_per_min
+
+    @token_limit_per_min.setter
+    def token_limit_per_min(self, token_limit_per_min):
+        """Sets the token_limit_per_min of this CreateClawOmniInstanceRequest.
+
+
+        :param token_limit_per_min: The token_limit_per_min of this CreateClawOmniInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._token_limit_per_min = token_limit_per_min
+
+    @property
+    def token_limit_per_week(self):
+        """Gets the token_limit_per_week of this CreateClawOmniInstanceRequest.  # noqa: E501
+
+
+        :return: The token_limit_per_week of this CreateClawOmniInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._token_limit_per_week
+
+    @token_limit_per_week.setter
+    def token_limit_per_week(self, token_limit_per_week):
+        """Sets the token_limit_per_week of this CreateClawOmniInstanceRequest.
+
+
+        :param token_limit_per_week: The token_limit_per_week of this CreateClawOmniInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._token_limit_per_week = token_limit_per_week
 
     def to_dict(self):
         """Returns the model properties as a dict"""
