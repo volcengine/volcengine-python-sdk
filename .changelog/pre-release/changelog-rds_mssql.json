@@ -1,0 +1,5 @@
+{
+  "description": "RDS_MSSQL: 修改 DescribeDBInstanceSpecs",
+  "modules": "service/rds_mssql",
+  "type": "breaking-change"
+}

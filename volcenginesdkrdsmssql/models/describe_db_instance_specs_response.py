@@ -33,45 +33,45 @@ class DescribeDBInstanceSpecsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'instance_spec_info': 'list[InstanceSpecInfoForDescribeDBInstanceSpecsOutput]'
+        'instance_specs_info': 'list[InstanceSpecsInfoForDescribeDBInstanceSpecsOutput]'
     }
 
     attribute_map = {
-        'instance_spec_info': 'InstanceSpecInfo'
+        'instance_specs_info': 'InstanceSpecsInfo'
     }
 
-    def __init__(self, instance_spec_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_specs_info=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceSpecsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._instance_spec_info = None
+        self._instance_specs_info = None
         self.discriminator = None
 
-        if instance_spec_info is not None:
-            self.instance_spec_info = instance_spec_info
+        if instance_specs_info is not None:
+            self.instance_specs_info = instance_specs_info
 
     @property
-    def instance_spec_info(self):
-        """Gets the instance_spec_info of this DescribeDBInstanceSpecsResponse.  # noqa: E501
+    def instance_specs_info(self):
+        """Gets the instance_specs_info of this DescribeDBInstanceSpecsResponse.  # noqa: E501
 
 
-        :return: The instance_spec_info of this DescribeDBInstanceSpecsResponse.  # noqa: E501
-        :rtype: list[InstanceSpecInfoForDescribeDBInstanceSpecsOutput]
+        :return: The instance_specs_info of this DescribeDBInstanceSpecsResponse.  # noqa: E501
+        :rtype: list[InstanceSpecsInfoForDescribeDBInstanceSpecsOutput]
         """
-        return self._instance_spec_info
+        return self._instance_specs_info
 
-    @instance_spec_info.setter
-    def instance_spec_info(self, instance_spec_info):
-        """Sets the instance_spec_info of this DescribeDBInstanceSpecsResponse.
+    @instance_specs_info.setter
+    def instance_specs_info(self, instance_specs_info):
+        """Sets the instance_specs_info of this DescribeDBInstanceSpecsResponse.
 
 
-        :param instance_spec_info: The instance_spec_info of this DescribeDBInstanceSpecsResponse.  # noqa: E501
-        :type: list[InstanceSpecInfoForDescribeDBInstanceSpecsOutput]
+        :param instance_specs_info: The instance_specs_info of this DescribeDBInstanceSpecsResponse.  # noqa: E501
+        :type: list[InstanceSpecsInfoForDescribeDBInstanceSpecsOutput]
         """
 
-        self._instance_spec_info = instance_spec_info
+        self._instance_specs_info = instance_specs_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""
