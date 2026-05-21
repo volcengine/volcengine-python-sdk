@@ -35,6 +35,7 @@ class TaskInfoForDocumentTaskDetailOutput(object):
     swagger_types = {
         'ai_remove_type': 'int',
         'asr_model': 'int',
+        'audit_fail_policy': 'int',
         'bgm_policy': 'int',
         'comment': 'str',
         'created_at': 'str',
@@ -68,6 +69,7 @@ class TaskInfoForDocumentTaskDetailOutput(object):
     attribute_map = {
         'ai_remove_type': 'aiRemoveType',
         'asr_model': 'asrModel',
+        'audit_fail_policy': 'auditFailPolicy',
         'bgm_policy': 'bgmPolicy',
         'comment': 'comment',
         'created_at': 'createdAt',
@@ -98,7 +100,7 @@ class TaskInfoForDocumentTaskDetailOutput(object):
         'use_mt': 'useMT'
     }
 
-    def __init__(self, ai_remove_type=None, asr_model=None, bgm_policy=None, comment=None, created_at=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, dub_or_translation_task_id=None, is_dub=None, llm_video_understanding_type=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, procedures=None, reference_doc=None, serial_number=None, source_lang=None, source_locale=None, state=None, suppression_params=None, target_langs=None, target_locale=None, target_style_map=None, task_id=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_remove_type=None, asr_model=None, audit_fail_policy=None, bgm_policy=None, comment=None, created_at=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, dub_or_translation_task_id=None, is_dub=None, llm_video_understanding_type=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, procedures=None, reference_doc=None, serial_number=None, source_lang=None, source_locale=None, state=None, suppression_params=None, target_langs=None, target_locale=None, target_style_map=None, task_id=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
         """TaskInfoForDocumentTaskDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,6 +108,7 @@ class TaskInfoForDocumentTaskDetailOutput(object):
 
         self._ai_remove_type = None
         self._asr_model = None
+        self._audit_fail_policy = None
         self._bgm_policy = None
         self._comment = None
         self._created_at = None
@@ -140,6 +143,8 @@ class TaskInfoForDocumentTaskDetailOutput(object):
             self.ai_remove_type = ai_remove_type
         if asr_model is not None:
             self.asr_model = asr_model
+        if audit_fail_policy is not None:
+            self.audit_fail_policy = audit_fail_policy
         if bgm_policy is not None:
             self.bgm_policy = bgm_policy
         if comment is not None:
@@ -238,6 +243,27 @@ class TaskInfoForDocumentTaskDetailOutput(object):
         """
 
         self._asr_model = asr_model
+
+    @property
+    def audit_fail_policy(self):
+        """Gets the audit_fail_policy of this TaskInfoForDocumentTaskDetailOutput.  # noqa: E501
+
+
+        :return: The audit_fail_policy of this TaskInfoForDocumentTaskDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._audit_fail_policy
+
+    @audit_fail_policy.setter
+    def audit_fail_policy(self, audit_fail_policy):
+        """Sets the audit_fail_policy of this TaskInfoForDocumentTaskDetailOutput.
+
+
+        :param audit_fail_policy: The audit_fail_policy of this TaskInfoForDocumentTaskDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._audit_fail_policy = audit_fail_policy
 
     @property
     def bgm_policy(self):

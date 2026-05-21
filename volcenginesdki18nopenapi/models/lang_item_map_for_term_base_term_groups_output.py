@@ -33,241 +33,1075 @@ class LangItemMapForTermBaseTermGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'acronym': 'str',
-        'apply_mode': 'int',
-        'case_sensitive': 'int',
-        'content': 'str',
-        'create_time': 'str',
-        'created_at': 'str',
-        'creator': 'CreatorForTermBaseTermGroupsOutput',
-        'id': 'str',
-        'lang': 'str',
-        'operator': 'CreatorForTermBaseTermGroupsOutput',
-        'part_of_speech': 'int',
-        'term_base_id': 'str',
-        'term_group_id': 'str',
-        'update_time': 'str',
-        'updated_at': 'str'
+        'af': 'AfForTermBaseTermGroupsOutput',
+        'af_za': 'AfZAForTermBaseTermGroupsOutput',
+        'ar': 'ArForTermBaseTermGroupsOutput',
+        'ar_ar': 'ArARForTermBaseTermGroupsOutput',
+        'ar_dz': 'ArDZForTermBaseTermGroupsOutput',
+        'ar_sy': 'ArSYForTermBaseTermGroupsOutput',
+        'ar_ye': 'ArYEForTermBaseTermGroupsOutput',
+        'be': 'BeForTermBaseTermGroupsOutput',
+        'bn': 'BnForTermBaseTermGroupsOutput',
+        'bn_bd': 'BnBDForTermBaseTermGroupsOutput',
+        'da': 'DaForTermBaseTermGroupsOutput',
+        'de': 'DeForTermBaseTermGroupsOutput',
+        'de_de': 'DeDEForTermBaseTermGroupsOutput',
+        'en': 'EnForTermBaseTermGroupsOutput',
+        'en_da': 'EnDAForTermBaseTermGroupsOutput',
+        'en_gb': 'EnGBForTermBaseTermGroupsOutput',
+        'en_in': 'EnINForTermBaseTermGroupsOutput',
+        'en_ph': 'EnPHForTermBaseTermGroupsOutput',
+        'en_sg': 'EnSGForTermBaseTermGroupsOutput',
+        'en_us': 'EnUSForTermBaseTermGroupsOutput',
+        'es': 'EsForTermBaseTermGroupsOutput',
+        'es419': 'Es419ForTermBaseTermGroupsOutput',
+        'es_es': 'EsESForTermBaseTermGroupsOutput',
+        'es_us': 'EsUSForTermBaseTermGroupsOutput',
+        'fa_ir': 'FaIRForTermBaseTermGroupsOutput',
+        'fil': 'FilForTermBaseTermGroupsOutput',
+        'fil_ph': 'FilPHForTermBaseTermGroupsOutput',
+        'fr': 'FrForTermBaseTermGroupsOutput',
+        'fr_fr': 'FrFRForTermBaseTermGroupsOutput',
+        'hi': 'HiForTermBaseTermGroupsOutput',
+        'hi_in': 'HiINForTermBaseTermGroupsOutput',
+        'id': 'IdForTermBaseTermGroupsOutput',
+        'id_id': 'IdIDForTermBaseTermGroupsOutput',
+        'it': 'ItForTermBaseTermGroupsOutput',
+        'it_it': 'ItITForTermBaseTermGroupsOutput',
+        'ja': 'JaForTermBaseTermGroupsOutput',
+        'ja_jp': 'JaJPForTermBaseTermGroupsOutput',
+        'ka': 'KaForTermBaseTermGroupsOutput',
+        'kk_kz': 'KkKZForTermBaseTermGroupsOutput',
+        'kl': 'KlForTermBaseTermGroupsOutput',
+        'km': 'KmForTermBaseTermGroupsOutput',
+        'km_kh': 'KmKHForTermBaseTermGroupsOutput',
+        'ko': 'KoForTermBaseTermGroupsOutput',
+        'ko_kr': 'KoKRForTermBaseTermGroupsOutput',
+        'mn': 'MnForTermBaseTermGroupsOutput',
+        'ms': 'MsForTermBaseTermGroupsOutput',
+        'ms_my': 'MsMYForTermBaseTermGroupsOutput',
+        'my': 'MyForTermBaseTermGroupsOutput',
+        'ne': 'NeForTermBaseTermGroupsOutput',
+        'pl': 'PlForTermBaseTermGroupsOutput',
+        'pl_pl': 'PlPLForTermBaseTermGroupsOutput',
+        'pt': 'PtForTermBaseTermGroupsOutput',
+        'pt_br': 'PtBRForTermBaseTermGroupsOutput',
+        'pt_pt': 'PtPTForTermBaseTermGroupsOutput',
+        'ro': 'RoForTermBaseTermGroupsOutput',
+        'ru': 'RuForTermBaseTermGroupsOutput',
+        'ru_ru': 'RuRUForTermBaseTermGroupsOutput',
+        'sk': 'SkForTermBaseTermGroupsOutput',
+        'sl': 'SlForTermBaseTermGroupsOutput',
+        'source': 'SourceForTermBaseTermGroupsOutput',
+        'sr': 'SrForTermBaseTermGroupsOutput',
+        'sv': 'SvForTermBaseTermGroupsOutput',
+        'ta': 'TaForTermBaseTermGroupsOutput',
+        'target': 'TargetForTermBaseTermGroupsOutput',
+        'te': 'TeForTermBaseTermGroupsOutput',
+        'th': 'ThForTermBaseTermGroupsOutput',
+        'th_th': 'ThTHForTermBaseTermGroupsOutput',
+        'tl_ph': 'TlPHForTermBaseTermGroupsOutput',
+        'tr': 'TrForTermBaseTermGroupsOutput',
+        'tr_tr': 'TrTRForTermBaseTermGroupsOutput',
+        'ur': 'UrForTermBaseTermGroupsOutput',
+        'uz': 'UzForTermBaseTermGroupsOutput',
+        'vi': 'ViForTermBaseTermGroupsOutput',
+        'vi_vn': 'ViVNForTermBaseTermGroupsOutput',
+        'zh': 'ZhForTermBaseTermGroupsOutput',
+        'zh_cn': 'ZhCNForTermBaseTermGroupsOutput',
+        'zh_hk': 'ZhHKForTermBaseTermGroupsOutput',
+        'zh_hans': 'ZhHansForTermBaseTermGroupsOutput',
+        'zh_hans_cn': 'ZhHansCNForTermBaseTermGroupsOutput',
+        'zh_hant': 'ZhHantForTermBaseTermGroupsOutput',
+        'zh_tw': 'ZhTWForTermBaseTermGroupsOutput'
     }
 
     attribute_map = {
-        'acronym': 'acronym',
-        'apply_mode': 'applyMode',
-        'case_sensitive': 'caseSensitive',
-        'content': 'content',
-        'create_time': 'createTime',
-        'created_at': 'createdAt',
-        'creator': 'creator',
+        'af': 'af',
+        'af_za': 'afZA',
+        'ar': 'ar',
+        'ar_ar': 'arAR',
+        'ar_dz': 'arDZ',
+        'ar_sy': 'arSY',
+        'ar_ye': 'arYE',
+        'be': 'be',
+        'bn': 'bn',
+        'bn_bd': 'bnBD',
+        'da': 'da',
+        'de': 'de',
+        'de_de': 'deDE',
+        'en': 'en',
+        'en_da': 'enDA',
+        'en_gb': 'enGB',
+        'en_in': 'enIN',
+        'en_ph': 'enPH',
+        'en_sg': 'enSG',
+        'en_us': 'enUS',
+        'es': 'es',
+        'es419': 'es419',
+        'es_es': 'esES',
+        'es_us': 'esUS',
+        'fa_ir': 'faIR',
+        'fil': 'fil',
+        'fil_ph': 'filPH',
+        'fr': 'fr',
+        'fr_fr': 'frFR',
+        'hi': 'hi',
+        'hi_in': 'hiIN',
         'id': 'id',
-        'lang': 'lang',
-        'operator': 'operator',
-        'part_of_speech': 'partOfSpeech',
-        'term_base_id': 'termBaseId',
-        'term_group_id': 'termGroupId',
-        'update_time': 'updateTime',
-        'updated_at': 'updatedAt'
+        'id_id': 'idID',
+        'it': 'it',
+        'it_it': 'itIT',
+        'ja': 'ja',
+        'ja_jp': 'jaJP',
+        'ka': 'ka',
+        'kk_kz': 'kkKZ',
+        'kl': 'kl',
+        'km': 'km',
+        'km_kh': 'kmKH',
+        'ko': 'ko',
+        'ko_kr': 'koKR',
+        'mn': 'mn',
+        'ms': 'ms',
+        'ms_my': 'msMY',
+        'my': 'my',
+        'ne': 'ne',
+        'pl': 'pl',
+        'pl_pl': 'plPL',
+        'pt': 'pt',
+        'pt_br': 'ptBR',
+        'pt_pt': 'ptPT',
+        'ro': 'ro',
+        'ru': 'ru',
+        'ru_ru': 'ruRU',
+        'sk': 'sk',
+        'sl': 'sl',
+        'source': 'source',
+        'sr': 'sr',
+        'sv': 'sv',
+        'ta': 'ta',
+        'target': 'target',
+        'te': 'te',
+        'th': 'th',
+        'th_th': 'thTH',
+        'tl_ph': 'tlPH',
+        'tr': 'tr',
+        'tr_tr': 'trTR',
+        'ur': 'ur',
+        'uz': 'uz',
+        'vi': 'vi',
+        'vi_vn': 'viVN',
+        'zh': 'zh',
+        'zh_cn': 'zhCN',
+        'zh_hk': 'zhHK',
+        'zh_hans': 'zhHans',
+        'zh_hans_cn': 'zhHansCN',
+        'zh_hant': 'zhHant',
+        'zh_tw': 'zhTW'
     }
 
-    def __init__(self, acronym=None, apply_mode=None, case_sensitive=None, content=None, create_time=None, created_at=None, creator=None, id=None, lang=None, operator=None, part_of_speech=None, term_base_id=None, term_group_id=None, update_time=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, af=None, af_za=None, ar=None, ar_ar=None, ar_dz=None, ar_sy=None, ar_ye=None, be=None, bn=None, bn_bd=None, da=None, de=None, de_de=None, en=None, en_da=None, en_gb=None, en_in=None, en_ph=None, en_sg=None, en_us=None, es=None, es419=None, es_es=None, es_us=None, fa_ir=None, fil=None, fil_ph=None, fr=None, fr_fr=None, hi=None, hi_in=None, id=None, id_id=None, it=None, it_it=None, ja=None, ja_jp=None, ka=None, kk_kz=None, kl=None, km=None, km_kh=None, ko=None, ko_kr=None, mn=None, ms=None, ms_my=None, my=None, ne=None, pl=None, pl_pl=None, pt=None, pt_br=None, pt_pt=None, ro=None, ru=None, ru_ru=None, sk=None, sl=None, source=None, sr=None, sv=None, ta=None, target=None, te=None, th=None, th_th=None, tl_ph=None, tr=None, tr_tr=None, ur=None, uz=None, vi=None, vi_vn=None, zh=None, zh_cn=None, zh_hk=None, zh_hans=None, zh_hans_cn=None, zh_hant=None, zh_tw=None, _configuration=None):  # noqa: E501
         """LangItemMapForTermBaseTermGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._acronym = None
-        self._apply_mode = None
-        self._case_sensitive = None
-        self._content = None
-        self._create_time = None
-        self._created_at = None
-        self._creator = None
+        self._af = None
+        self._af_za = None
+        self._ar = None
+        self._ar_ar = None
+        self._ar_dz = None
+        self._ar_sy = None
+        self._ar_ye = None
+        self._be = None
+        self._bn = None
+        self._bn_bd = None
+        self._da = None
+        self._de = None
+        self._de_de = None
+        self._en = None
+        self._en_da = None
+        self._en_gb = None
+        self._en_in = None
+        self._en_ph = None
+        self._en_sg = None
+        self._en_us = None
+        self._es = None
+        self._es419 = None
+        self._es_es = None
+        self._es_us = None
+        self._fa_ir = None
+        self._fil = None
+        self._fil_ph = None
+        self._fr = None
+        self._fr_fr = None
+        self._hi = None
+        self._hi_in = None
         self._id = None
-        self._lang = None
-        self._operator = None
-        self._part_of_speech = None
-        self._term_base_id = None
-        self._term_group_id = None
-        self._update_time = None
-        self._updated_at = None
+        self._id_id = None
+        self._it = None
+        self._it_it = None
+        self._ja = None
+        self._ja_jp = None
+        self._ka = None
+        self._kk_kz = None
+        self._kl = None
+        self._km = None
+        self._km_kh = None
+        self._ko = None
+        self._ko_kr = None
+        self._mn = None
+        self._ms = None
+        self._ms_my = None
+        self._my = None
+        self._ne = None
+        self._pl = None
+        self._pl_pl = None
+        self._pt = None
+        self._pt_br = None
+        self._pt_pt = None
+        self._ro = None
+        self._ru = None
+        self._ru_ru = None
+        self._sk = None
+        self._sl = None
+        self._source = None
+        self._sr = None
+        self._sv = None
+        self._ta = None
+        self._target = None
+        self._te = None
+        self._th = None
+        self._th_th = None
+        self._tl_ph = None
+        self._tr = None
+        self._tr_tr = None
+        self._ur = None
+        self._uz = None
+        self._vi = None
+        self._vi_vn = None
+        self._zh = None
+        self._zh_cn = None
+        self._zh_hk = None
+        self._zh_hans = None
+        self._zh_hans_cn = None
+        self._zh_hant = None
+        self._zh_tw = None
         self.discriminator = None
 
-        if acronym is not None:
-            self.acronym = acronym
-        if apply_mode is not None:
-            self.apply_mode = apply_mode
-        if case_sensitive is not None:
-            self.case_sensitive = case_sensitive
-        if content is not None:
-            self.content = content
-        if create_time is not None:
-            self.create_time = create_time
-        if created_at is not None:
-            self.created_at = created_at
-        if creator is not None:
-            self.creator = creator
+        if af is not None:
+            self.af = af
+        if af_za is not None:
+            self.af_za = af_za
+        if ar is not None:
+            self.ar = ar
+        if ar_ar is not None:
+            self.ar_ar = ar_ar
+        if ar_dz is not None:
+            self.ar_dz = ar_dz
+        if ar_sy is not None:
+            self.ar_sy = ar_sy
+        if ar_ye is not None:
+            self.ar_ye = ar_ye
+        if be is not None:
+            self.be = be
+        if bn is not None:
+            self.bn = bn
+        if bn_bd is not None:
+            self.bn_bd = bn_bd
+        if da is not None:
+            self.da = da
+        if de is not None:
+            self.de = de
+        if de_de is not None:
+            self.de_de = de_de
+        if en is not None:
+            self.en = en
+        if en_da is not None:
+            self.en_da = en_da
+        if en_gb is not None:
+            self.en_gb = en_gb
+        if en_in is not None:
+            self.en_in = en_in
+        if en_ph is not None:
+            self.en_ph = en_ph
+        if en_sg is not None:
+            self.en_sg = en_sg
+        if en_us is not None:
+            self.en_us = en_us
+        if es is not None:
+            self.es = es
+        if es419 is not None:
+            self.es419 = es419
+        if es_es is not None:
+            self.es_es = es_es
+        if es_us is not None:
+            self.es_us = es_us
+        if fa_ir is not None:
+            self.fa_ir = fa_ir
+        if fil is not None:
+            self.fil = fil
+        if fil_ph is not None:
+            self.fil_ph = fil_ph
+        if fr is not None:
+            self.fr = fr
+        if fr_fr is not None:
+            self.fr_fr = fr_fr
+        if hi is not None:
+            self.hi = hi
+        if hi_in is not None:
+            self.hi_in = hi_in
         if id is not None:
             self.id = id
-        if lang is not None:
-            self.lang = lang
-        if operator is not None:
-            self.operator = operator
-        if part_of_speech is not None:
-            self.part_of_speech = part_of_speech
-        if term_base_id is not None:
-            self.term_base_id = term_base_id
-        if term_group_id is not None:
-            self.term_group_id = term_group_id
-        if update_time is not None:
-            self.update_time = update_time
-        if updated_at is not None:
-            self.updated_at = updated_at
+        if id_id is not None:
+            self.id_id = id_id
+        if it is not None:
+            self.it = it
+        if it_it is not None:
+            self.it_it = it_it
+        if ja is not None:
+            self.ja = ja
+        if ja_jp is not None:
+            self.ja_jp = ja_jp
+        if ka is not None:
+            self.ka = ka
+        if kk_kz is not None:
+            self.kk_kz = kk_kz
+        if kl is not None:
+            self.kl = kl
+        if km is not None:
+            self.km = km
+        if km_kh is not None:
+            self.km_kh = km_kh
+        if ko is not None:
+            self.ko = ko
+        if ko_kr is not None:
+            self.ko_kr = ko_kr
+        if mn is not None:
+            self.mn = mn
+        if ms is not None:
+            self.ms = ms
+        if ms_my is not None:
+            self.ms_my = ms_my
+        if my is not None:
+            self.my = my
+        if ne is not None:
+            self.ne = ne
+        if pl is not None:
+            self.pl = pl
+        if pl_pl is not None:
+            self.pl_pl = pl_pl
+        if pt is not None:
+            self.pt = pt
+        if pt_br is not None:
+            self.pt_br = pt_br
+        if pt_pt is not None:
+            self.pt_pt = pt_pt
+        if ro is not None:
+            self.ro = ro
+        if ru is not None:
+            self.ru = ru
+        if ru_ru is not None:
+            self.ru_ru = ru_ru
+        if sk is not None:
+            self.sk = sk
+        if sl is not None:
+            self.sl = sl
+        if source is not None:
+            self.source = source
+        if sr is not None:
+            self.sr = sr
+        if sv is not None:
+            self.sv = sv
+        if ta is not None:
+            self.ta = ta
+        if target is not None:
+            self.target = target
+        if te is not None:
+            self.te = te
+        if th is not None:
+            self.th = th
+        if th_th is not None:
+            self.th_th = th_th
+        if tl_ph is not None:
+            self.tl_ph = tl_ph
+        if tr is not None:
+            self.tr = tr
+        if tr_tr is not None:
+            self.tr_tr = tr_tr
+        if ur is not None:
+            self.ur = ur
+        if uz is not None:
+            self.uz = uz
+        if vi is not None:
+            self.vi = vi
+        if vi_vn is not None:
+            self.vi_vn = vi_vn
+        if zh is not None:
+            self.zh = zh
+        if zh_cn is not None:
+            self.zh_cn = zh_cn
+        if zh_hk is not None:
+            self.zh_hk = zh_hk
+        if zh_hans is not None:
+            self.zh_hans = zh_hans
+        if zh_hans_cn is not None:
+            self.zh_hans_cn = zh_hans_cn
+        if zh_hant is not None:
+            self.zh_hant = zh_hant
+        if zh_tw is not None:
+            self.zh_tw = zh_tw
 
     @property
-    def acronym(self):
-        """Gets the acronym of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def af(self):
+        """Gets the af of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The acronym of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: str
+        :return: The af of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: AfForTermBaseTermGroupsOutput
         """
-        return self._acronym
+        return self._af
 
-    @acronym.setter
-    def acronym(self, acronym):
-        """Sets the acronym of this LangItemMapForTermBaseTermGroupsOutput.
+    @af.setter
+    def af(self, af):
+        """Sets the af of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param acronym: The acronym of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: str
+        :param af: The af of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: AfForTermBaseTermGroupsOutput
         """
 
-        self._acronym = acronym
+        self._af = af
 
     @property
-    def apply_mode(self):
-        """Gets the apply_mode of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def af_za(self):
+        """Gets the af_za of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The apply_mode of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: int
+        :return: The af_za of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: AfZAForTermBaseTermGroupsOutput
         """
-        return self._apply_mode
+        return self._af_za
 
-    @apply_mode.setter
-    def apply_mode(self, apply_mode):
-        """Sets the apply_mode of this LangItemMapForTermBaseTermGroupsOutput.
+    @af_za.setter
+    def af_za(self, af_za):
+        """Sets the af_za of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param apply_mode: The apply_mode of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: int
+        :param af_za: The af_za of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: AfZAForTermBaseTermGroupsOutput
         """
 
-        self._apply_mode = apply_mode
+        self._af_za = af_za
 
     @property
-    def case_sensitive(self):
-        """Gets the case_sensitive of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def ar(self):
+        """Gets the ar of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The case_sensitive of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: int
+        :return: The ar of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ArForTermBaseTermGroupsOutput
         """
-        return self._case_sensitive
+        return self._ar
 
-    @case_sensitive.setter
-    def case_sensitive(self, case_sensitive):
-        """Sets the case_sensitive of this LangItemMapForTermBaseTermGroupsOutput.
+    @ar.setter
+    def ar(self, ar):
+        """Sets the ar of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param case_sensitive: The case_sensitive of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: int
+        :param ar: The ar of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ArForTermBaseTermGroupsOutput
         """
 
-        self._case_sensitive = case_sensitive
+        self._ar = ar
 
     @property
-    def content(self):
-        """Gets the content of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def ar_ar(self):
+        """Gets the ar_ar of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The content of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: str
+        :return: The ar_ar of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ArARForTermBaseTermGroupsOutput
         """
-        return self._content
+        return self._ar_ar
 
-    @content.setter
-    def content(self, content):
-        """Sets the content of this LangItemMapForTermBaseTermGroupsOutput.
+    @ar_ar.setter
+    def ar_ar(self, ar_ar):
+        """Sets the ar_ar of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param content: The content of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: str
+        :param ar_ar: The ar_ar of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ArARForTermBaseTermGroupsOutput
         """
 
-        self._content = content
+        self._ar_ar = ar_ar
 
     @property
-    def create_time(self):
-        """Gets the create_time of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def ar_dz(self):
+        """Gets the ar_dz of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The create_time of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: str
+        :return: The ar_dz of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ArDZForTermBaseTermGroupsOutput
         """
-        return self._create_time
+        return self._ar_dz
 
-    @create_time.setter
-    def create_time(self, create_time):
-        """Sets the create_time of this LangItemMapForTermBaseTermGroupsOutput.
+    @ar_dz.setter
+    def ar_dz(self, ar_dz):
+        """Sets the ar_dz of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param create_time: The create_time of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: str
+        :param ar_dz: The ar_dz of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ArDZForTermBaseTermGroupsOutput
         """
 
-        self._create_time = create_time
+        self._ar_dz = ar_dz
 
     @property
-    def created_at(self):
-        """Gets the created_at of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def ar_sy(self):
+        """Gets the ar_sy of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The created_at of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: str
+        :return: The ar_sy of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ArSYForTermBaseTermGroupsOutput
         """
-        return self._created_at
+        return self._ar_sy
 
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this LangItemMapForTermBaseTermGroupsOutput.
+    @ar_sy.setter
+    def ar_sy(self, ar_sy):
+        """Sets the ar_sy of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param created_at: The created_at of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: str
+        :param ar_sy: The ar_sy of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ArSYForTermBaseTermGroupsOutput
         """
 
-        self._created_at = created_at
+        self._ar_sy = ar_sy
 
     @property
-    def creator(self):
-        """Gets the creator of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def ar_ye(self):
+        """Gets the ar_ye of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The creator of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: CreatorForTermBaseTermGroupsOutput
+        :return: The ar_ye of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ArYEForTermBaseTermGroupsOutput
         """
-        return self._creator
+        return self._ar_ye
 
-    @creator.setter
-    def creator(self, creator):
-        """Sets the creator of this LangItemMapForTermBaseTermGroupsOutput.
+    @ar_ye.setter
+    def ar_ye(self, ar_ye):
+        """Sets the ar_ye of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param creator: The creator of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: CreatorForTermBaseTermGroupsOutput
+        :param ar_ye: The ar_ye of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ArYEForTermBaseTermGroupsOutput
         """
 
-        self._creator = creator
+        self._ar_ye = ar_ye
+
+    @property
+    def be(self):
+        """Gets the be of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The be of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: BeForTermBaseTermGroupsOutput
+        """
+        return self._be
+
+    @be.setter
+    def be(self, be):
+        """Sets the be of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param be: The be of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: BeForTermBaseTermGroupsOutput
+        """
+
+        self._be = be
+
+    @property
+    def bn(self):
+        """Gets the bn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The bn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: BnForTermBaseTermGroupsOutput
+        """
+        return self._bn
+
+    @bn.setter
+    def bn(self, bn):
+        """Sets the bn of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param bn: The bn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: BnForTermBaseTermGroupsOutput
+        """
+
+        self._bn = bn
+
+    @property
+    def bn_bd(self):
+        """Gets the bn_bd of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The bn_bd of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: BnBDForTermBaseTermGroupsOutput
+        """
+        return self._bn_bd
+
+    @bn_bd.setter
+    def bn_bd(self, bn_bd):
+        """Sets the bn_bd of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param bn_bd: The bn_bd of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: BnBDForTermBaseTermGroupsOutput
+        """
+
+        self._bn_bd = bn_bd
+
+    @property
+    def da(self):
+        """Gets the da of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The da of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: DaForTermBaseTermGroupsOutput
+        """
+        return self._da
+
+    @da.setter
+    def da(self, da):
+        """Sets the da of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param da: The da of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: DaForTermBaseTermGroupsOutput
+        """
+
+        self._da = da
+
+    @property
+    def de(self):
+        """Gets the de of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The de of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: DeForTermBaseTermGroupsOutput
+        """
+        return self._de
+
+    @de.setter
+    def de(self, de):
+        """Sets the de of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param de: The de of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: DeForTermBaseTermGroupsOutput
+        """
+
+        self._de = de
+
+    @property
+    def de_de(self):
+        """Gets the de_de of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The de_de of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: DeDEForTermBaseTermGroupsOutput
+        """
+        return self._de_de
+
+    @de_de.setter
+    def de_de(self, de_de):
+        """Sets the de_de of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param de_de: The de_de of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: DeDEForTermBaseTermGroupsOutput
+        """
+
+        self._de_de = de_de
+
+    @property
+    def en(self):
+        """Gets the en of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The en of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: EnForTermBaseTermGroupsOutput
+        """
+        return self._en
+
+    @en.setter
+    def en(self, en):
+        """Sets the en of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param en: The en of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: EnForTermBaseTermGroupsOutput
+        """
+
+        self._en = en
+
+    @property
+    def en_da(self):
+        """Gets the en_da of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The en_da of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: EnDAForTermBaseTermGroupsOutput
+        """
+        return self._en_da
+
+    @en_da.setter
+    def en_da(self, en_da):
+        """Sets the en_da of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param en_da: The en_da of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: EnDAForTermBaseTermGroupsOutput
+        """
+
+        self._en_da = en_da
+
+    @property
+    def en_gb(self):
+        """Gets the en_gb of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The en_gb of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: EnGBForTermBaseTermGroupsOutput
+        """
+        return self._en_gb
+
+    @en_gb.setter
+    def en_gb(self, en_gb):
+        """Sets the en_gb of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param en_gb: The en_gb of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: EnGBForTermBaseTermGroupsOutput
+        """
+
+        self._en_gb = en_gb
+
+    @property
+    def en_in(self):
+        """Gets the en_in of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The en_in of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: EnINForTermBaseTermGroupsOutput
+        """
+        return self._en_in
+
+    @en_in.setter
+    def en_in(self, en_in):
+        """Sets the en_in of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param en_in: The en_in of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: EnINForTermBaseTermGroupsOutput
+        """
+
+        self._en_in = en_in
+
+    @property
+    def en_ph(self):
+        """Gets the en_ph of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The en_ph of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: EnPHForTermBaseTermGroupsOutput
+        """
+        return self._en_ph
+
+    @en_ph.setter
+    def en_ph(self, en_ph):
+        """Sets the en_ph of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param en_ph: The en_ph of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: EnPHForTermBaseTermGroupsOutput
+        """
+
+        self._en_ph = en_ph
+
+    @property
+    def en_sg(self):
+        """Gets the en_sg of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The en_sg of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: EnSGForTermBaseTermGroupsOutput
+        """
+        return self._en_sg
+
+    @en_sg.setter
+    def en_sg(self, en_sg):
+        """Sets the en_sg of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param en_sg: The en_sg of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: EnSGForTermBaseTermGroupsOutput
+        """
+
+        self._en_sg = en_sg
+
+    @property
+    def en_us(self):
+        """Gets the en_us of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The en_us of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: EnUSForTermBaseTermGroupsOutput
+        """
+        return self._en_us
+
+    @en_us.setter
+    def en_us(self, en_us):
+        """Sets the en_us of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param en_us: The en_us of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: EnUSForTermBaseTermGroupsOutput
+        """
+
+        self._en_us = en_us
+
+    @property
+    def es(self):
+        """Gets the es of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The es of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: EsForTermBaseTermGroupsOutput
+        """
+        return self._es
+
+    @es.setter
+    def es(self, es):
+        """Sets the es of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param es: The es of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: EsForTermBaseTermGroupsOutput
+        """
+
+        self._es = es
+
+    @property
+    def es419(self):
+        """Gets the es419 of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The es419 of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: Es419ForTermBaseTermGroupsOutput
+        """
+        return self._es419
+
+    @es419.setter
+    def es419(self, es419):
+        """Sets the es419 of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param es419: The es419 of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: Es419ForTermBaseTermGroupsOutput
+        """
+
+        self._es419 = es419
+
+    @property
+    def es_es(self):
+        """Gets the es_es of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The es_es of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: EsESForTermBaseTermGroupsOutput
+        """
+        return self._es_es
+
+    @es_es.setter
+    def es_es(self, es_es):
+        """Sets the es_es of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param es_es: The es_es of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: EsESForTermBaseTermGroupsOutput
+        """
+
+        self._es_es = es_es
+
+    @property
+    def es_us(self):
+        """Gets the es_us of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The es_us of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: EsUSForTermBaseTermGroupsOutput
+        """
+        return self._es_us
+
+    @es_us.setter
+    def es_us(self, es_us):
+        """Sets the es_us of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param es_us: The es_us of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: EsUSForTermBaseTermGroupsOutput
+        """
+
+        self._es_us = es_us
+
+    @property
+    def fa_ir(self):
+        """Gets the fa_ir of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The fa_ir of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: FaIRForTermBaseTermGroupsOutput
+        """
+        return self._fa_ir
+
+    @fa_ir.setter
+    def fa_ir(self, fa_ir):
+        """Sets the fa_ir of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param fa_ir: The fa_ir of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: FaIRForTermBaseTermGroupsOutput
+        """
+
+        self._fa_ir = fa_ir
+
+    @property
+    def fil(self):
+        """Gets the fil of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The fil of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: FilForTermBaseTermGroupsOutput
+        """
+        return self._fil
+
+    @fil.setter
+    def fil(self, fil):
+        """Sets the fil of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param fil: The fil of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: FilForTermBaseTermGroupsOutput
+        """
+
+        self._fil = fil
+
+    @property
+    def fil_ph(self):
+        """Gets the fil_ph of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The fil_ph of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: FilPHForTermBaseTermGroupsOutput
+        """
+        return self._fil_ph
+
+    @fil_ph.setter
+    def fil_ph(self, fil_ph):
+        """Sets the fil_ph of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param fil_ph: The fil_ph of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: FilPHForTermBaseTermGroupsOutput
+        """
+
+        self._fil_ph = fil_ph
+
+    @property
+    def fr(self):
+        """Gets the fr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The fr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: FrForTermBaseTermGroupsOutput
+        """
+        return self._fr
+
+    @fr.setter
+    def fr(self, fr):
+        """Sets the fr of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param fr: The fr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: FrForTermBaseTermGroupsOutput
+        """
+
+        self._fr = fr
+
+    @property
+    def fr_fr(self):
+        """Gets the fr_fr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The fr_fr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: FrFRForTermBaseTermGroupsOutput
+        """
+        return self._fr_fr
+
+    @fr_fr.setter
+    def fr_fr(self, fr_fr):
+        """Sets the fr_fr of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param fr_fr: The fr_fr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: FrFRForTermBaseTermGroupsOutput
+        """
+
+        self._fr_fr = fr_fr
+
+    @property
+    def hi(self):
+        """Gets the hi of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The hi of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: HiForTermBaseTermGroupsOutput
+        """
+        return self._hi
+
+    @hi.setter
+    def hi(self, hi):
+        """Sets the hi of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param hi: The hi of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: HiForTermBaseTermGroupsOutput
+        """
+
+        self._hi = hi
+
+    @property
+    def hi_in(self):
+        """Gets the hi_in of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The hi_in of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: HiINForTermBaseTermGroupsOutput
+        """
+        return self._hi_in
+
+    @hi_in.setter
+    def hi_in(self, hi_in):
+        """Sets the hi_in of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param hi_in: The hi_in of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: HiINForTermBaseTermGroupsOutput
+        """
+
+        self._hi_in = hi_in
 
     @property
     def id(self):
@@ -275,7 +1109,7 @@ class LangItemMapForTermBaseTermGroupsOutput(object):
 
 
         :return: The id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: IdForTermBaseTermGroupsOutput
         """
         return self._id
 
@@ -285,157 +1119,1039 @@ class LangItemMapForTermBaseTermGroupsOutput(object):
 
 
         :param id: The id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: str
+        :type: IdForTermBaseTermGroupsOutput
         """
 
         self._id = id
 
     @property
-    def lang(self):
-        """Gets the lang of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def id_id(self):
+        """Gets the id_id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The lang of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: str
+        :return: The id_id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: IdIDForTermBaseTermGroupsOutput
         """
-        return self._lang
+        return self._id_id
 
-    @lang.setter
-    def lang(self, lang):
-        """Sets the lang of this LangItemMapForTermBaseTermGroupsOutput.
+    @id_id.setter
+    def id_id(self, id_id):
+        """Sets the id_id of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param lang: The lang of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: str
+        :param id_id: The id_id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: IdIDForTermBaseTermGroupsOutput
         """
 
-        self._lang = lang
+        self._id_id = id_id
 
     @property
-    def operator(self):
-        """Gets the operator of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def it(self):
+        """Gets the it of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The operator of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: CreatorForTermBaseTermGroupsOutput
+        :return: The it of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ItForTermBaseTermGroupsOutput
         """
-        return self._operator
+        return self._it
 
-    @operator.setter
-    def operator(self, operator):
-        """Sets the operator of this LangItemMapForTermBaseTermGroupsOutput.
+    @it.setter
+    def it(self, it):
+        """Sets the it of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param operator: The operator of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: CreatorForTermBaseTermGroupsOutput
+        :param it: The it of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ItForTermBaseTermGroupsOutput
         """
 
-        self._operator = operator
+        self._it = it
 
     @property
-    def part_of_speech(self):
-        """Gets the part_of_speech of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def it_it(self):
+        """Gets the it_it of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The part_of_speech of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: int
+        :return: The it_it of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ItITForTermBaseTermGroupsOutput
         """
-        return self._part_of_speech
+        return self._it_it
 
-    @part_of_speech.setter
-    def part_of_speech(self, part_of_speech):
-        """Sets the part_of_speech of this LangItemMapForTermBaseTermGroupsOutput.
+    @it_it.setter
+    def it_it(self, it_it):
+        """Sets the it_it of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param part_of_speech: The part_of_speech of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: int
+        :param it_it: The it_it of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ItITForTermBaseTermGroupsOutput
         """
 
-        self._part_of_speech = part_of_speech
+        self._it_it = it_it
 
     @property
-    def term_base_id(self):
-        """Gets the term_base_id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def ja(self):
+        """Gets the ja of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The term_base_id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: str
+        :return: The ja of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: JaForTermBaseTermGroupsOutput
         """
-        return self._term_base_id
+        return self._ja
 
-    @term_base_id.setter
-    def term_base_id(self, term_base_id):
-        """Sets the term_base_id of this LangItemMapForTermBaseTermGroupsOutput.
+    @ja.setter
+    def ja(self, ja):
+        """Sets the ja of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param term_base_id: The term_base_id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: str
+        :param ja: The ja of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: JaForTermBaseTermGroupsOutput
         """
 
-        self._term_base_id = term_base_id
+        self._ja = ja
 
     @property
-    def term_group_id(self):
-        """Gets the term_group_id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def ja_jp(self):
+        """Gets the ja_jp of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The term_group_id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: str
+        :return: The ja_jp of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: JaJPForTermBaseTermGroupsOutput
         """
-        return self._term_group_id
+        return self._ja_jp
 
-    @term_group_id.setter
-    def term_group_id(self, term_group_id):
-        """Sets the term_group_id of this LangItemMapForTermBaseTermGroupsOutput.
+    @ja_jp.setter
+    def ja_jp(self, ja_jp):
+        """Sets the ja_jp of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param term_group_id: The term_group_id of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: str
+        :param ja_jp: The ja_jp of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: JaJPForTermBaseTermGroupsOutput
         """
 
-        self._term_group_id = term_group_id
+        self._ja_jp = ja_jp
 
     @property
-    def update_time(self):
-        """Gets the update_time of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def ka(self):
+        """Gets the ka of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The update_time of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: str
+        :return: The ka of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: KaForTermBaseTermGroupsOutput
         """
-        return self._update_time
+        return self._ka
 
-    @update_time.setter
-    def update_time(self, update_time):
-        """Sets the update_time of this LangItemMapForTermBaseTermGroupsOutput.
+    @ka.setter
+    def ka(self, ka):
+        """Sets the ka of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param update_time: The update_time of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: str
+        :param ka: The ka of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: KaForTermBaseTermGroupsOutput
         """
 
-        self._update_time = update_time
+        self._ka = ka
 
     @property
-    def updated_at(self):
-        """Gets the updated_at of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+    def kk_kz(self):
+        """Gets the kk_kz of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
 
 
-        :return: The updated_at of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: str
+        :return: The kk_kz of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: KkKZForTermBaseTermGroupsOutput
         """
-        return self._updated_at
+        return self._kk_kz
 
-    @updated_at.setter
-    def updated_at(self, updated_at):
-        """Sets the updated_at of this LangItemMapForTermBaseTermGroupsOutput.
+    @kk_kz.setter
+    def kk_kz(self, kk_kz):
+        """Sets the kk_kz of this LangItemMapForTermBaseTermGroupsOutput.
 
 
-        :param updated_at: The updated_at of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: str
+        :param kk_kz: The kk_kz of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: KkKZForTermBaseTermGroupsOutput
         """
 
-        self._updated_at = updated_at
+        self._kk_kz = kk_kz
+
+    @property
+    def kl(self):
+        """Gets the kl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The kl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: KlForTermBaseTermGroupsOutput
+        """
+        return self._kl
+
+    @kl.setter
+    def kl(self, kl):
+        """Sets the kl of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param kl: The kl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: KlForTermBaseTermGroupsOutput
+        """
+
+        self._kl = kl
+
+    @property
+    def km(self):
+        """Gets the km of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The km of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: KmForTermBaseTermGroupsOutput
+        """
+        return self._km
+
+    @km.setter
+    def km(self, km):
+        """Sets the km of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param km: The km of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: KmForTermBaseTermGroupsOutput
+        """
+
+        self._km = km
+
+    @property
+    def km_kh(self):
+        """Gets the km_kh of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The km_kh of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: KmKHForTermBaseTermGroupsOutput
+        """
+        return self._km_kh
+
+    @km_kh.setter
+    def km_kh(self, km_kh):
+        """Sets the km_kh of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param km_kh: The km_kh of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: KmKHForTermBaseTermGroupsOutput
+        """
+
+        self._km_kh = km_kh
+
+    @property
+    def ko(self):
+        """Gets the ko of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The ko of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: KoForTermBaseTermGroupsOutput
+        """
+        return self._ko
+
+    @ko.setter
+    def ko(self, ko):
+        """Sets the ko of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param ko: The ko of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: KoForTermBaseTermGroupsOutput
+        """
+
+        self._ko = ko
+
+    @property
+    def ko_kr(self):
+        """Gets the ko_kr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The ko_kr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: KoKRForTermBaseTermGroupsOutput
+        """
+        return self._ko_kr
+
+    @ko_kr.setter
+    def ko_kr(self, ko_kr):
+        """Sets the ko_kr of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param ko_kr: The ko_kr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: KoKRForTermBaseTermGroupsOutput
+        """
+
+        self._ko_kr = ko_kr
+
+    @property
+    def mn(self):
+        """Gets the mn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The mn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: MnForTermBaseTermGroupsOutput
+        """
+        return self._mn
+
+    @mn.setter
+    def mn(self, mn):
+        """Sets the mn of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param mn: The mn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: MnForTermBaseTermGroupsOutput
+        """
+
+        self._mn = mn
+
+    @property
+    def ms(self):
+        """Gets the ms of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The ms of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: MsForTermBaseTermGroupsOutput
+        """
+        return self._ms
+
+    @ms.setter
+    def ms(self, ms):
+        """Sets the ms of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param ms: The ms of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: MsForTermBaseTermGroupsOutput
+        """
+
+        self._ms = ms
+
+    @property
+    def ms_my(self):
+        """Gets the ms_my of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The ms_my of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: MsMYForTermBaseTermGroupsOutput
+        """
+        return self._ms_my
+
+    @ms_my.setter
+    def ms_my(self, ms_my):
+        """Sets the ms_my of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param ms_my: The ms_my of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: MsMYForTermBaseTermGroupsOutput
+        """
+
+        self._ms_my = ms_my
+
+    @property
+    def my(self):
+        """Gets the my of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The my of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: MyForTermBaseTermGroupsOutput
+        """
+        return self._my
+
+    @my.setter
+    def my(self, my):
+        """Sets the my of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param my: The my of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: MyForTermBaseTermGroupsOutput
+        """
+
+        self._my = my
+
+    @property
+    def ne(self):
+        """Gets the ne of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The ne of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: NeForTermBaseTermGroupsOutput
+        """
+        return self._ne
+
+    @ne.setter
+    def ne(self, ne):
+        """Sets the ne of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param ne: The ne of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: NeForTermBaseTermGroupsOutput
+        """
+
+        self._ne = ne
+
+    @property
+    def pl(self):
+        """Gets the pl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The pl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: PlForTermBaseTermGroupsOutput
+        """
+        return self._pl
+
+    @pl.setter
+    def pl(self, pl):
+        """Sets the pl of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param pl: The pl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: PlForTermBaseTermGroupsOutput
+        """
+
+        self._pl = pl
+
+    @property
+    def pl_pl(self):
+        """Gets the pl_pl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The pl_pl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: PlPLForTermBaseTermGroupsOutput
+        """
+        return self._pl_pl
+
+    @pl_pl.setter
+    def pl_pl(self, pl_pl):
+        """Sets the pl_pl of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param pl_pl: The pl_pl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: PlPLForTermBaseTermGroupsOutput
+        """
+
+        self._pl_pl = pl_pl
+
+    @property
+    def pt(self):
+        """Gets the pt of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The pt of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: PtForTermBaseTermGroupsOutput
+        """
+        return self._pt
+
+    @pt.setter
+    def pt(self, pt):
+        """Sets the pt of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param pt: The pt of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: PtForTermBaseTermGroupsOutput
+        """
+
+        self._pt = pt
+
+    @property
+    def pt_br(self):
+        """Gets the pt_br of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The pt_br of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: PtBRForTermBaseTermGroupsOutput
+        """
+        return self._pt_br
+
+    @pt_br.setter
+    def pt_br(self, pt_br):
+        """Sets the pt_br of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param pt_br: The pt_br of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: PtBRForTermBaseTermGroupsOutput
+        """
+
+        self._pt_br = pt_br
+
+    @property
+    def pt_pt(self):
+        """Gets the pt_pt of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The pt_pt of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: PtPTForTermBaseTermGroupsOutput
+        """
+        return self._pt_pt
+
+    @pt_pt.setter
+    def pt_pt(self, pt_pt):
+        """Sets the pt_pt of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param pt_pt: The pt_pt of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: PtPTForTermBaseTermGroupsOutput
+        """
+
+        self._pt_pt = pt_pt
+
+    @property
+    def ro(self):
+        """Gets the ro of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The ro of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: RoForTermBaseTermGroupsOutput
+        """
+        return self._ro
+
+    @ro.setter
+    def ro(self, ro):
+        """Sets the ro of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param ro: The ro of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: RoForTermBaseTermGroupsOutput
+        """
+
+        self._ro = ro
+
+    @property
+    def ru(self):
+        """Gets the ru of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The ru of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: RuForTermBaseTermGroupsOutput
+        """
+        return self._ru
+
+    @ru.setter
+    def ru(self, ru):
+        """Sets the ru of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param ru: The ru of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: RuForTermBaseTermGroupsOutput
+        """
+
+        self._ru = ru
+
+    @property
+    def ru_ru(self):
+        """Gets the ru_ru of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The ru_ru of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: RuRUForTermBaseTermGroupsOutput
+        """
+        return self._ru_ru
+
+    @ru_ru.setter
+    def ru_ru(self, ru_ru):
+        """Sets the ru_ru of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param ru_ru: The ru_ru of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: RuRUForTermBaseTermGroupsOutput
+        """
+
+        self._ru_ru = ru_ru
+
+    @property
+    def sk(self):
+        """Gets the sk of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The sk of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: SkForTermBaseTermGroupsOutput
+        """
+        return self._sk
+
+    @sk.setter
+    def sk(self, sk):
+        """Sets the sk of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param sk: The sk of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: SkForTermBaseTermGroupsOutput
+        """
+
+        self._sk = sk
+
+    @property
+    def sl(self):
+        """Gets the sl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The sl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: SlForTermBaseTermGroupsOutput
+        """
+        return self._sl
+
+    @sl.setter
+    def sl(self, sl):
+        """Sets the sl of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param sl: The sl of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: SlForTermBaseTermGroupsOutput
+        """
+
+        self._sl = sl
+
+    @property
+    def source(self):
+        """Gets the source of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The source of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: SourceForTermBaseTermGroupsOutput
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param source: The source of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: SourceForTermBaseTermGroupsOutput
+        """
+
+        self._source = source
+
+    @property
+    def sr(self):
+        """Gets the sr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The sr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: SrForTermBaseTermGroupsOutput
+        """
+        return self._sr
+
+    @sr.setter
+    def sr(self, sr):
+        """Sets the sr of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param sr: The sr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: SrForTermBaseTermGroupsOutput
+        """
+
+        self._sr = sr
+
+    @property
+    def sv(self):
+        """Gets the sv of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The sv of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: SvForTermBaseTermGroupsOutput
+        """
+        return self._sv
+
+    @sv.setter
+    def sv(self, sv):
+        """Sets the sv of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param sv: The sv of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: SvForTermBaseTermGroupsOutput
+        """
+
+        self._sv = sv
+
+    @property
+    def ta(self):
+        """Gets the ta of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The ta of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: TaForTermBaseTermGroupsOutput
+        """
+        return self._ta
+
+    @ta.setter
+    def ta(self, ta):
+        """Sets the ta of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param ta: The ta of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: TaForTermBaseTermGroupsOutput
+        """
+
+        self._ta = ta
+
+    @property
+    def target(self):
+        """Gets the target of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The target of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: TargetForTermBaseTermGroupsOutput
+        """
+        return self._target
+
+    @target.setter
+    def target(self, target):
+        """Sets the target of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param target: The target of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: TargetForTermBaseTermGroupsOutput
+        """
+
+        self._target = target
+
+    @property
+    def te(self):
+        """Gets the te of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The te of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: TeForTermBaseTermGroupsOutput
+        """
+        return self._te
+
+    @te.setter
+    def te(self, te):
+        """Sets the te of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param te: The te of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: TeForTermBaseTermGroupsOutput
+        """
+
+        self._te = te
+
+    @property
+    def th(self):
+        """Gets the th of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The th of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ThForTermBaseTermGroupsOutput
+        """
+        return self._th
+
+    @th.setter
+    def th(self, th):
+        """Sets the th of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param th: The th of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ThForTermBaseTermGroupsOutput
+        """
+
+        self._th = th
+
+    @property
+    def th_th(self):
+        """Gets the th_th of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The th_th of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ThTHForTermBaseTermGroupsOutput
+        """
+        return self._th_th
+
+    @th_th.setter
+    def th_th(self, th_th):
+        """Sets the th_th of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param th_th: The th_th of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ThTHForTermBaseTermGroupsOutput
+        """
+
+        self._th_th = th_th
+
+    @property
+    def tl_ph(self):
+        """Gets the tl_ph of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The tl_ph of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: TlPHForTermBaseTermGroupsOutput
+        """
+        return self._tl_ph
+
+    @tl_ph.setter
+    def tl_ph(self, tl_ph):
+        """Sets the tl_ph of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param tl_ph: The tl_ph of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: TlPHForTermBaseTermGroupsOutput
+        """
+
+        self._tl_ph = tl_ph
+
+    @property
+    def tr(self):
+        """Gets the tr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The tr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: TrForTermBaseTermGroupsOutput
+        """
+        return self._tr
+
+    @tr.setter
+    def tr(self, tr):
+        """Sets the tr of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param tr: The tr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: TrForTermBaseTermGroupsOutput
+        """
+
+        self._tr = tr
+
+    @property
+    def tr_tr(self):
+        """Gets the tr_tr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The tr_tr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: TrTRForTermBaseTermGroupsOutput
+        """
+        return self._tr_tr
+
+    @tr_tr.setter
+    def tr_tr(self, tr_tr):
+        """Sets the tr_tr of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param tr_tr: The tr_tr of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: TrTRForTermBaseTermGroupsOutput
+        """
+
+        self._tr_tr = tr_tr
+
+    @property
+    def ur(self):
+        """Gets the ur of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The ur of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: UrForTermBaseTermGroupsOutput
+        """
+        return self._ur
+
+    @ur.setter
+    def ur(self, ur):
+        """Sets the ur of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param ur: The ur of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: UrForTermBaseTermGroupsOutput
+        """
+
+        self._ur = ur
+
+    @property
+    def uz(self):
+        """Gets the uz of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The uz of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: UzForTermBaseTermGroupsOutput
+        """
+        return self._uz
+
+    @uz.setter
+    def uz(self, uz):
+        """Sets the uz of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param uz: The uz of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: UzForTermBaseTermGroupsOutput
+        """
+
+        self._uz = uz
+
+    @property
+    def vi(self):
+        """Gets the vi of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The vi of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ViForTermBaseTermGroupsOutput
+        """
+        return self._vi
+
+    @vi.setter
+    def vi(self, vi):
+        """Sets the vi of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param vi: The vi of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ViForTermBaseTermGroupsOutput
+        """
+
+        self._vi = vi
+
+    @property
+    def vi_vn(self):
+        """Gets the vi_vn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The vi_vn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ViVNForTermBaseTermGroupsOutput
+        """
+        return self._vi_vn
+
+    @vi_vn.setter
+    def vi_vn(self, vi_vn):
+        """Sets the vi_vn of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param vi_vn: The vi_vn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ViVNForTermBaseTermGroupsOutput
+        """
+
+        self._vi_vn = vi_vn
+
+    @property
+    def zh(self):
+        """Gets the zh of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The zh of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ZhForTermBaseTermGroupsOutput
+        """
+        return self._zh
+
+    @zh.setter
+    def zh(self, zh):
+        """Sets the zh of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param zh: The zh of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ZhForTermBaseTermGroupsOutput
+        """
+
+        self._zh = zh
+
+    @property
+    def zh_cn(self):
+        """Gets the zh_cn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The zh_cn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ZhCNForTermBaseTermGroupsOutput
+        """
+        return self._zh_cn
+
+    @zh_cn.setter
+    def zh_cn(self, zh_cn):
+        """Sets the zh_cn of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param zh_cn: The zh_cn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ZhCNForTermBaseTermGroupsOutput
+        """
+
+        self._zh_cn = zh_cn
+
+    @property
+    def zh_hk(self):
+        """Gets the zh_hk of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The zh_hk of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ZhHKForTermBaseTermGroupsOutput
+        """
+        return self._zh_hk
+
+    @zh_hk.setter
+    def zh_hk(self, zh_hk):
+        """Sets the zh_hk of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param zh_hk: The zh_hk of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ZhHKForTermBaseTermGroupsOutput
+        """
+
+        self._zh_hk = zh_hk
+
+    @property
+    def zh_hans(self):
+        """Gets the zh_hans of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The zh_hans of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ZhHansForTermBaseTermGroupsOutput
+        """
+        return self._zh_hans
+
+    @zh_hans.setter
+    def zh_hans(self, zh_hans):
+        """Sets the zh_hans of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param zh_hans: The zh_hans of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ZhHansForTermBaseTermGroupsOutput
+        """
+
+        self._zh_hans = zh_hans
+
+    @property
+    def zh_hans_cn(self):
+        """Gets the zh_hans_cn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The zh_hans_cn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ZhHansCNForTermBaseTermGroupsOutput
+        """
+        return self._zh_hans_cn
+
+    @zh_hans_cn.setter
+    def zh_hans_cn(self, zh_hans_cn):
+        """Sets the zh_hans_cn of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param zh_hans_cn: The zh_hans_cn of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ZhHansCNForTermBaseTermGroupsOutput
+        """
+
+        self._zh_hans_cn = zh_hans_cn
+
+    @property
+    def zh_hant(self):
+        """Gets the zh_hant of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The zh_hant of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ZhHantForTermBaseTermGroupsOutput
+        """
+        return self._zh_hant
+
+    @zh_hant.setter
+    def zh_hant(self, zh_hant):
+        """Sets the zh_hant of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param zh_hant: The zh_hant of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ZhHantForTermBaseTermGroupsOutput
+        """
+
+        self._zh_hant = zh_hant
+
+    @property
+    def zh_tw(self):
+        """Gets the zh_tw of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The zh_tw of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: ZhTWForTermBaseTermGroupsOutput
+        """
+        return self._zh_tw
+
+    @zh_tw.setter
+    def zh_tw(self, zh_tw):
+        """Sets the zh_tw of this LangItemMapForTermBaseTermGroupsOutput.
+
+
+        :param zh_tw: The zh_tw of this LangItemMapForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: ZhTWForTermBaseTermGroupsOutput
+        """
+
+        self._zh_tw = zh_tw
 
     def to_dict(self):
         """Returns the model properties as a dict"""

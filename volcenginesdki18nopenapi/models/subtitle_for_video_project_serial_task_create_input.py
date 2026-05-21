@@ -33,34 +33,65 @@ class SubtitleForVideoProjectSerialTaskCreateInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'arrangement': 'int',
         'file_type': 'int',
         'name': 'str',
+        'subtitle_lang': 'int',
         'uri': 'str'
     }
 
     attribute_map = {
+        'arrangement': 'arrangement',
         'file_type': 'fileType',
         'name': 'name',
+        'subtitle_lang': 'subtitleLang',
         'uri': 'uri'
     }
 
-    def __init__(self, file_type=None, name=None, uri=None, _configuration=None):  # noqa: E501
+    def __init__(self, arrangement=None, file_type=None, name=None, subtitle_lang=None, uri=None, _configuration=None):  # noqa: E501
         """SubtitleForVideoProjectSerialTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._arrangement = None
         self._file_type = None
         self._name = None
+        self._subtitle_lang = None
         self._uri = None
         self.discriminator = None
 
+        if arrangement is not None:
+            self.arrangement = arrangement
         if file_type is not None:
             self.file_type = file_type
         if name is not None:
             self.name = name
+        if subtitle_lang is not None:
+            self.subtitle_lang = subtitle_lang
         if uri is not None:
             self.uri = uri
+
+    @property
+    def arrangement(self):
+        """Gets the arrangement of this SubtitleForVideoProjectSerialTaskCreateInput.  # noqa: E501
+
+
+        :return: The arrangement of this SubtitleForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._arrangement
+
+    @arrangement.setter
+    def arrangement(self, arrangement):
+        """Sets the arrangement of this SubtitleForVideoProjectSerialTaskCreateInput.
+
+
+        :param arrangement: The arrangement of this SubtitleForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :type: int
+        """
+
+        self._arrangement = arrangement
 
     @property
     def file_type(self):
@@ -103,6 +134,27 @@ class SubtitleForVideoProjectSerialTaskCreateInput(object):
         """
 
         self._name = name
+
+    @property
+    def subtitle_lang(self):
+        """Gets the subtitle_lang of this SubtitleForVideoProjectSerialTaskCreateInput.  # noqa: E501
+
+
+        :return: The subtitle_lang of this SubtitleForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._subtitle_lang
+
+    @subtitle_lang.setter
+    def subtitle_lang(self, subtitle_lang):
+        """Sets the subtitle_lang of this SubtitleForVideoProjectSerialTaskCreateInput.
+
+
+        :param subtitle_lang: The subtitle_lang of this SubtitleForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :type: int
+        """
+
+        self._subtitle_lang = subtitle_lang
 
     @property
     def uri(self):
