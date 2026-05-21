@@ -1,5 +1,5 @@
 {
-  "description": "IAM: 修改 GetProject",
+  "description": "IAM: 新增 GetServiceLinkedRoleTemplate",
   "modules": "service/iam",
-  "type": "breaking-change"
+  "type": "feature"
 }
