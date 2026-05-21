@@ -22,6 +22,9 @@ class Usage(BaseModel):
     completion_tokens: int
     """The number of tokens used for completion."""
 
+    total_tokens: Optional[int] = None
+    """The total number of tokens consumed."""
+
 
 class Content(BaseModel):
     video_url: str

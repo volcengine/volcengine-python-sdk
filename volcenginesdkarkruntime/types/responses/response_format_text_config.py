@@ -15,10 +15,11 @@ from typing_extensions import Annotated, TypeAlias
 from ..._utils import PropertyInfo
 from ..shared.response_format_text import ResponseFormatText
 from ..shared.response_format_json_object import ResponseFormatJSONObject
+from ..shared.response_format_json_schema import ResponseFormatJSONSchema
 
 __all__ = ["ResponseFormatTextConfig"]
 
 ResponseFormatTextConfig: TypeAlias = Annotated[
-    Union[ResponseFormatText, ResponseFormatJSONObject],
+    Union[ResponseFormatText, ResponseFormatJSONObject, ResponseFormatJSONSchema],
     PropertyInfo(discriminator="type"),
 ]
