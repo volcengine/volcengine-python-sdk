@@ -37,6 +37,7 @@ class CreateTransitRouterTrafficQosQueueEntryRequest(object):
         'client_token': 'str',
         'description': 'str',
         'dscps': 'list[int]',
+        'priority': 'str',
         'transit_router_traffic_qos_queue_entry_name': 'str',
         'transit_router_traffic_qos_queue_policy_id': 'str'
     }
@@ -46,11 +47,12 @@ class CreateTransitRouterTrafficQosQueueEntryRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'dscps': 'Dscps',
+        'priority': 'Priority',
         'transit_router_traffic_qos_queue_entry_name': 'TransitRouterTrafficQosQueueEntryName',
         'transit_router_traffic_qos_queue_policy_id': 'TransitRouterTrafficQosQueuePolicyId'
     }
 
-    def __init__(self, bandwidth_percent=None, client_token=None, description=None, dscps=None, transit_router_traffic_qos_queue_entry_name=None, transit_router_traffic_qos_queue_policy_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth_percent=None, client_token=None, description=None, dscps=None, priority=None, transit_router_traffic_qos_queue_entry_name=None, transit_router_traffic_qos_queue_policy_id=None, _configuration=None):  # noqa: E501
         """CreateTransitRouterTrafficQosQueueEntryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,17 +62,21 @@ class CreateTransitRouterTrafficQosQueueEntryRequest(object):
         self._client_token = None
         self._description = None
         self._dscps = None
+        self._priority = None
         self._transit_router_traffic_qos_queue_entry_name = None
         self._transit_router_traffic_qos_queue_policy_id = None
         self.discriminator = None
 
-        self.bandwidth_percent = bandwidth_percent
+        if bandwidth_percent is not None:
+            self.bandwidth_percent = bandwidth_percent
         if client_token is not None:
             self.client_token = client_token
         if description is not None:
             self.description = description
         if dscps is not None:
             self.dscps = dscps
+        if priority is not None:
+            self.priority = priority
         self.transit_router_traffic_qos_queue_entry_name = transit_router_traffic_qos_queue_entry_name
         self.transit_router_traffic_qos_queue_policy_id = transit_router_traffic_qos_queue_policy_id
 
@@ -92,8 +98,9 @@ class CreateTransitRouterTrafficQosQueueEntryRequest(object):
         :param bandwidth_percent: The bandwidth_percent of this CreateTransitRouterTrafficQosQueueEntryRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and bandwidth_percent is None:
-            raise ValueError("Invalid value for `bandwidth_percent`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                bandwidth_percent is not None and bandwidth_percent > 100):  # noqa: E501
+            raise ValueError("Invalid value for `bandwidth_percent`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._bandwidth_percent = bandwidth_percent
 
@@ -159,6 +166,34 @@ class CreateTransitRouterTrafficQosQueueEntryRequest(object):
         """
 
         self._dscps = dscps
+
+    @property
+    def priority(self):
+        """Gets the priority of this CreateTransitRouterTrafficQosQueueEntryRequest.  # noqa: E501
+
+
+        :return: The priority of this CreateTransitRouterTrafficQosQueueEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._priority
+
+    @priority.setter
+    def priority(self, priority):
+        """Sets the priority of this CreateTransitRouterTrafficQosQueueEntryRequest.
+
+
+        :param priority: The priority of this CreateTransitRouterTrafficQosQueueEntryRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Normal", "High"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                priority not in allowed_values):
+            raise ValueError(
+                "Invalid value for `priority` ({0}), must be one of {1}"  # noqa: E501
+                .format(priority, allowed_values)
+            )
+
+        self._priority = priority
 
     @property
     def transit_router_traffic_qos_queue_entry_name(self):

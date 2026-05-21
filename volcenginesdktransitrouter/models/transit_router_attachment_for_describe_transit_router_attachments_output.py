@@ -35,6 +35,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput(object):
     swagger_types = {
         'account_id': 'str',
         'auto_publish_route_enabled': 'bool',
+        'billing_account_id': 'str',
         'business_status': 'str',
         'creation_time': 'str',
         'deleted_time': 'str',
@@ -58,6 +59,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'auto_publish_route_enabled': 'AutoPublishRouteEnabled',
+        'billing_account_id': 'BillingAccountId',
         'business_status': 'BusinessStatus',
         'creation_time': 'CreationTime',
         'deleted_time': 'DeletedTime',
@@ -78,7 +80,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, auto_publish_route_enabled=None, business_status=None, creation_time=None, deleted_time=None, description=None, ipv6_enabled=None, overdue_time=None, resource_id=None, resource_type=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_traffic_qos_marking_policy_id=None, transit_router_traffic_qos_queue_policy_id=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, auto_publish_route_enabled=None, billing_account_id=None, business_status=None, creation_time=None, deleted_time=None, description=None, ipv6_enabled=None, overdue_time=None, resource_id=None, resource_type=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_traffic_qos_marking_policy_id=None, transit_router_traffic_qos_queue_policy_id=None, update_time=None, _configuration=None):  # noqa: E501
         """TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput(object):
 
         self._account_id = None
         self._auto_publish_route_enabled = None
+        self._billing_account_id = None
         self._business_status = None
         self._creation_time = None
         self._deleted_time = None
@@ -110,6 +113,8 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput(object):
             self.account_id = account_id
         if auto_publish_route_enabled is not None:
             self.auto_publish_route_enabled = auto_publish_route_enabled
+        if billing_account_id is not None:
+            self.billing_account_id = billing_account_id
         if business_status is not None:
             self.business_status = business_status
         if creation_time is not None:
@@ -188,6 +193,27 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput(object):
         """
 
         self._auto_publish_route_enabled = auto_publish_route_enabled
+
+    @property
+    def billing_account_id(self):
+        """Gets the billing_account_id of this TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.  # noqa: E501
+
+
+        :return: The billing_account_id of this TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._billing_account_id
+
+    @billing_account_id.setter
+    def billing_account_id(self, billing_account_id):
+        """Sets the billing_account_id of this TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.
+
+
+        :param billing_account_id: The billing_account_id of this TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._billing_account_id = billing_account_id
 
     @property
     def business_status(self):
