@@ -33,50 +33,50 @@ class VideoEditorUpdateGlobalStyleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'style': 'str',
+        'style_config': 'StyleConfigForVideoEditorUpdateGlobalStyleInput',
         'subtask_id': 'str'
     }
 
     attribute_map = {
-        'style': 'style',
+        'style_config': 'styleConfig',
         'subtask_id': 'subtaskId'
     }
 
-    def __init__(self, style=None, subtask_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, style_config=None, subtask_id=None, _configuration=None):  # noqa: E501
         """VideoEditorUpdateGlobalStyleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._style = None
+        self._style_config = None
         self._subtask_id = None
         self.discriminator = None
 
-        if style is not None:
-            self.style = style
+        if style_config is not None:
+            self.style_config = style_config
         if subtask_id is not None:
             self.subtask_id = subtask_id
 
     @property
-    def style(self):
-        """Gets the style of this VideoEditorUpdateGlobalStyleRequest.  # noqa: E501
+    def style_config(self):
+        """Gets the style_config of this VideoEditorUpdateGlobalStyleRequest.  # noqa: E501
 
 
-        :return: The style of this VideoEditorUpdateGlobalStyleRequest.  # noqa: E501
-        :rtype: str
+        :return: The style_config of this VideoEditorUpdateGlobalStyleRequest.  # noqa: E501
+        :rtype: StyleConfigForVideoEditorUpdateGlobalStyleInput
         """
-        return self._style
+        return self._style_config
 
-    @style.setter
-    def style(self, style):
-        """Sets the style of this VideoEditorUpdateGlobalStyleRequest.
+    @style_config.setter
+    def style_config(self, style_config):
+        """Sets the style_config of this VideoEditorUpdateGlobalStyleRequest.
 
 
-        :param style: The style of this VideoEditorUpdateGlobalStyleRequest.  # noqa: E501
-        :type: str
+        :param style_config: The style_config of this VideoEditorUpdateGlobalStyleRequest.  # noqa: E501
+        :type: StyleConfigForVideoEditorUpdateGlobalStyleInput
         """
 
-        self._style = style
+        self._style_config = style_config
 
     @property
     def subtask_id(self):

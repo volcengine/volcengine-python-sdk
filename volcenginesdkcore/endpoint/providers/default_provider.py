@@ -540,6 +540,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'config': ServiceEndpointInfo(
+        service='config',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {

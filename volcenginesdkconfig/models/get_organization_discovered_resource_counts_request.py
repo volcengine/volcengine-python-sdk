@@ -75,6 +75,13 @@ class GetOrganizationDiscoveredResourceCountsRequest(object):
         :param resource_status: The resource_status of this GetOrganizationDiscoveredResourceCountsRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Deleted", "Held"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                resource_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `resource_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(resource_status, allowed_values)
+            )
 
         self._resource_status = resource_status
 

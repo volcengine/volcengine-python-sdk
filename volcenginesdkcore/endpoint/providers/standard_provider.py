@@ -171,6 +171,7 @@ ServiceInfos = {
     "cbr": ServiceInfo("cbr", False),
     "arkclaw": ServiceInfo("arkclaw", False),
     "i18n_openapi": ServiceInfo("i18n_openapi", True),
+    "config": ServiceInfo("config", True),
 }
 
 

@@ -35,6 +35,7 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
     swagger_types = {
         'account_id': 'str',
         'asn': 'int',
+        'billing_owner_type': 'str',
         'business_status': 'str',
         'creation_time': 'str',
         'deleted_time': 'str',
@@ -54,6 +55,7 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'asn': 'Asn',
+        'billing_owner_type': 'BillingOwnerType',
         'business_status': 'BusinessStatus',
         'creation_time': 'CreationTime',
         'deleted_time': 'DeletedTime',
@@ -70,7 +72,7 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, asn=None, business_status=None, creation_time=None, deleted_time=None, description=None, grant_source_type=None, grant_status=None, multicast_enabled=None, overdue_time=None, project_name=None, status=None, tags=None, transit_router_id=None, transit_router_name=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asn=None, billing_owner_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, grant_source_type=None, grant_status=None, multicast_enabled=None, overdue_time=None, project_name=None, status=None, tags=None, transit_router_id=None, transit_router_name=None, update_time=None, _configuration=None):  # noqa: E501
         """TransitRouterForDescribeTransitRoutersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
 
         self._account_id = None
         self._asn = None
+        self._billing_owner_type = None
         self._business_status = None
         self._creation_time = None
         self._deleted_time = None
@@ -98,6 +101,8 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
             self.account_id = account_id
         if asn is not None:
             self.asn = asn
+        if billing_owner_type is not None:
+            self.billing_owner_type = billing_owner_type
         if business_status is not None:
             self.business_status = business_status
         if creation_time is not None:
@@ -168,6 +173,27 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
         """
 
         self._asn = asn
+
+    @property
+    def billing_owner_type(self):
+        """Gets the billing_owner_type of this TransitRouterForDescribeTransitRoutersOutput.  # noqa: E501
+
+
+        :return: The billing_owner_type of this TransitRouterForDescribeTransitRoutersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._billing_owner_type
+
+    @billing_owner_type.setter
+    def billing_owner_type(self, billing_owner_type):
+        """Sets the billing_owner_type of this TransitRouterForDescribeTransitRoutersOutput.
+
+
+        :param billing_owner_type: The billing_owner_type of this TransitRouterForDescribeTransitRoutersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._billing_owner_type = billing_owner_type
 
     @property
     def business_status(self):

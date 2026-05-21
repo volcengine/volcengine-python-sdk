@@ -33,33 +33,66 @@ class ModifyTransitRouterAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'billing_owner_type': 'str',
         'description': 'str',
         'transit_router_id': 'str',
         'transit_router_name': 'str'
     }
 
     attribute_map = {
+        'billing_owner_type': 'BillingOwnerType',
         'description': 'Description',
         'transit_router_id': 'TransitRouterId',
         'transit_router_name': 'TransitRouterName'
     }
 
-    def __init__(self, description=None, transit_router_id=None, transit_router_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_owner_type=None, description=None, transit_router_id=None, transit_router_name=None, _configuration=None):  # noqa: E501
         """ModifyTransitRouterAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._billing_owner_type = None
         self._description = None
         self._transit_router_id = None
         self._transit_router_name = None
         self.discriminator = None
 
+        if billing_owner_type is not None:
+            self.billing_owner_type = billing_owner_type
         if description is not None:
             self.description = description
         self.transit_router_id = transit_router_id
         if transit_router_name is not None:
             self.transit_router_name = transit_router_name
+
+    @property
+    def billing_owner_type(self):
+        """Gets the billing_owner_type of this ModifyTransitRouterAttributesRequest.  # noqa: E501
+
+
+        :return: The billing_owner_type of this ModifyTransitRouterAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._billing_owner_type
+
+    @billing_owner_type.setter
+    def billing_owner_type(self, billing_owner_type):
+        """Sets the billing_owner_type of this ModifyTransitRouterAttributesRequest.
+
+
+        :param billing_owner_type: The billing_owner_type of this ModifyTransitRouterAttributesRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["ResourceOwner", "TransitRouterOwner"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                billing_owner_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `billing_owner_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(billing_owner_type, allowed_values)
+            )
+
+        self._billing_owner_type = billing_owner_type
 
     @property
     def description(self):

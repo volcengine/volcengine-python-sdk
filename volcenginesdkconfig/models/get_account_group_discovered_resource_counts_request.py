@@ -34,28 +34,33 @@ class GetAccountGroupDiscoveredResourceCountsRequest(object):
     """
     swagger_types = {
         'account_group_id': 'str',
+        'resource_account_id': 'int',
         'resource_status': 'str',
         'resource_types': 'list[str]'
     }
 
     attribute_map = {
         'account_group_id': 'AccountGroupId',
+        'resource_account_id': 'ResourceAccountId',
         'resource_status': 'ResourceStatus',
         'resource_types': 'ResourceTypes'
     }
 
-    def __init__(self, account_group_id=None, resource_status=None, resource_types=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_group_id=None, resource_account_id=None, resource_status=None, resource_types=None, _configuration=None):  # noqa: E501
         """GetAccountGroupDiscoveredResourceCountsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_group_id = None
+        self._resource_account_id = None
         self._resource_status = None
         self._resource_types = None
         self.discriminator = None
 
         self.account_group_id = account_group_id
+        if resource_account_id is not None:
+            self.resource_account_id = resource_account_id
         if resource_status is not None:
             self.resource_status = resource_status
         if resource_types is not None:
@@ -85,6 +90,27 @@ class GetAccountGroupDiscoveredResourceCountsRequest(object):
         self._account_group_id = account_group_id
 
     @property
+    def resource_account_id(self):
+        """Gets the resource_account_id of this GetAccountGroupDiscoveredResourceCountsRequest.  # noqa: E501
+
+
+        :return: The resource_account_id of this GetAccountGroupDiscoveredResourceCountsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._resource_account_id
+
+    @resource_account_id.setter
+    def resource_account_id(self, resource_account_id):
+        """Sets the resource_account_id of this GetAccountGroupDiscoveredResourceCountsRequest.
+
+
+        :param resource_account_id: The resource_account_id of this GetAccountGroupDiscoveredResourceCountsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._resource_account_id = resource_account_id
+
+    @property
     def resource_status(self):
         """Gets the resource_status of this GetAccountGroupDiscoveredResourceCountsRequest.  # noqa: E501
 
@@ -102,6 +128,13 @@ class GetAccountGroupDiscoveredResourceCountsRequest(object):
         :param resource_status: The resource_status of this GetAccountGroupDiscoveredResourceCountsRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Deleted", "Held"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                resource_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `resource_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(resource_status, allowed_values)
+            )
 
         self._resource_status = resource_status
 
