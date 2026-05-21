@@ -34,6 +34,7 @@ class DescribeInstancesRequest(object):
     """
     swagger_types = {
         'charge_type': 'str',
+        'ignore_broker_info': 'bool',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
@@ -51,6 +52,7 @@ class DescribeInstancesRequest(object):
 
     attribute_map = {
         'charge_type': 'ChargeType',
+        'ignore_broker_info': 'IgnoreBrokerInfo',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
@@ -66,13 +68,14 @@ class DescribeInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, project_name=None, sort_by=None, sort_order=None, spec=None, tag_filters=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, ignore_broker_info=None, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, project_name=None, sort_by=None, sort_order=None, spec=None, tag_filters=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._charge_type = None
+        self._ignore_broker_info = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
@@ -90,6 +93,8 @@ class DescribeInstancesRequest(object):
 
         if charge_type is not None:
             self.charge_type = charge_type
+        if ignore_broker_info is not None:
+            self.ignore_broker_info = ignore_broker_info
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -135,6 +140,27 @@ class DescribeInstancesRequest(object):
         """
 
         self._charge_type = charge_type
+
+    @property
+    def ignore_broker_info(self):
+        """Gets the ignore_broker_info of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The ignore_broker_info of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_broker_info
+
+    @ignore_broker_info.setter
+    def ignore_broker_info(self, ignore_broker_info):
+        """Sets the ignore_broker_info of this DescribeInstancesRequest.
+
+
+        :param ignore_broker_info: The ignore_broker_info of this DescribeInstancesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_broker_info = ignore_broker_info
 
     @property
     def instance_id(self):
