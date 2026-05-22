@@ -470,7 +470,7 @@ class ClientV2:
         }
         sign_header = request_sign(headers, self.ak, self.sk, self.region, self.url, path, action, request_body)
         try:
-            response = requests.post(
+            response = self.http_client.post(
                 url=self.url + path + "?Action=" + action + "&Version=" + Version,
                 data=request_body,
                 headers=sign_header
