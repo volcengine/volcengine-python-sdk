@@ -380,7 +380,8 @@ def _rfc3339_to_epoch(value):
 
 
 def _console_login_cache_expiration(token_cache, cache_path, provider_name):
-    issued_at = (token_cache.get("issued_at") or "").strip()
+    _raw_ia = token_cache.get("issued_at")
+    issued_at = _raw_ia.strip() if isinstance(_raw_ia, six.string_types) else ""
     if not issued_at:
         raise RuntimeError(
             "{}: console-login token cache '{}' does not contain issued_at.".format(
@@ -435,9 +436,12 @@ def _parse_console_login_access_token(access_token, cache_path, provider_name):
             )
         )
 
-    ak = (sts_creds.get("access_key_id") or "").strip()
-    sk = (sts_creds.get("secret_access_key") or "").strip()
-    token = (sts_creds.get("session_token") or "").strip()
+    _raw_ak = sts_creds.get("access_key_id")
+    ak = _raw_ak.strip() if isinstance(_raw_ak, six.string_types) else ""
+    _raw_sk = sts_creds.get("secret_access_key")
+    sk = _raw_sk.strip() if isinstance(_raw_sk, six.string_types) else ""
+    _raw_tok = sts_creds.get("session_token")
+    token = _raw_tok.strip() if isinstance(_raw_tok, six.string_types) else ""
     if not ak or not sk or not token:
         raise RuntimeError(
             "{}: console-login access_token in '{}' is missing STS credential fields.".format(
@@ -576,20 +580,29 @@ class ConsoleLoginCredentialProvider(Provider):
         )
         if not os.path.isfile(cache_path):
             raise RuntimeError(
-                "{}: console-login token cache file '{}' does not exist; run 've login' first.".format(
+                "{}: console-login token cache file '{}' does not exist; "
+                "please run 've login' to re-authenticate.".format(
                     self.PROVIDER_NAME, cache_path
                 )
             )
-        with open(cache_path, 'r') as f:
-            try:
-                return json.load(f)
-            except ValueError as e:
-                raise RuntimeError(
-                    "{}: failed to parse console-login token cache '{}': {}; "
-                    "please run 've login' to regenerate the cache.".format(
-                        self.PROVIDER_NAME, cache_path, e
+        try:
+            with open(cache_path, 'r') as f:
+                try:
+                    return json.load(f)
+                except ValueError as e:
+                    raise RuntimeError(
+                        "{}: failed to parse console-login token cache '{}': {}; "
+                        "please run 've login' to re-authenticate.".format(
+                            self.PROVIDER_NAME, cache_path, e
+                        )
                     )
+        except (IOError, OSError) as e:
+            raise RuntimeError(
+                "{}: failed to read console-login token cache '{}': {}; "
+                "please run 've login' to re-authenticate.".format(
+                    self.PROVIDER_NAME, cache_path, e
                 )
+            )
 
     def _try_apply_from_cache(self, cache, cache_path):
         """Try to apply cache.access_token as live STS without calling OAuth.
@@ -985,14 +998,16 @@ class SsoCredentialProvider(Provider):
             resp_data = json.loads(resp_body)
         except ValueError as e:
             raise RuntimeError(
-                "{}: failed to parse OAuth token response: {}".format(
+                "{}: failed to parse OAuth token response: {}; "
+                "please run 've sso login' to re-authenticate.".format(
                     self.PROVIDER_NAME, e
                 )
             )
 
         if not isinstance(resp_data, dict):
             raise RuntimeError(
-                "{}: OAuth token response is not a JSON object.".format(
+                "{}: OAuth token response is not a JSON object; "
+                "please run 've sso login' to re-authenticate.".format(
                     self.PROVIDER_NAME
                 )
             )
@@ -1001,7 +1016,8 @@ class SsoCredentialProvider(Provider):
         new_access_token = _raw_access_token.strip() if isinstance(_raw_access_token, six.string_types) else ""
         if not new_access_token:
             raise RuntimeError(
-                "{}: OAuth token response did not contain access_token.".format(
+                "{}: OAuth token response did not contain access_token; "
+                "please run 've sso login' to re-authenticate.".format(
                     self.PROVIDER_NAME
                 )
             )
@@ -1010,13 +1026,15 @@ class SsoCredentialProvider(Provider):
             expires_in = int(resp_data.get("expires_in", 0))
         except (TypeError, ValueError) as e:
             raise RuntimeError(
-                "{}: OAuth token response has invalid expires_in: {}".format(
+                "{}: OAuth token response has invalid expires_in: {}; "
+                "please run 've sso login' to re-authenticate.".format(
                     self.PROVIDER_NAME, e
                 )
             )
         if expires_in <= 0:
             raise RuntimeError(
-                "{}: OAuth token response did not contain valid expires_in.".format(
+                "{}: OAuth token response did not contain valid expires_in; "
+                "please run 've sso login' to re-authenticate.".format(
                     self.PROVIDER_NAME
                 )
             )
@@ -1078,9 +1096,12 @@ class SsoCredentialProvider(Provider):
         result = resp_data.get("Result") or resp_data.get("result") or {}
         role_creds = result.get("RoleCredentials") or result.get("roleCredentials") or {}
 
-        ak = (role_creds.get("AccessKeyId") or "").strip()
-        sk = (role_creds.get("SecretAccessKey") or "").strip()
-        token = (role_creds.get("sessionToken") or role_creds.get("SessionToken") or "").strip()
+        _raw_ak = role_creds.get("AccessKeyId")
+        ak = _raw_ak.strip() if isinstance(_raw_ak, six.string_types) else ""
+        _raw_sk = role_creds.get("SecretAccessKey")
+        sk = _raw_sk.strip() if isinstance(_raw_sk, six.string_types) else ""
+        _raw_tok = role_creds.get("sessionToken") or role_creds.get("SessionToken")
+        token = _raw_tok.strip() if isinstance(_raw_tok, six.string_types) else ""
 
         if not ak or not sk:
             # Check ResponseMetadata for error
