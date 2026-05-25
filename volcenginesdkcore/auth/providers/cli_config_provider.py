@@ -3,7 +3,6 @@ import calendar
 import hashlib
 import json
 import os
-import tempfile
 import threading
 import time
 
@@ -20,6 +19,8 @@ _HTTP_TIMEOUT = 30
 _HTTP_MAX_RETRIES = 3
 _HTTP_RETRY_INTERVAL = 1
 _LOGIN_CACHE_DIRECTORY_ENV = "VOLCENGINE_LOGIN_CACHE_DIRECTORY"
+_DEFAULT_CONSOLE_LOGIN_ENDPOINT = "https://signin.volcengine.com"
+_CONSOLE_LOGIN_TOKEN_PATH = "/authorize/oauth/token"
 
 
 class CLIConfigCredentialProvider(Provider):
@@ -36,8 +37,10 @@ class CLIConfigCredentialProvider(Provider):
       - "RamRoleArn": delegate to StsCredentialProvider
       - "OIDC": delegate to StsOidcCredentialProvider
       - "EcsRole": delegate to EcsRoleCredentialProvider
-      - "sso": delegate to SsoCredentialProvider
-      - "console-login": read CLI console-login cache only. Refresh is handled by CLI.
+      - "sso": delegate to SsoCredentialProvider (SDK manages OAuth refresh in-memory,
+        never writes the cache file; ve sso login is the sole writer)
+      - "console-login": read CLI console-login cache; the SDK manages OAuth refresh
+        in-memory (never writes the cache file). ve login is the sole writer.
       - Other modes: raise RuntimeError (unsupported)
     """
 
@@ -449,30 +452,21 @@ def _parse_console_login_access_token(access_token, cache_path, provider_name):
     }
 
 
-def _write_json_file_atomic(path, data):
-    """Write JSON data to a file atomically."""
-    dir_name = os.path.dirname(path)
-    fd, tmp_path = tempfile.mkstemp(dir=dir_name, prefix=".tmp-", suffix=".json")
-    try:
-        with os.fdopen(fd, 'w') as f:
-            json.dump(data, f)
-        os.chmod(tmp_path, 0o600)
-        os.rename(tmp_path, path)
-    except Exception:
-        try:
-            os.remove(tmp_path)
-        except OSError:
-            pass
-        raise
-
 
 class ConsoleLoginCredentialProvider(Provider):
-    """Reads STS credentials from the CLI 've login' cache file.
+    """Reads and refreshes STS credentials for the CLI 've login' flow.
 
-    The cache file is produced and refreshed by the CLI (running 've login'
-    rewrites it). This provider only re-reads the file from disk when the
-    in-memory STS credential is near expiry, picking up any newer token
-    the CLI has written.
+    Contract:
+      - Disk reads happen on bootstrap and on the invalid_grant fallback only;
+        the provider never writes the cache file. ve cli remains the sole
+        writer.
+      - When the in-memory access_token expires, the provider exchanges the
+        cached refresh_token at signin.volcengine.com/authorize/oauth/token and
+        updates the in-memory cache only.
+      - If the signin service rejects the refresh_token with invalid_grant,
+        the provider re-reads the disk cache once. If the disk holds a newer
+        refresh_token (i.e. ve cli refreshed it under us), it retries; if the
+        disk RT is the same, the user must run `ve login` again.
     """
 
     PROVIDER_NAME = "ConsoleLoginCredentialProvider"
@@ -483,6 +477,11 @@ class ConsoleLoginCredentialProvider(Provider):
 
         self._credentials = None
         self._expiration = None  # epoch seconds
+        # _cache holds the most recently observed login cache dict, including
+        # refresh_token / client_id / scope / endpoint_url, so that the SDK can
+        # silently refresh access_token without re-reading the file on every
+        # call.
+        self._cache = None
         self._lock = threading.Lock()
 
     def retrieve(self):
@@ -505,6 +504,73 @@ class ConsoleLoginCredentialProvider(Provider):
         return self._credentials
 
     def _do_refresh(self):
+        # Bootstrap from disk only when the in-memory cache is empty; on every
+        # subsequent expiry we try the in-memory refresh_token first and only
+        # re-read the disk file as a fallback when the server rejects the RT.
+        if self._cache is None:
+            self._cache = self._load_cache_from_disk()
+
+        cache_path = os.path.join(
+            self._cache_dir, _login_cache_filename(self._login_session)
+        )
+
+        # Fast path: the cached access_token is still within its TTL.
+        applied = self._try_apply_from_cache(self._cache, cache_path)
+        if applied:
+            return
+
+        # Slow path: refresh in-memory using the cached refresh_token.
+        try:
+            self._refresh_with_oauth(self._cache, cache_path)
+            return
+        except _ConsoleLoginInvalidGrantError as exc:
+            invalid_grant_exc = exc
+        # Fallback: re-read the disk cache once. If ve login ran concurrently
+        # and wrote a new refresh_token, retrying with the disk RT may succeed.
+        # Any I/O or parse error surfaces with the actionable ve login hint.
+        try:
+            disk_cache = self._load_cache_from_disk()
+        except (RuntimeError, IOError, OSError) as e:
+            raise RuntimeError(
+                "{}: failed to reload console-login cache from disk; "
+                "please run 've login' to re-authenticate. "
+                "underlying error: {}".format(self.PROVIDER_NAME, e)
+            )
+        _disk_rt = disk_cache.get("refresh_token")
+        if not (isinstance(_disk_rt, six.string_types) and _disk_rt.strip()):
+            raise RuntimeError(
+                "{}: console-login refresh token rejected and disk cache lacks "
+                "refresh_token; please run 've login' to re-authenticate.".format(
+                    self.PROVIDER_NAME
+                )
+            )
+        if disk_cache.get("refresh_token") == self._cache.get("refresh_token"):
+            raise RuntimeError(
+                "{}: console-login refresh token rejected by signin service "
+                "(disk cache has the same RT); please run 've login' to "
+                "re-authenticate. underlying error: {}".format(
+                    self.PROVIDER_NAME, invalid_grant_exc
+                )
+            )
+        self._cache = disk_cache
+        # If the disk cache holds a fresh access_token (e.g. ve login ran
+        # concurrently), apply it directly without another OAuth round-trip.
+        # Otherwise exchange the disk refresh_token via OAuth once.
+        if self._try_apply_from_cache(self._cache, cache_path):
+            return
+        try:
+            self._refresh_with_oauth(self._cache, cache_path)
+        except _ConsoleLoginInvalidGrantError as exc2:
+            raise RuntimeError(
+                "{}: console-login refresh token rejected; reloaded disk cache "
+                "but new RT also failed; please run 've login'. underlying error: {}".format(
+                    self.PROVIDER_NAME, exc2
+                )
+            )
+
+
+
+    def _load_cache_from_disk(self):
         cache_path = os.path.join(
             self._cache_dir, _login_cache_filename(self._login_session)
         )
@@ -514,30 +580,37 @@ class ConsoleLoginCredentialProvider(Provider):
                     self.PROVIDER_NAME, cache_path
                 )
             )
-
         with open(cache_path, 'r') as f:
             try:
-                token_cache = json.load(f)
+                return json.load(f)
             except ValueError as e:
                 raise RuntimeError(
-                    "{}: failed to parse console-login token cache '{}': {}".format(
+                    "{}: failed to parse console-login token cache '{}': {}; "
+                    "please run 've login' to regenerate the cache.".format(
                         self.PROVIDER_NAME, cache_path, e
                     )
                 )
 
-        exp_epoch = _console_login_cache_expiration(
-            token_cache, cache_path, self.PROVIDER_NAME
-        )
-        if time.time() >= exp_epoch - 60:
-            raise RuntimeError(
-                "{}: console-login token cache '{}' has expired or is about to expire; run 've login' to refresh it.".format(
-                    self.PROVIDER_NAME, cache_path
-                )
-            )
+    def _try_apply_from_cache(self, cache, cache_path):
+        """Try to apply cache.access_token as live STS without calling OAuth.
 
-        sts_creds = _parse_console_login_access_token(
-            token_cache.get("access_token"), cache_path, self.PROVIDER_NAME
-        )
+        Returns True iff the cache contains a non-expired access_token that
+        parses into STS credentials. Returns False on any expiry/parse miss
+        so the caller can fall through to OAuth refresh."""
+        try:
+            exp_epoch = _console_login_cache_expiration(
+                cache, cache_path, self.PROVIDER_NAME
+            )
+        except RuntimeError:
+            return False
+        if time.time() >= exp_epoch - 60:
+            return False
+        try:
+            sts_creds = _parse_console_login_access_token(
+                cache.get("access_token"), cache_path, self.PROVIDER_NAME
+            )
+        except RuntimeError:
+            return False
         self._credentials = CredentialValue(
             ak=sts_creds["access_key_id"],
             sk=sts_creds["secret_access_key"],
@@ -545,6 +618,144 @@ class ConsoleLoginCredentialProvider(Provider):
             provider_name=self.PROVIDER_NAME,
         )
         self._expiration = exp_epoch
+        return True
+
+    def _refresh_with_oauth(self, cache, cache_path):
+        """Refresh access_token via OAuth refresh_token grant; in-memory only.
+
+        On HTTP 400 invalid_grant the server has declared the refresh_token
+        unusable; raise _ConsoleLoginInvalidGrantError so the caller can run
+        the disk-reload fallback. All other failures raise RuntimeError."""
+        _raw_rt = cache.get("refresh_token")
+        refresh_token = _raw_rt.strip() if isinstance(_raw_rt, six.string_types) else ""
+        if not refresh_token:
+            raise RuntimeError(
+                "{}: console-login cache lacks refresh_token; please run 've login' first.".format(
+                    self.PROVIDER_NAME
+                )
+            )
+        _raw_cid = cache.get("client_id")
+        client_id = _raw_cid.strip() if isinstance(_raw_cid, six.string_types) else ""
+        if not client_id:
+            raise RuntimeError(
+                "{}: console-login cache lacks client_id; please run 've login' to regenerate.".format(
+                    self.PROVIDER_NAME
+                )
+            )
+        _raw_ep = cache.get("endpoint_url")
+        endpoint = (_raw_ep.strip() if isinstance(_raw_ep, six.string_types) else "") or _DEFAULT_CONSOLE_LOGIN_ENDPOINT
+        _raw_scope = cache.get("scope")
+        scope = _raw_scope.strip() if isinstance(_raw_scope, six.string_types) else ""
+        url = "{}{}".format(endpoint.rstrip("/"), _CONSOLE_LOGIN_TOKEN_PATH)
+        body = {
+            "grant_type": "refresh_token",
+            "client_id": client_id,
+            "refresh_token": refresh_token,
+        }
+        if scope:
+            body["scope"] = scope
+        try:
+            from urllib.parse import urlencode
+        except ImportError:
+            from urllib import urlencode
+        encoded = urlencode(body)
+        encoded_bytes = encoded.encode("utf-8")
+        # Py3: urllib.request + urllib.error; Py2: urllib2 exposes everything.
+        try:
+            import urllib.request as _urlreq
+            import urllib.error as _urlerr
+        except ImportError:
+            import urllib2 as _urlreq  # noqa: F401
+            _urlerr = _urlreq
+        # Providing data= implies POST on both Py2 and Py3 without needing
+        # the method= kwarg (which urllib2.Request does not accept).
+        req = _urlreq.Request(
+            url, encoded_bytes,
+            {"Content-Type": "application/x-www-form-urlencoded"},
+        )
+        try:
+            resp = _urlreq.urlopen(req, timeout=_HTTP_TIMEOUT)
+            try:
+                resp_bytes = resp.read()
+            finally:
+                resp.close()
+        except _urlerr.HTTPError as e:
+            err_body = e.read().decode("utf-8", "replace") if hasattr(e, "read") else ""
+            err_code = ""
+            try:
+                err_code = (json.loads(err_body or "{}").get("error") or "")
+            except ValueError:
+                pass
+            if e.code == 400 and err_code == "invalid_grant":
+                raise _ConsoleLoginInvalidGrantError(
+                    "console-login refresh_token rejected (invalid_grant): {}".format(err_body)
+                )
+            raise RuntimeError(
+                "{}: console-login refresh failed with HTTP {}: {}".format(
+                    self.PROVIDER_NAME, e.code, err_body
+                )
+            )
+        except Exception as e:
+            raise RuntimeError(
+                "{}: console-login refresh request failed: {}".format(self.PROVIDER_NAME, e)
+            )
+
+        try:
+            payload = json.loads(resp_bytes)
+        except ValueError as e:
+            raise RuntimeError(
+                "{}: console-login refresh response not JSON: {}".format(self.PROVIDER_NAME, e)
+            )
+
+        if not isinstance(payload, dict):
+            raise RuntimeError(
+                "{}: console-login refresh response is not a JSON object.".format(
+                    self.PROVIDER_NAME
+                )
+            )
+
+        _raw_access = payload.get("access_token")
+        new_access = _raw_access.strip() if isinstance(_raw_access, six.string_types) else ""
+        try:
+            new_expires = int(payload.get("expires_in", 0))
+        except (TypeError, ValueError) as e:
+            raise RuntimeError(
+                "{}: console-login refresh response has invalid expires_in: {}".format(
+                    self.PROVIDER_NAME, e
+                )
+            )
+        if not new_access or new_expires <= 0:
+            raise RuntimeError(
+                "{}: console-login refresh response missing access_token or expires_in".format(
+                    self.PROVIDER_NAME
+                )
+            )
+        cache["access_token"] = new_access
+        _raw_rt = payload.get("refresh_token")
+        new_rt = _raw_rt.strip() if isinstance(_raw_rt, six.string_types) else ""
+        if new_rt:
+            cache["refresh_token"] = new_rt
+        _raw_id = payload.get("id_token")
+        new_id = _raw_id.strip() if isinstance(_raw_id, six.string_types) else ""
+        if new_id:
+            cache["id_token"] = new_id
+        _raw_tt = payload.get("token_type")
+        if isinstance(_raw_tt, six.string_types) and _raw_tt.strip():
+            cache["token_type"] = _raw_tt
+        cache["issued_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        cache["expires_in"] = new_expires
+
+        # Now the in-memory cache is fresh; apply it (or surface a malformed-
+        # STS error from _try_apply_from_cache).
+        if not self._try_apply_from_cache(cache, cache_path):
+            raise RuntimeError(
+                "{}: console-login refresh succeeded but the new access_token "
+                "could not be parsed into STS credentials".format(self.PROVIDER_NAME)
+            )
+
+
+class _ConsoleLoginInvalidGrantError(Exception):
+    """Sentinel raised when the signin OAuth endpoint returns invalid_grant."""
 
 
 class SsoCredentialProvider(Provider):
@@ -568,6 +779,10 @@ class SsoCredentialProvider(Provider):
 
         self._credentials = None
         self._expiration = None  # epoch seconds
+        # _cache holds the most recently observed SSO token cache dict, including
+        # refresh_token / client_id / client_secret, so that the SDK can silently
+        # refresh the access_token without re-reading the file on every call.
+        self._cache = None
         self._lock = threading.Lock()
 
     def retrieve(self):
@@ -596,38 +811,53 @@ class SsoCredentialProvider(Provider):
             self._credentials = cred
             return
 
-        # Load SSO token cache
         token_path = os.path.join(
             self._cache_dir,
             _token_cache_filename(self._start_url, self._session_name),
         )
-        if not os.path.isfile(token_path):
-            raise RuntimeError(
-                "{}: SSO token cache file not found at '{}'.".format(
-                    self.PROVIDER_NAME, token_path
-                )
-            )
 
-        with open(token_path, 'r') as f:
+        # Bootstrap from disk only when the in-memory cache is empty; on every
+        # subsequent expiry we use the in-memory cache (which already has any
+        # rotated refresh_token from a previous cycle).
+        if self._cache is None:
+            if not os.path.isfile(token_path):
+                raise RuntimeError(
+                    "{}: SSO token cache file not found at '{}'; "
+                    "please run 've sso login' to re-authenticate.".format(
+                        self.PROVIDER_NAME, token_path
+                    )
+                )
             try:
-                token_cache = json.load(f)
+                with open(token_path, 'r') as f:
+                    self._cache = json.load(f)
             except ValueError as e:
                 raise RuntimeError(
-                    "{}: failed to parse SSO token cache '{}': {}".format(
+                    "{}: failed to parse SSO token cache '{}': {}; "
+                    "please run 've sso login' to re-authenticate.".format(
+                        self.PROVIDER_NAME, token_path, e
+                    )
+                )
+            except (IOError, OSError) as e:
+                raise RuntimeError(
+                    "{}: failed to read SSO token cache '{}': {}; "
+                    "please run 've sso login' to re-authenticate.".format(
                         self.PROVIDER_NAME, token_path, e
                     )
                 )
 
-        access_token = (token_cache.get("access_token") or "").strip()
+        _raw_at = self._cache.get("access_token")
+        access_token = _raw_at.strip() if isinstance(_raw_at, six.string_types) else ""
         if not access_token:
             raise RuntimeError(
-                "{}: SSO token cache '{}' does not contain access_token.".format(
+                "{}: SSO token cache '{}' does not contain access_token; "
+                "please run 've sso login' to re-authenticate.".format(
                     self.PROVIDER_NAME, token_path
                 )
             )
 
         # Check if access token is expired
-        expires_at = (token_cache.get("expires_at") or "").strip()
+        _raw_ea = self._cache.get("expires_at")
+        expires_at = _raw_ea.strip() if isinstance(_raw_ea, six.string_types) else ""
         token_expired = False
         if expires_at:
             try:
@@ -635,13 +865,14 @@ class SsoCredentialProvider(Provider):
                 token_expired = time.time() > exp_epoch
             except ValueError as e:
                 raise RuntimeError(
-                    "{}: failed to parse expires_at in '{}': {}".format(
+                    "{}: failed to parse expires_at in '{}': {}; "
+                    "please run 've sso login' to re-authenticate.".format(
                         self.PROVIDER_NAME, token_path, e
                     )
                 )
 
         if token_expired:
-            access_token = self._refresh_access_token(token_cache, token_path)
+            access_token = self._refresh_access_token(token_path)
 
         # Get role credentials from portal
         self._fetch_role_credentials(access_token)
@@ -671,12 +902,19 @@ class SsoCredentialProvider(Provider):
             provider_name=self.PROVIDER_NAME,
         )
 
-    def _refresh_access_token(self, token_cache, token_path):
-        """Refresh the SSO access token using the OAuth token endpoint."""
-        refresh_token = (token_cache.get("refresh_token") or "").strip()
+    def _refresh_access_token(self, token_path):
+        """Refresh the SSO access token using the OAuth token endpoint.
+
+        Operates on self._cache so that any rotated refresh_token is preserved
+        across subsequent expiry cycles (in-memory refresh, never writes disk).
+        """
+        token_cache = self._cache
+        _raw_sso_rt = token_cache.get("refresh_token")
+        refresh_token = _raw_sso_rt.strip() if isinstance(_raw_sso_rt, six.string_types) else ""
         if not refresh_token:
             raise RuntimeError(
-                "{}: SSO token cache '{}' does not contain refresh_token.".format(
+                "{}: SSO token cache '{}' does not contain refresh_token; "
+                "please run 've sso login' to re-authenticate.".format(
                     self.PROVIDER_NAME, token_path
                 )
             )
@@ -687,16 +925,20 @@ class SsoCredentialProvider(Provider):
             exp_epoch = _unix_timestamp_to_epoch(client_secret_expires_at)
             if time.time() >= exp_epoch:
                 raise RuntimeError(
-                    "{}: refresh token in '{}' has expired.".format(
+                    "{}: refresh token in '{}' has expired; "
+                    "please run 've sso login' to re-authenticate.".format(
                         self.PROVIDER_NAME, token_path
                     )
                 )
 
-        client_id = (token_cache.get("client_id") or "").strip()
-        client_secret = (token_cache.get("client_secret") or "").strip()
+        _raw_cid = token_cache.get("client_id")
+        client_id = _raw_cid.strip() if isinstance(_raw_cid, six.string_types) else ""
+        _raw_cs = token_cache.get("client_secret")
+        client_secret = _raw_cs.strip() if isinstance(_raw_cs, six.string_types) else ""
         if not client_id or not client_secret:
             raise RuntimeError(
-                "{}: SSO token cache '{}' does not contain client_id/client_secret.".format(
+                "{}: SSO token cache '{}' does not contain client_id/client_secret; "
+                "please run 've sso login' to re-authenticate.".format(
                     self.PROVIDER_NAME, token_path
                 )
             )
@@ -711,26 +953,33 @@ class SsoCredentialProvider(Provider):
         # Pass a dict body; RESTClient auto-serializes with Content-Type:
         # application/json (see volcenginesdkcore/rest.py). Do NOT json.dumps
         # here or it will be double-encoded.
-        resp_body = ApiClient(Configuration())._do_http_request(
-            oauth_url,
-            method="POST",
-            data={
-                "grant_type": "refresh_token",
-                "client_id": client_id,
-                "client_secret": client_secret,
-                "refresh_token": refresh_token,
-            },
-            headers={"Content-Type": "application/json"},
-            timeout=_HTTP_TIMEOUT,
-            max_retries=_HTTP_MAX_RETRIES,
-            retry_interval=_HTTP_RETRY_INTERVAL,
-            request_name="OAuth token refresh",
-            # OAuth refresh_token grants may rotate the refresh token on use;
-            # replaying a successful-but-response-lost POST would invalidate
-            # the local refresh_token. Fail fast on 5xx instead.
-            retry_on_5xx=False,
-            provider_name=self.PROVIDER_NAME,
-        )
+        try:
+            resp_body = ApiClient(Configuration())._do_http_request(
+                oauth_url,
+                method="POST",
+                data={
+                    "grant_type": "refresh_token",
+                    "client_id": client_id,
+                    "client_secret": client_secret,
+                    "refresh_token": refresh_token,
+                },
+                headers={"Content-Type": "application/json"},
+                timeout=_HTTP_TIMEOUT,
+                max_retries=_HTTP_MAX_RETRIES,
+                retry_interval=_HTTP_RETRY_INTERVAL,
+                request_name="OAuth token refresh",
+                # OAuth refresh_token grants may rotate the refresh token on use;
+                # replaying a successful-but-response-lost POST would invalidate
+                # the local refresh_token. Fail fast on 5xx instead.
+                retry_on_5xx=False,
+                provider_name=self.PROVIDER_NAME,
+            )
+        except RuntimeError as e:
+            raise RuntimeError(
+                "{}: SSO OAuth token refresh failed; "
+                "please run 've sso login' to re-authenticate. "
+                "underlying error: {}".format(self.PROVIDER_NAME, e)
+            )
 
         try:
             resp_data = json.loads(resp_body)
@@ -741,7 +990,15 @@ class SsoCredentialProvider(Provider):
                 )
             )
 
-        new_access_token = (resp_data.get("access_token") or "").strip()
+        if not isinstance(resp_data, dict):
+            raise RuntimeError(
+                "{}: OAuth token response is not a JSON object.".format(
+                    self.PROVIDER_NAME
+                )
+            )
+
+        _raw_access_token = resp_data.get("access_token")
+        new_access_token = _raw_access_token.strip() if isinstance(_raw_access_token, six.string_types) else ""
         if not new_access_token:
             raise RuntimeError(
                 "{}: OAuth token response did not contain access_token.".format(
@@ -749,7 +1006,14 @@ class SsoCredentialProvider(Provider):
                 )
             )
 
-        expires_in = resp_data.get("expires_in", 0)
+        try:
+            expires_in = int(resp_data.get("expires_in", 0))
+        except (TypeError, ValueError) as e:
+            raise RuntimeError(
+                "{}: OAuth token response has invalid expires_in: {}".format(
+                    self.PROVIDER_NAME, e
+                )
+            )
         if expires_in <= 0:
             raise RuntimeError(
                 "{}: OAuth token response did not contain valid expires_in.".format(
@@ -757,17 +1021,20 @@ class SsoCredentialProvider(Provider):
                 )
             )
 
-        # Update the cache
+        # Write back into self._cache so any rotated refresh_token survives
+        # the next expiry cycle (in-memory only; disk is never written).
         token_cache["access_token"] = new_access_token
-        new_refresh = (resp_data.get("refresh_token") or "").strip()
+        _raw_refresh = resp_data.get("refresh_token")
+        new_refresh = _raw_refresh.strip() if isinstance(_raw_refresh, six.string_types) else ""
         if new_refresh:
             token_cache["refresh_token"] = new_refresh
         token_cache["expires_at"] = time.strftime(
             "%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() + expires_in)
         )
 
-        _write_json_file_atomic(token_path, token_cache)
-
+        # SDK never writes the sso cache file: ve cli is the single writer; the
+        # SDK only refreshes the in-memory self._cache to avoid concurrent
+        # write races with cli.
         return new_access_token
 
     def _fetch_role_credentials(self, access_token):
