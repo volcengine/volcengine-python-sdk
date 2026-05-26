@@ -6,8 +6,8 @@
 
 > **默认**
 >
-> - `num_pools` - 4：最多支持的主机数量；适用场景：当你对同一主机发起多个并发请求时，应该增大此值
-> - `connection_pool_maxsize` - `multiprocessing.cpu_count() * 5`：每个主机最大连接数；适用场景：当你需要同时连接多个不同主机时，应该增大此值
+> - `num_pools` - 4：底层 `PoolManager` 同时保留的不同 host 连接池数量上限；适用场景：当你的客户端需要访问大量不同主机时，增大此值
+> - `connection_pool_maxsize` - `multiprocessing.cpu_count() * 5`：单个 host 内保持的最大连接数；适用场景：当你对同一主机发起大量并发请求时，增大此值
 
 **代码示例：**
 

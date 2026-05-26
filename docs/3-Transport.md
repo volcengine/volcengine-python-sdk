@@ -6,8 +6,8 @@
 
 > **Default**
 >
-> - `num_pools`: 4 — Maximum number of hosts supported; increase this when making concurrent requests to the same host.
-> - `connection_pool_maxsize`: `multiprocessing.cpu_count() * 5` — Maximum connections per host; increase this when connecting to many different hosts simultaneously.
+> - `num_pools`: 4 — Maximum number of distinct host pools the underlying `PoolManager` keeps; increase this when your client talks to many different hosts.
+> - `connection_pool_maxsize`: `multiprocessing.cpu_count() * 5` — Maximum connections kept per host; increase this when issuing many concurrent requests to the same host.
 
 **Code Example:**
 
@@ -16,8 +16,8 @@ import volcenginesdkcore
 configuration = volcenginesdkcore.Configuration()
 configuration.ak = "Your ak"
 configuration.sk = "Your sk"
-configuration.num_pools = 10 # Maximum number of hosts
-configuration.connection_pool_maxsize = 10 # Maximum connections per host
+configuration.num_pools = 10 # Number of distinct host pools (PoolManager)
+configuration.connection_pool_maxsize = 10 # Max connections per host
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
