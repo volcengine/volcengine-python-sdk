@@ -1,4 +1,4 @@
-[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [超时配置 →](4-Timeout-zh.md)
+[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [代理配置 →](4-Proxy-zh.md)
 
 ---
 
@@ -80,38 +80,6 @@ configuration.verify_ssl=False # 忽略SSL验证
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## HTTP(S) 代理配置
-
-> **默认**
->
-> - 无代理
-
-### 配置 HTTP(S) 代理
-
-```python
-import volcenginesdkcore,volcenginesdkecs
-configuration = volcenginesdkcore.Configuration()
-configuration.ak = "Your AK"
-configuration.sk = "Your SK"
-
-configuration.http_proxy = "http://your_proxy:8080"
-configuration.https_proxy = "http://your_proxy:8080"
-
-volcenginesdkcore.Configuration.set_default(configuration)
-
-api_instance = volcenginesdkecs.ECSApi()
-```
-
-### 注意事项
-
-支持通过以下环境变量配置代理：
-
-- `http_proxy` / `HTTP_PROXY`
-- `https_proxy` / `HTTPS_PROXY`
-- `no_proxy` / `NO_PROXY`
-
-优先级：代码 > 环境变量。
-
 ---
 
-[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [超时配置 →](4-Timeout-zh.md)
+[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [代理配置 →](4-Proxy-zh.md)

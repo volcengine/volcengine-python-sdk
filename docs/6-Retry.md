@@ -1,4 +1,4 @@
-[← Timeout](4-Timeout.md) | Retry[(中文)](5-Retry-zh.md) | [Error Handling →](6-ErrorHandling.md)
+[← Timeout](5-Timeout.md) | Retry[(中文)](6-Retry-zh.md) | [Error Handling →](7-ErrorHandling.md)
 
 ---
 
@@ -97,4 +97,4 @@ class CustomBackoffStrategy(ExponentialBackoffStrategy):
 
 ---
 
-[← Timeout](4-Timeout.md) | Retry[(中文)](5-Retry-zh.md) | [Error Handling →](6-ErrorHandling.md)
+[← Timeout](5-Timeout.md) | Retry[(中文)](6-Retry-zh.md) | [Error Handling →](7-ErrorHandling.md)

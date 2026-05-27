@@ -1,4 +1,4 @@
-[← Endpoint](2-Endpoint.md) | Transport[(中文)](3-Transport-zh.md) | [Timeout →](4-Timeout.md)
+[← Endpoint](2-Endpoint.md) | Transport[(中文)](3-Transport-zh.md) | [Proxy →](4-Proxy.md)
 
 ---
 
@@ -81,38 +81,6 @@ configuration.verify_ssl = False # Ignore SSL verification
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## HTTP(S) Proxy
-
-> **Default**
->
-> - No proxy
-
-### Configure HTTP(S) Proxy
-
-```python
-import volcenginesdkcore, volcenginesdkecs
-configuration = volcenginesdkcore.Configuration()
-configuration.ak = "Your AK"
-configuration.sk = "Your SK"
-
-configuration.http_proxy = "http://your_proxy:8080"
-configuration.https_proxy = "http://your_proxy:8080"
-
-volcenginesdkcore.Configuration.set_default(configuration)
-
-api_instance = volcenginesdkecs.ECSApi()
-```
-
-### Notes
-
-Supported environment variables for proxy configuration:
-
-- `http_proxy` / `HTTP_PROXY`
-- `https_proxy` / `HTTPS_PROXY`
-- `no_proxy` / `NO_PROXY`
-
-Priority: code > environment variables.
-
 ---
 
-[← Endpoint](2-Endpoint.md) | Transport[(中文)](3-Transport-zh.md) | [Timeout →](4-Timeout.md)
+[← Endpoint](2-Endpoint.md) | Transport[(中文)](3-Transport-zh.md) | [Proxy →](4-Proxy.md)

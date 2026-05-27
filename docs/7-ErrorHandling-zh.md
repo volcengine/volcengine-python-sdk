@@ -1,4 +1,4 @@
-[← 重试机制](5-Retry-zh.md) | 异常处理[(English)](6-ErrorHandling.md) | [Debug 机制 →](7-Debugging-zh.md)
+[← 重试机制](6-Retry-zh.md) | 异常处理[(English)](7-ErrorHandling.md) | [Debug 机制 →](8-Debugging-zh.md)
 
 ---
 
@@ -65,4 +65,4 @@ except Exception as e:
 
 ---
 
-[← 重试机制](5-Retry-zh.md) | 异常处理[(English)](6-ErrorHandling.md) | [Debug 机制 →](7-Debugging-zh.md)
+[← 重试机制](6-Retry-zh.md) | 异常处理[(English)](7-ErrorHandling.md) | [Debug 机制 →](8-Debugging-zh.md)

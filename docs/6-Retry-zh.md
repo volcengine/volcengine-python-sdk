@@ -1,4 +1,4 @@
-[← 超时配置](4-Timeout-zh.md) | 重试机制[(English)](5-Retry.md) | [异常处理 →](6-ErrorHandling-zh.md)
+[← 超时配置](5-Timeout-zh.md) | 重试机制[(English)](6-Retry.md) | [异常处理 →](7-ErrorHandling-zh.md)
 
 ---
 
@@ -159,4 +159,4 @@ class CustomBackoffStrategy(ExponentialBackoffStrategy):
 
 ---
 
-[← 超时配置](4-Timeout-zh.md) | 重试机制[(English)](5-Retry.md) | [异常处理 →](6-ErrorHandling-zh.md)
+[← 超时配置](5-Timeout-zh.md) | 重试机制[(English)](6-Retry.md) | [异常处理 →](7-ErrorHandling-zh.md)
