@@ -34,26 +34,31 @@ class ListCouponsResponse(object):
     """
     swagger_types = {
         'coupons': 'list[CouponForListCouponsOutput]',
+        'max_count': 'int',
         'total_count': 'int'
     }
 
     attribute_map = {
         'coupons': 'Coupons',
+        'max_count': 'MaxCount',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, coupons=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, coupons=None, max_count=None, total_count=None, _configuration=None):  # noqa: E501
         """ListCouponsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._coupons = None
+        self._max_count = None
         self._total_count = None
         self.discriminator = None
 
         if coupons is not None:
             self.coupons = coupons
+        if max_count is not None:
+            self.max_count = max_count
         if total_count is not None:
             self.total_count = total_count
 
@@ -77,6 +82,27 @@ class ListCouponsResponse(object):
         """
 
         self._coupons = coupons
+
+    @property
+    def max_count(self):
+        """Gets the max_count of this ListCouponsResponse.  # noqa: E501
+
+
+        :return: The max_count of this ListCouponsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_count
+
+    @max_count.setter
+    def max_count(self, max_count):
+        """Sets the max_count of this ListCouponsResponse.
+
+
+        :param max_count: The max_count of this ListCouponsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._max_count = max_count
 
     @property
     def total_count(self):

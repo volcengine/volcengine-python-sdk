@@ -1,5 +1,5 @@
 {
-  "description": "LIVESAAS: 修改 PresenterChatAPIV2, TopChatAPI, GetTopChatAPI",
+  "description": "LIVESAAS: 新增 ListActivityQuestionnaire, ListQuickCommentContent, OfflineActivityQuestionnaire, PublishActivityQuestionnaire, CreateActivityQuestionnaire, GetActivityQuestionnaire, UpdateActivityQuestionnaire, CopyActivityQuestionnaire, DeleteActivityQuestionnaire；修改 ListCoupons, UpdateProductOutOfStock",
   "modules": "service/livesaas",
   "type": "feature"
 }

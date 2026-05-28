@@ -73,7 +73,7 @@ class Response(BaseModel):
     thinking: Optional[Thinking] = None
     """The thinking mode to use for the model."""
 
-    service_tier: Optional[Literal["auto", "default"]] = None
+    service_tier: Optional[Literal["auto", "default", "fast"]] = None
     """Specifies the latency tier to use for processing the request."""
 
     status: Literal["in_progress", "completed", "incomplete", "failed"]

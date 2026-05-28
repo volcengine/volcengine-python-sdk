@@ -102,6 +102,9 @@ class ContentGenerationTask(BaseModel):
     execution_expires_after: int
     """The expiration time in seconds after which execution should end (optional)."""
 
+    priority: int
+    """The priority used to run the task (optional)."""
+
     generate_audio: bool
     """Whether to generate audio."""
 

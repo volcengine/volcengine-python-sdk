@@ -35,30 +35,21 @@ class DescribeLastWeekFileChangeTrendsResponse(object):
     swagger_types = {
         'last_seven_change': 'int',
         'point_info': 'list[PointInfoForDescribeLastWeekFileChangeTrendsOutput]',
-        'today_change': 'int',
-        'last_seven_change': 'int',
-        'point_info': 'list[PointInfoForDescribeLastWeekFileChangeTrendsOutput]',
         'today_change': 'int'
     }
 
     attribute_map = {
         'last_seven_change': 'LastSevenChange',
         'point_info': 'PointInfo',
-        'today_change': 'TodayChange',
-        'last_seven_change': 'last_seven_change',
-        'point_info': 'point_info',
-        'today_change': 'today_change'
+        'today_change': 'TodayChange'
     }
 
-    def __init__(self, last_seven_change=None, point_info=None, today_change=None, last_seven_change=None, point_info=None, today_change=None, _configuration=None):  # noqa: E501
+    def __init__(self, last_seven_change=None, point_info=None, today_change=None, _configuration=None):  # noqa: E501
         """DescribeLastWeekFileChangeTrendsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._last_seven_change = None
-        self._point_info = None
-        self._today_change = None
         self._last_seven_change = None
         self._point_info = None
         self._today_change = None
@@ -70,75 +61,6 @@ class DescribeLastWeekFileChangeTrendsResponse(object):
             self.point_info = point_info
         if today_change is not None:
             self.today_change = today_change
-        if last_seven_change is not None:
-            self.last_seven_change = last_seven_change
-        if point_info is not None:
-            self.point_info = point_info
-        if today_change is not None:
-            self.today_change = today_change
-
-    @property
-    def last_seven_change(self):
-        """Gets the last_seven_change of this DescribeLastWeekFileChangeTrendsResponse.  # noqa: E501
-
-
-        :return: The last_seven_change of this DescribeLastWeekFileChangeTrendsResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._last_seven_change
-
-    @last_seven_change.setter
-    def last_seven_change(self, last_seven_change):
-        """Sets the last_seven_change of this DescribeLastWeekFileChangeTrendsResponse.
-
-
-        :param last_seven_change: The last_seven_change of this DescribeLastWeekFileChangeTrendsResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._last_seven_change = last_seven_change
-
-    @property
-    def point_info(self):
-        """Gets the point_info of this DescribeLastWeekFileChangeTrendsResponse.  # noqa: E501
-
-
-        :return: The point_info of this DescribeLastWeekFileChangeTrendsResponse.  # noqa: E501
-        :rtype: list[PointInfoForDescribeLastWeekFileChangeTrendsOutput]
-        """
-        return self._point_info
-
-    @point_info.setter
-    def point_info(self, point_info):
-        """Sets the point_info of this DescribeLastWeekFileChangeTrendsResponse.
-
-
-        :param point_info: The point_info of this DescribeLastWeekFileChangeTrendsResponse.  # noqa: E501
-        :type: list[PointInfoForDescribeLastWeekFileChangeTrendsOutput]
-        """
-
-        self._point_info = point_info
-
-    @property
-    def today_change(self):
-        """Gets the today_change of this DescribeLastWeekFileChangeTrendsResponse.  # noqa: E501
-
-
-        :return: The today_change of this DescribeLastWeekFileChangeTrendsResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._today_change
-
-    @today_change.setter
-    def today_change(self, today_change):
-        """Sets the today_change of this DescribeLastWeekFileChangeTrendsResponse.
-
-
-        :param today_change: The today_change of this DescribeLastWeekFileChangeTrendsResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._today_change = today_change
 
     @property
     def last_seven_change(self):

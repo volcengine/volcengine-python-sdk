@@ -33,6 +33,7 @@ class GetFingerprintStatisticsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ai_app': 'int',
         'app': 'int',
         'container': 'int',
         'cron': 'int',
@@ -48,6 +49,7 @@ class GetFingerprintStatisticsResponse(object):
     }
 
     attribute_map = {
+        'ai_app': 'AIApp',
         'app': 'App',
         'container': 'Container',
         'cron': 'Cron',
@@ -62,12 +64,13 @@ class GetFingerprintStatisticsResponse(object):
         'web': 'Web'
     }
 
-    def __init__(self, app=None, container=None, cron=None, env=None, integrity=None, kmod=None, port=None, process=None, service=None, software=None, user=None, web=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_app=None, app=None, container=None, cron=None, env=None, integrity=None, kmod=None, port=None, process=None, service=None, software=None, user=None, web=None, _configuration=None):  # noqa: E501
         """GetFingerprintStatisticsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ai_app = None
         self._app = None
         self._container = None
         self._cron = None
@@ -82,6 +85,8 @@ class GetFingerprintStatisticsResponse(object):
         self._web = None
         self.discriminator = None
 
+        if ai_app is not None:
+            self.ai_app = ai_app
         if app is not None:
             self.app = app
         if container is not None:
@@ -106,6 +111,27 @@ class GetFingerprintStatisticsResponse(object):
             self.user = user
         if web is not None:
             self.web = web
+
+    @property
+    def ai_app(self):
+        """Gets the ai_app of this GetFingerprintStatisticsResponse.  # noqa: E501
+
+
+        :return: The ai_app of this GetFingerprintStatisticsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._ai_app
+
+    @ai_app.setter
+    def ai_app(self, ai_app):
+        """Sets the ai_app of this GetFingerprintStatisticsResponse.
+
+
+        :param ai_app: The ai_app of this GetFingerprintStatisticsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._ai_app = ai_app
 
     @property
     def app(self):

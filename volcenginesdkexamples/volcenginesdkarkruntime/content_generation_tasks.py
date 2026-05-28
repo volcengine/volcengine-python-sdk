@@ -26,6 +26,7 @@ if __name__ == "__main__":
         ],
         service_tier="default",
         execution_expires_after=3600,
+        priority=0,
         # callback_url="${YOUR_CALLBACK_URL}"
     )
     print(create_result)
@@ -35,6 +36,7 @@ if __name__ == "__main__":
     print(get_result)
     print("ServiceTier:", getattr(get_result, "service_tier", None))
     print("ExecutionExpiresAfter:", getattr(get_result, "execution_expires_after", None))
+    print("Priority:", getattr(get_result, "priority", None))
 
     print("----- list request -----")
     list_result = client.content_generation.tasks.list(
@@ -48,6 +50,7 @@ if __name__ == "__main__":
     if list_result.items:
         print("List Item ServiceTier:", getattr(list_result.items[0], "service_tier", None))
         print("List Item ExecutionExpiresAfter:", getattr(list_result.items[0], "execution_expires_after", None))
+        print("List Item Priority:", getattr(list_result.items[0], "priority", None))
 
     print("----- delete request -----")
     try:
@@ -68,6 +71,7 @@ if __name__ == "__main__":
         ],
         service_tier="flex",
         execution_expires_after=3600,
+        priority=0,
     )
     print(create_result_flex)
 
@@ -76,6 +80,7 @@ if __name__ == "__main__":
     print(get_result_flex)
     print("Flex ServiceTier:", getattr(get_result_flex, "service_tier", None))
     print("Flex ExecutionExpiresAfter:", getattr(get_result_flex, "execution_expires_after", None))
+    print("Flex Priority:", getattr(get_result_flex, "priority", None))
 
     print("----- list request (flex) -----")
     list_result_flex = client.content_generation.tasks.list(
@@ -87,6 +92,7 @@ if __name__ == "__main__":
     if list_result_flex.items:
         print("Flex List Item ServiceTier:", getattr(list_result_flex.items[0], "service_tier", None))
         print("Flex List Item ExecutionExpiresAfter:", getattr(list_result_flex.items[0], "execution_expires_after", None))
+        print("Flex List Item Priority:", getattr(list_result_flex.items[0], "priority", None))
 
     print("----- delete request (flex) -----")
     try:
