@@ -1,0 +1,5 @@
+{
+  "description": "ORGANIZATION: 新增 ListTrustedServiceStatus, RegisterDelegatedAdministrator, DeregisterDelegatedAdministrator",
+  "modules": "service/organization",
+  "type": "feature"
+}
