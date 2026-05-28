@@ -126,6 +126,7 @@ class Responses(SyncAPIResource):
         timeout: float | httpx.Timeout | None | None = None,
         reasoning: Optional[Reasoning] | None = None,
         session: Optional[dict] | None = None,
+        service_tier: Optional[Literal["auto", "default", "fast"]] | None = None,
     ) -> Response | Stream[ResponseStreamEvent]:
         extra_headers = _add_beta_headers(extra_headers, tools)
         resp = self._post(
@@ -150,6 +151,7 @@ class Responses(SyncAPIResource):
                 "expire_at": expire_at,
                 "reasoning": reasoning,
                 "session": session,
+                "service_tier": service_tier,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -251,6 +253,7 @@ class AsyncResponses(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | None = None,
         reasoning: Optional[Reasoning] | None = None,
         session: Optional[dict] | None = None,
+        service_tier: Optional[Literal["auto", "default", "fast"]] | None = None,
     ) -> Response | AsyncStream[ResponseStreamEvent]:
         extra_headers = _add_beta_headers(extra_headers, tools)
         await self._prepare_responses_input(input=input)
@@ -277,6 +280,7 @@ class AsyncResponses(AsyncAPIResource):
                 "expire_at": expire_at,
                 "reasoning": reasoning,
                 "session": session,
+                "service_tier": service_tier,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
