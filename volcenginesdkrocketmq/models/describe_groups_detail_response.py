@@ -42,6 +42,7 @@ class DescribeGroupsDetailResponse(object):
         'last_update_timestamp': 'str',
         'message_delay_time': 'str',
         'message_model': 'str',
+        'read_enable': 'bool',
         'retry_max_times': 'int',
         'rocketmq_version': 'str',
         'service_status': 'str',
@@ -60,6 +61,7 @@ class DescribeGroupsDetailResponse(object):
         'last_update_timestamp': 'LastUpdateTimestamp',
         'message_delay_time': 'MessageDelayTime',
         'message_model': 'MessageModel',
+        'read_enable': 'ReadEnable',
         'retry_max_times': 'RetryMaxTimes',
         'rocketmq_version': 'RocketmqVersion',
         'service_status': 'ServiceStatus',
@@ -68,7 +70,7 @@ class DescribeGroupsDetailResponse(object):
         'total_diff': 'TotalDiff'
     }
 
-    def __init__(self, consume_message_orderly=None, create_time=None, description=None, group_id=None, group_type=None, is_sub_same=None, last_update_timestamp=None, message_delay_time=None, message_model=None, retry_max_times=None, rocketmq_version=None, service_status=None, status=None, total_consumed_rate=None, total_diff=None, _configuration=None):  # noqa: E501
+    def __init__(self, consume_message_orderly=None, create_time=None, description=None, group_id=None, group_type=None, is_sub_same=None, last_update_timestamp=None, message_delay_time=None, message_model=None, read_enable=None, retry_max_times=None, rocketmq_version=None, service_status=None, status=None, total_consumed_rate=None, total_diff=None, _configuration=None):  # noqa: E501
         """DescribeGroupsDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +85,7 @@ class DescribeGroupsDetailResponse(object):
         self._last_update_timestamp = None
         self._message_delay_time = None
         self._message_model = None
+        self._read_enable = None
         self._retry_max_times = None
         self._rocketmq_version = None
         self._service_status = None
@@ -109,6 +112,8 @@ class DescribeGroupsDetailResponse(object):
             self.message_delay_time = message_delay_time
         if message_model is not None:
             self.message_model = message_model
+        if read_enable is not None:
+            self.read_enable = read_enable
         if retry_max_times is not None:
             self.retry_max_times = retry_max_times
         if rocketmq_version is not None:
@@ -310,6 +315,27 @@ class DescribeGroupsDetailResponse(object):
         """
 
         self._message_model = message_model
+
+    @property
+    def read_enable(self):
+        """Gets the read_enable of this DescribeGroupsDetailResponse.  # noqa: E501
+
+
+        :return: The read_enable of this DescribeGroupsDetailResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._read_enable
+
+    @read_enable.setter
+    def read_enable(self, read_enable):
+        """Sets the read_enable of this DescribeGroupsDetailResponse.
+
+
+        :param read_enable: The read_enable of this DescribeGroupsDetailResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._read_enable = read_enable
 
     @property
     def retry_max_times(self):
