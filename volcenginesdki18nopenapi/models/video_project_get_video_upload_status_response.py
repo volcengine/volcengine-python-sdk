@@ -33,45 +33,45 @@ class VideoProjectGetVideoUploadStatusResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'video_upload_tasks': 'list[VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput]'
+        'data': 'DataForVideoProjectGetVideoUploadStatusOutput'
     }
 
     attribute_map = {
-        'video_upload_tasks': 'videoUploadTasks'
+        'data': 'data'
     }
 
-    def __init__(self, video_upload_tasks=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, _configuration=None):  # noqa: E501
         """VideoProjectGetVideoUploadStatusResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._video_upload_tasks = None
+        self._data = None
         self.discriminator = None
 
-        if video_upload_tasks is not None:
-            self.video_upload_tasks = video_upload_tasks
+        if data is not None:
+            self.data = data
 
     @property
-    def video_upload_tasks(self):
-        """Gets the video_upload_tasks of this VideoProjectGetVideoUploadStatusResponse.  # noqa: E501
+    def data(self):
+        """Gets the data of this VideoProjectGetVideoUploadStatusResponse.  # noqa: E501
 
 
-        :return: The video_upload_tasks of this VideoProjectGetVideoUploadStatusResponse.  # noqa: E501
-        :rtype: list[VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput]
+        :return: The data of this VideoProjectGetVideoUploadStatusResponse.  # noqa: E501
+        :rtype: DataForVideoProjectGetVideoUploadStatusOutput
         """
-        return self._video_upload_tasks
+        return self._data
 
-    @video_upload_tasks.setter
-    def video_upload_tasks(self, video_upload_tasks):
-        """Sets the video_upload_tasks of this VideoProjectGetVideoUploadStatusResponse.
+    @data.setter
+    def data(self, data):
+        """Sets the data of this VideoProjectGetVideoUploadStatusResponse.
 
 
-        :param video_upload_tasks: The video_upload_tasks of this VideoProjectGetVideoUploadStatusResponse.  # noqa: E501
-        :type: list[VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput]
+        :param data: The data of this VideoProjectGetVideoUploadStatusResponse.  # noqa: E501
+        :type: DataForVideoProjectGetVideoUploadStatusOutput
         """
 
-        self._video_upload_tasks = video_upload_tasks
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

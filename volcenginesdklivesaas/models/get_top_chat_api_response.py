@@ -33,24 +33,29 @@ class GetTopChatAPIResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'list[DataForGetTopChatAPIOutput]'
+        'data': 'list[DataForGetTopChatAPIOutput]',
+        'data_v2': 'list[DataV2ForGetTopChatAPIOutput]'
     }
 
     attribute_map = {
-        'data': 'Data'
+        'data': 'Data',
+        'data_v2': 'DataV2'
     }
 
-    def __init__(self, data=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, data_v2=None, _configuration=None):  # noqa: E501
         """GetTopChatAPIResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._data = None
+        self._data_v2 = None
         self.discriminator = None
 
         if data is not None:
             self.data = data
+        if data_v2 is not None:
+            self.data_v2 = data_v2
 
     @property
     def data(self):
@@ -72,6 +77,27 @@ class GetTopChatAPIResponse(object):
         """
 
         self._data = data
+
+    @property
+    def data_v2(self):
+        """Gets the data_v2 of this GetTopChatAPIResponse.  # noqa: E501
+
+
+        :return: The data_v2 of this GetTopChatAPIResponse.  # noqa: E501
+        :rtype: list[DataV2ForGetTopChatAPIOutput]
+        """
+        return self._data_v2
+
+    @data_v2.setter
+    def data_v2(self, data_v2):
+        """Sets the data_v2 of this GetTopChatAPIResponse.
+
+
+        :param data_v2: The data_v2 of this GetTopChatAPIResponse.  # noqa: E501
+        :type: list[DataV2ForGetTopChatAPIOutput]
+        """
+
+        self._data_v2 = data_v2
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,45 +33,45 @@ class ResendDLQMessageByIdResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'resend_result': 'list[ResendResultForResendDLQMessageByIdOutput]'
+        'resend_results': 'list[ResendResultForResendDLQMessageByIdOutput]'
     }
 
     attribute_map = {
-        'resend_result': 'ResendResult'
+        'resend_results': 'ResendResults'
     }
 
-    def __init__(self, resend_result=None, _configuration=None):  # noqa: E501
+    def __init__(self, resend_results=None, _configuration=None):  # noqa: E501
         """ResendDLQMessageByIdResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._resend_result = None
+        self._resend_results = None
         self.discriminator = None
 
-        if resend_result is not None:
-            self.resend_result = resend_result
+        if resend_results is not None:
+            self.resend_results = resend_results
 
     @property
-    def resend_result(self):
-        """Gets the resend_result of this ResendDLQMessageByIdResponse.  # noqa: E501
+    def resend_results(self):
+        """Gets the resend_results of this ResendDLQMessageByIdResponse.  # noqa: E501
 
 
-        :return: The resend_result of this ResendDLQMessageByIdResponse.  # noqa: E501
+        :return: The resend_results of this ResendDLQMessageByIdResponse.  # noqa: E501
         :rtype: list[ResendResultForResendDLQMessageByIdOutput]
         """
-        return self._resend_result
+        return self._resend_results
 
-    @resend_result.setter
-    def resend_result(self, resend_result):
-        """Sets the resend_result of this ResendDLQMessageByIdResponse.
+    @resend_results.setter
+    def resend_results(self, resend_results):
+        """Sets the resend_results of this ResendDLQMessageByIdResponse.
 
 
-        :param resend_result: The resend_result of this ResendDLQMessageByIdResponse.  # noqa: E501
+        :param resend_results: The resend_results of this ResendDLQMessageByIdResponse.  # noqa: E501
         :type: list[ResendResultForResendDLQMessageByIdOutput]
         """
 
-        self._resend_result = resend_result
+        self._resend_results = resend_results
 
     def to_dict(self):
         """Returns the model properties as a dict"""

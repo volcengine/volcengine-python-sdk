@@ -34,26 +34,31 @@ class GetRegularCleanResponse(object):
     """
     swagger_types = {
         'clean_days': 'int',
+        'clean_hours': 'int',
         'switch': 'bool'
     }
 
     attribute_map = {
         'clean_days': 'CleanDays',
+        'clean_hours': 'CleanHours',
         'switch': 'Switch'
     }
 
-    def __init__(self, clean_days=None, switch=None, _configuration=None):  # noqa: E501
+    def __init__(self, clean_days=None, clean_hours=None, switch=None, _configuration=None):  # noqa: E501
         """GetRegularCleanResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._clean_days = None
+        self._clean_hours = None
         self._switch = None
         self.discriminator = None
 
         if clean_days is not None:
             self.clean_days = clean_days
+        if clean_hours is not None:
+            self.clean_hours = clean_hours
         if switch is not None:
             self.switch = switch
 
@@ -77,6 +82,27 @@ class GetRegularCleanResponse(object):
         """
 
         self._clean_days = clean_days
+
+    @property
+    def clean_hours(self):
+        """Gets the clean_hours of this GetRegularCleanResponse.  # noqa: E501
+
+
+        :return: The clean_hours of this GetRegularCleanResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._clean_hours
+
+    @clean_hours.setter
+    def clean_hours(self, clean_hours):
+        """Sets the clean_hours of this GetRegularCleanResponse.
+
+
+        :param clean_hours: The clean_hours of this GetRegularCleanResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._clean_hours = clean_hours
 
     @property
     def switch(self):

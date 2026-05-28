@@ -1,0 +1,5 @@
+{
+  "description": "VOD: 新增 UpdateVodDomainConfig, AddVodDomain, DeleteVodDomain, DescribeVodDomainConfig, ListVodDomains, StartVodDomain, StopVodDomain",
+  "modules": "service/vod",
+  "type": "feature"
+}

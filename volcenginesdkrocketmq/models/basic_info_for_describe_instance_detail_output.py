@@ -35,11 +35,14 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
     swagger_types = {
         'account_id': 'str',
         'apply_private_dnsto_public': 'bool',
+        'available_group_number': 'int',
         'available_queue_number': 'int',
+        'available_topic_number': 'int',
         'charge_detail': 'ChargeDetailForDescribeInstanceDetailOutput',
         'compute_spec': 'str',
         'create_time': 'str',
         'eip_id': 'str',
+        'enable_inspect': 'bool',
         'enable_ssl': 'bool',
         'file_reserved_time': 'int',
         'instance_description': 'str',
@@ -47,11 +50,14 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         'instance_name': 'str',
         'instance_status': 'str',
         'instance_tags': 'list[InstanceTagForDescribeInstanceDetailOutput]',
+        'product_version': 'str',
         'project_name': 'str',
         'region_id': 'str',
         'ssl_mode': 'str',
+        'send_receive_ratio': 'int',
         'storage_space': 'int',
         'subnet_id': 'str',
+        'total_tps': 'int',
         'used_group_number': 'int',
         'used_queue_number': 'int',
         'used_storage_space': 'int',
@@ -64,11 +70,14 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'apply_private_dnsto_public': 'ApplyPrivateDNSToPublic',
+        'available_group_number': 'AvailableGroupNumber',
         'available_queue_number': 'AvailableQueueNumber',
+        'available_topic_number': 'AvailableTopicNumber',
         'charge_detail': 'ChargeDetail',
         'compute_spec': 'ComputeSpec',
         'create_time': 'CreateTime',
         'eip_id': 'EipId',
+        'enable_inspect': 'EnableInspect',
         'enable_ssl': 'EnableSSL',
         'file_reserved_time': 'FileReservedTime',
         'instance_description': 'InstanceDescription',
@@ -76,11 +85,14 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
         'instance_tags': 'InstanceTags',
+        'product_version': 'ProductVersion',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'ssl_mode': 'SSLMode',
+        'send_receive_ratio': 'SendReceiveRatio',
         'storage_space': 'StorageSpace',
         'subnet_id': 'SubnetId',
+        'total_tps': 'TotalTps',
         'used_group_number': 'UsedGroupNumber',
         'used_queue_number': 'UsedQueueNumber',
         'used_storage_space': 'UsedStorageSpace',
@@ -90,7 +102,7 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, apply_private_dnsto_public=None, available_queue_number=None, charge_detail=None, compute_spec=None, create_time=None, eip_id=None, enable_ssl=None, file_reserved_time=None, instance_description=None, instance_id=None, instance_name=None, instance_status=None, instance_tags=None, project_name=None, region_id=None, ssl_mode=None, storage_space=None, subnet_id=None, used_group_number=None, used_queue_number=None, used_storage_space=None, used_topic_number=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, apply_private_dnsto_public=None, available_group_number=None, available_queue_number=None, available_topic_number=None, charge_detail=None, compute_spec=None, create_time=None, eip_id=None, enable_inspect=None, enable_ssl=None, file_reserved_time=None, instance_description=None, instance_id=None, instance_name=None, instance_status=None, instance_tags=None, product_version=None, project_name=None, region_id=None, ssl_mode=None, send_receive_ratio=None, storage_space=None, subnet_id=None, total_tps=None, used_group_number=None, used_queue_number=None, used_storage_space=None, used_topic_number=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,11 +110,14 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
 
         self._account_id = None
         self._apply_private_dnsto_public = None
+        self._available_group_number = None
         self._available_queue_number = None
+        self._available_topic_number = None
         self._charge_detail = None
         self._compute_spec = None
         self._create_time = None
         self._eip_id = None
+        self._enable_inspect = None
         self._enable_ssl = None
         self._file_reserved_time = None
         self._instance_description = None
@@ -110,11 +125,14 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         self._instance_name = None
         self._instance_status = None
         self._instance_tags = None
+        self._product_version = None
         self._project_name = None
         self._region_id = None
         self._ssl_mode = None
+        self._send_receive_ratio = None
         self._storage_space = None
         self._subnet_id = None
+        self._total_tps = None
         self._used_group_number = None
         self._used_queue_number = None
         self._used_storage_space = None
@@ -128,8 +146,12 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
             self.account_id = account_id
         if apply_private_dnsto_public is not None:
             self.apply_private_dnsto_public = apply_private_dnsto_public
+        if available_group_number is not None:
+            self.available_group_number = available_group_number
         if available_queue_number is not None:
             self.available_queue_number = available_queue_number
+        if available_topic_number is not None:
+            self.available_topic_number = available_topic_number
         if charge_detail is not None:
             self.charge_detail = charge_detail
         if compute_spec is not None:
@@ -138,6 +160,8 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
             self.create_time = create_time
         if eip_id is not None:
             self.eip_id = eip_id
+        if enable_inspect is not None:
+            self.enable_inspect = enable_inspect
         if enable_ssl is not None:
             self.enable_ssl = enable_ssl
         if file_reserved_time is not None:
@@ -152,16 +176,22 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
             self.instance_status = instance_status
         if instance_tags is not None:
             self.instance_tags = instance_tags
+        if product_version is not None:
+            self.product_version = product_version
         if project_name is not None:
             self.project_name = project_name
         if region_id is not None:
             self.region_id = region_id
         if ssl_mode is not None:
             self.ssl_mode = ssl_mode
+        if send_receive_ratio is not None:
+            self.send_receive_ratio = send_receive_ratio
         if storage_space is not None:
             self.storage_space = storage_space
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if total_tps is not None:
+            self.total_tps = total_tps
         if used_group_number is not None:
             self.used_group_number = used_group_number
         if used_queue_number is not None:
@@ -220,6 +250,27 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         self._apply_private_dnsto_public = apply_private_dnsto_public
 
     @property
+    def available_group_number(self):
+        """Gets the available_group_number of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The available_group_number of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._available_group_number
+
+    @available_group_number.setter
+    def available_group_number(self, available_group_number):
+        """Sets the available_group_number of this BasicInfoForDescribeInstanceDetailOutput.
+
+
+        :param available_group_number: The available_group_number of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._available_group_number = available_group_number
+
+    @property
     def available_queue_number(self):
         """Gets the available_queue_number of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
 
@@ -239,6 +290,27 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         """
 
         self._available_queue_number = available_queue_number
+
+    @property
+    def available_topic_number(self):
+        """Gets the available_topic_number of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The available_topic_number of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._available_topic_number
+
+    @available_topic_number.setter
+    def available_topic_number(self, available_topic_number):
+        """Sets the available_topic_number of this BasicInfoForDescribeInstanceDetailOutput.
+
+
+        :param available_topic_number: The available_topic_number of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._available_topic_number = available_topic_number
 
     @property
     def charge_detail(self):
@@ -323,6 +395,27 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         """
 
         self._eip_id = eip_id
+
+    @property
+    def enable_inspect(self):
+        """Gets the enable_inspect of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The enable_inspect of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_inspect
+
+    @enable_inspect.setter
+    def enable_inspect(self, enable_inspect):
+        """Sets the enable_inspect of this BasicInfoForDescribeInstanceDetailOutput.
+
+
+        :param enable_inspect: The enable_inspect of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_inspect = enable_inspect
 
     @property
     def enable_ssl(self):
@@ -472,6 +565,27 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         self._instance_tags = instance_tags
 
     @property
+    def product_version(self):
+        """Gets the product_version of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The product_version of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._product_version
+
+    @product_version.setter
+    def product_version(self, product_version):
+        """Sets the product_version of this BasicInfoForDescribeInstanceDetailOutput.
+
+
+        :param product_version: The product_version of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._product_version = product_version
+
+    @property
     def project_name(self):
         """Gets the project_name of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
 
@@ -535,6 +649,27 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         self._ssl_mode = ssl_mode
 
     @property
+    def send_receive_ratio(self):
+        """Gets the send_receive_ratio of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The send_receive_ratio of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._send_receive_ratio
+
+    @send_receive_ratio.setter
+    def send_receive_ratio(self, send_receive_ratio):
+        """Sets the send_receive_ratio of this BasicInfoForDescribeInstanceDetailOutput.
+
+
+        :param send_receive_ratio: The send_receive_ratio of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._send_receive_ratio = send_receive_ratio
+
+    @property
     def storage_space(self):
         """Gets the storage_space of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
 
@@ -575,6 +710,27 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def total_tps(self):
+        """Gets the total_tps of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The total_tps of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_tps
+
+    @total_tps.setter
+    def total_tps(self, total_tps):
+        """Sets the total_tps of this BasicInfoForDescribeInstanceDetailOutput.
+
+
+        :param total_tps: The total_tps of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._total_tps = total_tps
 
     @property
     def used_group_number(self):

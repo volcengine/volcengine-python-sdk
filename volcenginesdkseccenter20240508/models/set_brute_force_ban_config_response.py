@@ -33,17 +33,45 @@ class SetBruteForceBanConfigResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'data': 'str'
     }
 
     attribute_map = {
+        'data': 'Data'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, _configuration=None):  # noqa: E501
         """SetBruteForceBanConfigResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._data = None
         self.discriminator = None
+
+        if data is not None:
+            self.data = data
+
+    @property
+    def data(self):
+        """Gets the data of this SetBruteForceBanConfigResponse.  # noqa: E501
+
+
+        :return: The data of this SetBruteForceBanConfigResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this SetBruteForceBanConfigResponse.
+
+
+        :param data: The data of this SetBruteForceBanConfigResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

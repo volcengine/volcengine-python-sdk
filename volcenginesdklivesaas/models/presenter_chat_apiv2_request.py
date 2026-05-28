@@ -36,17 +36,19 @@ class PresenterChatAPIV2Request(object):
         'activity_id': 'int',
         'audience_group_id': 'int',
         'comment': 'str',
-        'top_status': 'int'
+        'top_status': 'int',
+        'top_status_v2': 'int'
     }
 
     attribute_map = {
         'activity_id': 'ActivityId',
         'audience_group_id': 'AudienceGroupId',
         'comment': 'Comment',
-        'top_status': 'TopStatus'
+        'top_status': 'TopStatus',
+        'top_status_v2': 'TopStatusV2'
     }
 
-    def __init__(self, activity_id=None, audience_group_id=None, comment=None, top_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, audience_group_id=None, comment=None, top_status=None, top_status_v2=None, _configuration=None):  # noqa: E501
         """PresenterChatAPIV2Request - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class PresenterChatAPIV2Request(object):
         self._audience_group_id = None
         self._comment = None
         self._top_status = None
+        self._top_status_v2 = None
         self.discriminator = None
 
         self.activity_id = activity_id
@@ -64,6 +67,8 @@ class PresenterChatAPIV2Request(object):
         self.comment = comment
         if top_status is not None:
             self.top_status = top_status
+        if top_status_v2 is not None:
+            self.top_status_v2 = top_status_v2
 
     @property
     def activity_id(self):
@@ -152,6 +157,27 @@ class PresenterChatAPIV2Request(object):
         """
 
         self._top_status = top_status
+
+    @property
+    def top_status_v2(self):
+        """Gets the top_status_v2 of this PresenterChatAPIV2Request.  # noqa: E501
+
+
+        :return: The top_status_v2 of this PresenterChatAPIV2Request.  # noqa: E501
+        :rtype: int
+        """
+        return self._top_status_v2
+
+    @top_status_v2.setter
+    def top_status_v2(self, top_status_v2):
+        """Sets the top_status_v2 of this PresenterChatAPIV2Request.
+
+
+        :param top_status_v2: The top_status_v2 of this PresenterChatAPIV2Request.  # noqa: E501
+        :type: int
+        """
+
+        self._top_status_v2 = top_status_v2
 
     def to_dict(self):
         """Returns the model properties as a dict"""

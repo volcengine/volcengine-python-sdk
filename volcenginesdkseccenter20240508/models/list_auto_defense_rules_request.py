@@ -35,6 +35,7 @@ class ListAutoDefenseRulesRequest(object):
     swagger_types = {
         'page_number': 'int',
         'page_size': 'int',
+        'rule_scope': 'str',
         'sort_by': 'str',
         'sort_order': 'str',
         'top_group_id': 'str'
@@ -43,12 +44,13 @@ class ListAutoDefenseRulesRequest(object):
     attribute_map = {
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'rule_scope': 'RuleScope',
         'sort_by': 'SortBy',
         'sort_order': 'SortOrder',
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, page_number=None, page_size=None, sort_by=None, sort_order=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, rule_scope=None, sort_by=None, sort_order=None, top_group_id=None, _configuration=None):  # noqa: E501
         """ListAutoDefenseRulesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ListAutoDefenseRulesRequest(object):
 
         self._page_number = None
         self._page_size = None
+        self._rule_scope = None
         self._sort_by = None
         self._sort_order = None
         self._top_group_id = None
@@ -63,6 +66,8 @@ class ListAutoDefenseRulesRequest(object):
 
         self.page_number = page_number
         self.page_size = page_size
+        if rule_scope is not None:
+            self.rule_scope = rule_scope
         if sort_by is not None:
             self.sort_by = sort_by
         if sort_order is not None:
@@ -115,6 +120,27 @@ class ListAutoDefenseRulesRequest(object):
             raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def rule_scope(self):
+        """Gets the rule_scope of this ListAutoDefenseRulesRequest.  # noqa: E501
+
+
+        :return: The rule_scope of this ListAutoDefenseRulesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._rule_scope
+
+    @rule_scope.setter
+    def rule_scope(self, rule_scope):
+        """Sets the rule_scope of this ListAutoDefenseRulesRequest.
+
+
+        :param rule_scope: The rule_scope of this ListAutoDefenseRulesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._rule_scope = rule_scope
 
     @property
     def sort_by(self):

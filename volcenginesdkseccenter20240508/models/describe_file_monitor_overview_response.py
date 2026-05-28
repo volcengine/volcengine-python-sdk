@@ -34,26 +34,20 @@ class DescribeFileMonitorOverviewResponse(object):
     """
     swagger_types = {
         'monitor_agent_count': 'int',
-        'monitor_directory_count': 'int',
-        'monitor_agent_count': 'int',
         'monitor_directory_count': 'int'
     }
 
     attribute_map = {
         'monitor_agent_count': 'MonitorAgentCount',
-        'monitor_directory_count': 'MonitorDirectoryCount',
-        'monitor_agent_count': 'monitor_agent_count',
-        'monitor_directory_count': 'monitor_directory_count'
+        'monitor_directory_count': 'MonitorDirectoryCount'
     }
 
-    def __init__(self, monitor_agent_count=None, monitor_directory_count=None, monitor_agent_count=None, monitor_directory_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, monitor_agent_count=None, monitor_directory_count=None, _configuration=None):  # noqa: E501
         """DescribeFileMonitorOverviewResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._monitor_agent_count = None
-        self._monitor_directory_count = None
         self._monitor_agent_count = None
         self._monitor_directory_count = None
         self.discriminator = None
@@ -62,52 +56,6 @@ class DescribeFileMonitorOverviewResponse(object):
             self.monitor_agent_count = monitor_agent_count
         if monitor_directory_count is not None:
             self.monitor_directory_count = monitor_directory_count
-        if monitor_agent_count is not None:
-            self.monitor_agent_count = monitor_agent_count
-        if monitor_directory_count is not None:
-            self.monitor_directory_count = monitor_directory_count
-
-    @property
-    def monitor_agent_count(self):
-        """Gets the monitor_agent_count of this DescribeFileMonitorOverviewResponse.  # noqa: E501
-
-
-        :return: The monitor_agent_count of this DescribeFileMonitorOverviewResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._monitor_agent_count
-
-    @monitor_agent_count.setter
-    def monitor_agent_count(self, monitor_agent_count):
-        """Sets the monitor_agent_count of this DescribeFileMonitorOverviewResponse.
-
-
-        :param monitor_agent_count: The monitor_agent_count of this DescribeFileMonitorOverviewResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._monitor_agent_count = monitor_agent_count
-
-    @property
-    def monitor_directory_count(self):
-        """Gets the monitor_directory_count of this DescribeFileMonitorOverviewResponse.  # noqa: E501
-
-
-        :return: The monitor_directory_count of this DescribeFileMonitorOverviewResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._monitor_directory_count
-
-    @monitor_directory_count.setter
-    def monitor_directory_count(self, monitor_directory_count):
-        """Sets the monitor_directory_count of this DescribeFileMonitorOverviewResponse.
-
-
-        :param monitor_directory_count: The monitor_directory_count of this DescribeFileMonitorOverviewResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._monitor_directory_count = monitor_directory_count
 
     @property
     def monitor_agent_count(self):
