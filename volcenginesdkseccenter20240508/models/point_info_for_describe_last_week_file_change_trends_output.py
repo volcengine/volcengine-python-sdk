@@ -38,8 +38,8 @@ class PointInfoForDescribeLastWeekFileChangeTrendsOutput(object):
     }
 
     attribute_map = {
-        'key': 'key',
-        'value': 'value'
+        'key': 'Key',
+        'value': 'Value'
     }
 
     def __init__(self, key=None, value=None, _configuration=None):  # noqa: E501
