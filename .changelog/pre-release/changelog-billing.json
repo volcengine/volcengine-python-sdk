@@ -1,5 +1,0 @@
-{
-  "description": "BILLING: 修改 ListBillDetail, ListSplitBillDetail",
-  "modules": "service/billing",
-  "type": "feature"
-}

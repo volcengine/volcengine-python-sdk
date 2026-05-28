@@ -1,5 +1,0 @@
-{
-  "description": "RESOURCECENTER: chore changes",
-  "modules": "service/resourcecenter",
-  "type": "bugfix"
-}

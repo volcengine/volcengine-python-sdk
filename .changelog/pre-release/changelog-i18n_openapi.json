@@ -1,5 +1,0 @@
-{
-  "description": "I18N_OPENAPI: 修改 VideoProjectGetVideoUploadStatus, VideoProjectVideoUpload",
-  "modules": "service/i18n_openapi",
-  "type": "breaking-change"
-}

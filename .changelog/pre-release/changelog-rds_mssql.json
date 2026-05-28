@@ -1,5 +1,0 @@
-{
-  "description": "RDS_MSSQL: 新增 DescribeDBInstanceSSL, DescribeDBInstanceTDE, DownloadSSLCertificate, ModifyDBInstanceSSL, ModifyDBInstanceTDE",
-  "modules": "service/rds_mssql",
-  "type": "feature"
-}

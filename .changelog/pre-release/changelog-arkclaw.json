@@ -1,5 +1,0 @@
-{
-  "description": "ARKCLAW: 新增 CreatePrivateClawOmniSpaceTemplate, GetClawOmniInstanceSkills, GetClawOmniSpaceTemplate, ListClawOmniSpaceTemplates, UpdatePrivateClawOmniSpaceTemplate",
-  "modules": "service/arkclaw",
-  "type": "feature"
-}

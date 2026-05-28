@@ -1,5 +1,0 @@
-{
-  "description": "VEFAAS: chore changes",
-  "modules": "service/vefaas",
-  "type": "bugfix"
-}

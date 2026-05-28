@@ -1,5 +1,0 @@
-{
-  "description": "IAM: 新增 GetServiceLinkedRoleTemplate",
-  "modules": "service/iam",
-  "type": "feature"
-}
