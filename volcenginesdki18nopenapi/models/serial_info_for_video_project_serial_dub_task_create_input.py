@@ -33,6 +33,8 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'effect_subtitle': 'EffectSubtitleForVideoProjectSerialDubTaskCreateInput',
+        'effect_subtitles': 'list[ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput]',
         'episode': 'int',
         'pure_video': 'PureVideoForVideoProjectSerialDubTaskCreateInput',
         'subtitle': 'SubtitleForVideoProjectSerialDubTaskCreateInput',
@@ -41,6 +43,8 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput(object):
     }
 
     attribute_map = {
+        'effect_subtitle': 'effectSubtitle',
+        'effect_subtitles': 'effectSubtitles',
         'episode': 'episode',
         'pure_video': 'pureVideo',
         'subtitle': 'subtitle',
@@ -48,12 +52,14 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput(object):
         'video': 'video'
     }
 
-    def __init__(self, episode=None, pure_video=None, subtitle=None, subtitles=None, video=None, _configuration=None):  # noqa: E501
+    def __init__(self, effect_subtitle=None, effect_subtitles=None, episode=None, pure_video=None, subtitle=None, subtitles=None, video=None, _configuration=None):  # noqa: E501
         """SerialInfoForVideoProjectSerialDubTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._effect_subtitle = None
+        self._effect_subtitles = None
         self._episode = None
         self._pure_video = None
         self._subtitle = None
@@ -61,6 +67,10 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput(object):
         self._video = None
         self.discriminator = None
 
+        if effect_subtitle is not None:
+            self.effect_subtitle = effect_subtitle
+        if effect_subtitles is not None:
+            self.effect_subtitles = effect_subtitles
         if episode is not None:
             self.episode = episode
         if pure_video is not None:
@@ -71,6 +81,48 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput(object):
             self.subtitles = subtitles
         if video is not None:
             self.video = video
+
+    @property
+    def effect_subtitle(self):
+        """Gets the effect_subtitle of this SerialInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The effect_subtitle of this SerialInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: EffectSubtitleForVideoProjectSerialDubTaskCreateInput
+        """
+        return self._effect_subtitle
+
+    @effect_subtitle.setter
+    def effect_subtitle(self, effect_subtitle):
+        """Sets the effect_subtitle of this SerialInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param effect_subtitle: The effect_subtitle of this SerialInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: EffectSubtitleForVideoProjectSerialDubTaskCreateInput
+        """
+
+        self._effect_subtitle = effect_subtitle
+
+    @property
+    def effect_subtitles(self):
+        """Gets the effect_subtitles of this SerialInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The effect_subtitles of this SerialInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: list[ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput]
+        """
+        return self._effect_subtitles
+
+    @effect_subtitles.setter
+    def effect_subtitles(self, effect_subtitles):
+        """Sets the effect_subtitles of this SerialInfoForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param effect_subtitles: The effect_subtitles of this SerialInfoForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: list[ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput]
+        """
+
+        self._effect_subtitles = effect_subtitles
 
     @property
     def episode(self):
