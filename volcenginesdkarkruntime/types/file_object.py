@@ -14,7 +14,7 @@ from typing_extensions import Literal
 
 from .._models import BaseModel
 
-__all__ = ["FileObject"]
+__all__ = ["FileObject", "Error", "TosStorage"]
 
 
 class Error(BaseModel):
@@ -31,11 +31,24 @@ class Error(BaseModel):
     """The error type."""
 
 
+class TosStorage(BaseModel):
+    """Identifies a user-owned TOS location."""
+
+    bucket: Optional[str] = None
+    """The TOS bucket name."""
+
+    prefix: Optional[str] = None
+    """The upload prefix under the bucket (request only)."""
+
+    object_key: Optional[str] = None
+    """The full object path in the bucket (response only)."""
+
+
 class FileObject(BaseModel):
     id: str
     """The file identifier, which can be referenced in the API endpoints."""
 
-    bytes: int
+    bytes: Optional[int] = None
     """The size of the file, in bytes."""
 
     created_at: int
@@ -50,9 +63,8 @@ class FileObject(BaseModel):
     object: Literal["file"]
     """The object type, which is always `file`."""
 
-    purpose: Literal["user_data",]
-    """The intended purpose of the file.
-    """
+    purpose: Literal["user_data", "agent"]
+    """The intended purpose of the file."""
 
     status: Literal["processing", "active", "failed"]
     """The current status of the file, which can be either `processing`, `active`, or
@@ -67,3 +79,6 @@ class FileObject(BaseModel):
 
     preprocess_configs: Optional[dict] = None
     """The preprocess configs of the file."""
+
+    tos: Optional[TosStorage] = None
+    """The TOS storage location, only set when the file is persisted in a user-owned TOS bucket."""

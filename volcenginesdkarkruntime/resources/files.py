@@ -18,7 +18,7 @@ from typing_extensions import Literal
 import httpx
 
 from .. import _legacy_response
-from ..types import FilePurpose, PreprocessConfigs, file_list_params, file_create_params
+from ..types import FilePurpose, PreprocessConfigs, TosStorageParam, file_list_params, file_create_params
 from .._types import Body, Query, Headers, FileTypes
 from .._utils import (
     extract_files,
@@ -63,10 +63,12 @@ class Files(SyncAPIResource):
     def create(
         self,
         *,
-        file: FileTypes,
+        file: FileTypes | None = None,
         purpose: FilePurpose,
         expire_at: datetime.datetime | int | None = None,
         preprocess_configs: PreprocessConfigs | None = None,
+        url: str | None = None,
+        tos: TosStorageParam | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -79,11 +81,17 @@ class Files(SyncAPIResource):
         Individual files can be up to 512 MB.
 
         Args:
-          file: The File object (not file name) to be uploaded.
+          file: The File object (not file name) to be uploaded. Mutually exclusive with `url`.
 
-          purpose: The intended purpose of the uploaded file. Only `user_data` is supported.
+          purpose: The intended purpose of the uploaded file.
 
           expire_at: The expiration time for a file in Unix timestamp format. By default, files expires after 7 days.
+
+          preprocess_configs: The preprocess configs of the file.
+
+          url: An alternative file source (http/https or tos:// scheme). Mutually exclusive with `file`.
+
+          tos: Specifies the user-owned TOS bucket destination. Required when `url` is provided.
 
           extra_headers: Send extra headers
 
@@ -99,9 +107,14 @@ class Files(SyncAPIResource):
                 "purpose": purpose,
                 "expire_at": expire_at,
                 "preprocess_configs": preprocess_configs,
+                "url": url,
+                "tos": tos,
             }
         )
-        files = extract_files(cast(Mapping[str, object], body), paths=[["file"]])
+        if file is not None:
+            files = extract_files(cast(Mapping[str, object], body), paths=[["file"]])
+        else:
+            files = []
         # It should be noted that the actual Content-Type header that will be
         # sent to the server will contain a `boundary` parameter, e.g.
         # multipart/form-data; boundary=---abc--
@@ -303,10 +316,12 @@ class AsyncFiles(AsyncAPIResource):
     async def create(
         self,
         *,
-        file: FileTypes,
+        file: FileTypes | None = None,
         purpose: FilePurpose,
         expire_at: int | None = None,
         preprocess_configs: PreprocessConfigs | None = None,
+        url: str | None = None,
+        tos: TosStorageParam | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -319,11 +334,17 @@ class AsyncFiles(AsyncAPIResource):
         Individual files can be up to 512 MB.
 
         Args:
-          file: The File object (not file name) to be uploaded.
+          file: The File object (not file name) to be uploaded. Mutually exclusive with `url`.
 
           purpose: The intended purpose of the uploaded file.
 
           expire_at: The Unix timestamp in seconds after which the file will be deleted. Defaults to 7 days.
+
+          preprocess_configs: The preprocess configs of the file.
+
+          url: An alternative file source (http/https or tos:// scheme). Mutually exclusive with `file`.
+
+          tos: Specifies the user-owned TOS bucket destination. Required when `url` is provided.
 
           extra_headers: Send extra headers
 
@@ -339,9 +360,14 @@ class AsyncFiles(AsyncAPIResource):
                 "purpose": purpose,
                 "expire_at": expire_at,
                 "preprocess_configs": preprocess_configs,
+                "url": url,
+                "tos": tos,
             }
         )
-        files = extract_files(cast(Mapping[str, object], body), paths=[["file"]])
+        if file is not None:
+            files = extract_files(cast(Mapping[str, object], body), paths=[["file"]])
+        else:
+            files = []
         # It should be noted that the actual Content-Type header that will be
         # sent to the server will contain a `boundary` parameter, e.g.
         # multipart/form-data; boundary=---abc--
