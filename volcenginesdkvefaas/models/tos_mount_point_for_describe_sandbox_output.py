@@ -33,29 +33,106 @@ class TosMountPointForDescribeSandboxOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auth_mode': 'str',
+        'bucket_name': 'str',
         'bucket_path': 'str',
-        'local_mount_path': 'str'
+        'credentials': 'CredentialsForDescribeSandboxOutput',
+        'encryption_config': 'EncryptionConfigForDescribeSandboxOutput',
+        'endpoint': 'str',
+        'local_mount_path': 'str',
+        'pre_mount': 'bool',
+        'read_only': 'bool'
     }
 
     attribute_map = {
+        'auth_mode': 'AuthMode',
+        'bucket_name': 'BucketName',
         'bucket_path': 'BucketPath',
-        'local_mount_path': 'LocalMountPath'
+        'credentials': 'Credentials',
+        'encryption_config': 'EncryptionConfig',
+        'endpoint': 'Endpoint',
+        'local_mount_path': 'LocalMountPath',
+        'pre_mount': 'PreMount',
+        'read_only': 'ReadOnly'
     }
 
-    def __init__(self, bucket_path=None, local_mount_path=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode=None, bucket_name=None, bucket_path=None, credentials=None, encryption_config=None, endpoint=None, local_mount_path=None, pre_mount=None, read_only=None, _configuration=None):  # noqa: E501
         """TosMountPointForDescribeSandboxOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auth_mode = None
+        self._bucket_name = None
         self._bucket_path = None
+        self._credentials = None
+        self._encryption_config = None
+        self._endpoint = None
         self._local_mount_path = None
+        self._pre_mount = None
+        self._read_only = None
         self.discriminator = None
 
+        if auth_mode is not None:
+            self.auth_mode = auth_mode
+        if bucket_name is not None:
+            self.bucket_name = bucket_name
         if bucket_path is not None:
             self.bucket_path = bucket_path
+        if credentials is not None:
+            self.credentials = credentials
+        if encryption_config is not None:
+            self.encryption_config = encryption_config
+        if endpoint is not None:
+            self.endpoint = endpoint
         if local_mount_path is not None:
             self.local_mount_path = local_mount_path
+        if pre_mount is not None:
+            self.pre_mount = pre_mount
+        if read_only is not None:
+            self.read_only = read_only
+
+    @property
+    def auth_mode(self):
+        """Gets the auth_mode of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+
+
+        :return: The auth_mode of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_mode
+
+    @auth_mode.setter
+    def auth_mode(self, auth_mode):
+        """Sets the auth_mode of this TosMountPointForDescribeSandboxOutput.
+
+
+        :param auth_mode: The auth_mode of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_mode = auth_mode
+
+    @property
+    def bucket_name(self):
+        """Gets the bucket_name of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+
+
+        :return: The bucket_name of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bucket_name
+
+    @bucket_name.setter
+    def bucket_name(self, bucket_name):
+        """Sets the bucket_name of this TosMountPointForDescribeSandboxOutput.
+
+
+        :param bucket_name: The bucket_name of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bucket_name = bucket_name
 
     @property
     def bucket_path(self):
@@ -79,6 +156,69 @@ class TosMountPointForDescribeSandboxOutput(object):
         self._bucket_path = bucket_path
 
     @property
+    def credentials(self):
+        """Gets the credentials of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+
+
+        :return: The credentials of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :rtype: CredentialsForDescribeSandboxOutput
+        """
+        return self._credentials
+
+    @credentials.setter
+    def credentials(self, credentials):
+        """Sets the credentials of this TosMountPointForDescribeSandboxOutput.
+
+
+        :param credentials: The credentials of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :type: CredentialsForDescribeSandboxOutput
+        """
+
+        self._credentials = credentials
+
+    @property
+    def encryption_config(self):
+        """Gets the encryption_config of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+
+
+        :return: The encryption_config of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :rtype: EncryptionConfigForDescribeSandboxOutput
+        """
+        return self._encryption_config
+
+    @encryption_config.setter
+    def encryption_config(self, encryption_config):
+        """Sets the encryption_config of this TosMountPointForDescribeSandboxOutput.
+
+
+        :param encryption_config: The encryption_config of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :type: EncryptionConfigForDescribeSandboxOutput
+        """
+
+        self._encryption_config = encryption_config
+
+    @property
+    def endpoint(self):
+        """Gets the endpoint of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+
+
+        :return: The endpoint of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._endpoint
+
+    @endpoint.setter
+    def endpoint(self, endpoint):
+        """Sets the endpoint of this TosMountPointForDescribeSandboxOutput.
+
+
+        :param endpoint: The endpoint of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._endpoint = endpoint
+
+    @property
     def local_mount_path(self):
         """Gets the local_mount_path of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
 
@@ -98,6 +238,48 @@ class TosMountPointForDescribeSandboxOutput(object):
         """
 
         self._local_mount_path = local_mount_path
+
+    @property
+    def pre_mount(self):
+        """Gets the pre_mount of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+
+
+        :return: The pre_mount of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._pre_mount
+
+    @pre_mount.setter
+    def pre_mount(self, pre_mount):
+        """Sets the pre_mount of this TosMountPointForDescribeSandboxOutput.
+
+
+        :param pre_mount: The pre_mount of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._pre_mount = pre_mount
+
+    @property
+    def read_only(self):
+        """Gets the read_only of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+
+
+        :return: The read_only of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._read_only
+
+    @read_only.setter
+    def read_only(self, read_only):
+        """Sets the read_only of this TosMountPointForDescribeSandboxOutput.
+
+
+        :param read_only: The read_only of this TosMountPointForDescribeSandboxOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._read_only = read_only
 
     def to_dict(self):
         """Returns the model properties as a dict"""

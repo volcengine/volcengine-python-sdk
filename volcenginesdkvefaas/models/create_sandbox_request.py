@@ -35,6 +35,7 @@ class CreateSandboxRequest(object):
     swagger_types = {
         '_async': 'bool',
         'cpu_milli': 'int',
+        'ebs_volumes': 'list[EBSVolumeForCreateSandboxInput]',
         'empty_dir_volume': 'list[EmptyDirVolumeForCreateSandboxInput]',
         'envs': 'list[EnvForCreateSandboxInput]',
         'function_id': 'str',
@@ -45,6 +46,7 @@ class CreateSandboxRequest(object):
         'memory_mb': 'int',
         'metadata': 'dict(str, str)',
         'request_timeout': 'int',
+        'role_chain_trn': 'list[str]',
         'session_id': 'str',
         'sidecars': 'list[SidecarForCreateSandboxInput]',
         'timeout': 'int',
@@ -54,6 +56,7 @@ class CreateSandboxRequest(object):
     attribute_map = {
         '_async': 'Async',
         'cpu_milli': 'CpuMilli',
+        'ebs_volumes': 'EBSVolumes',
         'empty_dir_volume': 'EmptyDirVolume',
         'envs': 'Envs',
         'function_id': 'FunctionId',
@@ -64,13 +67,14 @@ class CreateSandboxRequest(object):
         'memory_mb': 'MemoryMB',
         'metadata': 'Metadata',
         'request_timeout': 'RequestTimeout',
+        'role_chain_trn': 'RoleChainTrn',
         'session_id': 'SessionId',
         'sidecars': 'Sidecars',
         'timeout': 'Timeout',
         'timeout_unit': 'TimeoutUnit'
     }
 
-    def __init__(self, _async=None, cpu_milli=None, empty_dir_volume=None, envs=None, function_id=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, session_id=None, sidecars=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, _async=None, cpu_milli=None, ebs_volumes=None, empty_dir_volume=None, envs=None, function_id=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, role_chain_trn=None, session_id=None, sidecars=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
         """CreateSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +82,7 @@ class CreateSandboxRequest(object):
 
         self.__async = None
         self._cpu_milli = None
+        self._ebs_volumes = None
         self._empty_dir_volume = None
         self._envs = None
         self._function_id = None
@@ -88,6 +93,7 @@ class CreateSandboxRequest(object):
         self._memory_mb = None
         self._metadata = None
         self._request_timeout = None
+        self._role_chain_trn = None
         self._session_id = None
         self._sidecars = None
         self._timeout = None
@@ -98,6 +104,8 @@ class CreateSandboxRequest(object):
             self._async = _async
         if cpu_milli is not None:
             self.cpu_milli = cpu_milli
+        if ebs_volumes is not None:
+            self.ebs_volumes = ebs_volumes
         if empty_dir_volume is not None:
             self.empty_dir_volume = empty_dir_volume
         if envs is not None:
@@ -117,6 +125,8 @@ class CreateSandboxRequest(object):
             self.metadata = metadata
         if request_timeout is not None:
             self.request_timeout = request_timeout
+        if role_chain_trn is not None:
+            self.role_chain_trn = role_chain_trn
         if session_id is not None:
             self.session_id = session_id
         if sidecars is not None:
@@ -167,6 +177,27 @@ class CreateSandboxRequest(object):
         """
 
         self._cpu_milli = cpu_milli
+
+    @property
+    def ebs_volumes(self):
+        """Gets the ebs_volumes of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The ebs_volumes of this CreateSandboxRequest.  # noqa: E501
+        :rtype: list[EBSVolumeForCreateSandboxInput]
+        """
+        return self._ebs_volumes
+
+    @ebs_volumes.setter
+    def ebs_volumes(self, ebs_volumes):
+        """Sets the ebs_volumes of this CreateSandboxRequest.
+
+
+        :param ebs_volumes: The ebs_volumes of this CreateSandboxRequest.  # noqa: E501
+        :type: list[EBSVolumeForCreateSandboxInput]
+        """
+
+        self._ebs_volumes = ebs_volumes
 
     @property
     def empty_dir_volume(self):
@@ -379,6 +410,27 @@ class CreateSandboxRequest(object):
         """
 
         self._request_timeout = request_timeout
+
+    @property
+    def role_chain_trn(self):
+        """Gets the role_chain_trn of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The role_chain_trn of this CreateSandboxRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._role_chain_trn
+
+    @role_chain_trn.setter
+    def role_chain_trn(self, role_chain_trn):
+        """Sets the role_chain_trn of this CreateSandboxRequest.
+
+
+        :param role_chain_trn: The role_chain_trn of this CreateSandboxRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._role_chain_trn = role_chain_trn
 
     @property
     def session_id(self):
