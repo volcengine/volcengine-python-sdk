@@ -34,6 +34,7 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'agent_plan_info': 'AgentPlanInfoForModifyWorkspaceNameOutput',
         'baas_compute_settings': 'BaasComputeSettingsForModifyWorkspaceNameOutput',
         'compute_settings': 'ComputeSettingsForModifyWorkspaceNameOutput',
         'create_time': 'str',
@@ -43,12 +44,11 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         'engine_type': 'str',
         'engine_version': 'str',
         'internet_protocol': 'str',
+        'is_agent_plan_instance': 'bool',
         'project_name': 'str',
         'region_id': 'str',
         'shared_private_network': 'bool',
         'status_changed_time': 'str',
-        'storage_size': 'int',
-        'storage_type': 'str',
         'subnet_id': 'str',
         'update_time': 'str',
         'vpc_id': 'str',
@@ -62,6 +62,7 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
 
     attribute_map = {
         'account_id': 'AccountId',
+        'agent_plan_info': 'AgentPlanInfo',
         'baas_compute_settings': 'BaasComputeSettings',
         'compute_settings': 'ComputeSettings',
         'create_time': 'CreateTime',
@@ -71,12 +72,11 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         'engine_type': 'EngineType',
         'engine_version': 'EngineVersion',
         'internet_protocol': 'InternetProtocol',
+        'is_agent_plan_instance': 'IsAgentPlanInstance',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'shared_private_network': 'SharedPrivateNetwork',
         'status_changed_time': 'StatusChangedTime',
-        'storage_size': 'StorageSize',
-        'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId',
@@ -88,13 +88,14 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         'workspace_usage': 'WorkspaceUsage'
     }
 
-    def __init__(self, account_id=None, baas_compute_settings=None, compute_settings=None, create_time=None, creation_source=None, dns_visibility=None, deletion_protection_status=None, engine_type=None, engine_version=None, internet_protocol=None, project_name=None, region_id=None, shared_private_network=None, status_changed_time=None, storage_size=None, storage_type=None, subnet_id=None, update_time=None, vpc_id=None, workspace_id=None, workspace_name=None, workspace_setting=None, workspace_status=None, workspace_tags=None, workspace_usage=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, agent_plan_info=None, baas_compute_settings=None, compute_settings=None, create_time=None, creation_source=None, dns_visibility=None, deletion_protection_status=None, engine_type=None, engine_version=None, internet_protocol=None, is_agent_plan_instance=None, project_name=None, region_id=None, shared_private_network=None, status_changed_time=None, subnet_id=None, update_time=None, vpc_id=None, workspace_id=None, workspace_name=None, workspace_setting=None, workspace_status=None, workspace_tags=None, workspace_usage=None, _configuration=None):  # noqa: E501
         """WorkspaceForModifyWorkspaceNameOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._agent_plan_info = None
         self._baas_compute_settings = None
         self._compute_settings = None
         self._create_time = None
@@ -104,12 +105,11 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         self._engine_type = None
         self._engine_version = None
         self._internet_protocol = None
+        self._is_agent_plan_instance = None
         self._project_name = None
         self._region_id = None
         self._shared_private_network = None
         self._status_changed_time = None
-        self._storage_size = None
-        self._storage_type = None
         self._subnet_id = None
         self._update_time = None
         self._vpc_id = None
@@ -123,6 +123,8 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
 
         if account_id is not None:
             self.account_id = account_id
+        if agent_plan_info is not None:
+            self.agent_plan_info = agent_plan_info
         if baas_compute_settings is not None:
             self.baas_compute_settings = baas_compute_settings
         if compute_settings is not None:
@@ -141,6 +143,8 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
             self.engine_version = engine_version
         if internet_protocol is not None:
             self.internet_protocol = internet_protocol
+        if is_agent_plan_instance is not None:
+            self.is_agent_plan_instance = is_agent_plan_instance
         if project_name is not None:
             self.project_name = project_name
         if region_id is not None:
@@ -149,10 +153,6 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
             self.shared_private_network = shared_private_network
         if status_changed_time is not None:
             self.status_changed_time = status_changed_time
-        if storage_size is not None:
-            self.storage_size = storage_size
-        if storage_type is not None:
-            self.storage_type = storage_type
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if update_time is not None:
@@ -192,6 +192,27 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def agent_plan_info(self):
+        """Gets the agent_plan_info of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+
+
+        :return: The agent_plan_info of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :rtype: AgentPlanInfoForModifyWorkspaceNameOutput
+        """
+        return self._agent_plan_info
+
+    @agent_plan_info.setter
+    def agent_plan_info(self, agent_plan_info):
+        """Sets the agent_plan_info of this WorkspaceForModifyWorkspaceNameOutput.
+
+
+        :param agent_plan_info: The agent_plan_info of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :type: AgentPlanInfoForModifyWorkspaceNameOutput
+        """
+
+        self._agent_plan_info = agent_plan_info
 
     @property
     def baas_compute_settings(self):
@@ -383,6 +404,27 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         self._internet_protocol = internet_protocol
 
     @property
+    def is_agent_plan_instance(self):
+        """Gets the is_agent_plan_instance of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+
+
+        :return: The is_agent_plan_instance of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_agent_plan_instance
+
+    @is_agent_plan_instance.setter
+    def is_agent_plan_instance(self, is_agent_plan_instance):
+        """Sets the is_agent_plan_instance of this WorkspaceForModifyWorkspaceNameOutput.
+
+
+        :param is_agent_plan_instance: The is_agent_plan_instance of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_agent_plan_instance = is_agent_plan_instance
+
+    @property
     def project_name(self):
         """Gets the project_name of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
 
@@ -465,48 +507,6 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         """
 
         self._status_changed_time = status_changed_time
-
-    @property
-    def storage_size(self):
-        """Gets the storage_size of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
-
-
-        :return: The storage_size of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._storage_size
-
-    @storage_size.setter
-    def storage_size(self, storage_size):
-        """Sets the storage_size of this WorkspaceForModifyWorkspaceNameOutput.
-
-
-        :param storage_size: The storage_size of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._storage_size = storage_size
-
-    @property
-    def storage_type(self):
-        """Gets the storage_type of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
-
-
-        :return: The storage_type of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._storage_type
-
-    @storage_type.setter
-    def storage_type(self, storage_type):
-        """Sets the storage_type of this WorkspaceForModifyWorkspaceNameOutput.
-
-
-        :param storage_type: The storage_type of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._storage_type = storage_type
 
     @property
     def subnet_id(self):
