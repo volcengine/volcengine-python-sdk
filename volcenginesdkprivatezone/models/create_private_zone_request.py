@@ -35,6 +35,7 @@ class CreatePrivateZoneRequest(object):
     swagger_types = {
         'client_token': 'str',
         'line_mode': 'int',
+        'nodata_fallback': 'bool',
         'project_name': 'str',
         'recursion_mode': 'bool',
         'remark': 'str',
@@ -47,6 +48,7 @@ class CreatePrivateZoneRequest(object):
     attribute_map = {
         'client_token': 'ClientToken',
         'line_mode': 'LineMode',
+        'nodata_fallback': 'NodataFallback',
         'project_name': 'ProjectName',
         'recursion_mode': 'RecursionMode',
         'remark': 'Remark',
@@ -56,7 +58,7 @@ class CreatePrivateZoneRequest(object):
         'zone_name': 'ZoneName'
     }
 
-    def __init__(self, client_token=None, line_mode=None, project_name=None, recursion_mode=None, remark=None, tags=None, vpc_trns=None, vpcs=None, zone_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, line_mode=None, nodata_fallback=None, project_name=None, recursion_mode=None, remark=None, tags=None, vpc_trns=None, vpcs=None, zone_name=None, _configuration=None):  # noqa: E501
         """CreatePrivateZoneRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class CreatePrivateZoneRequest(object):
 
         self._client_token = None
         self._line_mode = None
+        self._nodata_fallback = None
         self._project_name = None
         self._recursion_mode = None
         self._remark = None
@@ -77,6 +80,8 @@ class CreatePrivateZoneRequest(object):
             self.client_token = client_token
         if line_mode is not None:
             self.line_mode = line_mode
+        if nodata_fallback is not None:
+            self.nodata_fallback = nodata_fallback
         if project_name is not None:
             self.project_name = project_name
         if recursion_mode is not None:
@@ -132,6 +137,27 @@ class CreatePrivateZoneRequest(object):
         """
 
         self._line_mode = line_mode
+
+    @property
+    def nodata_fallback(self):
+        """Gets the nodata_fallback of this CreatePrivateZoneRequest.  # noqa: E501
+
+
+        :return: The nodata_fallback of this CreatePrivateZoneRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._nodata_fallback
+
+    @nodata_fallback.setter
+    def nodata_fallback(self, nodata_fallback):
+        """Sets the nodata_fallback of this CreatePrivateZoneRequest.
+
+
+        :param nodata_fallback: The nodata_fallback of this CreatePrivateZoneRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._nodata_fallback = nodata_fallback
 
     @property
     def project_name(self):

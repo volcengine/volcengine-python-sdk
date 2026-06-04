@@ -1,0 +1,5 @@
+{
+  "description": "PRIVATE_ZONE: 新增 BatchDeleteCustomLine, CreateCustomLine, ListAvailabilityZones, ListCustomLines, ListRecordDigestByLine, UpdateCustomLine；修改 ListPrivateZones, ListRecords, ListResolverEndpoints, ListResolverRules, CreatePrivateZone, UpdatePrivateZone, UpdateResolverRule",
+  "modules": "service/private_zone",
+  "type": "breaking-change"
+}

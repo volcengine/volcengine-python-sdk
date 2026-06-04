@@ -35,6 +35,7 @@ class EndpointForListResolverEndpointsOutput(object):
     swagger_types = {
         'created_at': 'str',
         'direction': 'str',
+        'endpoint_type': 'str',
         'id': 'int',
         'ip_configs': 'list[IpConfigForListResolverEndpointsOutput]',
         'name': 'str',
@@ -50,6 +51,7 @@ class EndpointForListResolverEndpointsOutput(object):
     attribute_map = {
         'created_at': 'CreatedAt',
         'direction': 'Direction',
+        'endpoint_type': 'EndpointType',
         'id': 'ID',
         'ip_configs': 'IpConfigs',
         'name': 'Name',
@@ -62,7 +64,7 @@ class EndpointForListResolverEndpointsOutput(object):
         'vpc_region': 'VpcRegion'
     }
 
-    def __init__(self, created_at=None, direction=None, id=None, ip_configs=None, name=None, project_name=None, security_group_id=None, status=None, tags=None, updated_at=None, vpc_id=None, vpc_region=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, direction=None, endpoint_type=None, id=None, ip_configs=None, name=None, project_name=None, security_group_id=None, status=None, tags=None, updated_at=None, vpc_id=None, vpc_region=None, _configuration=None):  # noqa: E501
         """EndpointForListResolverEndpointsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class EndpointForListResolverEndpointsOutput(object):
 
         self._created_at = None
         self._direction = None
+        self._endpoint_type = None
         self._id = None
         self._ip_configs = None
         self._name = None
@@ -86,6 +89,8 @@ class EndpointForListResolverEndpointsOutput(object):
             self.created_at = created_at
         if direction is not None:
             self.direction = direction
+        if endpoint_type is not None:
+            self.endpoint_type = endpoint_type
         if id is not None:
             self.id = id
         if ip_configs is not None:
@@ -148,6 +153,27 @@ class EndpointForListResolverEndpointsOutput(object):
         """
 
         self._direction = direction
+
+    @property
+    def endpoint_type(self):
+        """Gets the endpoint_type of this EndpointForListResolverEndpointsOutput.  # noqa: E501
+
+
+        :return: The endpoint_type of this EndpointForListResolverEndpointsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._endpoint_type
+
+    @endpoint_type.setter
+    def endpoint_type(self, endpoint_type):
+        """Sets the endpoint_type of this EndpointForListResolverEndpointsOutput.
+
+
+        :param endpoint_type: The endpoint_type of this EndpointForListResolverEndpointsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._endpoint_type = endpoint_type
 
     @property
     def id(self):

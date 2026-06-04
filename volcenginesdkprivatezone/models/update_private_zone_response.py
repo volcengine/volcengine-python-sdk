@@ -36,6 +36,7 @@ class UpdatePrivateZoneResponse(object):
         'created_at': 'str',
         'last_operator': 'str',
         'line_mode': 'int',
+        'nodata_fallback': 'bool',
         'project_name': 'str',
         'record_count': 'int',
         'recursion_mode': 'bool',
@@ -50,6 +51,7 @@ class UpdatePrivateZoneResponse(object):
         'created_at': 'CreatedAt',
         'last_operator': 'LastOperator',
         'line_mode': 'LineMode',
+        'nodata_fallback': 'NodataFallback',
         'project_name': 'ProjectName',
         'record_count': 'RecordCount',
         'recursion_mode': 'RecursionMode',
@@ -60,7 +62,7 @@ class UpdatePrivateZoneResponse(object):
         'zone_name': 'ZoneName'
     }
 
-    def __init__(self, created_at=None, last_operator=None, line_mode=None, project_name=None, record_count=None, recursion_mode=None, region=None, remark=None, updated_at=None, zid=None, zone_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, last_operator=None, line_mode=None, nodata_fallback=None, project_name=None, record_count=None, recursion_mode=None, region=None, remark=None, updated_at=None, zid=None, zone_name=None, _configuration=None):  # noqa: E501
         """UpdatePrivateZoneResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class UpdatePrivateZoneResponse(object):
         self._created_at = None
         self._last_operator = None
         self._line_mode = None
+        self._nodata_fallback = None
         self._project_name = None
         self._record_count = None
         self._recursion_mode = None
@@ -85,6 +88,8 @@ class UpdatePrivateZoneResponse(object):
             self.last_operator = last_operator
         if line_mode is not None:
             self.line_mode = line_mode
+        if nodata_fallback is not None:
+            self.nodata_fallback = nodata_fallback
         if project_name is not None:
             self.project_name = project_name
         if record_count is not None:
@@ -164,6 +169,27 @@ class UpdatePrivateZoneResponse(object):
         """
 
         self._line_mode = line_mode
+
+    @property
+    def nodata_fallback(self):
+        """Gets the nodata_fallback of this UpdatePrivateZoneResponse.  # noqa: E501
+
+
+        :return: The nodata_fallback of this UpdatePrivateZoneResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._nodata_fallback
+
+    @nodata_fallback.setter
+    def nodata_fallback(self, nodata_fallback):
+        """Sets the nodata_fallback of this UpdatePrivateZoneResponse.
+
+
+        :param nodata_fallback: The nodata_fallback of this UpdatePrivateZoneResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._nodata_fallback = nodata_fallback
 
     @property
     def project_name(self):
