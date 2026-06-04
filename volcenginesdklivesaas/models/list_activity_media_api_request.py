@@ -35,6 +35,7 @@ class ListActivityMediaAPIRequest(object):
     swagger_types = {
         'folder_id': 'int',
         'include_sub_folder': 'bool',
+        'is_close_dated': 'bool',
         'name': 'str',
         'order_key': 'str',
         'page_num': 'int',
@@ -47,6 +48,7 @@ class ListActivityMediaAPIRequest(object):
     attribute_map = {
         'folder_id': 'FolderId',
         'include_sub_folder': 'IncludeSubFolder',
+        'is_close_dated': 'IsCloseDated',
         'name': 'Name',
         'order_key': 'OrderKey',
         'page_num': 'PageNum',
@@ -56,7 +58,7 @@ class ListActivityMediaAPIRequest(object):
         'vid': 'Vid'
     }
 
-    def __init__(self, folder_id=None, include_sub_folder=None, name=None, order_key=None, page_num=None, page_size=None, search_type=None, source_type=None, vid=None, _configuration=None):  # noqa: E501
+    def __init__(self, folder_id=None, include_sub_folder=None, is_close_dated=None, name=None, order_key=None, page_num=None, page_size=None, search_type=None, source_type=None, vid=None, _configuration=None):  # noqa: E501
         """ListActivityMediaAPIRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class ListActivityMediaAPIRequest(object):
 
         self._folder_id = None
         self._include_sub_folder = None
+        self._is_close_dated = None
         self._name = None
         self._order_key = None
         self._page_num = None
@@ -77,6 +80,8 @@ class ListActivityMediaAPIRequest(object):
             self.folder_id = folder_id
         if include_sub_folder is not None:
             self.include_sub_folder = include_sub_folder
+        if is_close_dated is not None:
+            self.is_close_dated = is_close_dated
         if name is not None:
             self.name = name
         if order_key is not None:
@@ -132,6 +137,27 @@ class ListActivityMediaAPIRequest(object):
         """
 
         self._include_sub_folder = include_sub_folder
+
+    @property
+    def is_close_dated(self):
+        """Gets the is_close_dated of this ListActivityMediaAPIRequest.  # noqa: E501
+
+
+        :return: The is_close_dated of this ListActivityMediaAPIRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_close_dated
+
+    @is_close_dated.setter
+    def is_close_dated(self, is_close_dated):
+        """Sets the is_close_dated of this ListActivityMediaAPIRequest.
+
+
+        :param is_close_dated: The is_close_dated of this ListActivityMediaAPIRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_close_dated = is_close_dated
 
     @property
     def name(self):
