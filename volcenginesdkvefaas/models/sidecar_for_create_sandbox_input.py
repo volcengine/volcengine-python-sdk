@@ -39,6 +39,7 @@ class SidecarForCreateSandboxInput(object):
         'empty_dir_volume': 'list[EmptyDirVolumeForCreateSandboxInput]',
         'envs': 'EnvsForCreateSandboxInput',
         'image': 'str',
+        'is_init_container': 'bool',
         'memory_mb': 'int',
         'name': 'str'
     }
@@ -50,11 +51,12 @@ class SidecarForCreateSandboxInput(object):
         'empty_dir_volume': 'EmptyDirVolume',
         'envs': 'Envs',
         'image': 'Image',
+        'is_init_container': 'IsInitContainer',
         'memory_mb': 'MemoryMB',
         'name': 'Name'
     }
 
-    def __init__(self, args=None, command=None, cpu_milli=None, empty_dir_volume=None, envs=None, image=None, memory_mb=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, args=None, command=None, cpu_milli=None, empty_dir_volume=None, envs=None, image=None, is_init_container=None, memory_mb=None, name=None, _configuration=None):  # noqa: E501
         """SidecarForCreateSandboxInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class SidecarForCreateSandboxInput(object):
         self._empty_dir_volume = None
         self._envs = None
         self._image = None
+        self._is_init_container = None
         self._memory_mb = None
         self._name = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class SidecarForCreateSandboxInput(object):
             self.envs = envs
         if image is not None:
             self.image = image
+        if is_init_container is not None:
+            self.is_init_container = is_init_container
         if memory_mb is not None:
             self.memory_mb = memory_mb
         if name is not None:
@@ -212,6 +217,27 @@ class SidecarForCreateSandboxInput(object):
         """
 
         self._image = image
+
+    @property
+    def is_init_container(self):
+        """Gets the is_init_container of this SidecarForCreateSandboxInput.  # noqa: E501
+
+
+        :return: The is_init_container of this SidecarForCreateSandboxInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_init_container
+
+    @is_init_container.setter
+    def is_init_container(self, is_init_container):
+        """Sets the is_init_container of this SidecarForCreateSandboxInput.
+
+
+        :param is_init_container: The is_init_container of this SidecarForCreateSandboxInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_init_container = is_init_container
 
     @property
     def memory_mb(self):

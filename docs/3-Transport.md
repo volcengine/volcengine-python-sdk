@@ -1,4 +1,4 @@
-[← Endpoint](2-Endpoint.md) | Transport[(中文)](3-Transport-zh.md) | [Timeout →](4-Timeout.md)
+[← Endpoint](2-Endpoint.md) | Transport[(中文)](3-Transport-zh.md) | [Proxy →](4-Proxy.md)
 
 ---
 
@@ -6,8 +6,8 @@
 
 > **Default**
 >
-> - `num_pools`: 4 — Maximum number of hosts supported; increase this when making concurrent requests to the same host.
-> - `connection_pool_maxsize`: `multiprocessing.cpu_count() * 5` — Maximum connections per host; increase this when connecting to many different hosts simultaneously.
+> - `num_pools`: 4 — Maximum number of distinct host pools the underlying `PoolManager` keeps; increase this when your client talks to many different hosts.
+> - `connection_pool_maxsize`: `multiprocessing.cpu_count() * 5` — Maximum connections kept per host; increase this when issuing many concurrent requests to the same host.
 
 **Code Example:**
 
@@ -16,8 +16,8 @@ import volcenginesdkcore
 configuration = volcenginesdkcore.Configuration()
 configuration.ak = "Your ak"
 configuration.sk = "Your sk"
-configuration.num_pools = 10 # Maximum number of hosts
-configuration.connection_pool_maxsize = 10 # Maximum connections per host
+configuration.num_pools = 10 # Number of distinct host pools (PoolManager)
+configuration.connection_pool_maxsize = 10 # Max connections per host
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
@@ -81,38 +81,6 @@ configuration.verify_ssl = False # Ignore SSL verification
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## HTTP(S) Proxy
-
-> **Default**
->
-> - No proxy
-
-### Configure HTTP(S) Proxy
-
-```python
-import volcenginesdkcore, volcenginesdkecs
-configuration = volcenginesdkcore.Configuration()
-configuration.ak = "Your AK"
-configuration.sk = "Your SK"
-
-configuration.http_proxy = "http://your_proxy:8080"
-configuration.https_proxy = "http://your_proxy:8080"
-
-volcenginesdkcore.Configuration.set_default(configuration)
-
-api_instance = volcenginesdkecs.ECSApi()
-```
-
-### Notes
-
-Supported environment variables for proxy configuration:
-
-- `http_proxy` / `HTTP_PROXY`
-- `https_proxy` / `HTTPS_PROXY`
-- `no_proxy` / `NO_PROXY`
-
-Priority: code > environment variables.
-
 ---
 
-[← Endpoint](2-Endpoint.md) | Transport[(中文)](3-Transport-zh.md) | [Timeout →](4-Timeout.md)
+[← Endpoint](2-Endpoint.md) | Transport[(中文)](3-Transport-zh.md) | [Proxy →](4-Proxy.md)

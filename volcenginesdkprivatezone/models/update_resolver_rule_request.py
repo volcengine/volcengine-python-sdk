@@ -38,7 +38,8 @@ class UpdateResolverRuleRequest(object):
         'name': 'str',
         'rule_id': 'int',
         'rule_trn': 'str',
-        'vpcs': 'list[VpcForUpdateResolverRuleInput]'
+        'vpcs': 'list[VpcForUpdateResolverRuleInput]',
+        'zone_name': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class UpdateResolverRuleRequest(object):
         'name': 'Name',
         'rule_id': 'RuleID',
         'rule_trn': 'RuleTrn',
-        'vpcs': 'Vpcs'
+        'vpcs': 'Vpcs',
+        'zone_name': 'ZoneName'
     }
 
-    def __init__(self, forward_ips=None, line=None, name=None, rule_id=None, rule_trn=None, vpcs=None, _configuration=None):  # noqa: E501
+    def __init__(self, forward_ips=None, line=None, name=None, rule_id=None, rule_trn=None, vpcs=None, zone_name=None, _configuration=None):  # noqa: E501
         """UpdateResolverRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class UpdateResolverRuleRequest(object):
         self._rule_id = None
         self._rule_trn = None
         self._vpcs = None
+        self._zone_name = None
         self.discriminator = None
 
         if forward_ips is not None:
@@ -75,6 +78,8 @@ class UpdateResolverRuleRequest(object):
             self.rule_trn = rule_trn
         if vpcs is not None:
             self.vpcs = vpcs
+        if zone_name is not None:
+            self.zone_name = zone_name
 
     @property
     def forward_ips(self):
@@ -203,6 +208,27 @@ class UpdateResolverRuleRequest(object):
         """
 
         self._vpcs = vpcs
+
+    @property
+    def zone_name(self):
+        """Gets the zone_name of this UpdateResolverRuleRequest.  # noqa: E501
+
+
+        :return: The zone_name of this UpdateResolverRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_name
+
+    @zone_name.setter
+    def zone_name(self, zone_name):
+        """Sets the zone_name of this UpdateResolverRuleRequest.
+
+
+        :param zone_name: The zone_name of this UpdateResolverRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_name = zone_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

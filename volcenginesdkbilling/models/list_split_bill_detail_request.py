@@ -46,6 +46,7 @@ class ListSplitBillDetailRequest(object):
         'owner_id': 'list[int]',
         'payer_id': 'list[int]',
         'product': 'list[str]',
+        'project': 'list[str]',
         'split_dimension': 'str',
         'split_item_id': 'str'
     }
@@ -64,11 +65,12 @@ class ListSplitBillDetailRequest(object):
         'owner_id': 'OwnerID',
         'payer_id': 'PayerID',
         'product': 'Product',
+        'project': 'Project',
         'split_dimension': 'SplitDimension',
         'split_item_id': 'SplitItemID'
     }
 
-    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, split_dimension=None, split_item_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, split_dimension=None, split_item_id=None, _configuration=None):  # noqa: E501
         """ListSplitBillDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class ListSplitBillDetailRequest(object):
         self._owner_id = None
         self._payer_id = None
         self._product = None
+        self._project = None
         self._split_dimension = None
         self._split_item_id = None
         self.discriminator = None
@@ -115,6 +118,8 @@ class ListSplitBillDetailRequest(object):
             self.payer_id = payer_id
         if product is not None:
             self.product = product
+        if project is not None:
+            self.project = project
         if split_dimension is not None:
             self.split_dimension = split_dimension
         if split_item_id is not None:
@@ -396,6 +401,27 @@ class ListSplitBillDetailRequest(object):
         """
 
         self._product = product
+
+    @property
+    def project(self):
+        """Gets the project of this ListSplitBillDetailRequest.  # noqa: E501
+
+
+        :return: The project of this ListSplitBillDetailRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._project
+
+    @project.setter
+    def project(self, project):
+        """Sets the project of this ListSplitBillDetailRequest.
+
+
+        :param project: The project of this ListSplitBillDetailRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._project = project
 
     @property
     def split_dimension(self):

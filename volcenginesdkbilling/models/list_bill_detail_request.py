@@ -46,7 +46,8 @@ class ListBillDetailRequest(object):
         'offset': 'int',
         'owner_id': 'list[int]',
         'payer_id': 'list[int]',
-        'product': 'list[str]'
+        'product': 'list[str]',
+        'project': 'list[str]'
     }
 
     attribute_map = {
@@ -63,10 +64,11 @@ class ListBillDetailRequest(object):
         'offset': 'Offset',
         'owner_id': 'OwnerID',
         'payer_id': 'PayerID',
-        'product': 'Product'
+        'product': 'Product',
+        'project': 'Project'
     }
 
-    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, group_term=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, group_term=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, _configuration=None):  # noqa: E501
         """ListBillDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class ListBillDetailRequest(object):
         self._owner_id = None
         self._payer_id = None
         self._product = None
+        self._project = None
         self.discriminator = None
 
         if bill_category is not None:
@@ -114,6 +117,8 @@ class ListBillDetailRequest(object):
             self.payer_id = payer_id
         if product is not None:
             self.product = product
+        if project is not None:
+            self.project = project
 
     @property
     def bill_category(self):
@@ -412,6 +417,27 @@ class ListBillDetailRequest(object):
         """
 
         self._product = product
+
+    @property
+    def project(self):
+        """Gets the project of this ListBillDetailRequest.  # noqa: E501
+
+
+        :return: The project of this ListBillDetailRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._project
+
+    @project.setter
+    def project(self, project):
+        """Sets the project of this ListBillDetailRequest.
+
+
+        :param project: The project of this ListBillDetailRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._project = project
 
     def to_dict(self):
         """Returns the model properties as a dict"""
