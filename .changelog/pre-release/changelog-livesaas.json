@@ -1,0 +1,5 @@
+{
+  "description": "LIVESAAS: chore changes",
+  "modules": "service/livesaas",
+  "type": "feature"
+}
