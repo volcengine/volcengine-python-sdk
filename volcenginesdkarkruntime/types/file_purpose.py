@@ -13,4 +13,4 @@ from typing_extensions import Literal, TypeAlias
 
 __all__ = ["FilePurpose"]
 
-FilePurpose: TypeAlias = Literal["user_data"]
+FilePurpose: TypeAlias = Literal["user_data", "agent"]
