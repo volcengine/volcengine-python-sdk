@@ -1,0 +1,5 @@
+{
+  "description": "LIVESAAS: 修改 ListActivityMediaAPI",
+  "modules": "service/livesaas",
+  "type": "feature"
+}
