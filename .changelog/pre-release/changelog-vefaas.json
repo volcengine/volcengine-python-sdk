@@ -1,5 +1,5 @@
 {
-  "description": "VEFAAS: chore changes",
+  "description": "VEFAAS: 新增 CreateSandboxSnapshot, DeleteSandboxSnapshot, DescribeSandboxSnapshot, ListSandboxSnapshots；修改 CreateSandbox, DescribeSandbox, ListSandboxes",
   "modules": "service/vefaas",
-  "type": "bugfix"
+  "type": "feature"
 }

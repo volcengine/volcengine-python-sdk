@@ -33,6 +33,7 @@ class DescribeSandboxResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'assign_status': 'str',
         'availability_zone': 'str',
         'cpu_milli': 'int',
         'created_at': 'str',
@@ -53,10 +54,12 @@ class DescribeSandboxResponse(object):
         'request_timeout': 'int',
         'revision_number': 'int',
         'session_id': 'str',
+        'sidecars': 'list[SidecarForDescribeSandboxOutput]',
         'status': 'str'
     }
 
     attribute_map = {
+        'assign_status': 'AssignStatus',
         'availability_zone': 'AvailabilityZone',
         'cpu_milli': 'CpuMilli',
         'created_at': 'CreatedAt',
@@ -77,15 +80,17 @@ class DescribeSandboxResponse(object):
         'request_timeout': 'RequestTimeout',
         'revision_number': 'RevisionNumber',
         'session_id': 'SessionId',
+        'sidecars': 'Sidecars',
         'status': 'Status'
     }
 
-    def __init__(self, availability_zone=None, cpu_milli=None, created_at=None, envs=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, instance_type=None, max_concurrency=None, memory_mb=None, metadata_list=None, pending=None, request_timeout=None, revision_number=None, session_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, assign_status=None, availability_zone=None, cpu_milli=None, created_at=None, envs=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, instance_type=None, max_concurrency=None, memory_mb=None, metadata_list=None, pending=None, request_timeout=None, revision_number=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
         """DescribeSandboxResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._assign_status = None
         self._availability_zone = None
         self._cpu_milli = None
         self._created_at = None
@@ -106,9 +111,12 @@ class DescribeSandboxResponse(object):
         self._request_timeout = None
         self._revision_number = None
         self._session_id = None
+        self._sidecars = None
         self._status = None
         self.discriminator = None
 
+        if assign_status is not None:
+            self.assign_status = assign_status
         if availability_zone is not None:
             self.availability_zone = availability_zone
         if cpu_milli is not None:
@@ -149,8 +157,31 @@ class DescribeSandboxResponse(object):
             self.revision_number = revision_number
         if session_id is not None:
             self.session_id = session_id
+        if sidecars is not None:
+            self.sidecars = sidecars
         if status is not None:
             self.status = status
+
+    @property
+    def assign_status(self):
+        """Gets the assign_status of this DescribeSandboxResponse.  # noqa: E501
+
+
+        :return: The assign_status of this DescribeSandboxResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._assign_status
+
+    @assign_status.setter
+    def assign_status(self, assign_status):
+        """Sets the assign_status of this DescribeSandboxResponse.
+
+
+        :param assign_status: The assign_status of this DescribeSandboxResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._assign_status = assign_status
 
     @property
     def availability_zone(self):
@@ -571,6 +602,27 @@ class DescribeSandboxResponse(object):
         """
 
         self._session_id = session_id
+
+    @property
+    def sidecars(self):
+        """Gets the sidecars of this DescribeSandboxResponse.  # noqa: E501
+
+
+        :return: The sidecars of this DescribeSandboxResponse.  # noqa: E501
+        :rtype: list[SidecarForDescribeSandboxOutput]
+        """
+        return self._sidecars
+
+    @sidecars.setter
+    def sidecars(self, sidecars):
+        """Sets the sidecars of this DescribeSandboxResponse.
+
+
+        :param sidecars: The sidecars of this DescribeSandboxResponse.  # noqa: E501
+        :type: list[SidecarForDescribeSandboxOutput]
+        """
+
+        self._sidecars = sidecars
 
     @property
     def status(self):

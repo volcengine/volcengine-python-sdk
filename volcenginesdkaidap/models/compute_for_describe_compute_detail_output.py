@@ -43,7 +43,7 @@ class ComputeForDescribeComputeDetailOutput(object):
         'create_time': 'str',
         'creation_source': 'str',
         'disabled': 'bool',
-        'enable_analytics': 'str',
+        'enable_analytic': 'str',
         'last_active_time': 'str',
         'service_type': 'str',
         'status_changed_time': 'str',
@@ -63,7 +63,7 @@ class ComputeForDescribeComputeDetailOutput(object):
         'create_time': 'CreateTime',
         'creation_source': 'CreationSource',
         'disabled': 'Disabled',
-        'enable_analytics': 'EnableAnalytics',
+        'enable_analytic': 'EnableAnalytic',
         'last_active_time': 'LastActiveTime',
         'service_type': 'ServiceType',
         'status_changed_time': 'StatusChangedTime',
@@ -72,7 +72,7 @@ class ComputeForDescribeComputeDetailOutput(object):
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, branch_id=None, compute_id=None, compute_name=None, compute_role=None, compute_status=None, create_time=None, creation_source=None, disabled=None, enable_analytics=None, last_active_time=None, service_type=None, status_changed_time=None, suspended_time=None, update_time=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, branch_id=None, compute_id=None, compute_name=None, compute_role=None, compute_status=None, create_time=None, creation_source=None, disabled=None, enable_analytic=None, last_active_time=None, service_type=None, status_changed_time=None, suspended_time=None, update_time=None, workspace_id=None, _configuration=None):  # noqa: E501
         """ComputeForDescribeComputeDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,7 +88,7 @@ class ComputeForDescribeComputeDetailOutput(object):
         self._create_time = None
         self._creation_source = None
         self._disabled = None
-        self._enable_analytics = None
+        self._enable_analytic = None
         self._last_active_time = None
         self._service_type = None
         self._status_changed_time = None
@@ -117,8 +117,8 @@ class ComputeForDescribeComputeDetailOutput(object):
             self.creation_source = creation_source
         if disabled is not None:
             self.disabled = disabled
-        if enable_analytics is not None:
-            self.enable_analytics = enable_analytics
+        if enable_analytic is not None:
+            self.enable_analytic = enable_analytic
         if last_active_time is not None:
             self.last_active_time = last_active_time
         if service_type is not None:
@@ -343,25 +343,25 @@ class ComputeForDescribeComputeDetailOutput(object):
         self._disabled = disabled
 
     @property
-    def enable_analytics(self):
-        """Gets the enable_analytics of this ComputeForDescribeComputeDetailOutput.  # noqa: E501
+    def enable_analytic(self):
+        """Gets the enable_analytic of this ComputeForDescribeComputeDetailOutput.  # noqa: E501
 
 
-        :return: The enable_analytics of this ComputeForDescribeComputeDetailOutput.  # noqa: E501
+        :return: The enable_analytic of this ComputeForDescribeComputeDetailOutput.  # noqa: E501
         :rtype: str
         """
-        return self._enable_analytics
+        return self._enable_analytic
 
-    @enable_analytics.setter
-    def enable_analytics(self, enable_analytics):
-        """Sets the enable_analytics of this ComputeForDescribeComputeDetailOutput.
+    @enable_analytic.setter
+    def enable_analytic(self, enable_analytic):
+        """Sets the enable_analytic of this ComputeForDescribeComputeDetailOutput.
 
 
-        :param enable_analytics: The enable_analytics of this ComputeForDescribeComputeDetailOutput.  # noqa: E501
+        :param enable_analytic: The enable_analytic of this ComputeForDescribeComputeDetailOutput.  # noqa: E501
         :type: str
         """
 
-        self._enable_analytics = enable_analytics
+        self._enable_analytic = enable_analytic
 
     @property
     def last_active_time(self):

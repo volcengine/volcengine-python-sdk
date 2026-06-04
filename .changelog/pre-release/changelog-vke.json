@@ -1,5 +1,0 @@
-{
-  "description": "VKE: 新增 DescribeContainerImageCommitments, DescribeSnapshots, ListSupportedGpuDriverVersions, CreateSnapshot, DeleteSnapshot；修改 ListClusters, ListNodePools, ListSupportedImages, UpdateNodePoolConfig, ListNodes, DeleteNodes, ExecContainerImageCommitment, ListRemedyConfigs, UpdateClusterConfig, CreateDefaultNodePool, CreateNodePool, CreateNodes",
-  "modules": "service/vke",
-  "type": "breaking-change"
-}

@@ -33,24 +33,50 @@ class CreateSandboxResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'assign_status': 'str',
         'sandbox_id': 'str'
     }
 
     attribute_map = {
+        'assign_status': 'AssignStatus',
         'sandbox_id': 'SandboxId'
     }
 
-    def __init__(self, sandbox_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, assign_status=None, sandbox_id=None, _configuration=None):  # noqa: E501
         """CreateSandboxResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._assign_status = None
         self._sandbox_id = None
         self.discriminator = None
 
+        if assign_status is not None:
+            self.assign_status = assign_status
         if sandbox_id is not None:
             self.sandbox_id = sandbox_id
+
+    @property
+    def assign_status(self):
+        """Gets the assign_status of this CreateSandboxResponse.  # noqa: E501
+
+
+        :return: The assign_status of this CreateSandboxResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._assign_status
+
+    @assign_status.setter
+    def assign_status(self, assign_status):
+        """Sets the assign_status of this CreateSandboxResponse.
+
+
+        :param assign_status: The assign_status of this CreateSandboxResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._assign_status = assign_status
 
     @property
     def sandbox_id(self):

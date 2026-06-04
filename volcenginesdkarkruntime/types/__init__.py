@@ -26,3 +26,5 @@ from .create_embedding_response import (
 from .file_purpose import FilePurpose as FilePurpose
 from .file_list_params import FileListParams as FileListParams
 from .file_create_params import PreprocessConfigs as PreprocessConfigs
+from .file_create_params import TosStorageParam as TosStorageParam
+from .file_object import TosStorage as TosStorage

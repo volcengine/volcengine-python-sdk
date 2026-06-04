@@ -1,5 +1,0 @@
-{
-  "description": "FW_CENTER: chore changes",
-  "modules": "service/fw_center",
-  "type": "bugfix"
-}

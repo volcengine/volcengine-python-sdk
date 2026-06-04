@@ -1,5 +1,0 @@
-{
-  "description": "RDS_MYSQL: 修改 CreateDBInstance, ModifyCrossBackupPolicy",
-  "modules": "service/rds_mysql",
-  "type": "breaking-change"
-}
