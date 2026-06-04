@@ -40,6 +40,7 @@ class TosMountPointForCreateSandboxInput(object):
         'encryption_config': 'EncryptionConfigForCreateSandboxInput',
         'endpoint': 'str',
         'local_mount_path': 'str',
+        'pre_mount': 'bool',
         'read_only': 'bool'
     }
 
@@ -51,10 +52,11 @@ class TosMountPointForCreateSandboxInput(object):
         'encryption_config': 'EncryptionConfig',
         'endpoint': 'Endpoint',
         'local_mount_path': 'LocalMountPath',
+        'pre_mount': 'PreMount',
         'read_only': 'ReadOnly'
     }
 
-    def __init__(self, auth_mode=None, bucket_name=None, bucket_path=None, credentials=None, encryption_config=None, endpoint=None, local_mount_path=None, read_only=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode=None, bucket_name=None, bucket_path=None, credentials=None, encryption_config=None, endpoint=None, local_mount_path=None, pre_mount=None, read_only=None, _configuration=None):  # noqa: E501
         """TosMountPointForCreateSandboxInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class TosMountPointForCreateSandboxInput(object):
         self._encryption_config = None
         self._endpoint = None
         self._local_mount_path = None
+        self._pre_mount = None
         self._read_only = None
         self.discriminator = None
 
@@ -84,6 +87,8 @@ class TosMountPointForCreateSandboxInput(object):
             self.endpoint = endpoint
         if local_mount_path is not None:
             self.local_mount_path = local_mount_path
+        if pre_mount is not None:
+            self.pre_mount = pre_mount
         if read_only is not None:
             self.read_only = read_only
 
@@ -233,6 +238,27 @@ class TosMountPointForCreateSandboxInput(object):
         """
 
         self._local_mount_path = local_mount_path
+
+    @property
+    def pre_mount(self):
+        """Gets the pre_mount of this TosMountPointForCreateSandboxInput.  # noqa: E501
+
+
+        :return: The pre_mount of this TosMountPointForCreateSandboxInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._pre_mount
+
+    @pre_mount.setter
+    def pre_mount(self, pre_mount):
+        """Sets the pre_mount of this TosMountPointForCreateSandboxInput.
+
+
+        :param pre_mount: The pre_mount of this TosMountPointForCreateSandboxInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._pre_mount = pre_mount
 
     @property
     def read_only(self):
