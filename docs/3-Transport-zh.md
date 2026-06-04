@@ -1,4 +1,4 @@
-[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [超时配置 →](4-Timeout-zh.md)
+[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [代理配置 →](4-Proxy-zh.md)
 
 ---
 
@@ -6,8 +6,8 @@
 
 > **默认**
 >
-> - `num_pools` - 4：最多支持的主机数量；适用场景：当你对同一主机发起多个并发请求时，应该增大此值
-> - `connection_pool_maxsize` - `multiprocessing.cpu_count() * 5`：每个主机最大连接数；适用场景：当你需要同时连接多个不同主机时，应该增大此值
+> - `num_pools` - 4：底层 `PoolManager` 同时保留的不同 host 连接池数量上限；适用场景：当你的客户端需要访问大量不同主机时，增大此值
+> - `connection_pool_maxsize` - `multiprocessing.cpu_count() * 5`：单个 host 内保持的最大连接数；适用场景：当你对同一主机发起大量并发请求时，增大此值
 
 **代码示例：**
 
@@ -80,38 +80,6 @@ configuration.verify_ssl=False # 忽略SSL验证
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
-## HTTP(S) 代理配置
-
-> **默认**
->
-> - 无代理
-
-### 配置 HTTP(S) 代理
-
-```python
-import volcenginesdkcore,volcenginesdkecs
-configuration = volcenginesdkcore.Configuration()
-configuration.ak = "Your AK"
-configuration.sk = "Your SK"
-
-configuration.http_proxy = "http://your_proxy:8080"
-configuration.https_proxy = "http://your_proxy:8080"
-
-volcenginesdkcore.Configuration.set_default(configuration)
-
-api_instance = volcenginesdkecs.ECSApi()
-```
-
-### 注意事项
-
-支持通过以下环境变量配置代理：
-
-- `http_proxy` / `HTTP_PROXY`
-- `https_proxy` / `HTTPS_PROXY`
-- `no_proxy` / `NO_PROXY`
-
-优先级：代码 > 环境变量。
-
 ---
 
-[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [超时配置 →](4-Timeout-zh.md)
+[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [代理配置 →](4-Proxy-zh.md)

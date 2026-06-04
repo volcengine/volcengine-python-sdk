@@ -1,4 +1,4 @@
-[← 重试机制](5-Retry-zh.md) | 异常处理[(English)](6-ErrorHandling.md) | [Debug 机制 →](7-Debugging-zh.md)
+[← 重试机制](6-Retry-zh.md) | 异常处理[(English)](7-ErrorHandling.md) | [Debug 机制 →](8-Debugging-zh.md)
 
 ---
 
@@ -13,7 +13,7 @@
 | `1.网络/超时错误` | DNS解析错误或请求超时       | (`urllib3.exceptions.NewConnectionError`, `urllib3.exceptions.ConnectTimeoutError`, <br/>`urllib3.exceptions.ReadTimeoutError`, `urllib3.exceptions.ProtocolError`,`socket.timeout`, `socket.gaierror`) | 包含在元组中错误表示网络错误 |
 | `2.客户端错误` | 请求未到达服务端的一些参数认证       | `volcenginesdkcore.rest.ApiException` `ValueError`                                                                                                                                                      | 客户端参数验证 |
 | `3.服务端错误` | 请求成功到达服务器，返回业务逻辑错误 | `volcenginesdkcore.rest.ApiException`                                                                                                                                                                   | status!=0表示服务端错误 |
-| `4.其它错误`  | 未包含在前4中错误的其它错误处理   | `Exception`                                                                                                                                                                                             | 兜底错误 |
+| `4.其它错误`  | 未包含在前 3 类错误中的其他错误处理   | `Exception`                                                                                                                                                                                             | 兜底错误 |
 
 ### 代码示例
 
@@ -65,4 +65,4 @@ except Exception as e:
 
 ---
 
-[← 重试机制](5-Retry-zh.md) | 异常处理[(English)](6-ErrorHandling.md) | [Debug 机制 →](7-Debugging-zh.md)
+[← 重试机制](6-Retry-zh.md) | 异常处理[(English)](7-ErrorHandling.md) | [Debug 机制 →](8-Debugging-zh.md)

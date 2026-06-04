@@ -388,7 +388,8 @@ volcenginesdkcore.Configuration.set_default(configuration)
 - `RamRoleArn`（委托给 `StsCredentialProvider`）
 - `OIDC`（委托给 `StsOidcCredentialProvider`）
 - `EcsRole`（委托给 `EcsRoleCredentialProvider`）
-- `SSO`（委托给 `SsoCredentialProvider`）
+- `SSO` 从 CLI sso 缓存读取 STS 凭证（SDK 自动在内存中刷新 access token，永不写入缓存文件） 
+- `console-login` 从 CLI console-login 缓存读取 STS 凭证（SDK 通过 OAuth `refresh_token` 在内存中自动刷新，永不写入缓存文件）  
 
 **主动指定 CLI Provider 示例：**
 
@@ -406,6 +407,27 @@ configuration.credential_provider = CLIConfigCredentialProvider(
 )
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
+
+#### 运行时刷新行为（sso / console-login）
+
+`sso` 与 `console-login` 模式下，SDK 自管理刷新，且**永不写入任何本地文件**：
+
+- **只读磁盘**：`config.json`、`~/.volcengine/sso/cache/*.json` 与
+  `~/.volcengine/login/cache/*.json` 仅在 bootstrap 时读取一次；console-login
+  在服务端返回 `invalid_grant` 时会再读一次磁盘 fallback。SDK 永不写入。
+- **内存刷新**：缓存的 `access_token` 进入到期窗口（60 秒）后，SDK 用内存中
+  的 `refresh_token` 调 OAuth `/token` 端点续期，仅更新内存状态。SSO 模式还
+  会接着调 Portal `GetRoleCredentials` 拿 STS 三元组。
+- **invalid_grant fallback**（仅 console-login）：当服务端返回 HTTP 400
+  `invalid_grant` 时，SDK 重新读取一次磁盘 cache。若磁盘上的 `refresh_token`
+  与内存不同（说明 `ve login` 在期间更新过），则用磁盘 RT 再尝试一次刷新；
+  否则报错并提示用户重跑 `ve login`。
+- **refresh_token 过期**：当内存与磁盘上的 refresh_token 都被服务端拒绝时，
+  SDK 抛出明确错误，提示用户重跑 `ve login`（console-login）或 `ve sso login`
+  （SSO）。
+- **并发**：每进程加锁，保证多个调用方共享单次 in-flight refresh。
+
+完整契约见 [`cli-console-login-credential-plan.md`](./cli-console-login-credential-plan.md)。
 
 ### ECS Role 凭证 Provider
 

@@ -71,6 +71,7 @@ Verify: open a new command prompt and run `echo %VOLCENGINE_ACCESS_KEY%`.
 |---|---|
 | `VOLCENGINE_CLI_CONFIG_FILE` | Config file path; defaults to `~/.volcengine/config.json` |
 | `VOLCENGINE_PROFILE` | Profile name to use |
+| `VOLCENGINE_LOGIN_CACHE_DIRECTORY` | Optional console-login cache directory; defaults to `<config dir>/login/cache` |
 
 #### Legacy Compatibility Variables (`VOLCSTACK_*`)
 

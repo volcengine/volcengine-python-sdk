@@ -1,4 +1,4 @@
-[← 超时配置](4-Timeout-zh.md) | 重试机制[(English)](5-Retry.md) | [异常处理 →](6-ErrorHandling-zh.md)
+[← 超时配置](5-Timeout-zh.md) | 重试机制[(English)](6-Retry.md) | [异常处理 →](7-ErrorHandling-zh.md)
 
 ---
 
@@ -24,7 +24,7 @@ configuration.auto_retry = True # 开启自动重试,默认开启
 configuration.num_max_retries = 4 # 最大重试次数，默认3次
 configuration.min_retry_delay_ms = 200 # 最小重试延迟毫秒，默认300毫秒
 configuration.max_retry_delay_ms = 6000 # 最大重试延迟毫秒，默认300000毫秒
-configuration.backoff_strategy = ExponentialWithRandomJitterBackoffStrategy() # 重试策略，默认ExponentialWithRandomJitterBackoffStrategy
+configuration.backoff_strategy = ExponentialWithRandomJitterBackoffStrategy() # 重试策略，默认 ExponentialWithRandomJitterBackoffStrategy。
 configuration.retry_condition = DefaultRetryCondition() # 重试条件，默认DefaultRetryCondition
 configuration.retry_error_codes = {"AccessDenied"} # 重试错误码，默认为空集合，需要用户自定义
 volcenginesdkcore.Configuration.set_default(configuration)
@@ -159,4 +159,4 @@ class CustomBackoffStrategy(ExponentialBackoffStrategy):
 
 ---
 
-[← 超时配置](4-Timeout-zh.md) | 重试机制[(English)](5-Retry.md) | [异常处理 →](6-ErrorHandling-zh.md)
+[← 超时配置](5-Timeout-zh.md) | 重试机制[(English)](6-Retry.md) | [异常处理 →](7-ErrorHandling-zh.md)

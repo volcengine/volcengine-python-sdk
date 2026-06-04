@@ -1,4 +1,4 @@
-[← Transport](3-Transport-zh.md) | 超时配置[(English)](4-Timeout.md) | [重试机制 →](5-Retry-zh.md)
+[← 代理配置](4-Proxy-zh.md) | 超时配置[(English)](5-Timeout.md) | [重试机制 →](6-Retry-zh.md)
 
 ---
 
@@ -47,4 +47,4 @@ except ApiException as e:
 
 ---
 
-[← Transport](3-Transport-zh.md) | 超时配置[(English)](4-Timeout.md) | [重试机制 →](5-Retry-zh.md)
+[← 代理配置](4-Proxy-zh.md) | 超时配置[(English)](5-Timeout.md) | [重试机制 →](6-Retry-zh.md)
