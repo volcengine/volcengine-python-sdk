@@ -34,25 +34,30 @@ class DescribeSandboxRequest(object):
     """
     swagger_types = {
         'function_id': 'str',
+        'metadata': 'MetadataForDescribeSandboxInput',
         'sandbox_id': 'str'
     }
 
     attribute_map = {
         'function_id': 'FunctionId',
+        'metadata': 'Metadata',
         'sandbox_id': 'SandboxId'
     }
 
-    def __init__(self, function_id=None, sandbox_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, function_id=None, metadata=None, sandbox_id=None, _configuration=None):  # noqa: E501
         """DescribeSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._function_id = None
+        self._metadata = None
         self._sandbox_id = None
         self.discriminator = None
 
         self.function_id = function_id
+        if metadata is not None:
+            self.metadata = metadata
         self.sandbox_id = sandbox_id
 
     @property
@@ -77,6 +82,27 @@ class DescribeSandboxRequest(object):
             raise ValueError("Invalid value for `function_id`, must not be `None`")  # noqa: E501
 
         self._function_id = function_id
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this DescribeSandboxRequest.  # noqa: E501
+
+
+        :return: The metadata of this DescribeSandboxRequest.  # noqa: E501
+        :rtype: MetadataForDescribeSandboxInput
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this DescribeSandboxRequest.
+
+
+        :param metadata: The metadata of this DescribeSandboxRequest.  # noqa: E501
+        :type: MetadataForDescribeSandboxInput
+        """
+
+        self._metadata = metadata
 
     @property
     def sandbox_id(self):

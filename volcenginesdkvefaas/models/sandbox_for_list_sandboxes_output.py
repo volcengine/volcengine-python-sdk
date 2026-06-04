@@ -33,9 +33,11 @@ class SandboxForListSandboxesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'assign_status': 'str',
         'availability_zone': 'str',
         'cpu_milli': 'int',
         'created_at': 'str',
+        'ebs_volumes': 'list[EBSVolumeForListSandboxesOutput]',
         'error_code': 'str',
         'error_message': 'str',
         'expire_at': 'str',
@@ -45,16 +47,20 @@ class SandboxForListSandboxesOutput(object):
         'instance_type': 'str',
         'memory_mb': 'int',
         'metadata': 'dict(str, str)',
+        'paused_at': 'str',
         'pending': 'bool',
         'revision_number': 'int',
         'session_id': 'str',
+        'sidecars': 'list[SidecarForListSandboxesOutput]',
         'status': 'str'
     }
 
     attribute_map = {
+        'assign_status': 'AssignStatus',
         'availability_zone': 'AvailabilityZone',
         'cpu_milli': 'CpuMilli',
         'created_at': 'CreatedAt',
+        'ebs_volumes': 'EBSVolumes',
         'error_code': 'ErrorCode',
         'error_message': 'ErrorMessage',
         'expire_at': 'ExpireAt',
@@ -64,21 +70,25 @@ class SandboxForListSandboxesOutput(object):
         'instance_type': 'InstanceType',
         'memory_mb': 'MemoryMB',
         'metadata': 'Metadata',
+        'paused_at': 'PausedAt',
         'pending': 'Pending',
         'revision_number': 'RevisionNumber',
         'session_id': 'SessionId',
+        'sidecars': 'Sidecars',
         'status': 'Status'
     }
 
-    def __init__(self, availability_zone=None, cpu_milli=None, created_at=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image=None, instance_type=None, memory_mb=None, metadata=None, pending=None, revision_number=None, session_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, assign_status=None, availability_zone=None, cpu_milli=None, created_at=None, ebs_volumes=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image=None, instance_type=None, memory_mb=None, metadata=None, paused_at=None, pending=None, revision_number=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
         """SandboxForListSandboxesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._assign_status = None
         self._availability_zone = None
         self._cpu_milli = None
         self._created_at = None
+        self._ebs_volumes = None
         self._error_code = None
         self._error_message = None
         self._expire_at = None
@@ -88,18 +98,24 @@ class SandboxForListSandboxesOutput(object):
         self._instance_type = None
         self._memory_mb = None
         self._metadata = None
+        self._paused_at = None
         self._pending = None
         self._revision_number = None
         self._session_id = None
+        self._sidecars = None
         self._status = None
         self.discriminator = None
 
+        if assign_status is not None:
+            self.assign_status = assign_status
         if availability_zone is not None:
             self.availability_zone = availability_zone
         if cpu_milli is not None:
             self.cpu_milli = cpu_milli
         if created_at is not None:
             self.created_at = created_at
+        if ebs_volumes is not None:
+            self.ebs_volumes = ebs_volumes
         if error_code is not None:
             self.error_code = error_code
         if error_message is not None:
@@ -118,14 +134,39 @@ class SandboxForListSandboxesOutput(object):
             self.memory_mb = memory_mb
         if metadata is not None:
             self.metadata = metadata
+        if paused_at is not None:
+            self.paused_at = paused_at
         if pending is not None:
             self.pending = pending
         if revision_number is not None:
             self.revision_number = revision_number
         if session_id is not None:
             self.session_id = session_id
+        if sidecars is not None:
+            self.sidecars = sidecars
         if status is not None:
             self.status = status
+
+    @property
+    def assign_status(self):
+        """Gets the assign_status of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The assign_status of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._assign_status
+
+    @assign_status.setter
+    def assign_status(self, assign_status):
+        """Sets the assign_status of this SandboxForListSandboxesOutput.
+
+
+        :param assign_status: The assign_status of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._assign_status = assign_status
 
     @property
     def availability_zone(self):
@@ -189,6 +230,27 @@ class SandboxForListSandboxesOutput(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def ebs_volumes(self):
+        """Gets the ebs_volumes of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The ebs_volumes of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: list[EBSVolumeForListSandboxesOutput]
+        """
+        return self._ebs_volumes
+
+    @ebs_volumes.setter
+    def ebs_volumes(self, ebs_volumes):
+        """Sets the ebs_volumes of this SandboxForListSandboxesOutput.
+
+
+        :param ebs_volumes: The ebs_volumes of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: list[EBSVolumeForListSandboxesOutput]
+        """
+
+        self._ebs_volumes = ebs_volumes
 
     @property
     def error_code(self):
@@ -380,6 +442,27 @@ class SandboxForListSandboxesOutput(object):
         self._metadata = metadata
 
     @property
+    def paused_at(self):
+        """Gets the paused_at of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The paused_at of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._paused_at
+
+    @paused_at.setter
+    def paused_at(self, paused_at):
+        """Sets the paused_at of this SandboxForListSandboxesOutput.
+
+
+        :param paused_at: The paused_at of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._paused_at = paused_at
+
+    @property
     def pending(self):
         """Gets the pending of this SandboxForListSandboxesOutput.  # noqa: E501
 
@@ -441,6 +524,27 @@ class SandboxForListSandboxesOutput(object):
         """
 
         self._session_id = session_id
+
+    @property
+    def sidecars(self):
+        """Gets the sidecars of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The sidecars of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: list[SidecarForListSandboxesOutput]
+        """
+        return self._sidecars
+
+    @sidecars.setter
+    def sidecars(self, sidecars):
+        """Sets the sidecars of this SandboxForListSandboxesOutput.
+
+
+        :param sidecars: The sidecars of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: list[SidecarForListSandboxesOutput]
+        """
+
+        self._sidecars = sidecars
 
     @property
     def status(self):

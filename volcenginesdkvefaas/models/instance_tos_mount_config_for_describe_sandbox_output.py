@@ -33,29 +33,86 @@ class InstanceTosMountConfigForDescribeSandboxOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auth_mode': 'str',
+        'credentials': 'CredentialsForDescribeSandboxOutput',
         'enable': 'bool',
+        'mode': 'str',
         'tos_mount_points': 'list[TosMountPointForDescribeSandboxOutput]'
     }
 
     attribute_map = {
+        'auth_mode': 'AuthMode',
+        'credentials': 'Credentials',
         'enable': 'Enable',
+        'mode': 'Mode',
         'tos_mount_points': 'TosMountPoints'
     }
 
-    def __init__(self, enable=None, tos_mount_points=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode=None, credentials=None, enable=None, mode=None, tos_mount_points=None, _configuration=None):  # noqa: E501
         """InstanceTosMountConfigForDescribeSandboxOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auth_mode = None
+        self._credentials = None
         self._enable = None
+        self._mode = None
         self._tos_mount_points = None
         self.discriminator = None
 
+        if auth_mode is not None:
+            self.auth_mode = auth_mode
+        if credentials is not None:
+            self.credentials = credentials
         if enable is not None:
             self.enable = enable
+        if mode is not None:
+            self.mode = mode
         if tos_mount_points is not None:
             self.tos_mount_points = tos_mount_points
+
+    @property
+    def auth_mode(self):
+        """Gets the auth_mode of this InstanceTosMountConfigForDescribeSandboxOutput.  # noqa: E501
+
+
+        :return: The auth_mode of this InstanceTosMountConfigForDescribeSandboxOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_mode
+
+    @auth_mode.setter
+    def auth_mode(self, auth_mode):
+        """Sets the auth_mode of this InstanceTosMountConfigForDescribeSandboxOutput.
+
+
+        :param auth_mode: The auth_mode of this InstanceTosMountConfigForDescribeSandboxOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_mode = auth_mode
+
+    @property
+    def credentials(self):
+        """Gets the credentials of this InstanceTosMountConfigForDescribeSandboxOutput.  # noqa: E501
+
+
+        :return: The credentials of this InstanceTosMountConfigForDescribeSandboxOutput.  # noqa: E501
+        :rtype: CredentialsForDescribeSandboxOutput
+        """
+        return self._credentials
+
+    @credentials.setter
+    def credentials(self, credentials):
+        """Sets the credentials of this InstanceTosMountConfigForDescribeSandboxOutput.
+
+
+        :param credentials: The credentials of this InstanceTosMountConfigForDescribeSandboxOutput.  # noqa: E501
+        :type: CredentialsForDescribeSandboxOutput
+        """
+
+        self._credentials = credentials
 
     @property
     def enable(self):
@@ -77,6 +134,27 @@ class InstanceTosMountConfigForDescribeSandboxOutput(object):
         """
 
         self._enable = enable
+
+    @property
+    def mode(self):
+        """Gets the mode of this InstanceTosMountConfigForDescribeSandboxOutput.  # noqa: E501
+
+
+        :return: The mode of this InstanceTosMountConfigForDescribeSandboxOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._mode
+
+    @mode.setter
+    def mode(self, mode):
+        """Sets the mode of this InstanceTosMountConfigForDescribeSandboxOutput.
+
+
+        :param mode: The mode of this InstanceTosMountConfigForDescribeSandboxOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._mode = mode
 
     @property
     def tos_mount_points(self):

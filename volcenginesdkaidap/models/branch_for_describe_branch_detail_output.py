@@ -48,6 +48,7 @@ class BranchForDescribeBranchDetailOutput(object):
         'start_parent_lsn': 'str',
         'start_parent_time': 'str',
         'status_changed_time': 'str',
+        'support_analytic': 'bool',
         'update_time': 'str',
         'workspace_id': 'str'
     }
@@ -68,11 +69,12 @@ class BranchForDescribeBranchDetailOutput(object):
         'start_parent_lsn': 'StartParentLSN',
         'start_parent_time': 'StartParentTime',
         'status_changed_time': 'StatusChangedTime',
+        'support_analytic': 'SupportAnalytic',
         'update_time': 'UpdateTime',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, archived=None, branch_id=None, branch_name=None, branch_status=None, branch_usage=None, create_time=None, creation_source=None, default=None, init_source=None, last_reset_time=None, parent_branch=None, protected=None, start_parent_lsn=None, start_parent_time=None, status_changed_time=None, update_time=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, archived=None, branch_id=None, branch_name=None, branch_status=None, branch_usage=None, create_time=None, creation_source=None, default=None, init_source=None, last_reset_time=None, parent_branch=None, protected=None, start_parent_lsn=None, start_parent_time=None, status_changed_time=None, support_analytic=None, update_time=None, workspace_id=None, _configuration=None):  # noqa: E501
         """BranchForDescribeBranchDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class BranchForDescribeBranchDetailOutput(object):
         self._start_parent_lsn = None
         self._start_parent_time = None
         self._status_changed_time = None
+        self._support_analytic = None
         self._update_time = None
         self._workspace_id = None
         self.discriminator = None
@@ -127,6 +130,8 @@ class BranchForDescribeBranchDetailOutput(object):
             self.start_parent_time = start_parent_time
         if status_changed_time is not None:
             self.status_changed_time = status_changed_time
+        if support_analytic is not None:
+            self.support_analytic = support_analytic
         if update_time is not None:
             self.update_time = update_time
         if workspace_id is not None:
@@ -446,6 +451,27 @@ class BranchForDescribeBranchDetailOutput(object):
         """
 
         self._status_changed_time = status_changed_time
+
+    @property
+    def support_analytic(self):
+        """Gets the support_analytic of this BranchForDescribeBranchDetailOutput.  # noqa: E501
+
+
+        :return: The support_analytic of this BranchForDescribeBranchDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._support_analytic
+
+    @support_analytic.setter
+    def support_analytic(self, support_analytic):
+        """Sets the support_analytic of this BranchForDescribeBranchDetailOutput.
+
+
+        :param support_analytic: The support_analytic of this BranchForDescribeBranchDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._support_analytic = support_analytic
 
     @property
     def update_time(self):

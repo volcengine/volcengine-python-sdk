@@ -35,18 +35,18 @@ class BaasComputeSettingsForModifyComputeSettingsOutput(object):
     swagger_types = {
         'auto_scaling_limit_max_cu': 'float',
         'auto_scaling_limit_min_cu': 'float',
-        'enable_analytics': 'str',
+        'enable_analytic': 'str',
         'suspend_timeout_seconds': 'int'
     }
 
     attribute_map = {
         'auto_scaling_limit_max_cu': 'AutoScalingLimitMaxCU',
         'auto_scaling_limit_min_cu': 'AutoScalingLimitMinCU',
-        'enable_analytics': 'EnableAnalytics',
+        'enable_analytic': 'EnableAnalytic',
         'suspend_timeout_seconds': 'SuspendTimeoutSeconds'
     }
 
-    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, enable_analytics=None, suspend_timeout_seconds=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, enable_analytic=None, suspend_timeout_seconds=None, _configuration=None):  # noqa: E501
         """BaasComputeSettingsForModifyComputeSettingsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,7 +54,7 @@ class BaasComputeSettingsForModifyComputeSettingsOutput(object):
 
         self._auto_scaling_limit_max_cu = None
         self._auto_scaling_limit_min_cu = None
-        self._enable_analytics = None
+        self._enable_analytic = None
         self._suspend_timeout_seconds = None
         self.discriminator = None
 
@@ -62,8 +62,8 @@ class BaasComputeSettingsForModifyComputeSettingsOutput(object):
             self.auto_scaling_limit_max_cu = auto_scaling_limit_max_cu
         if auto_scaling_limit_min_cu is not None:
             self.auto_scaling_limit_min_cu = auto_scaling_limit_min_cu
-        if enable_analytics is not None:
-            self.enable_analytics = enable_analytics
+        if enable_analytic is not None:
+            self.enable_analytic = enable_analytic
         if suspend_timeout_seconds is not None:
             self.suspend_timeout_seconds = suspend_timeout_seconds
 
@@ -110,25 +110,25 @@ class BaasComputeSettingsForModifyComputeSettingsOutput(object):
         self._auto_scaling_limit_min_cu = auto_scaling_limit_min_cu
 
     @property
-    def enable_analytics(self):
-        """Gets the enable_analytics of this BaasComputeSettingsForModifyComputeSettingsOutput.  # noqa: E501
+    def enable_analytic(self):
+        """Gets the enable_analytic of this BaasComputeSettingsForModifyComputeSettingsOutput.  # noqa: E501
 
 
-        :return: The enable_analytics of this BaasComputeSettingsForModifyComputeSettingsOutput.  # noqa: E501
+        :return: The enable_analytic of this BaasComputeSettingsForModifyComputeSettingsOutput.  # noqa: E501
         :rtype: str
         """
-        return self._enable_analytics
+        return self._enable_analytic
 
-    @enable_analytics.setter
-    def enable_analytics(self, enable_analytics):
-        """Sets the enable_analytics of this BaasComputeSettingsForModifyComputeSettingsOutput.
+    @enable_analytic.setter
+    def enable_analytic(self, enable_analytic):
+        """Sets the enable_analytic of this BaasComputeSettingsForModifyComputeSettingsOutput.
 
 
-        :param enable_analytics: The enable_analytics of this BaasComputeSettingsForModifyComputeSettingsOutput.  # noqa: E501
+        :param enable_analytic: The enable_analytic of this BaasComputeSettingsForModifyComputeSettingsOutput.  # noqa: E501
         :type: str
         """
 
-        self._enable_analytics = enable_analytics
+        self._enable_analytic = enable_analytic
 
     @property
     def suspend_timeout_seconds(self):

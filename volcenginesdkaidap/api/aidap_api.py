@@ -906,6 +906,103 @@ class AIDAPApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_schema_diff(self, body, **kwargs):  # noqa: E501
+        """create_schema_diff  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_schema_diff(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateSchemaDiffRequest body: (required)
+        :return: CreateSchemaDiffResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_schema_diff_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_schema_diff_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_schema_diff_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_schema_diff  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_schema_diff_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateSchemaDiffRequest body: (required)
+        :return: CreateSchemaDiffResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_schema_diff" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_schema_diff`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateSchemaDiff/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateSchemaDiffResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_workspace(self, body, **kwargs):  # noqa: E501
         """create_workspace  # noqa: E501
 
@@ -1779,103 +1876,6 @@ class AIDAPApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def describe_branch_ai_function(self, body, **kwargs):  # noqa: E501
-        """describe_branch_ai_function  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_branch_ai_function(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeBranchAIFunctionRequest body: (required)
-        :return: DescribeBranchAIFunctionResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.describe_branch_ai_function_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.describe_branch_ai_function_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def describe_branch_ai_function_with_http_info(self, body, **kwargs):  # noqa: E501
-        """describe_branch_ai_function  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_branch_ai_function_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeBranchAIFunctionRequest body: (required)
-        :return: DescribeBranchAIFunctionResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method describe_branch_ai_function" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `describe_branch_ai_function`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DescribeBranchAIFunction/2025-10-01/aidap/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DescribeBranchAIFunctionResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def describe_branch_detail(self, body, **kwargs):  # noqa: E501
         """describe_branch_detail  # noqa: E501
 
@@ -1973,6 +1973,103 @@ class AIDAPApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def describe_branch_schema_names(self, body, **kwargs):  # noqa: E501
+        """describe_branch_schema_names  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_branch_schema_names(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeBranchSchemaNamesRequest body: (required)
+        :return: DescribeBranchSchemaNamesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_branch_schema_names_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_branch_schema_names_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_branch_schema_names_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_branch_schema_names  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_branch_schema_names_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeBranchSchemaNamesRequest body: (required)
+        :return: DescribeBranchSchemaNamesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_branch_schema_names" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_branch_schema_names`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeBranchSchemaNames/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeBranchSchemaNamesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def describe_branches(self, body, **kwargs):  # noqa: E501
         """describe_branches  # noqa: E501
 
@@ -2063,6 +2160,200 @@ class AIDAPApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeBranchesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_branches_list(self, body, **kwargs):  # noqa: E501
+        """describe_branches_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_branches_list(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeBranchesListRequest body: (required)
+        :return: DescribeBranchesListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_branches_list_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_branches_list_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_branches_list_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_branches_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_branches_list_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeBranchesListRequest body: (required)
+        :return: DescribeBranchesListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_branches_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_branches_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeBranchesList/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeBranchesListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_charge_info(self, body, **kwargs):  # noqa: E501
+        """describe_charge_info  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_charge_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeChargeInfoRequest body: (required)
+        :return: DescribeChargeInfoResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_charge_info_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_charge_info_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_charge_info_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_charge_info  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_charge_info_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeChargeInfoRequest body: (required)
+        :return: DescribeChargeInfoResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_charge_info" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_charge_info`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeChargeInfo/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeChargeInfoResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2749,6 +3040,103 @@ class AIDAPApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def describe_default_branch_list(self, body, **kwargs):  # noqa: E501
+        """describe_default_branch_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_default_branch_list(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDefaultBranchListRequest body: (required)
+        :return: DescribeDefaultBranchListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_default_branch_list_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_default_branch_list_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_default_branch_list_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_default_branch_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_default_branch_list_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDefaultBranchListRequest body: (required)
+        :return: DescribeDefaultBranchListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_default_branch_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_default_branch_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeDefaultBranchList/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeDefaultBranchListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def describe_operations(self, body, **kwargs):  # noqa: E501
         """describe_operations  # noqa: E501
 
@@ -2943,6 +3331,491 @@ class AIDAPApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def describe_schema_diff_job_status(self, body, **kwargs):  # noqa: E501
+        """describe_schema_diff_job_status  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_schema_diff_job_status(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSchemaDiffJobStatusRequest body: (required)
+        :return: DescribeSchemaDiffJobStatusResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_schema_diff_job_status_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_schema_diff_job_status_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_schema_diff_job_status_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_schema_diff_job_status  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_schema_diff_job_status_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSchemaDiffJobStatusRequest body: (required)
+        :return: DescribeSchemaDiffJobStatusResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_schema_diff_job_status" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_schema_diff_job_status`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeSchemaDiffJobStatus/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeSchemaDiffJobStatusResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_schema_diff_result_meta(self, body, **kwargs):  # noqa: E501
+        """describe_schema_diff_result_meta  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_schema_diff_result_meta(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSchemaDiffResultMetaRequest body: (required)
+        :return: DescribeSchemaDiffResultMetaResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_schema_diff_result_meta_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_schema_diff_result_meta_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_schema_diff_result_meta_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_schema_diff_result_meta  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_schema_diff_result_meta_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSchemaDiffResultMetaRequest body: (required)
+        :return: DescribeSchemaDiffResultMetaResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_schema_diff_result_meta" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_schema_diff_result_meta`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeSchemaDiffResultMeta/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeSchemaDiffResultMetaResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_schema_diff_result_sql_text(self, body, **kwargs):  # noqa: E501
+        """describe_schema_diff_result_sql_text  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_schema_diff_result_sql_text(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSchemaDiffResultSQLTextRequest body: (required)
+        :return: DescribeSchemaDiffResultSQLTextResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_schema_diff_result_sql_text_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_schema_diff_result_sql_text_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_schema_diff_result_sql_text_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_schema_diff_result_sql_text  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_schema_diff_result_sql_text_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSchemaDiffResultSQLTextRequest body: (required)
+        :return: DescribeSchemaDiffResultSQLTextResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_schema_diff_result_sql_text" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_schema_diff_result_sql_text`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeSchemaDiffResultSQLText/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeSchemaDiffResultSQLTextResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_schema_diff_result_sql_text_all(self, body, **kwargs):  # noqa: E501
+        """describe_schema_diff_result_sql_text_all  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_schema_diff_result_sql_text_all(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSchemaDiffResultSQLTextAllRequest body: (required)
+        :return: DescribeSchemaDiffResultSQLTextAllResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_schema_diff_result_sql_text_all_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_schema_diff_result_sql_text_all_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_schema_diff_result_sql_text_all_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_schema_diff_result_sql_text_all  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_schema_diff_result_sql_text_all_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSchemaDiffResultSQLTextAllRequest body: (required)
+        :return: DescribeSchemaDiffResultSQLTextAllResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_schema_diff_result_sql_text_all" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_schema_diff_result_sql_text_all`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeSchemaDiffResultSQLTextAll/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeSchemaDiffResultSQLTextAllResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_supabase_deploy_env_vars(self, body, **kwargs):  # noqa: E501
+        """describe_supabase_deploy_env_vars  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_supabase_deploy_env_vars(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSupabaseDeployEnvVarsRequest body: (required)
+        :return: DescribeSupabaseDeployEnvVarsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_supabase_deploy_env_vars_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_supabase_deploy_env_vars_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_supabase_deploy_env_vars_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_supabase_deploy_env_vars  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_supabase_deploy_env_vars_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSupabaseDeployEnvVarsRequest body: (required)
+        :return: DescribeSupabaseDeployEnvVarsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_supabase_deploy_env_vars" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_supabase_deploy_env_vars`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeSupabaseDeployEnvVars/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeSupabaseDeployEnvVarsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def describe_workspace_detail(self, body, **kwargs):  # noqa: E501
         """describe_workspace_detail  # noqa: E501
 
@@ -3040,6 +3913,103 @@ class AIDAPApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def describe_workspace_detail_list(self, body, **kwargs):  # noqa: E501
+        """describe_workspace_detail_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_workspace_detail_list(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeWorkspaceDetailListRequest body: (required)
+        :return: DescribeWorkspaceDetailListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_workspace_detail_list_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_workspace_detail_list_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_workspace_detail_list_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_workspace_detail_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_workspace_detail_list_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeWorkspaceDetailListRequest body: (required)
+        :return: DescribeWorkspaceDetailListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_workspace_detail_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_workspace_detail_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeWorkspaceDetailList/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeWorkspaceDetailListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def describe_workspace_endpoint(self, body, **kwargs):  # noqa: E501
         """describe_workspace_endpoint  # noqa: E501
 
@@ -3130,6 +4100,103 @@ class AIDAPApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeWorkspaceEndpointResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_workspace_endpoint_list(self, body, **kwargs):  # noqa: E501
+        """describe_workspace_endpoint_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_workspace_endpoint_list(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeWorkspaceEndpointListRequest body: (required)
+        :return: DescribeWorkspaceEndpointListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_workspace_endpoint_list_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_workspace_endpoint_list_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_workspace_endpoint_list_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_workspace_endpoint_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_workspace_endpoint_list_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeWorkspaceEndpointListRequest body: (required)
+        :return: DescribeWorkspaceEndpointListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_workspace_endpoint_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_workspace_endpoint_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeWorkspaceEndpointList/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeWorkspaceEndpointListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3428,103 +4495,6 @@ class AIDAPApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def enable_branch_ai_function(self, body, **kwargs):  # noqa: E501
-        """enable_branch_ai_function  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.enable_branch_ai_function(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param EnableBranchAIFunctionRequest body: (required)
-        :return: EnableBranchAIFunctionResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.enable_branch_ai_function_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.enable_branch_ai_function_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def enable_branch_ai_function_with_http_info(self, body, **kwargs):  # noqa: E501
-        """enable_branch_ai_function  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.enable_branch_ai_function_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param EnableBranchAIFunctionRequest body: (required)
-        :return: EnableBranchAIFunctionResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method enable_branch_ai_function" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `enable_branch_ai_function`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/EnableBranchAIFunction/2025-10-01/aidap/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='EnableBranchAIFunctionResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_restore_window(self, body, **kwargs):  # noqa: E501
         """get_restore_window  # noqa: E501
 
@@ -3615,6 +4585,103 @@ class AIDAPApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='GetRestoreWindowResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_schema_diff_result_download_link(self, body, **kwargs):  # noqa: E501
+        """get_schema_diff_result_download_link  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_schema_diff_result_download_link(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetSchemaDiffResultDownloadLinkRequest body: (required)
+        :return: GetSchemaDiffResultDownloadLinkResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_schema_diff_result_download_link_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_schema_diff_result_download_link_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def get_schema_diff_result_download_link_with_http_info(self, body, **kwargs):  # noqa: E501
+        """get_schema_diff_result_download_link  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_schema_diff_result_download_link_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetSchemaDiffResultDownloadLinkRequest body: (required)
+        :return: GetSchemaDiffResultDownloadLinkResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_schema_diff_result_download_link" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `get_schema_diff_result_download_link`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/GetSchemaDiffResultDownloadLink/2025-10-01/aidap/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetSchemaDiffResultDownloadLinkResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3816,38 +4883,38 @@ class AIDAPApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def modify_branch_ai_function_settings(self, body, **kwargs):  # noqa: E501
-        """modify_branch_ai_function_settings  # noqa: E501
+    def modify_compute_analytic_policy(self, body, **kwargs):  # noqa: E501
+        """modify_compute_analytic_policy  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_branch_ai_function_settings(body, async_req=True)
+        >>> thread = api.modify_compute_analytic_policy(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ModifyBranchAIFunctionSettingsRequest body: (required)
-        :return: ModifyBranchAIFunctionSettingsResponse
+        :param ModifyComputeAnalyticPolicyRequest body: (required)
+        :return: ModifyComputeAnalyticPolicyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.modify_branch_ai_function_settings_with_http_info(body, **kwargs)  # noqa: E501
+            return self.modify_compute_analytic_policy_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.modify_branch_ai_function_settings_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.modify_compute_analytic_policy_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def modify_branch_ai_function_settings_with_http_info(self, body, **kwargs):  # noqa: E501
-        """modify_branch_ai_function_settings  # noqa: E501
+    def modify_compute_analytic_policy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_compute_analytic_policy  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_branch_ai_function_settings_with_http_info(body, async_req=True)
+        >>> thread = api.modify_compute_analytic_policy_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ModifyBranchAIFunctionSettingsRequest body: (required)
-        :return: ModifyBranchAIFunctionSettingsResponse
+        :param ModifyComputeAnalyticPolicyRequest body: (required)
+        :return: ModifyComputeAnalyticPolicyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3863,14 +4930,14 @@ class AIDAPApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method modify_branch_ai_function_settings" % key
+                    " to method modify_compute_analytic_policy" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `modify_branch_ai_function_settings`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_compute_analytic_policy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3898,14 +4965,14 @@ class AIDAPApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyBranchAIFunctionSettings/2025-10-01/aidap/post/application_json/', 'POST',
+            '/ModifyComputeAnalyticPolicy/2025-10-01/aidap/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ModifyBranchAIFunctionSettingsResponse',  # noqa: E501
+            response_type='ModifyComputeAnalyticPolicyResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4294,103 +5361,6 @@ class AIDAPApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ModifyVpcSettingsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def modify_workspace_ai_model_settings(self, body, **kwargs):  # noqa: E501
-        """modify_workspace_ai_model_settings  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_workspace_ai_model_settings(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ModifyWorkspaceAIModelSettingsRequest body: (required)
-        :return: ModifyWorkspaceAIModelSettingsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.modify_workspace_ai_model_settings_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.modify_workspace_ai_model_settings_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def modify_workspace_ai_model_settings_with_http_info(self, body, **kwargs):  # noqa: E501
-        """modify_workspace_ai_model_settings  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_workspace_ai_model_settings_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ModifyWorkspaceAIModelSettingsRequest body: (required)
-        :return: ModifyWorkspaceAIModelSettingsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method modify_workspace_ai_model_settings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `modify_workspace_ai_model_settings`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ModifyWorkspaceAIModelSettings/2025-10-01/aidap/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ModifyWorkspaceAIModelSettingsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

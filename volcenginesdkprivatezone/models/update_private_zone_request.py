@@ -33,38 +33,69 @@ class UpdatePrivateZoneRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'line_mode': 'int',
         'load_balance': 'bool',
+        'nodata_fallback': 'bool',
         'recursion_mode': 'bool',
         'remark': 'str',
         'zid': 'int'
     }
 
     attribute_map = {
+        'line_mode': 'LineMode',
         'load_balance': 'LoadBalance',
+        'nodata_fallback': 'NodataFallback',
         'recursion_mode': 'RecursionMode',
         'remark': 'Remark',
         'zid': 'ZID'
     }
 
-    def __init__(self, load_balance=None, recursion_mode=None, remark=None, zid=None, _configuration=None):  # noqa: E501
+    def __init__(self, line_mode=None, load_balance=None, nodata_fallback=None, recursion_mode=None, remark=None, zid=None, _configuration=None):  # noqa: E501
         """UpdatePrivateZoneRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._line_mode = None
         self._load_balance = None
+        self._nodata_fallback = None
         self._recursion_mode = None
         self._remark = None
         self._zid = None
         self.discriminator = None
 
+        if line_mode is not None:
+            self.line_mode = line_mode
         if load_balance is not None:
             self.load_balance = load_balance
+        if nodata_fallback is not None:
+            self.nodata_fallback = nodata_fallback
         if recursion_mode is not None:
             self.recursion_mode = recursion_mode
         if remark is not None:
             self.remark = remark
         self.zid = zid
+
+    @property
+    def line_mode(self):
+        """Gets the line_mode of this UpdatePrivateZoneRequest.  # noqa: E501
+
+
+        :return: The line_mode of this UpdatePrivateZoneRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._line_mode
+
+    @line_mode.setter
+    def line_mode(self, line_mode):
+        """Sets the line_mode of this UpdatePrivateZoneRequest.
+
+
+        :param line_mode: The line_mode of this UpdatePrivateZoneRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._line_mode = line_mode
 
     @property
     def load_balance(self):
@@ -86,6 +117,27 @@ class UpdatePrivateZoneRequest(object):
         """
 
         self._load_balance = load_balance
+
+    @property
+    def nodata_fallback(self):
+        """Gets the nodata_fallback of this UpdatePrivateZoneRequest.  # noqa: E501
+
+
+        :return: The nodata_fallback of this UpdatePrivateZoneRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._nodata_fallback
+
+    @nodata_fallback.setter
+    def nodata_fallback(self, nodata_fallback):
+        """Sets the nodata_fallback of this UpdatePrivateZoneRequest.
+
+
+        :param nodata_fallback: The nodata_fallback of this UpdatePrivateZoneRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._nodata_fallback = nodata_fallback
 
     @property
     def recursion_mode(self):

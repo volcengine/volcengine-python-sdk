@@ -36,17 +36,17 @@ class ComputeSettingsForCreateComputeInput(object):
         'auto_scaling_limit_max_cu': 'float',
         'auto_scaling_limit_min_cu': 'float',
         'compute_role': 'str',
-        'enable_analytics': 'str'
+        'enable_analytic': 'str'
     }
 
     attribute_map = {
         'auto_scaling_limit_max_cu': 'AutoScalingLimitMaxCU',
         'auto_scaling_limit_min_cu': 'AutoScalingLimitMinCU',
         'compute_role': 'ComputeRole',
-        'enable_analytics': 'EnableAnalytics'
+        'enable_analytic': 'EnableAnalytic'
     }
 
-    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, compute_role=None, enable_analytics=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, compute_role=None, enable_analytic=None, _configuration=None):  # noqa: E501
         """ComputeSettingsForCreateComputeInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,7 +55,7 @@ class ComputeSettingsForCreateComputeInput(object):
         self._auto_scaling_limit_max_cu = None
         self._auto_scaling_limit_min_cu = None
         self._compute_role = None
-        self._enable_analytics = None
+        self._enable_analytic = None
         self.discriminator = None
 
         if auto_scaling_limit_max_cu is not None:
@@ -64,8 +64,8 @@ class ComputeSettingsForCreateComputeInput(object):
             self.auto_scaling_limit_min_cu = auto_scaling_limit_min_cu
         if compute_role is not None:
             self.compute_role = compute_role
-        if enable_analytics is not None:
-            self.enable_analytics = enable_analytics
+        if enable_analytic is not None:
+            self.enable_analytic = enable_analytic
 
     @property
     def auto_scaling_limit_max_cu(self):
@@ -127,7 +127,7 @@ class ComputeSettingsForCreateComputeInput(object):
         :param compute_role: The compute_role of this ComputeSettingsForCreateComputeInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Primary", "ReadOnly"]  # noqa: E501
+        allowed_values = ["Primary", "ReadOnly", "Analytic"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 compute_role not in allowed_values):
             raise ValueError(
@@ -138,32 +138,32 @@ class ComputeSettingsForCreateComputeInput(object):
         self._compute_role = compute_role
 
     @property
-    def enable_analytics(self):
-        """Gets the enable_analytics of this ComputeSettingsForCreateComputeInput.  # noqa: E501
+    def enable_analytic(self):
+        """Gets the enable_analytic of this ComputeSettingsForCreateComputeInput.  # noqa: E501
 
 
-        :return: The enable_analytics of this ComputeSettingsForCreateComputeInput.  # noqa: E501
+        :return: The enable_analytic of this ComputeSettingsForCreateComputeInput.  # noqa: E501
         :rtype: str
         """
-        return self._enable_analytics
+        return self._enable_analytic
 
-    @enable_analytics.setter
-    def enable_analytics(self, enable_analytics):
-        """Sets the enable_analytics of this ComputeSettingsForCreateComputeInput.
+    @enable_analytic.setter
+    def enable_analytic(self, enable_analytic):
+        """Sets the enable_analytic of this ComputeSettingsForCreateComputeInput.
 
 
-        :param enable_analytics: The enable_analytics of this ComputeSettingsForCreateComputeInput.  # noqa: E501
+        :param enable_analytic: The enable_analytic of this ComputeSettingsForCreateComputeInput.  # noqa: E501
         :type: str
         """
         allowed_values = ["Enabled", "Disabled"]  # noqa: E501
         if (self._configuration.client_side_validation and
-                enable_analytics not in allowed_values):
+                enable_analytic not in allowed_values):
             raise ValueError(
-                "Invalid value for `enable_analytics` ({0}), must be one of {1}"  # noqa: E501
-                .format(enable_analytics, allowed_values)
+                "Invalid value for `enable_analytic` ({0}), must be one of {1}"  # noqa: E501
+                .format(enable_analytic, allowed_values)
             )
 
-        self._enable_analytics = enable_analytics
+        self._enable_analytic = enable_analytic
 
     def to_dict(self):
         """Returns the model properties as a dict"""
