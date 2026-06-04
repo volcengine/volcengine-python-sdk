@@ -34,10 +34,10 @@ class StatisticForUpdateLoadInput(object):
     """
     swagger_types = {
         'addr_value': 'str',
-        'capacity': 'int',
-        'current_load': 'int',
+        'capacity': 'float',
+        'current_load': 'float',
         'pool_name': 'str',
-        'target_load': 'int'
+        'target_load': 'float'
     }
 
     attribute_map = {
@@ -99,7 +99,7 @@ class StatisticForUpdateLoadInput(object):
 
 
         :return: The capacity of this StatisticForUpdateLoadInput.  # noqa: E501
-        :rtype: int
+        :rtype: float
         """
         return self._capacity
 
@@ -109,11 +109,8 @@ class StatisticForUpdateLoadInput(object):
 
 
         :param capacity: The capacity of this StatisticForUpdateLoadInput.  # noqa: E501
-        :type: int
+        :type: float
         """
-        if (self._configuration.client_side_validation and
-                capacity is not None and capacity < 0):  # noqa: E501
-            raise ValueError("Invalid value for `capacity`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._capacity = capacity
 
@@ -123,7 +120,7 @@ class StatisticForUpdateLoadInput(object):
 
 
         :return: The current_load of this StatisticForUpdateLoadInput.  # noqa: E501
-        :rtype: int
+        :rtype: float
         """
         return self._current_load
 
@@ -133,11 +130,8 @@ class StatisticForUpdateLoadInput(object):
 
 
         :param current_load: The current_load of this StatisticForUpdateLoadInput.  # noqa: E501
-        :type: int
+        :type: float
         """
-        if (self._configuration.client_side_validation and
-                current_load is not None and current_load < 0):  # noqa: E501
-            raise ValueError("Invalid value for `current_load`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._current_load = current_load
 
@@ -168,7 +162,7 @@ class StatisticForUpdateLoadInput(object):
 
 
         :return: The target_load of this StatisticForUpdateLoadInput.  # noqa: E501
-        :rtype: int
+        :rtype: float
         """
         return self._target_load
 
@@ -178,11 +172,8 @@ class StatisticForUpdateLoadInput(object):
 
 
         :param target_load: The target_load of this StatisticForUpdateLoadInput.  # noqa: E501
-        :type: int
+        :type: float
         """
-        if (self._configuration.client_side_validation and
-                target_load is not None and target_load < 0):  # noqa: E501
-            raise ValueError("Invalid value for `target_load`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._target_load = target_load
 
