@@ -35,6 +35,7 @@ class CreateWorkspaceRequest(object):
     swagger_types = {
         'auth_type': 'str',
         'bearer_token': 'str',
+        'charge_type': 'str',
         'delete_protection_enabled': 'bool',
         'description': 'str',
         'instance_type_id': 'str',
@@ -49,6 +50,7 @@ class CreateWorkspaceRequest(object):
     attribute_map = {
         'auth_type': 'AuthType',
         'bearer_token': 'BearerToken',
+        'charge_type': 'ChargeType',
         'delete_protection_enabled': 'DeleteProtectionEnabled',
         'description': 'Description',
         'instance_type_id': 'InstanceTypeId',
@@ -60,7 +62,7 @@ class CreateWorkspaceRequest(object):
         'username': 'Username'
     }
 
-    def __init__(self, auth_type=None, bearer_token=None, delete_protection_enabled=None, description=None, instance_type_id=None, name=None, password=None, project_name=None, public_access_enabled=None, tags=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_type=None, bearer_token=None, charge_type=None, delete_protection_enabled=None, description=None, instance_type_id=None, name=None, password=None, project_name=None, public_access_enabled=None, tags=None, username=None, _configuration=None):  # noqa: E501
         """CreateWorkspaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class CreateWorkspaceRequest(object):
 
         self._auth_type = None
         self._bearer_token = None
+        self._charge_type = None
         self._delete_protection_enabled = None
         self._description = None
         self._instance_type_id = None
@@ -83,6 +86,8 @@ class CreateWorkspaceRequest(object):
             self.auth_type = auth_type
         if bearer_token is not None:
             self.bearer_token = bearer_token
+        if charge_type is not None:
+            self.charge_type = charge_type
         if delete_protection_enabled is not None:
             self.delete_protection_enabled = delete_protection_enabled
         if description is not None:
@@ -141,6 +146,27 @@ class CreateWorkspaceRequest(object):
         """
 
         self._bearer_token = bearer_token
+
+    @property
+    def charge_type(self):
+        """Gets the charge_type of this CreateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The charge_type of this CreateWorkspaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._charge_type
+
+    @charge_type.setter
+    def charge_type(self, charge_type):
+        """Sets the charge_type of this CreateWorkspaceRequest.
+
+
+        :param charge_type: The charge_type of this CreateWorkspaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._charge_type = charge_type
 
     @property
     def delete_protection_enabled(self):

@@ -42,7 +42,9 @@ class GetAlertingRuleResponse(object):
         'levels': 'list[LevelForGetAlertingRuleOutput]',
         'name': 'str',
         'notify_group_policy_id': 'str',
+        'notify_group_policy_source': 'str',
         'notify_policy_id': 'str',
+        'notify_policy_source': 'str',
         'project_name': 'str',
         'query': 'QueryForGetAlertingRuleOutput',
         'status': 'str',
@@ -61,7 +63,9 @@ class GetAlertingRuleResponse(object):
         'levels': 'Levels',
         'name': 'Name',
         'notify_group_policy_id': 'NotifyGroupPolicyId',
+        'notify_group_policy_source': 'NotifyGroupPolicySource',
         'notify_policy_id': 'NotifyPolicyId',
+        'notify_policy_source': 'NotifyPolicySource',
         'project_name': 'ProjectName',
         'query': 'Query',
         'status': 'Status',
@@ -70,7 +74,7 @@ class GetAlertingRuleResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, annotations=None, create_time=None, description=None, group_id=None, id=None, labels=None, levels=None, name=None, notify_group_policy_id=None, notify_policy_id=None, project_name=None, query=None, status=None, tags=None, type=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, annotations=None, create_time=None, description=None, group_id=None, id=None, labels=None, levels=None, name=None, notify_group_policy_id=None, notify_group_policy_source=None, notify_policy_id=None, notify_policy_source=None, project_name=None, query=None, status=None, tags=None, type=None, update_time=None, _configuration=None):  # noqa: E501
         """GetAlertingRuleResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,7 +89,9 @@ class GetAlertingRuleResponse(object):
         self._levels = None
         self._name = None
         self._notify_group_policy_id = None
+        self._notify_group_policy_source = None
         self._notify_policy_id = None
+        self._notify_policy_source = None
         self._project_name = None
         self._query = None
         self._status = None
@@ -112,8 +118,12 @@ class GetAlertingRuleResponse(object):
             self.name = name
         if notify_group_policy_id is not None:
             self.notify_group_policy_id = notify_group_policy_id
+        if notify_group_policy_source is not None:
+            self.notify_group_policy_source = notify_group_policy_source
         if notify_policy_id is not None:
             self.notify_policy_id = notify_policy_id
+        if notify_policy_source is not None:
+            self.notify_policy_source = notify_policy_source
         if project_name is not None:
             self.project_name = project_name
         if query is not None:
@@ -317,6 +327,27 @@ class GetAlertingRuleResponse(object):
         self._notify_group_policy_id = notify_group_policy_id
 
     @property
+    def notify_group_policy_source(self):
+        """Gets the notify_group_policy_source of this GetAlertingRuleResponse.  # noqa: E501
+
+
+        :return: The notify_group_policy_source of this GetAlertingRuleResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._notify_group_policy_source
+
+    @notify_group_policy_source.setter
+    def notify_group_policy_source(self, notify_group_policy_source):
+        """Sets the notify_group_policy_source of this GetAlertingRuleResponse.
+
+
+        :param notify_group_policy_source: The notify_group_policy_source of this GetAlertingRuleResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._notify_group_policy_source = notify_group_policy_source
+
+    @property
     def notify_policy_id(self):
         """Gets the notify_policy_id of this GetAlertingRuleResponse.  # noqa: E501
 
@@ -336,6 +367,27 @@ class GetAlertingRuleResponse(object):
         """
 
         self._notify_policy_id = notify_policy_id
+
+    @property
+    def notify_policy_source(self):
+        """Gets the notify_policy_source of this GetAlertingRuleResponse.  # noqa: E501
+
+
+        :return: The notify_policy_source of this GetAlertingRuleResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._notify_policy_source
+
+    @notify_policy_source.setter
+    def notify_policy_source(self, notify_policy_source):
+        """Sets the notify_policy_source of this GetAlertingRuleResponse.
+
+
+        :param notify_policy_source: The notify_policy_source of this GetAlertingRuleResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._notify_policy_source = notify_policy_source
 
     @property
     def project_name(self):
