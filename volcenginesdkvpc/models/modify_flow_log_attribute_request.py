@@ -37,7 +37,8 @@ class ModifyFlowLogAttributeRequest(object):
         'client_token': 'str',
         'description': 'str',
         'flow_log_id': 'str',
-        'flow_log_name': 'str'
+        'flow_log_name': 'str',
+        'traffic_path': 'list[int]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ModifyFlowLogAttributeRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'flow_log_id': 'FlowLogId',
-        'flow_log_name': 'FlowLogName'
+        'flow_log_name': 'FlowLogName',
+        'traffic_path': 'TrafficPath'
     }
 
-    def __init__(self, aggregation_interval=None, client_token=None, description=None, flow_log_id=None, flow_log_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, aggregation_interval=None, client_token=None, description=None, flow_log_id=None, flow_log_name=None, traffic_path=None, _configuration=None):  # noqa: E501
         """ModifyFlowLogAttributeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ModifyFlowLogAttributeRequest(object):
         self._description = None
         self._flow_log_id = None
         self._flow_log_name = None
+        self._traffic_path = None
         self.discriminator = None
 
         if aggregation_interval is not None:
@@ -70,6 +73,8 @@ class ModifyFlowLogAttributeRequest(object):
         self.flow_log_id = flow_log_id
         if flow_log_name is not None:
             self.flow_log_name = flow_log_name
+        if traffic_path is not None:
+            self.traffic_path = traffic_path
 
     @property
     def aggregation_interval(self):
@@ -186,6 +191,27 @@ class ModifyFlowLogAttributeRequest(object):
             raise ValueError("Invalid value for `flow_log_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._flow_log_name = flow_log_name
+
+    @property
+    def traffic_path(self):
+        """Gets the traffic_path of this ModifyFlowLogAttributeRequest.  # noqa: E501
+
+
+        :return: The traffic_path of this ModifyFlowLogAttributeRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._traffic_path
+
+    @traffic_path.setter
+    def traffic_path(self, traffic_path):
+        """Sets the traffic_path of this ModifyFlowLogAttributeRequest.
+
+
+        :param traffic_path: The traffic_path of this ModifyFlowLogAttributeRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._traffic_path = traffic_path
 
     def to_dict(self):
         """Returns the model properties as a dict"""
