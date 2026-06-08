@@ -33,24 +33,34 @@ class CreatePrivateClawOmniSpaceTemplateResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'str'
+        'id': 'str',
+        'image_build_status': 'str',
+        'version_id': 'str'
     }
 
     attribute_map = {
-        'id': 'Id'
+        'id': 'Id',
+        'image_build_status': 'ImageBuildStatus',
+        'version_id': 'VersionId'
     }
 
-    def __init__(self, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, image_build_status=None, version_id=None, _configuration=None):  # noqa: E501
         """CreatePrivateClawOmniSpaceTemplateResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._id = None
+        self._image_build_status = None
+        self._version_id = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
+        if image_build_status is not None:
+            self.image_build_status = image_build_status
+        if version_id is not None:
+            self.version_id = version_id
 
     @property
     def id(self):
@@ -72,6 +82,48 @@ class CreatePrivateClawOmniSpaceTemplateResponse(object):
         """
 
         self._id = id
+
+    @property
+    def image_build_status(self):
+        """Gets the image_build_status of this CreatePrivateClawOmniSpaceTemplateResponse.  # noqa: E501
+
+
+        :return: The image_build_status of this CreatePrivateClawOmniSpaceTemplateResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_build_status
+
+    @image_build_status.setter
+    def image_build_status(self, image_build_status):
+        """Sets the image_build_status of this CreatePrivateClawOmniSpaceTemplateResponse.
+
+
+        :param image_build_status: The image_build_status of this CreatePrivateClawOmniSpaceTemplateResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._image_build_status = image_build_status
+
+    @property
+    def version_id(self):
+        """Gets the version_id of this CreatePrivateClawOmniSpaceTemplateResponse.  # noqa: E501
+
+
+        :return: The version_id of this CreatePrivateClawOmniSpaceTemplateResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._version_id
+
+    @version_id.setter
+    def version_id(self, version_id):
+        """Sets the version_id of this CreatePrivateClawOmniSpaceTemplateResponse.
+
+
+        :param version_id: The version_id of this CreatePrivateClawOmniSpaceTemplateResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._version_id = version_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
