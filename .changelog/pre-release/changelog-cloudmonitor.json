@@ -1,0 +1,5 @@
+{
+  "description": "CLOUDMONITOR: 新增 DeleteSilencePolicies, ListWebhooks, CreateAggregationPolicy, CreateContact, DeleteContactGroups, DeleteWebhooks, DisableSilencePolicies, ListContacts, ListSilencePolicies, SetAsDefaultAggregationPolicy, CreateDutySchedule, CreateSilencePolicy, CreateWebhook, UnsetAsDefaultNotificationPolicy, UpdateDutySchedule, DeleteNotificationTemplates, UpdateContactGroup, UpdateWebhook, CreateNotificationTemplate, DeleteContacts, DeleteDutySchedules, DeleteNotificationPolicies, ListDutySchedules, UpdateAggregationPolicy, UpdateNotificationTemplate, UnsetAsDefaultAggregationPolicy, UpdateContact, UpdateNotificationPolicy, CreateContactGroup, DeleteAggregationPolicies, EnableSilencePolicies, ListContactGroups, ListNotificationPolicies, UpdateSilencePolicy, SetAsDefaultNotificationPolicy, CreateNotificationPolicy, ListAggregationPolicies, ListNotificationTemplates",
+  "modules": "service/cloudmonitor",
+  "type": "feature"
+}
