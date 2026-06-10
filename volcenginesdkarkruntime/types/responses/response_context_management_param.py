@@ -47,7 +47,7 @@ class ResponseContextManagementEditParam(TypedDict, total=False):
     exclude_tools: Iterable[str]
     """Tool names that should not be cleared."""
 
-    clear_tool_input: bool
+    clear_tool_inputs: bool
     """Whether to clear tool call arguments."""
 
     trigger: ResponseContextManagementTurnStrategyParam
