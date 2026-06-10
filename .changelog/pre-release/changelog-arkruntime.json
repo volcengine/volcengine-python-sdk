@@ -1,0 +1,5 @@
+{
+  "description": "ARKRUNTIME: 修复 Responses API 创建请求缺少 context_management 参数",
+  "modules": "service/arkruntime",
+  "type": "bugfix"
+}
