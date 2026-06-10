@@ -33,44 +33,75 @@ class SubmitRefreshTaskRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cache_shared': 'bool',
         'delete': 'bool',
         'prefix': 'bool',
+        'request_header_instances': 'list[RequestHeaderInstanceForSubmitRefreshTaskInput]',
         'type': 'str',
         'url_list': 'list[str]',
         'urls': 'str'
     }
 
     attribute_map = {
+        'cache_shared': 'CacheShared',
         'delete': 'Delete',
         'prefix': 'Prefix',
+        'request_header_instances': 'RequestHeaderInstances',
         'type': 'Type',
         'url_list': 'UrlList',
         'urls': 'Urls'
     }
 
-    def __init__(self, delete=None, prefix=None, type=None, url_list=None, urls=None, _configuration=None):  # noqa: E501
+    def __init__(self, cache_shared=None, delete=None, prefix=None, request_header_instances=None, type=None, url_list=None, urls=None, _configuration=None):  # noqa: E501
         """SubmitRefreshTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cache_shared = None
         self._delete = None
         self._prefix = None
+        self._request_header_instances = None
         self._type = None
         self._url_list = None
         self._urls = None
         self.discriminator = None
 
+        if cache_shared is not None:
+            self.cache_shared = cache_shared
         if delete is not None:
             self.delete = delete
         if prefix is not None:
             self.prefix = prefix
+        if request_header_instances is not None:
+            self.request_header_instances = request_header_instances
         if type is not None:
             self.type = type
         if url_list is not None:
             self.url_list = url_list
         if urls is not None:
             self.urls = urls
+
+    @property
+    def cache_shared(self):
+        """Gets the cache_shared of this SubmitRefreshTaskRequest.  # noqa: E501
+
+
+        :return: The cache_shared of this SubmitRefreshTaskRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cache_shared
+
+    @cache_shared.setter
+    def cache_shared(self, cache_shared):
+        """Sets the cache_shared of this SubmitRefreshTaskRequest.
+
+
+        :param cache_shared: The cache_shared of this SubmitRefreshTaskRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._cache_shared = cache_shared
 
     @property
     def delete(self):
@@ -113,6 +144,27 @@ class SubmitRefreshTaskRequest(object):
         """
 
         self._prefix = prefix
+
+    @property
+    def request_header_instances(self):
+        """Gets the request_header_instances of this SubmitRefreshTaskRequest.  # noqa: E501
+
+
+        :return: The request_header_instances of this SubmitRefreshTaskRequest.  # noqa: E501
+        :rtype: list[RequestHeaderInstanceForSubmitRefreshTaskInput]
+        """
+        return self._request_header_instances
+
+    @request_header_instances.setter
+    def request_header_instances(self, request_header_instances):
+        """Sets the request_header_instances of this SubmitRefreshTaskRequest.
+
+
+        :param request_header_instances: The request_header_instances of this SubmitRefreshTaskRequest.  # noqa: E501
+        :type: list[RequestHeaderInstanceForSubmitRefreshTaskInput]
+        """
+
+        self._request_header_instances = request_header_instances
 
     @property
     def type(self):
