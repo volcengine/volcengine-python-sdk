@@ -1,0 +1,5 @@
+{
+  "description": "CLOUDMONITOR: 新增 ListAlert；修改 GetMetricData, ListObjectGroups, ListRules, ListRulesByIds",
+  "modules": "service/cloudmonitor",
+  "type": "breaking-change"
+}
