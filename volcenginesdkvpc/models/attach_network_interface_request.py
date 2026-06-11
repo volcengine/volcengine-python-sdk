@@ -33,27 +33,53 @@ class AttachNetworkInterfaceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'delete_on_termination': 'bool',
         'instance_id': 'str',
         'network_interface_id': 'str'
     }
 
     attribute_map = {
+        'delete_on_termination': 'DeleteOnTermination',
         'instance_id': 'InstanceId',
         'network_interface_id': 'NetworkInterfaceId'
     }
 
-    def __init__(self, instance_id=None, network_interface_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_on_termination=None, instance_id=None, network_interface_id=None, _configuration=None):  # noqa: E501
         """AttachNetworkInterfaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._delete_on_termination = None
         self._instance_id = None
         self._network_interface_id = None
         self.discriminator = None
 
+        if delete_on_termination is not None:
+            self.delete_on_termination = delete_on_termination
         self.instance_id = instance_id
         self.network_interface_id = network_interface_id
+
+    @property
+    def delete_on_termination(self):
+        """Gets the delete_on_termination of this AttachNetworkInterfaceRequest.  # noqa: E501
+
+
+        :return: The delete_on_termination of this AttachNetworkInterfaceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delete_on_termination
+
+    @delete_on_termination.setter
+    def delete_on_termination(self, delete_on_termination):
+        """Sets the delete_on_termination of this AttachNetworkInterfaceRequest.
+
+
+        :param delete_on_termination: The delete_on_termination of this AttachNetworkInterfaceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._delete_on_termination = delete_on_termination
 
     @property
     def instance_id(self):

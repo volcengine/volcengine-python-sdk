@@ -53,7 +53,8 @@ class RowForListHostOutput(object):
         'resource_set_id': 'str',
         'server_type_code': 'str',
         'status': 'int',
-        'volc_region': 'str'
+        'volc_region': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
@@ -77,10 +78,11 @@ class RowForListHostOutput(object):
         'resource_set_id': 'ResourceSetId',
         'server_type_code': 'ServerTypeCode',
         'status': 'Status',
-        'volc_region': 'VolcRegion'
+        'volc_region': 'VolcRegion',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, authority_expire_time=None, authority_status=None, charge_type=None, configuration_code=None, configuration_name=None, create_at=None, dc=None, expire_at=None, host_id=None, last_reboot_time=None, pod_id_list=None, pod_num_available=None, pod_num_on_host=None, product_id=None, region=None, renew_type=None, resource_set_id=None, server_type_code=None, status=None, volc_region=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, authority_expire_time=None, authority_status=None, charge_type=None, configuration_code=None, configuration_name=None, create_at=None, dc=None, expire_at=None, host_id=None, last_reboot_time=None, pod_id_list=None, pod_num_available=None, pod_num_on_host=None, product_id=None, region=None, renew_type=None, resource_set_id=None, server_type_code=None, status=None, volc_region=None, zone_id=None, _configuration=None):  # noqa: E501
         """RowForListHostOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -107,6 +109,7 @@ class RowForListHostOutput(object):
         self._server_type_code = None
         self._status = None
         self._volc_region = None
+        self._zone_id = None
         self.discriminator = None
 
         if account_id is not None:
@@ -151,6 +154,8 @@ class RowForListHostOutput(object):
             self.status = status
         if volc_region is not None:
             self.volc_region = volc_region
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def account_id(self):
@@ -592,6 +597,27 @@ class RowForListHostOutput(object):
         """
 
         self._volc_region = volc_region
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this RowForListHostOutput.  # noqa: E501
+
+
+        :return: The zone_id of this RowForListHostOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this RowForListHostOutput.
+
+
+        :param zone_id: The zone_id of this RowForListHostOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

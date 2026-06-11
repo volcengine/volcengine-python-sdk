@@ -60,9 +60,11 @@ class ScaleInstanceRequest(object):
 
         if component_spec_list is not None:
             self.component_spec_list = component_spec_list
-        self.ha_enabled = ha_enabled
+        if ha_enabled is not None:
+            self.ha_enabled = ha_enabled
         self.instance_id = instance_id
-        self.one_step = one_step
+        if one_step is not None:
+            self.one_step = one_step
 
     @property
     def component_spec_list(self):
@@ -103,8 +105,6 @@ class ScaleInstanceRequest(object):
         :param ha_enabled: The ha_enabled of this ScaleInstanceRequest.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and ha_enabled is None:
-            raise ValueError("Invalid value for `ha_enabled`, must not be `None`")  # noqa: E501
 
         self._ha_enabled = ha_enabled
 
@@ -149,8 +149,6 @@ class ScaleInstanceRequest(object):
         :param one_step: The one_step of this ScaleInstanceRequest.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and one_step is None:
-            raise ValueError("Invalid value for `one_step`, must not be `None`")  # noqa: E501
 
         self._one_step = one_step
 

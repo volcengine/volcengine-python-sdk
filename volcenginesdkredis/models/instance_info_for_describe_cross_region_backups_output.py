@@ -35,6 +35,7 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput(object):
     swagger_types = {
         'account_id': 'int',
         'arch_type': 'str',
+        'blue_green_role': 'str',
         'charge_type': 'str',
         'deletion_protection': 'str',
         'engine_version': 'str',
@@ -55,6 +56,7 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'arch_type': 'ArchType',
+        'blue_green_role': 'BlueGreenRole',
         'charge_type': 'ChargeType',
         'deletion_protection': 'DeletionProtection',
         'engine_version': 'EngineVersion',
@@ -72,7 +74,7 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, account_id=None, arch_type=None, charge_type=None, deletion_protection=None, engine_version=None, expired_time=None, instance_id=None, instance_name=None, maintenance_time=None, network_type=None, region_id=None, replicas=None, shard_capacity=None, shard_number=None, total_capacity=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, arch_type=None, blue_green_role=None, charge_type=None, deletion_protection=None, engine_version=None, expired_time=None, instance_id=None, instance_name=None, maintenance_time=None, network_type=None, region_id=None, replicas=None, shard_capacity=None, shard_number=None, total_capacity=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceInfoForDescribeCrossRegionBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +82,7 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput(object):
 
         self._account_id = None
         self._arch_type = None
+        self._blue_green_role = None
         self._charge_type = None
         self._deletion_protection = None
         self._engine_version = None
@@ -101,6 +104,8 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput(object):
             self.account_id = account_id
         if arch_type is not None:
             self.arch_type = arch_type
+        if blue_green_role is not None:
+            self.blue_green_role = blue_green_role
         if charge_type is not None:
             self.charge_type = charge_type
         if deletion_protection is not None:
@@ -173,6 +178,27 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput(object):
         """
 
         self._arch_type = arch_type
+
+    @property
+    def blue_green_role(self):
+        """Gets the blue_green_role of this InstanceInfoForDescribeCrossRegionBackupsOutput.  # noqa: E501
+
+
+        :return: The blue_green_role of this InstanceInfoForDescribeCrossRegionBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._blue_green_role
+
+    @blue_green_role.setter
+    def blue_green_role(self, blue_green_role):
+        """Sets the blue_green_role of this InstanceInfoForDescribeCrossRegionBackupsOutput.
+
+
+        :param blue_green_role: The blue_green_role of this InstanceInfoForDescribeCrossRegionBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._blue_green_role = blue_green_role
 
     @property
     def charge_type(self):

@@ -33,43 +33,45 @@ class GetPreSignedEdgeURLRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'api_body_hash': 'str',
         'api_path': 'str',
         'api_payload': 'APIPayloadForGetPreSignedEdgeURLInput',
         'api_type': 'str',
         'pod_id': 'str',
         'product_id': 'str',
-        'single_use': 'bool',
         'ttl': 'int',
         'timeout': 'int'
     }
 
     attribute_map = {
+        'api_body_hash': 'APIBodyHash',
         'api_path': 'APIPath',
         'api_payload': 'APIPayload',
         'api_type': 'APIType',
         'pod_id': 'PodId',
         'product_id': 'ProductId',
-        'single_use': 'SingleUse',
         'ttl': 'TTL',
         'timeout': 'Timeout'
     }
 
-    def __init__(self, api_path=None, api_payload=None, api_type=None, pod_id=None, product_id=None, single_use=None, ttl=None, timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_body_hash=None, api_path=None, api_payload=None, api_type=None, pod_id=None, product_id=None, ttl=None, timeout=None, _configuration=None):  # noqa: E501
         """GetPreSignedEdgeURLRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._api_body_hash = None
         self._api_path = None
         self._api_payload = None
         self._api_type = None
         self._pod_id = None
         self._product_id = None
-        self._single_use = None
         self._ttl = None
         self._timeout = None
         self.discriminator = None
 
+        if api_body_hash is not None:
+            self.api_body_hash = api_body_hash
         if api_path is not None:
             self.api_path = api_path
         if api_payload is not None:
@@ -77,12 +79,31 @@ class GetPreSignedEdgeURLRequest(object):
         self.api_type = api_type
         self.pod_id = pod_id
         self.product_id = product_id
-        if single_use is not None:
-            self.single_use = single_use
         if ttl is not None:
             self.ttl = ttl
         if timeout is not None:
             self.timeout = timeout
+
+    @property
+    def api_body_hash(self):
+        """Gets the api_body_hash of this GetPreSignedEdgeURLRequest.  # noqa: E501
+
+
+        :return: The api_body_hash of this GetPreSignedEdgeURLRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._api_body_hash
+
+    @api_body_hash.setter
+    def api_body_hash(self, api_body_hash):
+        """Sets the api_body_hash of this GetPreSignedEdgeURLRequest.
+
+
+        :param api_body_hash: The api_body_hash of this GetPreSignedEdgeURLRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._api_body_hash = api_body_hash
 
     @property
     def api_path(self):
@@ -194,27 +215,6 @@ class GetPreSignedEdgeURLRequest(object):
             raise ValueError("Invalid value for `product_id`, must not be `None`")  # noqa: E501
 
         self._product_id = product_id
-
-    @property
-    def single_use(self):
-        """Gets the single_use of this GetPreSignedEdgeURLRequest.  # noqa: E501
-
-
-        :return: The single_use of this GetPreSignedEdgeURLRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._single_use
-
-    @single_use.setter
-    def single_use(self, single_use):
-        """Sets the single_use of this GetPreSignedEdgeURLRequest.
-
-
-        :param single_use: The single_use of this GetPreSignedEdgeURLRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._single_use = single_use
 
     @property
     def ttl(self):

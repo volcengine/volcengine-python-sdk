@@ -1,0 +1,5 @@
+{
+  "description": "CDN: 新增 DescribeDomainEnvVersion, DescribeDomainVersion, DescribeRetrieveInfo, ListDomainVersions, ReleaseDomainVersion, UpdateDomainVersion, CreateDomainVersion, DeleteDomainVersion；修改 UpdateCdnConfig, AddCdnDomain, BatchUpdateCdnConfig, DescribeCdnConfig, DescribeContentTasks, SubmitRefreshTask",
+  "modules": "service/CDN",
+  "type": "feature"
+}

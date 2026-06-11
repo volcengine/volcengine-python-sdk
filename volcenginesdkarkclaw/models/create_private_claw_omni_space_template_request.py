@@ -34,59 +34,66 @@ class CreatePrivateClawOmniSpaceTemplateRequest(object):
     """
     swagger_types = {
         'agent_md': 'str',
+        'application_version_id': 'str',
         'cpu_milli': 'int',
         'default_model_name': 'str',
         'default_model_source': 'str',
         'description': 'str',
         'image_id': 'str',
+        'input': 'str',
         'memory_mb': 'int',
         'name': 'str',
         'plugin_config': 'str',
         'project_name': 'str',
+        'reasoning': 'str',
         'skill_config': 'str',
-        'soul': 'str',
-        'template_label': 'str'
+        'soul': 'str'
     }
 
     attribute_map = {
         'agent_md': 'AgentMd',
+        'application_version_id': 'ApplicationVersionId',
         'cpu_milli': 'CpuMilli',
         'default_model_name': 'DefaultModelName',
         'default_model_source': 'DefaultModelSource',
         'description': 'Description',
         'image_id': 'ImageId',
+        'input': 'Input',
         'memory_mb': 'MemoryMb',
         'name': 'Name',
         'plugin_config': 'PluginConfig',
         'project_name': 'ProjectName',
+        'reasoning': 'Reasoning',
         'skill_config': 'SkillConfig',
-        'soul': 'Soul',
-        'template_label': 'TemplateLabel'
+        'soul': 'Soul'
     }
 
-    def __init__(self, agent_md=None, cpu_milli=None, default_model_name=None, default_model_source=None, description=None, image_id=None, memory_mb=None, name=None, plugin_config=None, project_name=None, skill_config=None, soul=None, template_label=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_md=None, application_version_id=None, cpu_milli=None, default_model_name=None, default_model_source=None, description=None, image_id=None, input=None, memory_mb=None, name=None, plugin_config=None, project_name=None, reasoning=None, skill_config=None, soul=None, _configuration=None):  # noqa: E501
         """CreatePrivateClawOmniSpaceTemplateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._agent_md = None
+        self._application_version_id = None
         self._cpu_milli = None
         self._default_model_name = None
         self._default_model_source = None
         self._description = None
         self._image_id = None
+        self._input = None
         self._memory_mb = None
         self._name = None
         self._plugin_config = None
         self._project_name = None
+        self._reasoning = None
         self._skill_config = None
         self._soul = None
-        self._template_label = None
         self.discriminator = None
 
         if agent_md is not None:
             self.agent_md = agent_md
+        self.application_version_id = application_version_id
         self.cpu_milli = cpu_milli
         if default_model_name is not None:
             self.default_model_name = default_model_name
@@ -94,18 +101,21 @@ class CreatePrivateClawOmniSpaceTemplateRequest(object):
             self.default_model_source = default_model_source
         if description is not None:
             self.description = description
-        self.image_id = image_id
+        if image_id is not None:
+            self.image_id = image_id
+        if input is not None:
+            self.input = input
         self.memory_mb = memory_mb
         self.name = name
         if plugin_config is not None:
             self.plugin_config = plugin_config
         if project_name is not None:
             self.project_name = project_name
+        if reasoning is not None:
+            self.reasoning = reasoning
         if skill_config is not None:
             self.skill_config = skill_config
         self.soul = soul
-        if template_label is not None:
-            self.template_label = template_label
 
     @property
     def agent_md(self):
@@ -127,6 +137,29 @@ class CreatePrivateClawOmniSpaceTemplateRequest(object):
         """
 
         self._agent_md = agent_md
+
+    @property
+    def application_version_id(self):
+        """Gets the application_version_id of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
+
+
+        :return: The application_version_id of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._application_version_id
+
+    @application_version_id.setter
+    def application_version_id(self, application_version_id):
+        """Sets the application_version_id of this CreatePrivateClawOmniSpaceTemplateRequest.
+
+
+        :param application_version_id: The application_version_id of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and application_version_id is None:
+            raise ValueError("Invalid value for `application_version_id`, must not be `None`")  # noqa: E501
+
+        self._application_version_id = application_version_id
 
     @property
     def cpu_milli(self):
@@ -232,10 +265,29 @@ class CreatePrivateClawOmniSpaceTemplateRequest(object):
         :param image_id: The image_id of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and image_id is None:
-            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
+
+    @property
+    def input(self):
+        """Gets the input of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
+
+
+        :return: The input of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._input
+
+    @input.setter
+    def input(self, input):
+        """Sets the input of this CreatePrivateClawOmniSpaceTemplateRequest.
+
+
+        :param input: The input of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._input = input
 
     @property
     def memory_mb(self):
@@ -326,6 +378,27 @@ class CreatePrivateClawOmniSpaceTemplateRequest(object):
         self._project_name = project_name
 
     @property
+    def reasoning(self):
+        """Gets the reasoning of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
+
+
+        :return: The reasoning of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._reasoning
+
+    @reasoning.setter
+    def reasoning(self, reasoning):
+        """Sets the reasoning of this CreatePrivateClawOmniSpaceTemplateRequest.
+
+
+        :param reasoning: The reasoning of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._reasoning = reasoning
+
+    @property
     def skill_config(self):
         """Gets the skill_config of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
 
@@ -368,27 +441,6 @@ class CreatePrivateClawOmniSpaceTemplateRequest(object):
             raise ValueError("Invalid value for `soul`, must not be `None`")  # noqa: E501
 
         self._soul = soul
-
-    @property
-    def template_label(self):
-        """Gets the template_label of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
-
-
-        :return: The template_label of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._template_label
-
-    @template_label.setter
-    def template_label(self, template_label):
-        """Sets the template_label of this CreatePrivateClawOmniSpaceTemplateRequest.
-
-
-        :param template_label: The template_label of this CreatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._template_label = template_label
 
     def to_dict(self):
         """Returns the model properties as a dict"""

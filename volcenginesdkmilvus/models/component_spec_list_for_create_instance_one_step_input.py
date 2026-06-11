@@ -33,10 +33,10 @@ class ComponentSpecListForCreateInstanceOneStepInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cpu_num': 'float',
-        'mem_size': 'float',
+        'cpu_num': 'int',
+        'mem_size': 'int',
         'node_cu_type': 'str',
-        'node_num': 'float',
+        'node_num': 'int',
         'node_type': 'str',
         'resource_spec_name': 'str'
     }
@@ -83,7 +83,7 @@ class ComponentSpecListForCreateInstanceOneStepInput(object):
 
 
         :return: The cpu_num of this ComponentSpecListForCreateInstanceOneStepInput.  # noqa: E501
-        :rtype: float
+        :rtype: int
         """
         return self._cpu_num
 
@@ -93,7 +93,7 @@ class ComponentSpecListForCreateInstanceOneStepInput(object):
 
 
         :param cpu_num: The cpu_num of this ComponentSpecListForCreateInstanceOneStepInput.  # noqa: E501
-        :type: float
+        :type: int
         """
 
         self._cpu_num = cpu_num
@@ -104,7 +104,7 @@ class ComponentSpecListForCreateInstanceOneStepInput(object):
 
 
         :return: The mem_size of this ComponentSpecListForCreateInstanceOneStepInput.  # noqa: E501
-        :rtype: float
+        :rtype: int
         """
         return self._mem_size
 
@@ -114,7 +114,7 @@ class ComponentSpecListForCreateInstanceOneStepInput(object):
 
 
         :param mem_size: The mem_size of this ComponentSpecListForCreateInstanceOneStepInput.  # noqa: E501
-        :type: float
+        :type: int
         """
 
         self._mem_size = mem_size
@@ -146,7 +146,7 @@ class ComponentSpecListForCreateInstanceOneStepInput(object):
 
 
         :return: The node_num of this ComponentSpecListForCreateInstanceOneStepInput.  # noqa: E501
-        :rtype: float
+        :rtype: int
         """
         return self._node_num
 
@@ -156,7 +156,7 @@ class ComponentSpecListForCreateInstanceOneStepInput(object):
 
 
         :param node_num: The node_num of this ComponentSpecListForCreateInstanceOneStepInput.  # noqa: E501
-        :type: float
+        :type: int
         """
 
         self._node_num = node_num

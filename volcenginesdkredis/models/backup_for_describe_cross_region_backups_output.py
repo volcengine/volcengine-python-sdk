@@ -35,6 +35,7 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
     swagger_types = {
         'backup_point_id': 'str',
         'backup_point_name': 'str',
+        'backup_progress': 'int',
         'backup_strategy': 'str',
         'backup_type': 'str',
         'end_time': 'str',
@@ -52,6 +53,7 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
     attribute_map = {
         'backup_point_id': 'BackupPointId',
         'backup_point_name': 'BackupPointName',
+        'backup_progress': 'BackupProgress',
         'backup_strategy': 'BackupStrategy',
         'backup_type': 'BackupType',
         'end_time': 'EndTime',
@@ -66,7 +68,7 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
         'target_region': 'TargetRegion'
     }
 
-    def __init__(self, backup_point_id=None, backup_point_name=None, backup_strategy=None, backup_type=None, end_time=None, instance_id=None, instance_info=None, project_name=None, size=None, source_region=None, start_time=None, status=None, ttl=None, target_region=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_point_id=None, backup_point_name=None, backup_progress=None, backup_strategy=None, backup_type=None, end_time=None, instance_id=None, instance_info=None, project_name=None, size=None, source_region=None, start_time=None, status=None, ttl=None, target_region=None, _configuration=None):  # noqa: E501
         """BackupForDescribeCrossRegionBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
 
         self._backup_point_id = None
         self._backup_point_name = None
+        self._backup_progress = None
         self._backup_strategy = None
         self._backup_type = None
         self._end_time = None
@@ -92,6 +95,8 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
             self.backup_point_id = backup_point_id
         if backup_point_name is not None:
             self.backup_point_name = backup_point_name
+        if backup_progress is not None:
+            self.backup_progress = backup_progress
         if backup_strategy is not None:
             self.backup_strategy = backup_strategy
         if backup_type is not None:
@@ -158,6 +163,27 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
         """
 
         self._backup_point_name = backup_point_name
+
+    @property
+    def backup_progress(self):
+        """Gets the backup_progress of this BackupForDescribeCrossRegionBackupsOutput.  # noqa: E501
+
+
+        :return: The backup_progress of this BackupForDescribeCrossRegionBackupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._backup_progress
+
+    @backup_progress.setter
+    def backup_progress(self, backup_progress):
+        """Sets the backup_progress of this BackupForDescribeCrossRegionBackupsOutput.
+
+
+        :param backup_progress: The backup_progress of this BackupForDescribeCrossRegionBackupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._backup_progress = backup_progress
 
     @property
     def backup_strategy(self):

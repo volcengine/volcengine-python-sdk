@@ -35,14 +35,18 @@ class ItemForListWorkspacesOutput(object):
     swagger_types = {
         'account_id': 'int',
         'account_name': 'str',
+        'charge_type': 'str',
+        'charge_type_switched': 'bool',
         'create_time': 'str',
         'delete_protection_enabled': 'bool',
         'description': 'str',
+        'exclusive_resource_config': 'ExclusiveResourceConfigForListWorkspacesOutput',
         'id': 'str',
         'instance_type_id': 'str',
         'name': 'str',
         'overdue_reclaim_time': 'str',
         'project_name': 'str',
+        'prometheus_federate_endpoint': 'str',
         'prometheus_push_endpoint': 'str',
         'prometheus_push_intranet_endpoint': 'str',
         'prometheus_query_endpoint': 'str',
@@ -60,14 +64,18 @@ class ItemForListWorkspacesOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'account_name': 'AccountName',
+        'charge_type': 'ChargeType',
+        'charge_type_switched': 'ChargeTypeSwitched',
         'create_time': 'CreateTime',
         'delete_protection_enabled': 'DeleteProtectionEnabled',
         'description': 'Description',
+        'exclusive_resource_config': 'ExclusiveResourceConfig',
         'id': 'Id',
         'instance_type_id': 'InstanceTypeId',
         'name': 'Name',
         'overdue_reclaim_time': 'OverdueReclaimTime',
         'project_name': 'ProjectName',
+        'prometheus_federate_endpoint': 'PrometheusFederateEndpoint',
         'prometheus_push_endpoint': 'PrometheusPushEndpoint',
         'prometheus_push_intranet_endpoint': 'PrometheusPushIntranetEndpoint',
         'prometheus_query_endpoint': 'PrometheusQueryEndpoint',
@@ -82,7 +90,7 @@ class ItemForListWorkspacesOutput(object):
         'username': 'Username'
     }
 
-    def __init__(self, account_id=None, account_name=None, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_push_endpoint=None, prometheus_push_intranet_endpoint=None, prometheus_query_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_endpoint=None, prometheus_write_intranet_endpoint=None, public_access_enabled=None, region=None, search_latency_offset=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, account_name=None, charge_type=None, charge_type_switched=None, create_time=None, delete_protection_enabled=None, description=None, exclusive_resource_config=None, id=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_federate_endpoint=None, prometheus_push_endpoint=None, prometheus_push_intranet_endpoint=None, prometheus_query_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_endpoint=None, prometheus_write_intranet_endpoint=None, public_access_enabled=None, region=None, search_latency_offset=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
         """ItemForListWorkspacesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,14 +98,18 @@ class ItemForListWorkspacesOutput(object):
 
         self._account_id = None
         self._account_name = None
+        self._charge_type = None
+        self._charge_type_switched = None
         self._create_time = None
         self._delete_protection_enabled = None
         self._description = None
+        self._exclusive_resource_config = None
         self._id = None
         self._instance_type_id = None
         self._name = None
         self._overdue_reclaim_time = None
         self._project_name = None
+        self._prometheus_federate_endpoint = None
         self._prometheus_push_endpoint = None
         self._prometheus_push_intranet_endpoint = None
         self._prometheus_query_endpoint = None
@@ -116,12 +128,18 @@ class ItemForListWorkspacesOutput(object):
             self.account_id = account_id
         if account_name is not None:
             self.account_name = account_name
+        if charge_type is not None:
+            self.charge_type = charge_type
+        if charge_type_switched is not None:
+            self.charge_type_switched = charge_type_switched
         if create_time is not None:
             self.create_time = create_time
         if delete_protection_enabled is not None:
             self.delete_protection_enabled = delete_protection_enabled
         if description is not None:
             self.description = description
+        if exclusive_resource_config is not None:
+            self.exclusive_resource_config = exclusive_resource_config
         if id is not None:
             self.id = id
         if instance_type_id is not None:
@@ -132,6 +150,8 @@ class ItemForListWorkspacesOutput(object):
             self.overdue_reclaim_time = overdue_reclaim_time
         if project_name is not None:
             self.project_name = project_name
+        if prometheus_federate_endpoint is not None:
+            self.prometheus_federate_endpoint = prometheus_federate_endpoint
         if prometheus_push_endpoint is not None:
             self.prometheus_push_endpoint = prometheus_push_endpoint
         if prometheus_push_intranet_endpoint is not None:
@@ -200,6 +220,48 @@ class ItemForListWorkspacesOutput(object):
         self._account_name = account_name
 
     @property
+    def charge_type(self):
+        """Gets the charge_type of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The charge_type of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._charge_type
+
+    @charge_type.setter
+    def charge_type(self, charge_type):
+        """Sets the charge_type of this ItemForListWorkspacesOutput.
+
+
+        :param charge_type: The charge_type of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._charge_type = charge_type
+
+    @property
+    def charge_type_switched(self):
+        """Gets the charge_type_switched of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The charge_type_switched of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._charge_type_switched
+
+    @charge_type_switched.setter
+    def charge_type_switched(self, charge_type_switched):
+        """Sets the charge_type_switched of this ItemForListWorkspacesOutput.
+
+
+        :param charge_type_switched: The charge_type_switched of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._charge_type_switched = charge_type_switched
+
+    @property
     def create_time(self):
         """Gets the create_time of this ItemForListWorkspacesOutput.  # noqa: E501
 
@@ -261,6 +323,27 @@ class ItemForListWorkspacesOutput(object):
         """
 
         self._description = description
+
+    @property
+    def exclusive_resource_config(self):
+        """Gets the exclusive_resource_config of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The exclusive_resource_config of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: ExclusiveResourceConfigForListWorkspacesOutput
+        """
+        return self._exclusive_resource_config
+
+    @exclusive_resource_config.setter
+    def exclusive_resource_config(self, exclusive_resource_config):
+        """Sets the exclusive_resource_config of this ItemForListWorkspacesOutput.
+
+
+        :param exclusive_resource_config: The exclusive_resource_config of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: ExclusiveResourceConfigForListWorkspacesOutput
+        """
+
+        self._exclusive_resource_config = exclusive_resource_config
 
     @property
     def id(self):
@@ -366,6 +449,27 @@ class ItemForListWorkspacesOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def prometheus_federate_endpoint(self):
+        """Gets the prometheus_federate_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The prometheus_federate_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_federate_endpoint
+
+    @prometheus_federate_endpoint.setter
+    def prometheus_federate_endpoint(self, prometheus_federate_endpoint):
+        """Sets the prometheus_federate_endpoint of this ItemForListWorkspacesOutput.
+
+
+        :param prometheus_federate_endpoint: The prometheus_federate_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_federate_endpoint = prometheus_federate_endpoint
 
     @property
     def prometheus_push_endpoint(self):
