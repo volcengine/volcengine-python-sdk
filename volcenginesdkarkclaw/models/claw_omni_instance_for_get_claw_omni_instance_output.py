@@ -33,6 +33,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'agent_md': 'str',
         'cpu_milli': 'int',
         'created_at': 'str',
         'description': 'str',
@@ -55,6 +56,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
     }
 
     attribute_map = {
+        'agent_md': 'AgentMd',
         'cpu_milli': 'CpuMilli',
         'created_at': 'CreatedAt',
         'description': 'Description',
@@ -76,12 +78,13 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, cpu_milli=None, created_at=None, description=None, endpoint=None, expired_action=None, expired_at=None, id=None, image=None, internal_endpoint=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, status=None, tags=None, template_id=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_md=None, cpu_milli=None, created_at=None, description=None, endpoint=None, expired_action=None, expired_at=None, id=None, image=None, internal_endpoint=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, status=None, tags=None, template_id=None, updated_at=None, _configuration=None):  # noqa: E501
         """ClawOmniInstanceForGetClawOmniInstanceOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._agent_md = None
         self._cpu_milli = None
         self._created_at = None
         self._description = None
@@ -103,6 +106,8 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         self._updated_at = None
         self.discriminator = None
 
+        if agent_md is not None:
+            self.agent_md = agent_md
         if cpu_milli is not None:
             self.cpu_milli = cpu_milli
         if created_at is not None:
@@ -141,6 +146,27 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
             self.template_id = template_id
         if updated_at is not None:
             self.updated_at = updated_at
+
+    @property
+    def agent_md(self):
+        """Gets the agent_md of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+
+
+        :return: The agent_md of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._agent_md
+
+    @agent_md.setter
+    def agent_md(self, agent_md):
+        """Sets the agent_md of this ClawOmniInstanceForGetClawOmniInstanceOutput.
+
+
+        :param agent_md: The agent_md of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._agent_md = agent_md
 
     @property
     def cpu_milli(self):

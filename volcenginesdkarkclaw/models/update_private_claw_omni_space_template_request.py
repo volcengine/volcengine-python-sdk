@@ -44,8 +44,7 @@ class UpdatePrivateClawOmniSpaceTemplateRequest(object):
         'name': 'str',
         'plugin_config': 'str',
         'skill_config': 'str',
-        'soul': 'str',
-        'template_label': 'str'
+        'soul': 'str'
     }
 
     attribute_map = {
@@ -60,11 +59,10 @@ class UpdatePrivateClawOmniSpaceTemplateRequest(object):
         'name': 'Name',
         'plugin_config': 'PluginConfig',
         'skill_config': 'SkillConfig',
-        'soul': 'Soul',
-        'template_label': 'TemplateLabel'
+        'soul': 'Soul'
     }
 
-    def __init__(self, agent_md=None, cpu_milli=None, default_model_name=None, default_model_source=None, description=None, id=None, image_id=None, memory_mb=None, name=None, plugin_config=None, skill_config=None, soul=None, template_label=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_md=None, cpu_milli=None, default_model_name=None, default_model_source=None, description=None, id=None, image_id=None, memory_mb=None, name=None, plugin_config=None, skill_config=None, soul=None, _configuration=None):  # noqa: E501
         """UpdatePrivateClawOmniSpaceTemplateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,7 +80,6 @@ class UpdatePrivateClawOmniSpaceTemplateRequest(object):
         self._plugin_config = None
         self._skill_config = None
         self._soul = None
-        self._template_label = None
         self.discriminator = None
 
         if agent_md is not None:
@@ -108,8 +105,6 @@ class UpdatePrivateClawOmniSpaceTemplateRequest(object):
             self.skill_config = skill_config
         if soul is not None:
             self.soul = soul
-        if template_label is not None:
-            self.template_label = template_label
 
     @property
     def agent_md(self):
@@ -364,27 +359,6 @@ class UpdatePrivateClawOmniSpaceTemplateRequest(object):
         """
 
         self._soul = soul
-
-    @property
-    def template_label(self):
-        """Gets the template_label of this UpdatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
-
-
-        :return: The template_label of this UpdatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._template_label
-
-    @template_label.setter
-    def template_label(self, template_label):
-        """Sets the template_label of this UpdatePrivateClawOmniSpaceTemplateRequest.
-
-
-        :param template_label: The template_label of this UpdatePrivateClawOmniSpaceTemplateRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._template_label = template_label
 
     def to_dict(self):
         """Returns the model properties as a dict"""

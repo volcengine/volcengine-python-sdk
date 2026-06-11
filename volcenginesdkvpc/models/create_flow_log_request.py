@@ -44,6 +44,7 @@ class CreateFlowLogRequest(object):
         'resource_id': 'str',
         'resource_type': 'str',
         'tags': 'list[TagForCreateFlowLogInput]',
+        'traffic_path': 'list[int]',
         'traffic_type': 'str'
     }
 
@@ -59,10 +60,11 @@ class CreateFlowLogRequest(object):
         'resource_id': 'ResourceId',
         'resource_type': 'ResourceType',
         'tags': 'Tags',
+        'traffic_path': 'TrafficPath',
         'traffic_type': 'TrafficType'
     }
 
-    def __init__(self, aggregation_interval=None, client_token=None, description=None, enable_index=None, flow_log_name=None, log_project_name=None, log_topic_name=None, project_name=None, resource_id=None, resource_type=None, tags=None, traffic_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, aggregation_interval=None, client_token=None, description=None, enable_index=None, flow_log_name=None, log_project_name=None, log_topic_name=None, project_name=None, resource_id=None, resource_type=None, tags=None, traffic_path=None, traffic_type=None, _configuration=None):  # noqa: E501
         """CreateFlowLogRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class CreateFlowLogRequest(object):
         self._resource_id = None
         self._resource_type = None
         self._tags = None
+        self._traffic_path = None
         self._traffic_type = None
         self.discriminator = None
 
@@ -98,6 +101,8 @@ class CreateFlowLogRequest(object):
         self.resource_type = resource_type
         if tags is not None:
             self.tags = tags
+        if traffic_path is not None:
+            self.traffic_path = traffic_path
         self.traffic_type = traffic_type
 
     @property
@@ -351,6 +356,27 @@ class CreateFlowLogRequest(object):
         """
 
         self._tags = tags
+
+    @property
+    def traffic_path(self):
+        """Gets the traffic_path of this CreateFlowLogRequest.  # noqa: E501
+
+
+        :return: The traffic_path of this CreateFlowLogRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._traffic_path
+
+    @traffic_path.setter
+    def traffic_path(self, traffic_path):
+        """Sets the traffic_path of this CreateFlowLogRequest.
+
+
+        :param traffic_path: The traffic_path of this CreateFlowLogRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._traffic_path = traffic_path
 
     @property
     def traffic_type(self):

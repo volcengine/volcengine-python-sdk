@@ -40,15 +40,21 @@ class ItemForListClawOmniSpaceTemplatesOutput(object):
         'default_model_source': 'str',
         'description': 'str',
         'id': 'str',
+        'image_build_error': 'str',
+        'image_build_status': 'str',
         'image_id': 'str',
+        'image_url': 'str',
+        'input': 'str',
+        'is_imaged': 'bool',
         'memory_mb': 'int',
         'name': 'str',
         'plugin_config': 'str',
         'project_name': 'str',
+        'reasoning': 'str',
         'skill_config': 'str',
         'soul': 'str',
         'template_current_version_id': 'str',
-        'template_label': 'str',
+        'template_pending_version_id': 'str',
         'template_version_id': 'str',
         'type': 'str',
         'version': 'str'
@@ -62,21 +68,27 @@ class ItemForListClawOmniSpaceTemplatesOutput(object):
         'default_model_source': 'DefaultModelSource',
         'description': 'Description',
         'id': 'Id',
+        'image_build_error': 'ImageBuildError',
+        'image_build_status': 'ImageBuildStatus',
         'image_id': 'ImageId',
+        'image_url': 'ImageUrl',
+        'input': 'Input',
+        'is_imaged': 'IsImaged',
         'memory_mb': 'MemoryMb',
         'name': 'Name',
         'plugin_config': 'PluginConfig',
         'project_name': 'ProjectName',
+        'reasoning': 'Reasoning',
         'skill_config': 'SkillConfig',
         'soul': 'Soul',
         'template_current_version_id': 'TemplateCurrentVersionId',
-        'template_label': 'TemplateLabel',
+        'template_pending_version_id': 'TemplatePendingVersionId',
         'template_version_id': 'TemplateVersionId',
         'type': 'Type',
         'version': 'Version'
     }
 
-    def __init__(self, account_id=None, agent_md=None, cpu_milli=None, default_model_name=None, default_model_source=None, description=None, id=None, image_id=None, memory_mb=None, name=None, plugin_config=None, project_name=None, skill_config=None, soul=None, template_current_version_id=None, template_label=None, template_version_id=None, type=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, agent_md=None, cpu_milli=None, default_model_name=None, default_model_source=None, description=None, id=None, image_build_error=None, image_build_status=None, image_id=None, image_url=None, input=None, is_imaged=None, memory_mb=None, name=None, plugin_config=None, project_name=None, reasoning=None, skill_config=None, soul=None, template_current_version_id=None, template_pending_version_id=None, template_version_id=None, type=None, version=None, _configuration=None):  # noqa: E501
         """ItemForListClawOmniSpaceTemplatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,15 +101,21 @@ class ItemForListClawOmniSpaceTemplatesOutput(object):
         self._default_model_source = None
         self._description = None
         self._id = None
+        self._image_build_error = None
+        self._image_build_status = None
         self._image_id = None
+        self._image_url = None
+        self._input = None
+        self._is_imaged = None
         self._memory_mb = None
         self._name = None
         self._plugin_config = None
         self._project_name = None
+        self._reasoning = None
         self._skill_config = None
         self._soul = None
         self._template_current_version_id = None
-        self._template_label = None
+        self._template_pending_version_id = None
         self._template_version_id = None
         self._type = None
         self._version = None
@@ -117,8 +135,18 @@ class ItemForListClawOmniSpaceTemplatesOutput(object):
             self.description = description
         if id is not None:
             self.id = id
+        if image_build_error is not None:
+            self.image_build_error = image_build_error
+        if image_build_status is not None:
+            self.image_build_status = image_build_status
         if image_id is not None:
             self.image_id = image_id
+        if image_url is not None:
+            self.image_url = image_url
+        if input is not None:
+            self.input = input
+        if is_imaged is not None:
+            self.is_imaged = is_imaged
         if memory_mb is not None:
             self.memory_mb = memory_mb
         if name is not None:
@@ -127,14 +155,16 @@ class ItemForListClawOmniSpaceTemplatesOutput(object):
             self.plugin_config = plugin_config
         if project_name is not None:
             self.project_name = project_name
+        if reasoning is not None:
+            self.reasoning = reasoning
         if skill_config is not None:
             self.skill_config = skill_config
         if soul is not None:
             self.soul = soul
         if template_current_version_id is not None:
             self.template_current_version_id = template_current_version_id
-        if template_label is not None:
-            self.template_label = template_label
+        if template_pending_version_id is not None:
+            self.template_pending_version_id = template_pending_version_id
         if template_version_id is not None:
             self.template_version_id = template_version_id
         if type is not None:
@@ -290,6 +320,48 @@ class ItemForListClawOmniSpaceTemplatesOutput(object):
         self._id = id
 
     @property
+    def image_build_error(self):
+        """Gets the image_build_error of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+
+
+        :return: The image_build_error of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_build_error
+
+    @image_build_error.setter
+    def image_build_error(self, image_build_error):
+        """Sets the image_build_error of this ItemForListClawOmniSpaceTemplatesOutput.
+
+
+        :param image_build_error: The image_build_error of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._image_build_error = image_build_error
+
+    @property
+    def image_build_status(self):
+        """Gets the image_build_status of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+
+
+        :return: The image_build_status of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_build_status
+
+    @image_build_status.setter
+    def image_build_status(self, image_build_status):
+        """Sets the image_build_status of this ItemForListClawOmniSpaceTemplatesOutput.
+
+
+        :param image_build_status: The image_build_status of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._image_build_status = image_build_status
+
+    @property
     def image_id(self):
         """Gets the image_id of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
 
@@ -309,6 +381,69 @@ class ItemForListClawOmniSpaceTemplatesOutput(object):
         """
 
         self._image_id = image_id
+
+    @property
+    def image_url(self):
+        """Gets the image_url of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+
+
+        :return: The image_url of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_url
+
+    @image_url.setter
+    def image_url(self, image_url):
+        """Sets the image_url of this ItemForListClawOmniSpaceTemplatesOutput.
+
+
+        :param image_url: The image_url of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._image_url = image_url
+
+    @property
+    def input(self):
+        """Gets the input of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+
+
+        :return: The input of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._input
+
+    @input.setter
+    def input(self, input):
+        """Sets the input of this ItemForListClawOmniSpaceTemplatesOutput.
+
+
+        :param input: The input of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._input = input
+
+    @property
+    def is_imaged(self):
+        """Gets the is_imaged of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+
+
+        :return: The is_imaged of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_imaged
+
+    @is_imaged.setter
+    def is_imaged(self, is_imaged):
+        """Sets the is_imaged of this ItemForListClawOmniSpaceTemplatesOutput.
+
+
+        :param is_imaged: The is_imaged of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_imaged = is_imaged
 
     @property
     def memory_mb(self):
@@ -395,6 +530,27 @@ class ItemForListClawOmniSpaceTemplatesOutput(object):
         self._project_name = project_name
 
     @property
+    def reasoning(self):
+        """Gets the reasoning of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+
+
+        :return: The reasoning of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._reasoning
+
+    @reasoning.setter
+    def reasoning(self, reasoning):
+        """Sets the reasoning of this ItemForListClawOmniSpaceTemplatesOutput.
+
+
+        :param reasoning: The reasoning of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._reasoning = reasoning
+
+    @property
     def skill_config(self):
         """Gets the skill_config of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
 
@@ -458,25 +614,25 @@ class ItemForListClawOmniSpaceTemplatesOutput(object):
         self._template_current_version_id = template_current_version_id
 
     @property
-    def template_label(self):
-        """Gets the template_label of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+    def template_pending_version_id(self):
+        """Gets the template_pending_version_id of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
 
 
-        :return: The template_label of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :return: The template_pending_version_id of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
         :rtype: str
         """
-        return self._template_label
+        return self._template_pending_version_id
 
-    @template_label.setter
-    def template_label(self, template_label):
-        """Sets the template_label of this ItemForListClawOmniSpaceTemplatesOutput.
+    @template_pending_version_id.setter
+    def template_pending_version_id(self, template_pending_version_id):
+        """Sets the template_pending_version_id of this ItemForListClawOmniSpaceTemplatesOutput.
 
 
-        :param template_label: The template_label of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
+        :param template_pending_version_id: The template_pending_version_id of this ItemForListClawOmniSpaceTemplatesOutput.  # noqa: E501
         :type: str
         """
 
-        self._template_label = template_label
+        self._template_pending_version_id = template_pending_version_id
 
     @property
     def template_version_id(self):

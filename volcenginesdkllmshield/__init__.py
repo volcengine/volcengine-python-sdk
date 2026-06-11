@@ -17,6 +17,8 @@ from __future__ import absolute_import
 # 导入API模块
 from volcenginesdkllmshield.api.llm_shield_sdk_v2 import ClientV2, SetServiceDev, GetServiceCode
 from volcenginesdkllmshield.api.llm_shield_sdk_v2 import (
+    OPTION_ENABLE_AICC,
+    OPTION_LOG_LEVEL,
     ContentTypeV2,
     DecisionTypeV2,
     UserAction,
@@ -56,6 +58,9 @@ from volcenginesdkllmshield.api.llm_shield_sdk_v2 import (
 __all__ = [
     # API客户端
     'ClientV2',
+    # 全局常量
+    'OPTION_ENABLE_AICC',
+    'OPTION_LOG_LEVEL',
     # 常量类
     'ContentTypeV2',
     'DecisionTypeV2',

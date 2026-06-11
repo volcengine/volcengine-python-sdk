@@ -33,45 +33,305 @@ class CreateBlueGreenDeploymentResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'blue_green_deployment': 'BlueGreenDeploymentForCreateBlueGreenDeploymentOutput'
+        'create_time': 'str',
+        'data_sync_progress': 'float',
+        'end_time': 'str',
+        'name': 'str',
+        'source_engine_version': 'str',
+        'source_instance_id': 'str',
+        'source_instance_name': 'str',
+        'status': 'str',
+        'target_engine_version': 'str',
+        'target_instance_id': 'str',
+        'target_instance_name': 'str'
     }
 
     attribute_map = {
-        'blue_green_deployment': 'BlueGreenDeployment'
+        'create_time': 'CreateTime',
+        'data_sync_progress': 'DataSyncProgress',
+        'end_time': 'EndTime',
+        'name': 'Name',
+        'source_engine_version': 'SourceEngineVersion',
+        'source_instance_id': 'SourceInstanceId',
+        'source_instance_name': 'SourceInstanceName',
+        'status': 'Status',
+        'target_engine_version': 'TargetEngineVersion',
+        'target_instance_id': 'TargetInstanceId',
+        'target_instance_name': 'TargetInstanceName'
     }
 
-    def __init__(self, blue_green_deployment=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, data_sync_progress=None, end_time=None, name=None, source_engine_version=None, source_instance_id=None, source_instance_name=None, status=None, target_engine_version=None, target_instance_id=None, target_instance_name=None, _configuration=None):  # noqa: E501
         """CreateBlueGreenDeploymentResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._blue_green_deployment = None
+        self._create_time = None
+        self._data_sync_progress = None
+        self._end_time = None
+        self._name = None
+        self._source_engine_version = None
+        self._source_instance_id = None
+        self._source_instance_name = None
+        self._status = None
+        self._target_engine_version = None
+        self._target_instance_id = None
+        self._target_instance_name = None
         self.discriminator = None
 
-        if blue_green_deployment is not None:
-            self.blue_green_deployment = blue_green_deployment
+        if create_time is not None:
+            self.create_time = create_time
+        if data_sync_progress is not None:
+            self.data_sync_progress = data_sync_progress
+        if end_time is not None:
+            self.end_time = end_time
+        if name is not None:
+            self.name = name
+        if source_engine_version is not None:
+            self.source_engine_version = source_engine_version
+        if source_instance_id is not None:
+            self.source_instance_id = source_instance_id
+        if source_instance_name is not None:
+            self.source_instance_name = source_instance_name
+        if status is not None:
+            self.status = status
+        if target_engine_version is not None:
+            self.target_engine_version = target_engine_version
+        if target_instance_id is not None:
+            self.target_instance_id = target_instance_id
+        if target_instance_name is not None:
+            self.target_instance_name = target_instance_name
 
     @property
-    def blue_green_deployment(self):
-        """Gets the blue_green_deployment of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+    def create_time(self):
+        """Gets the create_time of this CreateBlueGreenDeploymentResponse.  # noqa: E501
 
 
-        :return: The blue_green_deployment of this CreateBlueGreenDeploymentResponse.  # noqa: E501
-        :rtype: BlueGreenDeploymentForCreateBlueGreenDeploymentOutput
+        :return: The create_time of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: str
         """
-        return self._blue_green_deployment
+        return self._create_time
 
-    @blue_green_deployment.setter
-    def blue_green_deployment(self, blue_green_deployment):
-        """Sets the blue_green_deployment of this CreateBlueGreenDeploymentResponse.
+    @create_time.setter
+    def create_time(self, create_time):
+        """Sets the create_time of this CreateBlueGreenDeploymentResponse.
 
 
-        :param blue_green_deployment: The blue_green_deployment of this CreateBlueGreenDeploymentResponse.  # noqa: E501
-        :type: BlueGreenDeploymentForCreateBlueGreenDeploymentOutput
+        :param create_time: The create_time of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: str
         """
 
-        self._blue_green_deployment = blue_green_deployment
+        self._create_time = create_time
+
+    @property
+    def data_sync_progress(self):
+        """Gets the data_sync_progress of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+
+
+        :return: The data_sync_progress of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: float
+        """
+        return self._data_sync_progress
+
+    @data_sync_progress.setter
+    def data_sync_progress(self, data_sync_progress):
+        """Sets the data_sync_progress of this CreateBlueGreenDeploymentResponse.
+
+
+        :param data_sync_progress: The data_sync_progress of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: float
+        """
+
+        self._data_sync_progress = data_sync_progress
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+
+
+        :return: The end_time of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this CreateBlueGreenDeploymentResponse.
+
+
+        :param end_time: The end_time of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._end_time = end_time
+
+    @property
+    def name(self):
+        """Gets the name of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+
+
+        :return: The name of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this CreateBlueGreenDeploymentResponse.
+
+
+        :param name: The name of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def source_engine_version(self):
+        """Gets the source_engine_version of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+
+
+        :return: The source_engine_version of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_engine_version
+
+    @source_engine_version.setter
+    def source_engine_version(self, source_engine_version):
+        """Sets the source_engine_version of this CreateBlueGreenDeploymentResponse.
+
+
+        :param source_engine_version: The source_engine_version of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._source_engine_version = source_engine_version
+
+    @property
+    def source_instance_id(self):
+        """Gets the source_instance_id of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+
+
+        :return: The source_instance_id of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_instance_id
+
+    @source_instance_id.setter
+    def source_instance_id(self, source_instance_id):
+        """Sets the source_instance_id of this CreateBlueGreenDeploymentResponse.
+
+
+        :param source_instance_id: The source_instance_id of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._source_instance_id = source_instance_id
+
+    @property
+    def source_instance_name(self):
+        """Gets the source_instance_name of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+
+
+        :return: The source_instance_name of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_instance_name
+
+    @source_instance_name.setter
+    def source_instance_name(self, source_instance_name):
+        """Sets the source_instance_name of this CreateBlueGreenDeploymentResponse.
+
+
+        :param source_instance_name: The source_instance_name of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._source_instance_name = source_instance_name
+
+    @property
+    def status(self):
+        """Gets the status of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+
+
+        :return: The status of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this CreateBlueGreenDeploymentResponse.
+
+
+        :param status: The status of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
+
+    @property
+    def target_engine_version(self):
+        """Gets the target_engine_version of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+
+
+        :return: The target_engine_version of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_engine_version
+
+    @target_engine_version.setter
+    def target_engine_version(self, target_engine_version):
+        """Sets the target_engine_version of this CreateBlueGreenDeploymentResponse.
+
+
+        :param target_engine_version: The target_engine_version of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._target_engine_version = target_engine_version
+
+    @property
+    def target_instance_id(self):
+        """Gets the target_instance_id of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+
+
+        :return: The target_instance_id of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_instance_id
+
+    @target_instance_id.setter
+    def target_instance_id(self, target_instance_id):
+        """Sets the target_instance_id of this CreateBlueGreenDeploymentResponse.
+
+
+        :param target_instance_id: The target_instance_id of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._target_instance_id = target_instance_id
+
+    @property
+    def target_instance_name(self):
+        """Gets the target_instance_name of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+
+
+        :return: The target_instance_name of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_instance_name
+
+    @target_instance_name.setter
+    def target_instance_name(self, target_instance_name):
+        """Sets the target_instance_name of this CreateBlueGreenDeploymentResponse.
+
+
+        :param target_instance_name: The target_instance_name of this CreateBlueGreenDeploymentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._target_instance_name = target_instance_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

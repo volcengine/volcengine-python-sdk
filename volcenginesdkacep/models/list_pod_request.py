@@ -38,6 +38,7 @@ class ListPodRequest(object):
         'configuration_code_list': 'list[str]',
         'dnsid': 'str',
         'dc_list': 'list[str]',
+        'filter_ai': 'bool',
         'host_id': 'str',
         'max_results': 'int',
         'next_token': 'str',
@@ -58,6 +59,7 @@ class ListPodRequest(object):
         'configuration_code_list': 'ConfigurationCodeList',
         'dnsid': 'DNSId',
         'dc_list': 'DcList',
+        'filter_ai': 'FilterAI',
         'host_id': 'HostId',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
@@ -72,7 +74,7 @@ class ListPodRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, archive_status=None, authority_status=None, configuration_code_list=None, dnsid=None, dc_list=None, host_id=None, max_results=None, next_token=None, online_list=None, pod_id_list=None, pod_name=None, product_id=None, region_list=None, server_type_code=None, stream_status_list=None, tag_id_list=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, archive_status=None, authority_status=None, configuration_code_list=None, dnsid=None, dc_list=None, filter_ai=None, host_id=None, max_results=None, next_token=None, online_list=None, pod_id_list=None, pod_name=None, product_id=None, region_list=None, server_type_code=None, stream_status_list=None, tag_id_list=None, zone_id=None, _configuration=None):  # noqa: E501
         """ListPodRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +85,7 @@ class ListPodRequest(object):
         self._configuration_code_list = None
         self._dnsid = None
         self._dc_list = None
+        self._filter_ai = None
         self._host_id = None
         self._max_results = None
         self._next_token = None
@@ -107,6 +110,8 @@ class ListPodRequest(object):
             self.dnsid = dnsid
         if dc_list is not None:
             self.dc_list = dc_list
+        if filter_ai is not None:
+            self.filter_ai = filter_ai
         if host_id is not None:
             self.host_id = host_id
         if max_results is not None:
@@ -235,6 +240,27 @@ class ListPodRequest(object):
         """
 
         self._dc_list = dc_list
+
+    @property
+    def filter_ai(self):
+        """Gets the filter_ai of this ListPodRequest.  # noqa: E501
+
+
+        :return: The filter_ai of this ListPodRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._filter_ai
+
+    @filter_ai.setter
+    def filter_ai(self, filter_ai):
+        """Sets the filter_ai of this ListPodRequest.
+
+
+        :param filter_ai: The filter_ai of this ListPodRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._filter_ai = filter_ai
 
     @property
     def host_id(self):

@@ -37,7 +37,8 @@ class ComponentSpecListForScaleInstanceInput(object):
         'mem_size': 'int',
         'node_cu_type': 'str',
         'node_num': 'int',
-        'node_type': 'str'
+        'node_type': 'str',
+        'resource_spec_name': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ComponentSpecListForScaleInstanceInput(object):
         'mem_size': 'MemSize',
         'node_cu_type': 'NodeCUType',
         'node_num': 'NodeNum',
-        'node_type': 'NodeType'
+        'node_type': 'NodeType',
+        'resource_spec_name': 'ResourceSpecName'
     }
 
-    def __init__(self, cpu_num=None, mem_size=None, node_cu_type=None, node_num=None, node_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_num=None, mem_size=None, node_cu_type=None, node_num=None, node_type=None, resource_spec_name=None, _configuration=None):  # noqa: E501
         """ComponentSpecListForScaleInstanceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ComponentSpecListForScaleInstanceInput(object):
         self._node_cu_type = None
         self._node_num = None
         self._node_type = None
+        self._resource_spec_name = None
         self.discriminator = None
 
         if cpu_num is not None:
@@ -71,6 +74,8 @@ class ComponentSpecListForScaleInstanceInput(object):
             self.node_num = node_num
         if node_type is not None:
             self.node_type = node_type
+        if resource_spec_name is not None:
+            self.resource_spec_name = resource_spec_name
 
     @property
     def cpu_num(self):
@@ -176,6 +181,27 @@ class ComponentSpecListForScaleInstanceInput(object):
         """
 
         self._node_type = node_type
+
+    @property
+    def resource_spec_name(self):
+        """Gets the resource_spec_name of this ComponentSpecListForScaleInstanceInput.  # noqa: E501
+
+
+        :return: The resource_spec_name of this ComponentSpecListForScaleInstanceInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_spec_name
+
+    @resource_spec_name.setter
+    def resource_spec_name(self, resource_spec_name):
+        """Sets the resource_spec_name of this ComponentSpecListForScaleInstanceInput.
+
+
+        :param resource_spec_name: The resource_spec_name of this ComponentSpecListForScaleInstanceInput.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_spec_name = resource_spec_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

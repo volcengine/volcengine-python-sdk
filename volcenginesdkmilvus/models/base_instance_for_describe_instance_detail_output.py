@@ -34,71 +34,50 @@ class BaseInstanceForDescribeInstanceDetailOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
-        'deploy_cluster_id': 'str',
-        'id': 'int',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_version': 'str',
-        'namespace': 'str',
         'project_name': 'str',
         'region': 'str',
         'status': 'str',
-        'sub_account_id': 'str',
-        'task_id': 'str',
-        'version': 'int'
+        'sub_account_id': 'str'
     }
 
     attribute_map = {
         'account_id': 'AccountId',
-        'deploy_cluster_id': 'DeployClusterId',
-        'id': 'Id',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_version': 'InstanceVersion',
-        'namespace': 'Namespace',
         'project_name': 'ProjectName',
         'region': 'Region',
         'status': 'Status',
-        'sub_account_id': 'SubAccountId',
-        'task_id': 'TaskId',
-        'version': 'Version'
+        'sub_account_id': 'SubAccountId'
     }
 
-    def __init__(self, account_id=None, deploy_cluster_id=None, id=None, instance_id=None, instance_name=None, instance_version=None, namespace=None, project_name=None, region=None, status=None, sub_account_id=None, task_id=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, instance_id=None, instance_name=None, instance_version=None, project_name=None, region=None, status=None, sub_account_id=None, _configuration=None):  # noqa: E501
         """BaseInstanceForDescribeInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
-        self._deploy_cluster_id = None
-        self._id = None
         self._instance_id = None
         self._instance_name = None
         self._instance_version = None
-        self._namespace = None
         self._project_name = None
         self._region = None
         self._status = None
         self._sub_account_id = None
-        self._task_id = None
-        self._version = None
         self.discriminator = None
 
         if account_id is not None:
             self.account_id = account_id
-        if deploy_cluster_id is not None:
-            self.deploy_cluster_id = deploy_cluster_id
-        if id is not None:
-            self.id = id
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
         if instance_version is not None:
             self.instance_version = instance_version
-        if namespace is not None:
-            self.namespace = namespace
         if project_name is not None:
             self.project_name = project_name
         if region is not None:
@@ -107,10 +86,6 @@ class BaseInstanceForDescribeInstanceDetailOutput(object):
             self.status = status
         if sub_account_id is not None:
             self.sub_account_id = sub_account_id
-        if task_id is not None:
-            self.task_id = task_id
-        if version is not None:
-            self.version = version
 
     @property
     def account_id(self):
@@ -132,48 +107,6 @@ class BaseInstanceForDescribeInstanceDetailOutput(object):
         """
 
         self._account_id = account_id
-
-    @property
-    def deploy_cluster_id(self):
-        """Gets the deploy_cluster_id of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The deploy_cluster_id of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._deploy_cluster_id
-
-    @deploy_cluster_id.setter
-    def deploy_cluster_id(self, deploy_cluster_id):
-        """Sets the deploy_cluster_id of this BaseInstanceForDescribeInstanceDetailOutput.
-
-
-        :param deploy_cluster_id: The deploy_cluster_id of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._deploy_cluster_id = deploy_cluster_id
-
-    @property
-    def id(self):
-        """Gets the id of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The id of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this BaseInstanceForDescribeInstanceDetailOutput.
-
-
-        :param id: The id of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._id = id
 
     @property
     def instance_id(self):
@@ -237,27 +170,6 @@ class BaseInstanceForDescribeInstanceDetailOutput(object):
         """
 
         self._instance_version = instance_version
-
-    @property
-    def namespace(self):
-        """Gets the namespace of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The namespace of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._namespace
-
-    @namespace.setter
-    def namespace(self, namespace):
-        """Sets the namespace of this BaseInstanceForDescribeInstanceDetailOutput.
-
-
-        :param namespace: The namespace of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._namespace = namespace
 
     @property
     def project_name(self):
@@ -342,48 +254,6 @@ class BaseInstanceForDescribeInstanceDetailOutput(object):
         """
 
         self._sub_account_id = sub_account_id
-
-    @property
-    def task_id(self):
-        """Gets the task_id of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The task_id of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._task_id
-
-    @task_id.setter
-    def task_id(self, task_id):
-        """Sets the task_id of this BaseInstanceForDescribeInstanceDetailOutput.
-
-
-        :param task_id: The task_id of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._task_id = task_id
-
-    @property
-    def version(self):
-        """Gets the version of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The version of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """Sets the version of this BaseInstanceForDescribeInstanceDetailOutput.
-
-
-        :param version: The version of this BaseInstanceForDescribeInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

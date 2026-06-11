@@ -33,6 +33,7 @@ class PlannedEventForDescribePlannedEventsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'action': 'str',
         'action_name': 'str',
         'can_cancel': 'bool',
         'can_modify_time': 'bool',
@@ -47,6 +48,7 @@ class PlannedEventForDescribePlannedEventsOutput(object):
     }
 
     attribute_map = {
+        'action': 'Action',
         'action_name': 'ActionName',
         'can_cancel': 'CanCancel',
         'can_modify_time': 'CanModifyTime',
@@ -60,12 +62,13 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         'type': 'Type'
     }
 
-    def __init__(self, action_name=None, can_cancel=None, can_modify_time=None, event_id=None, instance_id=None, instance_name=None, max_end_time=None, plan_end_time=None, plan_start_time=None, status=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, action_name=None, can_cancel=None, can_modify_time=None, event_id=None, instance_id=None, instance_name=None, max_end_time=None, plan_end_time=None, plan_start_time=None, status=None, type=None, _configuration=None):  # noqa: E501
         """PlannedEventForDescribePlannedEventsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._action = None
         self._action_name = None
         self._can_cancel = None
         self._can_modify_time = None
@@ -79,6 +82,8 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         self._type = None
         self.discriminator = None
 
+        if action is not None:
+            self.action = action
         if action_name is not None:
             self.action_name = action_name
         if can_cancel is not None:
@@ -101,6 +106,27 @@ class PlannedEventForDescribePlannedEventsOutput(object):
             self.status = status
         if type is not None:
             self.type = type
+
+    @property
+    def action(self):
+        """Gets the action of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+
+
+        :return: The action of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._action
+
+    @action.setter
+    def action(self, action):
+        """Sets the action of this PlannedEventForDescribePlannedEventsOutput.
+
+
+        :param action: The action of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._action = action
 
     @property
     def action_name(self):

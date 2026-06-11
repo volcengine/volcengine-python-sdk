@@ -54,8 +54,10 @@ class RowForListPodOutput(object):
         'image_id': 'str',
         'image_name': 'str',
         'intranet_ip': 'str',
+        'is_ai': 'bool',
         'online': 'int',
         'phone_template_id': 'str',
+        'pod_ai_agent_list': 'list[PodAIAgentListForListPodOutput]',
         'pod_id': 'str',
         'pod_name': 'str',
         'port_mapping_rule_list': 'list[PortMappingRuleListForListPodOutput]',
@@ -88,8 +90,10 @@ class RowForListPodOutput(object):
         'image_id': 'ImageId',
         'image_name': 'ImageName',
         'intranet_ip': 'IntranetIP',
+        'is_ai': 'IsAI',
         'online': 'Online',
         'phone_template_id': 'PhoneTemplateId',
+        'pod_ai_agent_list': 'PodAIAgentList',
         'pod_id': 'PodId',
         'pod_name': 'PodName',
         'port_mapping_rule_list': 'PortMappingRuleList',
@@ -100,7 +104,7 @@ class RowForListPodOutput(object):
         'up_bandwidth_limit': 'UpBandwidthLimit'
     }
 
-    def __init__(self, adb=None, adb_expire_time=None, adb_status=None, aosp_version=None, archive_status=None, authority_expire_time=None, authority_status=None, configuration=None, create_at=None, custom_route_id=None, dnsid=None, data_size=None, data_size_used=None, dc_info=None, display_layout_id=None, down_bandwidth_limit=None, eip=None, host_id=None, image_id=None, image_name=None, intranet_ip=None, online=None, phone_template_id=None, pod_id=None, pod_name=None, port_mapping_rule_list=None, product_id=None, server_type_code=None, stream_status=None, tag=None, up_bandwidth_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, adb=None, adb_expire_time=None, adb_status=None, aosp_version=None, archive_status=None, authority_expire_time=None, authority_status=None, configuration=None, create_at=None, custom_route_id=None, dnsid=None, data_size=None, data_size_used=None, dc_info=None, display_layout_id=None, down_bandwidth_limit=None, eip=None, host_id=None, image_id=None, image_name=None, intranet_ip=None, is_ai=None, online=None, phone_template_id=None, pod_ai_agent_list=None, pod_id=None, pod_name=None, port_mapping_rule_list=None, product_id=None, server_type_code=None, stream_status=None, tag=None, up_bandwidth_limit=None, _configuration=None):  # noqa: E501
         """RowForListPodOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -127,8 +131,10 @@ class RowForListPodOutput(object):
         self._image_id = None
         self._image_name = None
         self._intranet_ip = None
+        self._is_ai = None
         self._online = None
         self._phone_template_id = None
+        self._pod_ai_agent_list = None
         self._pod_id = None
         self._pod_name = None
         self._port_mapping_rule_list = None
@@ -181,10 +187,14 @@ class RowForListPodOutput(object):
             self.image_name = image_name
         if intranet_ip is not None:
             self.intranet_ip = intranet_ip
+        if is_ai is not None:
+            self.is_ai = is_ai
         if online is not None:
             self.online = online
         if phone_template_id is not None:
             self.phone_template_id = phone_template_id
+        if pod_ai_agent_list is not None:
+            self.pod_ai_agent_list = pod_ai_agent_list
         if pod_id is not None:
             self.pod_id = pod_id
         if pod_name is not None:
@@ -644,6 +654,27 @@ class RowForListPodOutput(object):
         self._intranet_ip = intranet_ip
 
     @property
+    def is_ai(self):
+        """Gets the is_ai of this RowForListPodOutput.  # noqa: E501
+
+
+        :return: The is_ai of this RowForListPodOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_ai
+
+    @is_ai.setter
+    def is_ai(self, is_ai):
+        """Sets the is_ai of this RowForListPodOutput.
+
+
+        :param is_ai: The is_ai of this RowForListPodOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_ai = is_ai
+
+    @property
     def online(self):
         """Gets the online of this RowForListPodOutput.  # noqa: E501
 
@@ -684,6 +715,27 @@ class RowForListPodOutput(object):
         """
 
         self._phone_template_id = phone_template_id
+
+    @property
+    def pod_ai_agent_list(self):
+        """Gets the pod_ai_agent_list of this RowForListPodOutput.  # noqa: E501
+
+
+        :return: The pod_ai_agent_list of this RowForListPodOutput.  # noqa: E501
+        :rtype: list[PodAIAgentListForListPodOutput]
+        """
+        return self._pod_ai_agent_list
+
+    @pod_ai_agent_list.setter
+    def pod_ai_agent_list(self, pod_ai_agent_list):
+        """Sets the pod_ai_agent_list of this RowForListPodOutput.
+
+
+        :param pod_ai_agent_list: The pod_ai_agent_list of this RowForListPodOutput.  # noqa: E501
+        :type: list[PodAIAgentListForListPodOutput]
+        """
+
+        self._pod_ai_agent_list = pod_ai_agent_list
 
     @property
     def pod_id(self):

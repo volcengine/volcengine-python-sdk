@@ -36,9 +36,12 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
         'active_series': 'int',
         'availability_zone_replicas': 'int',
         'calculate_price_params': 'list[CalculatePriceParamForListWorkspaceInstanceTypesOutput]',
+        'calculate_volume_price_params': 'list[CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput]',
         'downsampling_periods': 'list[str]',
+        'federate_per_second': 'int',
         'id': 'str',
         'ingest_samples_per_second': 'int',
+        'max_federate_series': 'int',
         'query_concurrency': 'int',
         'query_per_second': 'int',
         'replicas_per_zone': 'int',
@@ -51,9 +54,12 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
         'active_series': 'ActiveSeries',
         'availability_zone_replicas': 'AvailabilityZoneReplicas',
         'calculate_price_params': 'CalculatePriceParams',
+        'calculate_volume_price_params': 'CalculateVolumePriceParams',
         'downsampling_periods': 'DownsamplingPeriods',
+        'federate_per_second': 'FederatePerSecond',
         'id': 'Id',
         'ingest_samples_per_second': 'IngestSamplesPerSecond',
+        'max_federate_series': 'MaxFederateSeries',
         'query_concurrency': 'QueryConcurrency',
         'query_per_second': 'QueryPerSecond',
         'replicas_per_zone': 'ReplicasPerZone',
@@ -62,7 +68,7 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
         'scan_series_per_second': 'ScanSeriesPerSecond'
     }
 
-    def __init__(self, active_series=None, availability_zone_replicas=None, calculate_price_params=None, downsampling_periods=None, id=None, ingest_samples_per_second=None, query_concurrency=None, query_per_second=None, replicas_per_zone=None, retention_period=None, scan_samples_per_second=None, scan_series_per_second=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_series=None, availability_zone_replicas=None, calculate_price_params=None, calculate_volume_price_params=None, downsampling_periods=None, federate_per_second=None, id=None, ingest_samples_per_second=None, max_federate_series=None, query_concurrency=None, query_per_second=None, replicas_per_zone=None, retention_period=None, scan_samples_per_second=None, scan_series_per_second=None, _configuration=None):  # noqa: E501
         """ItemForListWorkspaceInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,9 +77,12 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
         self._active_series = None
         self._availability_zone_replicas = None
         self._calculate_price_params = None
+        self._calculate_volume_price_params = None
         self._downsampling_periods = None
+        self._federate_per_second = None
         self._id = None
         self._ingest_samples_per_second = None
+        self._max_federate_series = None
         self._query_concurrency = None
         self._query_per_second = None
         self._replicas_per_zone = None
@@ -88,12 +97,18 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
             self.availability_zone_replicas = availability_zone_replicas
         if calculate_price_params is not None:
             self.calculate_price_params = calculate_price_params
+        if calculate_volume_price_params is not None:
+            self.calculate_volume_price_params = calculate_volume_price_params
         if downsampling_periods is not None:
             self.downsampling_periods = downsampling_periods
+        if federate_per_second is not None:
+            self.federate_per_second = federate_per_second
         if id is not None:
             self.id = id
         if ingest_samples_per_second is not None:
             self.ingest_samples_per_second = ingest_samples_per_second
+        if max_federate_series is not None:
+            self.max_federate_series = max_federate_series
         if query_concurrency is not None:
             self.query_concurrency = query_concurrency
         if query_per_second is not None:
@@ -171,6 +186,27 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
         self._calculate_price_params = calculate_price_params
 
     @property
+    def calculate_volume_price_params(self):
+        """Gets the calculate_volume_price_params of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The calculate_volume_price_params of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+        :rtype: list[CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput]
+        """
+        return self._calculate_volume_price_params
+
+    @calculate_volume_price_params.setter
+    def calculate_volume_price_params(self, calculate_volume_price_params):
+        """Sets the calculate_volume_price_params of this ItemForListWorkspaceInstanceTypesOutput.
+
+
+        :param calculate_volume_price_params: The calculate_volume_price_params of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+        :type: list[CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput]
+        """
+
+        self._calculate_volume_price_params = calculate_volume_price_params
+
+    @property
     def downsampling_periods(self):
         """Gets the downsampling_periods of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
 
@@ -190,6 +226,27 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
         """
 
         self._downsampling_periods = downsampling_periods
+
+    @property
+    def federate_per_second(self):
+        """Gets the federate_per_second of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The federate_per_second of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._federate_per_second
+
+    @federate_per_second.setter
+    def federate_per_second(self, federate_per_second):
+        """Sets the federate_per_second of this ItemForListWorkspaceInstanceTypesOutput.
+
+
+        :param federate_per_second: The federate_per_second of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._federate_per_second = federate_per_second
 
     @property
     def id(self):
@@ -232,6 +289,27 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
         """
 
         self._ingest_samples_per_second = ingest_samples_per_second
+
+    @property
+    def max_federate_series(self):
+        """Gets the max_federate_series of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The max_federate_series of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_federate_series
+
+    @max_federate_series.setter
+    def max_federate_series(self, max_federate_series):
+        """Sets the max_federate_series of this ItemForListWorkspaceInstanceTypesOutput.
+
+
+        :param max_federate_series: The max_federate_series of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._max_federate_series = max_federate_series
 
     @property
     def query_concurrency(self):

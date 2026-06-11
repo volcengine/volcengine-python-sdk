@@ -6,12 +6,20 @@ import requests
 from requests.adapters import HTTPAdapter
 import json
 import os
+import queue
+import sys
+import threading
+import time
+from urllib.parse import urljoin, urlencode
 
 from ..models.llm_shield_sign import request_sign, Version, SetServiceDev, GetServiceCode
 
 LLM_STREAM_SEND_BASE_WINDOW_V2 = 10
 LLM_STREAM_SEND_EXPONENT_V2 = 2
 
+# 客户端初始化选项 Key
+OPTION_ENABLE_AICC = "EnableAicc"
+OPTION_LOG_LEVEL = "LogLevel"
 
 # 定义内容类型常量
 class ContentTypeV2:
@@ -355,16 +363,113 @@ class SessionTimeout(requests.Session):
         # 调用父类的request方法，保持原有逻辑不变
         return super().request(method, url, **kwargs)
 
-
 # 定义客户端类
 class ClientV2:
-    def __init__(self, url: str, ak: str, sk: str, region: str, timeout: float):
+    def __init__(self, url: str, ak: str, sk: str, region: str, timeout: float, options: Optional[Dict[str, Any]] = None):
         self.url = url
         self.ak = ak
         self.sk = sk
         self.region = region
         self.http_client = SessionTimeout(default_timeout=timeout)
         self.http_client.timeout = timeout
+        self.aicc_client = None
+        if options and options.get(OPTION_ENABLE_AICC):
+            log_level = options.get(OPTION_LOG_LEVEL, "ERROR")
+            os.environ["LOG_LEVEL"] = log_level
+            try:
+                self.SetAiccInit()
+            except Exception as e:
+                print(f"[ERROR] SetAiccInit failed: {e}")
+                sys.exit(1)
+
+    def _fetch_aicc_module_conf(self):
+        """
+        请求 AiccModuleConf 接口，返回 (aicc_topaddr, ser_accid, ser_policy_id, ser_service_name, trn_role_info)
+        """
+        path = "/ctrl/aicc_module_conf"
+        action = "AiccModuleConf"
+        version = "2025-08-31"
+
+        postbody = {"Version": 100}
+        request_body = json.dumps(postbody).encode("utf-8")
+        header = {
+        }
+
+        sign_header = request_sign(header, self.ak, self.sk, self.region, self.url, path, action, request_body)
+        resp = self.http_client.post(
+                url=self.url + path + "?Action=" + action + "&Version=" + str(version),
+                data=request_body,
+                headers=sign_header
+            )
+
+        try:
+            resp_json = resp.json()
+        except Exception as e:
+            raise Exception("AiccModuleConf 响应解析失败: {}".format(e))
+
+        result = resp_json.get("Result") or {}
+        if not result:
+            raise Exception("AiccModuleConf 响应缺少 Result 字段: {}".format(resp_json))
+
+        aicc_topaddr = result.get("PccUrl")
+        ser_accid = result.get("AccID")
+        ser_policy_id = result.get("ServerID")
+        ser_service_name = result.get("ServerName")
+        trn_role_info = result.get("TrnInfo")
+
+        if not aicc_topaddr or not ser_accid or not ser_policy_id or not ser_service_name or not trn_role_info:
+            raise Exception("AiccModuleConf 响应缺少必要字段: {}".format(result))
+
+        return aicc_topaddr, ser_accid, ser_policy_id, ser_service_name, trn_role_info
+
+    def SetAiccInit(self):
+        """
+        初始化 AICC Client.
+
+        说明：AICC 属于可选能力，为避免引入额外依赖导致 SDK 纯审核场景不可用，
+        这里采用懒加载方式初始化；外部需要使用 AICC 能力时，请显式调用本方法。
+        """
+        # 懒加载，避免 import 时强依赖 aicc 的第三方依赖
+        from ..aicc import Client as AiccClient
+        from ..aicc import ClientConfig as AiccClientConfig
+
+
+        aicc_topaddr, ser_accid, ser_policy_id, ser_service_name, trn_role_info = self._fetch_aicc_module_conf()
+        # print(f"AiccList {aicc_topaddr}, {ser_accid}, {ser_policy_id}, {ser_service_name}, {trn_role_info}")
+
+        aicc_rftick = 1800
+        aicc_seraddr = self.url
+
+        byte_top_info = f"{{\"url\": \"{aicc_topaddr}\",\"url_rewrite\": \"{aicc_seraddr}\", \"ak\": \"{self.ak}\", \"sk\": \"{self.sk}\", \"target_uid\": \"{ser_accid}\", \"aicc_saas_trn\": \"trn:iam::{ser_accid}:role/{trn_role_info}\", \"service\": \"pcc\"}}"
+        aiccConf = dict()
+        aiccConf["ra_url"] = aicc_seraddr
+        aiccConf["attest_interval"] = aicc_rftick
+        aiccConf["ra_uid"] = ser_accid
+        aiccConf["ra_policy_id"] = ser_policy_id
+        aiccConf["ra_service_name"] = ser_service_name
+        aiccConf["bytedance_top_info"] = byte_top_info
+        self.aicc_client = AiccClient(AiccClientConfig.from_dict(aiccConf))
+        if self.aicc_client is None:
+            raise Exception("AICC客户端初始化失败")
+
+    def _require_aicc_client(self):
+        if self.aicc_client is None:
+            raise RuntimeError("AICC Client 未初始化，请先调用 ClientV2.SetAiccInit()")
+        return self.aicc_client
+
+    def Encrypt(self, plaintext: Union[str, bytes]) -> str:
+        """使用 AICC Client 加密请求数据，返回信封加密字符串。"""
+        return self._require_aicc_client().encrypt(plaintext)
+
+    def EncryptWithResponse(self, plaintext: Union[str, bytes]):
+        """使用 AICC Client 加密请求数据，并返回用于解密响应的 ResponseKey。"""
+        return self._require_aicc_client().encrypt_with_response(plaintext)
+
+    def DecryptResponse(self, response_key, response: Union[str, bytes]) -> bytes:
+        """使用 EncryptWithResponse 返回的 response_key 解密服务端响应。"""
+        if response_key is None:
+            raise ValueError("response_key 不能为空")
+        return response_key.decrypt(response)
 
     def SetProxy(self, proxy: dict):
         if proxy:
@@ -398,13 +503,27 @@ class ClientV2:
         sign_header = request_sign(header, self.ak, self.sk, self.region, self.url, path, action, request_body)
 
         try:
+            enc_req_key = None
+            if self.aicc_client is not None:
+                request_body, enc_req_key = self.EncryptWithResponse(request_body)
+
             resp = self.http_client.post(
                 url=self.url + path + "?Action=" + action + "&Version=" + Version,
                 data=request_body,
                 headers=sign_header
             )
 
-            response = ModerateV2Response.model_validate(resp.json())
+            if enc_req_key is not None:
+                resp_body = self.DecryptResponse(enc_req_key, resp.content)
+            else:
+                resp_body = resp.content
+
+            # resp_body 为 bytes/str(JSON)，不要对 bytes 调用 .json()
+            try:
+                response = ModerateV2Response.model_validate_json(resp_body)
+            except Exception:
+                # 兼容极端场景：resp_body 不是合法 JSON bytes/str
+                response = ModerateV2Response.model_validate(json.loads(resp_body))
             return response
 
         except requests.RequestException as e:
@@ -497,6 +616,7 @@ class ClientV2:
             print(f"最终检测内容: {final_content}")
 
         return moderate_response
+
 
     def GenerateV2Stream(self, request):
         path = "/v2/generate"

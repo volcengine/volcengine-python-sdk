@@ -48,8 +48,10 @@ class FlowLogForDescribeFlowLogsOutput(object):
         'resource_type': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeFlowLogsOutput]',
+        'traffic_path': 'list[int]',
         'traffic_type': 'str',
         'updated_at': 'str',
+        'version': 'int',
         'vpc_id': 'str'
     }
 
@@ -69,12 +71,14 @@ class FlowLogForDescribeFlowLogsOutput(object):
         'resource_type': 'ResourceType',
         'status': 'Status',
         'tags': 'Tags',
+        'traffic_path': 'TrafficPath',
         'traffic_type': 'TrafficType',
         'updated_at': 'UpdatedAt',
+        'version': 'Version',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, aggregation_interval=None, business_status=None, created_at=None, description=None, flow_log_id=None, flow_log_name=None, lock_reason=None, log_project_id=None, log_topic_id=None, project_name=None, resource_id=None, resource_type=None, status=None, tags=None, traffic_type=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aggregation_interval=None, business_status=None, created_at=None, description=None, flow_log_id=None, flow_log_name=None, lock_reason=None, log_project_id=None, log_topic_id=None, project_name=None, resource_id=None, resource_type=None, status=None, tags=None, traffic_path=None, traffic_type=None, updated_at=None, version=None, vpc_id=None, _configuration=None):  # noqa: E501
         """FlowLogForDescribeFlowLogsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,8 +99,10 @@ class FlowLogForDescribeFlowLogsOutput(object):
         self._resource_type = None
         self._status = None
         self._tags = None
+        self._traffic_path = None
         self._traffic_type = None
         self._updated_at = None
+        self._version = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -130,10 +136,14 @@ class FlowLogForDescribeFlowLogsOutput(object):
             self.status = status
         if tags is not None:
             self.tags = tags
+        if traffic_path is not None:
+            self.traffic_path = traffic_path
         if traffic_type is not None:
             self.traffic_type = traffic_type
         if updated_at is not None:
             self.updated_at = updated_at
+        if version is not None:
+            self.version = version
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -453,6 +463,27 @@ class FlowLogForDescribeFlowLogsOutput(object):
         self._tags = tags
 
     @property
+    def traffic_path(self):
+        """Gets the traffic_path of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
+
+
+        :return: The traffic_path of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._traffic_path
+
+    @traffic_path.setter
+    def traffic_path(self, traffic_path):
+        """Sets the traffic_path of this FlowLogForDescribeFlowLogsOutput.
+
+
+        :param traffic_path: The traffic_path of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._traffic_path = traffic_path
+
+    @property
     def traffic_type(self):
         """Gets the traffic_type of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
 
@@ -493,6 +524,27 @@ class FlowLogForDescribeFlowLogsOutput(object):
         """
 
         self._updated_at = updated_at
+
+    @property
+    def version(self):
+        """Gets the version of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
+
+
+        :return: The version of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this FlowLogForDescribeFlowLogsOutput.
+
+
+        :param version: The version of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._version = version
 
     @property
     def vpc_id(self):

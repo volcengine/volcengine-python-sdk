@@ -80,7 +80,8 @@ class CreateInstanceOneStepRequest(object):
             self.network_config = network_config
         if project_name is not None:
             self.project_name = project_name
-        self.region = region
+        if region is not None:
+            self.region = region
         if tags is not None:
             self.tags = tags
         if zones is not None:
@@ -209,8 +210,6 @@ class CreateInstanceOneStepRequest(object):
         :param region: The region of this CreateInstanceOneStepRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and region is None:
-            raise ValueError("Invalid value for `region`, must not be `None`")  # noqa: E501
 
         self._region = region
 
