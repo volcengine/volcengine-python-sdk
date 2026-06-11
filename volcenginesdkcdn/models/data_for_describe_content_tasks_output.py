@@ -33,12 +33,14 @@ class DataForDescribeContentTasksOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cache_shared': 'bool',
         'create_time': 'int',
         'delete': 'bool',
         'layer': 'str',
         'process': 'str',
         'refresh_prefix': 'bool',
         'remark': 'str',
+        'request_header_instances': 'list[RequestHeaderInstanceForDescribeContentTasksOutput]',
         'status': 'str',
         'status_code': 'int',
         'task_id': 'str',
@@ -47,12 +49,14 @@ class DataForDescribeContentTasksOutput(object):
     }
 
     attribute_map = {
+        'cache_shared': 'CacheShared',
         'create_time': 'CreateTime',
         'delete': 'Delete',
         'layer': 'Layer',
         'process': 'Process',
         'refresh_prefix': 'RefreshPrefix',
         'remark': 'Remark',
+        'request_header_instances': 'RequestHeaderInstances',
         'status': 'Status',
         'status_code': 'StatusCode',
         'task_id': 'TaskID',
@@ -60,18 +64,20 @@ class DataForDescribeContentTasksOutput(object):
         'url': 'Url'
     }
 
-    def __init__(self, create_time=None, delete=None, layer=None, process=None, refresh_prefix=None, remark=None, status=None, status_code=None, task_id=None, task_type=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, cache_shared=None, create_time=None, delete=None, layer=None, process=None, refresh_prefix=None, remark=None, request_header_instances=None, status=None, status_code=None, task_id=None, task_type=None, url=None, _configuration=None):  # noqa: E501
         """DataForDescribeContentTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cache_shared = None
         self._create_time = None
         self._delete = None
         self._layer = None
         self._process = None
         self._refresh_prefix = None
         self._remark = None
+        self._request_header_instances = None
         self._status = None
         self._status_code = None
         self._task_id = None
@@ -79,6 +85,8 @@ class DataForDescribeContentTasksOutput(object):
         self._url = None
         self.discriminator = None
 
+        if cache_shared is not None:
+            self.cache_shared = cache_shared
         if create_time is not None:
             self.create_time = create_time
         if delete is not None:
@@ -91,6 +99,8 @@ class DataForDescribeContentTasksOutput(object):
             self.refresh_prefix = refresh_prefix
         if remark is not None:
             self.remark = remark
+        if request_header_instances is not None:
+            self.request_header_instances = request_header_instances
         if status is not None:
             self.status = status
         if status_code is not None:
@@ -101,6 +111,27 @@ class DataForDescribeContentTasksOutput(object):
             self.task_type = task_type
         if url is not None:
             self.url = url
+
+    @property
+    def cache_shared(self):
+        """Gets the cache_shared of this DataForDescribeContentTasksOutput.  # noqa: E501
+
+
+        :return: The cache_shared of this DataForDescribeContentTasksOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cache_shared
+
+    @cache_shared.setter
+    def cache_shared(self, cache_shared):
+        """Sets the cache_shared of this DataForDescribeContentTasksOutput.
+
+
+        :param cache_shared: The cache_shared of this DataForDescribeContentTasksOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._cache_shared = cache_shared
 
     @property
     def create_time(self):
@@ -227,6 +258,27 @@ class DataForDescribeContentTasksOutput(object):
         """
 
         self._remark = remark
+
+    @property
+    def request_header_instances(self):
+        """Gets the request_header_instances of this DataForDescribeContentTasksOutput.  # noqa: E501
+
+
+        :return: The request_header_instances of this DataForDescribeContentTasksOutput.  # noqa: E501
+        :rtype: list[RequestHeaderInstanceForDescribeContentTasksOutput]
+        """
+        return self._request_header_instances
+
+    @request_header_instances.setter
+    def request_header_instances(self, request_header_instances):
+        """Sets the request_header_instances of this DataForDescribeContentTasksOutput.
+
+
+        :param request_header_instances: The request_header_instances of this DataForDescribeContentTasksOutput.  # noqa: E501
+        :type: list[RequestHeaderInstanceForDescribeContentTasksOutput]
+        """
+
+        self._request_header_instances = request_header_instances
 
     @property
     def status(self):

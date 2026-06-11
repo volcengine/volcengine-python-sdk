@@ -81,6 +81,7 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         'request_header': 'list[RequestHeaderForDescribeCdnConfigOutput]',
         'response_header': 'list[ResponseHeaderForDescribeCdnConfigOutput]',
         'rewrite_hls': 'RewriteHLSForDescribeCdnConfigOutput',
+        'rule_engine': 'RuleEngineForDescribeCdnConfigOutput',
         'service_region': 'str',
         'service_type': 'str',
         'signed_url_auth': 'SignedUrlAuthForDescribeCdnConfigOutput',
@@ -141,6 +142,7 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         'request_header': 'RequestHeader',
         'response_header': 'ResponseHeader',
         'rewrite_hls': 'RewriteHLS',
+        'rule_engine': 'RuleEngine',
         'service_region': 'ServiceRegion',
         'service_type': 'ServiceType',
         'signed_url_auth': 'SignedUrlAuth',
@@ -152,7 +154,7 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         'video_drag': 'VideoDrag'
     }
 
-    def __init__(self, area_access_rule=None, backup_cname=None, bandwidth_limit=None, browser_cache=None, cache=None, cache_host=None, cache_key=None, cname=None, compression=None, conditional_origin=None, create_time=None, custom_error_page=None, customize_access_rule=None, domain=None, download_speed_limit=None, follow_redirect=None, https=None, http_forced_redirect=None, ipv6=None, ip_access_rule=None, ip_freq_limit=None, ip_speed_limit=None, lock_status=None, method_denied_rule=None, multi_range=None, negative_cache=None, offline_cache=None, origin=None, origin_access_rule=None, origin_arg=None, origin_cert_check=None, origin_host=None, origin_ipv6=None, origin_protocol=None, origin_range=None, origin_retry=None, origin_rewrite=None, origin_sni=None, page_optimization=None, project=None, quic=None, redirection_rewrite=None, referer_access_rule=None, remote_auth=None, request_block_rule=None, request_header=None, response_header=None, rewrite_hls=None, service_region=None, service_type=None, signed_url_auth=None, status=None, timeout=None, ua_access_rule=None, update_time=None, url_normalize=None, video_drag=None, _configuration=None):  # noqa: E501
+    def __init__(self, area_access_rule=None, backup_cname=None, bandwidth_limit=None, browser_cache=None, cache=None, cache_host=None, cache_key=None, cname=None, compression=None, conditional_origin=None, create_time=None, custom_error_page=None, customize_access_rule=None, domain=None, download_speed_limit=None, follow_redirect=None, https=None, http_forced_redirect=None, ipv6=None, ip_access_rule=None, ip_freq_limit=None, ip_speed_limit=None, lock_status=None, method_denied_rule=None, multi_range=None, negative_cache=None, offline_cache=None, origin=None, origin_access_rule=None, origin_arg=None, origin_cert_check=None, origin_host=None, origin_ipv6=None, origin_protocol=None, origin_range=None, origin_retry=None, origin_rewrite=None, origin_sni=None, page_optimization=None, project=None, quic=None, redirection_rewrite=None, referer_access_rule=None, remote_auth=None, request_block_rule=None, request_header=None, response_header=None, rewrite_hls=None, rule_engine=None, service_region=None, service_type=None, signed_url_auth=None, status=None, timeout=None, ua_access_rule=None, update_time=None, url_normalize=None, video_drag=None, _configuration=None):  # noqa: E501
         """DomainConfigForDescribeCdnConfigOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -206,6 +208,7 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         self._request_header = None
         self._response_header = None
         self._rewrite_hls = None
+        self._rule_engine = None
         self._service_region = None
         self._service_type = None
         self._signed_url_auth = None
@@ -313,6 +316,8 @@ class DomainConfigForDescribeCdnConfigOutput(object):
             self.response_header = response_header
         if rewrite_hls is not None:
             self.rewrite_hls = rewrite_hls
+        if rule_engine is not None:
+            self.rule_engine = rule_engine
         if service_region is not None:
             self.service_region = service_region
         if service_type is not None:
@@ -1339,6 +1344,27 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         """
 
         self._rewrite_hls = rewrite_hls
+
+    @property
+    def rule_engine(self):
+        """Gets the rule_engine of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+
+
+        :return: The rule_engine of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :rtype: RuleEngineForDescribeCdnConfigOutput
+        """
+        return self._rule_engine
+
+    @rule_engine.setter
+    def rule_engine(self, rule_engine):
+        """Sets the rule_engine of this DomainConfigForDescribeCdnConfigOutput.
+
+
+        :param rule_engine: The rule_engine of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :type: RuleEngineForDescribeCdnConfigOutput
+        """
+
+        self._rule_engine = rule_engine
 
     @property
     def service_region(self):
