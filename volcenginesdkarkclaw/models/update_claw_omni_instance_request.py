@@ -37,7 +37,8 @@ class UpdateClawOmniInstanceRequest(object):
         'id': 'str',
         'token_limit_per_day': 'int',
         'token_limit_per_min': 'int',
-        'token_limit_per_week': 'str'
+        'token_limit_per_week': 'str',
+        'token_quota': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class UpdateClawOmniInstanceRequest(object):
         'id': 'Id',
         'token_limit_per_day': 'TokenLimitPerDay',
         'token_limit_per_min': 'TokenLimitPerMin',
-        'token_limit_per_week': 'TokenLimitPerWeek'
+        'token_limit_per_week': 'TokenLimitPerWeek',
+        'token_quota': 'TokenQuota'
     }
 
-    def __init__(self, field_mask=None, id=None, token_limit_per_day=None, token_limit_per_min=None, token_limit_per_week=None, _configuration=None):  # noqa: E501
+    def __init__(self, field_mask=None, id=None, token_limit_per_day=None, token_limit_per_min=None, token_limit_per_week=None, token_quota=None, _configuration=None):  # noqa: E501
         """UpdateClawOmniInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class UpdateClawOmniInstanceRequest(object):
         self._token_limit_per_day = None
         self._token_limit_per_min = None
         self._token_limit_per_week = None
+        self._token_quota = None
         self.discriminator = None
 
         if field_mask is not None:
@@ -70,6 +73,8 @@ class UpdateClawOmniInstanceRequest(object):
             self.token_limit_per_min = token_limit_per_min
         if token_limit_per_week is not None:
             self.token_limit_per_week = token_limit_per_week
+        if token_quota is not None:
+            self.token_quota = token_quota
 
     @property
     def field_mask(self):
@@ -177,6 +182,27 @@ class UpdateClawOmniInstanceRequest(object):
         """
 
         self._token_limit_per_week = token_limit_per_week
+
+    @property
+    def token_quota(self):
+        """Gets the token_quota of this UpdateClawOmniInstanceRequest.  # noqa: E501
+
+
+        :return: The token_quota of this UpdateClawOmniInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._token_quota
+
+    @token_quota.setter
+    def token_quota(self, token_quota):
+        """Sets the token_quota of this UpdateClawOmniInstanceRequest.
+
+
+        :param token_quota: The token_quota of this UpdateClawOmniInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._token_quota = token_quota
 
     def to_dict(self):
         """Returns the model properties as a dict"""
