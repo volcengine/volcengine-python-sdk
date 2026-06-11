@@ -33,6 +33,7 @@ class HotKeyForDescribeHotKeysOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'action_type': 'str',
         'create_time': 'str',
         'db_name': 'str',
         'key_info': 'str',
@@ -43,6 +44,7 @@ class HotKeyForDescribeHotKeysOutput(object):
     }
 
     attribute_map = {
+        'action_type': 'ActionType',
         'create_time': 'CreateTime',
         'db_name': 'DBName',
         'key_info': 'KeyInfo',
@@ -52,12 +54,13 @@ class HotKeyForDescribeHotKeysOutput(object):
         'shard_id': 'ShardId'
     }
 
-    def __init__(self, create_time=None, db_name=None, key_info=None, key_type=None, node_id=None, query_count=None, shard_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_type=None, create_time=None, db_name=None, key_info=None, key_type=None, node_id=None, query_count=None, shard_id=None, _configuration=None):  # noqa: E501
         """HotKeyForDescribeHotKeysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._action_type = None
         self._create_time = None
         self._db_name = None
         self._key_info = None
@@ -67,6 +70,8 @@ class HotKeyForDescribeHotKeysOutput(object):
         self._shard_id = None
         self.discriminator = None
 
+        if action_type is not None:
+            self.action_type = action_type
         if create_time is not None:
             self.create_time = create_time
         if db_name is not None:
@@ -81,6 +86,27 @@ class HotKeyForDescribeHotKeysOutput(object):
             self.query_count = query_count
         if shard_id is not None:
             self.shard_id = shard_id
+
+    @property
+    def action_type(self):
+        """Gets the action_type of this HotKeyForDescribeHotKeysOutput.  # noqa: E501
+
+
+        :return: The action_type of this HotKeyForDescribeHotKeysOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_type
+
+    @action_type.setter
+    def action_type(self, action_type):
+        """Sets the action_type of this HotKeyForDescribeHotKeysOutput.
+
+
+        :param action_type: The action_type of this HotKeyForDescribeHotKeysOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._action_type = action_type
 
     @property
     def create_time(self):
