@@ -552,6 +552,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'milvus': ServiceEndpointInfo(
+        service='milvus',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {

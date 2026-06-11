@@ -33,55 +33,29 @@ class NetworkConfigForCreateInstanceOneStepInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'inner_endpoint_enabled': 'bool',
         'subnet_info': 'SubnetInfoForCreateInstanceOneStepInput',
         'vpc_info': 'VpcInfoForCreateInstanceOneStepInput'
     }
 
     attribute_map = {
-        'inner_endpoint_enabled': 'InnerEndpointEnabled',
         'subnet_info': 'SubnetInfo',
         'vpc_info': 'VpcInfo'
     }
 
-    def __init__(self, inner_endpoint_enabled=None, subnet_info=None, vpc_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, subnet_info=None, vpc_info=None, _configuration=None):  # noqa: E501
         """NetworkConfigForCreateInstanceOneStepInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._inner_endpoint_enabled = None
         self._subnet_info = None
         self._vpc_info = None
         self.discriminator = None
 
-        if inner_endpoint_enabled is not None:
-            self.inner_endpoint_enabled = inner_endpoint_enabled
         if subnet_info is not None:
             self.subnet_info = subnet_info
         if vpc_info is not None:
             self.vpc_info = vpc_info
-
-    @property
-    def inner_endpoint_enabled(self):
-        """Gets the inner_endpoint_enabled of this NetworkConfigForCreateInstanceOneStepInput.  # noqa: E501
-
-
-        :return: The inner_endpoint_enabled of this NetworkConfigForCreateInstanceOneStepInput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._inner_endpoint_enabled
-
-    @inner_endpoint_enabled.setter
-    def inner_endpoint_enabled(self, inner_endpoint_enabled):
-        """Sets the inner_endpoint_enabled of this NetworkConfigForCreateInstanceOneStepInput.
-
-
-        :param inner_endpoint_enabled: The inner_endpoint_enabled of this NetworkConfigForCreateInstanceOneStepInput.  # noqa: E501
-        :type: bool
-        """
-
-        self._inner_endpoint_enabled = inner_endpoint_enabled
 
     @property
     def subnet_info(self):

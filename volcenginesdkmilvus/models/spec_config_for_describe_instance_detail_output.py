@@ -34,35 +34,46 @@ class SpecConfigForDescribeInstanceDetailOutput(object):
     """
     swagger_types = {
         'cpu_num': 'int',
+        'display_name': 'str',
         'mem_size': 'int',
         'node_cu_type': 'str',
         'node_num': 'int',
-        'node_type': 'str'
+        'node_type': 'str',
+        'resource_spec_name': 'str',
+        'spec_type': 'str'
     }
 
     attribute_map = {
         'cpu_num': 'CpuNum',
+        'display_name': 'DisplayName',
         'mem_size': 'MemSize',
         'node_cu_type': 'NodeCUType',
         'node_num': 'NodeNum',
-        'node_type': 'NodeType'
+        'node_type': 'NodeType',
+        'resource_spec_name': 'ResourceSpecName',
+        'spec_type': 'SpecType'
     }
 
-    def __init__(self, cpu_num=None, mem_size=None, node_cu_type=None, node_num=None, node_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_num=None, display_name=None, mem_size=None, node_cu_type=None, node_num=None, node_type=None, resource_spec_name=None, spec_type=None, _configuration=None):  # noqa: E501
         """SpecConfigForDescribeInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cpu_num = None
+        self._display_name = None
         self._mem_size = None
         self._node_cu_type = None
         self._node_num = None
         self._node_type = None
+        self._resource_spec_name = None
+        self._spec_type = None
         self.discriminator = None
 
         if cpu_num is not None:
             self.cpu_num = cpu_num
+        if display_name is not None:
+            self.display_name = display_name
         if mem_size is not None:
             self.mem_size = mem_size
         if node_cu_type is not None:
@@ -71,6 +82,10 @@ class SpecConfigForDescribeInstanceDetailOutput(object):
             self.node_num = node_num
         if node_type is not None:
             self.node_type = node_type
+        if resource_spec_name is not None:
+            self.resource_spec_name = resource_spec_name
+        if spec_type is not None:
+            self.spec_type = spec_type
 
     @property
     def cpu_num(self):
@@ -92,6 +107,27 @@ class SpecConfigForDescribeInstanceDetailOutput(object):
         """
 
         self._cpu_num = cpu_num
+
+    @property
+    def display_name(self):
+        """Gets the display_name of this SpecConfigForDescribeInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The display_name of this SpecConfigForDescribeInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._display_name
+
+    @display_name.setter
+    def display_name(self, display_name):
+        """Sets the display_name of this SpecConfigForDescribeInstanceDetailOutput.
+
+
+        :param display_name: The display_name of this SpecConfigForDescribeInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._display_name = display_name
 
     @property
     def mem_size(self):
@@ -176,6 +212,48 @@ class SpecConfigForDescribeInstanceDetailOutput(object):
         """
 
         self._node_type = node_type
+
+    @property
+    def resource_spec_name(self):
+        """Gets the resource_spec_name of this SpecConfigForDescribeInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The resource_spec_name of this SpecConfigForDescribeInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_spec_name
+
+    @resource_spec_name.setter
+    def resource_spec_name(self, resource_spec_name):
+        """Sets the resource_spec_name of this SpecConfigForDescribeInstanceDetailOutput.
+
+
+        :param resource_spec_name: The resource_spec_name of this SpecConfigForDescribeInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_spec_name = resource_spec_name
+
+    @property
+    def spec_type(self):
+        """Gets the spec_type of this SpecConfigForDescribeInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The spec_type of this SpecConfigForDescribeInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._spec_type
+
+    @spec_type.setter
+    def spec_type(self, spec_type):
+        """Sets the spec_type of this SpecConfigForDescribeInstanceDetailOutput.
+
+
+        :param spec_type: The spec_type of this SpecConfigForDescribeInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._spec_type = spec_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
