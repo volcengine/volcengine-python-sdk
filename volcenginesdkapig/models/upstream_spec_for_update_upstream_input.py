@@ -36,6 +36,7 @@ class UpstreamSpecForUpdateUpstreamInput(object):
         'ai_provider': 'AIProviderForUpdateUpstreamInput',
         'domain': 'DomainForUpdateUpstreamInput',
         'ecs_list': 'list[EcsListForUpdateUpstreamInput]',
+        'fixed_ip_list': 'list[FixedIPListForUpdateUpstreamInput]',
         'k8_s_service': 'K8SServiceForUpdateUpstreamInput',
         'nacos_service': 'NacosServiceForUpdateUpstreamInput',
         've_faas': 'VeFaasForUpdateUpstreamInput'
@@ -45,12 +46,13 @@ class UpstreamSpecForUpdateUpstreamInput(object):
         'ai_provider': 'AIProvider',
         'domain': 'Domain',
         'ecs_list': 'EcsList',
+        'fixed_ip_list': 'FixedIPList',
         'k8_s_service': 'K8SService',
         'nacos_service': 'NacosService',
         've_faas': 'VeFaas'
     }
 
-    def __init__(self, ai_provider=None, domain=None, ecs_list=None, k8_s_service=None, nacos_service=None, ve_faas=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_provider=None, domain=None, ecs_list=None, fixed_ip_list=None, k8_s_service=None, nacos_service=None, ve_faas=None, _configuration=None):  # noqa: E501
         """UpstreamSpecForUpdateUpstreamInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class UpstreamSpecForUpdateUpstreamInput(object):
         self._ai_provider = None
         self._domain = None
         self._ecs_list = None
+        self._fixed_ip_list = None
         self._k8_s_service = None
         self._nacos_service = None
         self._ve_faas = None
@@ -70,6 +73,8 @@ class UpstreamSpecForUpdateUpstreamInput(object):
             self.domain = domain
         if ecs_list is not None:
             self.ecs_list = ecs_list
+        if fixed_ip_list is not None:
+            self.fixed_ip_list = fixed_ip_list
         if k8_s_service is not None:
             self.k8_s_service = k8_s_service
         if nacos_service is not None:
@@ -139,6 +144,27 @@ class UpstreamSpecForUpdateUpstreamInput(object):
         """
 
         self._ecs_list = ecs_list
+
+    @property
+    def fixed_ip_list(self):
+        """Gets the fixed_ip_list of this UpstreamSpecForUpdateUpstreamInput.  # noqa: E501
+
+
+        :return: The fixed_ip_list of this UpstreamSpecForUpdateUpstreamInput.  # noqa: E501
+        :rtype: list[FixedIPListForUpdateUpstreamInput]
+        """
+        return self._fixed_ip_list
+
+    @fixed_ip_list.setter
+    def fixed_ip_list(self, fixed_ip_list):
+        """Sets the fixed_ip_list of this UpstreamSpecForUpdateUpstreamInput.
+
+
+        :param fixed_ip_list: The fixed_ip_list of this UpstreamSpecForUpdateUpstreamInput.  # noqa: E501
+        :type: list[FixedIPListForUpdateUpstreamInput]
+        """
+
+        self._fixed_ip_list = fixed_ip_list
 
     @property
     def k8_s_service(self):

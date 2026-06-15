@@ -1,0 +1,5 @@
+{
+  "description": "APIG: 新增 CheckUpstreamSpecExist, GetGatewayParameters, UpdateGatewayDownstreamConnectionBufferLimits；修改 CreateConsumerCredential, GetUpstream, ListConsumerCredentials, CreateUpstream, UpdateGatewayService, CheckConsumerCredentialExist, ListUpstreams, CreateGatewayService, ListGatewayServices, ListUpstreamSources, UpdateUpstream",
+  "modules": "service/apig",
+  "type": "breaking-change"
+}
