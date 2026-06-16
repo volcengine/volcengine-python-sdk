@@ -34,29 +34,34 @@ class RulesForCreateResourceQueueInput(object):
     """
     swagger_types = {
         'auto_compact_gpu_resource_rule': 'AutoCompactGPUResourceRuleForCreateResourceQueueInput',
+        'dev_cpu_low_usage_rule': 'DevCpuLowUsageRuleForCreateResourceQueueInput',
         'general_idle_rule': 'GeneralIdleRuleForCreateResourceQueueInput',
         'gpu_utilization_rule': 'GpuUtilizationRuleForCreateResourceQueueInput'
     }
 
     attribute_map = {
         'auto_compact_gpu_resource_rule': 'AutoCompactGPUResourceRule',
+        'dev_cpu_low_usage_rule': 'DevCpuLowUsageRule',
         'general_idle_rule': 'GeneralIdleRule',
         'gpu_utilization_rule': 'GpuUtilizationRule'
     }
 
-    def __init__(self, auto_compact_gpu_resource_rule=None, general_idle_rule=None, gpu_utilization_rule=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_compact_gpu_resource_rule=None, dev_cpu_low_usage_rule=None, general_idle_rule=None, gpu_utilization_rule=None, _configuration=None):  # noqa: E501
         """RulesForCreateResourceQueueInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_compact_gpu_resource_rule = None
+        self._dev_cpu_low_usage_rule = None
         self._general_idle_rule = None
         self._gpu_utilization_rule = None
         self.discriminator = None
 
         if auto_compact_gpu_resource_rule is not None:
             self.auto_compact_gpu_resource_rule = auto_compact_gpu_resource_rule
+        if dev_cpu_low_usage_rule is not None:
+            self.dev_cpu_low_usage_rule = dev_cpu_low_usage_rule
         if general_idle_rule is not None:
             self.general_idle_rule = general_idle_rule
         if gpu_utilization_rule is not None:
@@ -82,6 +87,27 @@ class RulesForCreateResourceQueueInput(object):
         """
 
         self._auto_compact_gpu_resource_rule = auto_compact_gpu_resource_rule
+
+    @property
+    def dev_cpu_low_usage_rule(self):
+        """Gets the dev_cpu_low_usage_rule of this RulesForCreateResourceQueueInput.  # noqa: E501
+
+
+        :return: The dev_cpu_low_usage_rule of this RulesForCreateResourceQueueInput.  # noqa: E501
+        :rtype: DevCpuLowUsageRuleForCreateResourceQueueInput
+        """
+        return self._dev_cpu_low_usage_rule
+
+    @dev_cpu_low_usage_rule.setter
+    def dev_cpu_low_usage_rule(self, dev_cpu_low_usage_rule):
+        """Sets the dev_cpu_low_usage_rule of this RulesForCreateResourceQueueInput.
+
+
+        :param dev_cpu_low_usage_rule: The dev_cpu_low_usage_rule of this RulesForCreateResourceQueueInput.  # noqa: E501
+        :type: DevCpuLowUsageRuleForCreateResourceQueueInput
+        """
+
+        self._dev_cpu_low_usage_rule = dev_cpu_low_usage_rule
 
     @property
     def general_idle_rule(self):
