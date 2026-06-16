@@ -33,6 +33,7 @@ class CreateDrDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_upgrade_minor_version': 'str',
         'deletion_protection': 'str',
         'instance_name': 'str',
         'master_instance_id': 'str',
@@ -47,6 +48,7 @@ class CreateDrDBInstanceRequest(object):
     }
 
     attribute_map = {
+        'auto_upgrade_minor_version': 'AutoUpgradeMinorVersion',
         'deletion_protection': 'DeletionProtection',
         'instance_name': 'InstanceName',
         'master_instance_id': 'MasterInstanceId',
@@ -60,12 +62,13 @@ class CreateDrDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, deletion_protection=None, instance_name=None, master_instance_id=None, master_region=None, node_info=None, private_ip_address=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_upgrade_minor_version=None, deletion_protection=None, instance_name=None, master_instance_id=None, master_region=None, node_info=None, private_ip_address=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDrDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auto_upgrade_minor_version = None
         self._deletion_protection = None
         self._instance_name = None
         self._master_instance_id = None
@@ -79,6 +82,8 @@ class CreateDrDBInstanceRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if auto_upgrade_minor_version is not None:
+            self.auto_upgrade_minor_version = auto_upgrade_minor_version
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
         if instance_name is not None:
@@ -96,6 +101,27 @@ class CreateDrDBInstanceRequest(object):
             self.storage_type = storage_type
         self.subnet_id = subnet_id
         self.vpc_id = vpc_id
+
+    @property
+    def auto_upgrade_minor_version(self):
+        """Gets the auto_upgrade_minor_version of this CreateDrDBInstanceRequest.  # noqa: E501
+
+
+        :return: The auto_upgrade_minor_version of this CreateDrDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._auto_upgrade_minor_version
+
+    @auto_upgrade_minor_version.setter
+    def auto_upgrade_minor_version(self, auto_upgrade_minor_version):
+        """Sets the auto_upgrade_minor_version of this CreateDrDBInstanceRequest.
+
+
+        :param auto_upgrade_minor_version: The auto_upgrade_minor_version of this CreateDrDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._auto_upgrade_minor_version = auto_upgrade_minor_version
 
     @property
     def deletion_protection(self):

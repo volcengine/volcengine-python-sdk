@@ -33,6 +33,7 @@ class DescribeDBInstanceParametersResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'apply_param_template_info': 'ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput',
         'db_engine': 'str',
         'db_engine_version': 'str',
         'instance_id': 'str',
@@ -41,6 +42,7 @@ class DescribeDBInstanceParametersResponse(object):
     }
 
     attribute_map = {
+        'apply_param_template_info': 'ApplyParamTemplateInfo',
         'db_engine': 'DBEngine',
         'db_engine_version': 'DBEngineVersion',
         'instance_id': 'InstanceId',
@@ -48,12 +50,13 @@ class DescribeDBInstanceParametersResponse(object):
         'parameters': 'Parameters'
     }
 
-    def __init__(self, db_engine=None, db_engine_version=None, instance_id=None, parameter_count=None, parameters=None, _configuration=None):  # noqa: E501
+    def __init__(self, apply_param_template_info=None, db_engine=None, db_engine_version=None, instance_id=None, parameter_count=None, parameters=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceParametersResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._apply_param_template_info = None
         self._db_engine = None
         self._db_engine_version = None
         self._instance_id = None
@@ -61,6 +64,8 @@ class DescribeDBInstanceParametersResponse(object):
         self._parameters = None
         self.discriminator = None
 
+        if apply_param_template_info is not None:
+            self.apply_param_template_info = apply_param_template_info
         if db_engine is not None:
             self.db_engine = db_engine
         if db_engine_version is not None:
@@ -71,6 +76,27 @@ class DescribeDBInstanceParametersResponse(object):
             self.parameter_count = parameter_count
         if parameters is not None:
             self.parameters = parameters
+
+    @property
+    def apply_param_template_info(self):
+        """Gets the apply_param_template_info of this DescribeDBInstanceParametersResponse.  # noqa: E501
+
+
+        :return: The apply_param_template_info of this DescribeDBInstanceParametersResponse.  # noqa: E501
+        :rtype: ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput
+        """
+        return self._apply_param_template_info
+
+    @apply_param_template_info.setter
+    def apply_param_template_info(self, apply_param_template_info):
+        """Sets the apply_param_template_info of this DescribeDBInstanceParametersResponse.
+
+
+        :param apply_param_template_info: The apply_param_template_info of this DescribeDBInstanceParametersResponse.  # noqa: E501
+        :type: ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput
+        """
+
+        self._apply_param_template_info = apply_param_template_info
 
     @property
     def db_engine(self):

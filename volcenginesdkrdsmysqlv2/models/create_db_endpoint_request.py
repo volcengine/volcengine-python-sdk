@@ -36,6 +36,7 @@ class CreateDBEndpointRequest(object):
         'auto_add_new_nodes': 'bool',
         'connection_mode': 'str',
         'connection_pool_type': 'str',
+        'custom_route_strategy': 'CustomRouteStrategyForCreateDBEndpointInput',
         'description': 'str',
         'enable_connection_persistent': 'bool',
         'endpoint_name': 'str',
@@ -59,6 +60,7 @@ class CreateDBEndpointRequest(object):
         'auto_add_new_nodes': 'AutoAddNewNodes',
         'connection_mode': 'ConnectionMode',
         'connection_pool_type': 'ConnectionPoolType',
+        'custom_route_strategy': 'CustomRouteStrategy',
         'description': 'Description',
         'enable_connection_persistent': 'EnableConnectionPersistent',
         'endpoint_name': 'EndpointName',
@@ -78,7 +80,7 @@ class CreateDBEndpointRequest(object):
         'read_write_spliting': 'ReadWriteSpliting'
     }
 
-    def __init__(self, auto_add_new_nodes=None, connection_mode=None, connection_pool_type=None, description=None, enable_connection_persistent=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, implicit_trans_split=None, instance_id=None, master_node_routing=None, master_protector_timeout=None, multi_statements_mode=None, nodes=None, overload_protection=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_add_new_nodes=None, connection_mode=None, connection_pool_type=None, custom_route_strategy=None, description=None, enable_connection_persistent=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, implicit_trans_split=None, instance_id=None, master_node_routing=None, master_protector_timeout=None, multi_statements_mode=None, nodes=None, overload_protection=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
         """CreateDBEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class CreateDBEndpointRequest(object):
         self._auto_add_new_nodes = None
         self._connection_mode = None
         self._connection_pool_type = None
+        self._custom_route_strategy = None
         self._description = None
         self._enable_connection_persistent = None
         self._endpoint_name = None
@@ -112,6 +115,8 @@ class CreateDBEndpointRequest(object):
             self.connection_mode = connection_mode
         if connection_pool_type is not None:
             self.connection_pool_type = connection_pool_type
+        if custom_route_strategy is not None:
+            self.custom_route_strategy = custom_route_strategy
         if description is not None:
             self.description = description
         if enable_connection_persistent is not None:
@@ -207,6 +212,27 @@ class CreateDBEndpointRequest(object):
         """
 
         self._connection_pool_type = connection_pool_type
+
+    @property
+    def custom_route_strategy(self):
+        """Gets the custom_route_strategy of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The custom_route_strategy of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: CustomRouteStrategyForCreateDBEndpointInput
+        """
+        return self._custom_route_strategy
+
+    @custom_route_strategy.setter
+    def custom_route_strategy(self, custom_route_strategy):
+        """Sets the custom_route_strategy of this CreateDBEndpointRequest.
+
+
+        :param custom_route_strategy: The custom_route_strategy of this CreateDBEndpointRequest.  # noqa: E501
+        :type: CustomRouteStrategyForCreateDBEndpointInput
+        """
+
+        self._custom_route_strategy = custom_route_strategy
 
     @property
     def description(self):

@@ -37,6 +37,7 @@ class DescribeAllowListsRequest(object):
         'instance_id': 'str',
         'project_name': 'str',
         'query_default': 'bool',
+        'query_instance': 'bool',
         'region_id': 'str',
         'with_ip_list': 'bool'
     }
@@ -46,11 +47,12 @@ class DescribeAllowListsRequest(object):
         'instance_id': 'InstanceId',
         'project_name': 'ProjectName',
         'query_default': 'QueryDefault',
+        'query_instance': 'QueryInstance',
         'region_id': 'RegionId',
         'with_ip_list': 'WithIpList'
     }
 
-    def __init__(self, ip_address=None, instance_id=None, project_name=None, query_default=None, region_id=None, with_ip_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip_address=None, instance_id=None, project_name=None, query_default=None, query_instance=None, region_id=None, with_ip_list=None, _configuration=None):  # noqa: E501
         """DescribeAllowListsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +62,7 @@ class DescribeAllowListsRequest(object):
         self._instance_id = None
         self._project_name = None
         self._query_default = None
+        self._query_instance = None
         self._region_id = None
         self._with_ip_list = None
         self.discriminator = None
@@ -72,6 +75,8 @@ class DescribeAllowListsRequest(object):
             self.project_name = project_name
         if query_default is not None:
             self.query_default = query_default
+        if query_instance is not None:
+            self.query_instance = query_instance
         if region_id is not None:
             self.region_id = region_id
         if with_ip_list is not None:
@@ -160,6 +165,27 @@ class DescribeAllowListsRequest(object):
         """
 
         self._query_default = query_default
+
+    @property
+    def query_instance(self):
+        """Gets the query_instance of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The query_instance of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._query_instance
+
+    @query_instance.setter
+    def query_instance(self, query_instance):
+        """Sets the query_instance of this DescribeAllowListsRequest.
+
+
+        :param query_instance: The query_instance of this DescribeAllowListsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._query_instance = query_instance
 
     @property
     def region_id(self):

@@ -35,16 +35,18 @@ class ZoneForDescribeAvailabilityZonesOutput(object):
     swagger_types = {
         'description': 'str',
         'zone_id': 'str',
-        'zone_name': 'str'
+        'zone_name': 'str',
+        'status': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
         'zone_id': 'ZoneId',
-        'zone_name': 'ZoneName'
+        'zone_name': 'ZoneName',
+        'status': 'status'
     }
 
-    def __init__(self, description=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, zone_id=None, zone_name=None, status=None, _configuration=None):  # noqa: E501
         """ZoneForDescribeAvailabilityZonesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ZoneForDescribeAvailabilityZonesOutput(object):
         self._description = None
         self._zone_id = None
         self._zone_name = None
+        self._status = None
         self.discriminator = None
 
         if description is not None:
@@ -61,6 +64,8 @@ class ZoneForDescribeAvailabilityZonesOutput(object):
             self.zone_id = zone_id
         if zone_name is not None:
             self.zone_name = zone_name
+        if status is not None:
+            self.status = status
 
     @property
     def description(self):
@@ -124,6 +129,27 @@ class ZoneForDescribeAvailabilityZonesOutput(object):
         """
 
         self._zone_name = zone_name
+
+    @property
+    def status(self):
+        """Gets the status of this ZoneForDescribeAvailabilityZonesOutput.  # noqa: E501
+
+
+        :return: The status of this ZoneForDescribeAvailabilityZonesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this ZoneForDescribeAvailabilityZonesOutput.
+
+
+        :param status: The status of this ZoneForDescribeAvailabilityZonesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

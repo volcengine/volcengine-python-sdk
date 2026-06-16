@@ -35,6 +35,7 @@ class RestoreToCrossRegionInstanceRequest(object):
     swagger_types = {
         'allow_list_ids': 'list[str]',
         'auto_storage_scaling_config': 'AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput',
+        'auto_upgrade_minor_version': 'str',
         'backup_id': 'str',
         'charge_info': 'ChargeInfoForRestoreToCrossRegionInstanceInput',
         'db_param_group_id': 'str',
@@ -59,6 +60,7 @@ class RestoreToCrossRegionInstanceRequest(object):
     attribute_map = {
         'allow_list_ids': 'AllowListIds',
         'auto_storage_scaling_config': 'AutoStorageScalingConfig',
+        'auto_upgrade_minor_version': 'AutoUpgradeMinorVersion',
         'backup_id': 'BackupId',
         'charge_info': 'ChargeInfo',
         'db_param_group_id': 'DBParamGroupId',
@@ -80,7 +82,7 @@ class RestoreToCrossRegionInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, dst_region_id=None, instance_name=None, instance_tags=None, node_info=None, port=None, private_ip_address=None, project_name=None, proxy_node_custom=None, restore_time=None, src_region_id=None, src_region_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, auto_upgrade_minor_version=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, dst_region_id=None, instance_name=None, instance_tags=None, node_info=None, port=None, private_ip_address=None, project_name=None, proxy_node_custom=None, restore_time=None, src_region_id=None, src_region_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RestoreToCrossRegionInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class RestoreToCrossRegionInstanceRequest(object):
 
         self._allow_list_ids = None
         self._auto_storage_scaling_config = None
+        self._auto_upgrade_minor_version = None
         self._backup_id = None
         self._charge_info = None
         self._db_param_group_id = None
@@ -113,6 +116,8 @@ class RestoreToCrossRegionInstanceRequest(object):
             self.allow_list_ids = allow_list_ids
         if auto_storage_scaling_config is not None:
             self.auto_storage_scaling_config = auto_storage_scaling_config
+        if auto_upgrade_minor_version is not None:
+            self.auto_upgrade_minor_version = auto_upgrade_minor_version
         if backup_id is not None:
             self.backup_id = backup_id
         if charge_info is not None:
@@ -187,6 +192,27 @@ class RestoreToCrossRegionInstanceRequest(object):
         """
 
         self._auto_storage_scaling_config = auto_storage_scaling_config
+
+    @property
+    def auto_upgrade_minor_version(self):
+        """Gets the auto_upgrade_minor_version of this RestoreToCrossRegionInstanceRequest.  # noqa: E501
+
+
+        :return: The auto_upgrade_minor_version of this RestoreToCrossRegionInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._auto_upgrade_minor_version
+
+    @auto_upgrade_minor_version.setter
+    def auto_upgrade_minor_version(self, auto_upgrade_minor_version):
+        """Sets the auto_upgrade_minor_version of this RestoreToCrossRegionInstanceRequest.
+
+
+        :param auto_upgrade_minor_version: The auto_upgrade_minor_version of this RestoreToCrossRegionInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._auto_upgrade_minor_version = auto_upgrade_minor_version
 
     @property
     def backup_id(self):
