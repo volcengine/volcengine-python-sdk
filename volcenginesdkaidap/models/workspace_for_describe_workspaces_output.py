@@ -35,6 +35,7 @@ class WorkspaceForDescribeWorkspacesOutput(object):
     swagger_types = {
         'account_id': 'str',
         'agent_plan_info': 'AgentPlanInfoForDescribeWorkspacesOutput',
+        'agent_plan_seat_id': 'str',
         'baas_compute_settings': 'BaasComputeSettingsForDescribeWorkspacesOutput',
         'compute_settings': 'ComputeSettingsForDescribeWorkspacesOutput',
         'create_time': 'str',
@@ -44,6 +45,7 @@ class WorkspaceForDescribeWorkspacesOutput(object):
         'engine_type': 'str',
         'engine_version': 'str',
         'internet_protocol': 'str',
+        'is_agent_plan': 'bool',
         'is_agent_plan_instance': 'bool',
         'project_name': 'str',
         'region_id': 'str',
@@ -63,6 +65,7 @@ class WorkspaceForDescribeWorkspacesOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'agent_plan_info': 'AgentPlanInfo',
+        'agent_plan_seat_id': 'AgentPlanSeatId',
         'baas_compute_settings': 'BaasComputeSettings',
         'compute_settings': 'ComputeSettings',
         'create_time': 'CreateTime',
@@ -72,6 +75,7 @@ class WorkspaceForDescribeWorkspacesOutput(object):
         'engine_type': 'EngineType',
         'engine_version': 'EngineVersion',
         'internet_protocol': 'InternetProtocol',
+        'is_agent_plan': 'IsAgentPlan',
         'is_agent_plan_instance': 'IsAgentPlanInstance',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
@@ -88,7 +92,7 @@ class WorkspaceForDescribeWorkspacesOutput(object):
         'workspace_usage': 'WorkspaceUsage'
     }
 
-    def __init__(self, account_id=None, agent_plan_info=None, baas_compute_settings=None, compute_settings=None, create_time=None, creation_source=None, dns_visibility=None, deletion_protection_status=None, engine_type=None, engine_version=None, internet_protocol=None, is_agent_plan_instance=None, project_name=None, region_id=None, shared_private_network=None, status_changed_time=None, subnet_id=None, update_time=None, vpc_id=None, workspace_id=None, workspace_name=None, workspace_setting=None, workspace_status=None, workspace_tags=None, workspace_usage=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, agent_plan_info=None, agent_plan_seat_id=None, baas_compute_settings=None, compute_settings=None, create_time=None, creation_source=None, dns_visibility=None, deletion_protection_status=None, engine_type=None, engine_version=None, internet_protocol=None, is_agent_plan=None, is_agent_plan_instance=None, project_name=None, region_id=None, shared_private_network=None, status_changed_time=None, subnet_id=None, update_time=None, vpc_id=None, workspace_id=None, workspace_name=None, workspace_setting=None, workspace_status=None, workspace_tags=None, workspace_usage=None, _configuration=None):  # noqa: E501
         """WorkspaceForDescribeWorkspacesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +100,7 @@ class WorkspaceForDescribeWorkspacesOutput(object):
 
         self._account_id = None
         self._agent_plan_info = None
+        self._agent_plan_seat_id = None
         self._baas_compute_settings = None
         self._compute_settings = None
         self._create_time = None
@@ -105,6 +110,7 @@ class WorkspaceForDescribeWorkspacesOutput(object):
         self._engine_type = None
         self._engine_version = None
         self._internet_protocol = None
+        self._is_agent_plan = None
         self._is_agent_plan_instance = None
         self._project_name = None
         self._region_id = None
@@ -125,6 +131,8 @@ class WorkspaceForDescribeWorkspacesOutput(object):
             self.account_id = account_id
         if agent_plan_info is not None:
             self.agent_plan_info = agent_plan_info
+        if agent_plan_seat_id is not None:
+            self.agent_plan_seat_id = agent_plan_seat_id
         if baas_compute_settings is not None:
             self.baas_compute_settings = baas_compute_settings
         if compute_settings is not None:
@@ -143,6 +151,8 @@ class WorkspaceForDescribeWorkspacesOutput(object):
             self.engine_version = engine_version
         if internet_protocol is not None:
             self.internet_protocol = internet_protocol
+        if is_agent_plan is not None:
+            self.is_agent_plan = is_agent_plan
         if is_agent_plan_instance is not None:
             self.is_agent_plan_instance = is_agent_plan_instance
         if project_name is not None:
@@ -213,6 +223,27 @@ class WorkspaceForDescribeWorkspacesOutput(object):
         """
 
         self._agent_plan_info = agent_plan_info
+
+    @property
+    def agent_plan_seat_id(self):
+        """Gets the agent_plan_seat_id of this WorkspaceForDescribeWorkspacesOutput.  # noqa: E501
+
+
+        :return: The agent_plan_seat_id of this WorkspaceForDescribeWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._agent_plan_seat_id
+
+    @agent_plan_seat_id.setter
+    def agent_plan_seat_id(self, agent_plan_seat_id):
+        """Sets the agent_plan_seat_id of this WorkspaceForDescribeWorkspacesOutput.
+
+
+        :param agent_plan_seat_id: The agent_plan_seat_id of this WorkspaceForDescribeWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._agent_plan_seat_id = agent_plan_seat_id
 
     @property
     def baas_compute_settings(self):
@@ -402,6 +433,27 @@ class WorkspaceForDescribeWorkspacesOutput(object):
         """
 
         self._internet_protocol = internet_protocol
+
+    @property
+    def is_agent_plan(self):
+        """Gets the is_agent_plan of this WorkspaceForDescribeWorkspacesOutput.  # noqa: E501
+
+
+        :return: The is_agent_plan of this WorkspaceForDescribeWorkspacesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_agent_plan
+
+    @is_agent_plan.setter
+    def is_agent_plan(self, is_agent_plan):
+        """Sets the is_agent_plan of this WorkspaceForDescribeWorkspacesOutput.
+
+
+        :param is_agent_plan: The is_agent_plan of this WorkspaceForDescribeWorkspacesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_agent_plan = is_agent_plan
 
     @property
     def is_agent_plan_instance(self):
