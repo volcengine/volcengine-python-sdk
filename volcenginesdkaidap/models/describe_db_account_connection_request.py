@@ -64,7 +64,8 @@ class DescribeDBAccountConnectionRequest(object):
         self._workspace_id = None
         self.discriminator = None
 
-        self.account_name = account_name
+        if account_name is not None:
+            self.account_name = account_name
         if address_id is not None:
             self.address_id = address_id
         self.branch_id = branch_id
@@ -90,8 +91,6 @@ class DescribeDBAccountConnectionRequest(object):
         :param account_name: The account_name of this DescribeDBAccountConnectionRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and account_name is None:
-            raise ValueError("Invalid value for `account_name`, must not be `None`")  # noqa: E501
 
         self._account_name = account_name
 

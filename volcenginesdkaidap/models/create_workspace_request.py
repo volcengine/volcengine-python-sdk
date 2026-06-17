@@ -34,6 +34,7 @@ class CreateWorkspaceRequest(object):
     """
     swagger_types = {
         'agent_plan_api_key': 'str',
+        'agent_plan_settings': 'AgentPlanSettingsForCreateWorkspaceInput',
         'branch_settings': 'BranchSettingsForCreateWorkspaceInput',
         'compute_settings': 'ComputeSettingsForCreateWorkspaceInput',
         'engine_type': 'str',
@@ -47,6 +48,7 @@ class CreateWorkspaceRequest(object):
 
     attribute_map = {
         'agent_plan_api_key': 'AgentPlanApiKey',
+        'agent_plan_settings': 'AgentPlanSettings',
         'branch_settings': 'BranchSettings',
         'compute_settings': 'ComputeSettings',
         'engine_type': 'EngineType',
@@ -58,13 +60,14 @@ class CreateWorkspaceRequest(object):
         'workspace_tags': 'WorkspaceTags'
     }
 
-    def __init__(self, agent_plan_api_key=None, branch_settings=None, compute_settings=None, engine_type=None, engine_version=None, network_settings=None, project_name=None, workspace_name=None, workspace_settings=None, workspace_tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_plan_api_key=None, agent_plan_settings=None, branch_settings=None, compute_settings=None, engine_type=None, engine_version=None, network_settings=None, project_name=None, workspace_name=None, workspace_settings=None, workspace_tags=None, _configuration=None):  # noqa: E501
         """CreateWorkspaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._agent_plan_api_key = None
+        self._agent_plan_settings = None
         self._branch_settings = None
         self._compute_settings = None
         self._engine_type = None
@@ -78,6 +81,8 @@ class CreateWorkspaceRequest(object):
 
         if agent_plan_api_key is not None:
             self.agent_plan_api_key = agent_plan_api_key
+        if agent_plan_settings is not None:
+            self.agent_plan_settings = agent_plan_settings
         if branch_settings is not None:
             self.branch_settings = branch_settings
         if compute_settings is not None:
@@ -116,6 +121,27 @@ class CreateWorkspaceRequest(object):
         """
 
         self._agent_plan_api_key = agent_plan_api_key
+
+    @property
+    def agent_plan_settings(self):
+        """Gets the agent_plan_settings of this CreateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The agent_plan_settings of this CreateWorkspaceRequest.  # noqa: E501
+        :rtype: AgentPlanSettingsForCreateWorkspaceInput
+        """
+        return self._agent_plan_settings
+
+    @agent_plan_settings.setter
+    def agent_plan_settings(self, agent_plan_settings):
+        """Sets the agent_plan_settings of this CreateWorkspaceRequest.
+
+
+        :param agent_plan_settings: The agent_plan_settings of this CreateWorkspaceRequest.  # noqa: E501
+        :type: AgentPlanSettingsForCreateWorkspaceInput
+        """
+
+        self._agent_plan_settings = agent_plan_settings
 
     @property
     def branch_settings(self):
