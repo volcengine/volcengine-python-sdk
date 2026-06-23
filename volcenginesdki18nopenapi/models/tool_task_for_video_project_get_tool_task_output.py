@@ -44,6 +44,7 @@ class ToolTaskForVideoProjectGetToolTaskOutput(object):
         'task_status': 'int',
         'task_type': 'int',
         'tool_resource': 'ToolResourceForVideoProjectGetToolTaskOutput',
+        'tool_task_results': 'list[ToolTaskResultForVideoProjectGetToolTaskOutput]',
         'update_time': 'str',
         'user_id': 'str'
     }
@@ -52,19 +53,20 @@ class ToolTaskForVideoProjectGetToolTaskOutput(object):
         'create_time': 'createTime',
         'input_vid': 'inputVid',
         'output_vid': 'outputVid',
-        'project_id': 'projectID',
-        'resource_id': 'resourceID',
-        'task_id': 'taskID',
+        'project_id': 'projectId',
+        'resource_id': 'resourceId',
+        'task_id': 'taskId',
         'task_params': 'taskParams',
         'task_result': 'taskResult',
         'task_status': 'taskStatus',
         'task_type': 'taskType',
         'tool_resource': 'toolResource',
+        'tool_task_results': 'toolTaskResults',
         'update_time': 'updateTime',
-        'user_id': 'userID'
+        'user_id': 'userId'
     }
 
-    def __init__(self, create_time=None, input_vid=None, output_vid=None, project_id=None, resource_id=None, task_id=None, task_params=None, task_result=None, task_status=None, task_type=None, tool_resource=None, update_time=None, user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, input_vid=None, output_vid=None, project_id=None, resource_id=None, task_id=None, task_params=None, task_result=None, task_status=None, task_type=None, tool_resource=None, tool_task_results=None, update_time=None, user_id=None, _configuration=None):  # noqa: E501
         """ToolTaskForVideoProjectGetToolTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class ToolTaskForVideoProjectGetToolTaskOutput(object):
         self._task_status = None
         self._task_type = None
         self._tool_resource = None
+        self._tool_task_results = None
         self._update_time = None
         self._user_id = None
         self.discriminator = None
@@ -107,6 +110,8 @@ class ToolTaskForVideoProjectGetToolTaskOutput(object):
             self.task_type = task_type
         if tool_resource is not None:
             self.tool_resource = tool_resource
+        if tool_task_results is not None:
+            self.tool_task_results = tool_task_results
         if update_time is not None:
             self.update_time = update_time
         if user_id is not None:
@@ -342,6 +347,27 @@ class ToolTaskForVideoProjectGetToolTaskOutput(object):
         """
 
         self._tool_resource = tool_resource
+
+    @property
+    def tool_task_results(self):
+        """Gets the tool_task_results of this ToolTaskForVideoProjectGetToolTaskOutput.  # noqa: E501
+
+
+        :return: The tool_task_results of this ToolTaskForVideoProjectGetToolTaskOutput.  # noqa: E501
+        :rtype: list[ToolTaskResultForVideoProjectGetToolTaskOutput]
+        """
+        return self._tool_task_results
+
+    @tool_task_results.setter
+    def tool_task_results(self, tool_task_results):
+        """Sets the tool_task_results of this ToolTaskForVideoProjectGetToolTaskOutput.
+
+
+        :param tool_task_results: The tool_task_results of this ToolTaskForVideoProjectGetToolTaskOutput.  # noqa: E501
+        :type: list[ToolTaskResultForVideoProjectGetToolTaskOutput]
+        """
+
+        self._tool_task_results = tool_task_results
 
     @property
     def update_time(self):
