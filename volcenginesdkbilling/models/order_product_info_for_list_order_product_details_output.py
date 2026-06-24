@@ -36,6 +36,8 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         'begin_time': 'str',
         'configuration_code': 'str',
         'coupon_amount': 'str',
+        'deduction_count': 'str',
+        'deduction_count_unit': 'str',
         'discount_amount': 'str',
         'end_time': 'str',
         'instance_id': 'str',
@@ -47,6 +49,7 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         'payer_id': 'int',
         'payment_method': 'str',
         'period': 'str',
+        'pickup_voucher_id': 'str',
         'product': 'str',
         'status': 'str',
         'times': 'str'
@@ -56,6 +59,8 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         'begin_time': 'BeginTime',
         'configuration_code': 'ConfigurationCode',
         'coupon_amount': 'CouponAmount',
+        'deduction_count': 'DeductionCount',
+        'deduction_count_unit': 'DeductionCountUnit',
         'discount_amount': 'DiscountAmount',
         'end_time': 'EndTime',
         'instance_id': 'InstanceID',
@@ -67,12 +72,13 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         'payer_id': 'PayerID',
         'payment_method': 'PaymentMethod',
         'period': 'Period',
+        'pickup_voucher_id': 'PickupVoucherID',
         'product': 'Product',
         'status': 'Status',
         'times': 'Times'
     }
 
-    def __init__(self, begin_time=None, configuration_code=None, coupon_amount=None, discount_amount=None, end_time=None, instance_id=None, order_fail_refund_info=None, original_amount=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payment_method=None, period=None, product=None, status=None, times=None, _configuration=None):  # noqa: E501
+    def __init__(self, begin_time=None, configuration_code=None, coupon_amount=None, deduction_count=None, deduction_count_unit=None, discount_amount=None, end_time=None, instance_id=None, order_fail_refund_info=None, original_amount=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payment_method=None, period=None, pickup_voucher_id=None, product=None, status=None, times=None, _configuration=None):  # noqa: E501
         """OrderProductInfoForListOrderProductDetailsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +87,8 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         self._begin_time = None
         self._configuration_code = None
         self._coupon_amount = None
+        self._deduction_count = None
+        self._deduction_count_unit = None
         self._discount_amount = None
         self._end_time = None
         self._instance_id = None
@@ -92,6 +100,7 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         self._payer_id = None
         self._payment_method = None
         self._period = None
+        self._pickup_voucher_id = None
         self._product = None
         self._status = None
         self._times = None
@@ -103,6 +112,10 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
             self.configuration_code = configuration_code
         if coupon_amount is not None:
             self.coupon_amount = coupon_amount
+        if deduction_count is not None:
+            self.deduction_count = deduction_count
+        if deduction_count_unit is not None:
+            self.deduction_count_unit = deduction_count_unit
         if discount_amount is not None:
             self.discount_amount = discount_amount
         if end_time is not None:
@@ -125,6 +138,8 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
             self.payment_method = payment_method
         if period is not None:
             self.period = period
+        if pickup_voucher_id is not None:
+            self.pickup_voucher_id = pickup_voucher_id
         if product is not None:
             self.product = product
         if status is not None:
@@ -194,6 +209,48 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         """
 
         self._coupon_amount = coupon_amount
+
+    @property
+    def deduction_count(self):
+        """Gets the deduction_count of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The deduction_count of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deduction_count
+
+    @deduction_count.setter
+    def deduction_count(self, deduction_count):
+        """Sets the deduction_count of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param deduction_count: The deduction_count of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deduction_count = deduction_count
+
+    @property
+    def deduction_count_unit(self):
+        """Gets the deduction_count_unit of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The deduction_count_unit of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deduction_count_unit
+
+    @deduction_count_unit.setter
+    def deduction_count_unit(self, deduction_count_unit):
+        """Sets the deduction_count_unit of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param deduction_count_unit: The deduction_count_unit of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deduction_count_unit = deduction_count_unit
 
     @property
     def discount_amount(self):
@@ -425,6 +482,27 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         """
 
         self._period = period
+
+    @property
+    def pickup_voucher_id(self):
+        """Gets the pickup_voucher_id of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The pickup_voucher_id of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_voucher_id
+
+    @pickup_voucher_id.setter
+    def pickup_voucher_id(self, pickup_voucher_id):
+        """Sets the pickup_voucher_id of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param pickup_voucher_id: The pickup_voucher_id of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_voucher_id = pickup_voucher_id
 
     @property
     def product(self):
