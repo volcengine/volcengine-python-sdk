@@ -558,6 +558,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'partner': ServiceEndpointInfo(
+        service='partner',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {
