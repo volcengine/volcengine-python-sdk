@@ -59,6 +59,7 @@ class ListForListBillOutput(object):
         'payer_customer_name': 'str',
         'payer_id': 'str',
         'payer_user_name': 'str',
+        'point_deduct_amount': 'str',
         'posttax_amount': 'str',
         'pre_tax_payable_amount': 'str',
         'preferential_bill_amount': 'str',
@@ -114,6 +115,7 @@ class ListForListBillOutput(object):
         'payer_customer_name': 'PayerCustomerName',
         'payer_id': 'PayerID',
         'payer_user_name': 'PayerUserName',
+        'point_deduct_amount': 'PointDeductAmount',
         'posttax_amount': 'PosttaxAmount',
         'pre_tax_payable_amount': 'PreTaxPayableAmount',
         'preferential_bill_amount': 'PreferentialBillAmount',
@@ -142,7 +144,7 @@ class ListForListBillOutput(object):
         'unpaid_amount': 'UnpaidAmount'
     }
 
-    def __init__(self, bill_category_parent=None, bill_detail_num=None, bill_id=None, bill_period=None, billing_mode=None, busi_period=None, business_mode=None, country_region=None, coupon_amount=None, credit_carried_amount=None, currency=None, currency_settlement=None, discount_bill_amount=None, exchange_rate=None, expense_begin_time=None, expense_end_time=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, pay_status=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, pre_tax_payable_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, product=None, product_zh=None, real_value=None, round_bill_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, subject_name=None, tax=None, tax_rate=None, trade_time=None, unpaid_amount=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category_parent=None, bill_detail_num=None, bill_id=None, bill_period=None, billing_mode=None, busi_period=None, business_mode=None, country_region=None, coupon_amount=None, credit_carried_amount=None, currency=None, currency_settlement=None, discount_bill_amount=None, exchange_rate=None, expense_begin_time=None, expense_end_time=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, pay_status=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, point_deduct_amount=None, posttax_amount=None, pre_tax_payable_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, product=None, product_zh=None, real_value=None, round_bill_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, subject_name=None, tax=None, tax_rate=None, trade_time=None, unpaid_amount=None, _configuration=None):  # noqa: E501
         """ListForListBillOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -174,6 +176,7 @@ class ListForListBillOutput(object):
         self._payer_customer_name = None
         self._payer_id = None
         self._payer_user_name = None
+        self._point_deduct_amount = None
         self._posttax_amount = None
         self._pre_tax_payable_amount = None
         self._preferential_bill_amount = None
@@ -254,6 +257,8 @@ class ListForListBillOutput(object):
             self.payer_id = payer_id
         if payer_user_name is not None:
             self.payer_user_name = payer_user_name
+        if point_deduct_amount is not None:
+            self.point_deduct_amount = point_deduct_amount
         if posttax_amount is not None:
             self.posttax_amount = posttax_amount
         if pre_tax_payable_amount is not None:
@@ -852,6 +857,27 @@ class ListForListBillOutput(object):
         """
 
         self._payer_user_name = payer_user_name
+
+    @property
+    def point_deduct_amount(self):
+        """Gets the point_deduct_amount of this ListForListBillOutput.  # noqa: E501
+
+
+        :return: The point_deduct_amount of this ListForListBillOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._point_deduct_amount
+
+    @point_deduct_amount.setter
+    def point_deduct_amount(self, point_deduct_amount):
+        """Sets the point_deduct_amount of this ListForListBillOutput.
+
+
+        :param point_deduct_amount: The point_deduct_amount of this ListForListBillOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._point_deduct_amount = point_deduct_amount
 
     @property
     def posttax_amount(self):

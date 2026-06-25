@@ -1,5 +1,5 @@
 {
-  "description": "BILLING: 修改 ListBillDetail, ListSplitBillDetail, ListAmortizedCostBillDetail",
+  "description": "BILLING: 修改 GetDropShippingOrder",
   "modules": "service/billing",
-  "type": "feature"
+  "type": "breaking-change"
 }
