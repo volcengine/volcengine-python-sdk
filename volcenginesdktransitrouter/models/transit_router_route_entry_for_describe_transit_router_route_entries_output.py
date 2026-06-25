@@ -37,6 +37,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         'creation_time': 'str',
         'description': 'str',
         'destination_cidr_block': 'str',
+        'destination_prefix_list_id': 'str',
         'status': 'str',
         'transit_router_route_entry_id': 'str',
         'transit_router_route_entry_name': 'str',
@@ -44,6 +45,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         'transit_router_route_entry_next_hop_resource_id': 'str',
         'transit_router_route_entry_next_hop_resource_type': 'str',
         'transit_router_route_entry_next_hop_type': 'str',
+        'transit_router_route_entry_next_hop_vpn_tunnel_id': 'str',
         'transit_router_route_entry_type': 'str',
         'update_time': 'str'
     }
@@ -53,6 +55,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         'creation_time': 'CreationTime',
         'description': 'Description',
         'destination_cidr_block': 'DestinationCidrBlock',
+        'destination_prefix_list_id': 'DestinationPrefixListId',
         'status': 'Status',
         'transit_router_route_entry_id': 'TransitRouterRouteEntryId',
         'transit_router_route_entry_name': 'TransitRouterRouteEntryName',
@@ -60,11 +63,12 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         'transit_router_route_entry_next_hop_resource_id': 'TransitRouterRouteEntryNextHopResourceId',
         'transit_router_route_entry_next_hop_resource_type': 'TransitRouterRouteEntryNextHopResourceType',
         'transit_router_route_entry_next_hop_type': 'TransitRouterRouteEntryNextHopType',
+        'transit_router_route_entry_next_hop_vpn_tunnel_id': 'TransitRouterRouteEntryNextHopVpnTunnelId',
         'transit_router_route_entry_type': 'TransitRouterRouteEntryType',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, as_path=None, creation_time=None, description=None, destination_cidr_block=None, status=None, transit_router_route_entry_id=None, transit_router_route_entry_name=None, transit_router_route_entry_next_hop_id=None, transit_router_route_entry_next_hop_resource_id=None, transit_router_route_entry_next_hop_resource_type=None, transit_router_route_entry_next_hop_type=None, transit_router_route_entry_type=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, as_path=None, creation_time=None, description=None, destination_cidr_block=None, destination_prefix_list_id=None, status=None, transit_router_route_entry_id=None, transit_router_route_entry_name=None, transit_router_route_entry_next_hop_id=None, transit_router_route_entry_next_hop_resource_id=None, transit_router_route_entry_next_hop_resource_type=None, transit_router_route_entry_next_hop_type=None, transit_router_route_entry_next_hop_vpn_tunnel_id=None, transit_router_route_entry_type=None, update_time=None, _configuration=None):  # noqa: E501
         """TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +78,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         self._creation_time = None
         self._description = None
         self._destination_cidr_block = None
+        self._destination_prefix_list_id = None
         self._status = None
         self._transit_router_route_entry_id = None
         self._transit_router_route_entry_name = None
@@ -81,6 +86,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         self._transit_router_route_entry_next_hop_resource_id = None
         self._transit_router_route_entry_next_hop_resource_type = None
         self._transit_router_route_entry_next_hop_type = None
+        self._transit_router_route_entry_next_hop_vpn_tunnel_id = None
         self._transit_router_route_entry_type = None
         self._update_time = None
         self.discriminator = None
@@ -93,6 +99,8 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
             self.description = description
         if destination_cidr_block is not None:
             self.destination_cidr_block = destination_cidr_block
+        if destination_prefix_list_id is not None:
+            self.destination_prefix_list_id = destination_prefix_list_id
         if status is not None:
             self.status = status
         if transit_router_route_entry_id is not None:
@@ -107,6 +115,8 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
             self.transit_router_route_entry_next_hop_resource_type = transit_router_route_entry_next_hop_resource_type
         if transit_router_route_entry_next_hop_type is not None:
             self.transit_router_route_entry_next_hop_type = transit_router_route_entry_next_hop_type
+        if transit_router_route_entry_next_hop_vpn_tunnel_id is not None:
+            self.transit_router_route_entry_next_hop_vpn_tunnel_id = transit_router_route_entry_next_hop_vpn_tunnel_id
         if transit_router_route_entry_type is not None:
             self.transit_router_route_entry_type = transit_router_route_entry_type
         if update_time is not None:
@@ -195,6 +205,27 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         """
 
         self._destination_cidr_block = destination_cidr_block
+
+    @property
+    def destination_prefix_list_id(self):
+        """Gets the destination_prefix_list_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+
+
+        :return: The destination_prefix_list_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_prefix_list_id
+
+    @destination_prefix_list_id.setter
+    def destination_prefix_list_id(self, destination_prefix_list_id):
+        """Sets the destination_prefix_list_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.
+
+
+        :param destination_prefix_list_id: The destination_prefix_list_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_prefix_list_id = destination_prefix_list_id
 
     @property
     def status(self):
@@ -342,6 +373,27 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         """
 
         self._transit_router_route_entry_next_hop_type = transit_router_route_entry_next_hop_type
+
+    @property
+    def transit_router_route_entry_next_hop_vpn_tunnel_id(self):
+        """Gets the transit_router_route_entry_next_hop_vpn_tunnel_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+
+
+        :return: The transit_router_route_entry_next_hop_vpn_tunnel_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_route_entry_next_hop_vpn_tunnel_id
+
+    @transit_router_route_entry_next_hop_vpn_tunnel_id.setter
+    def transit_router_route_entry_next_hop_vpn_tunnel_id(self, transit_router_route_entry_next_hop_vpn_tunnel_id):
+        """Sets the transit_router_route_entry_next_hop_vpn_tunnel_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.
+
+
+        :param transit_router_route_entry_next_hop_vpn_tunnel_id: The transit_router_route_entry_next_hop_vpn_tunnel_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_route_entry_next_hop_vpn_tunnel_id = transit_router_route_entry_next_hop_vpn_tunnel_id
 
     @property
     def transit_router_route_entry_type(self):

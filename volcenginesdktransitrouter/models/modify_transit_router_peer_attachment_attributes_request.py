@@ -34,7 +34,9 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'bandwidth_type': 'str',
         'description': 'str',
+        'line_operator': 'str',
         'transit_router_attachment_id': 'str',
         'transit_router_attachment_name': 'str',
         'transit_router_bandwidth_package_id': 'str'
@@ -42,20 +44,24 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest(object):
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'bandwidth_type': 'BandwidthType',
         'description': 'Description',
+        'line_operator': 'LineOperator',
         'transit_router_attachment_id': 'TransitRouterAttachmentId',
         'transit_router_attachment_name': 'TransitRouterAttachmentName',
         'transit_router_bandwidth_package_id': 'TransitRouterBandwidthPackageId'
     }
 
-    def __init__(self, bandwidth=None, description=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_type=None, description=None, line_operator=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, _configuration=None):  # noqa: E501
         """ModifyTransitRouterPeerAttachmentAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._bandwidth_type = None
         self._description = None
+        self._line_operator = None
         self._transit_router_attachment_id = None
         self._transit_router_attachment_name = None
         self._transit_router_bandwidth_package_id = None
@@ -63,8 +69,12 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest(object):
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if bandwidth_type is not None:
+            self.bandwidth_type = bandwidth_type
         if description is not None:
             self.description = description
+        if line_operator is not None:
+            self.line_operator = line_operator
         self.transit_router_attachment_id = transit_router_attachment_id
         if transit_router_attachment_name is not None:
             self.transit_router_attachment_name = transit_router_attachment_name
@@ -93,6 +103,27 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest(object):
         self._bandwidth = bandwidth
 
     @property
+    def bandwidth_type(self):
+        """Gets the bandwidth_type of this ModifyTransitRouterPeerAttachmentAttributesRequest.  # noqa: E501
+
+
+        :return: The bandwidth_type of this ModifyTransitRouterPeerAttachmentAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._bandwidth_type
+
+    @bandwidth_type.setter
+    def bandwidth_type(self, bandwidth_type):
+        """Sets the bandwidth_type of this ModifyTransitRouterPeerAttachmentAttributesRequest.
+
+
+        :param bandwidth_type: The bandwidth_type of this ModifyTransitRouterPeerAttachmentAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._bandwidth_type = bandwidth_type
+
+    @property
     def description(self):
         """Gets the description of this ModifyTransitRouterPeerAttachmentAttributesRequest.  # noqa: E501
 
@@ -112,6 +143,27 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest(object):
         """
 
         self._description = description
+
+    @property
+    def line_operator(self):
+        """Gets the line_operator of this ModifyTransitRouterPeerAttachmentAttributesRequest.  # noqa: E501
+
+
+        :return: The line_operator of this ModifyTransitRouterPeerAttachmentAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._line_operator
+
+    @line_operator.setter
+    def line_operator(self, line_operator):
+        """Sets the line_operator of this ModifyTransitRouterPeerAttachmentAttributesRequest.
+
+
+        :param line_operator: The line_operator of this ModifyTransitRouterPeerAttachmentAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._line_operator = line_operator
 
     @property
     def transit_router_attachment_id(self):
