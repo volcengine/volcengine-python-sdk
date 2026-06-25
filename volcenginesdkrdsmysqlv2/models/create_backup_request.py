@@ -35,6 +35,7 @@ class CreateBackupRequest(object):
     swagger_types = {
         'backup_meta': 'list[BackupMetaForCreateBackupInput]',
         'backup_method': 'str',
+        'backup_name': 'str',
         'backup_type': 'str',
         'instance_id': 'str'
     }
@@ -42,11 +43,12 @@ class CreateBackupRequest(object):
     attribute_map = {
         'backup_meta': 'BackupMeta',
         'backup_method': 'BackupMethod',
+        'backup_name': 'BackupName',
         'backup_type': 'BackupType',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, backup_meta=None, backup_method=None, backup_type=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_meta=None, backup_method=None, backup_name=None, backup_type=None, instance_id=None, _configuration=None):  # noqa: E501
         """CreateBackupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class CreateBackupRequest(object):
 
         self._backup_meta = None
         self._backup_method = None
+        self._backup_name = None
         self._backup_type = None
         self._instance_id = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class CreateBackupRequest(object):
             self.backup_meta = backup_meta
         if backup_method is not None:
             self.backup_method = backup_method
+        if backup_name is not None:
+            self.backup_name = backup_name
         if backup_type is not None:
             self.backup_type = backup_type
         self.instance_id = instance_id
@@ -107,6 +112,27 @@ class CreateBackupRequest(object):
         """
 
         self._backup_method = backup_method
+
+    @property
+    def backup_name(self):
+        """Gets the backup_name of this CreateBackupRequest.  # noqa: E501
+
+
+        :return: The backup_name of this CreateBackupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_name
+
+    @backup_name.setter
+    def backup_name(self, backup_name):
+        """Sets the backup_name of this CreateBackupRequest.
+
+
+        :param backup_name: The backup_name of this CreateBackupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_name = backup_name
 
     @property
     def backup_type(self):

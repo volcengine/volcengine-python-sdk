@@ -60,8 +60,7 @@ class ModifyDBProxyRequest(object):
 
         if convert_default_endpoint is not None:
             self.convert_default_endpoint = convert_default_endpoint
-        if enable_db_proxy is not None:
-            self.enable_db_proxy = enable_db_proxy
+        self.enable_db_proxy = enable_db_proxy
         self.instance_id = instance_id
         if proxy_node_custom is not None:
             self.proxy_node_custom = proxy_node_custom
@@ -105,6 +104,8 @@ class ModifyDBProxyRequest(object):
         :param enable_db_proxy: The enable_db_proxy of this ModifyDBProxyRequest.  # noqa: E501
         :type: bool
         """
+        if self._configuration.client_side_validation and enable_db_proxy is None:
+            raise ValueError("Invalid value for `enable_db_proxy`, must not be `None`")  # noqa: E501
 
         self._enable_db_proxy = enable_db_proxy
 

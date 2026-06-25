@@ -84,7 +84,7 @@ class StopJobRequest(object):
         :param diagnose_names: The diagnose_names of this StopJobRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["EnvironmentalDiagnosis", "PythonDetection", "LogDetection"]  # noqa: E501
+        allowed_values = ["EnvironmentalDiagnosis", "PythonDetection", "LogDetection", "VecclHangDetection"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(diagnose_names).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

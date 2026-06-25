@@ -34,6 +34,7 @@ class OrderFailRefundInfoForListOrdersOutput(object):
     """
     swagger_types = {
         'coupon_amount': 'str',
+        'deduction_count': 'str',
         'discount_amount': 'str',
         'original_amount': 'str',
         'paid_amount': 'str',
@@ -42,19 +43,21 @@ class OrderFailRefundInfoForListOrdersOutput(object):
 
     attribute_map = {
         'coupon_amount': 'CouponAmount',
+        'deduction_count': 'DeductionCount',
         'discount_amount': 'DiscountAmount',
         'original_amount': 'OriginalAmount',
         'paid_amount': 'PaidAmount',
         'payable_amount': 'PayableAmount'
     }
 
-    def __init__(self, coupon_amount=None, discount_amount=None, original_amount=None, paid_amount=None, payable_amount=None, _configuration=None):  # noqa: E501
+    def __init__(self, coupon_amount=None, deduction_count=None, discount_amount=None, original_amount=None, paid_amount=None, payable_amount=None, _configuration=None):  # noqa: E501
         """OrderFailRefundInfoForListOrdersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._coupon_amount = None
+        self._deduction_count = None
         self._discount_amount = None
         self._original_amount = None
         self._paid_amount = None
@@ -63,6 +66,8 @@ class OrderFailRefundInfoForListOrdersOutput(object):
 
         if coupon_amount is not None:
             self.coupon_amount = coupon_amount
+        if deduction_count is not None:
+            self.deduction_count = deduction_count
         if discount_amount is not None:
             self.discount_amount = discount_amount
         if original_amount is not None:
@@ -92,6 +97,27 @@ class OrderFailRefundInfoForListOrdersOutput(object):
         """
 
         self._coupon_amount = coupon_amount
+
+    @property
+    def deduction_count(self):
+        """Gets the deduction_count of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+
+
+        :return: The deduction_count of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deduction_count
+
+    @deduction_count.setter
+    def deduction_count(self, deduction_count):
+        """Sets the deduction_count of this OrderFailRefundInfoForListOrdersOutput.
+
+
+        :param deduction_count: The deduction_count of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deduction_count = deduction_count
 
     @property
     def discount_amount(self):

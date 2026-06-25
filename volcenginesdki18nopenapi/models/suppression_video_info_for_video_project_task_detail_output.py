@@ -38,6 +38,8 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
         'source_name': 'str',
         'source_vid': 'str',
         'source_video_url': 'str',
+        'target_audio_download_url': 'str',
+        'target_audio_url': 'str',
         'target_download_url': 'str',
         'target_last_time': 'str',
         'target_name': 'str',
@@ -51,6 +53,8 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
         'source_name': 'sourceName',
         'source_vid': 'sourceVid',
         'source_video_url': 'sourceVideoUrl',
+        'target_audio_download_url': 'targetAudioDownloadUrl',
+        'target_audio_url': 'targetAudioUrl',
         'target_download_url': 'targetDownloadUrl',
         'target_last_time': 'targetLastTime',
         'target_name': 'targetName',
@@ -58,7 +62,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
         'target_video_url': 'targetVideoUrl'
     }
 
-    def __init__(self, poster_url=None, source_last_time=None, source_name=None, source_vid=None, source_video_url=None, target_download_url=None, target_last_time=None, target_name=None, target_vid=None, target_video_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, poster_url=None, source_last_time=None, source_name=None, source_vid=None, source_video_url=None, target_audio_download_url=None, target_audio_url=None, target_download_url=None, target_last_time=None, target_name=None, target_vid=None, target_video_url=None, _configuration=None):  # noqa: E501
         """SuppressionVideoInfoForVideoProjectTaskDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +73,8 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
         self._source_name = None
         self._source_vid = None
         self._source_video_url = None
+        self._target_audio_download_url = None
+        self._target_audio_url = None
         self._target_download_url = None
         self._target_last_time = None
         self._target_name = None
@@ -86,6 +92,10 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
             self.source_vid = source_vid
         if source_video_url is not None:
             self.source_video_url = source_video_url
+        if target_audio_download_url is not None:
+            self.target_audio_download_url = target_audio_download_url
+        if target_audio_url is not None:
+            self.target_audio_url = target_audio_url
         if target_download_url is not None:
             self.target_download_url = target_download_url
         if target_last_time is not None:
@@ -201,6 +211,48 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
         """
 
         self._source_video_url = source_video_url
+
+    @property
+    def target_audio_download_url(self):
+        """Gets the target_audio_download_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The target_audio_download_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_audio_download_url
+
+    @target_audio_download_url.setter
+    def target_audio_download_url(self, target_audio_download_url):
+        """Sets the target_audio_download_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.
+
+
+        :param target_audio_download_url: The target_audio_download_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._target_audio_download_url = target_audio_download_url
+
+    @property
+    def target_audio_url(self):
+        """Gets the target_audio_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The target_audio_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_audio_url
+
+    @target_audio_url.setter
+    def target_audio_url(self, target_audio_url):
+        """Sets the target_audio_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.
+
+
+        :param target_audio_url: The target_audio_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._target_audio_url = target_audio_url
 
     @property
     def target_download_url(self):

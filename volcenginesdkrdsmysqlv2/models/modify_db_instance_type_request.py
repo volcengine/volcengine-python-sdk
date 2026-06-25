@@ -35,6 +35,8 @@ class ModifyDBInstanceTypeRequest(object):
     swagger_types = {
         'instance_id': 'str',
         'node_info': 'list[NodeInfoForModifyDBInstanceTypeInput]',
+        'specified_switch_end_time': 'str',
+        'specified_switch_start_time': 'str',
         'switch_type': 'str',
         'type_convert_path': 'str'
     }
@@ -42,11 +44,13 @@ class ModifyDBInstanceTypeRequest(object):
     attribute_map = {
         'instance_id': 'InstanceId',
         'node_info': 'NodeInfo',
+        'specified_switch_end_time': 'SpecifiedSwitchEndTime',
+        'specified_switch_start_time': 'SpecifiedSwitchStartTime',
         'switch_type': 'SwitchType',
         'type_convert_path': 'TypeConvertPath'
     }
 
-    def __init__(self, instance_id=None, node_info=None, switch_type=None, type_convert_path=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, node_info=None, specified_switch_end_time=None, specified_switch_start_time=None, switch_type=None, type_convert_path=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceTypeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +58,8 @@ class ModifyDBInstanceTypeRequest(object):
 
         self._instance_id = None
         self._node_info = None
+        self._specified_switch_end_time = None
+        self._specified_switch_start_time = None
         self._switch_type = None
         self._type_convert_path = None
         self.discriminator = None
@@ -61,6 +67,10 @@ class ModifyDBInstanceTypeRequest(object):
         self.instance_id = instance_id
         if node_info is not None:
             self.node_info = node_info
+        if specified_switch_end_time is not None:
+            self.specified_switch_end_time = specified_switch_end_time
+        if specified_switch_start_time is not None:
+            self.specified_switch_start_time = specified_switch_start_time
         if switch_type is not None:
             self.switch_type = switch_type
         self.type_convert_path = type_convert_path
@@ -108,6 +118,48 @@ class ModifyDBInstanceTypeRequest(object):
         """
 
         self._node_info = node_info
+
+    @property
+    def specified_switch_end_time(self):
+        """Gets the specified_switch_end_time of this ModifyDBInstanceTypeRequest.  # noqa: E501
+
+
+        :return: The specified_switch_end_time of this ModifyDBInstanceTypeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._specified_switch_end_time
+
+    @specified_switch_end_time.setter
+    def specified_switch_end_time(self, specified_switch_end_time):
+        """Sets the specified_switch_end_time of this ModifyDBInstanceTypeRequest.
+
+
+        :param specified_switch_end_time: The specified_switch_end_time of this ModifyDBInstanceTypeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._specified_switch_end_time = specified_switch_end_time
+
+    @property
+    def specified_switch_start_time(self):
+        """Gets the specified_switch_start_time of this ModifyDBInstanceTypeRequest.  # noqa: E501
+
+
+        :return: The specified_switch_start_time of this ModifyDBInstanceTypeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._specified_switch_start_time
+
+    @specified_switch_start_time.setter
+    def specified_switch_start_time(self, specified_switch_start_time):
+        """Sets the specified_switch_start_time of this ModifyDBInstanceTypeRequest.
+
+
+        :param specified_switch_start_time: The specified_switch_start_time of this ModifyDBInstanceTypeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._specified_switch_start_time = specified_switch_start_time
 
     @property
     def switch_type(self):

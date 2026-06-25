@@ -35,6 +35,7 @@ class UpgradeDBInstanceEngineMinorVersionRequest(object):
     swagger_types = {
         'estimate_only': 'bool',
         'instance_id': 'str',
+        'observation_hours': 'int',
         'specified_switch_end_time': 'str',
         'specified_switch_start_time': 'str',
         'switch_type': 'str',
@@ -44,13 +45,14 @@ class UpgradeDBInstanceEngineMinorVersionRequest(object):
     attribute_map = {
         'estimate_only': 'EstimateOnly',
         'instance_id': 'InstanceId',
+        'observation_hours': 'ObservationHours',
         'specified_switch_end_time': 'SpecifiedSwitchEndTime',
         'specified_switch_start_time': 'SpecifiedSwitchStartTime',
         'switch_type': 'SwitchType',
         'target_minor_version': 'TargetMinorVersion'
     }
 
-    def __init__(self, estimate_only=None, instance_id=None, specified_switch_end_time=None, specified_switch_start_time=None, switch_type=None, target_minor_version=None, _configuration=None):  # noqa: E501
+    def __init__(self, estimate_only=None, instance_id=None, observation_hours=None, specified_switch_end_time=None, specified_switch_start_time=None, switch_type=None, target_minor_version=None, _configuration=None):  # noqa: E501
         """UpgradeDBInstanceEngineMinorVersionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class UpgradeDBInstanceEngineMinorVersionRequest(object):
 
         self._estimate_only = None
         self._instance_id = None
+        self._observation_hours = None
         self._specified_switch_end_time = None
         self._specified_switch_start_time = None
         self._switch_type = None
@@ -67,6 +70,8 @@ class UpgradeDBInstanceEngineMinorVersionRequest(object):
         if estimate_only is not None:
             self.estimate_only = estimate_only
         self.instance_id = instance_id
+        if observation_hours is not None:
+            self.observation_hours = observation_hours
         if specified_switch_end_time is not None:
             self.specified_switch_end_time = specified_switch_end_time
         if specified_switch_start_time is not None:
@@ -118,6 +123,27 @@ class UpgradeDBInstanceEngineMinorVersionRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def observation_hours(self):
+        """Gets the observation_hours of this UpgradeDBInstanceEngineMinorVersionRequest.  # noqa: E501
+
+
+        :return: The observation_hours of this UpgradeDBInstanceEngineMinorVersionRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._observation_hours
+
+    @observation_hours.setter
+    def observation_hours(self, observation_hours):
+        """Sets the observation_hours of this UpgradeDBInstanceEngineMinorVersionRequest.
+
+
+        :param observation_hours: The observation_hours of this UpgradeDBInstanceEngineMinorVersionRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._observation_hours = observation_hours
 
     @property
     def specified_switch_end_time(self):

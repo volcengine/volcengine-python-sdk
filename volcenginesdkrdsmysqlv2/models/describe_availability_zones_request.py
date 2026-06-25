@@ -33,17 +33,71 @@ class DescribeAvailabilityZonesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'spec_family': 'str',
+        'storage_type': 'str'
     }
 
     attribute_map = {
+        'spec_family': 'SpecFamily',
+        'storage_type': 'StorageType'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, spec_family=None, storage_type=None, _configuration=None):  # noqa: E501
         """DescribeAvailabilityZonesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._spec_family = None
+        self._storage_type = None
         self.discriminator = None
+
+        if spec_family is not None:
+            self.spec_family = spec_family
+        if storage_type is not None:
+            self.storage_type = storage_type
+
+    @property
+    def spec_family(self):
+        """Gets the spec_family of this DescribeAvailabilityZonesRequest.  # noqa: E501
+
+
+        :return: The spec_family of this DescribeAvailabilityZonesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._spec_family
+
+    @spec_family.setter
+    def spec_family(self, spec_family):
+        """Sets the spec_family of this DescribeAvailabilityZonesRequest.
+
+
+        :param spec_family: The spec_family of this DescribeAvailabilityZonesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._spec_family = spec_family
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this DescribeAvailabilityZonesRequest.  # noqa: E501
+
+
+        :return: The storage_type of this DescribeAvailabilityZonesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this DescribeAvailabilityZonesRequest.
+
+
+        :param storage_type: The storage_type of this DescribeAvailabilityZonesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

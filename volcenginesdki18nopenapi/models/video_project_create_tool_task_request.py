@@ -36,7 +36,6 @@ class VideoProjectCreateToolTaskRequest(object):
         'project_id': 'str',
         'task_type': 'int',
         'tool_params_json': 'str',
-        'user_id': 'str',
         'video_ids': 'list[str]'
     }
 
@@ -44,11 +43,10 @@ class VideoProjectCreateToolTaskRequest(object):
         'project_id': 'projectId',
         'task_type': 'taskType',
         'tool_params_json': 'toolParamsJson',
-        'user_id': 'userId',
         'video_ids': 'videoIDs'
     }
 
-    def __init__(self, project_id=None, task_type=None, tool_params_json=None, user_id=None, video_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, project_id=None, task_type=None, tool_params_json=None, video_ids=None, _configuration=None):  # noqa: E501
         """VideoProjectCreateToolTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,7 +55,6 @@ class VideoProjectCreateToolTaskRequest(object):
         self._project_id = None
         self._task_type = None
         self._tool_params_json = None
-        self._user_id = None
         self._video_ids = None
         self.discriminator = None
 
@@ -66,8 +63,6 @@ class VideoProjectCreateToolTaskRequest(object):
             self.task_type = task_type
         if tool_params_json is not None:
             self.tool_params_json = tool_params_json
-        if user_id is not None:
-            self.user_id = user_id
         if video_ids is not None:
             self.video_ids = video_ids
 
@@ -135,27 +130,6 @@ class VideoProjectCreateToolTaskRequest(object):
         """
 
         self._tool_params_json = tool_params_json
-
-    @property
-    def user_id(self):
-        """Gets the user_id of this VideoProjectCreateToolTaskRequest.  # noqa: E501
-
-
-        :return: The user_id of this VideoProjectCreateToolTaskRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_id
-
-    @user_id.setter
-    def user_id(self, user_id):
-        """Sets the user_id of this VideoProjectCreateToolTaskRequest.
-
-
-        :param user_id: The user_id of this VideoProjectCreateToolTaskRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._user_id = user_id
 
     @property
     def video_ids(self):

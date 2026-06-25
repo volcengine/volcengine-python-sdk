@@ -127,7 +127,7 @@ class DiagnoseConfigForCreateJobInput(object):
         :param name: The name of this DiagnoseConfigForCreateJobInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["EnvironmentalDiagnosis", "PythonDetection", "LogDetection"]  # noqa: E501
+        allowed_values = ["EnvironmentalDiagnosis", "PythonDetection", "LogDetection", "VecclHangDetection"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 name not in allowed_values):
             raise ValueError(

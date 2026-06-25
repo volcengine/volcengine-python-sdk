@@ -34,26 +34,31 @@ class DeviceListForCreateDeviceWithoutApprovalInput(object):
     """
     swagger_types = {
         'device_name': 'str',
+        'device_secret': 'str',
         'nick_name': 'str'
     }
 
     attribute_map = {
         'device_name': 'DeviceName',
+        'device_secret': 'DeviceSecret',
         'nick_name': 'NickName'
     }
 
-    def __init__(self, device_name=None, nick_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, device_name=None, device_secret=None, nick_name=None, _configuration=None):  # noqa: E501
         """DeviceListForCreateDeviceWithoutApprovalInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._device_name = None
+        self._device_secret = None
         self._nick_name = None
         self.discriminator = None
 
         if device_name is not None:
             self.device_name = device_name
+        if device_secret is not None:
+            self.device_secret = device_secret
         if nick_name is not None:
             self.nick_name = nick_name
 
@@ -77,6 +82,27 @@ class DeviceListForCreateDeviceWithoutApprovalInput(object):
         """
 
         self._device_name = device_name
+
+    @property
+    def device_secret(self):
+        """Gets the device_secret of this DeviceListForCreateDeviceWithoutApprovalInput.  # noqa: E501
+
+
+        :return: The device_secret of this DeviceListForCreateDeviceWithoutApprovalInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._device_secret
+
+    @device_secret.setter
+    def device_secret(self, device_secret):
+        """Sets the device_secret of this DeviceListForCreateDeviceWithoutApprovalInput.
+
+
+        :param device_secret: The device_secret of this DeviceListForCreateDeviceWithoutApprovalInput.  # noqa: E501
+        :type: str
+        """
+
+        self._device_secret = device_secret
 
     @property
     def nick_name(self):

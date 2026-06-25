@@ -33,6 +33,7 @@ class UpdateResourceGroupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'byte_kd_sprofile_enabled': 'bool',
         'description': 'str',
         'id': 'str',
         'name': 'str',
@@ -43,6 +44,7 @@ class UpdateResourceGroupRequest(object):
     }
 
     attribute_map = {
+        'byte_kd_sprofile_enabled': 'ByteKDSprofileEnabled',
         'description': 'Description',
         'id': 'Id',
         'name': 'Name',
@@ -52,12 +54,13 @@ class UpdateResourceGroupRequest(object):
         'workload_network_mode': 'WorkloadNetworkMode'
     }
 
-    def __init__(self, description=None, id=None, name=None, resource_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, byte_kd_sprofile_enabled=None, description=None, id=None, name=None, resource_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
         """UpdateResourceGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._byte_kd_sprofile_enabled = None
         self._description = None
         self._id = None
         self._name = None
@@ -67,6 +70,8 @@ class UpdateResourceGroupRequest(object):
         self._workload_network_mode = None
         self.discriminator = None
 
+        if byte_kd_sprofile_enabled is not None:
+            self.byte_kd_sprofile_enabled = byte_kd_sprofile_enabled
         if description is not None:
             self.description = description
         self.id = id
@@ -80,6 +85,27 @@ class UpdateResourceGroupRequest(object):
             self.workload_network_config = workload_network_config
         if workload_network_mode is not None:
             self.workload_network_mode = workload_network_mode
+
+    @property
+    def byte_kd_sprofile_enabled(self):
+        """Gets the byte_kd_sprofile_enabled of this UpdateResourceGroupRequest.  # noqa: E501
+
+
+        :return: The byte_kd_sprofile_enabled of this UpdateResourceGroupRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._byte_kd_sprofile_enabled
+
+    @byte_kd_sprofile_enabled.setter
+    def byte_kd_sprofile_enabled(self, byte_kd_sprofile_enabled):
+        """Sets the byte_kd_sprofile_enabled of this UpdateResourceGroupRequest.
+
+
+        :param byte_kd_sprofile_enabled: The byte_kd_sprofile_enabled of this UpdateResourceGroupRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._byte_kd_sprofile_enabled = byte_kd_sprofile_enabled
 
     @property
     def description(self):

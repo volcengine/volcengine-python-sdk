@@ -33,23 +33,50 @@ class VideoProjectGetToolTaskRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'project_id': 'str',
         'task_id': 'str'
     }
 
     attribute_map = {
+        'project_id': 'projectId',
         'task_id': 'taskId'
     }
 
-    def __init__(self, task_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, project_id=None, task_id=None, _configuration=None):  # noqa: E501
         """VideoProjectGetToolTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._project_id = None
         self._task_id = None
         self.discriminator = None
 
+        self.project_id = project_id
         self.task_id = task_id
+
+    @property
+    def project_id(self):
+        """Gets the project_id of this VideoProjectGetToolTaskRequest.  # noqa: E501
+
+
+        :return: The project_id of this VideoProjectGetToolTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_id
+
+    @project_id.setter
+    def project_id(self, project_id):
+        """Sets the project_id of this VideoProjectGetToolTaskRequest.
+
+
+        :param project_id: The project_id of this VideoProjectGetToolTaskRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and project_id is None:
+            raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
+
+        self._project_id = project_id
 
     @property
     def task_id(self):
