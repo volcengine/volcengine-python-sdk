@@ -431,10 +431,6 @@ volcenginesdkcore.Configuration.set_default(configuration)
 
 ### ECS Role 凭证 Provider
 
-> 🚨 **当前版本限制**
->
-> **当前版本暂不支持从 IMDS 自动探测角色名**，必须通过构造参数或 `VOLCENGINE_ECS_METADATA` 环境变量显式传入角色名。后续版本将支持自动探测，敬请关注版本发布通知。
-
 `EcsRoleCredentialProvider` 从 ECS IMDS 获取临时凭证：
 
 - `role_name` 优先级：构造参数 > `VOLCENGINE_ECS_METADATA` > 从 IMDS 自动探测
@@ -446,6 +442,7 @@ from volcenginesdkcore.auth.providers.ecs_role_provider import EcsRoleCredential
 
 configuration = volcenginesdkcore.Configuration()
 configuration.region = "cn-beijing"
+# 省略 role_name 时，将读取 VOLCENGINE_ECS_METADATA 或从 IMDS 自动探测角色名。
 configuration.credential_provider = EcsRoleCredentialProvider(role_name="your-ecs-role-name")
 volcenginesdkcore.Configuration.set_default(configuration)
 ```

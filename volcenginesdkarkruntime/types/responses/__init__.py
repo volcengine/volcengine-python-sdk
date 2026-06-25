@@ -15,6 +15,10 @@ from .tool import Tool as Tool
 from .session import Session as Session
 from .item_agent_tool_call import ItemAgentToolCall as ItemAgentToolCall
 from .response import Response as Response
+from .response_context_management import (
+    AppliedContextManagementEdit as AppliedContextManagementEdit,
+    ResponseContextManagement as ResponseContextManagement,
+)
 from .tool_param import ToolParam as ToolParam
 from .function_tool import FunctionTool as FunctionTool
 from .response_error import ResponseError as ResponseError
@@ -30,6 +34,12 @@ from .tool_choice_options import ToolChoiceOptions as ToolChoiceOptions
 from .response_error_event import ResponseErrorEvent as ResponseErrorEvent
 from .response_input_image import ResponseInputImage as ResponseInputImage
 from .response_input_param import ResponseInputParam as ResponseInputParam
+from .response_context_management_param import (
+    ResponseContextManagementEditParam as ResponseContextManagementEditParam,
+    ResponseContextManagementKeepParam as ResponseContextManagementKeepParam,
+    ResponseContextManagementParam as ResponseContextManagementParam,
+    ResponseContextManagementTurnStrategyParam as ResponseContextManagementTurnStrategyParam,
+)
 from .response_output_item import ResponseOutputItem as ResponseOutputItem
 from .response_output_text import ResponseOutputText as ResponseOutputText
 from .response_text_config import ResponseTextConfig as ResponseTextConfig

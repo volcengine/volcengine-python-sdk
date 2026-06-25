@@ -47,6 +47,9 @@ from ...types.responses.response_input_message_content_list_param import (
 from ...types.responses.response_stream_event import ResponseStreamEvent
 from ...types.responses.response_text_config_param import ResponseTextConfigParam
 from ...types.responses.response_caching_param import ResponseCaching
+from ...types.responses.response_context_management_param import (
+    ResponseContextManagementParam,
+)
 from ...types.shared_params import Reasoning
 from volcenginesdkarkruntime.types.shared_params.thinking import Thinking
 
@@ -119,6 +122,7 @@ class Responses(SyncAPIResource):
         tools: Iterable[ToolParam] | None = None,
         top_p: Optional[float] | None = None,
         max_tool_calls: Optional[int] | None = None,
+        context_management: ResponseContextManagementParam | None = None,
         expire_at: Optional[int] | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
@@ -148,6 +152,7 @@ class Responses(SyncAPIResource):
                 "tools": tools,
                 "top_p": top_p,
                 "max_tool_calls": max_tool_calls,
+                "context_management": context_management,
                 "expire_at": expire_at,
                 "reasoning": reasoning,
                 "session": session,
@@ -246,6 +251,7 @@ class AsyncResponses(AsyncAPIResource):
         tools: Iterable[ToolParam] | None = None,
         top_p: Optional[float] | None = None,
         max_tool_calls: Optional[int] | None = None,
+        context_management: ResponseContextManagementParam | None = None,
         expire_at: Optional[int] | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
@@ -277,6 +283,7 @@ class AsyncResponses(AsyncAPIResource):
                 "tools": tools,
                 "top_p": top_p,
                 "max_tool_calls": max_tool_calls,
+                "context_management": context_management,
                 "expire_at": expire_at,
                 "reasoning": reasoning,
                 "session": session,
