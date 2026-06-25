@@ -34,34 +34,29 @@ class CloudMonitorForUpdateSilencePolicyInput(object):
     """
     swagger_types = {
         'meta_condition': 'MetaConditionForUpdateSilencePolicyInput',
-        'metric_names': 'list[str]',
         'namespace': 'str',
         'rule_id': 'str'
     }
 
     attribute_map = {
         'meta_condition': 'MetaCondition',
-        'metric_names': 'MetricNames',
         'namespace': 'Namespace',
         'rule_id': 'RuleID'
     }
 
-    def __init__(self, meta_condition=None, metric_names=None, namespace=None, rule_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, meta_condition=None, namespace=None, rule_id=None, _configuration=None):  # noqa: E501
         """CloudMonitorForUpdateSilencePolicyInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._meta_condition = None
-        self._metric_names = None
         self._namespace = None
         self._rule_id = None
         self.discriminator = None
 
         if meta_condition is not None:
             self.meta_condition = meta_condition
-        if metric_names is not None:
-            self.metric_names = metric_names
         if namespace is not None:
             self.namespace = namespace
         if rule_id is not None:
@@ -87,27 +82,6 @@ class CloudMonitorForUpdateSilencePolicyInput(object):
         """
 
         self._meta_condition = meta_condition
-
-    @property
-    def metric_names(self):
-        """Gets the metric_names of this CloudMonitorForUpdateSilencePolicyInput.  # noqa: E501
-
-
-        :return: The metric_names of this CloudMonitorForUpdateSilencePolicyInput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._metric_names
-
-    @metric_names.setter
-    def metric_names(self, metric_names):
-        """Sets the metric_names of this CloudMonitorForUpdateSilencePolicyInput.
-
-
-        :param metric_names: The metric_names of this CloudMonitorForUpdateSilencePolicyInput.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._metric_names = metric_names
 
     @property
     def namespace(self):
