@@ -33,29 +33,65 @@ class EicForListResourceGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cache_type': 'str',
         'eic_id': 'str',
-        'eic_status': 'str'
+        'eic_status': 'str',
+        'enable_rdma': 'bool',
+        'enable_shm_ipc': 'bool'
     }
 
     attribute_map = {
+        'cache_type': 'CacheType',
         'eic_id': 'EicId',
-        'eic_status': 'EicStatus'
+        'eic_status': 'EicStatus',
+        'enable_rdma': 'EnableRDMA',
+        'enable_shm_ipc': 'EnableShmIpc'
     }
 
-    def __init__(self, eic_id=None, eic_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, cache_type=None, eic_id=None, eic_status=None, enable_rdma=None, enable_shm_ipc=None, _configuration=None):  # noqa: E501
         """EicForListResourceGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cache_type = None
         self._eic_id = None
         self._eic_status = None
+        self._enable_rdma = None
+        self._enable_shm_ipc = None
         self.discriminator = None
 
+        if cache_type is not None:
+            self.cache_type = cache_type
         if eic_id is not None:
             self.eic_id = eic_id
         if eic_status is not None:
             self.eic_status = eic_status
+        if enable_rdma is not None:
+            self.enable_rdma = enable_rdma
+        if enable_shm_ipc is not None:
+            self.enable_shm_ipc = enable_shm_ipc
+
+    @property
+    def cache_type(self):
+        """Gets the cache_type of this EicForListResourceGroupsOutput.  # noqa: E501
+
+
+        :return: The cache_type of this EicForListResourceGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cache_type
+
+    @cache_type.setter
+    def cache_type(self, cache_type):
+        """Sets the cache_type of this EicForListResourceGroupsOutput.
+
+
+        :param cache_type: The cache_type of this EicForListResourceGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cache_type = cache_type
 
     @property
     def eic_id(self):
@@ -98,6 +134,48 @@ class EicForListResourceGroupsOutput(object):
         """
 
         self._eic_status = eic_status
+
+    @property
+    def enable_rdma(self):
+        """Gets the enable_rdma of this EicForListResourceGroupsOutput.  # noqa: E501
+
+
+        :return: The enable_rdma of this EicForListResourceGroupsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_rdma
+
+    @enable_rdma.setter
+    def enable_rdma(self, enable_rdma):
+        """Sets the enable_rdma of this EicForListResourceGroupsOutput.
+
+
+        :param enable_rdma: The enable_rdma of this EicForListResourceGroupsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_rdma = enable_rdma
+
+    @property
+    def enable_shm_ipc(self):
+        """Gets the enable_shm_ipc of this EicForListResourceGroupsOutput.  # noqa: E501
+
+
+        :return: The enable_shm_ipc of this EicForListResourceGroupsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_shm_ipc
+
+    @enable_shm_ipc.setter
+    def enable_shm_ipc(self, enable_shm_ipc):
+        """Sets the enable_shm_ipc of this EicForListResourceGroupsOutput.
+
+
+        :param enable_shm_ipc: The enable_shm_ipc of this EicForListResourceGroupsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_shm_ipc = enable_shm_ipc
 
     def to_dict(self):
         """Returns the model properties as a dict"""

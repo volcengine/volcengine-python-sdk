@@ -34,6 +34,7 @@ class GetResourceGroupResponse(object):
     """
     swagger_types = {
         'auto_renew_period': 'int',
+        'byte_kd_sprofile_enabled': 'bool',
         'charge_type': 'str',
         'description': 'str',
         'expire_time': 'str',
@@ -56,6 +57,7 @@ class GetResourceGroupResponse(object):
 
     attribute_map = {
         'auto_renew_period': 'AutoRenewPeriod',
+        'byte_kd_sprofile_enabled': 'ByteKDSprofileEnabled',
         'charge_type': 'ChargeType',
         'description': 'Description',
         'expire_time': 'ExpireTime',
@@ -76,13 +78,14 @@ class GetResourceGroupResponse(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew_period=None, charge_type=None, description=None, expire_time=None, id=None, m_gpu_enabled=None, name=None, period_unit=None, project_name=None, remain_auto_renew_times=None, renew_type=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, v_rdma_enabled=None, workload_network_config=None, workload_network_mode=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew_period=None, byte_kd_sprofile_enabled=None, charge_type=None, description=None, expire_time=None, id=None, m_gpu_enabled=None, name=None, period_unit=None, project_name=None, remain_auto_renew_times=None, renew_type=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, v_rdma_enabled=None, workload_network_config=None, workload_network_mode=None, zone_ids=None, _configuration=None):  # noqa: E501
         """GetResourceGroupResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_renew_period = None
+        self._byte_kd_sprofile_enabled = None
         self._charge_type = None
         self._description = None
         self._expire_time = None
@@ -105,6 +108,8 @@ class GetResourceGroupResponse(object):
 
         if auto_renew_period is not None:
             self.auto_renew_period = auto_renew_period
+        if byte_kd_sprofile_enabled is not None:
+            self.byte_kd_sprofile_enabled = byte_kd_sprofile_enabled
         if charge_type is not None:
             self.charge_type = charge_type
         if description is not None:
@@ -162,6 +167,27 @@ class GetResourceGroupResponse(object):
         """
 
         self._auto_renew_period = auto_renew_period
+
+    @property
+    def byte_kd_sprofile_enabled(self):
+        """Gets the byte_kd_sprofile_enabled of this GetResourceGroupResponse.  # noqa: E501
+
+
+        :return: The byte_kd_sprofile_enabled of this GetResourceGroupResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._byte_kd_sprofile_enabled
+
+    @byte_kd_sprofile_enabled.setter
+    def byte_kd_sprofile_enabled(self, byte_kd_sprofile_enabled):
+        """Sets the byte_kd_sprofile_enabled of this GetResourceGroupResponse.
+
+
+        :param byte_kd_sprofile_enabled: The byte_kd_sprofile_enabled of this GetResourceGroupResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._byte_kd_sprofile_enabled = byte_kd_sprofile_enabled
 
     @property
     def charge_type(self):

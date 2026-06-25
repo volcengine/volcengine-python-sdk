@@ -34,6 +34,8 @@ class ConfigForGetDeploymentOutput(object):
     """
     swagger_types = {
         'cfs': 'CfsForGetDeploymentOutput',
+        'efs': 'EfsForGetDeploymentOutput',
+        'efs_ap': 'EfsAPForGetDeploymentOutput',
         'nas': 'NasForGetDeploymentOutput',
         'nas_ap': 'NasAPForGetDeploymentOutput',
         'sfcs': 'SfcsForGetDeploymentOutput',
@@ -45,6 +47,8 @@ class ConfigForGetDeploymentOutput(object):
 
     attribute_map = {
         'cfs': 'Cfs',
+        'efs': 'Efs',
+        'efs_ap': 'EfsAP',
         'nas': 'Nas',
         'nas_ap': 'NasAP',
         'sfcs': 'Sfcs',
@@ -54,13 +58,15 @@ class ConfigForGetDeploymentOutput(object):
         'vepfs_ap': 'VepfsAP'
     }
 
-    def __init__(self, cfs=None, nas=None, nas_ap=None, sfcs=None, tos=None, tos_ap=None, vepfs=None, vepfs_ap=None, _configuration=None):  # noqa: E501
+    def __init__(self, cfs=None, efs=None, efs_ap=None, nas=None, nas_ap=None, sfcs=None, tos=None, tos_ap=None, vepfs=None, vepfs_ap=None, _configuration=None):  # noqa: E501
         """ConfigForGetDeploymentOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cfs = None
+        self._efs = None
+        self._efs_ap = None
         self._nas = None
         self._nas_ap = None
         self._sfcs = None
@@ -72,6 +78,10 @@ class ConfigForGetDeploymentOutput(object):
 
         if cfs is not None:
             self.cfs = cfs
+        if efs is not None:
+            self.efs = efs
+        if efs_ap is not None:
+            self.efs_ap = efs_ap
         if nas is not None:
             self.nas = nas
         if nas_ap is not None:
@@ -107,6 +117,48 @@ class ConfigForGetDeploymentOutput(object):
         """
 
         self._cfs = cfs
+
+    @property
+    def efs(self):
+        """Gets the efs of this ConfigForGetDeploymentOutput.  # noqa: E501
+
+
+        :return: The efs of this ConfigForGetDeploymentOutput.  # noqa: E501
+        :rtype: EfsForGetDeploymentOutput
+        """
+        return self._efs
+
+    @efs.setter
+    def efs(self, efs):
+        """Sets the efs of this ConfigForGetDeploymentOutput.
+
+
+        :param efs: The efs of this ConfigForGetDeploymentOutput.  # noqa: E501
+        :type: EfsForGetDeploymentOutput
+        """
+
+        self._efs = efs
+
+    @property
+    def efs_ap(self):
+        """Gets the efs_ap of this ConfigForGetDeploymentOutput.  # noqa: E501
+
+
+        :return: The efs_ap of this ConfigForGetDeploymentOutput.  # noqa: E501
+        :rtype: EfsAPForGetDeploymentOutput
+        """
+        return self._efs_ap
+
+    @efs_ap.setter
+    def efs_ap(self, efs_ap):
+        """Sets the efs_ap of this ConfigForGetDeploymentOutput.
+
+
+        :param efs_ap: The efs_ap of this ConfigForGetDeploymentOutput.  # noqa: E501
+        :type: EfsAPForGetDeploymentOutput
+        """
+
+        self._efs_ap = efs_ap
 
     @property
     def nas(self):

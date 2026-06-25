@@ -36,7 +36,10 @@ class GetResourceQueueResponse(object):
         'charge_type': 'str',
         'compute_resources': 'list[ComputeResourceForGetResourceQueueOutput]',
         'description': 'str',
+        'flavor_ongoing': 'list[FlavorOngoingForGetResourceQueueOutput]',
+        'flavor_outgoing': 'list[FlavorOutgoingForGetResourceQueueOutput]',
         'id': 'str',
+        'is_over_quota': 'bool',
         'name': 'str',
         'project_name': 'str',
         'quota_allocated': 'QuotaAllocatedForGetResourceQueueOutput',
@@ -56,7 +59,10 @@ class GetResourceQueueResponse(object):
         'charge_type': 'ChargeType',
         'compute_resources': 'ComputeResources',
         'description': 'Description',
+        'flavor_ongoing': 'FlavorOngoing',
+        'flavor_outgoing': 'FlavorOutgoing',
         'id': 'Id',
+        'is_over_quota': 'IsOverQuota',
         'name': 'Name',
         'project_name': 'ProjectName',
         'quota_allocated': 'QuotaAllocated',
@@ -72,7 +78,7 @@ class GetResourceQueueResponse(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_type=None, compute_resources=None, description=None, id=None, name=None, project_name=None, quota_allocated=None, quota_capability=None, resource_group_id=None, rules=None, shareable=None, shared_quota_allocated=None, status=None, system_quota_allocated=None, volume_resources=None, workload_infos=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, compute_resources=None, description=None, flavor_ongoing=None, flavor_outgoing=None, id=None, is_over_quota=None, name=None, project_name=None, quota_allocated=None, quota_capability=None, resource_group_id=None, rules=None, shareable=None, shared_quota_allocated=None, status=None, system_quota_allocated=None, volume_resources=None, workload_infos=None, zone_ids=None, _configuration=None):  # noqa: E501
         """GetResourceQueueResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,7 +87,10 @@ class GetResourceQueueResponse(object):
         self._charge_type = None
         self._compute_resources = None
         self._description = None
+        self._flavor_ongoing = None
+        self._flavor_outgoing = None
         self._id = None
+        self._is_over_quota = None
         self._name = None
         self._project_name = None
         self._quota_allocated = None
@@ -103,8 +112,14 @@ class GetResourceQueueResponse(object):
             self.compute_resources = compute_resources
         if description is not None:
             self.description = description
+        if flavor_ongoing is not None:
+            self.flavor_ongoing = flavor_ongoing
+        if flavor_outgoing is not None:
+            self.flavor_outgoing = flavor_outgoing
         if id is not None:
             self.id = id
+        if is_over_quota is not None:
+            self.is_over_quota = is_over_quota
         if name is not None:
             self.name = name
         if project_name is not None:
@@ -196,6 +211,48 @@ class GetResourceQueueResponse(object):
         self._description = description
 
     @property
+    def flavor_ongoing(self):
+        """Gets the flavor_ongoing of this GetResourceQueueResponse.  # noqa: E501
+
+
+        :return: The flavor_ongoing of this GetResourceQueueResponse.  # noqa: E501
+        :rtype: list[FlavorOngoingForGetResourceQueueOutput]
+        """
+        return self._flavor_ongoing
+
+    @flavor_ongoing.setter
+    def flavor_ongoing(self, flavor_ongoing):
+        """Sets the flavor_ongoing of this GetResourceQueueResponse.
+
+
+        :param flavor_ongoing: The flavor_ongoing of this GetResourceQueueResponse.  # noqa: E501
+        :type: list[FlavorOngoingForGetResourceQueueOutput]
+        """
+
+        self._flavor_ongoing = flavor_ongoing
+
+    @property
+    def flavor_outgoing(self):
+        """Gets the flavor_outgoing of this GetResourceQueueResponse.  # noqa: E501
+
+
+        :return: The flavor_outgoing of this GetResourceQueueResponse.  # noqa: E501
+        :rtype: list[FlavorOutgoingForGetResourceQueueOutput]
+        """
+        return self._flavor_outgoing
+
+    @flavor_outgoing.setter
+    def flavor_outgoing(self, flavor_outgoing):
+        """Sets the flavor_outgoing of this GetResourceQueueResponse.
+
+
+        :param flavor_outgoing: The flavor_outgoing of this GetResourceQueueResponse.  # noqa: E501
+        :type: list[FlavorOutgoingForGetResourceQueueOutput]
+        """
+
+        self._flavor_outgoing = flavor_outgoing
+
+    @property
     def id(self):
         """Gets the id of this GetResourceQueueResponse.  # noqa: E501
 
@@ -215,6 +272,27 @@ class GetResourceQueueResponse(object):
         """
 
         self._id = id
+
+    @property
+    def is_over_quota(self):
+        """Gets the is_over_quota of this GetResourceQueueResponse.  # noqa: E501
+
+
+        :return: The is_over_quota of this GetResourceQueueResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_over_quota
+
+    @is_over_quota.setter
+    def is_over_quota(self, is_over_quota):
+        """Sets the is_over_quota of this GetResourceQueueResponse.
+
+
+        :param is_over_quota: The is_over_quota of this GetResourceQueueResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_over_quota = is_over_quota
 
     @property
     def name(self):
