@@ -33,6 +33,7 @@ class CreateDBBlueGreenInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_upgrade_minor_version': 'str',
         'charge_info': 'ChargeInfoForCreateDBBlueGreenInstanceInput',
         'db_engine_version': 'str',
         'db_param_group_id': 'str',
@@ -50,6 +51,7 @@ class CreateDBBlueGreenInstanceRequest(object):
     }
 
     attribute_map = {
+        'auto_upgrade_minor_version': 'AutoUpgradeMinorVersion',
         'charge_info': 'ChargeInfo',
         'db_engine_version': 'DBEngineVersion',
         'db_param_group_id': 'DBParamGroupId',
@@ -66,12 +68,13 @@ class CreateDBBlueGreenInstanceRequest(object):
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, charge_info=None, db_engine_version=None, db_param_group_id=None, deletion_protection=None, instance_id=None, instance_name=None, instance_type=None, minor_version=None, node_info=None, private_ip_address=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_upgrade_minor_version=None, charge_info=None, db_engine_version=None, db_param_group_id=None, deletion_protection=None, instance_id=None, instance_name=None, instance_type=None, minor_version=None, node_info=None, private_ip_address=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, _configuration=None):  # noqa: E501
         """CreateDBBlueGreenInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auto_upgrade_minor_version = None
         self._charge_info = None
         self._db_engine_version = None
         self._db_param_group_id = None
@@ -88,6 +91,8 @@ class CreateDBBlueGreenInstanceRequest(object):
         self._subnet_id = None
         self.discriminator = None
 
+        if auto_upgrade_minor_version is not None:
+            self.auto_upgrade_minor_version = auto_upgrade_minor_version
         if charge_info is not None:
             self.charge_info = charge_info
         self.db_engine_version = db_engine_version
@@ -112,6 +117,27 @@ class CreateDBBlueGreenInstanceRequest(object):
         self.storage_type = storage_type
         if subnet_id is not None:
             self.subnet_id = subnet_id
+
+    @property
+    def auto_upgrade_minor_version(self):
+        """Gets the auto_upgrade_minor_version of this CreateDBBlueGreenInstanceRequest.  # noqa: E501
+
+
+        :return: The auto_upgrade_minor_version of this CreateDBBlueGreenInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._auto_upgrade_minor_version
+
+    @auto_upgrade_minor_version.setter
+    def auto_upgrade_minor_version(self, auto_upgrade_minor_version):
+        """Sets the auto_upgrade_minor_version of this CreateDBBlueGreenInstanceRequest.
+
+
+        :param auto_upgrade_minor_version: The auto_upgrade_minor_version of this CreateDBBlueGreenInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._auto_upgrade_minor_version = auto_upgrade_minor_version
 
     @property
     def charge_info(self):

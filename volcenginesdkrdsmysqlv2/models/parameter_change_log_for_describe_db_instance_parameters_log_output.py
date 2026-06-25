@@ -33,6 +33,7 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'apply_param_template_info': 'ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput',
         'custom_node_ids': 'list[str]',
         'modify_time': 'str',
         'new_parameter_value': 'str',
@@ -43,6 +44,7 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput(object):
     }
 
     attribute_map = {
+        'apply_param_template_info': 'ApplyParamTemplateInfo',
         'custom_node_ids': 'CustomNodeIds',
         'modify_time': 'ModifyTime',
         'new_parameter_value': 'NewParameterValue',
@@ -52,12 +54,13 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput(object):
         'status': 'Status'
     }
 
-    def __init__(self, custom_node_ids=None, modify_time=None, new_parameter_value=None, old_parameter_value=None, param_apply_scope=None, parameter_name=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, apply_param_template_info=None, custom_node_ids=None, modify_time=None, new_parameter_value=None, old_parameter_value=None, param_apply_scope=None, parameter_name=None, status=None, _configuration=None):  # noqa: E501
         """ParameterChangeLogForDescribeDBInstanceParametersLogOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._apply_param_template_info = None
         self._custom_node_ids = None
         self._modify_time = None
         self._new_parameter_value = None
@@ -67,6 +70,8 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput(object):
         self._status = None
         self.discriminator = None
 
+        if apply_param_template_info is not None:
+            self.apply_param_template_info = apply_param_template_info
         if custom_node_ids is not None:
             self.custom_node_ids = custom_node_ids
         if modify_time is not None:
@@ -81,6 +86,27 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput(object):
             self.parameter_name = parameter_name
         if status is not None:
             self.status = status
+
+    @property
+    def apply_param_template_info(self):
+        """Gets the apply_param_template_info of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
+
+
+        :return: The apply_param_template_info of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
+        :rtype: ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput
+        """
+        return self._apply_param_template_info
+
+    @apply_param_template_info.setter
+    def apply_param_template_info(self, apply_param_template_info):
+        """Sets the apply_param_template_info of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.
+
+
+        :param apply_param_template_info: The apply_param_template_info of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
+        :type: ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput
+        """
+
+        self._apply_param_template_info = apply_param_template_info
 
     @property
     def custom_node_ids(self):
