@@ -36,6 +36,7 @@ class ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput(object):
         'arrangement': 'int',
         'file_type': 'int',
         'name': 'str',
+        'subtitle_id': 'str',
         'subtitle_lang': 'int',
         'target_lang': 'str',
         'uri': 'str'
@@ -45,12 +46,13 @@ class ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput(object):
         'arrangement': 'arrangement',
         'file_type': 'fileType',
         'name': 'name',
+        'subtitle_id': 'subtitleId',
         'subtitle_lang': 'subtitleLang',
         'target_lang': 'targetLang',
         'uri': 'uri'
     }
 
-    def __init__(self, arrangement=None, file_type=None, name=None, subtitle_lang=None, target_lang=None, uri=None, _configuration=None):  # noqa: E501
+    def __init__(self, arrangement=None, file_type=None, name=None, subtitle_id=None, subtitle_lang=None, target_lang=None, uri=None, _configuration=None):  # noqa: E501
         """ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput(object):
         self._arrangement = None
         self._file_type = None
         self._name = None
+        self._subtitle_id = None
         self._subtitle_lang = None
         self._target_lang = None
         self._uri = None
@@ -70,6 +73,8 @@ class ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput(object):
             self.file_type = file_type
         if name is not None:
             self.name = name
+        if subtitle_id is not None:
+            self.subtitle_id = subtitle_id
         if subtitle_lang is not None:
             self.subtitle_lang = subtitle_lang
         if target_lang is not None:
@@ -139,6 +144,27 @@ class ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput(object):
         """
 
         self._name = name
+
+    @property
+    def subtitle_id(self):
+        """Gets the subtitle_id of this ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+
+
+        :return: The subtitle_id of this ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._subtitle_id
+
+    @subtitle_id.setter
+    def subtitle_id(self, subtitle_id):
+        """Sets the subtitle_id of this ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput.
+
+
+        :param subtitle_id: The subtitle_id of this ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput.  # noqa: E501
+        :type: str
+        """
+
+        self._subtitle_id = subtitle_id
 
     @property
     def subtitle_lang(self):
