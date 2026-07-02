@@ -36,6 +36,7 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput(object):
         'batch_id': 'str',
         'project_id': 'str',
         'status': 'int',
+        'subtitle_id': 'str',
         'video_id': 'str',
         'video_url': 'str'
     }
@@ -44,11 +45,12 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput(object):
         'batch_id': 'batchId',
         'project_id': 'projectId',
         'status': 'status',
+        'subtitle_id': 'subtitleId',
         'video_id': 'videoId',
         'video_url': 'videoUrl'
     }
 
-    def __init__(self, batch_id=None, project_id=None, status=None, video_id=None, video_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, batch_id=None, project_id=None, status=None, subtitle_id=None, video_id=None, video_url=None, _configuration=None):  # noqa: E501
         """VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput(object):
         self._batch_id = None
         self._project_id = None
         self._status = None
+        self._subtitle_id = None
         self._video_id = None
         self._video_url = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput(object):
             self.project_id = project_id
         if status is not None:
             self.status = status
+        if subtitle_id is not None:
+            self.subtitle_id = subtitle_id
         if video_id is not None:
             self.video_id = video_id
         if video_url is not None:
@@ -134,6 +139,27 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput(object):
         """
 
         self._status = status
+
+    @property
+    def subtitle_id(self):
+        """Gets the subtitle_id of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.  # noqa: E501
+
+
+        :return: The subtitle_id of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._subtitle_id
+
+    @subtitle_id.setter
+    def subtitle_id(self, subtitle_id):
+        """Sets the subtitle_id of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.
+
+
+        :param subtitle_id: The subtitle_id of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._subtitle_id = subtitle_id
 
     @property
     def video_id(self):

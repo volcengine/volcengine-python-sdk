@@ -35,6 +35,7 @@ class CreateTransitRouterRouteEntryRequest(object):
     swagger_types = {
         'description': 'str',
         'destination_cidr_block': 'str',
+        'destination_prefix_list_id': 'str',
         'transit_router_route_entry_name': 'str',
         'transit_router_route_entry_next_hop_id': 'str',
         'transit_router_route_entry_next_hop_type': 'str',
@@ -44,13 +45,14 @@ class CreateTransitRouterRouteEntryRequest(object):
     attribute_map = {
         'description': 'Description',
         'destination_cidr_block': 'DestinationCidrBlock',
+        'destination_prefix_list_id': 'DestinationPrefixListId',
         'transit_router_route_entry_name': 'TransitRouterRouteEntryName',
         'transit_router_route_entry_next_hop_id': 'TransitRouterRouteEntryNextHopId',
         'transit_router_route_entry_next_hop_type': 'TransitRouterRouteEntryNextHopType',
         'transit_router_route_table_id': 'TransitRouterRouteTableId'
     }
 
-    def __init__(self, description=None, destination_cidr_block=None, transit_router_route_entry_name=None, transit_router_route_entry_next_hop_id=None, transit_router_route_entry_next_hop_type=None, transit_router_route_table_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, destination_cidr_block=None, destination_prefix_list_id=None, transit_router_route_entry_name=None, transit_router_route_entry_next_hop_id=None, transit_router_route_entry_next_hop_type=None, transit_router_route_table_id=None, _configuration=None):  # noqa: E501
         """CreateTransitRouterRouteEntryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class CreateTransitRouterRouteEntryRequest(object):
 
         self._description = None
         self._destination_cidr_block = None
+        self._destination_prefix_list_id = None
         self._transit_router_route_entry_name = None
         self._transit_router_route_entry_next_hop_id = None
         self._transit_router_route_entry_next_hop_type = None
@@ -66,7 +69,10 @@ class CreateTransitRouterRouteEntryRequest(object):
 
         if description is not None:
             self.description = description
-        self.destination_cidr_block = destination_cidr_block
+        if destination_cidr_block is not None:
+            self.destination_cidr_block = destination_cidr_block
+        if destination_prefix_list_id is not None:
+            self.destination_prefix_list_id = destination_prefix_list_id
         if transit_router_route_entry_name is not None:
             self.transit_router_route_entry_name = transit_router_route_entry_name
         if transit_router_route_entry_next_hop_id is not None:
@@ -113,10 +119,29 @@ class CreateTransitRouterRouteEntryRequest(object):
         :param destination_cidr_block: The destination_cidr_block of this CreateTransitRouterRouteEntryRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and destination_cidr_block is None:
-            raise ValueError("Invalid value for `destination_cidr_block`, must not be `None`")  # noqa: E501
 
         self._destination_cidr_block = destination_cidr_block
+
+    @property
+    def destination_prefix_list_id(self):
+        """Gets the destination_prefix_list_id of this CreateTransitRouterRouteEntryRequest.  # noqa: E501
+
+
+        :return: The destination_prefix_list_id of this CreateTransitRouterRouteEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_prefix_list_id
+
+    @destination_prefix_list_id.setter
+    def destination_prefix_list_id(self, destination_prefix_list_id):
+        """Sets the destination_prefix_list_id of this CreateTransitRouterRouteEntryRequest.
+
+
+        :param destination_prefix_list_id: The destination_prefix_list_id of this CreateTransitRouterRouteEntryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_prefix_list_id = destination_prefix_list_id
 
     @property
     def transit_router_route_entry_name(self):

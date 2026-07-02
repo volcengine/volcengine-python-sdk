@@ -35,9 +35,11 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
     swagger_types = {
         'auto_publish_route_enabled': 'bool',
         'bandwidth': 'int',
+        'bandwidth_type': 'str',
         'creation_time': 'str',
         'description': 'str',
         'ipv6_enabled': 'bool',
+        'line_operator': 'str',
         'peer_transit_router_id': 'str',
         'peer_transit_router_owner_id': 'str',
         'peer_transit_router_region_id': 'str',
@@ -58,9 +60,11 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
     attribute_map = {
         'auto_publish_route_enabled': 'AutoPublishRouteEnabled',
         'bandwidth': 'Bandwidth',
+        'bandwidth_type': 'BandwidthType',
         'creation_time': 'CreationTime',
         'description': 'Description',
         'ipv6_enabled': 'Ipv6Enabled',
+        'line_operator': 'LineOperator',
         'peer_transit_router_id': 'PeerTransitRouterId',
         'peer_transit_router_owner_id': 'PeerTransitRouterOwnerId',
         'peer_transit_router_region_id': 'PeerTransitRouterRegionId',
@@ -78,7 +82,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, auto_publish_route_enabled=None, bandwidth=None, creation_time=None, description=None, ipv6_enabled=None, peer_transit_router_id=None, peer_transit_router_owner_id=None, peer_transit_router_region_id=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, transit_router_bandwidth_package_owner_id=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_traffic_qos_marking_policy_id=None, transit_router_traffic_qos_queue_policy_id=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_publish_route_enabled=None, bandwidth=None, bandwidth_type=None, creation_time=None, description=None, ipv6_enabled=None, line_operator=None, peer_transit_router_id=None, peer_transit_router_owner_id=None, peer_transit_router_region_id=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, transit_router_bandwidth_package_owner_id=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_traffic_qos_marking_policy_id=None, transit_router_traffic_qos_queue_policy_id=None, update_time=None, _configuration=None):  # noqa: E501
         """TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,9 +90,11 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
 
         self._auto_publish_route_enabled = None
         self._bandwidth = None
+        self._bandwidth_type = None
         self._creation_time = None
         self._description = None
         self._ipv6_enabled = None
+        self._line_operator = None
         self._peer_transit_router_id = None
         self._peer_transit_router_owner_id = None
         self._peer_transit_router_region_id = None
@@ -110,12 +116,16 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
             self.auto_publish_route_enabled = auto_publish_route_enabled
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if bandwidth_type is not None:
+            self.bandwidth_type = bandwidth_type
         if creation_time is not None:
             self.creation_time = creation_time
         if description is not None:
             self.description = description
         if ipv6_enabled is not None:
             self.ipv6_enabled = ipv6_enabled
+        if line_operator is not None:
+            self.line_operator = line_operator
         if peer_transit_router_id is not None:
             self.peer_transit_router_id = peer_transit_router_id
         if peer_transit_router_owner_id is not None:
@@ -190,6 +200,27 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         self._bandwidth = bandwidth
 
     @property
+    def bandwidth_type(self):
+        """Gets the bandwidth_type of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+
+
+        :return: The bandwidth_type of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bandwidth_type
+
+    @bandwidth_type.setter
+    def bandwidth_type(self, bandwidth_type):
+        """Sets the bandwidth_type of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.
+
+
+        :param bandwidth_type: The bandwidth_type of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bandwidth_type = bandwidth_type
+
+    @property
     def creation_time(self):
         """Gets the creation_time of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
 
@@ -251,6 +282,27 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         """
 
         self._ipv6_enabled = ipv6_enabled
+
+    @property
+    def line_operator(self):
+        """Gets the line_operator of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+
+
+        :return: The line_operator of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._line_operator
+
+    @line_operator.setter
+    def line_operator(self, line_operator):
+        """Sets the line_operator of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.
+
+
+        :param line_operator: The line_operator of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._line_operator = line_operator
 
     @property
     def peer_transit_router_id(self):

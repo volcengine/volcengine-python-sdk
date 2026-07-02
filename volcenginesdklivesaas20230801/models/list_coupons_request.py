@@ -35,16 +35,18 @@ class ListCouponsRequest(object):
     swagger_types = {
         'name': 'str',
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'support_id_search': 'bool'
     }
 
     attribute_map = {
         'name': 'Name',
         'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'support_id_search': 'SupportIdSearch'
     }
 
-    def __init__(self, name=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, page_number=None, page_size=None, support_id_search=None, _configuration=None):  # noqa: E501
         """ListCouponsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ListCouponsRequest(object):
         self._name = None
         self._page_number = None
         self._page_size = None
+        self._support_id_search = None
         self.discriminator = None
 
         if name is not None:
@@ -61,6 +64,7 @@ class ListCouponsRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        self.support_id_search = support_id_search
 
     @property
     def name(self):
@@ -124,6 +128,29 @@ class ListCouponsRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def support_id_search(self):
+        """Gets the support_id_search of this ListCouponsRequest.  # noqa: E501
+
+
+        :return: The support_id_search of this ListCouponsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._support_id_search
+
+    @support_id_search.setter
+    def support_id_search(self, support_id_search):
+        """Sets the support_id_search of this ListCouponsRequest.
+
+
+        :param support_id_search: The support_id_search of this ListCouponsRequest.  # noqa: E501
+        :type: bool
+        """
+        if self._configuration.client_side_validation and support_id_search is None:
+            raise ValueError("Invalid value for `support_id_search`, must not be `None`")  # noqa: E501
+
+        self._support_id_search = support_id_search
 
     def to_dict(self):
         """Returns the model properties as a dict"""

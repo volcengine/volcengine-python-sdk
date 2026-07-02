@@ -48,6 +48,7 @@ class CreateClawInstanceRequest(object):
         'soul': 'str',
         'space_id': 'str',
         'spec': 'str',
+        'template_id': 'str',
         'user_pool_user_uid': 'str'
     }
 
@@ -67,10 +68,11 @@ class CreateClawInstanceRequest(object):
         'soul': 'Soul',
         'space_id': 'SpaceId',
         'spec': 'Spec',
+        'template_id': 'TemplateId',
         'user_pool_user_uid': 'UserPoolUserUid'
     }
 
-    def __init__(self, auto_renew=None, billing_type=None, client_token=None, description=None, dry_run=None, model_api_key=None, model_base_url=None, model_name=None, model_source=None, name=None, period=None, project_name=None, soul=None, space_id=None, spec=None, user_pool_user_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, billing_type=None, client_token=None, description=None, dry_run=None, model_api_key=None, model_base_url=None, model_name=None, model_source=None, name=None, period=None, project_name=None, soul=None, space_id=None, spec=None, template_id=None, user_pool_user_uid=None, _configuration=None):  # noqa: E501
         """CreateClawInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,6 +93,7 @@ class CreateClawInstanceRequest(object):
         self._soul = None
         self._space_id = None
         self._spec = None
+        self._template_id = None
         self._user_pool_user_uid = None
         self.discriminator = None
 
@@ -121,6 +124,8 @@ class CreateClawInstanceRequest(object):
             self.soul = soul
         self.space_id = space_id
         self.spec = spec
+        if template_id is not None:
+            self.template_id = template_id
         if user_pool_user_uid is not None:
             self.user_pool_user_uid = user_pool_user_uid
 
@@ -444,6 +449,27 @@ class CreateClawInstanceRequest(object):
             raise ValueError("Invalid value for `spec`, must not be `None`")  # noqa: E501
 
         self._spec = spec
+
+    @property
+    def template_id(self):
+        """Gets the template_id of this CreateClawInstanceRequest.  # noqa: E501
+
+
+        :return: The template_id of this CreateClawInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._template_id
+
+    @template_id.setter
+    def template_id(self, template_id):
+        """Sets the template_id of this CreateClawInstanceRequest.
+
+
+        :param template_id: The template_id of this CreateClawInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._template_id = template_id
 
     @property
     def user_pool_user_uid(self):

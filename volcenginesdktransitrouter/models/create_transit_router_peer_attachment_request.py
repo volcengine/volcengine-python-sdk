@@ -34,8 +34,10 @@ class CreateTransitRouterPeerAttachmentRequest(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'bandwidth_type': 'str',
         'client_token': 'str',
         'description': 'str',
+        'line_operator': 'str',
         'peer_transit_router_id': 'str',
         'peer_transit_router_owner_id': 'str',
         'peer_transit_router_region_id': 'str',
@@ -47,8 +49,10 @@ class CreateTransitRouterPeerAttachmentRequest(object):
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'bandwidth_type': 'BandwidthType',
         'client_token': 'ClientToken',
         'description': 'Description',
+        'line_operator': 'LineOperator',
         'peer_transit_router_id': 'PeerTransitRouterId',
         'peer_transit_router_owner_id': 'PeerTransitRouterOwnerId',
         'peer_transit_router_region_id': 'PeerTransitRouterRegionId',
@@ -58,15 +62,17 @@ class CreateTransitRouterPeerAttachmentRequest(object):
         'transit_router_id': 'TransitRouterId'
     }
 
-    def __init__(self, bandwidth=None, client_token=None, description=None, peer_transit_router_id=None, peer_transit_router_owner_id=None, peer_transit_router_region_id=None, tags=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, transit_router_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_type=None, client_token=None, description=None, line_operator=None, peer_transit_router_id=None, peer_transit_router_owner_id=None, peer_transit_router_region_id=None, tags=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, transit_router_id=None, _configuration=None):  # noqa: E501
         """CreateTransitRouterPeerAttachmentRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._bandwidth_type = None
         self._client_token = None
         self._description = None
+        self._line_operator = None
         self._peer_transit_router_id = None
         self._peer_transit_router_owner_id = None
         self._peer_transit_router_region_id = None
@@ -78,10 +84,14 @@ class CreateTransitRouterPeerAttachmentRequest(object):
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if bandwidth_type is not None:
+            self.bandwidth_type = bandwidth_type
         if client_token is not None:
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if line_operator is not None:
+            self.line_operator = line_operator
         self.peer_transit_router_id = peer_transit_router_id
         if peer_transit_router_owner_id is not None:
             self.peer_transit_router_owner_id = peer_transit_router_owner_id
@@ -114,6 +124,27 @@ class CreateTransitRouterPeerAttachmentRequest(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def bandwidth_type(self):
+        """Gets the bandwidth_type of this CreateTransitRouterPeerAttachmentRequest.  # noqa: E501
+
+
+        :return: The bandwidth_type of this CreateTransitRouterPeerAttachmentRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._bandwidth_type
+
+    @bandwidth_type.setter
+    def bandwidth_type(self, bandwidth_type):
+        """Sets the bandwidth_type of this CreateTransitRouterPeerAttachmentRequest.
+
+
+        :param bandwidth_type: The bandwidth_type of this CreateTransitRouterPeerAttachmentRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._bandwidth_type = bandwidth_type
 
     @property
     def client_token(self):
@@ -156,6 +187,27 @@ class CreateTransitRouterPeerAttachmentRequest(object):
         """
 
         self._description = description
+
+    @property
+    def line_operator(self):
+        """Gets the line_operator of this CreateTransitRouterPeerAttachmentRequest.  # noqa: E501
+
+
+        :return: The line_operator of this CreateTransitRouterPeerAttachmentRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._line_operator
+
+    @line_operator.setter
+    def line_operator(self, line_operator):
+        """Sets the line_operator of this CreateTransitRouterPeerAttachmentRequest.
+
+
+        :param line_operator: The line_operator of this CreateTransitRouterPeerAttachmentRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._line_operator = line_operator
 
     @property
     def peer_transit_router_id(self):
