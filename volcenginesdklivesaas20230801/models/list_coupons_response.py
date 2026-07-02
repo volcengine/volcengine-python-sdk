@@ -35,16 +35,18 @@ class ListCouponsResponse(object):
     swagger_types = {
         'coupons': 'list[CouponForListCouponsOutput]',
         'max_count': 'int',
-        'total_count': 'int'
+        'total_count': 'int',
+        'total_unfiltered_count': 'int'
     }
 
     attribute_map = {
         'coupons': 'Coupons',
         'max_count': 'MaxCount',
-        'total_count': 'TotalCount'
+        'total_count': 'TotalCount',
+        'total_unfiltered_count': 'TotalUnfilteredCount'
     }
 
-    def __init__(self, coupons=None, max_count=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, coupons=None, max_count=None, total_count=None, total_unfiltered_count=None, _configuration=None):  # noqa: E501
         """ListCouponsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ListCouponsResponse(object):
         self._coupons = None
         self._max_count = None
         self._total_count = None
+        self._total_unfiltered_count = None
         self.discriminator = None
 
         if coupons is not None:
@@ -61,6 +64,8 @@ class ListCouponsResponse(object):
             self.max_count = max_count
         if total_count is not None:
             self.total_count = total_count
+        if total_unfiltered_count is not None:
+            self.total_unfiltered_count = total_unfiltered_count
 
     @property
     def coupons(self):
@@ -124,6 +129,27 @@ class ListCouponsResponse(object):
         """
 
         self._total_count = total_count
+
+    @property
+    def total_unfiltered_count(self):
+        """Gets the total_unfiltered_count of this ListCouponsResponse.  # noqa: E501
+
+
+        :return: The total_unfiltered_count of this ListCouponsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_unfiltered_count
+
+    @total_unfiltered_count.setter
+    def total_unfiltered_count(self, total_unfiltered_count):
+        """Sets the total_unfiltered_count of this ListCouponsResponse.
+
+
+        :param total_unfiltered_count: The total_unfiltered_count of this ListCouponsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total_unfiltered_count = total_unfiltered_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

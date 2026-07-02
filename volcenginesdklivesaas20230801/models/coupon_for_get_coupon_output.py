@@ -35,6 +35,7 @@ class CouponForGetCouponOutput(object):
     swagger_types = {
         'description': 'str',
         'id': 'int',
+        'is_block_repeat_pickup': 'int',
         'is_repeat_pickup_enable': 'int',
         'name': 'str',
         'pic': 'str',
@@ -44,13 +45,14 @@ class CouponForGetCouponOutput(object):
     attribute_map = {
         'description': 'Description',
         'id': 'Id',
+        'is_block_repeat_pickup': 'IsBlockRepeatPickup',
         'is_repeat_pickup_enable': 'IsRepeatPickupEnable',
         'name': 'Name',
         'pic': 'Pic',
         'third_party_id': 'ThirdPartyId'
     }
 
-    def __init__(self, description=None, id=None, is_repeat_pickup_enable=None, name=None, pic=None, third_party_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, id=None, is_block_repeat_pickup=None, is_repeat_pickup_enable=None, name=None, pic=None, third_party_id=None, _configuration=None):  # noqa: E501
         """CouponForGetCouponOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class CouponForGetCouponOutput(object):
 
         self._description = None
         self._id = None
+        self._is_block_repeat_pickup = None
         self._is_repeat_pickup_enable = None
         self._name = None
         self._pic = None
@@ -68,6 +71,8 @@ class CouponForGetCouponOutput(object):
             self.description = description
         if id is not None:
             self.id = id
+        if is_block_repeat_pickup is not None:
+            self.is_block_repeat_pickup = is_block_repeat_pickup
         if is_repeat_pickup_enable is not None:
             self.is_repeat_pickup_enable = is_repeat_pickup_enable
         if name is not None:
@@ -118,6 +123,27 @@ class CouponForGetCouponOutput(object):
         """
 
         self._id = id
+
+    @property
+    def is_block_repeat_pickup(self):
+        """Gets the is_block_repeat_pickup of this CouponForGetCouponOutput.  # noqa: E501
+
+
+        :return: The is_block_repeat_pickup of this CouponForGetCouponOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_block_repeat_pickup
+
+    @is_block_repeat_pickup.setter
+    def is_block_repeat_pickup(self, is_block_repeat_pickup):
+        """Sets the is_block_repeat_pickup of this CouponForGetCouponOutput.
+
+
+        :param is_block_repeat_pickup: The is_block_repeat_pickup of this CouponForGetCouponOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_block_repeat_pickup = is_block_repeat_pickup
 
     @property
     def is_repeat_pickup_enable(self):
