@@ -173,6 +173,7 @@ ServiceInfos = {
     "i18n_openapi": ServiceInfo("i18n_openapi", True),
     "config": ServiceInfo("config", True),
     "milvus": ServiceInfo("milvus", False),
+    "dramart": ServiceInfo("dramart", True),
     "partner": ServiceInfo("partner", True),
 }
 
