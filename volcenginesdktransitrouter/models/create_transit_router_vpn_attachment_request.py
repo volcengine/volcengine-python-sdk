@@ -35,6 +35,7 @@ class CreateTransitRouterVpnAttachmentRequest(object):
     swagger_types = {
         'client_token': 'str',
         'description': 'str',
+        'secondary_zone_id': 'str',
         'tags': 'list[TagForCreateTransitRouterVpnAttachmentInput]',
         'transit_router_attachment_name': 'str',
         'transit_router_id': 'str',
@@ -46,6 +47,7 @@ class CreateTransitRouterVpnAttachmentRequest(object):
     attribute_map = {
         'client_token': 'ClientToken',
         'description': 'Description',
+        'secondary_zone_id': 'SecondaryZoneId',
         'tags': 'Tags',
         'transit_router_attachment_name': 'TransitRouterAttachmentName',
         'transit_router_id': 'TransitRouterId',
@@ -54,7 +56,7 @@ class CreateTransitRouterVpnAttachmentRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, description=None, tags=None, transit_router_attachment_name=None, transit_router_id=None, transit_router_route_table_id=None, vpn_connection_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, secondary_zone_id=None, tags=None, transit_router_attachment_name=None, transit_router_id=None, transit_router_route_table_id=None, vpn_connection_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateTransitRouterVpnAttachmentRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class CreateTransitRouterVpnAttachmentRequest(object):
 
         self._client_token = None
         self._description = None
+        self._secondary_zone_id = None
         self._tags = None
         self._transit_router_attachment_name = None
         self._transit_router_id = None
@@ -74,6 +77,8 @@ class CreateTransitRouterVpnAttachmentRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if secondary_zone_id is not None:
+            self.secondary_zone_id = secondary_zone_id
         if tags is not None:
             self.tags = tags
         if transit_router_attachment_name is not None:
@@ -125,6 +130,27 @@ class CreateTransitRouterVpnAttachmentRequest(object):
         """
 
         self._description = description
+
+    @property
+    def secondary_zone_id(self):
+        """Gets the secondary_zone_id of this CreateTransitRouterVpnAttachmentRequest.  # noqa: E501
+
+
+        :return: The secondary_zone_id of this CreateTransitRouterVpnAttachmentRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._secondary_zone_id
+
+    @secondary_zone_id.setter
+    def secondary_zone_id(self, secondary_zone_id):
+        """Sets the secondary_zone_id of this CreateTransitRouterVpnAttachmentRequest.
+
+
+        :param secondary_zone_id: The secondary_zone_id of this CreateTransitRouterVpnAttachmentRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._secondary_zone_id = secondary_zone_id
 
     @property
     def tags(self):

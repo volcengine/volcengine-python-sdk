@@ -41,6 +41,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
         'destination_resource_types': 'list[str]',
         'ip_prefix_match_mode': 'str',
         'ip_prefixes': 'list[str]',
+        'prefix_list_id': 'str',
         'priority': 'int',
         'source_resource_ids': 'list[str]',
         'source_resource_types': 'list[str]',
@@ -56,13 +57,14 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
         'destination_resource_types': 'DestinationResourceTypes',
         'ip_prefix_match_mode': 'IpPrefixMatchMode',
         'ip_prefixes': 'IpPrefixes',
+        'prefix_list_id': 'PrefixListId',
         'priority': 'Priority',
         'source_resource_ids': 'SourceResourceIds',
         'source_resource_types': 'SourceResourceTypes',
         'transit_router_route_policy_entry_id': 'TransitRouterRoutePolicyEntryId'
     }
 
-    def __init__(self, action_result=None, apply_as_path_values=None, as_path_operate_mode=None, description=None, destination_resource_ids=None, destination_resource_types=None, ip_prefix_match_mode=None, ip_prefixes=None, priority=None, source_resource_ids=None, source_resource_types=None, transit_router_route_policy_entry_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_result=None, apply_as_path_values=None, as_path_operate_mode=None, description=None, destination_resource_ids=None, destination_resource_types=None, ip_prefix_match_mode=None, ip_prefixes=None, prefix_list_id=None, priority=None, source_resource_ids=None, source_resource_types=None, transit_router_route_policy_entry_id=None, _configuration=None):  # noqa: E501
         """ModifyTransitRouterRoutePolicyEntryAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
         self._destination_resource_types = None
         self._ip_prefix_match_mode = None
         self._ip_prefixes = None
+        self._prefix_list_id = None
         self._priority = None
         self._source_resource_ids = None
         self._source_resource_types = None
@@ -98,6 +101,8 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
             self.ip_prefix_match_mode = ip_prefix_match_mode
         if ip_prefixes is not None:
             self.ip_prefixes = ip_prefixes
+        if prefix_list_id is not None:
+            self.prefix_list_id = prefix_list_id
         if priority is not None:
             self.priority = priority
         if source_resource_ids is not None:
@@ -275,6 +280,27 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
         self._ip_prefixes = ip_prefixes
 
     @property
+    def prefix_list_id(self):
+        """Gets the prefix_list_id of this ModifyTransitRouterRoutePolicyEntryAttributesRequest.  # noqa: E501
+
+
+        :return: The prefix_list_id of this ModifyTransitRouterRoutePolicyEntryAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._prefix_list_id
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, prefix_list_id):
+        """Sets the prefix_list_id of this ModifyTransitRouterRoutePolicyEntryAttributesRequest.
+
+
+        :param prefix_list_id: The prefix_list_id of this ModifyTransitRouterRoutePolicyEntryAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._prefix_list_id = prefix_list_id
+
+    @property
     def priority(self):
         """Gets the priority of this ModifyTransitRouterRoutePolicyEntryAttributesRequest.  # noqa: E501
 
@@ -292,6 +318,12 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
         :param priority: The priority of this ModifyTransitRouterRoutePolicyEntryAttributesRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                priority is not None and priority > 10000):  # noqa: E501
+            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `10000`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                priority is not None and priority < 1):  # noqa: E501
+            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._priority = priority
 
