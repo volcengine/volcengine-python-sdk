@@ -17,6 +17,7 @@ from volcenginesdkarkruntime.types.shared.thinking import Thinking
 
 from ..._models import BaseModel
 from .response_caching import ResponseCaching
+from .response_context_management import ResponseContextManagement
 from .response_error import ResponseError
 from .response_incomplete_details import IncompleteDetails
 from .response_output_item import ResponseOutputItem
@@ -114,6 +115,9 @@ class Response(BaseModel):
 
     max_tool_calls: Optional[int] = None
     """The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored."""
+
+    context_management: Optional[ResponseContextManagement] = None
+    """Context management information applied during response creation."""
 
     reasoning: Optional[Reasoning] = None
     """Configuration options for reasoning models"""

@@ -39,7 +39,8 @@ class UpdateDeploymentRequest(object):
         'dry_run': 'bool',
         'id': 'str',
         'resource_queue_id': 'str',
-        'roles': 'list[RoleForUpdateDeploymentInput]'
+        'roles': 'list[RoleForUpdateDeploymentInput]',
+        'use_serverless_resource': 'bool'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class UpdateDeploymentRequest(object):
         'dry_run': 'DryRun',
         'id': 'Id',
         'resource_queue_id': 'ResourceQueueId',
-        'roles': 'Roles'
+        'roles': 'Roles',
+        'use_serverless_resource': 'UseServerlessResource'
     }
 
-    def __init__(self, accept_service_traffic=None, deployment_name=None, description=None, dry_run=None, id=None, resource_queue_id=None, roles=None, _configuration=None):  # noqa: E501
+    def __init__(self, accept_service_traffic=None, deployment_name=None, description=None, dry_run=None, id=None, resource_queue_id=None, roles=None, use_serverless_resource=None, _configuration=None):  # noqa: E501
         """UpdateDeploymentRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class UpdateDeploymentRequest(object):
         self._id = None
         self._resource_queue_id = None
         self._roles = None
+        self._use_serverless_resource = None
         self.discriminator = None
 
         if accept_service_traffic is not None:
@@ -80,6 +83,8 @@ class UpdateDeploymentRequest(object):
             self.resource_queue_id = resource_queue_id
         if roles is not None:
             self.roles = roles
+        if use_serverless_resource is not None:
+            self.use_serverless_resource = use_serverless_resource
 
     @property
     def accept_service_traffic(self):
@@ -229,6 +234,27 @@ class UpdateDeploymentRequest(object):
         """
 
         self._roles = roles
+
+    @property
+    def use_serverless_resource(self):
+        """Gets the use_serverless_resource of this UpdateDeploymentRequest.  # noqa: E501
+
+
+        :return: The use_serverless_resource of this UpdateDeploymentRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_serverless_resource
+
+    @use_serverless_resource.setter
+    def use_serverless_resource(self, use_serverless_resource):
+        """Sets the use_serverless_resource of this UpdateDeploymentRequest.
+
+
+        :param use_serverless_resource: The use_serverless_resource of this UpdateDeploymentRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_serverless_resource = use_serverless_resource
 
     def to_dict(self):
         """Returns the model properties as a dict"""

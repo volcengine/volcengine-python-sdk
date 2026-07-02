@@ -88,6 +88,7 @@ class ListForListBillDetailOutput(object):
         'pickup_voucher_count_unit': 'str',
         'pickup_voucher_deduct_count': 'str',
         'pickup_voucher_id': 'str',
+        'point_deduct_amount': 'str',
         'posttax_amount': 'str',
         'pre_tax_payable_amount': 'str',
         'preferential_bill_amount': 'str',
@@ -101,6 +102,7 @@ class ListForListBillDetailOutput(object):
         'product_zh': 'str',
         'project': 'str',
         'project_display_name': 'str',
+        'project_remark': 'str',
         'real_value': 'str',
         'region': 'str',
         'region_code': 'str',
@@ -126,6 +128,7 @@ class ListForListBillDetailOutput(object):
         'solution_zh': 'str',
         'subject_name': 'str',
         'tag': 'str',
+        'tag_remark': 'str',
         'tax': 'str',
         'tax_rate': 'str',
         'trade_time': 'str',
@@ -193,6 +196,7 @@ class ListForListBillDetailOutput(object):
         'pickup_voucher_count_unit': 'PickupVoucherCountUnit',
         'pickup_voucher_deduct_count': 'PickupVoucherDeductCount',
         'pickup_voucher_id': 'PickupVoucherID',
+        'point_deduct_amount': 'PointDeductAmount',
         'posttax_amount': 'PosttaxAmount',
         'pre_tax_payable_amount': 'PreTaxPayableAmount',
         'preferential_bill_amount': 'PreferentialBillAmount',
@@ -206,6 +210,7 @@ class ListForListBillDetailOutput(object):
         'product_zh': 'ProductZh',
         'project': 'Project',
         'project_display_name': 'ProjectDisplayName',
+        'project_remark': 'ProjectRemark',
         'real_value': 'RealValue',
         'region': 'Region',
         'region_code': 'RegionCode',
@@ -231,6 +236,7 @@ class ListForListBillDetailOutput(object):
         'solution_zh': 'SolutionZh',
         'subject_name': 'SubjectName',
         'tag': 'Tag',
+        'tag_remark': 'TagRemark',
         'tax': 'Tax',
         'tax_rate': 'TaxRate',
         'trade_time': 'TradeTime',
@@ -242,7 +248,7 @@ class ListForListBillDetailOutput(object):
         'zone_code': 'ZoneCode'
     }
 
-    def __init__(self, bill_category=None, bill_detail_id=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, charge_item_code=None, config_name=None, configuration_code=None, count=None, country_region=None, coupon_amount=None, credit_carried_amount=None, currency=None, currency_settlement=None, deduction_count=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, discount_info=None, effective_factor=None, element=None, element_code=None, exchange_rate=None, expand_field=None, expense_begin_time=None, expense_date=None, expense_end_time=None, factor=None, factor_code=None, formula=None, instance_name=None, instance_no=None, main_contract_number=None, market_price=None, measure_interval=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, pickup_voucher_count_unit=None, pickup_voucher_deduct_count=None, pickup_voucher_id=None, posttax_amount=None, pre_tax_payable_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, price=None, price_factor=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, region_code=None, reservation_instance=None, resource_id=None, round_amount=None, saving_plan_deduction_discount_amount=None, saving_plan_deduction_discount_total_amount=None, saving_plan_deduction_sp_id=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, selling_mode=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, solution_zh=None, subject_name=None, tag=None, tax=None, tax_rate=None, trade_time=None, unit=None, unpaid_amount=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_detail_id=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, charge_item_code=None, config_name=None, configuration_code=None, count=None, country_region=None, coupon_amount=None, credit_carried_amount=None, currency=None, currency_settlement=None, deduction_count=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, discount_info=None, effective_factor=None, element=None, element_code=None, exchange_rate=None, expand_field=None, expense_begin_time=None, expense_date=None, expense_end_time=None, factor=None, factor_code=None, formula=None, instance_name=None, instance_no=None, main_contract_number=None, market_price=None, measure_interval=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, pickup_voucher_count_unit=None, pickup_voucher_deduct_count=None, pickup_voucher_id=None, point_deduct_amount=None, posttax_amount=None, pre_tax_payable_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, price=None, price_factor=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, project_remark=None, real_value=None, region=None, region_code=None, reservation_instance=None, resource_id=None, round_amount=None, saving_plan_deduction_discount_amount=None, saving_plan_deduction_discount_total_amount=None, saving_plan_deduction_sp_id=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, selling_mode=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, solution_zh=None, subject_name=None, tag=None, tag_remark=None, tax=None, tax_rate=None, trade_time=None, unit=None, unpaid_amount=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
         """ListForListBillDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -303,6 +309,7 @@ class ListForListBillDetailOutput(object):
         self._pickup_voucher_count_unit = None
         self._pickup_voucher_deduct_count = None
         self._pickup_voucher_id = None
+        self._point_deduct_amount = None
         self._posttax_amount = None
         self._pre_tax_payable_amount = None
         self._preferential_bill_amount = None
@@ -316,6 +323,7 @@ class ListForListBillDetailOutput(object):
         self._product_zh = None
         self._project = None
         self._project_display_name = None
+        self._project_remark = None
         self._real_value = None
         self._region = None
         self._region_code = None
@@ -341,6 +349,7 @@ class ListForListBillDetailOutput(object):
         self._solution_zh = None
         self._subject_name = None
         self._tag = None
+        self._tag_remark = None
         self._tax = None
         self._tax_rate = None
         self._trade_time = None
@@ -462,6 +471,8 @@ class ListForListBillDetailOutput(object):
             self.pickup_voucher_deduct_count = pickup_voucher_deduct_count
         if pickup_voucher_id is not None:
             self.pickup_voucher_id = pickup_voucher_id
+        if point_deduct_amount is not None:
+            self.point_deduct_amount = point_deduct_amount
         if posttax_amount is not None:
             self.posttax_amount = posttax_amount
         if pre_tax_payable_amount is not None:
@@ -488,6 +499,8 @@ class ListForListBillDetailOutput(object):
             self.project = project
         if project_display_name is not None:
             self.project_display_name = project_display_name
+        if project_remark is not None:
+            self.project_remark = project_remark
         if real_value is not None:
             self.real_value = real_value
         if region is not None:
@@ -538,6 +551,8 @@ class ListForListBillDetailOutput(object):
             self.subject_name = subject_name
         if tag is not None:
             self.tag = tag
+        if tag_remark is not None:
+            self.tag_remark = tag_remark
         if tax is not None:
             self.tax = tax
         if tax_rate is not None:
@@ -1713,6 +1728,27 @@ class ListForListBillDetailOutput(object):
         self._pickup_voucher_id = pickup_voucher_id
 
     @property
+    def point_deduct_amount(self):
+        """Gets the point_deduct_amount of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The point_deduct_amount of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._point_deduct_amount
+
+    @point_deduct_amount.setter
+    def point_deduct_amount(self, point_deduct_amount):
+        """Sets the point_deduct_amount of this ListForListBillDetailOutput.
+
+
+        :param point_deduct_amount: The point_deduct_amount of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._point_deduct_amount = point_deduct_amount
+
+    @property
     def posttax_amount(self):
         """Gets the posttax_amount of this ListForListBillDetailOutput.  # noqa: E501
 
@@ -1984,6 +2020,27 @@ class ListForListBillDetailOutput(object):
         """
 
         self._project_display_name = project_display_name
+
+    @property
+    def project_remark(self):
+        """Gets the project_remark of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The project_remark of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_remark
+
+    @project_remark.setter
+    def project_remark(self, project_remark):
+        """Sets the project_remark of this ListForListBillDetailOutput.
+
+
+        :param project_remark: The project_remark of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_remark = project_remark
 
     @property
     def real_value(self):
@@ -2509,6 +2566,27 @@ class ListForListBillDetailOutput(object):
         """
 
         self._tag = tag
+
+    @property
+    def tag_remark(self):
+        """Gets the tag_remark of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The tag_remark of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tag_remark
+
+    @tag_remark.setter
+    def tag_remark(self, tag_remark):
+        """Sets the tag_remark of this ListForListBillDetailOutput.
+
+
+        :param tag_remark: The tag_remark of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tag_remark = tag_remark
 
     @property
     def tax(self):

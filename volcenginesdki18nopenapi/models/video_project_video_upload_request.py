@@ -34,28 +34,33 @@ class VideoProjectVideoUploadRequest(object):
     """
     swagger_types = {
         'project_id': 'str',
+        'upload_video_infos': 'list[UploadVideoInfoForVideoProjectVideoUploadInput]',
         'video_urls': 'list[str]',
         'video_upload_type': 'int'
     }
 
     attribute_map = {
         'project_id': 'projectId',
+        'upload_video_infos': 'uploadVideoInfos',
         'video_urls': 'videoURLs',
         'video_upload_type': 'videoUploadType'
     }
 
-    def __init__(self, project_id=None, video_urls=None, video_upload_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, project_id=None, upload_video_infos=None, video_urls=None, video_upload_type=None, _configuration=None):  # noqa: E501
         """VideoProjectVideoUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._project_id = None
+        self._upload_video_infos = None
         self._video_urls = None
         self._video_upload_type = None
         self.discriminator = None
 
         self.project_id = project_id
+        if upload_video_infos is not None:
+            self.upload_video_infos = upload_video_infos
         if video_urls is not None:
             self.video_urls = video_urls
         self.video_upload_type = video_upload_type
@@ -82,6 +87,27 @@ class VideoProjectVideoUploadRequest(object):
             raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
 
         self._project_id = project_id
+
+    @property
+    def upload_video_infos(self):
+        """Gets the upload_video_infos of this VideoProjectVideoUploadRequest.  # noqa: E501
+
+
+        :return: The upload_video_infos of this VideoProjectVideoUploadRequest.  # noqa: E501
+        :rtype: list[UploadVideoInfoForVideoProjectVideoUploadInput]
+        """
+        return self._upload_video_infos
+
+    @upload_video_infos.setter
+    def upload_video_infos(self, upload_video_infos):
+        """Sets the upload_video_infos of this VideoProjectVideoUploadRequest.
+
+
+        :param upload_video_infos: The upload_video_infos of this VideoProjectVideoUploadRequest.  # noqa: E501
+        :type: list[UploadVideoInfoForVideoProjectVideoUploadInput]
+        """
+
+        self._upload_video_infos = upload_video_infos
 
     @property
     def video_urls(self):

@@ -35,16 +35,18 @@ class DeleteDBInstanceRequest(object):
     swagger_types = {
         'data_keep_days': 'int',
         'data_keep_policy': 'str',
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'keep_cross_backup_enable_after_released': 'bool'
     }
 
     attribute_map = {
         'data_keep_days': 'DataKeepDays',
         'data_keep_policy': 'DataKeepPolicy',
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'keep_cross_backup_enable_after_released': 'KeepCrossBackupEnableAfterReleased'
     }
 
-    def __init__(self, data_keep_days=None, data_keep_policy=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, data_keep_days=None, data_keep_policy=None, instance_id=None, keep_cross_backup_enable_after_released=None, _configuration=None):  # noqa: E501
         """DeleteDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class DeleteDBInstanceRequest(object):
         self._data_keep_days = None
         self._data_keep_policy = None
         self._instance_id = None
+        self._keep_cross_backup_enable_after_released = None
         self.discriminator = None
 
         if data_keep_days is not None:
@@ -60,6 +63,8 @@ class DeleteDBInstanceRequest(object):
         if data_keep_policy is not None:
             self.data_keep_policy = data_keep_policy
         self.instance_id = instance_id
+        if keep_cross_backup_enable_after_released is not None:
+            self.keep_cross_backup_enable_after_released = keep_cross_backup_enable_after_released
 
     @property
     def data_keep_days(self):
@@ -125,6 +130,27 @@ class DeleteDBInstanceRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def keep_cross_backup_enable_after_released(self):
+        """Gets the keep_cross_backup_enable_after_released of this DeleteDBInstanceRequest.  # noqa: E501
+
+
+        :return: The keep_cross_backup_enable_after_released of this DeleteDBInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._keep_cross_backup_enable_after_released
+
+    @keep_cross_backup_enable_after_released.setter
+    def keep_cross_backup_enable_after_released(self, keep_cross_backup_enable_after_released):
+        """Sets the keep_cross_backup_enable_after_released of this DeleteDBInstanceRequest.
+
+
+        :param keep_cross_backup_enable_after_released: The keep_cross_backup_enable_after_released of this DeleteDBInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._keep_cross_backup_enable_after_released = keep_cross_backup_enable_after_released
 
     def to_dict(self):
         """Returns the model properties as a dict"""

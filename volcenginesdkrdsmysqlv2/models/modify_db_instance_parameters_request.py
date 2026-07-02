@@ -36,17 +36,19 @@ class ModifyDBInstanceParametersRequest(object):
         'custom_node_ids': 'list[str]',
         'instance_id': 'str',
         'param_apply_scope': 'str',
-        'parameters': 'list[ParameterForModifyDBInstanceParametersInput]'
+        'parameters': 'list[ParameterForModifyDBInstanceParametersInput]',
+        'template_id': 'str'
     }
 
     attribute_map = {
         'custom_node_ids': 'CustomNodeIds',
         'instance_id': 'InstanceId',
         'param_apply_scope': 'ParamApplyScope',
-        'parameters': 'Parameters'
+        'parameters': 'Parameters',
+        'template_id': 'TemplateId'
     }
 
-    def __init__(self, custom_node_ids=None, instance_id=None, param_apply_scope=None, parameters=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_node_ids=None, instance_id=None, param_apply_scope=None, parameters=None, template_id=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceParametersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ModifyDBInstanceParametersRequest(object):
         self._instance_id = None
         self._param_apply_scope = None
         self._parameters = None
+        self._template_id = None
         self.discriminator = None
 
         if custom_node_ids is not None:
@@ -65,6 +68,8 @@ class ModifyDBInstanceParametersRequest(object):
             self.param_apply_scope = param_apply_scope
         if parameters is not None:
             self.parameters = parameters
+        if template_id is not None:
+            self.template_id = template_id
 
     @property
     def custom_node_ids(self):
@@ -151,6 +156,27 @@ class ModifyDBInstanceParametersRequest(object):
         """
 
         self._parameters = parameters
+
+    @property
+    def template_id(self):
+        """Gets the template_id of this ModifyDBInstanceParametersRequest.  # noqa: E501
+
+
+        :return: The template_id of this ModifyDBInstanceParametersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._template_id
+
+    @template_id.setter
+    def template_id(self, template_id):
+        """Sets the template_id of this ModifyDBInstanceParametersRequest.
+
+
+        :param template_id: The template_id of this ModifyDBInstanceParametersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._template_id = template_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

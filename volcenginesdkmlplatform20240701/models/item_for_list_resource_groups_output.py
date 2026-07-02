@@ -33,6 +33,7 @@ class ItemForListResourceGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'byte_kd_sprofile_enabled': 'bool',
         'charge_type': 'str',
         'description': 'str',
         'expire_time': 'str',
@@ -51,6 +52,7 @@ class ItemForListResourceGroupsOutput(object):
     }
 
     attribute_map = {
+        'byte_kd_sprofile_enabled': 'ByteKDSprofileEnabled',
         'charge_type': 'ChargeType',
         'description': 'Description',
         'expire_time': 'ExpireTime',
@@ -68,12 +70,13 @@ class ItemForListResourceGroupsOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_type=None, description=None, expire_time=None, id=None, name=None, period_unit=None, project_name=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, v_rdma_enabled=None, workload_network_config=None, workload_network_mode=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, byte_kd_sprofile_enabled=None, charge_type=None, description=None, expire_time=None, id=None, name=None, period_unit=None, project_name=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, v_rdma_enabled=None, workload_network_config=None, workload_network_mode=None, zone_ids=None, _configuration=None):  # noqa: E501
         """ItemForListResourceGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._byte_kd_sprofile_enabled = None
         self._charge_type = None
         self._description = None
         self._expire_time = None
@@ -91,6 +94,8 @@ class ItemForListResourceGroupsOutput(object):
         self._zone_ids = None
         self.discriminator = None
 
+        if byte_kd_sprofile_enabled is not None:
+            self.byte_kd_sprofile_enabled = byte_kd_sprofile_enabled
         if charge_type is not None:
             self.charge_type = charge_type
         if description is not None:
@@ -121,6 +126,27 @@ class ItemForListResourceGroupsOutput(object):
             self.workload_network_mode = workload_network_mode
         if zone_ids is not None:
             self.zone_ids = zone_ids
+
+    @property
+    def byte_kd_sprofile_enabled(self):
+        """Gets the byte_kd_sprofile_enabled of this ItemForListResourceGroupsOutput.  # noqa: E501
+
+
+        :return: The byte_kd_sprofile_enabled of this ItemForListResourceGroupsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._byte_kd_sprofile_enabled
+
+    @byte_kd_sprofile_enabled.setter
+    def byte_kd_sprofile_enabled(self, byte_kd_sprofile_enabled):
+        """Sets the byte_kd_sprofile_enabled of this ItemForListResourceGroupsOutput.
+
+
+        :param byte_kd_sprofile_enabled: The byte_kd_sprofile_enabled of this ItemForListResourceGroupsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._byte_kd_sprofile_enabled = byte_kd_sprofile_enabled
 
     @property
     def charge_type(self):

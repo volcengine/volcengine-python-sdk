@@ -9421,13 +9421,13 @@ class RDSMYSQLV2Api(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyBackupName/2022-01-01/rds_mysql/get/text_plain/', 'GET',
+            '/ModifyBackupName/2022-01-01/rds_mysql/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,

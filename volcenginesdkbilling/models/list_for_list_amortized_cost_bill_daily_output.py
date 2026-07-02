@@ -59,6 +59,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'daily_amortized_original_bill_amount': 'str',
         'daily_amortized_paid_amount': 'str',
         'daily_amortized_payable_amount': 'str',
+        'daily_amortized_point_deduct_amount': 'str',
         'daily_amortized_posttax_amount': 'str',
         'daily_amortized_pre_tax_payable_amount': 'str',
         'daily_amortized_pre_tax_real_value': 'str',
@@ -93,6 +94,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'now_amortized_original_bill_amount': 'str',
         'now_amortized_paid_amount': 'str',
         'now_amortized_payable_amount': 'str',
+        'now_amortized_point_deduct_amount': 'str',
         'now_amortized_posttax_amount': 'str',
         'now_amortized_pre_tax_payable_amount': 'str',
         'now_amortized_pre_tax_real_value': 'str',
@@ -119,6 +121,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'payer_customer_name': 'str',
         'payer_id': 'str',
         'payer_user_name': 'str',
+        'point_deduct_amount': 'str',
         'posttax_amount': 'str',
         'pre_tax_payable_amount': 'str',
         'pre_tax_real_value': 'str',
@@ -186,6 +189,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'daily_amortized_original_bill_amount': 'DailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount': 'DailyAmortizedPaidAmount',
         'daily_amortized_payable_amount': 'DailyAmortizedPayableAmount',
+        'daily_amortized_point_deduct_amount': 'DailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount': 'DailyAmortizedPosttaxAmount',
         'daily_amortized_pre_tax_payable_amount': 'DailyAmortizedPreTaxPayableAmount',
         'daily_amortized_pre_tax_real_value': 'DailyAmortizedPreTaxRealValue',
@@ -220,6 +224,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'now_amortized_original_bill_amount': 'NowAmortizedOriginalBillAmount',
         'now_amortized_paid_amount': 'NowAmortizedPaidAmount',
         'now_amortized_payable_amount': 'NowAmortizedPayableAmount',
+        'now_amortized_point_deduct_amount': 'NowAmortizedPointDeductAmount',
         'now_amortized_posttax_amount': 'NowAmortizedPosttaxAmount',
         'now_amortized_pre_tax_payable_amount': 'NowAmortizedPreTaxPayableAmount',
         'now_amortized_pre_tax_real_value': 'NowAmortizedPreTaxRealValue',
@@ -246,6 +251,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'payer_customer_name': 'PayerCustomerName',
         'payer_id': 'PayerID',
         'payer_user_name': 'PayerUserName',
+        'point_deduct_amount': 'PointDeductAmount',
         'posttax_amount': 'PosttaxAmount',
         'pre_tax_payable_amount': 'PreTaxPayableAmount',
         'pre_tax_real_value': 'PreTaxRealValue',
@@ -286,7 +292,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'zone_code': 'ZoneCode'
     }
 
-    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, charge_item_code=None, config_name=None, configuration_code=None, count=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, main_contract_number=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_posttax_amount=None, now_amortized_pre_tax_payable_amount=None, now_amortized_pre_tax_real_value=None, now_amortized_preferential_bill_amount=None, now_amortized_pretax_amount=None, now_amortized_real_value=None, now_amortized_round_amount=None, now_amortized_saving_plan_original_amount=None, now_amortized_settle_payable_amount=None, now_amortized_settle_posttax_amount=None, now_amortized_settle_pre_tax_payable_amount=None, now_amortized_settle_pre_tax_real_value=None, now_amortized_settle_pretax_amount=None, now_amortized_settle_real_value=None, now_amortized_settle_tax_amount=None, now_amortized_tax_amount=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, region_code=None, resource_id=None, round_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tax=None, tax_rate=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, charge_item_code=None, config_name=None, configuration_code=None, count=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_point_deduct_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, main_contract_number=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_point_deduct_amount=None, now_amortized_posttax_amount=None, now_amortized_pre_tax_payable_amount=None, now_amortized_pre_tax_real_value=None, now_amortized_preferential_bill_amount=None, now_amortized_pretax_amount=None, now_amortized_real_value=None, now_amortized_round_amount=None, now_amortized_saving_plan_original_amount=None, now_amortized_settle_payable_amount=None, now_amortized_settle_posttax_amount=None, now_amortized_settle_pre_tax_payable_amount=None, now_amortized_settle_pre_tax_real_value=None, now_amortized_settle_pretax_amount=None, now_amortized_settle_real_value=None, now_amortized_settle_tax_amount=None, now_amortized_tax_amount=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, point_deduct_amount=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, region_code=None, resource_id=None, round_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tax=None, tax_rate=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
         """ListForListAmortizedCostBillDailyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -318,6 +324,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._daily_amortized_original_bill_amount = None
         self._daily_amortized_paid_amount = None
         self._daily_amortized_payable_amount = None
+        self._daily_amortized_point_deduct_amount = None
         self._daily_amortized_posttax_amount = None
         self._daily_amortized_pre_tax_payable_amount = None
         self._daily_amortized_pre_tax_real_value = None
@@ -352,6 +359,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._now_amortized_original_bill_amount = None
         self._now_amortized_paid_amount = None
         self._now_amortized_payable_amount = None
+        self._now_amortized_point_deduct_amount = None
         self._now_amortized_posttax_amount = None
         self._now_amortized_pre_tax_payable_amount = None
         self._now_amortized_pre_tax_real_value = None
@@ -378,6 +386,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._payer_customer_name = None
         self._payer_id = None
         self._payer_user_name = None
+        self._point_deduct_amount = None
         self._posttax_amount = None
         self._pre_tax_payable_amount = None
         self._pre_tax_real_value = None
@@ -470,6 +479,8 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.daily_amortized_paid_amount = daily_amortized_paid_amount
         if daily_amortized_payable_amount is not None:
             self.daily_amortized_payable_amount = daily_amortized_payable_amount
+        if daily_amortized_point_deduct_amount is not None:
+            self.daily_amortized_point_deduct_amount = daily_amortized_point_deduct_amount
         if daily_amortized_posttax_amount is not None:
             self.daily_amortized_posttax_amount = daily_amortized_posttax_amount
         if daily_amortized_pre_tax_payable_amount is not None:
@@ -538,6 +549,8 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.now_amortized_paid_amount = now_amortized_paid_amount
         if now_amortized_payable_amount is not None:
             self.now_amortized_payable_amount = now_amortized_payable_amount
+        if now_amortized_point_deduct_amount is not None:
+            self.now_amortized_point_deduct_amount = now_amortized_point_deduct_amount
         if now_amortized_posttax_amount is not None:
             self.now_amortized_posttax_amount = now_amortized_posttax_amount
         if now_amortized_pre_tax_payable_amount is not None:
@@ -590,6 +603,8 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.payer_id = payer_id
         if payer_user_name is not None:
             self.payer_user_name = payer_user_name
+        if point_deduct_amount is not None:
+            self.point_deduct_amount = point_deduct_amount
         if posttax_amount is not None:
             self.posttax_amount = posttax_amount
         if pre_tax_payable_amount is not None:
@@ -1212,6 +1227,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._daily_amortized_payable_amount = daily_amortized_payable_amount
+
+    @property
+    def daily_amortized_point_deduct_amount(self):
+        """Gets the daily_amortized_point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_point_deduct_amount
+
+    @daily_amortized_point_deduct_amount.setter
+    def daily_amortized_point_deduct_amount(self, daily_amortized_point_deduct_amount):
+        """Sets the daily_amortized_point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_point_deduct_amount: The daily_amortized_point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_point_deduct_amount = daily_amortized_point_deduct_amount
 
     @property
     def daily_amortized_posttax_amount(self):
@@ -1928,6 +1964,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._now_amortized_payable_amount = now_amortized_payable_amount
 
     @property
+    def now_amortized_point_deduct_amount(self):
+        """Gets the now_amortized_point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_point_deduct_amount
+
+    @now_amortized_point_deduct_amount.setter
+    def now_amortized_point_deduct_amount(self, now_amortized_point_deduct_amount):
+        """Sets the now_amortized_point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_point_deduct_amount: The now_amortized_point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_point_deduct_amount = now_amortized_point_deduct_amount
+
+    @property
     def now_amortized_posttax_amount(self):
         """Gets the now_amortized_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
 
@@ -2472,6 +2529,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._payer_user_name = payer_user_name
+
+    @property
+    def point_deduct_amount(self):
+        """Gets the point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._point_deduct_amount
+
+    @point_deduct_amount.setter
+    def point_deduct_amount(self, point_deduct_amount):
+        """Sets the point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param point_deduct_amount: The point_deduct_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._point_deduct_amount = point_deduct_amount
 
     @property
     def posttax_amount(self):
