@@ -38,6 +38,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         'description': 'str',
         'health_check_revoke_route_enabled': 'bool',
         'ipv6_enabled': 'bool',
+        'secondary_zone_id': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeTransitRouterVpnAttachmentsOutput]',
         'transit_router_attachment_id': 'str',
@@ -54,6 +55,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         'description': 'Description',
         'health_check_revoke_route_enabled': 'HealthCheckRevokeRouteEnabled',
         'ipv6_enabled': 'Ipv6Enabled',
+        'secondary_zone_id': 'SecondaryZoneId',
         'status': 'Status',
         'tags': 'Tags',
         'transit_router_attachment_id': 'TransitRouterAttachmentId',
@@ -64,7 +66,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_publish_route_enabled=None, creation_time=None, description=None, health_check_revoke_route_enabled=None, ipv6_enabled=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_id=None, update_time=None, vpn_connection_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_publish_route_enabled=None, creation_time=None, description=None, health_check_revoke_route_enabled=None, ipv6_enabled=None, secondary_zone_id=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_id=None, update_time=None, vpn_connection_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         self._description = None
         self._health_check_revoke_route_enabled = None
         self._ipv6_enabled = None
+        self._secondary_zone_id = None
         self._status = None
         self._tags = None
         self._transit_router_attachment_id = None
@@ -95,6 +98,8 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
             self.health_check_revoke_route_enabled = health_check_revoke_route_enabled
         if ipv6_enabled is not None:
             self.ipv6_enabled = ipv6_enabled
+        if secondary_zone_id is not None:
+            self.secondary_zone_id = secondary_zone_id
         if status is not None:
             self.status = status
         if tags is not None:
@@ -216,6 +221,27 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         """
 
         self._ipv6_enabled = ipv6_enabled
+
+    @property
+    def secondary_zone_id(self):
+        """Gets the secondary_zone_id of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
+
+
+        :return: The secondary_zone_id of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._secondary_zone_id
+
+    @secondary_zone_id.setter
+    def secondary_zone_id(self, secondary_zone_id):
+        """Sets the secondary_zone_id of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.
+
+
+        :param secondary_zone_id: The secondary_zone_id of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._secondary_zone_id = secondary_zone_id
 
     @property
     def status(self):
