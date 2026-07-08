@@ -35,6 +35,7 @@ class CreatePathAnalysisRequest(object):
     swagger_types = {
         'description': 'str',
         'path_name': 'str',
+        'private_ip': 'str',
         'protocol': 'str',
         'save': 'bool',
         'source_ip': 'str',
@@ -49,6 +50,7 @@ class CreatePathAnalysisRequest(object):
     attribute_map = {
         'description': 'Description',
         'path_name': 'PathName',
+        'private_ip': 'PrivateIP',
         'protocol': 'Protocol',
         'save': 'Save',
         'source_ip': 'SourceIP',
@@ -60,7 +62,7 @@ class CreatePathAnalysisRequest(object):
         'target_type': 'TargetType'
     }
 
-    def __init__(self, description=None, path_name=None, protocol=None, save=None, source_ip=None, source_id=None, source_type=None, target_ip=None, target_id=None, target_port=None, target_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, path_name=None, private_ip=None, protocol=None, save=None, source_ip=None, source_id=None, source_type=None, target_ip=None, target_id=None, target_port=None, target_type=None, _configuration=None):  # noqa: E501
         """CreatePathAnalysisRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class CreatePathAnalysisRequest(object):
 
         self._description = None
         self._path_name = None
+        self._private_ip = None
         self._protocol = None
         self._save = None
         self._source_ip = None
@@ -82,6 +85,8 @@ class CreatePathAnalysisRequest(object):
         if description is not None:
             self.description = description
         self.path_name = path_name
+        if private_ip is not None:
+            self.private_ip = private_ip
         self.protocol = protocol
         if save is not None:
             self.save = save
@@ -139,6 +144,27 @@ class CreatePathAnalysisRequest(object):
             raise ValueError("Invalid value for `path_name`, must not be `None`")  # noqa: E501
 
         self._path_name = path_name
+
+    @property
+    def private_ip(self):
+        """Gets the private_ip of this CreatePathAnalysisRequest.  # noqa: E501
+
+
+        :return: The private_ip of this CreatePathAnalysisRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_ip
+
+    @private_ip.setter
+    def private_ip(self, private_ip):
+        """Sets the private_ip of this CreatePathAnalysisRequest.
+
+
+        :param private_ip: The private_ip of this CreatePathAnalysisRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._private_ip = private_ip
 
     @property
     def protocol(self):
