@@ -1,0 +1,5 @@
+{
+  "description": "VKE: 新增 ScaleNodePool；修改 ListScalingPolicies",
+  "modules": "service/vke",
+  "type": "feature"
+}

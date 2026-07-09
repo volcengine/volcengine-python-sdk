@@ -70,6 +70,9 @@ class BaseForCreateClawInput(object):
         :param instance_id: The instance_id of this BaseForCreateClawInput.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                instance_id is not None and len(instance_id) < 1):
+            raise ValueError("Invalid value for `instance_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._instance_id = instance_id
 
