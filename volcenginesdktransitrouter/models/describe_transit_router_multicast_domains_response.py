@@ -36,7 +36,7 @@ class DescribeTransitRouterMulticastDomainsResponse(object):
         'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int',
-        'transit_router_multicast_domains': 'TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput'
+        'transit_router_multicast_domains': 'list[TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput]'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class DescribeTransitRouterMulticastDomainsResponse(object):
 
 
         :return: The transit_router_multicast_domains of this DescribeTransitRouterMulticastDomainsResponse.  # noqa: E501
-        :rtype: TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput
+        :rtype: list[TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput]
         """
         return self._transit_router_multicast_domains
 
@@ -146,7 +146,7 @@ class DescribeTransitRouterMulticastDomainsResponse(object):
 
 
         :param transit_router_multicast_domains: The transit_router_multicast_domains of this DescribeTransitRouterMulticastDomainsResponse.  # noqa: E501
-        :type: TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput
+        :type: list[TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput]
         """
 
         self._transit_router_multicast_domains = transit_router_multicast_domains

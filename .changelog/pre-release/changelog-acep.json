@@ -1,5 +1,5 @@
 {
-  "description": "ACEP: 修改 ListPod, GetPreSignedEdgeURL, DetailHost, ListHost",
+  "description": "ACEP: 新增 BindAdbKeyPods, DeleteAdbKey, ListAdbKey, ListAdbKeyPodBindings, UnbindAdbKeyPods, UpdateAdbKey, AddAdbKey",
   "modules": "service/ACEP",
-  "type": "breaking-change"
+  "type": "feature"
 }

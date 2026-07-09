@@ -38,6 +38,7 @@ class ItemForListScalingPoliciesOutput(object):
         'create_client_token': 'str',
         'enabled': 'bool',
         'id': 'str',
+        'name': 'str',
         'node_pool_id': 'str',
         'scheduled_instance_policy': 'ScheduledInstancePolicyForListScalingPoliciesOutput',
         'scheduled_policy': 'ScheduledPolicyForListScalingPoliciesOutput',
@@ -51,6 +52,7 @@ class ItemForListScalingPoliciesOutput(object):
         'create_client_token': 'CreateClientToken',
         'enabled': 'Enabled',
         'id': 'Id',
+        'name': 'Name',
         'node_pool_id': 'NodePoolId',
         'scheduled_instance_policy': 'ScheduledInstancePolicy',
         'scheduled_policy': 'ScheduledPolicy',
@@ -58,7 +60,7 @@ class ItemForListScalingPoliciesOutput(object):
         'update_client_token': 'UpdateClientToken'
     }
 
-    def __init__(self, adjustment_value=None, cluster_id=None, create_client_token=None, enabled=None, id=None, node_pool_id=None, scheduled_instance_policy=None, scheduled_policy=None, type=None, update_client_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, adjustment_value=None, cluster_id=None, create_client_token=None, enabled=None, id=None, name=None, node_pool_id=None, scheduled_instance_policy=None, scheduled_policy=None, type=None, update_client_token=None, _configuration=None):  # noqa: E501
         """ItemForListScalingPoliciesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class ItemForListScalingPoliciesOutput(object):
         self._create_client_token = None
         self._enabled = None
         self._id = None
+        self._name = None
         self._node_pool_id = None
         self._scheduled_instance_policy = None
         self._scheduled_policy = None
@@ -86,6 +89,8 @@ class ItemForListScalingPoliciesOutput(object):
             self.enabled = enabled
         if id is not None:
             self.id = id
+        if name is not None:
+            self.name = name
         if node_pool_id is not None:
             self.node_pool_id = node_pool_id
         if scheduled_instance_policy is not None:
@@ -201,6 +206,27 @@ class ItemForListScalingPoliciesOutput(object):
         """
 
         self._id = id
+
+    @property
+    def name(self):
+        """Gets the name of this ItemForListScalingPoliciesOutput.  # noqa: E501
+
+
+        :return: The name of this ItemForListScalingPoliciesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ItemForListScalingPoliciesOutput.
+
+
+        :param name: The name of this ItemForListScalingPoliciesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def node_pool_id(self):
