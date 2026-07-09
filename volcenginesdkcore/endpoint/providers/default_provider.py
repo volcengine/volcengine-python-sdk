@@ -570,6 +570,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'clawsentry': ServiceEndpointInfo(
+        service='clawsentry',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {
