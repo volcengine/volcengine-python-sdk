@@ -36,51 +36,73 @@ class GetApplicationInstanceResponse(object):
         'account_id': 'str',
         'application_id': 'str',
         'args': 'str',
+        'cluster': 'str',
         'complete_rest_url': 'str',
         'conf': 'str',
+        'core': 'int',
+        'cur_queue': 'str',
+        'current_emit_event_time_lag': 'int',
         'dependency': 'DependencyForGetApplicationInstanceOutput',
         'deploy_request': 'DeployRequestForGetApplicationInstanceOutput',
         'deployment_id': 'str',
+        'duration': 'int',
         'end_time': 'str',
         'engine_version': 'str',
         'id': 'str',
         'jar': 'str',
+        'job_engine_key': 'str',
         'job_id': 'str',
         'job_name': 'str',
         'job_type': 'str',
         'main_class': 'str',
+        'memory': 'int',
         'project_id': 'str',
+        'resource_preemption_policy': 'str',
+        'resource_version': 'str',
+        'rest_url': 'str',
         'sql_text': 'str',
         'start_time': 'str',
         'state': 'str',
-        'user_id': 'str'
+        'user_id': 'str',
+        'version_id': 'int'
     }
 
     attribute_map = {
         'account_id': 'AccountId',
         'application_id': 'ApplicationId',
         'args': 'Args',
+        'cluster': 'Cluster',
         'complete_rest_url': 'CompleteRestUrl',
         'conf': 'Conf',
+        'core': 'Core',
+        'cur_queue': 'CurQueue',
+        'current_emit_event_time_lag': 'CurrentEmitEventTimeLag',
         'dependency': 'Dependency',
         'deploy_request': 'DeployRequest',
         'deployment_id': 'DeploymentId',
+        'duration': 'Duration',
         'end_time': 'EndTime',
         'engine_version': 'EngineVersion',
         'id': 'Id',
         'jar': 'Jar',
+        'job_engine_key': 'JobEngineKey',
         'job_id': 'JobId',
         'job_name': 'JobName',
         'job_type': 'JobType',
         'main_class': 'MainClass',
+        'memory': 'Memory',
         'project_id': 'ProjectId',
+        'resource_preemption_policy': 'ResourcePreemptionPolicy',
+        'resource_version': 'ResourceVersion',
+        'rest_url': 'RestUrl',
         'sql_text': 'SqlText',
         'start_time': 'StartTime',
         'state': 'State',
-        'user_id': 'UserId'
+        'user_id': 'UserId',
+        'version_id': 'VersionId'
     }
 
-    def __init__(self, account_id=None, application_id=None, args=None, complete_rest_url=None, conf=None, dependency=None, deploy_request=None, deployment_id=None, end_time=None, engine_version=None, id=None, jar=None, job_id=None, job_name=None, job_type=None, main_class=None, project_id=None, sql_text=None, start_time=None, state=None, user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, application_id=None, args=None, cluster=None, complete_rest_url=None, conf=None, core=None, cur_queue=None, current_emit_event_time_lag=None, dependency=None, deploy_request=None, deployment_id=None, duration=None, end_time=None, engine_version=None, id=None, jar=None, job_engine_key=None, job_id=None, job_name=None, job_type=None, main_class=None, memory=None, project_id=None, resource_preemption_policy=None, resource_version=None, rest_url=None, sql_text=None, start_time=None, state=None, user_id=None, version_id=None, _configuration=None):  # noqa: E501
         """GetApplicationInstanceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,24 +111,35 @@ class GetApplicationInstanceResponse(object):
         self._account_id = None
         self._application_id = None
         self._args = None
+        self._cluster = None
         self._complete_rest_url = None
         self._conf = None
+        self._core = None
+        self._cur_queue = None
+        self._current_emit_event_time_lag = None
         self._dependency = None
         self._deploy_request = None
         self._deployment_id = None
+        self._duration = None
         self._end_time = None
         self._engine_version = None
         self._id = None
         self._jar = None
+        self._job_engine_key = None
         self._job_id = None
         self._job_name = None
         self._job_type = None
         self._main_class = None
+        self._memory = None
         self._project_id = None
+        self._resource_preemption_policy = None
+        self._resource_version = None
+        self._rest_url = None
         self._sql_text = None
         self._start_time = None
         self._state = None
         self._user_id = None
+        self._version_id = None
         self.discriminator = None
 
         if account_id is not None:
@@ -115,16 +148,26 @@ class GetApplicationInstanceResponse(object):
             self.application_id = application_id
         if args is not None:
             self.args = args
+        if cluster is not None:
+            self.cluster = cluster
         if complete_rest_url is not None:
             self.complete_rest_url = complete_rest_url
         if conf is not None:
             self.conf = conf
+        if core is not None:
+            self.core = core
+        if cur_queue is not None:
+            self.cur_queue = cur_queue
+        if current_emit_event_time_lag is not None:
+            self.current_emit_event_time_lag = current_emit_event_time_lag
         if dependency is not None:
             self.dependency = dependency
         if deploy_request is not None:
             self.deploy_request = deploy_request
         if deployment_id is not None:
             self.deployment_id = deployment_id
+        if duration is not None:
+            self.duration = duration
         if end_time is not None:
             self.end_time = end_time
         if engine_version is not None:
@@ -133,6 +176,8 @@ class GetApplicationInstanceResponse(object):
             self.id = id
         if jar is not None:
             self.jar = jar
+        if job_engine_key is not None:
+            self.job_engine_key = job_engine_key
         if job_id is not None:
             self.job_id = job_id
         if job_name is not None:
@@ -141,8 +186,16 @@ class GetApplicationInstanceResponse(object):
             self.job_type = job_type
         if main_class is not None:
             self.main_class = main_class
+        if memory is not None:
+            self.memory = memory
         if project_id is not None:
             self.project_id = project_id
+        if resource_preemption_policy is not None:
+            self.resource_preemption_policy = resource_preemption_policy
+        if resource_version is not None:
+            self.resource_version = resource_version
+        if rest_url is not None:
+            self.rest_url = rest_url
         if sql_text is not None:
             self.sql_text = sql_text
         if start_time is not None:
@@ -151,6 +204,8 @@ class GetApplicationInstanceResponse(object):
             self.state = state
         if user_id is not None:
             self.user_id = user_id
+        if version_id is not None:
+            self.version_id = version_id
 
     @property
     def account_id(self):
@@ -216,6 +271,27 @@ class GetApplicationInstanceResponse(object):
         self._args = args
 
     @property
+    def cluster(self):
+        """Gets the cluster of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The cluster of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._cluster
+
+    @cluster.setter
+    def cluster(self, cluster):
+        """Sets the cluster of this GetApplicationInstanceResponse.
+
+
+        :param cluster: The cluster of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._cluster = cluster
+
+    @property
     def complete_rest_url(self):
         """Gets the complete_rest_url of this GetApplicationInstanceResponse.  # noqa: E501
 
@@ -256,6 +332,69 @@ class GetApplicationInstanceResponse(object):
         """
 
         self._conf = conf
+
+    @property
+    def core(self):
+        """Gets the core of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The core of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._core
+
+    @core.setter
+    def core(self, core):
+        """Sets the core of this GetApplicationInstanceResponse.
+
+
+        :param core: The core of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._core = core
+
+    @property
+    def cur_queue(self):
+        """Gets the cur_queue of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The cur_queue of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._cur_queue
+
+    @cur_queue.setter
+    def cur_queue(self, cur_queue):
+        """Sets the cur_queue of this GetApplicationInstanceResponse.
+
+
+        :param cur_queue: The cur_queue of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._cur_queue = cur_queue
+
+    @property
+    def current_emit_event_time_lag(self):
+        """Gets the current_emit_event_time_lag of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The current_emit_event_time_lag of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._current_emit_event_time_lag
+
+    @current_emit_event_time_lag.setter
+    def current_emit_event_time_lag(self, current_emit_event_time_lag):
+        """Sets the current_emit_event_time_lag of this GetApplicationInstanceResponse.
+
+
+        :param current_emit_event_time_lag: The current_emit_event_time_lag of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._current_emit_event_time_lag = current_emit_event_time_lag
 
     @property
     def dependency(self):
@@ -319,6 +458,27 @@ class GetApplicationInstanceResponse(object):
         """
 
         self._deployment_id = deployment_id
+
+    @property
+    def duration(self):
+        """Gets the duration of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The duration of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._duration
+
+    @duration.setter
+    def duration(self, duration):
+        """Sets the duration of this GetApplicationInstanceResponse.
+
+
+        :param duration: The duration of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._duration = duration
 
     @property
     def end_time(self):
@@ -405,6 +565,27 @@ class GetApplicationInstanceResponse(object):
         self._jar = jar
 
     @property
+    def job_engine_key(self):
+        """Gets the job_engine_key of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The job_engine_key of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._job_engine_key
+
+    @job_engine_key.setter
+    def job_engine_key(self, job_engine_key):
+        """Sets the job_engine_key of this GetApplicationInstanceResponse.
+
+
+        :param job_engine_key: The job_engine_key of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._job_engine_key = job_engine_key
+
+    @property
     def job_id(self):
         """Gets the job_id of this GetApplicationInstanceResponse.  # noqa: E501
 
@@ -489,6 +670,27 @@ class GetApplicationInstanceResponse(object):
         self._main_class = main_class
 
     @property
+    def memory(self):
+        """Gets the memory of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The memory of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._memory
+
+    @memory.setter
+    def memory(self, memory):
+        """Sets the memory of this GetApplicationInstanceResponse.
+
+
+        :param memory: The memory of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._memory = memory
+
+    @property
     def project_id(self):
         """Gets the project_id of this GetApplicationInstanceResponse.  # noqa: E501
 
@@ -508,6 +710,69 @@ class GetApplicationInstanceResponse(object):
         """
 
         self._project_id = project_id
+
+    @property
+    def resource_preemption_policy(self):
+        """Gets the resource_preemption_policy of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The resource_preemption_policy of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_preemption_policy
+
+    @resource_preemption_policy.setter
+    def resource_preemption_policy(self, resource_preemption_policy):
+        """Sets the resource_preemption_policy of this GetApplicationInstanceResponse.
+
+
+        :param resource_preemption_policy: The resource_preemption_policy of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_preemption_policy = resource_preemption_policy
+
+    @property
+    def resource_version(self):
+        """Gets the resource_version of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The resource_version of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_version
+
+    @resource_version.setter
+    def resource_version(self, resource_version):
+        """Sets the resource_version of this GetApplicationInstanceResponse.
+
+
+        :param resource_version: The resource_version of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_version = resource_version
+
+    @property
+    def rest_url(self):
+        """Gets the rest_url of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The rest_url of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._rest_url
+
+    @rest_url.setter
+    def rest_url(self, rest_url):
+        """Sets the rest_url of this GetApplicationInstanceResponse.
+
+
+        :param rest_url: The rest_url of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._rest_url = rest_url
 
     @property
     def sql_text(self):
@@ -592,6 +857,27 @@ class GetApplicationInstanceResponse(object):
         """
 
         self._user_id = user_id
+
+    @property
+    def version_id(self):
+        """Gets the version_id of this GetApplicationInstanceResponse.  # noqa: E501
+
+
+        :return: The version_id of this GetApplicationInstanceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._version_id
+
+    @version_id.setter
+    def version_id(self, version_id):
+        """Sets the version_id of this GetApplicationInstanceResponse.
+
+
+        :param version_id: The version_id of this GetApplicationInstanceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._version_id = version_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
