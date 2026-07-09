@@ -36,17 +36,19 @@ class ListBillDetailResponse(object):
         'limit': 'int',
         'list': 'list[ListForListBillDetailOutput]',
         'offset': 'int',
-        'total': 'int'
+        'total': 'int',
+        'warning': 'str'
     }
 
     attribute_map = {
         'limit': 'Limit',
         'list': 'List',
         'offset': 'Offset',
-        'total': 'Total'
+        'total': 'Total',
+        'warning': 'Warning'
     }
 
-    def __init__(self, limit=None, list=None, offset=None, total=None, _configuration=None):  # noqa: E501
+    def __init__(self, limit=None, list=None, offset=None, total=None, warning=None, _configuration=None):  # noqa: E501
         """ListBillDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ListBillDetailResponse(object):
         self._list = None
         self._offset = None
         self._total = None
+        self._warning = None
         self.discriminator = None
 
         if limit is not None:
@@ -66,6 +69,8 @@ class ListBillDetailResponse(object):
             self.offset = offset
         if total is not None:
             self.total = total
+        if warning is not None:
+            self.warning = warning
 
     @property
     def limit(self):
@@ -150,6 +155,27 @@ class ListBillDetailResponse(object):
         """
 
         self._total = total
+
+    @property
+    def warning(self):
+        """Gets the warning of this ListBillDetailResponse.  # noqa: E501
+
+
+        :return: The warning of this ListBillDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this ListBillDetailResponse.
+
+
+        :param warning: The warning of this ListBillDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""
