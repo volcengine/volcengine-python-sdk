@@ -1,0 +1,5 @@
+{
+  "description": "CLAWSENTRY: 修改 CreateClaw",
+  "modules": "service/clawsentry",
+  "type": "breaking-change"
+}

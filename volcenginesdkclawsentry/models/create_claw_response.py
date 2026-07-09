@@ -37,7 +37,9 @@ class CreateClawResponse(object):
         'claw_api_key': 'str',
         'claw_id': 'str',
         'conf_version': 'str',
-        'lumen_endpoint': 'str'
+        'gateway_endpoint': 'str',
+        'lumen_endpoint': 'str',
+        'scheme': 'str'
     }
 
     attribute_map = {
@@ -45,10 +47,12 @@ class CreateClawResponse(object):
         'claw_api_key': 'ClawApiKey',
         'claw_id': 'ClawID',
         'conf_version': 'ConfVersion',
-        'lumen_endpoint': 'LumenEndpoint'
+        'gateway_endpoint': 'GatewayEndpoint',
+        'lumen_endpoint': 'LumenEndpoint',
+        'scheme': 'Scheme'
     }
 
-    def __init__(self, center_endpoint=None, claw_api_key=None, claw_id=None, conf_version=None, lumen_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, center_endpoint=None, claw_api_key=None, claw_id=None, conf_version=None, gateway_endpoint=None, lumen_endpoint=None, scheme=None, _configuration=None):  # noqa: E501
         """CreateClawResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,7 +62,9 @@ class CreateClawResponse(object):
         self._claw_api_key = None
         self._claw_id = None
         self._conf_version = None
+        self._gateway_endpoint = None
         self._lumen_endpoint = None
+        self._scheme = None
         self.discriminator = None
 
         if center_endpoint is not None:
@@ -69,8 +75,12 @@ class CreateClawResponse(object):
             self.claw_id = claw_id
         if conf_version is not None:
             self.conf_version = conf_version
+        if gateway_endpoint is not None:
+            self.gateway_endpoint = gateway_endpoint
         if lumen_endpoint is not None:
             self.lumen_endpoint = lumen_endpoint
+        if scheme is not None:
+            self.scheme = scheme
 
     @property
     def center_endpoint(self):
@@ -157,6 +167,27 @@ class CreateClawResponse(object):
         self._conf_version = conf_version
 
     @property
+    def gateway_endpoint(self):
+        """Gets the gateway_endpoint of this CreateClawResponse.  # noqa: E501
+
+
+        :return: The gateway_endpoint of this CreateClawResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._gateway_endpoint
+
+    @gateway_endpoint.setter
+    def gateway_endpoint(self, gateway_endpoint):
+        """Sets the gateway_endpoint of this CreateClawResponse.
+
+
+        :param gateway_endpoint: The gateway_endpoint of this CreateClawResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._gateway_endpoint = gateway_endpoint
+
+    @property
     def lumen_endpoint(self):
         """Gets the lumen_endpoint of this CreateClawResponse.  # noqa: E501
 
@@ -176,6 +207,27 @@ class CreateClawResponse(object):
         """
 
         self._lumen_endpoint = lumen_endpoint
+
+    @property
+    def scheme(self):
+        """Gets the scheme of this CreateClawResponse.  # noqa: E501
+
+
+        :return: The scheme of this CreateClawResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._scheme
+
+    @scheme.setter
+    def scheme(self, scheme):
+        """Sets the scheme of this CreateClawResponse.
+
+
+        :param scheme: The scheme of this CreateClawResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._scheme = scheme
 
     def to_dict(self):
         """Returns the model properties as a dict"""
