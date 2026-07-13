@@ -35,20 +35,24 @@ class DescribeIPSetResponse(object):
     swagger_types = {
         'accelerate_region': 'str',
         'accelerator_id': 'str',
+        'ip_address_list': 'IPAddressListForDescribeIPSetOutput',
         'ip_set_id': 'str',
         'ip_version': 'str',
+        'isp_type': 'str',
         'state': 'str'
     }
 
     attribute_map = {
         'accelerate_region': 'AccelerateRegion',
         'accelerator_id': 'AcceleratorId',
+        'ip_address_list': 'IPAddressList',
         'ip_set_id': 'IPSetId',
         'ip_version': 'IPVersion',
+        'isp_type': 'IspType',
         'state': 'State'
     }
 
-    def __init__(self, accelerate_region=None, accelerator_id=None, ip_set_id=None, ip_version=None, state=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerate_region=None, accelerator_id=None, ip_address_list=None, ip_set_id=None, ip_version=None, isp_type=None, state=None, _configuration=None):  # noqa: E501
         """DescribeIPSetResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,8 +60,10 @@ class DescribeIPSetResponse(object):
 
         self._accelerate_region = None
         self._accelerator_id = None
+        self._ip_address_list = None
         self._ip_set_id = None
         self._ip_version = None
+        self._isp_type = None
         self._state = None
         self.discriminator = None
 
@@ -65,10 +71,14 @@ class DescribeIPSetResponse(object):
             self.accelerate_region = accelerate_region
         if accelerator_id is not None:
             self.accelerator_id = accelerator_id
+        if ip_address_list is not None:
+            self.ip_address_list = ip_address_list
         if ip_set_id is not None:
             self.ip_set_id = ip_set_id
         if ip_version is not None:
             self.ip_version = ip_version
+        if isp_type is not None:
+            self.isp_type = isp_type
         if state is not None:
             self.state = state
 
@@ -115,6 +125,27 @@ class DescribeIPSetResponse(object):
         self._accelerator_id = accelerator_id
 
     @property
+    def ip_address_list(self):
+        """Gets the ip_address_list of this DescribeIPSetResponse.  # noqa: E501
+
+
+        :return: The ip_address_list of this DescribeIPSetResponse.  # noqa: E501
+        :rtype: IPAddressListForDescribeIPSetOutput
+        """
+        return self._ip_address_list
+
+    @ip_address_list.setter
+    def ip_address_list(self, ip_address_list):
+        """Sets the ip_address_list of this DescribeIPSetResponse.
+
+
+        :param ip_address_list: The ip_address_list of this DescribeIPSetResponse.  # noqa: E501
+        :type: IPAddressListForDescribeIPSetOutput
+        """
+
+        self._ip_address_list = ip_address_list
+
+    @property
     def ip_set_id(self):
         """Gets the ip_set_id of this DescribeIPSetResponse.  # noqa: E501
 
@@ -155,6 +186,27 @@ class DescribeIPSetResponse(object):
         """
 
         self._ip_version = ip_version
+
+    @property
+    def isp_type(self):
+        """Gets the isp_type of this DescribeIPSetResponse.  # noqa: E501
+
+
+        :return: The isp_type of this DescribeIPSetResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._isp_type
+
+    @isp_type.setter
+    def isp_type(self, isp_type):
+        """Sets the isp_type of this DescribeIPSetResponse.
+
+
+        :param isp_type: The isp_type of this DescribeIPSetResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._isp_type = isp_type
 
     @property
     def state(self):

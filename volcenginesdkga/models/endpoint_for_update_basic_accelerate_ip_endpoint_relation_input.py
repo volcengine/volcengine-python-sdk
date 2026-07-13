@@ -33,55 +33,24 @@ class EndpointForUpdateBasicAccelerateIPEndpointRelationInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'endpoint_address': 'str',
-        'endpoint_id': 'str',
-        'type': 'str'
+        'endpoint_id': 'str'
     }
 
     attribute_map = {
-        'endpoint_address': 'endpointAddress',
-        'endpoint_id': 'endpointID',
-        'type': 'type'
+        'endpoint_id': 'EndpointId'
     }
 
-    def __init__(self, endpoint_address=None, endpoint_id=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, endpoint_id=None, _configuration=None):  # noqa: E501
         """EndpointForUpdateBasicAccelerateIPEndpointRelationInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._endpoint_address = None
         self._endpoint_id = None
-        self._type = None
         self.discriminator = None
 
-        if endpoint_address is not None:
-            self.endpoint_address = endpoint_address
         if endpoint_id is not None:
             self.endpoint_id = endpoint_id
-        if type is not None:
-            self.type = type
-
-    @property
-    def endpoint_address(self):
-        """Gets the endpoint_address of this EndpointForUpdateBasicAccelerateIPEndpointRelationInput.  # noqa: E501
-
-
-        :return: The endpoint_address of this EndpointForUpdateBasicAccelerateIPEndpointRelationInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._endpoint_address
-
-    @endpoint_address.setter
-    def endpoint_address(self, endpoint_address):
-        """Sets the endpoint_address of this EndpointForUpdateBasicAccelerateIPEndpointRelationInput.
-
-
-        :param endpoint_address: The endpoint_address of this EndpointForUpdateBasicAccelerateIPEndpointRelationInput.  # noqa: E501
-        :type: str
-        """
-
-        self._endpoint_address = endpoint_address
 
     @property
     def endpoint_id(self):
@@ -103,27 +72,6 @@ class EndpointForUpdateBasicAccelerateIPEndpointRelationInput(object):
         """
 
         self._endpoint_id = endpoint_id
-
-    @property
-    def type(self):
-        """Gets the type of this EndpointForUpdateBasicAccelerateIPEndpointRelationInput.  # noqa: E501
-
-
-        :return: The type of this EndpointForUpdateBasicAccelerateIPEndpointRelationInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this EndpointForUpdateBasicAccelerateIPEndpointRelationInput.
-
-
-        :param type: The type of this EndpointForUpdateBasicAccelerateIPEndpointRelationInput.  # noqa: E501
-        :type: str
-        """
-
-        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

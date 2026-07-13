@@ -34,43 +34,33 @@ class IPSetForCreateIPSetsInput(object):
     """
     swagger_types = {
         'accelerate_region': 'str',
-        'accelerator_id': 'str',
-        'ip_set_id': 'str',
         'ip_version': 'str',
-        'state': 'str'
+        'isp_type': 'str'
     }
 
     attribute_map = {
         'accelerate_region': 'AccelerateRegion',
-        'accelerator_id': 'AcceleratorId',
-        'ip_set_id': 'IPSetId',
         'ip_version': 'IPVersion',
-        'state': 'State'
+        'isp_type': 'IspType'
     }
 
-    def __init__(self, accelerate_region=None, accelerator_id=None, ip_set_id=None, ip_version=None, state=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerate_region=None, ip_version=None, isp_type=None, _configuration=None):  # noqa: E501
         """IPSetForCreateIPSetsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._accelerate_region = None
-        self._accelerator_id = None
-        self._ip_set_id = None
         self._ip_version = None
-        self._state = None
+        self._isp_type = None
         self.discriminator = None
 
         if accelerate_region is not None:
             self.accelerate_region = accelerate_region
-        if accelerator_id is not None:
-            self.accelerator_id = accelerator_id
-        if ip_set_id is not None:
-            self.ip_set_id = ip_set_id
         if ip_version is not None:
             self.ip_version = ip_version
-        if state is not None:
-            self.state = state
+        if isp_type is not None:
+            self.isp_type = isp_type
 
     @property
     def accelerate_region(self):
@@ -94,48 +84,6 @@ class IPSetForCreateIPSetsInput(object):
         self._accelerate_region = accelerate_region
 
     @property
-    def accelerator_id(self):
-        """Gets the accelerator_id of this IPSetForCreateIPSetsInput.  # noqa: E501
-
-
-        :return: The accelerator_id of this IPSetForCreateIPSetsInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._accelerator_id
-
-    @accelerator_id.setter
-    def accelerator_id(self, accelerator_id):
-        """Sets the accelerator_id of this IPSetForCreateIPSetsInput.
-
-
-        :param accelerator_id: The accelerator_id of this IPSetForCreateIPSetsInput.  # noqa: E501
-        :type: str
-        """
-
-        self._accelerator_id = accelerator_id
-
-    @property
-    def ip_set_id(self):
-        """Gets the ip_set_id of this IPSetForCreateIPSetsInput.  # noqa: E501
-
-
-        :return: The ip_set_id of this IPSetForCreateIPSetsInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._ip_set_id
-
-    @ip_set_id.setter
-    def ip_set_id(self, ip_set_id):
-        """Sets the ip_set_id of this IPSetForCreateIPSetsInput.
-
-
-        :param ip_set_id: The ip_set_id of this IPSetForCreateIPSetsInput.  # noqa: E501
-        :type: str
-        """
-
-        self._ip_set_id = ip_set_id
-
-    @property
     def ip_version(self):
         """Gets the ip_version of this IPSetForCreateIPSetsInput.  # noqa: E501
 
@@ -157,25 +105,25 @@ class IPSetForCreateIPSetsInput(object):
         self._ip_version = ip_version
 
     @property
-    def state(self):
-        """Gets the state of this IPSetForCreateIPSetsInput.  # noqa: E501
+    def isp_type(self):
+        """Gets the isp_type of this IPSetForCreateIPSetsInput.  # noqa: E501
 
 
-        :return: The state of this IPSetForCreateIPSetsInput.  # noqa: E501
+        :return: The isp_type of this IPSetForCreateIPSetsInput.  # noqa: E501
         :rtype: str
         """
-        return self._state
+        return self._isp_type
 
-    @state.setter
-    def state(self, state):
-        """Sets the state of this IPSetForCreateIPSetsInput.
+    @isp_type.setter
+    def isp_type(self, isp_type):
+        """Sets the isp_type of this IPSetForCreateIPSetsInput.
 
 
-        :param state: The state of this IPSetForCreateIPSetsInput.  # noqa: E501
+        :param isp_type: The isp_type of this IPSetForCreateIPSetsInput.  # noqa: E501
         :type: str
         """
 
-        self._state = state
+        self._isp_type = isp_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

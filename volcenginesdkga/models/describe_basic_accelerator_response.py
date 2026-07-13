@@ -34,6 +34,8 @@ class DescribeBasicAcceleratorResponse(object):
     """
     swagger_types = {
         'accelerator_id': 'str',
+        'account_id': 'str',
+        'account_name': 'str',
         'bandwidth_package_ids': 'list[str]',
         'bandwidth_package_volume': 'int',
         'begin_time': 'int',
@@ -54,6 +56,8 @@ class DescribeBasicAcceleratorResponse(object):
 
     attribute_map = {
         'accelerator_id': 'AcceleratorId',
+        'account_id': 'AccountID',
+        'account_name': 'AccountName',
         'bandwidth_package_ids': 'BandwidthPackageIds',
         'bandwidth_package_volume': 'BandwidthPackageVolume',
         'begin_time': 'BeginTime',
@@ -72,13 +76,15 @@ class DescribeBasicAcceleratorResponse(object):
         'state': 'State'
     }
 
-    def __init__(self, accelerator_id=None, bandwidth_package_ids=None, bandwidth_package_volume=None, begin_time=None, billing_type=None, charge_type=None, create_time=None, create_time_str=None, cross_domain_bandwidth_ids=None, end_point_groups=None, expired_time=None, ip_sets=None, mode=None, name=None, project_name=None, renew_type=None, state=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerator_id=None, account_id=None, account_name=None, bandwidth_package_ids=None, bandwidth_package_volume=None, begin_time=None, billing_type=None, charge_type=None, create_time=None, create_time_str=None, cross_domain_bandwidth_ids=None, end_point_groups=None, expired_time=None, ip_sets=None, mode=None, name=None, project_name=None, renew_type=None, state=None, _configuration=None):  # noqa: E501
         """DescribeBasicAcceleratorResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._accelerator_id = None
+        self._account_id = None
+        self._account_name = None
         self._bandwidth_package_ids = None
         self._bandwidth_package_volume = None
         self._begin_time = None
@@ -99,6 +105,10 @@ class DescribeBasicAcceleratorResponse(object):
 
         if accelerator_id is not None:
             self.accelerator_id = accelerator_id
+        if account_id is not None:
+            self.account_id = account_id
+        if account_name is not None:
+            self.account_name = account_name
         if bandwidth_package_ids is not None:
             self.bandwidth_package_ids = bandwidth_package_ids
         if bandwidth_package_volume is not None:
@@ -152,6 +162,48 @@ class DescribeBasicAcceleratorResponse(object):
         """
 
         self._accelerator_id = accelerator_id
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this DescribeBasicAcceleratorResponse.  # noqa: E501
+
+
+        :return: The account_id of this DescribeBasicAcceleratorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this DescribeBasicAcceleratorResponse.
+
+
+        :param account_id: The account_id of this DescribeBasicAcceleratorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
+
+    @property
+    def account_name(self):
+        """Gets the account_name of this DescribeBasicAcceleratorResponse.  # noqa: E501
+
+
+        :return: The account_name of this DescribeBasicAcceleratorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_name
+
+    @account_name.setter
+    def account_name(self, account_name):
+        """Sets the account_name of this DescribeBasicAcceleratorResponse.
+
+
+        :param account_name: The account_name of this DescribeBasicAcceleratorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._account_name = account_name
 
     @property
     def bandwidth_package_ids(self):

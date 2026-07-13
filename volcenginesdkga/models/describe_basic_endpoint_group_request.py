@@ -38,8 +38,8 @@ class DescribeBasicEndpointGroupRequest(object):
     }
 
     attribute_map = {
-        'accelerator_id': 'acceleratorId',
-        'endpoint_group_id': 'endpointGroupId'
+        'accelerator_id': 'AcceleratorId',
+        'endpoint_group_id': 'EndpointGroupId'
     }
 
     def __init__(self, accelerator_id=None, endpoint_group_id=None, _configuration=None):  # noqa: E501
