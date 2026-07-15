@@ -34,38 +34,46 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput(object):
     """
     swagger_types = {
         'batch_id': 'str',
+        'bind_subtitle_ids': 'list[str]',
         'project_id': 'str',
         'status': 'int',
         'subtitle_id': 'str',
         'video_id': 'str',
+        'video_name': 'str',
         'video_url': 'str'
     }
 
     attribute_map = {
         'batch_id': 'batchId',
+        'bind_subtitle_ids': 'bindSubtitleIDs',
         'project_id': 'projectId',
         'status': 'status',
         'subtitle_id': 'subtitleId',
         'video_id': 'videoId',
+        'video_name': 'videoName',
         'video_url': 'videoUrl'
     }
 
-    def __init__(self, batch_id=None, project_id=None, status=None, subtitle_id=None, video_id=None, video_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, batch_id=None, bind_subtitle_ids=None, project_id=None, status=None, subtitle_id=None, video_id=None, video_name=None, video_url=None, _configuration=None):  # noqa: E501
         """VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._batch_id = None
+        self._bind_subtitle_ids = None
         self._project_id = None
         self._status = None
         self._subtitle_id = None
         self._video_id = None
+        self._video_name = None
         self._video_url = None
         self.discriminator = None
 
         if batch_id is not None:
             self.batch_id = batch_id
+        if bind_subtitle_ids is not None:
+            self.bind_subtitle_ids = bind_subtitle_ids
         if project_id is not None:
             self.project_id = project_id
         if status is not None:
@@ -74,6 +82,8 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput(object):
             self.subtitle_id = subtitle_id
         if video_id is not None:
             self.video_id = video_id
+        if video_name is not None:
+            self.video_name = video_name
         if video_url is not None:
             self.video_url = video_url
 
@@ -97,6 +107,27 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput(object):
         """
 
         self._batch_id = batch_id
+
+    @property
+    def bind_subtitle_ids(self):
+        """Gets the bind_subtitle_ids of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.  # noqa: E501
+
+
+        :return: The bind_subtitle_ids of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._bind_subtitle_ids
+
+    @bind_subtitle_ids.setter
+    def bind_subtitle_ids(self, bind_subtitle_ids):
+        """Sets the bind_subtitle_ids of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.
+
+
+        :param bind_subtitle_ids: The bind_subtitle_ids of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._bind_subtitle_ids = bind_subtitle_ids
 
     @property
     def project_id(self):
@@ -181,6 +212,27 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput(object):
         """
 
         self._video_id = video_id
+
+    @property
+    def video_name(self):
+        """Gets the video_name of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.  # noqa: E501
+
+
+        :return: The video_name of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._video_name
+
+    @video_name.setter
+    def video_name(self, video_name):
+        """Sets the video_name of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.
+
+
+        :param video_name: The video_name of this VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._video_name = video_name
 
     @property
     def video_url(self):
