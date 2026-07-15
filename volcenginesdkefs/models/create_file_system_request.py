@@ -117,7 +117,7 @@ class CreateFileSystemRequest(object):
         """
         if self._configuration.client_side_validation and bandwidth_mode is None:
             raise ValueError("Invalid value for `bandwidth_mode`, must not be `None`")  # noqa: E501
-        allowed_values = ["Unknown", "Baseline", "Provisioned"]  # noqa: E501
+        allowed_values = ["Baseline", "Provisioned"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 bandwidth_mode not in allowed_values):
             raise ValueError(
