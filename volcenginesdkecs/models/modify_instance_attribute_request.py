@@ -34,6 +34,7 @@ class ModifyInstanceAttributeRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
+        'cpu_options': 'CpuOptionsForModifyInstanceAttributeInput',
         'deletion_protection': 'bool',
         'description': 'str',
         'enable_jumbo_frame': 'bool',
@@ -46,6 +47,7 @@ class ModifyInstanceAttributeRequest(object):
 
     attribute_map = {
         'client_token': 'ClientToken',
+        'cpu_options': 'CpuOptions',
         'deletion_protection': 'DeletionProtection',
         'description': 'Description',
         'enable_jumbo_frame': 'EnableJumboFrame',
@@ -56,13 +58,14 @@ class ModifyInstanceAttributeRequest(object):
         'user_data': 'UserData'
     }
 
-    def __init__(self, client_token=None, deletion_protection=None, description=None, enable_jumbo_frame=None, hostname=None, instance_id=None, instance_name=None, password=None, user_data=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cpu_options=None, deletion_protection=None, description=None, enable_jumbo_frame=None, hostname=None, instance_id=None, instance_name=None, password=None, user_data=None, _configuration=None):  # noqa: E501
         """ModifyInstanceAttributeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._client_token = None
+        self._cpu_options = None
         self._deletion_protection = None
         self._description = None
         self._enable_jumbo_frame = None
@@ -75,6 +78,8 @@ class ModifyInstanceAttributeRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
+        if cpu_options is not None:
+            self.cpu_options = cpu_options
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
         if description is not None:
@@ -111,6 +116,27 @@ class ModifyInstanceAttributeRequest(object):
         """
 
         self._client_token = client_token
+
+    @property
+    def cpu_options(self):
+        """Gets the cpu_options of this ModifyInstanceAttributeRequest.  # noqa: E501
+
+
+        :return: The cpu_options of this ModifyInstanceAttributeRequest.  # noqa: E501
+        :rtype: CpuOptionsForModifyInstanceAttributeInput
+        """
+        return self._cpu_options
+
+    @cpu_options.setter
+    def cpu_options(self, cpu_options):
+        """Sets the cpu_options of this ModifyInstanceAttributeRequest.
+
+
+        :param cpu_options: The cpu_options of this ModifyInstanceAttributeRequest.  # noqa: E501
+        :type: CpuOptionsForModifyInstanceAttributeInput
+        """
+
+        self._cpu_options = cpu_options
 
     @property
     def deletion_protection(self):
