@@ -589,6 +589,10 @@ class ClientV2:
         }
         sign_header = request_sign(headers, self.ak, self.sk, self.region, self.url, path, action, request_body)
         try:
+            enc_req_key = None
+            if self.aicc_client is not None:
+                request_body, enc_req_key = self.EncryptWithResponse(request_body)
+
             response = self.http_client.post(
                 url=self.url + path + "?Action=" + action + "&Version=" + Version,
                 data=request_body,
@@ -599,8 +603,16 @@ class ClientV2:
 
         # 5. 解析响应
         try:
-            response_data = json.loads(response.text)
-            moderate_response = ModerateV2Response(**response_data)
+            if enc_req_key is not None:
+                response_body = self.DecryptResponse(enc_req_key, response.content)
+            else:
+                response_body = response.content
+
+            try:
+                moderate_response = ModerateV2Response.model_validate_json(response_body)
+            except Exception:
+                response_data = json.loads(response_body)
+                moderate_response = ModerateV2Response(**response_data)
         except Exception as e:
             raise IOError(f"Failed to parse response: {str(e)}")
 
@@ -616,7 +628,6 @@ class ClientV2:
             print(f"最终检测内容: {final_content}")
 
         return moderate_response
-
 
     def GenerateV2Stream(self, request):
         path = "/v2/generate"
