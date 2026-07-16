@@ -34,15 +34,17 @@ class RenewBasicAcceleratorRequest(object):
     """
     swagger_types = {
         'accelerator_id': 'str',
-        'duration': 'int'
+        'duration': 'int',
+        'renew_type': 'int'
     }
 
     attribute_map = {
         'accelerator_id': 'AcceleratorId',
-        'duration': 'Duration'
+        'duration': 'Duration',
+        'renew_type': 'RenewType'
     }
 
-    def __init__(self, accelerator_id=None, duration=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerator_id=None, duration=None, renew_type=None, _configuration=None):  # noqa: E501
         """RenewBasicAcceleratorRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,10 +52,13 @@ class RenewBasicAcceleratorRequest(object):
 
         self._accelerator_id = None
         self._duration = None
+        self._renew_type = None
         self.discriminator = None
 
         self.accelerator_id = accelerator_id
         self.duration = duration
+        if renew_type is not None:
+            self.renew_type = renew_type
 
     @property
     def accelerator_id(self):
@@ -100,6 +105,27 @@ class RenewBasicAcceleratorRequest(object):
             raise ValueError("Invalid value for `duration`, must not be `None`")  # noqa: E501
 
         self._duration = duration
+
+    @property
+    def renew_type(self):
+        """Gets the renew_type of this RenewBasicAcceleratorRequest.  # noqa: E501
+
+
+        :return: The renew_type of this RenewBasicAcceleratorRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._renew_type
+
+    @renew_type.setter
+    def renew_type(self, renew_type):
+        """Sets the renew_type of this RenewBasicAcceleratorRequest.
+
+
+        :param renew_type: The renew_type of this RenewBasicAcceleratorRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._renew_type = renew_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -582,6 +582,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'ga': ServiceEndpointInfo(
+        service='ga',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {

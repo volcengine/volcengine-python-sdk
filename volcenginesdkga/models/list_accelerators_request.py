@@ -36,27 +36,27 @@ class ListAcceleratorsRequest(object):
         'accelerator_id': 'str',
         'billing_spec': 'str',
         'charge_type': 'str',
+        'name': 'str',
         'page_num': 'int',
         'page_size': 'int',
         'project_name': 'str',
         'resource_tag_filter': 'ResourceTagFilterForListAcceleratorsInput',
-        'state': 'str',
-        'tags': 'list[TagForListAcceleratorsInput]'
+        'state': 'str'
     }
 
     attribute_map = {
         'accelerator_id': 'AcceleratorId',
         'billing_spec': 'BillingSpec',
         'charge_type': 'ChargeType',
+        'name': 'Name',
         'page_num': 'PageNum',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'resource_tag_filter': 'ResourceTagFilter',
-        'state': 'State',
-        'tags': 'Tags'
+        'state': 'State'
     }
 
-    def __init__(self, accelerator_id=None, billing_spec=None, charge_type=None, page_num=None, page_size=None, project_name=None, resource_tag_filter=None, state=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerator_id=None, billing_spec=None, charge_type=None, name=None, page_num=None, page_size=None, project_name=None, resource_tag_filter=None, state=None, _configuration=None):  # noqa: E501
         """ListAcceleratorsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,12 +65,12 @@ class ListAcceleratorsRequest(object):
         self._accelerator_id = None
         self._billing_spec = None
         self._charge_type = None
+        self._name = None
         self._page_num = None
         self._page_size = None
         self._project_name = None
         self._resource_tag_filter = None
         self._state = None
-        self._tags = None
         self.discriminator = None
 
         if accelerator_id is not None:
@@ -79,6 +79,8 @@ class ListAcceleratorsRequest(object):
             self.billing_spec = billing_spec
         if charge_type is not None:
             self.charge_type = charge_type
+        if name is not None:
+            self.name = name
         if page_num is not None:
             self.page_num = page_num
         if page_size is not None:
@@ -89,8 +91,6 @@ class ListAcceleratorsRequest(object):
             self.resource_tag_filter = resource_tag_filter
         if state is not None:
             self.state = state
-        if tags is not None:
-            self.tags = tags
 
     @property
     def accelerator_id(self):
@@ -154,6 +154,27 @@ class ListAcceleratorsRequest(object):
         """
 
         self._charge_type = charge_type
+
+    @property
+    def name(self):
+        """Gets the name of this ListAcceleratorsRequest.  # noqa: E501
+
+
+        :return: The name of this ListAcceleratorsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ListAcceleratorsRequest.
+
+
+        :param name: The name of this ListAcceleratorsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def page_num(self):
@@ -259,27 +280,6 @@ class ListAcceleratorsRequest(object):
         """
 
         self._state = state
-
-    @property
-    def tags(self):
-        """Gets the tags of this ListAcceleratorsRequest.  # noqa: E501
-
-
-        :return: The tags of this ListAcceleratorsRequest.  # noqa: E501
-        :rtype: list[TagForListAcceleratorsInput]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this ListAcceleratorsRequest.
-
-
-        :param tags: The tags of this ListAcceleratorsRequest.  # noqa: E501
-        :type: list[TagForListAcceleratorsInput]
-        """
-
-        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

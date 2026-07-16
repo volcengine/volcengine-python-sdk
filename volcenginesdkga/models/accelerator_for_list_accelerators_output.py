@@ -33,20 +33,26 @@ class AcceleratorForListAcceleratorsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'accelerate_type': 'str',
         'accelerator_id': 'str',
         'account_id': 'str',
+        'bandwidth': 'int',
         'bandwidth_package_ids': 'list[str]',
+        'begin_time': 'int',
         'billing_spec': 'str',
         'billing_spec_effective_time': 'int',
         'billing_type': 'str',
         'cname': 'str',
         'charge_type': 'str',
+        'connection_num': 'int',
         'create_time': 'int',
         'create_time_str': 'str',
         'cross_domain_bandwidth_ids': 'list[str]',
         'expired_time': 'int',
         'full_port_switch': 'bool',
+        'ip_sets': 'list[IPSetForListAcceleratorsOutput]',
         'listener_count': 'int',
+        'listener_ids': 'list[str]',
         'name': 'str',
         'project_name': 'str',
         'region_count': 'int',
@@ -56,20 +62,26 @@ class AcceleratorForListAcceleratorsOutput(object):
     }
 
     attribute_map = {
+        'accelerate_type': 'AccelerateType',
         'accelerator_id': 'AcceleratorId',
         'account_id': 'AccountID',
+        'bandwidth': 'Bandwidth',
         'bandwidth_package_ids': 'BandwidthPackageIds',
+        'begin_time': 'BeginTime',
         'billing_spec': 'BillingSpec',
         'billing_spec_effective_time': 'BillingSpecEffectiveTime',
         'billing_type': 'BillingType',
         'cname': 'CNAME',
         'charge_type': 'ChargeType',
+        'connection_num': 'ConnectionNum',
         'create_time': 'CreateTime',
         'create_time_str': 'CreateTimeStr',
         'cross_domain_bandwidth_ids': 'CrossDomainBandwidthIds',
         'expired_time': 'ExpiredTime',
         'full_port_switch': 'FullPortSwitch',
+        'ip_sets': 'IPSets',
         'listener_count': 'ListenerCount',
+        'listener_ids': 'ListenerIds',
         'name': 'Name',
         'project_name': 'ProjectName',
         'region_count': 'RegionCount',
@@ -78,26 +90,32 @@ class AcceleratorForListAcceleratorsOutput(object):
         'state': 'State'
     }
 
-    def __init__(self, accelerator_id=None, account_id=None, bandwidth_package_ids=None, billing_spec=None, billing_spec_effective_time=None, billing_type=None, cname=None, charge_type=None, create_time=None, create_time_str=None, cross_domain_bandwidth_ids=None, expired_time=None, full_port_switch=None, listener_count=None, name=None, project_name=None, region_count=None, renew_type=None, resource_tags=None, state=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerate_type=None, accelerator_id=None, account_id=None, bandwidth=None, bandwidth_package_ids=None, begin_time=None, billing_spec=None, billing_spec_effective_time=None, billing_type=None, cname=None, charge_type=None, connection_num=None, create_time=None, create_time_str=None, cross_domain_bandwidth_ids=None, expired_time=None, full_port_switch=None, ip_sets=None, listener_count=None, listener_ids=None, name=None, project_name=None, region_count=None, renew_type=None, resource_tags=None, state=None, _configuration=None):  # noqa: E501
         """AcceleratorForListAcceleratorsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._accelerate_type = None
         self._accelerator_id = None
         self._account_id = None
+        self._bandwidth = None
         self._bandwidth_package_ids = None
+        self._begin_time = None
         self._billing_spec = None
         self._billing_spec_effective_time = None
         self._billing_type = None
         self._cname = None
         self._charge_type = None
+        self._connection_num = None
         self._create_time = None
         self._create_time_str = None
         self._cross_domain_bandwidth_ids = None
         self._expired_time = None
         self._full_port_switch = None
+        self._ip_sets = None
         self._listener_count = None
+        self._listener_ids = None
         self._name = None
         self._project_name = None
         self._region_count = None
@@ -106,12 +124,18 @@ class AcceleratorForListAcceleratorsOutput(object):
         self._state = None
         self.discriminator = None
 
+        if accelerate_type is not None:
+            self.accelerate_type = accelerate_type
         if accelerator_id is not None:
             self.accelerator_id = accelerator_id
         if account_id is not None:
             self.account_id = account_id
+        if bandwidth is not None:
+            self.bandwidth = bandwidth
         if bandwidth_package_ids is not None:
             self.bandwidth_package_ids = bandwidth_package_ids
+        if begin_time is not None:
+            self.begin_time = begin_time
         if billing_spec is not None:
             self.billing_spec = billing_spec
         if billing_spec_effective_time is not None:
@@ -122,6 +146,8 @@ class AcceleratorForListAcceleratorsOutput(object):
             self.cname = cname
         if charge_type is not None:
             self.charge_type = charge_type
+        if connection_num is not None:
+            self.connection_num = connection_num
         if create_time is not None:
             self.create_time = create_time
         if create_time_str is not None:
@@ -132,8 +158,12 @@ class AcceleratorForListAcceleratorsOutput(object):
             self.expired_time = expired_time
         if full_port_switch is not None:
             self.full_port_switch = full_port_switch
+        if ip_sets is not None:
+            self.ip_sets = ip_sets
         if listener_count is not None:
             self.listener_count = listener_count
+        if listener_ids is not None:
+            self.listener_ids = listener_ids
         if name is not None:
             self.name = name
         if project_name is not None:
@@ -146,6 +176,27 @@ class AcceleratorForListAcceleratorsOutput(object):
             self.resource_tags = resource_tags
         if state is not None:
             self.state = state
+
+    @property
+    def accelerate_type(self):
+        """Gets the accelerate_type of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+
+
+        :return: The accelerate_type of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._accelerate_type
+
+    @accelerate_type.setter
+    def accelerate_type(self, accelerate_type):
+        """Sets the accelerate_type of this AcceleratorForListAcceleratorsOutput.
+
+
+        :param accelerate_type: The accelerate_type of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._accelerate_type = accelerate_type
 
     @property
     def accelerator_id(self):
@@ -190,6 +241,27 @@ class AcceleratorForListAcceleratorsOutput(object):
         self._account_id = account_id
 
     @property
+    def bandwidth(self):
+        """Gets the bandwidth of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+
+
+        :return: The bandwidth of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bandwidth
+
+    @bandwidth.setter
+    def bandwidth(self, bandwidth):
+        """Sets the bandwidth of this AcceleratorForListAcceleratorsOutput.
+
+
+        :param bandwidth: The bandwidth of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bandwidth = bandwidth
+
+    @property
     def bandwidth_package_ids(self):
         """Gets the bandwidth_package_ids of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
 
@@ -209,6 +281,27 @@ class AcceleratorForListAcceleratorsOutput(object):
         """
 
         self._bandwidth_package_ids = bandwidth_package_ids
+
+    @property
+    def begin_time(self):
+        """Gets the begin_time of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+
+
+        :return: The begin_time of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._begin_time
+
+    @begin_time.setter
+    def begin_time(self, begin_time):
+        """Sets the begin_time of this AcceleratorForListAcceleratorsOutput.
+
+
+        :param begin_time: The begin_time of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._begin_time = begin_time
 
     @property
     def billing_spec(self):
@@ -316,6 +409,27 @@ class AcceleratorForListAcceleratorsOutput(object):
         self._charge_type = charge_type
 
     @property
+    def connection_num(self):
+        """Gets the connection_num of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+
+
+        :return: The connection_num of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._connection_num
+
+    @connection_num.setter
+    def connection_num(self, connection_num):
+        """Sets the connection_num of this AcceleratorForListAcceleratorsOutput.
+
+
+        :param connection_num: The connection_num of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._connection_num = connection_num
+
+    @property
     def create_time(self):
         """Gets the create_time of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
 
@@ -421,6 +535,27 @@ class AcceleratorForListAcceleratorsOutput(object):
         self._full_port_switch = full_port_switch
 
     @property
+    def ip_sets(self):
+        """Gets the ip_sets of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+
+
+        :return: The ip_sets of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :rtype: list[IPSetForListAcceleratorsOutput]
+        """
+        return self._ip_sets
+
+    @ip_sets.setter
+    def ip_sets(self, ip_sets):
+        """Sets the ip_sets of this AcceleratorForListAcceleratorsOutput.
+
+
+        :param ip_sets: The ip_sets of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :type: list[IPSetForListAcceleratorsOutput]
+        """
+
+        self._ip_sets = ip_sets
+
+    @property
     def listener_count(self):
         """Gets the listener_count of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
 
@@ -440,6 +575,27 @@ class AcceleratorForListAcceleratorsOutput(object):
         """
 
         self._listener_count = listener_count
+
+    @property
+    def listener_ids(self):
+        """Gets the listener_ids of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+
+
+        :return: The listener_ids of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._listener_ids
+
+    @listener_ids.setter
+    def listener_ids(self, listener_ids):
+        """Sets the listener_ids of this AcceleratorForListAcceleratorsOutput.
+
+
+        :param listener_ids: The listener_ids of this AcceleratorForListAcceleratorsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._listener_ids = listener_ids
 
     @property
     def name(self):

@@ -34,7 +34,7 @@ class DeleteIPSetRequest(object):
     """
     swagger_types = {
         'accelerator_id': 'str',
-        'delete_ip_sets': 'list[str]',
+        'delete_ip_sets': 'list[DeleteIPSetForDeleteIPSetInput]',
         'ip_set_id': 'str',
         'ip_version': 'str'
     }
@@ -61,8 +61,10 @@ class DeleteIPSetRequest(object):
         self.accelerator_id = accelerator_id
         if delete_ip_sets is not None:
             self.delete_ip_sets = delete_ip_sets
-        self.ip_set_id = ip_set_id
-        self.ip_version = ip_version
+        if ip_set_id is not None:
+            self.ip_set_id = ip_set_id
+        if ip_version is not None:
+            self.ip_version = ip_version
 
     @property
     def accelerator_id(self):
@@ -93,7 +95,7 @@ class DeleteIPSetRequest(object):
 
 
         :return: The delete_ip_sets of this DeleteIPSetRequest.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[DeleteIPSetForDeleteIPSetInput]
         """
         return self._delete_ip_sets
 
@@ -103,7 +105,7 @@ class DeleteIPSetRequest(object):
 
 
         :param delete_ip_sets: The delete_ip_sets of this DeleteIPSetRequest.  # noqa: E501
-        :type: list[str]
+        :type: list[DeleteIPSetForDeleteIPSetInput]
         """
 
         self._delete_ip_sets = delete_ip_sets
@@ -126,8 +128,6 @@ class DeleteIPSetRequest(object):
         :param ip_set_id: The ip_set_id of this DeleteIPSetRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and ip_set_id is None:
-            raise ValueError("Invalid value for `ip_set_id`, must not be `None`")  # noqa: E501
 
         self._ip_set_id = ip_set_id
 
@@ -149,8 +149,6 @@ class DeleteIPSetRequest(object):
         :param ip_version: The ip_version of this DeleteIPSetRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and ip_version is None:
-            raise ValueError("Invalid value for `ip_version`, must not be `None`")  # noqa: E501
 
         self._ip_version = ip_version
 

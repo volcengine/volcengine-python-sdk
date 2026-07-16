@@ -43,7 +43,6 @@ class ListBasicAcceleratorsRequest(object):
         'project_name': 'str',
         'resource_tag_filter': 'ResourceTagFilterForListBasicAcceleratorsInput',
         'state': 'str',
-        'tags': 'list[TagForListBasicAcceleratorsInput]',
         'with_bandwidth_package': 'bool'
     }
 
@@ -58,11 +57,10 @@ class ListBasicAcceleratorsRequest(object):
         'project_name': 'ProjectName',
         'resource_tag_filter': 'ResourceTagFilter',
         'state': 'State',
-        'tags': 'Tags',
         'with_bandwidth_package': 'WithBandwidthPackage'
     }
 
-    def __init__(self, accelerator_id=None, charge_type=None, end_point_group_region=None, ip_set_region=None, name=None, page_num=None, page_size=None, project_name=None, resource_tag_filter=None, state=None, tags=None, with_bandwidth_package=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerator_id=None, charge_type=None, end_point_group_region=None, ip_set_region=None, name=None, page_num=None, page_size=None, project_name=None, resource_tag_filter=None, state=None, with_bandwidth_package=None, _configuration=None):  # noqa: E501
         """ListBasicAcceleratorsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,7 +76,6 @@ class ListBasicAcceleratorsRequest(object):
         self._project_name = None
         self._resource_tag_filter = None
         self._state = None
-        self._tags = None
         self._with_bandwidth_package = None
         self.discriminator = None
 
@@ -98,8 +95,6 @@ class ListBasicAcceleratorsRequest(object):
             self.resource_tag_filter = resource_tag_filter
         if state is not None:
             self.state = state
-        if tags is not None:
-            self.tags = tags
         if with_bandwidth_package is not None:
             self.with_bandwidth_package = with_bandwidth_package
 
@@ -320,27 +315,6 @@ class ListBasicAcceleratorsRequest(object):
         """
 
         self._state = state
-
-    @property
-    def tags(self):
-        """Gets the tags of this ListBasicAcceleratorsRequest.  # noqa: E501
-
-
-        :return: The tags of this ListBasicAcceleratorsRequest.  # noqa: E501
-        :rtype: list[TagForListBasicAcceleratorsInput]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this ListBasicAcceleratorsRequest.
-
-
-        :param tags: The tags of this ListBasicAcceleratorsRequest.  # noqa: E501
-        :type: list[TagForListBasicAcceleratorsInput]
-        """
-
-        self._tags = tags
 
     @property
     def with_bandwidth_package(self):

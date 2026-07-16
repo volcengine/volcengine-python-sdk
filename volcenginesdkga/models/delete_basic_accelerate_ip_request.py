@@ -35,16 +35,16 @@ class DeleteBasicAccelerateIPRequest(object):
     swagger_types = {
         'accelerate_ipid': 'str',
         'accelerator_id': 'str',
-        'ipset_id': 'str'
+        'ip_set_id': 'str'
     }
 
     attribute_map = {
-        'accelerate_ipid': 'accelerateIPId',
-        'accelerator_id': 'acceleratorId',
-        'ipset_id': 'ipsetId'
+        'accelerate_ipid': 'AccelerateIPId',
+        'accelerator_id': 'AcceleratorId',
+        'ip_set_id': 'IPSetId'
     }
 
-    def __init__(self, accelerate_ipid=None, accelerator_id=None, ipset_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerate_ipid=None, accelerator_id=None, ip_set_id=None, _configuration=None):  # noqa: E501
         """DeleteBasicAccelerateIPRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,12 +52,12 @@ class DeleteBasicAccelerateIPRequest(object):
 
         self._accelerate_ipid = None
         self._accelerator_id = None
-        self._ipset_id = None
+        self._ip_set_id = None
         self.discriminator = None
 
         self.accelerate_ipid = accelerate_ipid
         self.accelerator_id = accelerator_id
-        self.ipset_id = ipset_id
+        self.ip_set_id = ip_set_id
 
     @property
     def accelerate_ipid(self):
@@ -106,27 +106,27 @@ class DeleteBasicAccelerateIPRequest(object):
         self._accelerator_id = accelerator_id
 
     @property
-    def ipset_id(self):
-        """Gets the ipset_id of this DeleteBasicAccelerateIPRequest.  # noqa: E501
+    def ip_set_id(self):
+        """Gets the ip_set_id of this DeleteBasicAccelerateIPRequest.  # noqa: E501
 
 
-        :return: The ipset_id of this DeleteBasicAccelerateIPRequest.  # noqa: E501
+        :return: The ip_set_id of this DeleteBasicAccelerateIPRequest.  # noqa: E501
         :rtype: str
         """
-        return self._ipset_id
+        return self._ip_set_id
 
-    @ipset_id.setter
-    def ipset_id(self, ipset_id):
-        """Sets the ipset_id of this DeleteBasicAccelerateIPRequest.
+    @ip_set_id.setter
+    def ip_set_id(self, ip_set_id):
+        """Sets the ip_set_id of this DeleteBasicAccelerateIPRequest.
 
 
-        :param ipset_id: The ipset_id of this DeleteBasicAccelerateIPRequest.  # noqa: E501
+        :param ip_set_id: The ip_set_id of this DeleteBasicAccelerateIPRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and ipset_id is None:
-            raise ValueError("Invalid value for `ipset_id`, must not be `None`")  # noqa: E501
+        if self._configuration.client_side_validation and ip_set_id is None:
+            raise ValueError("Invalid value for `ip_set_id`, must not be `None`")  # noqa: E501
 
-        self._ipset_id = ipset_id
+        self._ip_set_id = ip_set_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

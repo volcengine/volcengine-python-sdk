@@ -40,8 +40,7 @@ class ListPublicBandwidthPackagesRequest(object):
         'page_size': 'int',
         'project_name': 'str',
         'resource_tag_filter': 'ResourceTagFilterForListPublicBandwidthPackagesInput',
-        'state': 'str',
-        'tags': 'list[TagForListPublicBandwidthPackagesInput]'
+        'state': 'str'
     }
 
     attribute_map = {
@@ -52,11 +51,10 @@ class ListPublicBandwidthPackagesRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'resource_tag_filter': 'ResourceTagFilter',
-        'state': 'State',
-        'tags': 'Tags'
+        'state': 'State'
     }
 
-    def __init__(self, accelerator_id=None, bandwidth_package_id=None, bandwidth_type=None, page_num=None, page_size=None, project_name=None, resource_tag_filter=None, state=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerator_id=None, bandwidth_package_id=None, bandwidth_type=None, page_num=None, page_size=None, project_name=None, resource_tag_filter=None, state=None, _configuration=None):  # noqa: E501
         """ListPublicBandwidthPackagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,7 +68,6 @@ class ListPublicBandwidthPackagesRequest(object):
         self._project_name = None
         self._resource_tag_filter = None
         self._state = None
-        self._tags = None
         self.discriminator = None
 
         if accelerator_id is not None:
@@ -89,8 +86,6 @@ class ListPublicBandwidthPackagesRequest(object):
             self.resource_tag_filter = resource_tag_filter
         if state is not None:
             self.state = state
-        if tags is not None:
-            self.tags = tags
 
     @property
     def accelerator_id(self):
@@ -259,27 +254,6 @@ class ListPublicBandwidthPackagesRequest(object):
         """
 
         self._state = state
-
-    @property
-    def tags(self):
-        """Gets the tags of this ListPublicBandwidthPackagesRequest.  # noqa: E501
-
-
-        :return: The tags of this ListPublicBandwidthPackagesRequest.  # noqa: E501
-        :rtype: list[TagForListPublicBandwidthPackagesInput]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this ListPublicBandwidthPackagesRequest.
-
-
-        :param tags: The tags of this ListPublicBandwidthPackagesRequest.  # noqa: E501
-        :type: list[TagForListPublicBandwidthPackagesInput]
-        """
-
-        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
