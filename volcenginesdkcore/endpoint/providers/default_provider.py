@@ -588,6 +588,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'efs': ServiceEndpointInfo(
+        service='efs',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {

@@ -180,7 +180,7 @@ class DescribePermissionRulesRequest(object):
         :param rw_mode: The rw_mode of this DescribePermissionRulesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Unknown", "RW", "RO"]  # noqa: E501
+        allowed_values = ["RW", "RO"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 rw_mode not in allowed_values):
             raise ValueError(
@@ -208,7 +208,7 @@ class DescribePermissionRulesRequest(object):
         :param user_mode: The user_mode of this DescribePermissionRulesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Unknown", "Root_squash", "No_root_squash", "All_squash"]  # noqa: E501
+        allowed_values = ["Root_squash", "No_root_squash", "All_squash"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 user_mode not in allowed_values):
             raise ValueError(
