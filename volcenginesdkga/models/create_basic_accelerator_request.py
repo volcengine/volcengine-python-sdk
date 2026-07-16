@@ -39,7 +39,7 @@ class CreateBasicAcceleratorRequest(object):
         'billing_period': 'int',
         'billing_type': 'str',
         'charge_type': 'str',
-        'duration': 'str',
+        'duration': 'int',
         'name': 'str',
         'project_name': 'str',
         'renew_type': 'int',
@@ -244,7 +244,7 @@ class CreateBasicAcceleratorRequest(object):
 
 
         :return: The duration of this CreateBasicAcceleratorRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._duration
 
@@ -254,7 +254,7 @@ class CreateBasicAcceleratorRequest(object):
 
 
         :param duration: The duration of this CreateBasicAcceleratorRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._duration = duration

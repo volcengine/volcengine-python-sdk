@@ -49,6 +49,7 @@ class CreateSandboxRequest(object):
         'role_chain_trn': 'list[str]',
         'session_id': 'str',
         'sidecars': 'list[SidecarForCreateSandboxInput]',
+        'snapshot_id': 'str',
         'timeout': 'int',
         'timeout_unit': 'str'
     }
@@ -70,11 +71,12 @@ class CreateSandboxRequest(object):
         'role_chain_trn': 'RoleChainTrn',
         'session_id': 'SessionId',
         'sidecars': 'Sidecars',
+        'snapshot_id': 'SnapshotId',
         'timeout': 'Timeout',
         'timeout_unit': 'TimeoutUnit'
     }
 
-    def __init__(self, _async=None, cpu_milli=None, ebs_volumes=None, empty_dir_volume=None, envs=None, function_id=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, role_chain_trn=None, session_id=None, sidecars=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, _async=None, cpu_milli=None, ebs_volumes=None, empty_dir_volume=None, envs=None, function_id=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, role_chain_trn=None, session_id=None, sidecars=None, snapshot_id=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
         """CreateSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class CreateSandboxRequest(object):
         self._role_chain_trn = None
         self._session_id = None
         self._sidecars = None
+        self._snapshot_id = None
         self._timeout = None
         self._timeout_unit = None
         self.discriminator = None
@@ -131,6 +134,8 @@ class CreateSandboxRequest(object):
             self.session_id = session_id
         if sidecars is not None:
             self.sidecars = sidecars
+        if snapshot_id is not None:
+            self.snapshot_id = snapshot_id
         if timeout is not None:
             self.timeout = timeout
         if timeout_unit is not None:
@@ -473,6 +478,27 @@ class CreateSandboxRequest(object):
         """
 
         self._sidecars = sidecars
+
+    @property
+    def snapshot_id(self):
+        """Gets the snapshot_id of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The snapshot_id of this CreateSandboxRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._snapshot_id
+
+    @snapshot_id.setter
+    def snapshot_id(self, snapshot_id):
+        """Sets the snapshot_id of this CreateSandboxRequest.
+
+
+        :param snapshot_id: The snapshot_id of this CreateSandboxRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._snapshot_id = snapshot_id
 
     @property
     def timeout(self):

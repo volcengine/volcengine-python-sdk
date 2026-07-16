@@ -39,6 +39,7 @@ class RunInstancesRequest(object):
         'client_token': 'str',
         'count': 'int',
         'cpu_max_frequency': 'float',
+        'cpu_options': 'CpuOptionsForRunInstancesInput',
         'credit_specification': 'str',
         'deletion_protection': 'bool',
         'deployment_set_group_number': 'int',
@@ -46,6 +47,7 @@ class RunInstancesRequest(object):
         'description': 'str',
         'dry_run': 'bool',
         'eip_address': 'EipAddressForRunInstancesInput',
+        'enable_primary_interface_high_bandwidth_type': 'bool',
         'host_name': 'str',
         'hostname': 'str',
         'hpc_cluster_id': 'str',
@@ -85,6 +87,7 @@ class RunInstancesRequest(object):
         'client_token': 'ClientToken',
         'count': 'Count',
         'cpu_max_frequency': 'CpuMaxFrequency',
+        'cpu_options': 'CpuOptions',
         'credit_specification': 'CreditSpecification',
         'deletion_protection': 'DeletionProtection',
         'deployment_set_group_number': 'DeploymentSetGroupNumber',
@@ -92,6 +95,7 @@ class RunInstancesRequest(object):
         'description': 'Description',
         'dry_run': 'DryRun',
         'eip_address': 'EipAddress',
+        'enable_primary_interface_high_bandwidth_type': 'EnablePrimaryInterfaceHighBandwidthType',
         'host_name': 'HostName',
         'hostname': 'Hostname',
         'hpc_cluster_id': 'HpcClusterId',
@@ -124,7 +128,7 @@ class RunInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, affinity_group_size=None, auto_renew=None, auto_renew_period=None, client_token=None, count=None, cpu_max_frequency=None, credit_specification=None, deletion_protection=None, deployment_set_group_number=None, deployment_set_id=None, description=None, dry_run=None, eip_address=None, host_name=None, hostname=None, hpc_cluster_id=None, http_tokens=None, image_id=None, image_release_version=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, network_options=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, affinity_group_size=None, auto_renew=None, auto_renew_period=None, client_token=None, count=None, cpu_max_frequency=None, cpu_options=None, credit_specification=None, deletion_protection=None, deployment_set_group_number=None, deployment_set_id=None, description=None, dry_run=None, eip_address=None, enable_primary_interface_high_bandwidth_type=None, host_name=None, hostname=None, hpc_cluster_id=None, http_tokens=None, image_id=None, image_release_version=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, network_options=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -136,6 +140,7 @@ class RunInstancesRequest(object):
         self._client_token = None
         self._count = None
         self._cpu_max_frequency = None
+        self._cpu_options = None
         self._credit_specification = None
         self._deletion_protection = None
         self._deployment_set_group_number = None
@@ -143,6 +148,7 @@ class RunInstancesRequest(object):
         self._description = None
         self._dry_run = None
         self._eip_address = None
+        self._enable_primary_interface_high_bandwidth_type = None
         self._host_name = None
         self._hostname = None
         self._hpc_cluster_id = None
@@ -187,6 +193,8 @@ class RunInstancesRequest(object):
             self.count = count
         if cpu_max_frequency is not None:
             self.cpu_max_frequency = cpu_max_frequency
+        if cpu_options is not None:
+            self.cpu_options = cpu_options
         if credit_specification is not None:
             self.credit_specification = credit_specification
         if deletion_protection is not None:
@@ -201,6 +209,8 @@ class RunInstancesRequest(object):
             self.dry_run = dry_run
         if eip_address is not None:
             self.eip_address = eip_address
+        if enable_primary_interface_high_bandwidth_type is not None:
+            self.enable_primary_interface_high_bandwidth_type = enable_primary_interface_high_bandwidth_type
         if host_name is not None:
             self.host_name = host_name
         if hostname is not None:
@@ -386,6 +396,27 @@ class RunInstancesRequest(object):
         self._cpu_max_frequency = cpu_max_frequency
 
     @property
+    def cpu_options(self):
+        """Gets the cpu_options of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The cpu_options of this RunInstancesRequest.  # noqa: E501
+        :rtype: CpuOptionsForRunInstancesInput
+        """
+        return self._cpu_options
+
+    @cpu_options.setter
+    def cpu_options(self, cpu_options):
+        """Sets the cpu_options of this RunInstancesRequest.
+
+
+        :param cpu_options: The cpu_options of this RunInstancesRequest.  # noqa: E501
+        :type: CpuOptionsForRunInstancesInput
+        """
+
+        self._cpu_options = cpu_options
+
+    @property
     def credit_specification(self):
         """Gets the credit_specification of this RunInstancesRequest.  # noqa: E501
 
@@ -531,6 +562,27 @@ class RunInstancesRequest(object):
         """
 
         self._eip_address = eip_address
+
+    @property
+    def enable_primary_interface_high_bandwidth_type(self):
+        """Gets the enable_primary_interface_high_bandwidth_type of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The enable_primary_interface_high_bandwidth_type of this RunInstancesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_primary_interface_high_bandwidth_type
+
+    @enable_primary_interface_high_bandwidth_type.setter
+    def enable_primary_interface_high_bandwidth_type(self, enable_primary_interface_high_bandwidth_type):
+        """Sets the enable_primary_interface_high_bandwidth_type of this RunInstancesRequest.
+
+
+        :param enable_primary_interface_high_bandwidth_type: The enable_primary_interface_high_bandwidth_type of this RunInstancesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_primary_interface_high_bandwidth_type = enable_primary_interface_high_bandwidth_type
 
     @property
     def host_name(self):

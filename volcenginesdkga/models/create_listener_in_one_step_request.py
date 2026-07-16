@@ -37,13 +37,19 @@ class CreateListenerInOneStepRequest(object):
         'backup_endpoint_groups': 'list[BackupEndpointGroupForCreateListenerInOneStepInput]',
         'disable_isolate_tcp_null_conn': 'bool',
         'disable_pre_connect': 'bool',
+        'domain_name': 'str',
         'enable_affinity': 'bool',
+        'end_point_group_strategy': 'EndPointGroupStrategyForCreateListenerInOneStepInput',
         'endpoint_groups': 'list[EndpointGroupForCreateListenerInOneStepInput]',
         'fixed_source_return': 'FixedSourceReturnForCreateListenerInOneStepInput',
         'ip_access': 'IPAccessForCreateListenerInOneStepInput',
+        'listener_domain_name': 'str',
         'name': 'str',
         'port_ranges': 'list[PortRangeForCreateListenerInOneStepInput]',
-        'protocol': 'str'
+        'protocol': 'str',
+        'protocol_port_ranges': 'ProtocolPortRangesForCreateListenerInOneStepInput',
+        'route_retry': 'bool',
+        'route_retry_max': 'int'
     }
 
     attribute_map = {
@@ -51,16 +57,22 @@ class CreateListenerInOneStepRequest(object):
         'backup_endpoint_groups': 'BackupEndpointGroups',
         'disable_isolate_tcp_null_conn': 'DisableIsolateTCPNullConn',
         'disable_pre_connect': 'DisablePreConnect',
+        'domain_name': 'DomainName',
         'enable_affinity': 'EnableAffinity',
+        'end_point_group_strategy': 'EndPointGroupStrategy',
         'endpoint_groups': 'EndpointGroups',
         'fixed_source_return': 'FixedSourceReturn',
         'ip_access': 'IPAccess',
+        'listener_domain_name': 'ListenerDomainName',
         'name': 'Name',
         'port_ranges': 'PortRanges',
-        'protocol': 'Protocol'
+        'protocol': 'Protocol',
+        'protocol_port_ranges': 'ProtocolPortRanges',
+        'route_retry': 'RouteRetry',
+        'route_retry_max': 'RouteRetryMax'
     }
 
-    def __init__(self, accelerator_id=None, backup_endpoint_groups=None, disable_isolate_tcp_null_conn=None, disable_pre_connect=None, enable_affinity=None, endpoint_groups=None, fixed_source_return=None, ip_access=None, name=None, port_ranges=None, protocol=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerator_id=None, backup_endpoint_groups=None, disable_isolate_tcp_null_conn=None, disable_pre_connect=None, domain_name=None, enable_affinity=None, end_point_group_strategy=None, endpoint_groups=None, fixed_source_return=None, ip_access=None, listener_domain_name=None, name=None, port_ranges=None, protocol=None, protocol_port_ranges=None, route_retry=None, route_retry_max=None, _configuration=None):  # noqa: E501
         """CreateListenerInOneStepRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,13 +82,19 @@ class CreateListenerInOneStepRequest(object):
         self._backup_endpoint_groups = None
         self._disable_isolate_tcp_null_conn = None
         self._disable_pre_connect = None
+        self._domain_name = None
         self._enable_affinity = None
+        self._end_point_group_strategy = None
         self._endpoint_groups = None
         self._fixed_source_return = None
         self._ip_access = None
+        self._listener_domain_name = None
         self._name = None
         self._port_ranges = None
         self._protocol = None
+        self._protocol_port_ranges = None
+        self._route_retry = None
+        self._route_retry_max = None
         self.discriminator = None
 
         self.accelerator_id = accelerator_id
@@ -86,18 +104,30 @@ class CreateListenerInOneStepRequest(object):
             self.disable_isolate_tcp_null_conn = disable_isolate_tcp_null_conn
         if disable_pre_connect is not None:
             self.disable_pre_connect = disable_pre_connect
+        if domain_name is not None:
+            self.domain_name = domain_name
         self.enable_affinity = enable_affinity
+        if end_point_group_strategy is not None:
+            self.end_point_group_strategy = end_point_group_strategy
         if endpoint_groups is not None:
             self.endpoint_groups = endpoint_groups
         if fixed_source_return is not None:
             self.fixed_source_return = fixed_source_return
         if ip_access is not None:
             self.ip_access = ip_access
+        if listener_domain_name is not None:
+            self.listener_domain_name = listener_domain_name
         if name is not None:
             self.name = name
         if port_ranges is not None:
             self.port_ranges = port_ranges
         self.protocol = protocol
+        if protocol_port_ranges is not None:
+            self.protocol_port_ranges = protocol_port_ranges
+        if route_retry is not None:
+            self.route_retry = route_retry
+        if route_retry_max is not None:
+            self.route_retry_max = route_retry_max
 
     @property
     def accelerator_id(self):
@@ -186,6 +216,27 @@ class CreateListenerInOneStepRequest(object):
         self._disable_pre_connect = disable_pre_connect
 
     @property
+    def domain_name(self):
+        """Gets the domain_name of this CreateListenerInOneStepRequest.  # noqa: E501
+
+
+        :return: The domain_name of this CreateListenerInOneStepRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain_name
+
+    @domain_name.setter
+    def domain_name(self, domain_name):
+        """Sets the domain_name of this CreateListenerInOneStepRequest.
+
+
+        :param domain_name: The domain_name of this CreateListenerInOneStepRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._domain_name = domain_name
+
+    @property
     def enable_affinity(self):
         """Gets the enable_affinity of this CreateListenerInOneStepRequest.  # noqa: E501
 
@@ -207,6 +258,27 @@ class CreateListenerInOneStepRequest(object):
             raise ValueError("Invalid value for `enable_affinity`, must not be `None`")  # noqa: E501
 
         self._enable_affinity = enable_affinity
+
+    @property
+    def end_point_group_strategy(self):
+        """Gets the end_point_group_strategy of this CreateListenerInOneStepRequest.  # noqa: E501
+
+
+        :return: The end_point_group_strategy of this CreateListenerInOneStepRequest.  # noqa: E501
+        :rtype: EndPointGroupStrategyForCreateListenerInOneStepInput
+        """
+        return self._end_point_group_strategy
+
+    @end_point_group_strategy.setter
+    def end_point_group_strategy(self, end_point_group_strategy):
+        """Sets the end_point_group_strategy of this CreateListenerInOneStepRequest.
+
+
+        :param end_point_group_strategy: The end_point_group_strategy of this CreateListenerInOneStepRequest.  # noqa: E501
+        :type: EndPointGroupStrategyForCreateListenerInOneStepInput
+        """
+
+        self._end_point_group_strategy = end_point_group_strategy
 
     @property
     def endpoint_groups(self):
@@ -272,6 +344,27 @@ class CreateListenerInOneStepRequest(object):
         self._ip_access = ip_access
 
     @property
+    def listener_domain_name(self):
+        """Gets the listener_domain_name of this CreateListenerInOneStepRequest.  # noqa: E501
+
+
+        :return: The listener_domain_name of this CreateListenerInOneStepRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._listener_domain_name
+
+    @listener_domain_name.setter
+    def listener_domain_name(self, listener_domain_name):
+        """Sets the listener_domain_name of this CreateListenerInOneStepRequest.
+
+
+        :param listener_domain_name: The listener_domain_name of this CreateListenerInOneStepRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._listener_domain_name = listener_domain_name
+
+    @property
     def name(self):
         """Gets the name of this CreateListenerInOneStepRequest.  # noqa: E501
 
@@ -335,6 +428,69 @@ class CreateListenerInOneStepRequest(object):
             raise ValueError("Invalid value for `protocol`, must not be `None`")  # noqa: E501
 
         self._protocol = protocol
+
+    @property
+    def protocol_port_ranges(self):
+        """Gets the protocol_port_ranges of this CreateListenerInOneStepRequest.  # noqa: E501
+
+
+        :return: The protocol_port_ranges of this CreateListenerInOneStepRequest.  # noqa: E501
+        :rtype: ProtocolPortRangesForCreateListenerInOneStepInput
+        """
+        return self._protocol_port_ranges
+
+    @protocol_port_ranges.setter
+    def protocol_port_ranges(self, protocol_port_ranges):
+        """Sets the protocol_port_ranges of this CreateListenerInOneStepRequest.
+
+
+        :param protocol_port_ranges: The protocol_port_ranges of this CreateListenerInOneStepRequest.  # noqa: E501
+        :type: ProtocolPortRangesForCreateListenerInOneStepInput
+        """
+
+        self._protocol_port_ranges = protocol_port_ranges
+
+    @property
+    def route_retry(self):
+        """Gets the route_retry of this CreateListenerInOneStepRequest.  # noqa: E501
+
+
+        :return: The route_retry of this CreateListenerInOneStepRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._route_retry
+
+    @route_retry.setter
+    def route_retry(self, route_retry):
+        """Sets the route_retry of this CreateListenerInOneStepRequest.
+
+
+        :param route_retry: The route_retry of this CreateListenerInOneStepRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._route_retry = route_retry
+
+    @property
+    def route_retry_max(self):
+        """Gets the route_retry_max of this CreateListenerInOneStepRequest.  # noqa: E501
+
+
+        :return: The route_retry_max of this CreateListenerInOneStepRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._route_retry_max
+
+    @route_retry_max.setter
+    def route_retry_max(self, route_retry_max):
+        """Sets the route_retry_max of this CreateListenerInOneStepRequest.
+
+
+        :param route_retry_max: The route_retry_max of this CreateListenerInOneStepRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._route_retry_max = route_retry_max
 
     def to_dict(self):
         """Returns the model properties as a dict"""

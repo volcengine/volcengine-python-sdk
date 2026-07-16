@@ -34,25 +34,29 @@ class UpdateBasicAccelerateIPEndpointRelationRequest(object):
     """
     swagger_types = {
         'accelerate_ipid': 'str',
+        'accelerator_id': 'str',
         'endpoints': 'list[EndpointForUpdateBasicAccelerateIPEndpointRelationInput]'
     }
 
     attribute_map = {
-        'accelerate_ipid': 'accelerateIPId',
-        'endpoints': 'endpoints'
+        'accelerate_ipid': 'AccelerateIPId',
+        'accelerator_id': 'AcceleratorId',
+        'endpoints': 'Endpoints'
     }
 
-    def __init__(self, accelerate_ipid=None, endpoints=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerate_ipid=None, accelerator_id=None, endpoints=None, _configuration=None):  # noqa: E501
         """UpdateBasicAccelerateIPEndpointRelationRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._accelerate_ipid = None
+        self._accelerator_id = None
         self._endpoints = None
         self.discriminator = None
 
         self.accelerate_ipid = accelerate_ipid
+        self.accelerator_id = accelerator_id
         if endpoints is not None:
             self.endpoints = endpoints
 
@@ -78,6 +82,29 @@ class UpdateBasicAccelerateIPEndpointRelationRequest(object):
             raise ValueError("Invalid value for `accelerate_ipid`, must not be `None`")  # noqa: E501
 
         self._accelerate_ipid = accelerate_ipid
+
+    @property
+    def accelerator_id(self):
+        """Gets the accelerator_id of this UpdateBasicAccelerateIPEndpointRelationRequest.  # noqa: E501
+
+
+        :return: The accelerator_id of this UpdateBasicAccelerateIPEndpointRelationRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._accelerator_id
+
+    @accelerator_id.setter
+    def accelerator_id(self, accelerator_id):
+        """Sets the accelerator_id of this UpdateBasicAccelerateIPEndpointRelationRequest.
+
+
+        :param accelerator_id: The accelerator_id of this UpdateBasicAccelerateIPEndpointRelationRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and accelerator_id is None:
+            raise ValueError("Invalid value for `accelerator_id`, must not be `None`")  # noqa: E501
+
+        self._accelerator_id = accelerator_id
 
     @property
     def endpoints(self):

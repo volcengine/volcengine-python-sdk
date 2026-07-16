@@ -33,55 +33,24 @@ class VideoProjectGetUploadSubtitleStatusResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'batch_id': 'str',
-        'data': 'DataForVideoProjectGetUploadSubtitleStatusOutput',
-        'upload_subtitle_infos': 'list[UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput]'
+        'data': 'DataForVideoProjectGetUploadSubtitleStatusOutput'
     }
 
     attribute_map = {
-        'batch_id': 'batchId',
-        'data': 'data',
-        'upload_subtitle_infos': 'uploadSubtitleInfos'
+        'data': 'data'
     }
 
-    def __init__(self, batch_id=None, data=None, upload_subtitle_infos=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, _configuration=None):  # noqa: E501
         """VideoProjectGetUploadSubtitleStatusResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._batch_id = None
         self._data = None
-        self._upload_subtitle_infos = None
         self.discriminator = None
 
-        if batch_id is not None:
-            self.batch_id = batch_id
         if data is not None:
             self.data = data
-        if upload_subtitle_infos is not None:
-            self.upload_subtitle_infos = upload_subtitle_infos
-
-    @property
-    def batch_id(self):
-        """Gets the batch_id of this VideoProjectGetUploadSubtitleStatusResponse.  # noqa: E501
-
-
-        :return: The batch_id of this VideoProjectGetUploadSubtitleStatusResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._batch_id
-
-    @batch_id.setter
-    def batch_id(self, batch_id):
-        """Sets the batch_id of this VideoProjectGetUploadSubtitleStatusResponse.
-
-
-        :param batch_id: The batch_id of this VideoProjectGetUploadSubtitleStatusResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._batch_id = batch_id
 
     @property
     def data(self):
@@ -103,27 +72,6 @@ class VideoProjectGetUploadSubtitleStatusResponse(object):
         """
 
         self._data = data
-
-    @property
-    def upload_subtitle_infos(self):
-        """Gets the upload_subtitle_infos of this VideoProjectGetUploadSubtitleStatusResponse.  # noqa: E501
-
-
-        :return: The upload_subtitle_infos of this VideoProjectGetUploadSubtitleStatusResponse.  # noqa: E501
-        :rtype: list[UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput]
-        """
-        return self._upload_subtitle_infos
-
-    @upload_subtitle_infos.setter
-    def upload_subtitle_infos(self, upload_subtitle_infos):
-        """Sets the upload_subtitle_infos of this VideoProjectGetUploadSubtitleStatusResponse.
-
-
-        :param upload_subtitle_infos: The upload_subtitle_infos of this VideoProjectGetUploadSubtitleStatusResponse.  # noqa: E501
-        :type: list[UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput]
-        """
-
-        self._upload_subtitle_infos = upload_subtitle_infos
 
     def to_dict(self):
         """Returns the model properties as a dict"""

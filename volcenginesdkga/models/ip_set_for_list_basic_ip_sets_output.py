@@ -33,33 +33,34 @@ class IPSetForListBasicIPSetsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'accelerate_ips': 'list[str]',
         'accelerator_id': 'str',
         'edge_nodes': 'list[EdgeNodeForListBasicIPSetsOutput]',
         'exist_bound_ip': 'bool',
         'ip_set_id': 'str',
         'ip_version': 'str',
         'region': 'str',
-        'state': 'str',
-        'accelerate_ips': 'list[str]'
+        'state': 'str'
     }
 
     attribute_map = {
+        'accelerate_ips': 'AccelerateIPs',
         'accelerator_id': 'AcceleratorId',
         'edge_nodes': 'EdgeNodes',
         'exist_bound_ip': 'ExistBoundIP',
         'ip_set_id': 'IPSetId',
         'ip_version': 'IPVersion',
         'region': 'Region',
-        'state': 'State',
-        'accelerate_ips': 'accelerateIPs'
+        'state': 'State'
     }
 
-    def __init__(self, accelerator_id=None, edge_nodes=None, exist_bound_ip=None, ip_set_id=None, ip_version=None, region=None, state=None, accelerate_ips=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerate_ips=None, accelerator_id=None, edge_nodes=None, exist_bound_ip=None, ip_set_id=None, ip_version=None, region=None, state=None, _configuration=None):  # noqa: E501
         """IPSetForListBasicIPSetsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._accelerate_ips = None
         self._accelerator_id = None
         self._edge_nodes = None
         self._exist_bound_ip = None
@@ -67,9 +68,10 @@ class IPSetForListBasicIPSetsOutput(object):
         self._ip_version = None
         self._region = None
         self._state = None
-        self._accelerate_ips = None
         self.discriminator = None
 
+        if accelerate_ips is not None:
+            self.accelerate_ips = accelerate_ips
         if accelerator_id is not None:
             self.accelerator_id = accelerator_id
         if edge_nodes is not None:
@@ -84,8 +86,27 @@ class IPSetForListBasicIPSetsOutput(object):
             self.region = region
         if state is not None:
             self.state = state
-        if accelerate_ips is not None:
-            self.accelerate_ips = accelerate_ips
+
+    @property
+    def accelerate_ips(self):
+        """Gets the accelerate_ips of this IPSetForListBasicIPSetsOutput.  # noqa: E501
+
+
+        :return: The accelerate_ips of this IPSetForListBasicIPSetsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._accelerate_ips
+
+    @accelerate_ips.setter
+    def accelerate_ips(self, accelerate_ips):
+        """Sets the accelerate_ips of this IPSetForListBasicIPSetsOutput.
+
+
+        :param accelerate_ips: The accelerate_ips of this IPSetForListBasicIPSetsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._accelerate_ips = accelerate_ips
 
     @property
     def accelerator_id(self):
@@ -233,27 +254,6 @@ class IPSetForListBasicIPSetsOutput(object):
         """
 
         self._state = state
-
-    @property
-    def accelerate_ips(self):
-        """Gets the accelerate_ips of this IPSetForListBasicIPSetsOutput.  # noqa: E501
-
-
-        :return: The accelerate_ips of this IPSetForListBasicIPSetsOutput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._accelerate_ips
-
-    @accelerate_ips.setter
-    def accelerate_ips(self, accelerate_ips):
-        """Sets the accelerate_ips of this IPSetForListBasicIPSetsOutput.
-
-
-        :param accelerate_ips: The accelerate_ips of this IPSetForListBasicIPSetsOutput.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._accelerate_ips = accelerate_ips
 
     def to_dict(self):
         """Returns the model properties as a dict"""

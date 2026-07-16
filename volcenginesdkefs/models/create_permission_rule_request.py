@@ -129,7 +129,7 @@ class CreatePermissionRuleRequest(object):
         """
         if self._configuration.client_side_validation and rw_mode is None:
             raise ValueError("Invalid value for `rw_mode`, must not be `None`")  # noqa: E501
-        allowed_values = ["Unknown", "RW", "RO"]  # noqa: E501
+        allowed_values = ["RW", "RO"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 rw_mode not in allowed_values):
             raise ValueError(
@@ -159,7 +159,7 @@ class CreatePermissionRuleRequest(object):
         """
         if self._configuration.client_side_validation and user_mode is None:
             raise ValueError("Invalid value for `user_mode`, must not be `None`")  # noqa: E501
-        allowed_values = ["Unknown", "Root_squash", "No_root_squash", "All_squash"]  # noqa: E501
+        allowed_values = ["Root_squash", "No_root_squash", "All_squash"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 user_mode not in allowed_values):
             raise ValueError(

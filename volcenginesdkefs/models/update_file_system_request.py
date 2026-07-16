@@ -94,7 +94,7 @@ class UpdateFileSystemRequest(object):
         :param bandwidth_mode: The bandwidth_mode of this UpdateFileSystemRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Unknown", "Baseline", "Provisioned"]  # noqa: E501
+        allowed_values = ["Baseline", "Provisioned"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 bandwidth_mode not in allowed_values):
             raise ValueError(

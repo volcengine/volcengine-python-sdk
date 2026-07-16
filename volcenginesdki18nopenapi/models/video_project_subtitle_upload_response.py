@@ -33,50 +33,24 @@ class VideoProjectSubtitleUploadResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'batch_id': 'str',
         'data': 'DataForVideoProjectSubtitleUploadOutput'
     }
 
     attribute_map = {
-        'batch_id': 'batchId',
         'data': 'data'
     }
 
-    def __init__(self, batch_id=None, data=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, _configuration=None):  # noqa: E501
         """VideoProjectSubtitleUploadResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._batch_id = None
         self._data = None
         self.discriminator = None
 
-        if batch_id is not None:
-            self.batch_id = batch_id
         if data is not None:
             self.data = data
-
-    @property
-    def batch_id(self):
-        """Gets the batch_id of this VideoProjectSubtitleUploadResponse.  # noqa: E501
-
-
-        :return: The batch_id of this VideoProjectSubtitleUploadResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._batch_id
-
-    @batch_id.setter
-    def batch_id(self, batch_id):
-        """Sets the batch_id of this VideoProjectSubtitleUploadResponse.
-
-
-        :param batch_id: The batch_id of this VideoProjectSubtitleUploadResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._batch_id = batch_id
 
     @property
     def data(self):

@@ -33,23 +33,50 @@ class DeleteBasicEndpointRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'accelerator_id': 'str',
         'endpoint_id': 'str'
     }
 
     attribute_map = {
+        'accelerator_id': 'AcceleratorId',
         'endpoint_id': 'EndpointId'
     }
 
-    def __init__(self, endpoint_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerator_id=None, endpoint_id=None, _configuration=None):  # noqa: E501
         """DeleteBasicEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._accelerator_id = None
         self._endpoint_id = None
         self.discriminator = None
 
+        self.accelerator_id = accelerator_id
         self.endpoint_id = endpoint_id
+
+    @property
+    def accelerator_id(self):
+        """Gets the accelerator_id of this DeleteBasicEndpointRequest.  # noqa: E501
+
+
+        :return: The accelerator_id of this DeleteBasicEndpointRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._accelerator_id
+
+    @accelerator_id.setter
+    def accelerator_id(self, accelerator_id):
+        """Sets the accelerator_id of this DeleteBasicEndpointRequest.
+
+
+        :param accelerator_id: The accelerator_id of this DeleteBasicEndpointRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and accelerator_id is None:
+            raise ValueError("Invalid value for `accelerator_id`, must not be `None`")  # noqa: E501
+
+        self._accelerator_id = accelerator_id
 
     @property
     def endpoint_id(self):

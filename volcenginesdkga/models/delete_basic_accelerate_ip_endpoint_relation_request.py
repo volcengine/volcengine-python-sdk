@@ -35,18 +35,16 @@ class DeleteBasicAccelerateIPEndpointRelationRequest(object):
     swagger_types = {
         'accelerate_ipid': 'str',
         'accelerator_id': 'str',
-        'endpoint_ids': 'list[str]',
         'ip_set_id': 'str'
     }
 
     attribute_map = {
         'accelerate_ipid': 'AccelerateIPId',
         'accelerator_id': 'AcceleratorId',
-        'endpoint_ids': 'EndpointIds',
         'ip_set_id': 'IPSetId'
     }
 
-    def __init__(self, accelerate_ipid=None, accelerator_id=None, endpoint_ids=None, ip_set_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerate_ipid=None, accelerator_id=None, ip_set_id=None, _configuration=None):  # noqa: E501
         """DeleteBasicAccelerateIPEndpointRelationRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,14 +52,11 @@ class DeleteBasicAccelerateIPEndpointRelationRequest(object):
 
         self._accelerate_ipid = None
         self._accelerator_id = None
-        self._endpoint_ids = None
         self._ip_set_id = None
         self.discriminator = None
 
         self.accelerate_ipid = accelerate_ipid
         self.accelerator_id = accelerator_id
-        if endpoint_ids is not None:
-            self.endpoint_ids = endpoint_ids
         self.ip_set_id = ip_set_id
 
     @property
@@ -109,27 +104,6 @@ class DeleteBasicAccelerateIPEndpointRelationRequest(object):
             raise ValueError("Invalid value for `accelerator_id`, must not be `None`")  # noqa: E501
 
         self._accelerator_id = accelerator_id
-
-    @property
-    def endpoint_ids(self):
-        """Gets the endpoint_ids of this DeleteBasicAccelerateIPEndpointRelationRequest.  # noqa: E501
-
-
-        :return: The endpoint_ids of this DeleteBasicAccelerateIPEndpointRelationRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._endpoint_ids
-
-    @endpoint_ids.setter
-    def endpoint_ids(self, endpoint_ids):
-        """Sets the endpoint_ids of this DeleteBasicAccelerateIPEndpointRelationRequest.
-
-
-        :param endpoint_ids: The endpoint_ids of this DeleteBasicAccelerateIPEndpointRelationRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._endpoint_ids = endpoint_ids
 
     @property
     def ip_set_id(self):

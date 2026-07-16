@@ -76,8 +76,7 @@ class UpdateListenerRequest(object):
         self._protocol = None
         self.discriminator = None
 
-        if accelerator_id is not None:
-            self.accelerator_id = accelerator_id
+        self.accelerator_id = accelerator_id
         if disable_isolate_tcp_null_conn is not None:
             self.disable_isolate_tcp_null_conn = disable_isolate_tcp_null_conn
         if disable_pre_connect is not None:
@@ -113,6 +112,8 @@ class UpdateListenerRequest(object):
         :param accelerator_id: The accelerator_id of this UpdateListenerRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and accelerator_id is None:
+            raise ValueError("Invalid value for `accelerator_id`, must not be `None`")  # noqa: E501
 
         self._accelerator_id = accelerator_id
 

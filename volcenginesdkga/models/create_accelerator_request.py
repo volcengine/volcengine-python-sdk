@@ -33,11 +33,13 @@ class CreateAcceleratorRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'accelerate_type': 'str',
         'billing_period': 'int',
         'billing_spec': 'str',
         'billing_type': 'str',
         'charge_type': 'str',
         'duration': 'int',
+        'full_port_switch': 'bool',
         'name': 'str',
         'project_name': 'str',
         'renew_type': 'int',
@@ -45,34 +47,40 @@ class CreateAcceleratorRequest(object):
     }
 
     attribute_map = {
+        'accelerate_type': 'AccelerateType',
         'billing_period': 'BillingPeriod',
         'billing_spec': 'BillingSpec',
         'billing_type': 'BillingType',
         'charge_type': 'ChargeType',
         'duration': 'Duration',
+        'full_port_switch': 'FullPortSwitch',
         'name': 'Name',
         'project_name': 'ProjectName',
         'renew_type': 'RenewType',
         'resource_tags': 'ResourceTags'
     }
 
-    def __init__(self, billing_period=None, billing_spec=None, billing_type=None, charge_type=None, duration=None, name=None, project_name=None, renew_type=None, resource_tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerate_type=None, billing_period=None, billing_spec=None, billing_type=None, charge_type=None, duration=None, full_port_switch=None, name=None, project_name=None, renew_type=None, resource_tags=None, _configuration=None):  # noqa: E501
         """CreateAcceleratorRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._accelerate_type = None
         self._billing_period = None
         self._billing_spec = None
         self._billing_type = None
         self._charge_type = None
         self._duration = None
+        self._full_port_switch = None
         self._name = None
         self._project_name = None
         self._renew_type = None
         self._resource_tags = None
         self.discriminator = None
 
+        if accelerate_type is not None:
+            self.accelerate_type = accelerate_type
         if billing_period is not None:
             self.billing_period = billing_period
         self.billing_spec = billing_spec
@@ -81,6 +89,8 @@ class CreateAcceleratorRequest(object):
         self.charge_type = charge_type
         if duration is not None:
             self.duration = duration
+        if full_port_switch is not None:
+            self.full_port_switch = full_port_switch
         if name is not None:
             self.name = name
         if project_name is not None:
@@ -89,6 +99,27 @@ class CreateAcceleratorRequest(object):
             self.renew_type = renew_type
         if resource_tags is not None:
             self.resource_tags = resource_tags
+
+    @property
+    def accelerate_type(self):
+        """Gets the accelerate_type of this CreateAcceleratorRequest.  # noqa: E501
+
+
+        :return: The accelerate_type of this CreateAcceleratorRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._accelerate_type
+
+    @accelerate_type.setter
+    def accelerate_type(self, accelerate_type):
+        """Sets the accelerate_type of this CreateAcceleratorRequest.
+
+
+        :param accelerate_type: The accelerate_type of this CreateAcceleratorRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._accelerate_type = accelerate_type
 
     @property
     def billing_period(self):
@@ -198,6 +229,27 @@ class CreateAcceleratorRequest(object):
         """
 
         self._duration = duration
+
+    @property
+    def full_port_switch(self):
+        """Gets the full_port_switch of this CreateAcceleratorRequest.  # noqa: E501
+
+
+        :return: The full_port_switch of this CreateAcceleratorRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._full_port_switch
+
+    @full_port_switch.setter
+    def full_port_switch(self, full_port_switch):
+        """Sets the full_port_switch of this CreateAcceleratorRequest.
+
+
+        :param full_port_switch: The full_port_switch of this CreateAcceleratorRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._full_port_switch = full_port_switch
 
     @property
     def name(self):
