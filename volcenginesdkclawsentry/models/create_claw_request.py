@@ -37,9 +37,7 @@ class CreateClawRequest(object):
         'claw_type': 'str',
         'external_claw_id': 'str',
         'name': 'str',
-        'personal_claw': 'PersonalClawForCreateClawInput',
-        'source': 'str',
-        'tags': 'list[str]'
+        'source': 'str'
     }
 
     attribute_map = {
@@ -47,12 +45,10 @@ class CreateClawRequest(object):
         'claw_type': 'ClawType',
         'external_claw_id': 'ExternalClawID',
         'name': 'Name',
-        'personal_claw': 'PersonalClaw',
-        'source': 'Source',
-        'tags': 'Tags'
+        'source': 'Source'
     }
 
-    def __init__(self, base=None, claw_type=None, external_claw_id=None, name=None, personal_claw=None, source=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, base=None, claw_type=None, external_claw_id=None, name=None, source=None, _configuration=None):  # noqa: E501
         """CreateClawRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,9 +58,7 @@ class CreateClawRequest(object):
         self._claw_type = None
         self._external_claw_id = None
         self._name = None
-        self._personal_claw = None
         self._source = None
-        self._tags = None
         self.discriminator = None
 
         if base is not None:
@@ -74,12 +68,8 @@ class CreateClawRequest(object):
         self.external_claw_id = external_claw_id
         if name is not None:
             self.name = name
-        if personal_claw is not None:
-            self.personal_claw = personal_claw
         if source is not None:
             self.source = source
-        if tags is not None:
-            self.tags = tags
 
     @property
     def base(self):
@@ -184,27 +174,6 @@ class CreateClawRequest(object):
         self._name = name
 
     @property
-    def personal_claw(self):
-        """Gets the personal_claw of this CreateClawRequest.  # noqa: E501
-
-
-        :return: The personal_claw of this CreateClawRequest.  # noqa: E501
-        :rtype: PersonalClawForCreateClawInput
-        """
-        return self._personal_claw
-
-    @personal_claw.setter
-    def personal_claw(self, personal_claw):
-        """Sets the personal_claw of this CreateClawRequest.
-
-
-        :param personal_claw: The personal_claw of this CreateClawRequest.  # noqa: E501
-        :type: PersonalClawForCreateClawInput
-        """
-
-        self._personal_claw = personal_claw
-
-    @property
     def source(self):
         """Gets the source of this CreateClawRequest.  # noqa: E501
 
@@ -231,27 +200,6 @@ class CreateClawRequest(object):
             )
 
         self._source = source
-
-    @property
-    def tags(self):
-        """Gets the tags of this CreateClawRequest.  # noqa: E501
-
-
-        :return: The tags of this CreateClawRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this CreateClawRequest.
-
-
-        :param tags: The tags of this CreateClawRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
