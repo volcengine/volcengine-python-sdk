@@ -46,6 +46,7 @@ class ImageForDescribeImagesOutput(object):
         'is_support_cloud_init': 'bool',
         'kernel': 'str',
         'license_type': 'str',
+        'marketplace_image_bill_type': 'int',
         'os_name': 'str',
         'os_type': 'str',
         'platform': 'str',
@@ -76,6 +77,7 @@ class ImageForDescribeImagesOutput(object):
         'is_support_cloud_init': 'IsSupportCloudInit',
         'kernel': 'Kernel',
         'license_type': 'LicenseType',
+        'marketplace_image_bill_type': 'MarketplaceImageBillType',
         'os_name': 'OsName',
         'os_type': 'OsType',
         'platform': 'Platform',
@@ -92,7 +94,7 @@ class ImageForDescribeImagesOutput(object):
         'visibility': 'Visibility'
     }
 
-    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, detection_results=None, image_id=None, image_name=None, image_owner_id=None, is_install_run_command_agent=None, is_lts=None, is_support_cloud_init=None, kernel=None, license_type=None, os_name=None, os_type=None, platform=None, platform_version=None, product_code=None, project_name=None, share_status=None, size=None, snapshots=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, detection_results=None, image_id=None, image_name=None, image_owner_id=None, is_install_run_command_agent=None, is_lts=None, is_support_cloud_init=None, kernel=None, license_type=None, marketplace_image_bill_type=None, os_name=None, os_type=None, platform=None, platform_version=None, product_code=None, project_name=None, share_status=None, size=None, snapshots=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
         """ImageForDescribeImagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -111,6 +113,7 @@ class ImageForDescribeImagesOutput(object):
         self._is_support_cloud_init = None
         self._kernel = None
         self._license_type = None
+        self._marketplace_image_bill_type = None
         self._os_name = None
         self._os_type = None
         self._platform = None
@@ -153,6 +156,8 @@ class ImageForDescribeImagesOutput(object):
             self.kernel = kernel
         if license_type is not None:
             self.license_type = license_type
+        if marketplace_image_bill_type is not None:
+            self.marketplace_image_bill_type = marketplace_image_bill_type
         if os_name is not None:
             self.os_name = os_name
         if os_type is not None:
@@ -454,6 +459,27 @@ class ImageForDescribeImagesOutput(object):
         """
 
         self._license_type = license_type
+
+    @property
+    def marketplace_image_bill_type(self):
+        """Gets the marketplace_image_bill_type of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The marketplace_image_bill_type of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._marketplace_image_bill_type
+
+    @marketplace_image_bill_type.setter
+    def marketplace_image_bill_type(self, marketplace_image_bill_type):
+        """Sets the marketplace_image_bill_type of this ImageForDescribeImagesOutput.
+
+
+        :param marketplace_image_bill_type: The marketplace_image_bill_type of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._marketplace_image_bill_type = marketplace_image_bill_type
 
     @property
     def os_name(self):
