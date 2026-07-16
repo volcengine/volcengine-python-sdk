@@ -33,6 +33,7 @@ class RenewInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_use_coupon': 'bool',
         'client_token': 'str',
         'instance_id': 'str',
         'product': 'str',
@@ -43,6 +44,7 @@ class RenewInstanceRequest(object):
     }
 
     attribute_map = {
+        'auto_use_coupon': 'AutoUseCoupon',
         'client_token': 'ClientToken',
         'instance_id': 'InstanceID',
         'product': 'Product',
@@ -52,12 +54,13 @@ class RenewInstanceRequest(object):
         'united_expire_day': 'UnitedExpireDay'
     }
 
-    def __init__(self, client_token=None, instance_id=None, product=None, renew_related_instance=None, renewal_duration=None, renewal_duration_unit=None, united_expire_day=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_use_coupon=None, client_token=None, instance_id=None, product=None, renew_related_instance=None, renewal_duration=None, renewal_duration_unit=None, united_expire_day=None, _configuration=None):  # noqa: E501
         """RenewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auto_use_coupon = None
         self._client_token = None
         self._instance_id = None
         self._product = None
@@ -67,6 +70,8 @@ class RenewInstanceRequest(object):
         self._united_expire_day = None
         self.discriminator = None
 
+        if auto_use_coupon is not None:
+            self.auto_use_coupon = auto_use_coupon
         if client_token is not None:
             self.client_token = client_token
         self.instance_id = instance_id
@@ -78,6 +83,27 @@ class RenewInstanceRequest(object):
         self.renewal_duration_unit = renewal_duration_unit
         if united_expire_day is not None:
             self.united_expire_day = united_expire_day
+
+    @property
+    def auto_use_coupon(self):
+        """Gets the auto_use_coupon of this RenewInstanceRequest.  # noqa: E501
+
+
+        :return: The auto_use_coupon of this RenewInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_use_coupon
+
+    @auto_use_coupon.setter
+    def auto_use_coupon(self, auto_use_coupon):
+        """Sets the auto_use_coupon of this RenewInstanceRequest.
+
+
+        :param auto_use_coupon: The auto_use_coupon of this RenewInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_use_coupon = auto_use_coupon
 
     @property
     def client_token(self):

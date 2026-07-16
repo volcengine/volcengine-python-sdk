@@ -47,7 +47,9 @@ class ListBillDetailRequest(object):
         'owner_id': 'list[int]',
         'payer_id': 'list[int]',
         'product': 'list[str]',
-        'project': 'list[str]'
+        'project': 'list[str]',
+        'tag_kv': 'list[TagKVForListBillDetailInput]',
+        'tag_kv_filter_mode': 'int'
     }
 
     attribute_map = {
@@ -65,10 +67,12 @@ class ListBillDetailRequest(object):
         'owner_id': 'OwnerID',
         'payer_id': 'PayerID',
         'product': 'Product',
-        'project': 'Project'
+        'project': 'Project',
+        'tag_kv': 'TagKV',
+        'tag_kv_filter_mode': 'TagKVFilterMode'
     }
 
-    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, group_term=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, group_term=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, tag_kv=None, tag_kv_filter_mode=None, _configuration=None):  # noqa: E501
         """ListBillDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +93,8 @@ class ListBillDetailRequest(object):
         self._payer_id = None
         self._product = None
         self._project = None
+        self._tag_kv = None
+        self._tag_kv_filter_mode = None
         self.discriminator = None
 
         if bill_category is not None:
@@ -119,6 +125,10 @@ class ListBillDetailRequest(object):
             self.product = product
         if project is not None:
             self.project = project
+        if tag_kv is not None:
+            self.tag_kv = tag_kv
+        if tag_kv_filter_mode is not None:
+            self.tag_kv_filter_mode = tag_kv_filter_mode
 
     @property
     def bill_category(self):
@@ -438,6 +448,48 @@ class ListBillDetailRequest(object):
         """
 
         self._project = project
+
+    @property
+    def tag_kv(self):
+        """Gets the tag_kv of this ListBillDetailRequest.  # noqa: E501
+
+
+        :return: The tag_kv of this ListBillDetailRequest.  # noqa: E501
+        :rtype: list[TagKVForListBillDetailInput]
+        """
+        return self._tag_kv
+
+    @tag_kv.setter
+    def tag_kv(self, tag_kv):
+        """Sets the tag_kv of this ListBillDetailRequest.
+
+
+        :param tag_kv: The tag_kv of this ListBillDetailRequest.  # noqa: E501
+        :type: list[TagKVForListBillDetailInput]
+        """
+
+        self._tag_kv = tag_kv
+
+    @property
+    def tag_kv_filter_mode(self):
+        """Gets the tag_kv_filter_mode of this ListBillDetailRequest.  # noqa: E501
+
+
+        :return: The tag_kv_filter_mode of this ListBillDetailRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._tag_kv_filter_mode
+
+    @tag_kv_filter_mode.setter
+    def tag_kv_filter_mode(self, tag_kv_filter_mode):
+        """Sets the tag_kv_filter_mode of this ListBillDetailRequest.
+
+
+        :param tag_kv_filter_mode: The tag_kv_filter_mode of this ListBillDetailRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._tag_kv_filter_mode = tag_kv_filter_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""
