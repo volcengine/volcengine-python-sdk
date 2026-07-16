@@ -18,4 +18,3 @@ from __future__ import absolute_import
 from volcenginesdkclawsentry.models.base_for_create_claw_input import BaseForCreateClawInput
 from volcenginesdkclawsentry.models.create_claw_request import CreateClawRequest
 from volcenginesdkclawsentry.models.create_claw_response import CreateClawResponse
-from volcenginesdkclawsentry.models.personal_claw_for_create_claw_input import PersonalClawForCreateClawInput

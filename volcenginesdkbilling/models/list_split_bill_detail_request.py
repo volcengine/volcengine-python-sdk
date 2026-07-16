@@ -48,7 +48,9 @@ class ListSplitBillDetailRequest(object):
         'product': 'list[str]',
         'project': 'list[str]',
         'split_dimension': 'str',
-        'split_item_id': 'str'
+        'split_item_id': 'str',
+        'tag_kv': 'list[TagKVForListSplitBillDetailInput]',
+        'tag_kv_filter_mode': 'int'
     }
 
     attribute_map = {
@@ -67,10 +69,12 @@ class ListSplitBillDetailRequest(object):
         'product': 'Product',
         'project': 'Project',
         'split_dimension': 'SplitDimension',
-        'split_item_id': 'SplitItemID'
+        'split_item_id': 'SplitItemID',
+        'tag_kv': 'TagKV',
+        'tag_kv_filter_mode': 'TagKVFilterMode'
     }
 
-    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, split_dimension=None, split_item_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, split_dimension=None, split_item_id=None, tag_kv=None, tag_kv_filter_mode=None, _configuration=None):  # noqa: E501
         """ListSplitBillDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,6 +96,8 @@ class ListSplitBillDetailRequest(object):
         self._project = None
         self._split_dimension = None
         self._split_item_id = None
+        self._tag_kv = None
+        self._tag_kv_filter_mode = None
         self.discriminator = None
 
         if bill_category is not None:
@@ -124,6 +130,10 @@ class ListSplitBillDetailRequest(object):
             self.split_dimension = split_dimension
         if split_item_id is not None:
             self.split_item_id = split_item_id
+        if tag_kv is not None:
+            self.tag_kv = tag_kv
+        if tag_kv_filter_mode is not None:
+            self.tag_kv_filter_mode = tag_kv_filter_mode
 
     @property
     def bill_category(self):
@@ -464,6 +474,48 @@ class ListSplitBillDetailRequest(object):
         """
 
         self._split_item_id = split_item_id
+
+    @property
+    def tag_kv(self):
+        """Gets the tag_kv of this ListSplitBillDetailRequest.  # noqa: E501
+
+
+        :return: The tag_kv of this ListSplitBillDetailRequest.  # noqa: E501
+        :rtype: list[TagKVForListSplitBillDetailInput]
+        """
+        return self._tag_kv
+
+    @tag_kv.setter
+    def tag_kv(self, tag_kv):
+        """Sets the tag_kv of this ListSplitBillDetailRequest.
+
+
+        :param tag_kv: The tag_kv of this ListSplitBillDetailRequest.  # noqa: E501
+        :type: list[TagKVForListSplitBillDetailInput]
+        """
+
+        self._tag_kv = tag_kv
+
+    @property
+    def tag_kv_filter_mode(self):
+        """Gets the tag_kv_filter_mode of this ListSplitBillDetailRequest.  # noqa: E501
+
+
+        :return: The tag_kv_filter_mode of this ListSplitBillDetailRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._tag_kv_filter_mode
+
+    @tag_kv_filter_mode.setter
+    def tag_kv_filter_mode(self, tag_kv_filter_mode):
+        """Sets the tag_kv_filter_mode of this ListSplitBillDetailRequest.
+
+
+        :param tag_kv_filter_mode: The tag_kv_filter_mode of this ListSplitBillDetailRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._tag_kv_filter_mode = tag_kv_filter_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,60 +33,58 @@ class CreateBasicIPSetRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'accelerate_region': 'str',
+        'accelerate_node': 'list[str]',
         'accelerator_id': 'str',
         'ip_version': 'str',
-        'accelerate_node': 'list[str]'
+        'region': 'str'
     }
 
     attribute_map = {
-        'accelerate_region': 'AccelerateRegion',
+        'accelerate_node': 'AccelerateNode',
         'accelerator_id': 'AcceleratorId',
         'ip_version': 'IPVersion',
-        'accelerate_node': 'accelerateNode'
+        'region': 'Region'
     }
 
-    def __init__(self, accelerate_region=None, accelerator_id=None, ip_version=None, accelerate_node=None, _configuration=None):  # noqa: E501
+    def __init__(self, accelerate_node=None, accelerator_id=None, ip_version=None, region=None, _configuration=None):  # noqa: E501
         """CreateBasicIPSetRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._accelerate_region = None
+        self._accelerate_node = None
         self._accelerator_id = None
         self._ip_version = None
-        self._accelerate_node = None
+        self._region = None
         self.discriminator = None
 
-        if accelerate_region is not None:
-            self.accelerate_region = accelerate_region
-        if accelerator_id is not None:
-            self.accelerator_id = accelerator_id
-        if ip_version is not None:
-            self.ip_version = ip_version
         if accelerate_node is not None:
             self.accelerate_node = accelerate_node
+        self.accelerator_id = accelerator_id
+        if ip_version is not None:
+            self.ip_version = ip_version
+        self.region = region
 
     @property
-    def accelerate_region(self):
-        """Gets the accelerate_region of this CreateBasicIPSetRequest.  # noqa: E501
+    def accelerate_node(self):
+        """Gets the accelerate_node of this CreateBasicIPSetRequest.  # noqa: E501
 
 
-        :return: The accelerate_region of this CreateBasicIPSetRequest.  # noqa: E501
-        :rtype: str
+        :return: The accelerate_node of this CreateBasicIPSetRequest.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._accelerate_region
+        return self._accelerate_node
 
-    @accelerate_region.setter
-    def accelerate_region(self, accelerate_region):
-        """Sets the accelerate_region of this CreateBasicIPSetRequest.
+    @accelerate_node.setter
+    def accelerate_node(self, accelerate_node):
+        """Sets the accelerate_node of this CreateBasicIPSetRequest.
 
 
-        :param accelerate_region: The accelerate_region of this CreateBasicIPSetRequest.  # noqa: E501
-        :type: str
+        :param accelerate_node: The accelerate_node of this CreateBasicIPSetRequest.  # noqa: E501
+        :type: list[str]
         """
 
-        self._accelerate_region = accelerate_region
+        self._accelerate_node = accelerate_node
 
     @property
     def accelerator_id(self):
@@ -106,6 +104,8 @@ class CreateBasicIPSetRequest(object):
         :param accelerator_id: The accelerator_id of this CreateBasicIPSetRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and accelerator_id is None:
+            raise ValueError("Invalid value for `accelerator_id`, must not be `None`")  # noqa: E501
 
         self._accelerator_id = accelerator_id
 
@@ -131,25 +131,27 @@ class CreateBasicIPSetRequest(object):
         self._ip_version = ip_version
 
     @property
-    def accelerate_node(self):
-        """Gets the accelerate_node of this CreateBasicIPSetRequest.  # noqa: E501
+    def region(self):
+        """Gets the region of this CreateBasicIPSetRequest.  # noqa: E501
 
 
-        :return: The accelerate_node of this CreateBasicIPSetRequest.  # noqa: E501
-        :rtype: list[str]
+        :return: The region of this CreateBasicIPSetRequest.  # noqa: E501
+        :rtype: str
         """
-        return self._accelerate_node
+        return self._region
 
-    @accelerate_node.setter
-    def accelerate_node(self, accelerate_node):
-        """Sets the accelerate_node of this CreateBasicIPSetRequest.
+    @region.setter
+    def region(self, region):
+        """Sets the region of this CreateBasicIPSetRequest.
 
 
-        :param accelerate_node: The accelerate_node of this CreateBasicIPSetRequest.  # noqa: E501
-        :type: list[str]
+        :param region: The region of this CreateBasicIPSetRequest.  # noqa: E501
+        :type: str
         """
+        if self._configuration.client_side_validation and region is None:
+            raise ValueError("Invalid value for `region`, must not be `None`")  # noqa: E501
 
-        self._accelerate_node = accelerate_node
+        self._region = region
 
     def to_dict(self):
         """Returns the model properties as a dict"""

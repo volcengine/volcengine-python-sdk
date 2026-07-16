@@ -34,40 +34,40 @@ class DescribeTopStatisticsRequest(object):
     """
     swagger_types = {
         'end_time': 'str',
+        'input_id': 'list[str]',
         'input_id_type': 'str',
         'sort_metric': 'str',
-        'start_time': 'str',
-        'input_id': 'list[str]'
+        'start_time': 'str'
     }
 
     attribute_map = {
         'end_time': 'EndTime',
+        'input_id': 'InputId',
         'input_id_type': 'InputIdType',
         'sort_metric': 'SortMetric',
-        'start_time': 'StartTime',
-        'input_id': 'inputId'
+        'start_time': 'StartTime'
     }
 
-    def __init__(self, end_time=None, input_id_type=None, sort_metric=None, start_time=None, input_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, end_time=None, input_id=None, input_id_type=None, sort_metric=None, start_time=None, _configuration=None):  # noqa: E501
         """DescribeTopStatisticsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._end_time = None
+        self._input_id = None
         self._input_id_type = None
         self._sort_metric = None
         self._start_time = None
-        self._input_id = None
         self.discriminator = None
 
         self.end_time = end_time
+        if input_id is not None:
+            self.input_id = input_id
         self.input_id_type = input_id_type
         if sort_metric is not None:
             self.sort_metric = sort_metric
         self.start_time = start_time
-        if input_id is not None:
-            self.input_id = input_id
 
     @property
     def end_time(self):
@@ -91,6 +91,27 @@ class DescribeTopStatisticsRequest(object):
             raise ValueError("Invalid value for `end_time`, must not be `None`")  # noqa: E501
 
         self._end_time = end_time
+
+    @property
+    def input_id(self):
+        """Gets the input_id of this DescribeTopStatisticsRequest.  # noqa: E501
+
+
+        :return: The input_id of this DescribeTopStatisticsRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._input_id
+
+    @input_id.setter
+    def input_id(self, input_id):
+        """Sets the input_id of this DescribeTopStatisticsRequest.
+
+
+        :param input_id: The input_id of this DescribeTopStatisticsRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._input_id = input_id
 
     @property
     def input_id_type(self):
@@ -158,27 +179,6 @@ class DescribeTopStatisticsRequest(object):
             raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
-
-    @property
-    def input_id(self):
-        """Gets the input_id of this DescribeTopStatisticsRequest.  # noqa: E501
-
-
-        :return: The input_id of this DescribeTopStatisticsRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._input_id
-
-    @input_id.setter
-    def input_id(self, input_id):
-        """Sets the input_id of this DescribeTopStatisticsRequest.
-
-
-        :param input_id: The input_id of this DescribeTopStatisticsRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._input_id = input_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

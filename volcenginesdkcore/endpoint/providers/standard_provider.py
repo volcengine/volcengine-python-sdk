@@ -176,6 +176,8 @@ ServiceInfos = {
     "dramart": ServiceInfo("dramart", True),
     "partner": ServiceInfo("partner", True),
     "clawsentry": ServiceInfo("clawsentry", False),
+    "efs": ServiceInfo("efs", False),
+    "cpaas": ServiceInfo("cpaas", True),
 }
 
 

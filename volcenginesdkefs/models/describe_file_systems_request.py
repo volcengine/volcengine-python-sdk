@@ -140,7 +140,7 @@ class DescribeFileSystemsRequest(object):
         :param bandwidth_mode: The bandwidth_mode of this DescribeFileSystemsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Unknown", "Baseline", "Provisioned"]  # noqa: E501
+        allowed_values = ["Baseline", "Provisioned"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 bandwidth_mode not in allowed_values):
             raise ValueError(
@@ -238,7 +238,7 @@ class DescribeFileSystemsRequest(object):
         :param instance_type: The instance_type of this DescribeFileSystemsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Unknown", "Basic", "Premium", "IntelliTier"]  # noqa: E501
+        allowed_values = ["Basic", "Premium", "IntelliTier"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 instance_type not in allowed_values):
             raise ValueError(
@@ -342,7 +342,7 @@ class DescribeFileSystemsRequest(object):
         :param performance_density: The performance_density of this DescribeFileSystemsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Unknown", "Basic_50", "Premium_125"]  # noqa: E501
+        allowed_values = ["Basic_50", "Premium_125"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 performance_density not in allowed_values):
             raise ValueError(
@@ -447,7 +447,7 @@ class DescribeFileSystemsRequest(object):
         :param statuses: The statuses of this DescribeFileSystemsRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Unknown", "Creating", "CreateError", "Running", "Updating", "Deleting", "DeleteError", "Deleted", "Stopped"]  # noqa: E501
+        allowed_values = ["Creating", "CreateError", "Running", "Updating", "Deleting", "DeleteError", "Deleted", "Stopped"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(statuses).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

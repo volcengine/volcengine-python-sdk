@@ -34,15 +34,17 @@ class CpuOptionsForDescribeInstancesOutput(object):
     """
     swagger_types = {
         'core_count': 'int',
-        'threads_per_core': 'int'
+        'threads_per_core': 'int',
+        'topology_type': 'str'
     }
 
     attribute_map = {
         'core_count': 'CoreCount',
-        'threads_per_core': 'ThreadsPerCore'
+        'threads_per_core': 'ThreadsPerCore',
+        'topology_type': 'TopologyType'
     }
 
-    def __init__(self, core_count=None, threads_per_core=None, _configuration=None):  # noqa: E501
+    def __init__(self, core_count=None, threads_per_core=None, topology_type=None, _configuration=None):  # noqa: E501
         """CpuOptionsForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class CpuOptionsForDescribeInstancesOutput(object):
 
         self._core_count = None
         self._threads_per_core = None
+        self._topology_type = None
         self.discriminator = None
 
         if core_count is not None:
             self.core_count = core_count
         if threads_per_core is not None:
             self.threads_per_core = threads_per_core
+        if topology_type is not None:
+            self.topology_type = topology_type
 
     @property
     def core_count(self):
@@ -98,6 +103,27 @@ class CpuOptionsForDescribeInstancesOutput(object):
         """
 
         self._threads_per_core = threads_per_core
+
+    @property
+    def topology_type(self):
+        """Gets the topology_type of this CpuOptionsForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The topology_type of this CpuOptionsForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._topology_type
+
+    @topology_type.setter
+    def topology_type(self, topology_type):
+        """Sets the topology_type of this CpuOptionsForDescribeInstancesOutput.
+
+
+        :param topology_type: The topology_type of this CpuOptionsForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._topology_type = topology_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
