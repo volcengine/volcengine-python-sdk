@@ -317,6 +317,7 @@ class ModerateV2AsyncStreamSession:
         self.lock = threading.RLock()
         self.pending_event = threading.Event()
         self.pending_event.set()
+        self.result_cond = threading.Condition(self.lock)
         self.pending_thread: Optional[threading.Thread] = None
         self.pending_request: Optional[ModerateV2Request] = None
         self.pending_result: Optional[ModerateV2Response] = None
@@ -325,6 +326,7 @@ class ModerateV2AsyncStreamSession:
         self.has_last_chunk: bool = False
         self.closed: bool = False
         self.last_request_content_len: int = 0
+        self.result_version: int = 0
         self.next_send_seq: int = 0
         self.pending_send_seq: Optional[int] = None
         self.cancelled_send_seq: int = -1
@@ -600,6 +602,7 @@ class ClientV2:
         session.pending_result = moderate_response
         session.pending_error = None
         session.last_request_content_len = self._get_request_content_len(request_snapshot)
+        session.result_version += 1
 
         if session.request is not None:
             session.request.msg_id = moderate_response.result.msg_id
@@ -608,6 +611,7 @@ class ClientV2:
         new_content_len = max(0, current_len - session.last_request_content_len)
         session.need_flush_after_pending = new_content_len > 0 and (
                 session.has_last_chunk or new_content_len >= session.send_threshold)
+        session.result_cond.notify_all()
 
     def _invalidate_pending_async_send(self, session: ModerateV2AsyncStreamSession) -> None:
         if session.pending_send_seq is not None:
@@ -648,6 +652,7 @@ class ClientV2:
                 if self._is_async_send_cancelled(session, send_seq):
                     session.pending_error = None
                     session.need_flush_after_pending = False
+                    session.result_cond.notify_all()
                     return
                 session.pending_error = e
                 current_len = self._get_request_content_len(session.request)
@@ -655,6 +660,7 @@ class ClientV2:
                 new_content_len = max(0, current_len - snapshot_len)
                 session.need_flush_after_pending = new_content_len > 0 and (
                         session.has_last_chunk or new_content_len >= session.send_threshold)
+                session.result_cond.notify_all()
         finally:
             with session.lock:
                 if session.pending_send_seq == send_seq:
@@ -662,6 +668,7 @@ class ClientV2:
                     session.pending_request = None
                     session.pending_send_seq = None
                     session.pending_event.set()
+                    session.result_cond.notify_all()
 
     def _start_async_stream_send(
             self,
@@ -697,6 +704,31 @@ class ClientV2:
         if timeout is None:
             return pending_event.wait()
         return pending_event.wait(timeout)
+
+    def _wait_for_async_result(
+            self,
+            session: ModerateV2AsyncStreamSession,
+            observed_result_version: int,
+            timeout: Optional[float]
+    ) -> bool:
+        with session.lock:
+            if session.result_version > observed_result_version:
+                return True
+
+            deadline = None if timeout is None else time.monotonic() + timeout
+            while session.result_version <= observed_result_version:
+                if session.pending_thread is None:
+                    break
+                if deadline is None:
+                    session.result_cond.wait()
+                    continue
+
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    break
+                session.result_cond.wait(remaining)
+
+            return session.result_version > observed_result_version
 
     def _flush_async_stream_session(
             self,
@@ -791,9 +823,13 @@ class ClientV2:
         if wait_timeout is not None and wait_timeout < 0:
             raise ValueError("wait_timeout cannot be negative")
 
+        observed_result_version = 0
+        should_wait_for_result = False
+
         with session.lock:
             is_first_request = session.request is None
             is_last_request = (request.use_stream == 2)
+            observed_result_version = session.result_version
 
             self._append_stream_request(request, session)
             session.has_last_chunk = session.has_last_chunk or is_last_request
@@ -816,7 +852,7 @@ class ClientV2:
                 session.need_flush_after_pending = session.has_last_chunk or (
                         new_content_len >= session.send_threshold)
                 if not is_last_request:
-                    return session.default_body
+                    should_wait_for_result = True
             else:
                 current_len = self._get_request_content_len(session.request)
                 unsent_len = max(0, current_len - session.last_request_content_len)
@@ -825,8 +861,10 @@ class ClientV2:
                 if not need_send_request:
                     return session.default_body
 
-                request_snapshot = self._build_stream_request_snapshot(session.request)
-                self._start_async_stream_send(session, request_snapshot, current_len)
+                if not is_last_request:
+                    request_snapshot = self._build_stream_request_snapshot(session.request)
+                    self._start_async_stream_send(session, request_snapshot, current_len)
+                    should_wait_for_result = True
 
         if is_first_request:
             try:
@@ -836,18 +874,20 @@ class ClientV2:
                     session.pending_request = None
                     session.pending_error = e
                     session.pending_event.set()
+                    session.result_cond.notify_all()
                 raise
 
             with session.lock:
                 self._update_async_session_after_response(session, request_snapshot, moderate_response)
                 session.pending_request = None
                 session.pending_event.set()
+                session.result_cond.notify_all()
             return moderate_response
 
         if is_last_request:
             return self._flush_async_stream_session(session, True, preempt_pending=True)
 
-        if self._wait_pending_stream_send(session, wait_timeout):
+        if should_wait_for_result and self._wait_for_async_result(session, observed_result_version, wait_timeout):
             with session.lock:
                 if session.pending_error is not None and session.default_body is None:
                     raise session.pending_error
