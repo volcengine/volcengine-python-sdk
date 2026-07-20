@@ -40,6 +40,7 @@ class GetMetricDataRequest(object):
         'namespace': 'str',
         'period': 'str',
         'start_time': 'int',
+        'statistics_methods': 'list[str]',
         'sub_namespace': 'str'
     }
 
@@ -51,10 +52,11 @@ class GetMetricDataRequest(object):
         'namespace': 'Namespace',
         'period': 'Period',
         'start_time': 'StartTime',
+        'statistics_methods': 'StatisticsMethods',
         'sub_namespace': 'SubNamespace'
     }
 
-    def __init__(self, end_time=None, group_by=None, instances=None, metric_name=None, namespace=None, period=None, start_time=None, sub_namespace=None, _configuration=None):  # noqa: E501
+    def __init__(self, end_time=None, group_by=None, instances=None, metric_name=None, namespace=None, period=None, start_time=None, statistics_methods=None, sub_namespace=None, _configuration=None):  # noqa: E501
         """GetMetricDataRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class GetMetricDataRequest(object):
         self._namespace = None
         self._period = None
         self._start_time = None
+        self._statistics_methods = None
         self._sub_namespace = None
         self.discriminator = None
 
@@ -82,6 +85,8 @@ class GetMetricDataRequest(object):
             self.period = period
         if start_time is not None:
             self.start_time = start_time
+        if statistics_methods is not None:
+            self.statistics_methods = statistics_methods
         self.sub_namespace = sub_namespace
 
     @property
@@ -234,6 +239,27 @@ class GetMetricDataRequest(object):
         """
 
         self._start_time = start_time
+
+    @property
+    def statistics_methods(self):
+        """Gets the statistics_methods of this GetMetricDataRequest.  # noqa: E501
+
+
+        :return: The statistics_methods of this GetMetricDataRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._statistics_methods
+
+    @statistics_methods.setter
+    def statistics_methods(self, statistics_methods):
+        """Sets the statistics_methods of this GetMetricDataRequest.
+
+
+        :param statistics_methods: The statistics_methods of this GetMetricDataRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._statistics_methods = statistics_methods
 
     @property
     def sub_namespace(self):
