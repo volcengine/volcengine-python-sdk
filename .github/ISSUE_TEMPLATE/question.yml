@@ -1,0 +1,40 @@
+name: Question
+description: Ask a question, so we can help you easily
+title: "[Question]: "
+labels:
+  - question
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你帮助改进本项目。提交 Issue 时，请聚焦具体且可验证的问题，遵守 GitHub 社区交流准则，并保持客观、专业与尊重。不符合上述要求的 Issue 将由维护者直接关闭。
+
+  - type: textarea
+    id: question_context
+    attributes:
+      label: 问题背景
+      description: 请说明遇到问题的场景及已经尝试的方法。
+      value: |
+        使用场景：
+
+        已尝试的方法：
+    validations:
+      required: true
+
+  - type: textarea
+    id: question_details
+    attributes:
+      label: 具体问题
+      description: 请清楚描述你的问题以及期望获得的帮助。
+      value: |
+        具体问题：
+
+        期望获得的帮助：
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: 补充信息
+      description: 请提供相关日志、截图、代码示例或其他参考信息。
