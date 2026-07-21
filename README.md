@@ -2,85 +2,7 @@
 
 # Volcengine SDK for Python
 
-## ⚠️ 已知缺陷说明（历史版本）
-
-在 **volcengine-python-sdk** 的部分历史版本（**4.0.1 ～ 4.0.42，含**）中，发现 SDK 内置的重试机制存在缺陷。
-
-当请求过程中出现异常（如网络抖动、接口返回错误等）时，SDK 虽会触发重试逻辑，但由于该缺陷，重试未能实际生效，客户端仍可能直接感知到首次请求异常，导致重试机制无法有效提升请求成功率。
-
-### 影响范围
-
-- **SDK**：volcengine-python-sdk  
-- **受影响版本**：4.0.1 ～ 4.0.42（含）
-
-### 影响说明
-
-对于依赖 SDK 内置重试机制来应对瞬时异常或网络不稳定场景的业务：
-
-- 实际请求可用性可能低于预期  
-- 重试相关配置无法发挥应有的保障作用  
-
-### 解决方案与建议
-
-该问题已在 **4.0.43 及以上版本**中修复。  
-**强烈建议所有用户升级至 volcengine-python-sdk ≥ 4.0.43**，以确保请求重试机制在异常场景下能够正常生效。
-
-
-## 非兼容升级通知
-
-Volcengine SDK for Python 非兼容升级通知
-
-影响版本：`3.0.1` 以及后续版本
-
-变更描述:
-
-为了优化SDK包文件目录多长，导致在 `Window` 系统安装失败的问题。
-
-从 `3.0.1` 版本开始，我们对 `transitrouter` 服务下的部分超长的 API model 文件名称进行了缩减，如果您之前依赖并使用了这些 API model 的完整文件名称，将会导致不兼容，建议您按照如下方式使用 API model：
-
-```python
-from volcenginesdktransitrouter import TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput
-
-var = TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput()
-```
-
-本次升级影响的云服务和接口：
-
-Service： `transitrouter`
-
-Version:  `2020-04-01`
-
-API:
-- DescribeTransitRouterBandwidthPackages
-- DescribeTransitRouterRoutePolicyTables
-- DescribeTransitRouterRoutePolicyEntries
-- DescribeTransitRouterForwardPolicyTables
-- DescribeTransitRouterBandwidthPackagesBilling
-- DescribeTransitRouterDirectConnectGatewayAttachments
-- DescribeTransitRouterRouteTableAssociations
-- DescribeTransitRouterRouteTablePropagations
-- DescribeTransitRouterTrafficQosQueueEntries
-- DescribeTransitRouterTrafficQosQueuePolicies
-- DescribeTransitRouterTrafficQosMarkingEntries
-- DescribeTransitRouterTrafficQosMarkingPolicies
-
---------
-
-影响版本：`2.0.1` 以及后续版本
-
-变更描述:
-
-从 `2.0.1` 版本开始，发起请求将默认从使用 `HTTP` 协议变成使用 `HTTPS` 协议，请升级到新版本的用户注意是否会产生兼容性风险，做好充分测试。如需继续使用
-`HTTP` 协议，请在发起请求时指定 `scheme` 参数为 `http`(不推荐):
-
-```python
-import volcenginesdkcore
-
-configuration = volcenginesdkcore.Configuration()
-configuration.scheme = 'http'
-```
-
-## Table of Contents
+## 目录
 
 * Requirements
 * Install
@@ -89,13 +11,8 @@ configuration.scheme = 'http'
 
 ### Requirements ###
 
-* Python版本需要不低于2.7。
-* 由于 Windows 系统有最长路径限制，可能会导致安装失败，请按照以下方式设置：
-
-```
-1. 按下 Win+R ，输入 regedit 打开注册表编辑器。
-2. 设置 \HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem 路径下的变量 LongPathsEnabled 为 1 即可。
-```
+* Python 版本需要不低于2.7。
+* 如使用方舟服务（`arkruntime`），Python 版本需要不低于 3.6。
 
 ### Install ###
 
@@ -105,24 +22,29 @@ Install via pip
 pip install volcengine-python-sdk
 ```
 
-Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
+如需使用方舟，请安装 Ark 可选依赖：
 
 ```sh
-python setup.py install --user
+pip install "volcengine-python-sdk[ark]"
 ```
 
-(or `sudo python setup.py install` to install the package for all users)
+### Usage ###
+
+#### 详细使用文档 ####
 
 SDK 详细使用文档（凭证配置、Endpoint、Transport、超时、重试、异常处理、Debug）请参考：[SDK 接入文档](./docs/0-Overview-zh.md)
 
-### Configuration Usage ###
+#### Configuration Usage ####
 
 步骤一：启动时初始化，配置 Configuration 全局默认参数
 
 ```python
+import volcenginesdkautoscaling
+import volcenginesdkcore
+
 configuration = volcenginesdkcore.Configuration()
 configuration.client_side_validation = True  # 客户端是否进行参数校验
-configuration.schema = "http"  # https or http
+configuration.scheme = "https"  # https or http
 configuration.debug = False  # 是否开启调试
 configuration.logger_file = "sdk.log"
 
@@ -142,7 +64,7 @@ def get_client(ak, sk, region):
     return client
 ```
 
-### Endpoint 设置 ###
+#### Endpoint 设置 ####
 
 如果您要自定义SDK的Endpoint，可以按照以下示例代码设置：
 
@@ -161,7 +83,7 @@ configuration.host = 'ecs.cn-beijing-autodriving.volcengineapi.com'
 
 - Service中存在_符号时，Endpoint时需转为-符号。存在大写字母时需转成小写。
 
-### SDK 示例 ###
+#### 完整示例 ####
 
 ```python
 from __future__ import print_function

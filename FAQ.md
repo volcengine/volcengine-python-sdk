@@ -94,4 +94,13 @@ except ApiException as e:
 
 ```
 
-不过，这种方法并非推荐的使用方式。建议直接使用响应对象中以下划线命名的参数，而非进行上述转换后使用。 
+不过，这种方法并非推荐的使用方式。建议直接使用响应对象中以下划线命名的参数，而非进行上述转换后使用。
+
+### 7. Windows 系统最长路径限制导致安装失败
+
+由于 Windows 系统有最长路径限制，会导致安装失败，小于 3.0.1 的 SDK 版本请按照以下方式设置：
+
+```
+1. 按下 Win+R ，输入 regedit 打开注册表编辑器。
+2. 设置 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem 路径下的变量 LongPathsEnabled 为 1 即可。
+```
