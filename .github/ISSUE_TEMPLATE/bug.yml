@@ -1,0 +1,43 @@
+name: Bug report
+description: Create a report to help us improve
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你帮助改进本项目。提交 Issue 时，请聚焦具体且可验证的问题，遵守 GitHub 社区交流准则，并保持客观、专业与尊重。不符合上述要求的 Issue 将由维护者直接关闭。
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 运行环境
+      description: 请在各项冒号后填写对应内容。
+      value: |
+        受影响版本：
+        操作系统：
+        其他相关依赖：
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_details
+    attributes:
+      label: 问题详情
+      description: 请说明实际行为、预期行为和复现步骤。
+      value: |
+        实际行为：
+
+        预期行为：
+
+        复现步骤：
+        1.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 日志或其他证据
+      description: 请粘贴已脱敏的日志、错误信息、截图链接或最小复现仓库。请勿提交密钥或个人信息。

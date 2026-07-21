@@ -1,0 +1,40 @@
+name: Feature request
+description: Suggest an idea for this project
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你帮助改进本项目。提交 Issue 时，请聚焦具体且可验证的问题，遵守 GitHub 社区交流准则，并保持客观、专业与尊重。不符合上述要求的 Issue 将由维护者直接关闭。
+
+  - type: textarea
+    id: request_context
+    attributes:
+      label: 需求背景
+      description: 请说明具体使用场景及当前能力缺口。
+      value: |
+        使用场景：
+
+        当前能力缺口：
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired_outcome
+    attributes:
+      label: 期望功能
+      description: 请描述希望支持的功能及预期效果。
+      value: |
+        期望支持的功能：
+
+        预期效果：
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: 补充信息
+      description: 添加其他有助于评估该功能缺口的客观信息。
