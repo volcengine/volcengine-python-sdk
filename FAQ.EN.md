@@ -94,3 +94,13 @@ except ApiException as e:
 ```
 
 However, this is not the recommended approach. It is suggested to directly use the snake_case parameters in the response object instead of converting.
+
+### 7. Installation Fails on Windows Due to Maximum Path Length Limitations
+
+On Windows, installation will fail due to maximum path length limitations. For SDK versions earlier than 3.0.1, configure it as follows:
+
+```
+1. Press Win+R, type regedit to open Registry Editor.
+2. Set LongPathsEnabled to 1 at:
+   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
+```
