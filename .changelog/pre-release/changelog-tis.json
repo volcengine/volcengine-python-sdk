@@ -1,5 +1,8 @@
 {
-  "description": "TIS: 新增 QueryVoicePrint, UpdateVoicePrint, CreateVoicePrint, DeleteVoicePrint；修改 CreateDeviceWithoutApproval",
+  "actions": [
+    "MigrateDeviceWithoutApproval"
+  ],
+  "description": "TIS: 新增 MigrateDeviceWithoutApproval",
   "modules": "service/tis",
   "type": "feature"
 }
