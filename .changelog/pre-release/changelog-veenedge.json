@@ -1,0 +1,12 @@
+{
+  "actions": [
+    "GetVEENInstanceUsage",
+    "GetVEEWInstanceUsage",
+    "StartCloudServer",
+    "GetBandwidthUsage",
+    "GetBillingUsageDetail"
+  ],
+  "description": "VEENEDGE: 新增 GetVEENInstanceUsage, GetVEEWInstanceUsage, StartCloudServer, GetBandwidthUsage, GetBillingUsageDetail",
+  "modules": "service/veenedge",
+  "type": "feature"
+}
