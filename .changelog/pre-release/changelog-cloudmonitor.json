@@ -1,5 +1,9 @@
 {
-  "description": "CLOUDMONITOR: 修改 CreateSilencePolicy, ListSilencePolicies, UpdateSilencePolicy",
+  "actions": [
+    "GetMetricData",
+    "ListAlertGroup"
+  ],
+  "description": "CLOUDMONITOR: 修改 GetMetricData, ListAlertGroup",
   "modules": "service/cloudmonitor",
-  "type": "breaking-change"
+  "type": "feature"
 }
