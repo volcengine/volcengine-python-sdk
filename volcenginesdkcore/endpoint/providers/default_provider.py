@@ -606,6 +606,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'cloudcontrol': ServiceEndpointInfo(
+        service='cloudcontrol',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {

@@ -179,6 +179,7 @@ ServiceInfos = {
     "efs": ServiceInfo("efs", False),
     "cpaas": ServiceInfo("cpaas", True),
     "veenedge": ServiceInfo("veenedge", True),
+    "cloudcontrol": ServiceInfo("cloudcontrol", False),
 }
 
 
