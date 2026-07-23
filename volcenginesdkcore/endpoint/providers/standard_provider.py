@@ -178,6 +178,9 @@ ServiceInfos = {
     "clawsentry": ServiceInfo("clawsentry", False),
     "efs": ServiceInfo("efs", False),
     "cpaas": ServiceInfo("cpaas", True),
+    "veenedge": ServiceInfo("veenedge", True),
+    "cloudcontrol": ServiceInfo("cloudcontrol", False),
+    "vikingdb": ServiceInfo("vikingdb", False),
 }
 
 

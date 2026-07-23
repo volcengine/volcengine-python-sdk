@@ -1,5 +1,0 @@
-{
-  "description": "DRAMART: 新增 RegisterEnterprise, UpdateAccount, BatchDeleteUser, ListAccount, ListMember, ListTeam",
-  "modules": "service/dramart",
-  "type": "feature"
-}

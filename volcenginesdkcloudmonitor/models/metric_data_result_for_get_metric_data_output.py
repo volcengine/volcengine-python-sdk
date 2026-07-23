@@ -35,16 +35,18 @@ class MetricDataResultForGetMetricDataOutput(object):
     swagger_types = {
         'data_points': 'list[DataPointForGetMetricDataOutput]',
         'dimensions': 'list[DimensionForGetMetricDataOutput]',
-        'legend': 'str'
+        'legend': 'str',
+        'statistics_methods': 'str'
     }
 
     attribute_map = {
         'data_points': 'DataPoints',
         'dimensions': 'Dimensions',
-        'legend': 'Legend'
+        'legend': 'Legend',
+        'statistics_methods': 'StatisticsMethods'
     }
 
-    def __init__(self, data_points=None, dimensions=None, legend=None, _configuration=None):  # noqa: E501
+    def __init__(self, data_points=None, dimensions=None, legend=None, statistics_methods=None, _configuration=None):  # noqa: E501
         """MetricDataResultForGetMetricDataOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class MetricDataResultForGetMetricDataOutput(object):
         self._data_points = None
         self._dimensions = None
         self._legend = None
+        self._statistics_methods = None
         self.discriminator = None
 
         if data_points is not None:
@@ -61,6 +64,8 @@ class MetricDataResultForGetMetricDataOutput(object):
             self.dimensions = dimensions
         if legend is not None:
             self.legend = legend
+        if statistics_methods is not None:
+            self.statistics_methods = statistics_methods
 
     @property
     def data_points(self):
@@ -124,6 +129,27 @@ class MetricDataResultForGetMetricDataOutput(object):
         """
 
         self._legend = legend
+
+    @property
+    def statistics_methods(self):
+        """Gets the statistics_methods of this MetricDataResultForGetMetricDataOutput.  # noqa: E501
+
+
+        :return: The statistics_methods of this MetricDataResultForGetMetricDataOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._statistics_methods
+
+    @statistics_methods.setter
+    def statistics_methods(self, statistics_methods):
+        """Sets the statistics_methods of this MetricDataResultForGetMetricDataOutput.
+
+
+        :param statistics_methods: The statistics_methods of this MetricDataResultForGetMetricDataOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._statistics_methods = statistics_methods
 
     def to_dict(self):
         """Returns the model properties as a dict"""

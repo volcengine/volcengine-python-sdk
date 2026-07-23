@@ -159,7 +159,7 @@ class FieldForUpdateVikingdbCollectionInput(object):
         :param field_type: The field_type of this FieldForUpdateVikingdbCollectionInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["vector", "sparse_vector", "string", "int64", "float32", "bool", "list<string>", "list<int64>", "text", "image", "video", "date_time", "geo_point"]  # noqa: E501
+        allowed_values = ["vector", "sparse_vector", "string", "int64", "float32", "bool", "list<string>", "list<int64>", "text", "image", "video", "date_time", "geo_point", "list<geo_point>"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 field_type not in allowed_values):
             raise ValueError(

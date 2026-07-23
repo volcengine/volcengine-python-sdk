@@ -600,6 +600,24 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'veenedge': ServiceEndpointInfo(
+        service='veenedge',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'cloudcontrol': ServiceEndpointInfo(
+        service='cloudcontrol',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'vikingdb': ServiceEndpointInfo(
+        service='vikingdb',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {

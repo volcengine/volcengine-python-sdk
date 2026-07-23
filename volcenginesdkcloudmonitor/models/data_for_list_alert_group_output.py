@@ -47,6 +47,7 @@ class DataForListAlertGroupOutput(object):
         'resource_type': 'str',
         'rule_id': 'str',
         'rule_name': 'str',
+        'rule_trigger_condition': 'str',
         'start_at': 'str',
         'sub_namespace': 'str'
     }
@@ -66,11 +67,12 @@ class DataForListAlertGroupOutput(object):
         'resource_type': 'ResourceType',
         'rule_id': 'RuleId',
         'rule_name': 'RuleName',
+        'rule_trigger_condition': 'RuleTriggerCondition',
         'start_at': 'StartAt',
         'sub_namespace': 'SubNamespace'
     }
 
-    def __init__(self, alert_state=None, alert_type=None, dimension=None, duration=None, end_at=None, id=None, level=None, namespace=None, region=None, resource_id=None, resource_name=None, resource_type=None, rule_id=None, rule_name=None, start_at=None, sub_namespace=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_state=None, alert_type=None, dimension=None, duration=None, end_at=None, id=None, level=None, namespace=None, region=None, resource_id=None, resource_name=None, resource_type=None, rule_id=None, rule_name=None, rule_trigger_condition=None, start_at=None, sub_namespace=None, _configuration=None):  # noqa: E501
         """DataForListAlertGroupOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,6 +92,7 @@ class DataForListAlertGroupOutput(object):
         self._resource_type = None
         self._rule_id = None
         self._rule_name = None
+        self._rule_trigger_condition = None
         self._start_at = None
         self._sub_namespace = None
         self.discriminator = None
@@ -122,6 +125,8 @@ class DataForListAlertGroupOutput(object):
             self.rule_id = rule_id
         if rule_name is not None:
             self.rule_name = rule_name
+        if rule_trigger_condition is not None:
+            self.rule_trigger_condition = rule_trigger_condition
         if start_at is not None:
             self.start_at = start_at
         if sub_namespace is not None:
@@ -420,6 +425,27 @@ class DataForListAlertGroupOutput(object):
         """
 
         self._rule_name = rule_name
+
+    @property
+    def rule_trigger_condition(self):
+        """Gets the rule_trigger_condition of this DataForListAlertGroupOutput.  # noqa: E501
+
+
+        :return: The rule_trigger_condition of this DataForListAlertGroupOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._rule_trigger_condition
+
+    @rule_trigger_condition.setter
+    def rule_trigger_condition(self, rule_trigger_condition):
+        """Sets the rule_trigger_condition of this DataForListAlertGroupOutput.
+
+
+        :param rule_trigger_condition: The rule_trigger_condition of this DataForListAlertGroupOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._rule_trigger_condition = rule_trigger_condition
 
     @property
     def start_at(self):

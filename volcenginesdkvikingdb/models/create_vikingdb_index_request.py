@@ -35,6 +35,7 @@ class CreateVikingdbIndexRequest(object):
     swagger_types = {
         'collection_name': 'str',
         'cpu_quota': 'int',
+        'del_protection': 'bool',
         'description': 'str',
         'index_name': 'str',
         'project_name': 'str',
@@ -48,6 +49,7 @@ class CreateVikingdbIndexRequest(object):
     attribute_map = {
         'collection_name': 'CollectionName',
         'cpu_quota': 'CpuQuota',
+        'del_protection': 'DelProtection',
         'description': 'Description',
         'index_name': 'IndexName',
         'project_name': 'ProjectName',
@@ -58,7 +60,7 @@ class CreateVikingdbIndexRequest(object):
         'vector_index': 'VectorIndex'
     }
 
-    def __init__(self, collection_name=None, cpu_quota=None, description=None, index_name=None, project_name=None, resource_id=None, scalar_index=None, shard_count=None, shard_policy=None, vector_index=None, _configuration=None):  # noqa: E501
+    def __init__(self, collection_name=None, cpu_quota=None, del_protection=None, description=None, index_name=None, project_name=None, resource_id=None, scalar_index=None, shard_count=None, shard_policy=None, vector_index=None, _configuration=None):  # noqa: E501
         """CreateVikingdbIndexRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class CreateVikingdbIndexRequest(object):
 
         self._collection_name = None
         self._cpu_quota = None
+        self._del_protection = None
         self._description = None
         self._index_name = None
         self._project_name = None
@@ -80,6 +83,8 @@ class CreateVikingdbIndexRequest(object):
             self.collection_name = collection_name
         if cpu_quota is not None:
             self.cpu_quota = cpu_quota
+        if del_protection is not None:
+            self.del_protection = del_protection
         if description is not None:
             self.description = description
         self.index_name = index_name
@@ -140,6 +145,27 @@ class CreateVikingdbIndexRequest(object):
             raise ValueError("Invalid value for `cpu_quota`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._cpu_quota = cpu_quota
+
+    @property
+    def del_protection(self):
+        """Gets the del_protection of this CreateVikingdbIndexRequest.  # noqa: E501
+
+
+        :return: The del_protection of this CreateVikingdbIndexRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._del_protection
+
+    @del_protection.setter
+    def del_protection(self, del_protection):
+        """Sets the del_protection of this CreateVikingdbIndexRequest.
+
+
+        :param del_protection: The del_protection of this CreateVikingdbIndexRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._del_protection = del_protection
 
     @property
     def description(self):

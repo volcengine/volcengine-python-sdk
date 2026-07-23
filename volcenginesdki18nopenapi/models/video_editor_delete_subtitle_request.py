@@ -33,23 +33,28 @@ class VideoEditorDeleteSubtitleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'segment_ids': 'str'
+        'segment_ids': 'list[str]',
+        'subtask_id': 'str'
     }
 
     attribute_map = {
-        'segment_ids': 'segmentIds'
+        'segment_ids': 'segmentIds',
+        'subtask_id': 'subtaskId'
     }
 
-    def __init__(self, segment_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, segment_ids=None, subtask_id=None, _configuration=None):  # noqa: E501
         """VideoEditorDeleteSubtitleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._segment_ids = None
+        self._subtask_id = None
         self.discriminator = None
 
-        self.segment_ids = segment_ids
+        if segment_ids is not None:
+            self.segment_ids = segment_ids
+        self.subtask_id = subtask_id
 
     @property
     def segment_ids(self):
@@ -57,7 +62,7 @@ class VideoEditorDeleteSubtitleRequest(object):
 
 
         :return: The segment_ids of this VideoEditorDeleteSubtitleRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._segment_ids
 
@@ -67,12 +72,33 @@ class VideoEditorDeleteSubtitleRequest(object):
 
 
         :param segment_ids: The segment_ids of this VideoEditorDeleteSubtitleRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
-        if self._configuration.client_side_validation and segment_ids is None:
-            raise ValueError("Invalid value for `segment_ids`, must not be `None`")  # noqa: E501
 
         self._segment_ids = segment_ids
+
+    @property
+    def subtask_id(self):
+        """Gets the subtask_id of this VideoEditorDeleteSubtitleRequest.  # noqa: E501
+
+
+        :return: The subtask_id of this VideoEditorDeleteSubtitleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._subtask_id
+
+    @subtask_id.setter
+    def subtask_id(self, subtask_id):
+        """Sets the subtask_id of this VideoEditorDeleteSubtitleRequest.
+
+
+        :param subtask_id: The subtask_id of this VideoEditorDeleteSubtitleRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and subtask_id is None:
+            raise ValueError("Invalid value for `subtask_id`, must not be `None`")  # noqa: E501
+
+        self._subtask_id = subtask_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

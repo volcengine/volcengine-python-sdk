@@ -34,6 +34,7 @@ class CreateVikingdbCollectionRequest(object):
     """
     swagger_types = {
         'collection_name': 'str',
+        'del_protection': 'bool',
         'description': 'str',
         'fields': 'list[FieldForCreateVikingdbCollectionInput]',
         'full_text': 'list[FullTextForCreateVikingdbCollectionInput]',
@@ -44,6 +45,7 @@ class CreateVikingdbCollectionRequest(object):
 
     attribute_map = {
         'collection_name': 'CollectionName',
+        'del_protection': 'DelProtection',
         'description': 'Description',
         'fields': 'Fields',
         'full_text': 'FullText',
@@ -52,13 +54,14 @@ class CreateVikingdbCollectionRequest(object):
         'vectorize': 'Vectorize'
     }
 
-    def __init__(self, collection_name=None, description=None, fields=None, full_text=None, project_name=None, tags=None, vectorize=None, _configuration=None):  # noqa: E501
+    def __init__(self, collection_name=None, del_protection=None, description=None, fields=None, full_text=None, project_name=None, tags=None, vectorize=None, _configuration=None):  # noqa: E501
         """CreateVikingdbCollectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._collection_name = None
+        self._del_protection = None
         self._description = None
         self._fields = None
         self._full_text = None
@@ -68,6 +71,8 @@ class CreateVikingdbCollectionRequest(object):
         self.discriminator = None
 
         self.collection_name = collection_name
+        if del_protection is not None:
+            self.del_protection = del_protection
         if description is not None:
             self.description = description
         if fields is not None:
@@ -109,6 +114,27 @@ class CreateVikingdbCollectionRequest(object):
             raise ValueError("Invalid value for `collection_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._collection_name = collection_name
+
+    @property
+    def del_protection(self):
+        """Gets the del_protection of this CreateVikingdbCollectionRequest.  # noqa: E501
+
+
+        :return: The del_protection of this CreateVikingdbCollectionRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._del_protection
+
+    @del_protection.setter
+    def del_protection(self, del_protection):
+        """Sets the del_protection of this CreateVikingdbCollectionRequest.
+
+
+        :param del_protection: The del_protection of this CreateVikingdbCollectionRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._del_protection = del_protection
 
     @property
     def description(self):

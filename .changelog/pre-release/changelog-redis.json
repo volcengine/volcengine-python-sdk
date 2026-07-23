@@ -1,5 +1,0 @@
-{
-  "description": "REDIS: 新增 DescribeDBInstanceSlots, DescribeFatLogs；修改 CreateBlueGreenDeployment, DeleteBlueGreenDeployment, SwitchoverBlueGreenDeployment, DescribeBackups, DescribeCrossRegionBackups, DescribeHotKeys, DescribePlannedEvents",
-  "modules": "service/Redis",
-  "type": "breaking-change"
-}

@@ -1,5 +1,0 @@
-{
-  "description": "CLOUDMONITOR: 修改 CreateSilencePolicy, ListSilencePolicies, UpdateSilencePolicy",
-  "modules": "service/cloudmonitor",
-  "type": "breaking-change"
-}

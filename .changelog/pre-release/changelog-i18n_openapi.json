@@ -1,5 +1,0 @@
-{
-  "description": "I18N_OPENAPI: 新增 VideoProjectSubmitTermValidation；修改 VideoProjectGetTaskProduct",
-  "modules": "service/i18n_openapi",
-  "type": "feature"
-}

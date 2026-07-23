@@ -33,17 +33,45 @@ class MemoryCollectionDeleteResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'result': 'ResultForMemoryCollectionDeleteOutput'
     }
 
     attribute_map = {
+        'result': 'Result'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, result=None, _configuration=None):  # noqa: E501
         """MemoryCollectionDeleteResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._result = None
         self.discriminator = None
+
+        if result is not None:
+            self.result = result
+
+    @property
+    def result(self):
+        """Gets the result of this MemoryCollectionDeleteResponse.  # noqa: E501
+
+
+        :return: The result of this MemoryCollectionDeleteResponse.  # noqa: E501
+        :rtype: ResultForMemoryCollectionDeleteOutput
+        """
+        return self._result
+
+    @result.setter
+    def result(self, result):
+        """Sets the result of this MemoryCollectionDeleteResponse.
+
+
+        :param result: The result of this MemoryCollectionDeleteResponse.  # noqa: E501
+        :type: ResultForMemoryCollectionDeleteOutput
+        """
+
+        self._result = result
 
     def to_dict(self):
         """Returns the model properties as a dict"""
