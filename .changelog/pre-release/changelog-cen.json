@@ -1,5 +1,0 @@
-{
-  "description": "CEN: 新增 Describe95Traffic",
-  "modules": "service/cen",
-  "type": "feature"
-}

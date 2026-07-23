@@ -1,8 +1,0 @@
-{
-  "actions": [
-    "MigrateDeviceWithoutApproval"
-  ],
-  "description": "TIS: 新增 MigrateDeviceWithoutApproval",
-  "modules": "service/tis",
-  "type": "feature"
-}

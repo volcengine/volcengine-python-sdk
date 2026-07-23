@@ -1,5 +1,0 @@
-{
-  "description": "NA: 修改 CreatePathAnalysis",
-  "modules": "service/na",
-  "type": "feature"
-}

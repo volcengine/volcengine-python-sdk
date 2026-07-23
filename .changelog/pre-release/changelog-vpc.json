@@ -1,5 +1,0 @@
-{
-  "description": "VPC: 新增 DescribeEipAddressHighResolutionMonitorAttribute, DescribeIpamResourceDiscoveries, ModifyIpam, AssociateVpcUserCidrBlock, CreateIpam, DescribeIpamPoolAllocations, DescribeIpams, ModifyIpamScope, ModifyIpamPool, UntagIpamResources, DeleteIpam, DeleteIpamPool, DeleteIpamScope, DescribeIpamPools, DescribeIpamScopes, DescribeIpamCloudMonitorDimensions, GetIpamPoolAvailableCidr, DescribeIpamPoolCidrs, DescribeIpamResourceCidrs, DescribeIpamResourceDiscoveryAssociations, DescribeIpamScopeStats, ListTagsForIpamResources, CreateIpamPool, DeprovisionIpamPoolCidr, ProvisionIpamPoolCidr, ReleaseIpamPoolAllocation, TagIpamResources, CreateIpamScope, DescribeIpamDiscoveredResourceCidrs, DisableEipAddressHighResolutionMonitor, DisassociateVpcUserCidrBlock, ModifyIpamResourceCidr, EnableEipAddressHighResolutionMonitor, ModifyIpamResourceDiscovery；修改 AttachNetworkInterface, CreateFlowLog, DescribeFlowLogs, ModifyFlowLogAttribute",
-  "modules": "service/vpc",
-  "type": "feature"
-}

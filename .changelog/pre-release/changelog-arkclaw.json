@@ -1,5 +1,0 @@
-{
-  "description": "ARKCLAW: 新增 ListScheduledJobRuns, ListScheduledJobs, UpdateScheduledJob, CreateScheduledJob, DeleteScheduledJob, GetScheduledJob；修改 CreateClawInstance",
-  "modules": "service/arkclaw",
-  "type": "feature"
-}

@@ -1,5 +1,0 @@
-{
-  "description": "VEFAAS: 修改 CreateSandbox",
-  "modules": "service/vefaas",
-  "type": "feature"
-}

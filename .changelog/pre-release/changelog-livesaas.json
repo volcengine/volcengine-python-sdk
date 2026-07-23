@@ -1,5 +1,0 @@
-{
-  "description": "LIVESAAS: 新增 GetVideoAISummary, ListVideoRoomMedias, UpdateActivityVideoAISummaryConfig, GetActivityVideoAISummaryConfig, GetVideoRoomBasicInfo, ListVideoRooms, UpdateVideoRoomBasicInfo, CreateVideoRoom, ReorderVideoRoomMedias, UpdateVideoAISummaryStatus, AddVideoRoomMedias, DeleteVideoRoomMedias, GenerateVideoAISummary, TerminateVideoAISummary, UpdateVideoAISummary, DeleteVideoRoom；修改 ListCoupons, CreateCoupons, GetCoupon, UpdateCoupon",
-  "modules": "service/livesaas",
-  "type": "breaking-change"
-}

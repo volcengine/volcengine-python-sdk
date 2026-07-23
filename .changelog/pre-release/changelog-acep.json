@@ -1,5 +1,0 @@
-{
-  "description": "ACEP: 新增 ResetPodPhoneTemplate",
-  "modules": "service/ACEP",
-  "type": "feature"
-}
