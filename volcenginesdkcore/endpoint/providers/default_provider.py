@@ -612,6 +612,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'vikingdb': ServiceEndpointInfo(
+        service='vikingdb',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {

@@ -1,0 +1,19 @@
+{
+  "actions": [
+    "CreateVikingdbCollection",
+    "CreateVikingdbIndex",
+    "UpdateVikingdbIndex",
+    "GetVikingdbIndex",
+    "ListVikingdbIndex",
+    "UpdateVikingdbCollection",
+    "GetVikingdbCollection",
+    "ListVikingdbCollection",
+    "GetVikingdbTask",
+    "MemoryCollectionDelete",
+    "CreateVikingdbTask",
+    "ListVikingdbTask"
+  ],
+  "description": "VIKINGDB: 修改 GetVikingdbIndex, GetVikingdbTask, ListVikingdbIndex, MemoryCollectionDelete, UpdateVikingdbCollection, CreateVikingdbTask, GetVikingdbCollection, ListVikingdbCollection, ListVikingdbTask, CreateVikingdbCollection, CreateVikingdbIndex, UpdateVikingdbIndex",
+  "modules": "service/vikingdb",
+  "type": "breaking-change"
+}

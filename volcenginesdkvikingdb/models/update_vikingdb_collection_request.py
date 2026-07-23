@@ -34,6 +34,7 @@ class UpdateVikingdbCollectionRequest(object):
     """
     swagger_types = {
         'collection_name': 'str',
+        'del_protection': 'bool',
         'description': 'str',
         'fields': 'list[FieldForUpdateVikingdbCollectionInput]',
         'project_name': 'str',
@@ -42,19 +43,21 @@ class UpdateVikingdbCollectionRequest(object):
 
     attribute_map = {
         'collection_name': 'CollectionName',
+        'del_protection': 'DelProtection',
         'description': 'Description',
         'fields': 'Fields',
         'project_name': 'ProjectName',
         'resource_id': 'ResourceId'
     }
 
-    def __init__(self, collection_name=None, description=None, fields=None, project_name=None, resource_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, collection_name=None, del_protection=None, description=None, fields=None, project_name=None, resource_id=None, _configuration=None):  # noqa: E501
         """UpdateVikingdbCollectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._collection_name = None
+        self._del_protection = None
         self._description = None
         self._fields = None
         self._project_name = None
@@ -63,6 +66,8 @@ class UpdateVikingdbCollectionRequest(object):
 
         if collection_name is not None:
             self.collection_name = collection_name
+        if del_protection is not None:
+            self.del_protection = del_protection
         if description is not None:
             self.description = description
         if fields is not None:
@@ -92,6 +97,27 @@ class UpdateVikingdbCollectionRequest(object):
         """
 
         self._collection_name = collection_name
+
+    @property
+    def del_protection(self):
+        """Gets the del_protection of this UpdateVikingdbCollectionRequest.  # noqa: E501
+
+
+        :return: The del_protection of this UpdateVikingdbCollectionRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._del_protection
+
+    @del_protection.setter
+    def del_protection(self, del_protection):
+        """Sets the del_protection of this UpdateVikingdbCollectionRequest.
+
+
+        :param del_protection: The del_protection of this UpdateVikingdbCollectionRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._del_protection = del_protection
 
     @property
     def description(self):

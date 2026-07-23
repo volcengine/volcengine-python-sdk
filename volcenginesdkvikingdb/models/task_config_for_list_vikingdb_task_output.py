@@ -43,8 +43,7 @@ class TaskConfigForListVikingdbTaskOutput(object):
         'project_name': 'str',
         'resource_id': 'str',
         'tos_path': 'str',
-        'update_fields': 'object',
-        'use_public': 'bool'
+        'update_fields': 'object'
     }
 
     attribute_map = {
@@ -58,11 +57,10 @@ class TaskConfigForListVikingdbTaskOutput(object):
         'project_name': 'ProjectName',
         'resource_id': 'ResourceId',
         'tos_path': 'TosPath',
-        'update_fields': 'UpdateFields',
-        'use_public': 'UsePublic'
+        'update_fields': 'UpdateFields'
     }
 
-    def __init__(self, collection_name=None, export_all=None, file_type=None, filter_conds=None, ignore_error=None, need_confirm=None, output_fields=None, project_name=None, resource_id=None, tos_path=None, update_fields=None, use_public=None, _configuration=None):  # noqa: E501
+    def __init__(self, collection_name=None, export_all=None, file_type=None, filter_conds=None, ignore_error=None, need_confirm=None, output_fields=None, project_name=None, resource_id=None, tos_path=None, update_fields=None, _configuration=None):  # noqa: E501
         """TaskConfigForListVikingdbTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,7 +77,6 @@ class TaskConfigForListVikingdbTaskOutput(object):
         self._resource_id = None
         self._tos_path = None
         self._update_fields = None
-        self._use_public = None
         self.discriminator = None
 
         if collection_name is not None:
@@ -104,8 +101,6 @@ class TaskConfigForListVikingdbTaskOutput(object):
             self.tos_path = tos_path
         if update_fields is not None:
             self.update_fields = update_fields
-        if use_public is not None:
-            self.use_public = use_public
 
     @property
     def collection_name(self):
@@ -337,27 +332,6 @@ class TaskConfigForListVikingdbTaskOutput(object):
         """
 
         self._update_fields = update_fields
-
-    @property
-    def use_public(self):
-        """Gets the use_public of this TaskConfigForListVikingdbTaskOutput.  # noqa: E501
-
-
-        :return: The use_public of this TaskConfigForListVikingdbTaskOutput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._use_public
-
-    @use_public.setter
-    def use_public(self, use_public):
-        """Sets the use_public of this TaskConfigForListVikingdbTaskOutput.
-
-
-        :param use_public: The use_public of this TaskConfigForListVikingdbTaskOutput.  # noqa: E501
-        :type: bool
-        """
-
-        self._use_public = use_public
 
     def to_dict(self):
         """Returns the model properties as a dict"""

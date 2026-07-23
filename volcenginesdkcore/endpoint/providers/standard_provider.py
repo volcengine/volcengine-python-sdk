@@ -180,6 +180,7 @@ ServiceInfos = {
     "cpaas": ServiceInfo("cpaas", True),
     "veenedge": ServiceInfo("veenedge", True),
     "cloudcontrol": ServiceInfo("cloudcontrol", False),
+    "vikingdb": ServiceInfo("vikingdb", False),
 }
 
 
