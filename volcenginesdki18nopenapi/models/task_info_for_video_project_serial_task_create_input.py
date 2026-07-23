@@ -47,6 +47,8 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'dub_voice_mode': 'int',
         'is_dub': 'bool',
         'llm_video_understanding_type': 'int',
+        'max_target_subtitle_lines': 'int',
+        'need_term_validation': 'bool',
         'need_translate_cover': 'bool',
         'need_translate_desc': 'bool',
         'need_translate_title': 'bool',
@@ -82,6 +84,8 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'dub_voice_mode': 'dubVoiceMode',
         'is_dub': 'isDub',
         'llm_video_understanding_type': 'llmVideoUnderstandingType',
+        'max_target_subtitle_lines': 'maxTargetSubtitleLines',
+        'need_term_validation': 'needTermValidation',
         'need_translate_cover': 'needTranslateCover',
         'need_translate_desc': 'needTranslateDesc',
         'need_translate_title': 'needTranslateTitle',
@@ -102,7 +106,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'use_mt': 'useMT'
     }
 
-    def __init__(self, ai_remove_type=None, asr_model=None, audit_fail_policy=None, bgm_policy=None, comment=None, created_at=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, dub_or_translation_task_id=None, dub_voice_mode=None, is_dub=None, llm_video_understanding_type=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, procedures=None, reference_doc=None, serial_number=None, source_lang=None, source_locale=None, state=None, suppression_params=None, target_langs=None, target_locale=None, target_style_map=None, task_id=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_remove_type=None, asr_model=None, audit_fail_policy=None, bgm_policy=None, comment=None, created_at=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, dub_or_translation_task_id=None, dub_voice_mode=None, is_dub=None, llm_video_understanding_type=None, max_target_subtitle_lines=None, need_term_validation=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, procedures=None, reference_doc=None, serial_number=None, source_lang=None, source_locale=None, state=None, suppression_params=None, target_langs=None, target_locale=None, target_style_map=None, task_id=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
         """TaskInfoForVideoProjectSerialTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -122,6 +126,8 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         self._dub_voice_mode = None
         self._is_dub = None
         self._llm_video_understanding_type = None
+        self._max_target_subtitle_lines = None
+        self._need_term_validation = None
         self._need_translate_cover = None
         self._need_translate_desc = None
         self._need_translate_title = None
@@ -170,6 +176,10 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
             self.is_dub = is_dub
         if llm_video_understanding_type is not None:
             self.llm_video_understanding_type = llm_video_understanding_type
+        if max_target_subtitle_lines is not None:
+            self.max_target_subtitle_lines = max_target_subtitle_lines
+        if need_term_validation is not None:
+            self.need_term_validation = need_term_validation
         if need_translate_cover is not None:
             self.need_translate_cover = need_translate_cover
         if need_translate_desc is not None:
@@ -500,6 +510,48 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         """
 
         self._llm_video_understanding_type = llm_video_understanding_type
+
+    @property
+    def max_target_subtitle_lines(self):
+        """Gets the max_target_subtitle_lines of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+
+
+        :return: The max_target_subtitle_lines of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_target_subtitle_lines
+
+    @max_target_subtitle_lines.setter
+    def max_target_subtitle_lines(self, max_target_subtitle_lines):
+        """Sets the max_target_subtitle_lines of this TaskInfoForVideoProjectSerialTaskCreateInput.
+
+
+        :param max_target_subtitle_lines: The max_target_subtitle_lines of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :type: int
+        """
+
+        self._max_target_subtitle_lines = max_target_subtitle_lines
+
+    @property
+    def need_term_validation(self):
+        """Gets the need_term_validation of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+
+
+        :return: The need_term_validation of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._need_term_validation
+
+    @need_term_validation.setter
+    def need_term_validation(self, need_term_validation):
+        """Sets the need_term_validation of this TaskInfoForVideoProjectSerialTaskCreateInput.
+
+
+        :param need_term_validation: The need_term_validation of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._need_term_validation = need_term_validation
 
     @property
     def need_translate_cover(self):

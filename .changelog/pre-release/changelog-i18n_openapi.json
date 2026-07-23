@@ -1,5 +1,13 @@
 {
-  "description": "I18N_OPENAPI: 新增 VideoProjectSubmitTermValidation；修改 VideoProjectGetTaskProduct",
+  "actions": [
+    "VideoProjectSubtitleDelete",
+    "VideoProjectVideoDelete",
+    "VideoEditorGetEmotionTags",
+    "VideoProjectSerialDubTaskCreate",
+    "VideoProjectSerialTaskCreate",
+    "VideoEditorDeleteSubtitle"
+  ],
+  "description": "I18N_OPENAPI: 新增 VideoEditorDeleteSubtitle, VideoProjectSubtitleDelete, VideoProjectVideoDelete；修改 VideoEditorDeleteSubtitle, VideoEditorGetEmotionTags, VideoProjectSerialDubTaskCreate, VideoProjectSerialTaskCreate",
   "modules": "service/i18n_openapi",
-  "type": "feature"
+  "type": "breaking-change"
 }
