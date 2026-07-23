@@ -34,6 +34,7 @@ class ExpertInvokeAPIResponse(object):
     """
     swagger_types = {
         'asr': 'str',
+        'concerned_departments': 'list[str]',
         'content': 'str',
         'domain_level': 'int',
         'fans_cnt': 'int',
@@ -52,6 +53,7 @@ class ExpertInvokeAPIResponse(object):
 
     attribute_map = {
         'asr': 'Asr',
+        'concerned_departments': 'ConcernedDepartments',
         'content': 'Content',
         'domain_level': 'DomainLevel',
         'fans_cnt': 'FansCnt',
@@ -68,13 +70,14 @@ class ExpertInvokeAPIResponse(object):
         'title': 'Title'
     }
 
-    def __init__(self, asr=None, content=None, domain_level=None, fans_cnt=None, has_risk=None, ocr=None, origin_id=None, related=None, related_reason=None, risk_level=None, risk_reason=None, risk_tags=None, suggestion=None, summary=None, title=None, _configuration=None):  # noqa: E501
+    def __init__(self, asr=None, concerned_departments=None, content=None, domain_level=None, fans_cnt=None, has_risk=None, ocr=None, origin_id=None, related=None, related_reason=None, risk_level=None, risk_reason=None, risk_tags=None, suggestion=None, summary=None, title=None, _configuration=None):  # noqa: E501
         """ExpertInvokeAPIResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._asr = None
+        self._concerned_departments = None
         self._content = None
         self._domain_level = None
         self._fans_cnt = None
@@ -93,6 +96,8 @@ class ExpertInvokeAPIResponse(object):
 
         if asr is not None:
             self.asr = asr
+        if concerned_departments is not None:
+            self.concerned_departments = concerned_departments
         if content is not None:
             self.content = content
         if domain_level is not None:
@@ -142,6 +147,27 @@ class ExpertInvokeAPIResponse(object):
         """
 
         self._asr = asr
+
+    @property
+    def concerned_departments(self):
+        """Gets the concerned_departments of this ExpertInvokeAPIResponse.  # noqa: E501
+
+
+        :return: The concerned_departments of this ExpertInvokeAPIResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._concerned_departments
+
+    @concerned_departments.setter
+    def concerned_departments(self, concerned_departments):
+        """Sets the concerned_departments of this ExpertInvokeAPIResponse.
+
+
+        :param concerned_departments: The concerned_departments of this ExpertInvokeAPIResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._concerned_departments = concerned_departments
 
     @property
     def content(self):

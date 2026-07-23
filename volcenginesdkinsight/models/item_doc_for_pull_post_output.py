@@ -43,6 +43,7 @@ class ItemDocForPullPostOutput(object):
         'is_follow': 'bool',
         'main_domain': 'str',
         'media_name': 'str',
+        'media_uid': 'str',
         'ocr': 'str',
         'ocr_high': 'str',
         'post_id': 'str',
@@ -66,6 +67,7 @@ class ItemDocForPullPostOutput(object):
         'is_follow': 'IsFollow',
         'main_domain': 'MainDomain',
         'media_name': 'MediaName',
+        'media_uid': 'MediaUid',
         'ocr': 'Ocr',
         'ocr_high': 'OcrHigh',
         'post_id': 'PostID',
@@ -78,7 +80,7 @@ class ItemDocForPullPostOutput(object):
         'locations': 'locations'
     }
 
-    def __init__(self, asr=None, content=None, cover_url=None, dedup_id=None, doc_status=None, emotion=None, fans_count=None, is_follow=None, main_domain=None, media_name=None, ocr=None, ocr_high=None, post_id=None, publish_time=None, reason=None, risk_type=None, summary=None, title=None, url=None, locations=None, _configuration=None):  # noqa: E501
+    def __init__(self, asr=None, content=None, cover_url=None, dedup_id=None, doc_status=None, emotion=None, fans_count=None, is_follow=None, main_domain=None, media_name=None, media_uid=None, ocr=None, ocr_high=None, post_id=None, publish_time=None, reason=None, risk_type=None, summary=None, title=None, url=None, locations=None, _configuration=None):  # noqa: E501
         """ItemDocForPullPostOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,6 +96,7 @@ class ItemDocForPullPostOutput(object):
         self._is_follow = None
         self._main_domain = None
         self._media_name = None
+        self._media_uid = None
         self._ocr = None
         self._ocr_high = None
         self._post_id = None
@@ -126,6 +129,8 @@ class ItemDocForPullPostOutput(object):
             self.main_domain = main_domain
         if media_name is not None:
             self.media_name = media_name
+        if media_uid is not None:
+            self.media_uid = media_uid
         if ocr is not None:
             self.ocr = ocr
         if ocr_high is not None:
@@ -356,6 +361,27 @@ class ItemDocForPullPostOutput(object):
         """
 
         self._media_name = media_name
+
+    @property
+    def media_uid(self):
+        """Gets the media_uid of this ItemDocForPullPostOutput.  # noqa: E501
+
+
+        :return: The media_uid of this ItemDocForPullPostOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._media_uid
+
+    @media_uid.setter
+    def media_uid(self, media_uid):
+        """Sets the media_uid of this ItemDocForPullPostOutput.
+
+
+        :param media_uid: The media_uid of this ItemDocForPullPostOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._media_uid = media_uid
 
     @property
     def ocr(self):
