@@ -1,5 +1,21 @@
 {
-  "description": "AIDAP: 新增 DescribePagesBinding, ListPagesProject, SyncPagesDeployEnvVars, UnbindPagesProject, BindPagesProject；修改 CreateBranch, CreateWorkspace, DescribeWorkspaceDetailList, ModifyWorkspaceName, DescribeDBAccountConnection, DescribeWorkspaceDetail, DescribeWorkspaces, ModifyComputeSettings, ModifyWorkspaceSettings",
+  "actions": [
+    "ModifyBaasAIGlobalQuota",
+    "DescribeDataLakeSecretConnection",
+    "DescribeBaasAIUserSummaries",
+    "DescribeComputes",
+    "CreateCompute",
+    "DescribeComputeDetail",
+    "CheckDataLakeSecretConnection",
+    "DescribeBaasAIModels",
+    "ModifyComputeSpec",
+    "DeleteDataLakeSecretConnection",
+    "ListDatabasesDataLakeSecretConnection",
+    "DescribeBaasAIGlobalQuota",
+    "CreateDataLakeSecretConnection",
+    "ModifyBaasAIUserQuotas"
+  ],
+  "description": "AIDAP: 新增 DescribeDataLakeSecretConnection, CreateDataLakeSecretConnection, DeleteDataLakeSecretConnection, DescribeBaasAIUserSummaries, ListDatabasesDataLakeSecretConnection, ModifyBaasAIGlobalQuota, ModifyBaasAIUserQuotas, CheckDataLakeSecretConnection, DescribeBaasAIGlobalQuota, DescribeBaasAIModels；修改 CreateCompute, DescribeComputeDetail, DescribeComputes, ModifyComputeSpec",
   "modules": "service/aidap",
   "type": "breaking-change"
 }
