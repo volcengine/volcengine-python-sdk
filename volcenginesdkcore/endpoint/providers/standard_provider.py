@@ -181,6 +181,7 @@ ServiceInfos = {
     "veenedge": ServiceInfo("veenedge", True),
     "cloudcontrol": ServiceInfo("cloudcontrol", False),
     "vikingdb": ServiceInfo("vikingdb", False),
+    "volcsms": ServiceInfo("volcsms", True),
 }
 
 
