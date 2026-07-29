@@ -33,6 +33,7 @@ class DataVolumeForCreateNodePoolInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'burst_enabled': 'bool',
         'extra_performance_iops': 'int',
         'extra_performance_throughput_mb': 'int',
         'extra_performance_type_id': 'str',
@@ -46,6 +47,7 @@ class DataVolumeForCreateNodePoolInput(object):
     }
 
     attribute_map = {
+        'burst_enabled': 'BurstEnabled',
         'extra_performance_iops': 'ExtraPerformanceIops',
         'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMb',
         'extra_performance_type_id': 'ExtraPerformanceTypeId',
@@ -58,12 +60,13 @@ class DataVolumeForCreateNodePoolInput(object):
         'type': 'Type'
     }
 
-    def __init__(self, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, file_system=None, mount_point=None, placement_group_id=None, size=None, snapshot_id=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, burst_enabled=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, file_system=None, mount_point=None, placement_group_id=None, size=None, snapshot_id=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
         """DataVolumeForCreateNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._burst_enabled = None
         self._extra_performance_iops = None
         self._extra_performance_throughput_mb = None
         self._extra_performance_type_id = None
@@ -76,6 +79,8 @@ class DataVolumeForCreateNodePoolInput(object):
         self._type = None
         self.discriminator = None
 
+        if burst_enabled is not None:
+            self.burst_enabled = burst_enabled
         if extra_performance_iops is not None:
             self.extra_performance_iops = extra_performance_iops
         if extra_performance_throughput_mb is not None:
@@ -96,6 +101,27 @@ class DataVolumeForCreateNodePoolInput(object):
             self.subgroup_number = subgroup_number
         if type is not None:
             self.type = type
+
+    @property
+    def burst_enabled(self):
+        """Gets the burst_enabled of this DataVolumeForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The burst_enabled of this DataVolumeForCreateNodePoolInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._burst_enabled
+
+    @burst_enabled.setter
+    def burst_enabled(self, burst_enabled):
+        """Sets the burst_enabled of this DataVolumeForCreateNodePoolInput.
+
+
+        :param burst_enabled: The burst_enabled of this DataVolumeForCreateNodePoolInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._burst_enabled = burst_enabled
 
     @property
     def extra_performance_iops(self):

@@ -96,7 +96,7 @@ class ComponentConfigForUpdateClusterConfigInput(object):
         :param name: The name of this ComponentConfigForUpdateClusterConfigInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Kubelet", "KubeApiServer", "KubeControllerManager", "KubeScheduler", "Etcd", "ClusterAutoscaler", "KubeBrain", "GodelScheduler", "GodelDispatcher", "GodelBinder"]  # noqa: E501
+        allowed_values = ["Kubelet", "KubeApiServer", "KubeControllerManager", "KubeScheduler", "Etcd", "ClusterAutoscaler", "KubeInsights", "KubeBrain", "GodelScheduler", "GodelDispatcher", "GodelBinder"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 name not in allowed_values):
             raise ValueError(

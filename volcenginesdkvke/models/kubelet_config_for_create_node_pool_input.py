@@ -33,6 +33,7 @@ class KubeletConfigForCreateNodePoolInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cpu_cfs_quota': 'bool',
         'cpu_manager_policy': 'str',
         'eviction_hard': 'list[EvictionHardForCreateNodePoolInput]',
         'feature_gates': 'FeatureGatesForCreateNodePoolInput',
@@ -49,6 +50,7 @@ class KubeletConfigForCreateNodePoolInput(object):
     }
 
     attribute_map = {
+        'cpu_cfs_quota': 'CpuCfsQuota',
         'cpu_manager_policy': 'CpuManagerPolicy',
         'eviction_hard': 'EvictionHard',
         'feature_gates': 'FeatureGates',
@@ -64,12 +66,13 @@ class KubeletConfigForCreateNodePoolInput(object):
         'topology_manager_scope': 'TopologyManagerScope'
     }
 
-    def __init__(self, cpu_manager_policy=None, eviction_hard=None, feature_gates=None, kube_api_burst=None, kube_api_qps=None, kube_reserved=None, max_pods=None, registry_burst=None, registry_pull_qps=None, serialize_image_pulls=None, system_reserved=None, topology_manager_policy=None, topology_manager_scope=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_cfs_quota=None, cpu_manager_policy=None, eviction_hard=None, feature_gates=None, kube_api_burst=None, kube_api_qps=None, kube_reserved=None, max_pods=None, registry_burst=None, registry_pull_qps=None, serialize_image_pulls=None, system_reserved=None, topology_manager_policy=None, topology_manager_scope=None, _configuration=None):  # noqa: E501
         """KubeletConfigForCreateNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cpu_cfs_quota = None
         self._cpu_manager_policy = None
         self._eviction_hard = None
         self._feature_gates = None
@@ -85,6 +88,8 @@ class KubeletConfigForCreateNodePoolInput(object):
         self._topology_manager_scope = None
         self.discriminator = None
 
+        if cpu_cfs_quota is not None:
+            self.cpu_cfs_quota = cpu_cfs_quota
         if cpu_manager_policy is not None:
             self.cpu_manager_policy = cpu_manager_policy
         if eviction_hard is not None:
@@ -111,6 +116,27 @@ class KubeletConfigForCreateNodePoolInput(object):
             self.topology_manager_policy = topology_manager_policy
         if topology_manager_scope is not None:
             self.topology_manager_scope = topology_manager_scope
+
+    @property
+    def cpu_cfs_quota(self):
+        """Gets the cpu_cfs_quota of this KubeletConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The cpu_cfs_quota of this KubeletConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cpu_cfs_quota
+
+    @cpu_cfs_quota.setter
+    def cpu_cfs_quota(self, cpu_cfs_quota):
+        """Sets the cpu_cfs_quota of this KubeletConfigForCreateNodePoolInput.
+
+
+        :param cpu_cfs_quota: The cpu_cfs_quota of this KubeletConfigForCreateNodePoolInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._cpu_cfs_quota = cpu_cfs_quota
 
     @property
     def cpu_manager_policy(self):

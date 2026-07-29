@@ -33,6 +33,7 @@ class SystemVolumeForUpdateNodePoolConfigInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'burst_enabled': 'bool',
         'placement_group_id': 'str',
         'size': 'int',
         'subgroup_number': 'int',
@@ -40,24 +41,28 @@ class SystemVolumeForUpdateNodePoolConfigInput(object):
     }
 
     attribute_map = {
+        'burst_enabled': 'BurstEnabled',
         'placement_group_id': 'PlacementGroupId',
         'size': 'Size',
         'subgroup_number': 'SubgroupNumber',
         'type': 'Type'
     }
 
-    def __init__(self, placement_group_id=None, size=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, burst_enabled=None, placement_group_id=None, size=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
         """SystemVolumeForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._burst_enabled = None
         self._placement_group_id = None
         self._size = None
         self._subgroup_number = None
         self._type = None
         self.discriminator = None
 
+        if burst_enabled is not None:
+            self.burst_enabled = burst_enabled
         if placement_group_id is not None:
             self.placement_group_id = placement_group_id
         if size is not None:
@@ -66,6 +71,27 @@ class SystemVolumeForUpdateNodePoolConfigInput(object):
             self.subgroup_number = subgroup_number
         if type is not None:
             self.type = type
+
+    @property
+    def burst_enabled(self):
+        """Gets the burst_enabled of this SystemVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The burst_enabled of this SystemVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._burst_enabled
+
+    @burst_enabled.setter
+    def burst_enabled(self, burst_enabled):
+        """Sets the burst_enabled of this SystemVolumeForUpdateNodePoolConfigInput.
+
+
+        :param burst_enabled: The burst_enabled of this SystemVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._burst_enabled = burst_enabled
 
     @property
     def placement_group_id(self):

@@ -34,29 +34,34 @@ class PublicAccessNetworkConfigForUpdateClusterConfigInput(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'bandwidth_package_id': 'str',
         'billing_type': 'int',
         'isp': 'str'
     }
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'bandwidth_package_id': 'BandwidthPackageId',
         'billing_type': 'BillingType',
         'isp': 'Isp'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, isp=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, isp=None, _configuration=None):  # noqa: E501
         """PublicAccessNetworkConfigForUpdateClusterConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._bandwidth_package_id = None
         self._billing_type = None
         self._isp = None
         self.discriminator = None
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if bandwidth_package_id is not None:
+            self.bandwidth_package_id = bandwidth_package_id
         if billing_type is not None:
             self.billing_type = billing_type
         if isp is not None:
@@ -82,6 +87,27 @@ class PublicAccessNetworkConfigForUpdateClusterConfigInput(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def bandwidth_package_id(self):
+        """Gets the bandwidth_package_id of this PublicAccessNetworkConfigForUpdateClusterConfigInput.  # noqa: E501
+
+
+        :return: The bandwidth_package_id of this PublicAccessNetworkConfigForUpdateClusterConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bandwidth_package_id
+
+    @bandwidth_package_id.setter
+    def bandwidth_package_id(self, bandwidth_package_id):
+        """Sets the bandwidth_package_id of this PublicAccessNetworkConfigForUpdateClusterConfigInput.
+
+
+        :param bandwidth_package_id: The bandwidth_package_id of this PublicAccessNetworkConfigForUpdateClusterConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._bandwidth_package_id = bandwidth_package_id
 
     @property
     def billing_type(self):

@@ -39,6 +39,7 @@ class UpdateClusterConfigRequest(object):
         'description': 'str',
         'id': 'str',
         'irsa_enabled': 'bool',
+        'kubernetes_config': 'KubernetesConfigForUpdateClusterConfigInput',
         'logging_config': 'LoggingConfigForUpdateClusterConfigInput',
         'monitoring_config': 'MonitoringConfigForUpdateClusterConfigInput',
         'name': 'str',
@@ -54,6 +55,7 @@ class UpdateClusterConfigRequest(object):
         'description': 'Description',
         'id': 'Id',
         'irsa_enabled': 'IrsaEnabled',
+        'kubernetes_config': 'KubernetesConfig',
         'logging_config': 'LoggingConfig',
         'monitoring_config': 'MonitoringConfig',
         'name': 'Name',
@@ -62,7 +64,7 @@ class UpdateClusterConfigRequest(object):
         'source_region': 'SourceRegion'
     }
 
-    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, id=None, irsa_enabled=None, logging_config=None, monitoring_config=None, name=None, pods_config=None, register_monitoring_config=None, source_region=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, id=None, irsa_enabled=None, kubernetes_config=None, logging_config=None, monitoring_config=None, name=None, pods_config=None, register_monitoring_config=None, source_region=None, _configuration=None):  # noqa: E501
         """UpdateClusterConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class UpdateClusterConfigRequest(object):
         self._description = None
         self._id = None
         self._irsa_enabled = None
+        self._kubernetes_config = None
         self._logging_config = None
         self._monitoring_config = None
         self._name = None
@@ -93,6 +96,8 @@ class UpdateClusterConfigRequest(object):
         self.id = id
         if irsa_enabled is not None:
             self.irsa_enabled = irsa_enabled
+        if kubernetes_config is not None:
+            self.kubernetes_config = kubernetes_config
         if logging_config is not None:
             self.logging_config = logging_config
         if monitoring_config is not None:
@@ -233,6 +238,27 @@ class UpdateClusterConfigRequest(object):
         """
 
         self._irsa_enabled = irsa_enabled
+
+    @property
+    def kubernetes_config(self):
+        """Gets the kubernetes_config of this UpdateClusterConfigRequest.  # noqa: E501
+
+
+        :return: The kubernetes_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :rtype: KubernetesConfigForUpdateClusterConfigInput
+        """
+        return self._kubernetes_config
+
+    @kubernetes_config.setter
+    def kubernetes_config(self, kubernetes_config):
+        """Sets the kubernetes_config of this UpdateClusterConfigRequest.
+
+
+        :param kubernetes_config: The kubernetes_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :type: KubernetesConfigForUpdateClusterConfigInput
+        """
+
+        self._kubernetes_config = kubernetes_config
 
     @property
     def logging_config(self):
