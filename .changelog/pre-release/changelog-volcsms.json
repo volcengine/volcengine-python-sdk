@@ -1,0 +1,25 @@
+{
+  "actions": [
+    "TemplateUploadDemo",
+    "ConsentBatchTask",
+    "GetBatchTaskDetail",
+    "DeleteBatchTask",
+    "SetBatchTask",
+    "ApplySmsSignatureV2",
+    "GetSignatureIdentificationList",
+    "ListTotalSendCountStatForAgent",
+    "GetBatchTaskList",
+    "GetSubAccountDetail",
+    "ListSecondTemplate",
+    "ListSmsSendLogForAgent",
+    "ListSmsTemplateForAgent",
+    "SendSmsForAgent",
+    "ListSignatureForAgent",
+    "GetUploadTosURL",
+    "ListSubAccountForAgent",
+    "ApplySmsTemplateV2"
+  ],
+  "description": "VOLCSMS: 新增 SendSmsForAgent, SetBatchTask, TemplateUploadDemo, ApplySmsSignatureV2, ConsentBatchTask, GetSignatureIdentificationList, ListSignatureForAgent, GetBatchTaskDetail, GetSubAccountDetail, GetUploadTosURL, ListSubAccountForAgent, ListTotalSendCountStatForAgent, ApplySmsTemplateV2, DeleteBatchTask, GetBatchTaskList, ListSecondTemplate, ListSmsSendLogForAgent, ListSmsTemplateForAgent",
+  "modules": "service/volcSMS",
+  "type": "feature"
+}
