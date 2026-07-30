@@ -34,6 +34,7 @@ class UpdateActivityQuizConfigRequest(object):
     """
     swagger_types = {
         'activity_id': 'int',
+        'auto_send_time': 'int',
         'deadline': 'int',
         'id': 'int',
         'quiz_analysis': 'str',
@@ -42,11 +43,13 @@ class UpdateActivityQuizConfigRequest(object):
         'quiz_title': 'str',
         'quiz_title_type': 'int',
         'quiz_type': 'int',
-        'right_options': 'list[str]'
+        'right_options': 'list[str]',
+        'send_type': 'int'
     }
 
     attribute_map = {
         'activity_id': 'ActivityId',
+        'auto_send_time': 'AutoSendTime',
         'deadline': 'Deadline',
         'id': 'Id',
         'quiz_analysis': 'QuizAnalysis',
@@ -55,16 +58,18 @@ class UpdateActivityQuizConfigRequest(object):
         'quiz_title': 'QuizTitle',
         'quiz_title_type': 'QuizTitleType',
         'quiz_type': 'QuizType',
-        'right_options': 'RightOptions'
+        'right_options': 'RightOptions',
+        'send_type': 'SendType'
     }
 
-    def __init__(self, activity_id=None, deadline=None, id=None, quiz_analysis=None, quiz_options=None, quiz_result_type=None, quiz_title=None, quiz_title_type=None, quiz_type=None, right_options=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, auto_send_time=None, deadline=None, id=None, quiz_analysis=None, quiz_options=None, quiz_result_type=None, quiz_title=None, quiz_title_type=None, quiz_type=None, right_options=None, send_type=None, _configuration=None):  # noqa: E501
         """UpdateActivityQuizConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._activity_id = None
+        self._auto_send_time = None
         self._deadline = None
         self._id = None
         self._quiz_analysis = None
@@ -74,11 +79,15 @@ class UpdateActivityQuizConfigRequest(object):
         self._quiz_title_type = None
         self._quiz_type = None
         self._right_options = None
+        self._send_type = None
         self.discriminator = None
 
         self.activity_id = activity_id
+        if auto_send_time is not None:
+            self.auto_send_time = auto_send_time
         self.deadline = deadline
-        self.id = id
+        if id is not None:
+            self.id = id
         if quiz_analysis is not None:
             self.quiz_analysis = quiz_analysis
         if quiz_options is not None:
@@ -90,6 +99,8 @@ class UpdateActivityQuizConfigRequest(object):
         self.quiz_type = quiz_type
         if right_options is not None:
             self.right_options = right_options
+        if send_type is not None:
+            self.send_type = send_type
 
     @property
     def activity_id(self):
@@ -113,6 +124,27 @@ class UpdateActivityQuizConfigRequest(object):
             raise ValueError("Invalid value for `activity_id`, must not be `None`")  # noqa: E501
 
         self._activity_id = activity_id
+
+    @property
+    def auto_send_time(self):
+        """Gets the auto_send_time of this UpdateActivityQuizConfigRequest.  # noqa: E501
+
+
+        :return: The auto_send_time of this UpdateActivityQuizConfigRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_send_time
+
+    @auto_send_time.setter
+    def auto_send_time(self, auto_send_time):
+        """Sets the auto_send_time of this UpdateActivityQuizConfigRequest.
+
+
+        :param auto_send_time: The auto_send_time of this UpdateActivityQuizConfigRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_send_time = auto_send_time
 
     @property
     def deadline(self):
@@ -155,8 +187,6 @@ class UpdateActivityQuizConfigRequest(object):
         :param id: The id of this UpdateActivityQuizConfigRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -312,6 +342,27 @@ class UpdateActivityQuizConfigRequest(object):
         """
 
         self._right_options = right_options
+
+    @property
+    def send_type(self):
+        """Gets the send_type of this UpdateActivityQuizConfigRequest.  # noqa: E501
+
+
+        :return: The send_type of this UpdateActivityQuizConfigRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._send_type
+
+    @send_type.setter
+    def send_type(self, send_type):
+        """Sets the send_type of this UpdateActivityQuizConfigRequest.
+
+
+        :param send_type: The send_type of this UpdateActivityQuizConfigRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._send_type = send_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

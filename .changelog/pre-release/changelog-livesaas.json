@@ -1,0 +1,12 @@
+{
+  "actions": [
+    "ListActivityQuizConfigs",
+    "UpdateActivityProduct",
+    "UpdateActivityQuizConfig",
+    "UpdateSingleActivityProduct",
+    "GetActivityProducts"
+  ],
+  "description": "LIVESAAS: 修改 ListActivityQuizConfigs, UpdateActivityProduct, UpdateActivityQuizConfig, UpdateSingleActivityProduct, GetActivityProducts",
+  "modules": "service/livesaas",
+  "type": "feature"
+}

@@ -33,8 +33,11 @@ class ProductForGetActivityProductsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'add_cart_url': 'AddCartUrlForGetActivityProductsOutput',
         'custom_content': 'str',
+        'detail_redirect_url': 'DetailRedirectUrlForGetActivityProductsOutput',
         'direct_urls': 'list[str]',
+        'enable_add_cart': 'int',
         'enable_status': 'int',
         'explain_status': 'int',
         'explain_time': 'int',
@@ -64,8 +67,11 @@ class ProductForGetActivityProductsOutput(object):
     }
 
     attribute_map = {
+        'add_cart_url': 'AddCartUrl',
         'custom_content': 'CustomContent',
+        'detail_redirect_url': 'DetailRedirectUrl',
         'direct_urls': 'DirectUrls',
+        'enable_add_cart': 'EnableAddCart',
         'enable_status': 'EnableStatus',
         'explain_status': 'ExplainStatus',
         'explain_time': 'ExplainTime',
@@ -94,14 +100,17 @@ class ProductForGetActivityProductsOutput(object):
         'title': 'Title'
     }
 
-    def __init__(self, custom_content=None, direct_urls=None, enable_status=None, explain_status=None, explain_time=None, floating_status=None, floating_time=None, highlight=None, hot_sale=None, id=None, index=None, introduce_image=None, is_order_msg_enable=None, member_price=None, mini_app_direct_url=None, out_of_stock=None, page_advertisement_type=None, price_hidden=None, promotion_tag_type=None, promotion_tag_url=None, redirect_image=None, redirect_url=None, remark=None, reminder_type=None, selling_point_tag=None, stock=None, strikethrough=None, title=None, _configuration=None):  # noqa: E501
+    def __init__(self, add_cart_url=None, custom_content=None, detail_redirect_url=None, direct_urls=None, enable_add_cart=None, enable_status=None, explain_status=None, explain_time=None, floating_status=None, floating_time=None, highlight=None, hot_sale=None, id=None, index=None, introduce_image=None, is_order_msg_enable=None, member_price=None, mini_app_direct_url=None, out_of_stock=None, page_advertisement_type=None, price_hidden=None, promotion_tag_type=None, promotion_tag_url=None, redirect_image=None, redirect_url=None, remark=None, reminder_type=None, selling_point_tag=None, stock=None, strikethrough=None, title=None, _configuration=None):  # noqa: E501
         """ProductForGetActivityProductsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._add_cart_url = None
         self._custom_content = None
+        self._detail_redirect_url = None
         self._direct_urls = None
+        self._enable_add_cart = None
         self._enable_status = None
         self._explain_status = None
         self._explain_time = None
@@ -130,10 +139,16 @@ class ProductForGetActivityProductsOutput(object):
         self._title = None
         self.discriminator = None
 
+        if add_cart_url is not None:
+            self.add_cart_url = add_cart_url
         if custom_content is not None:
             self.custom_content = custom_content
+        if detail_redirect_url is not None:
+            self.detail_redirect_url = detail_redirect_url
         if direct_urls is not None:
             self.direct_urls = direct_urls
+        if enable_add_cart is not None:
+            self.enable_add_cart = enable_add_cart
         if enable_status is not None:
             self.enable_status = enable_status
         if explain_status is not None:
@@ -188,6 +203,27 @@ class ProductForGetActivityProductsOutput(object):
             self.title = title
 
     @property
+    def add_cart_url(self):
+        """Gets the add_cart_url of this ProductForGetActivityProductsOutput.  # noqa: E501
+
+
+        :return: The add_cart_url of this ProductForGetActivityProductsOutput.  # noqa: E501
+        :rtype: AddCartUrlForGetActivityProductsOutput
+        """
+        return self._add_cart_url
+
+    @add_cart_url.setter
+    def add_cart_url(self, add_cart_url):
+        """Sets the add_cart_url of this ProductForGetActivityProductsOutput.
+
+
+        :param add_cart_url: The add_cart_url of this ProductForGetActivityProductsOutput.  # noqa: E501
+        :type: AddCartUrlForGetActivityProductsOutput
+        """
+
+        self._add_cart_url = add_cart_url
+
+    @property
     def custom_content(self):
         """Gets the custom_content of this ProductForGetActivityProductsOutput.  # noqa: E501
 
@@ -209,6 +245,27 @@ class ProductForGetActivityProductsOutput(object):
         self._custom_content = custom_content
 
     @property
+    def detail_redirect_url(self):
+        """Gets the detail_redirect_url of this ProductForGetActivityProductsOutput.  # noqa: E501
+
+
+        :return: The detail_redirect_url of this ProductForGetActivityProductsOutput.  # noqa: E501
+        :rtype: DetailRedirectUrlForGetActivityProductsOutput
+        """
+        return self._detail_redirect_url
+
+    @detail_redirect_url.setter
+    def detail_redirect_url(self, detail_redirect_url):
+        """Sets the detail_redirect_url of this ProductForGetActivityProductsOutput.
+
+
+        :param detail_redirect_url: The detail_redirect_url of this ProductForGetActivityProductsOutput.  # noqa: E501
+        :type: DetailRedirectUrlForGetActivityProductsOutput
+        """
+
+        self._detail_redirect_url = detail_redirect_url
+
+    @property
     def direct_urls(self):
         """Gets the direct_urls of this ProductForGetActivityProductsOutput.  # noqa: E501
 
@@ -228,6 +285,27 @@ class ProductForGetActivityProductsOutput(object):
         """
 
         self._direct_urls = direct_urls
+
+    @property
+    def enable_add_cart(self):
+        """Gets the enable_add_cart of this ProductForGetActivityProductsOutput.  # noqa: E501
+
+
+        :return: The enable_add_cart of this ProductForGetActivityProductsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._enable_add_cart
+
+    @enable_add_cart.setter
+    def enable_add_cart(self, enable_add_cart):
+        """Sets the enable_add_cart of this ProductForGetActivityProductsOutput.
+
+
+        :param enable_add_cart: The enable_add_cart of this ProductForGetActivityProductsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._enable_add_cart = enable_add_cart
 
     @property
     def enable_status(self):
