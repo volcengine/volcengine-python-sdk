@@ -36,6 +36,7 @@ class ReleaseRequest(object):
         'description': 'str',
         'function_id': 'str',
         'max_instance': 'int',
+        'min_instance': 'int',
         'revision_number': 'int',
         'rolling_step': 'int',
         'target_traffic_weight': 'int'
@@ -45,12 +46,13 @@ class ReleaseRequest(object):
         'description': 'Description',
         'function_id': 'FunctionId',
         'max_instance': 'MaxInstance',
+        'min_instance': 'MinInstance',
         'revision_number': 'RevisionNumber',
         'rolling_step': 'RollingStep',
         'target_traffic_weight': 'TargetTrafficWeight'
     }
 
-    def __init__(self, description=None, function_id=None, max_instance=None, revision_number=None, rolling_step=None, target_traffic_weight=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, function_id=None, max_instance=None, min_instance=None, revision_number=None, rolling_step=None, target_traffic_weight=None, _configuration=None):  # noqa: E501
         """ReleaseRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ReleaseRequest(object):
         self._description = None
         self._function_id = None
         self._max_instance = None
+        self._min_instance = None
         self._revision_number = None
         self._rolling_step = None
         self._target_traffic_weight = None
@@ -69,6 +72,8 @@ class ReleaseRequest(object):
         self.function_id = function_id
         if max_instance is not None:
             self.max_instance = max_instance
+        if min_instance is not None:
+            self.min_instance = min_instance
         self.revision_number = revision_number
         if rolling_step is not None:
             self.rolling_step = rolling_step
@@ -139,6 +144,27 @@ class ReleaseRequest(object):
         """
 
         self._max_instance = max_instance
+
+    @property
+    def min_instance(self):
+        """Gets the min_instance of this ReleaseRequest.  # noqa: E501
+
+
+        :return: The min_instance of this ReleaseRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._min_instance
+
+    @min_instance.setter
+    def min_instance(self, min_instance):
+        """Sets the min_instance of this ReleaseRequest.
+
+
+        :param min_instance: The min_instance of this ReleaseRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._min_instance = min_instance
 
     @property
     def revision_number(self):
