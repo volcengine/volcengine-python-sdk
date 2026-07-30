@@ -33,24 +33,29 @@ class PrecacheSandboxImagesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'image_urls': 'list[str]'
+        'image_urls': 'list[str]',
+        'registry_id': 'str'
     }
 
     attribute_map = {
-        'image_urls': 'ImageUrls'
+        'image_urls': 'ImageUrls',
+        'registry_id': 'RegistryId'
     }
 
-    def __init__(self, image_urls=None, _configuration=None):  # noqa: E501
+    def __init__(self, image_urls=None, registry_id=None, _configuration=None):  # noqa: E501
         """PrecacheSandboxImagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._image_urls = None
+        self._registry_id = None
         self.discriminator = None
 
         if image_urls is not None:
             self.image_urls = image_urls
+        if registry_id is not None:
+            self.registry_id = registry_id
 
     @property
     def image_urls(self):
@@ -72,6 +77,27 @@ class PrecacheSandboxImagesRequest(object):
         """
 
         self._image_urls = image_urls
+
+    @property
+    def registry_id(self):
+        """Gets the registry_id of this PrecacheSandboxImagesRequest.  # noqa: E501
+
+
+        :return: The registry_id of this PrecacheSandboxImagesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._registry_id
+
+    @registry_id.setter
+    def registry_id(self, registry_id):
+        """Sets the registry_id of this PrecacheSandboxImagesRequest.
+
+
+        :param registry_id: The registry_id of this PrecacheSandboxImagesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._registry_id = registry_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
