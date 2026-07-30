@@ -38,6 +38,7 @@ class AdvancedSettingForListRoutesOutput(object):
         'mirror_policies': 'list[MirrorPolicyForListRoutesOutput]',
         'retry_policy_setting': 'RetryPolicySettingForListRoutesOutput',
         'timeout_setting': 'TimeoutSettingForListRoutesOutput',
+        'token_extractors': 'list[TokenExtractorForListRoutesOutput]',
         'url_rewrite_setting': 'URLRewriteSettingForListRoutesOutput'
     }
 
@@ -47,10 +48,11 @@ class AdvancedSettingForListRoutesOutput(object):
         'mirror_policies': 'MirrorPolicies',
         'retry_policy_setting': 'RetryPolicySetting',
         'timeout_setting': 'TimeoutSetting',
+        'token_extractors': 'TokenExtractors',
         'url_rewrite_setting': 'URLRewriteSetting'
     }
 
-    def __init__(self, cors_policy_setting=None, header_operations=None, mirror_policies=None, retry_policy_setting=None, timeout_setting=None, url_rewrite_setting=None, _configuration=None):  # noqa: E501
+    def __init__(self, cors_policy_setting=None, header_operations=None, mirror_policies=None, retry_policy_setting=None, timeout_setting=None, token_extractors=None, url_rewrite_setting=None, _configuration=None):  # noqa: E501
         """AdvancedSettingForListRoutesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class AdvancedSettingForListRoutesOutput(object):
         self._mirror_policies = None
         self._retry_policy_setting = None
         self._timeout_setting = None
+        self._token_extractors = None
         self._url_rewrite_setting = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class AdvancedSettingForListRoutesOutput(object):
             self.retry_policy_setting = retry_policy_setting
         if timeout_setting is not None:
             self.timeout_setting = timeout_setting
+        if token_extractors is not None:
+            self.token_extractors = token_extractors
         if url_rewrite_setting is not None:
             self.url_rewrite_setting = url_rewrite_setting
 
@@ -181,6 +186,27 @@ class AdvancedSettingForListRoutesOutput(object):
         """
 
         self._timeout_setting = timeout_setting
+
+    @property
+    def token_extractors(self):
+        """Gets the token_extractors of this AdvancedSettingForListRoutesOutput.  # noqa: E501
+
+
+        :return: The token_extractors of this AdvancedSettingForListRoutesOutput.  # noqa: E501
+        :rtype: list[TokenExtractorForListRoutesOutput]
+        """
+        return self._token_extractors
+
+    @token_extractors.setter
+    def token_extractors(self, token_extractors):
+        """Sets the token_extractors of this AdvancedSettingForListRoutesOutput.
+
+
+        :param token_extractors: The token_extractors of this AdvancedSettingForListRoutesOutput.  # noqa: E501
+        :type: list[TokenExtractorForListRoutesOutput]
+        """
+
+        self._token_extractors = token_extractors
 
     @property
     def url_rewrite_setting(self):
