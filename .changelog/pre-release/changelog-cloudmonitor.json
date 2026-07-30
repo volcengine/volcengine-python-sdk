@@ -1,0 +1,5 @@
+{
+  "description": "CLOUDMONITOR: chore changes",
+  "modules": "service/cloudmonitor",
+  "type": "bugfix"
+}
