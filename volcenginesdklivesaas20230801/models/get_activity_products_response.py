@@ -33,34 +33,96 @@ class GetActivityProductsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'enable_view_cart': 'int',
+        'enable_view_order': 'int',
         'is_multi_product_explain_enable': 'int',
         'product_configs': 'list[ProductConfigForGetActivityProductsOutput]',
-        'vertical_icon_url': 'str'
+        'vertical_icon_url': 'str',
+        'view_cart_url': 'str',
+        'view_order_url': 'str'
     }
 
     attribute_map = {
+        'enable_view_cart': 'EnableViewCart',
+        'enable_view_order': 'EnableViewOrder',
         'is_multi_product_explain_enable': 'IsMultiProductExplainEnable',
         'product_configs': 'ProductConfigs',
-        'vertical_icon_url': 'VerticalIconUrl'
+        'vertical_icon_url': 'VerticalIconUrl',
+        'view_cart_url': 'ViewCartUrl',
+        'view_order_url': 'ViewOrderUrl'
     }
 
-    def __init__(self, is_multi_product_explain_enable=None, product_configs=None, vertical_icon_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable_view_cart=None, enable_view_order=None, is_multi_product_explain_enable=None, product_configs=None, vertical_icon_url=None, view_cart_url=None, view_order_url=None, _configuration=None):  # noqa: E501
         """GetActivityProductsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._enable_view_cart = None
+        self._enable_view_order = None
         self._is_multi_product_explain_enable = None
         self._product_configs = None
         self._vertical_icon_url = None
+        self._view_cart_url = None
+        self._view_order_url = None
         self.discriminator = None
 
+        if enable_view_cart is not None:
+            self.enable_view_cart = enable_view_cart
+        if enable_view_order is not None:
+            self.enable_view_order = enable_view_order
         if is_multi_product_explain_enable is not None:
             self.is_multi_product_explain_enable = is_multi_product_explain_enable
         if product_configs is not None:
             self.product_configs = product_configs
         if vertical_icon_url is not None:
             self.vertical_icon_url = vertical_icon_url
+        if view_cart_url is not None:
+            self.view_cart_url = view_cart_url
+        if view_order_url is not None:
+            self.view_order_url = view_order_url
+
+    @property
+    def enable_view_cart(self):
+        """Gets the enable_view_cart of this GetActivityProductsResponse.  # noqa: E501
+
+
+        :return: The enable_view_cart of this GetActivityProductsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._enable_view_cart
+
+    @enable_view_cart.setter
+    def enable_view_cart(self, enable_view_cart):
+        """Sets the enable_view_cart of this GetActivityProductsResponse.
+
+
+        :param enable_view_cart: The enable_view_cart of this GetActivityProductsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._enable_view_cart = enable_view_cart
+
+    @property
+    def enable_view_order(self):
+        """Gets the enable_view_order of this GetActivityProductsResponse.  # noqa: E501
+
+
+        :return: The enable_view_order of this GetActivityProductsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._enable_view_order
+
+    @enable_view_order.setter
+    def enable_view_order(self, enable_view_order):
+        """Sets the enable_view_order of this GetActivityProductsResponse.
+
+
+        :param enable_view_order: The enable_view_order of this GetActivityProductsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._enable_view_order = enable_view_order
 
     @property
     def is_multi_product_explain_enable(self):
@@ -124,6 +186,48 @@ class GetActivityProductsResponse(object):
         """
 
         self._vertical_icon_url = vertical_icon_url
+
+    @property
+    def view_cart_url(self):
+        """Gets the view_cart_url of this GetActivityProductsResponse.  # noqa: E501
+
+
+        :return: The view_cart_url of this GetActivityProductsResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._view_cart_url
+
+    @view_cart_url.setter
+    def view_cart_url(self, view_cart_url):
+        """Sets the view_cart_url of this GetActivityProductsResponse.
+
+
+        :param view_cart_url: The view_cart_url of this GetActivityProductsResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._view_cart_url = view_cart_url
+
+    @property
+    def view_order_url(self):
+        """Gets the view_order_url of this GetActivityProductsResponse.  # noqa: E501
+
+
+        :return: The view_order_url of this GetActivityProductsResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._view_order_url
+
+    @view_order_url.setter
+    def view_order_url(self, view_order_url):
+        """Sets the view_order_url of this GetActivityProductsResponse.
+
+
+        :param view_order_url: The view_order_url of this GetActivityProductsResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._view_order_url = view_order_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""
