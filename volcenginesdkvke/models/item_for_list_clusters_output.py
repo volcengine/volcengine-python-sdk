@@ -41,8 +41,10 @@ class ItemForListClustersOutput(object):
         'description': 'str',
         'id': 'str',
         'irsa_config': 'IrsaConfigForListClustersOutput',
+        'kubernetes_config': 'KubernetesConfigForListClustersOutput',
         'kubernetes_version': 'str',
         'logging_config': 'LoggingConfigForListClustersOutput',
+        'maintenance_window_config': 'MaintenanceWindowConfigForListClustersOutput',
         'message': 'str',
         'monitoring_config': 'MonitoringConfigForListClustersOutput',
         'name': 'str',
@@ -67,8 +69,10 @@ class ItemForListClustersOutput(object):
         'description': 'Description',
         'id': 'Id',
         'irsa_config': 'IrsaConfig',
+        'kubernetes_config': 'KubernetesConfig',
         'kubernetes_version': 'KubernetesVersion',
         'logging_config': 'LoggingConfig',
+        'maintenance_window_config': 'MaintenanceWindowConfig',
         'message': 'Message',
         'monitoring_config': 'MonitoringConfig',
         'name': 'Name',
@@ -84,7 +88,7 @@ class ItemForListClustersOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, cluster_config=None, connector_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, irsa_config=None, kubernetes_version=None, logging_config=None, message=None, monitoring_config=None, name=None, node_statistics=None, pods_config=None, project_name=None, register_monitoring_config=None, services_config=None, status=None, tags=None, type=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_config=None, connector_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, irsa_config=None, kubernetes_config=None, kubernetes_version=None, logging_config=None, maintenance_window_config=None, message=None, monitoring_config=None, name=None, node_statistics=None, pods_config=None, project_name=None, register_monitoring_config=None, services_config=None, status=None, tags=None, type=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,8 +102,10 @@ class ItemForListClustersOutput(object):
         self._description = None
         self._id = None
         self._irsa_config = None
+        self._kubernetes_config = None
         self._kubernetes_version = None
         self._logging_config = None
+        self._maintenance_window_config = None
         self._message = None
         self._monitoring_config = None
         self._name = None
@@ -131,10 +137,14 @@ class ItemForListClustersOutput(object):
             self.id = id
         if irsa_config is not None:
             self.irsa_config = irsa_config
+        if kubernetes_config is not None:
+            self.kubernetes_config = kubernetes_config
         if kubernetes_version is not None:
             self.kubernetes_version = kubernetes_version
         if logging_config is not None:
             self.logging_config = logging_config
+        if maintenance_window_config is not None:
+            self.maintenance_window_config = maintenance_window_config
         if message is not None:
             self.message = message
         if monitoring_config is not None:
@@ -331,6 +341,27 @@ class ItemForListClustersOutput(object):
         self._irsa_config = irsa_config
 
     @property
+    def kubernetes_config(self):
+        """Gets the kubernetes_config of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The kubernetes_config of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: KubernetesConfigForListClustersOutput
+        """
+        return self._kubernetes_config
+
+    @kubernetes_config.setter
+    def kubernetes_config(self, kubernetes_config):
+        """Sets the kubernetes_config of this ItemForListClustersOutput.
+
+
+        :param kubernetes_config: The kubernetes_config of this ItemForListClustersOutput.  # noqa: E501
+        :type: KubernetesConfigForListClustersOutput
+        """
+
+        self._kubernetes_config = kubernetes_config
+
+    @property
     def kubernetes_version(self):
         """Gets the kubernetes_version of this ItemForListClustersOutput.  # noqa: E501
 
@@ -371,6 +402,27 @@ class ItemForListClustersOutput(object):
         """
 
         self._logging_config = logging_config
+
+    @property
+    def maintenance_window_config(self):
+        """Gets the maintenance_window_config of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The maintenance_window_config of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: MaintenanceWindowConfigForListClustersOutput
+        """
+        return self._maintenance_window_config
+
+    @maintenance_window_config.setter
+    def maintenance_window_config(self, maintenance_window_config):
+        """Sets the maintenance_window_config of this ItemForListClustersOutput.
+
+
+        :param maintenance_window_config: The maintenance_window_config of this ItemForListClustersOutput.  # noqa: E501
+        :type: MaintenanceWindowConfigForListClustersOutput
+        """
+
+        self._maintenance_window_config = maintenance_window_config
 
     @property
     def message(self):

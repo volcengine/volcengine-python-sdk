@@ -35,6 +35,7 @@ class ClusterConfigForCreateClusterInput(object):
     swagger_types = {
         'api_server_public_access_config': 'ApiServerPublicAccessConfigForCreateClusterInput',
         'api_server_public_access_enabled': 'bool',
+        'ip_family': 'str',
         'resource_public_access_default_enabled': 'bool',
         'subnet_ids': 'list[str]'
     }
@@ -42,11 +43,12 @@ class ClusterConfigForCreateClusterInput(object):
     attribute_map = {
         'api_server_public_access_config': 'ApiServerPublicAccessConfig',
         'api_server_public_access_enabled': 'ApiServerPublicAccessEnabled',
+        'ip_family': 'IpFamily',
         'resource_public_access_default_enabled': 'ResourcePublicAccessDefaultEnabled',
         'subnet_ids': 'SubnetIds'
     }
 
-    def __init__(self, api_server_public_access_config=None, api_server_public_access_enabled=None, resource_public_access_default_enabled=None, subnet_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_server_public_access_config=None, api_server_public_access_enabled=None, ip_family=None, resource_public_access_default_enabled=None, subnet_ids=None, _configuration=None):  # noqa: E501
         """ClusterConfigForCreateClusterInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class ClusterConfigForCreateClusterInput(object):
 
         self._api_server_public_access_config = None
         self._api_server_public_access_enabled = None
+        self._ip_family = None
         self._resource_public_access_default_enabled = None
         self._subnet_ids = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ClusterConfigForCreateClusterInput(object):
             self.api_server_public_access_config = api_server_public_access_config
         if api_server_public_access_enabled is not None:
             self.api_server_public_access_enabled = api_server_public_access_enabled
+        if ip_family is not None:
+            self.ip_family = ip_family
         if resource_public_access_default_enabled is not None:
             self.resource_public_access_default_enabled = resource_public_access_default_enabled
         if subnet_ids is not None:
@@ -108,6 +113,34 @@ class ClusterConfigForCreateClusterInput(object):
         """
 
         self._api_server_public_access_enabled = api_server_public_access_enabled
+
+    @property
+    def ip_family(self):
+        """Gets the ip_family of this ClusterConfigForCreateClusterInput.  # noqa: E501
+
+
+        :return: The ip_family of this ClusterConfigForCreateClusterInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_family
+
+    @ip_family.setter
+    def ip_family(self, ip_family):
+        """Sets the ip_family of this ClusterConfigForCreateClusterInput.
+
+
+        :param ip_family: The ip_family of this ClusterConfigForCreateClusterInput.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Ipv4", "Ipv6", "DualStack"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ip_family not in allowed_values):
+            raise ValueError(
+                "Invalid value for `ip_family` ({0}), must be one of {1}"  # noqa: E501
+                .format(ip_family, allowed_values)
+            )
+
+        self._ip_family = ip_family
 
     @property
     def resource_public_access_default_enabled(self):
