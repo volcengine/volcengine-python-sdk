@@ -618,6 +618,18 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'apig': ServiceEndpointInfo(
+        service='apig',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'volcsms': ServiceEndpointInfo(
+        service='volcsms',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {

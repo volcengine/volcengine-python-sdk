@@ -37,8 +37,10 @@ class CreateClusterRequest(object):
         'cluster_config': 'ClusterConfigForCreateClusterInput',
         'delete_protection_enabled': 'bool',
         'description': 'str',
+        'kubernetes_config': 'KubernetesConfigForCreateClusterInput',
         'kubernetes_version': 'str',
         'logging_config': 'LoggingConfigForCreateClusterInput',
+        'monitoring_config': 'MonitoringConfigForCreateClusterInput',
         'name': 'str',
         'pods_config': 'PodsConfigForCreateClusterInput',
         'project_name': 'str',
@@ -51,8 +53,10 @@ class CreateClusterRequest(object):
         'cluster_config': 'ClusterConfig',
         'delete_protection_enabled': 'DeleteProtectionEnabled',
         'description': 'Description',
+        'kubernetes_config': 'KubernetesConfig',
         'kubernetes_version': 'KubernetesVersion',
         'logging_config': 'LoggingConfig',
+        'monitoring_config': 'MonitoringConfig',
         'name': 'Name',
         'pods_config': 'PodsConfig',
         'project_name': 'ProjectName',
@@ -60,7 +64,7 @@ class CreateClusterRequest(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, kubernetes_version=None, logging_config=None, name=None, pods_config=None, project_name=None, services_config=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, kubernetes_config=None, kubernetes_version=None, logging_config=None, monitoring_config=None, name=None, pods_config=None, project_name=None, services_config=None, tags=None, _configuration=None):  # noqa: E501
         """CreateClusterRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,8 +74,10 @@ class CreateClusterRequest(object):
         self._cluster_config = None
         self._delete_protection_enabled = None
         self._description = None
+        self._kubernetes_config = None
         self._kubernetes_version = None
         self._logging_config = None
+        self._monitoring_config = None
         self._name = None
         self._pods_config = None
         self._project_name = None
@@ -87,10 +93,14 @@ class CreateClusterRequest(object):
             self.delete_protection_enabled = delete_protection_enabled
         if description is not None:
             self.description = description
+        if kubernetes_config is not None:
+            self.kubernetes_config = kubernetes_config
         if kubernetes_version is not None:
             self.kubernetes_version = kubernetes_version
         if logging_config is not None:
             self.logging_config = logging_config
+        if monitoring_config is not None:
+            self.monitoring_config = monitoring_config
         self.name = name
         if pods_config is not None:
             self.pods_config = pods_config
@@ -186,6 +196,27 @@ class CreateClusterRequest(object):
         self._description = description
 
     @property
+    def kubernetes_config(self):
+        """Gets the kubernetes_config of this CreateClusterRequest.  # noqa: E501
+
+
+        :return: The kubernetes_config of this CreateClusterRequest.  # noqa: E501
+        :rtype: KubernetesConfigForCreateClusterInput
+        """
+        return self._kubernetes_config
+
+    @kubernetes_config.setter
+    def kubernetes_config(self, kubernetes_config):
+        """Sets the kubernetes_config of this CreateClusterRequest.
+
+
+        :param kubernetes_config: The kubernetes_config of this CreateClusterRequest.  # noqa: E501
+        :type: KubernetesConfigForCreateClusterInput
+        """
+
+        self._kubernetes_config = kubernetes_config
+
+    @property
     def kubernetes_version(self):
         """Gets the kubernetes_version of this CreateClusterRequest.  # noqa: E501
 
@@ -226,6 +257,27 @@ class CreateClusterRequest(object):
         """
 
         self._logging_config = logging_config
+
+    @property
+    def monitoring_config(self):
+        """Gets the monitoring_config of this CreateClusterRequest.  # noqa: E501
+
+
+        :return: The monitoring_config of this CreateClusterRequest.  # noqa: E501
+        :rtype: MonitoringConfigForCreateClusterInput
+        """
+        return self._monitoring_config
+
+    @monitoring_config.setter
+    def monitoring_config(self, monitoring_config):
+        """Sets the monitoring_config of this CreateClusterRequest.
+
+
+        :param monitoring_config: The monitoring_config of this CreateClusterRequest.  # noqa: E501
+        :type: MonitoringConfigForCreateClusterInput
+        """
+
+        self._monitoring_config = monitoring_config
 
     @property
     def name(self):

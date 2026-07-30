@@ -33,37 +33,48 @@ class AIProviderForListUpstreamsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'api_protocol': 'str',
         'base_url': 'str',
         'custom_body_params': 'CustomBodyParamsForListUpstreamsOutput',
         'custom_header_params': 'CustomHeaderParamsForListUpstreamsOutput',
         'custom_model_service': 'CustomModelServiceForListUpstreamsOutput',
+        'max_retries': 'int',
         'name': 'str',
-        'token': 'str'
+        'token': 'str',
+        'token_pool': 'list[str]'
     }
 
     attribute_map = {
+        'api_protocol': 'ApiProtocol',
         'base_url': 'BaseUrl',
         'custom_body_params': 'CustomBodyParams',
         'custom_header_params': 'CustomHeaderParams',
         'custom_model_service': 'CustomModelService',
+        'max_retries': 'MaxRetries',
         'name': 'Name',
-        'token': 'Token'
+        'token': 'Token',
+        'token_pool': 'TokenPool'
     }
 
-    def __init__(self, base_url=None, custom_body_params=None, custom_header_params=None, custom_model_service=None, name=None, token=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_protocol=None, base_url=None, custom_body_params=None, custom_header_params=None, custom_model_service=None, max_retries=None, name=None, token=None, token_pool=None, _configuration=None):  # noqa: E501
         """AIProviderForListUpstreamsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._api_protocol = None
         self._base_url = None
         self._custom_body_params = None
         self._custom_header_params = None
         self._custom_model_service = None
+        self._max_retries = None
         self._name = None
         self._token = None
+        self._token_pool = None
         self.discriminator = None
 
+        if api_protocol is not None:
+            self.api_protocol = api_protocol
         if base_url is not None:
             self.base_url = base_url
         if custom_body_params is not None:
@@ -72,10 +83,35 @@ class AIProviderForListUpstreamsOutput(object):
             self.custom_header_params = custom_header_params
         if custom_model_service is not None:
             self.custom_model_service = custom_model_service
+        if max_retries is not None:
+            self.max_retries = max_retries
         if name is not None:
             self.name = name
         if token is not None:
             self.token = token
+        if token_pool is not None:
+            self.token_pool = token_pool
+
+    @property
+    def api_protocol(self):
+        """Gets the api_protocol of this AIProviderForListUpstreamsOutput.  # noqa: E501
+
+
+        :return: The api_protocol of this AIProviderForListUpstreamsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._api_protocol
+
+    @api_protocol.setter
+    def api_protocol(self, api_protocol):
+        """Sets the api_protocol of this AIProviderForListUpstreamsOutput.
+
+
+        :param api_protocol: The api_protocol of this AIProviderForListUpstreamsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._api_protocol = api_protocol
 
     @property
     def base_url(self):
@@ -162,6 +198,27 @@ class AIProviderForListUpstreamsOutput(object):
         self._custom_model_service = custom_model_service
 
     @property
+    def max_retries(self):
+        """Gets the max_retries of this AIProviderForListUpstreamsOutput.  # noqa: E501
+
+
+        :return: The max_retries of this AIProviderForListUpstreamsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_retries
+
+    @max_retries.setter
+    def max_retries(self, max_retries):
+        """Sets the max_retries of this AIProviderForListUpstreamsOutput.
+
+
+        :param max_retries: The max_retries of this AIProviderForListUpstreamsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._max_retries = max_retries
+
+    @property
     def name(self):
         """Gets the name of this AIProviderForListUpstreamsOutput.  # noqa: E501
 
@@ -202,6 +259,27 @@ class AIProviderForListUpstreamsOutput(object):
         """
 
         self._token = token
+
+    @property
+    def token_pool(self):
+        """Gets the token_pool of this AIProviderForListUpstreamsOutput.  # noqa: E501
+
+
+        :return: The token_pool of this AIProviderForListUpstreamsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._token_pool
+
+    @token_pool.setter
+    def token_pool(self, token_pool):
+        """Sets the token_pool of this AIProviderForListUpstreamsOutput.
+
+
+        :param token_pool: The token_pool of this AIProviderForListUpstreamsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._token_pool = token_pool
 
     def to_dict(self):
         """Returns the model properties as a dict"""

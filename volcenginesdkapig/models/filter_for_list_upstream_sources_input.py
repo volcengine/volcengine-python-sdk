@@ -33,34 +33,60 @@ class FilterForListUpstreamSourcesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cluster_id': 'str',
         'source_type': 'str',
         'status': 'str',
         'name': 'str'
     }
 
     attribute_map = {
+        'cluster_id': 'ClusterId',
         'source_type': 'SourceType',
         'status': 'Status',
         'name': 'name'
     }
 
-    def __init__(self, source_type=None, status=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, source_type=None, status=None, name=None, _configuration=None):  # noqa: E501
         """FilterForListUpstreamSourcesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cluster_id = None
         self._source_type = None
         self._status = None
         self._name = None
         self.discriminator = None
 
+        if cluster_id is not None:
+            self.cluster_id = cluster_id
         if source_type is not None:
             self.source_type = source_type
         if status is not None:
             self.status = status
         if name is not None:
             self.name = name
+
+    @property
+    def cluster_id(self):
+        """Gets the cluster_id of this FilterForListUpstreamSourcesInput.  # noqa: E501
+
+
+        :return: The cluster_id of this FilterForListUpstreamSourcesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cluster_id
+
+    @cluster_id.setter
+    def cluster_id(self, cluster_id):
+        """Sets the cluster_id of this FilterForListUpstreamSourcesInput.
+
+
+        :param cluster_id: The cluster_id of this FilterForListUpstreamSourcesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._cluster_id = cluster_id
 
     @property
     def source_type(self):

@@ -34,26 +34,31 @@ class AIProviderSettingsForCreateRouteInput(object):
     """
     swagger_types = {
         'model': 'str',
+        'prefix_path': 'str',
         'target_path': 'str'
     }
 
     attribute_map = {
         'model': 'Model',
+        'prefix_path': 'PrefixPath',
         'target_path': 'TargetPath'
     }
 
-    def __init__(self, model=None, target_path=None, _configuration=None):  # noqa: E501
+    def __init__(self, model=None, prefix_path=None, target_path=None, _configuration=None):  # noqa: E501
         """AIProviderSettingsForCreateRouteInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._model = None
+        self._prefix_path = None
         self._target_path = None
         self.discriminator = None
 
         if model is not None:
             self.model = model
+        if prefix_path is not None:
+            self.prefix_path = prefix_path
         if target_path is not None:
             self.target_path = target_path
 
@@ -77,6 +82,27 @@ class AIProviderSettingsForCreateRouteInput(object):
         """
 
         self._model = model
+
+    @property
+    def prefix_path(self):
+        """Gets the prefix_path of this AIProviderSettingsForCreateRouteInput.  # noqa: E501
+
+
+        :return: The prefix_path of this AIProviderSettingsForCreateRouteInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prefix_path
+
+    @prefix_path.setter
+    def prefix_path(self, prefix_path):
+        """Sets the prefix_path of this AIProviderSettingsForCreateRouteInput.
+
+
+        :param prefix_path: The prefix_path of this AIProviderSettingsForCreateRouteInput.  # noqa: E501
+        :type: str
+        """
+
+        self._prefix_path = prefix_path
 
     @property
     def target_path(self):

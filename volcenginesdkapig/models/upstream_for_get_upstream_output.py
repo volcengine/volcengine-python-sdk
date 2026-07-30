@@ -33,7 +33,6 @@ class UpstreamForGetUpstreamOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'backend_target_list': 'list[BackendTargetListForGetUpstreamOutput]',
         'circuit_breaking_settings': 'CircuitBreakingSettingsForGetUpstreamOutput',
         'comments': 'str',
         'connection_pool_settings': 'ConnectionPoolSettingsForGetUpstreamOutput',
@@ -51,7 +50,6 @@ class UpstreamForGetUpstreamOutput(object):
     }
 
     attribute_map = {
-        'backend_target_list': 'BackendTargetList',
         'circuit_breaking_settings': 'CircuitBreakingSettings',
         'comments': 'Comments',
         'connection_pool_settings': 'ConnectionPoolSettings',
@@ -68,13 +66,12 @@ class UpstreamForGetUpstreamOutput(object):
         'version_details': 'VersionDetails'
     }
 
-    def __init__(self, backend_target_list=None, circuit_breaking_settings=None, comments=None, connection_pool_settings=None, create_time=None, gateway_id=None, id=None, load_balancer_settings=None, name=None, protocol=None, source_type=None, tls_settings=None, update_time=None, upstream_spec=None, version_details=None, _configuration=None):  # noqa: E501
+    def __init__(self, circuit_breaking_settings=None, comments=None, connection_pool_settings=None, create_time=None, gateway_id=None, id=None, load_balancer_settings=None, name=None, protocol=None, source_type=None, tls_settings=None, update_time=None, upstream_spec=None, version_details=None, _configuration=None):  # noqa: E501
         """UpstreamForGetUpstreamOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._backend_target_list = None
         self._circuit_breaking_settings = None
         self._comments = None
         self._connection_pool_settings = None
@@ -91,8 +88,6 @@ class UpstreamForGetUpstreamOutput(object):
         self._version_details = None
         self.discriminator = None
 
-        if backend_target_list is not None:
-            self.backend_target_list = backend_target_list
         if circuit_breaking_settings is not None:
             self.circuit_breaking_settings = circuit_breaking_settings
         if comments is not None:
@@ -121,27 +116,6 @@ class UpstreamForGetUpstreamOutput(object):
             self.upstream_spec = upstream_spec
         if version_details is not None:
             self.version_details = version_details
-
-    @property
-    def backend_target_list(self):
-        """Gets the backend_target_list of this UpstreamForGetUpstreamOutput.  # noqa: E501
-
-
-        :return: The backend_target_list of this UpstreamForGetUpstreamOutput.  # noqa: E501
-        :rtype: list[BackendTargetListForGetUpstreamOutput]
-        """
-        return self._backend_target_list
-
-    @backend_target_list.setter
-    def backend_target_list(self, backend_target_list):
-        """Sets the backend_target_list of this UpstreamForGetUpstreamOutput.
-
-
-        :param backend_target_list: The backend_target_list of this UpstreamForGetUpstreamOutput.  # noqa: E501
-        :type: list[BackendTargetListForGetUpstreamOutput]
-        """
-
-        self._backend_target_list = backend_target_list
 
     @property
     def circuit_breaking_settings(self):

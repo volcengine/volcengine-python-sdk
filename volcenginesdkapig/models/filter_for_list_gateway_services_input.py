@@ -33,34 +33,60 @@ class FilterForListGatewayServicesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'gateway_type': 'str',
         'name': 'str',
         'service_type': 'str',
         'status': 'str'
     }
 
     attribute_map = {
+        'gateway_type': 'GatewayType',
         'name': 'Name',
         'service_type': 'ServiceType',
         'status': 'Status'
     }
 
-    def __init__(self, name=None, service_type=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, gateway_type=None, name=None, service_type=None, status=None, _configuration=None):  # noqa: E501
         """FilterForListGatewayServicesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._gateway_type = None
         self._name = None
         self._service_type = None
         self._status = None
         self.discriminator = None
 
+        if gateway_type is not None:
+            self.gateway_type = gateway_type
         if name is not None:
             self.name = name
         if service_type is not None:
             self.service_type = service_type
         if status is not None:
             self.status = status
+
+    @property
+    def gateway_type(self):
+        """Gets the gateway_type of this FilterForListGatewayServicesInput.  # noqa: E501
+
+
+        :return: The gateway_type of this FilterForListGatewayServicesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._gateway_type
+
+    @gateway_type.setter
+    def gateway_type(self, gateway_type):
+        """Sets the gateway_type of this FilterForListGatewayServicesInput.
+
+
+        :param gateway_type: The gateway_type of this FilterForListGatewayServicesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._gateway_type = gateway_type
 
     @property
     def name(self):

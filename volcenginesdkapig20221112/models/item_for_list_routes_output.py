@@ -41,9 +41,12 @@ class ItemForListRoutesOutput(object):
         'fallback_setting': 'FallbackSettingForListRoutesOutput',
         'id': 'str',
         'match_rule': 'MatchRuleForListRoutesOutput',
+        'mock_setting': 'MockSettingForListRoutesOutput',
         'name': 'str',
         'priority': 'int',
         'reason': 'str',
+        'redirect_setting': 'RedirectSettingForListRoutesOutput',
+        'scene': 'str',
         'service_id': 'str',
         'service_name': 'str',
         'status': 'str',
@@ -60,9 +63,12 @@ class ItemForListRoutesOutput(object):
         'fallback_setting': 'FallbackSetting',
         'id': 'Id',
         'match_rule': 'MatchRule',
+        'mock_setting': 'MockSetting',
         'name': 'Name',
         'priority': 'Priority',
         'reason': 'Reason',
+        'redirect_setting': 'RedirectSetting',
+        'scene': 'Scene',
         'service_id': 'ServiceId',
         'service_name': 'ServiceName',
         'status': 'Status',
@@ -70,7 +76,7 @@ class ItemForListRoutesOutput(object):
         'upstream_list': 'UpstreamList'
     }
 
-    def __init__(self, advanced_setting=None, create_time=None, custom_domains=None, domains=None, enable=None, fallback_setting=None, id=None, match_rule=None, name=None, priority=None, reason=None, service_id=None, service_name=None, status=None, update_time=None, upstream_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, advanced_setting=None, create_time=None, custom_domains=None, domains=None, enable=None, fallback_setting=None, id=None, match_rule=None, mock_setting=None, name=None, priority=None, reason=None, redirect_setting=None, scene=None, service_id=None, service_name=None, status=None, update_time=None, upstream_list=None, _configuration=None):  # noqa: E501
         """ItemForListRoutesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,9 +90,12 @@ class ItemForListRoutesOutput(object):
         self._fallback_setting = None
         self._id = None
         self._match_rule = None
+        self._mock_setting = None
         self._name = None
         self._priority = None
         self._reason = None
+        self._redirect_setting = None
+        self._scene = None
         self._service_id = None
         self._service_name = None
         self._status = None
@@ -110,12 +119,18 @@ class ItemForListRoutesOutput(object):
             self.id = id
         if match_rule is not None:
             self.match_rule = match_rule
+        if mock_setting is not None:
+            self.mock_setting = mock_setting
         if name is not None:
             self.name = name
         if priority is not None:
             self.priority = priority
         if reason is not None:
             self.reason = reason
+        if redirect_setting is not None:
+            self.redirect_setting = redirect_setting
+        if scene is not None:
+            self.scene = scene
         if service_id is not None:
             self.service_id = service_id
         if service_name is not None:
@@ -296,6 +311,27 @@ class ItemForListRoutesOutput(object):
         self._match_rule = match_rule
 
     @property
+    def mock_setting(self):
+        """Gets the mock_setting of this ItemForListRoutesOutput.  # noqa: E501
+
+
+        :return: The mock_setting of this ItemForListRoutesOutput.  # noqa: E501
+        :rtype: MockSettingForListRoutesOutput
+        """
+        return self._mock_setting
+
+    @mock_setting.setter
+    def mock_setting(self, mock_setting):
+        """Sets the mock_setting of this ItemForListRoutesOutput.
+
+
+        :param mock_setting: The mock_setting of this ItemForListRoutesOutput.  # noqa: E501
+        :type: MockSettingForListRoutesOutput
+        """
+
+        self._mock_setting = mock_setting
+
+    @property
     def name(self):
         """Gets the name of this ItemForListRoutesOutput.  # noqa: E501
 
@@ -357,6 +393,48 @@ class ItemForListRoutesOutput(object):
         """
 
         self._reason = reason
+
+    @property
+    def redirect_setting(self):
+        """Gets the redirect_setting of this ItemForListRoutesOutput.  # noqa: E501
+
+
+        :return: The redirect_setting of this ItemForListRoutesOutput.  # noqa: E501
+        :rtype: RedirectSettingForListRoutesOutput
+        """
+        return self._redirect_setting
+
+    @redirect_setting.setter
+    def redirect_setting(self, redirect_setting):
+        """Sets the redirect_setting of this ItemForListRoutesOutput.
+
+
+        :param redirect_setting: The redirect_setting of this ItemForListRoutesOutput.  # noqa: E501
+        :type: RedirectSettingForListRoutesOutput
+        """
+
+        self._redirect_setting = redirect_setting
+
+    @property
+    def scene(self):
+        """Gets the scene of this ItemForListRoutesOutput.  # noqa: E501
+
+
+        :return: The scene of this ItemForListRoutesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scene
+
+    @scene.setter
+    def scene(self, scene):
+        """Sets the scene of this ItemForListRoutesOutput.
+
+
+        :param scene: The scene of this ItemForListRoutesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._scene = scene
 
     @property
     def service_id(self):

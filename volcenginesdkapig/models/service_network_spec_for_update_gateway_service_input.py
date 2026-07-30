@@ -35,16 +35,18 @@ class ServiceNetworkSpecForUpdateGatewayServiceInput(object):
     swagger_types = {
         'enable_private_network': 'bool',
         'enable_public_network': 'bool',
-        'private_network_ip': 'list[str]'
+        'private_network_ip': 'list[str]',
+        'public_network_ip': 'list[str]'
     }
 
     attribute_map = {
         'enable_private_network': 'EnablePrivateNetwork',
         'enable_public_network': 'EnablePublicNetwork',
-        'private_network_ip': 'PrivateNetworkIP'
+        'private_network_ip': 'PrivateNetworkIP',
+        'public_network_ip': 'PublicNetworkIP'
     }
 
-    def __init__(self, enable_private_network=None, enable_public_network=None, private_network_ip=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable_private_network=None, enable_public_network=None, private_network_ip=None, public_network_ip=None, _configuration=None):  # noqa: E501
         """ServiceNetworkSpecForUpdateGatewayServiceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ServiceNetworkSpecForUpdateGatewayServiceInput(object):
         self._enable_private_network = None
         self._enable_public_network = None
         self._private_network_ip = None
+        self._public_network_ip = None
         self.discriminator = None
 
         if enable_private_network is not None:
@@ -61,6 +64,8 @@ class ServiceNetworkSpecForUpdateGatewayServiceInput(object):
             self.enable_public_network = enable_public_network
         if private_network_ip is not None:
             self.private_network_ip = private_network_ip
+        if public_network_ip is not None:
+            self.public_network_ip = public_network_ip
 
     @property
     def enable_private_network(self):
@@ -124,6 +129,27 @@ class ServiceNetworkSpecForUpdateGatewayServiceInput(object):
         """
 
         self._private_network_ip = private_network_ip
+
+    @property
+    def public_network_ip(self):
+        """Gets the public_network_ip of this ServiceNetworkSpecForUpdateGatewayServiceInput.  # noqa: E501
+
+
+        :return: The public_network_ip of this ServiceNetworkSpecForUpdateGatewayServiceInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._public_network_ip
+
+    @public_network_ip.setter
+    def public_network_ip(self, public_network_ip):
+        """Sets the public_network_ip of this ServiceNetworkSpecForUpdateGatewayServiceInput.
+
+
+        :param public_network_ip: The public_network_ip of this ServiceNetworkSpecForUpdateGatewayServiceInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._public_network_ip = public_network_ip
 
     def to_dict(self):
         """Returns the model properties as a dict"""
