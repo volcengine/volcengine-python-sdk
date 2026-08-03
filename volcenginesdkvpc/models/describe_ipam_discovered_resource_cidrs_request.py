@@ -36,6 +36,8 @@ class DescribeIpamDiscoveredResourceCidrsRequest(object):
         'ipam_resource_discovery_id': 'str',
         'max_results': 'int',
         'next_token': 'str',
+        'page_number': 'int',
+        'page_size': 'int',
         'resource_region_id': 'str',
         'resource_type': 'str'
     }
@@ -44,11 +46,13 @@ class DescribeIpamDiscoveredResourceCidrsRequest(object):
         'ipam_resource_discovery_id': 'IpamResourceDiscoveryId',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
+        'page_number': 'PageNumber',
+        'page_size': 'PageSize',
         'resource_region_id': 'ResourceRegionId',
         'resource_type': 'ResourceType'
     }
 
-    def __init__(self, ipam_resource_discovery_id=None, max_results=None, next_token=None, resource_region_id=None, resource_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipam_resource_discovery_id=None, max_results=None, next_token=None, page_number=None, page_size=None, resource_region_id=None, resource_type=None, _configuration=None):  # noqa: E501
         """DescribeIpamDiscoveredResourceCidrsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +61,8 @@ class DescribeIpamDiscoveredResourceCidrsRequest(object):
         self._ipam_resource_discovery_id = None
         self._max_results = None
         self._next_token = None
+        self._page_number = None
+        self._page_size = None
         self._resource_region_id = None
         self._resource_type = None
         self.discriminator = None
@@ -66,8 +72,13 @@ class DescribeIpamDiscoveredResourceCidrsRequest(object):
             self.max_results = max_results
         if next_token is not None:
             self.next_token = next_token
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
         self.resource_region_id = resource_region_id
-        self.resource_type = resource_type
+        if resource_type is not None:
+            self.resource_type = resource_type
 
     @property
     def ipam_resource_discovery_id(self):
@@ -135,6 +146,48 @@ class DescribeIpamDiscoveredResourceCidrsRequest(object):
         self._next_token = next_token
 
     @property
+    def page_number(self):
+        """Gets the page_number of this DescribeIpamDiscoveredResourceCidrsRequest.  # noqa: E501
+
+
+        :return: The page_number of this DescribeIpamDiscoveredResourceCidrsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_number
+
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this DescribeIpamDiscoveredResourceCidrsRequest.
+
+
+        :param page_number: The page_number of this DescribeIpamDiscoveredResourceCidrsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_number = page_number
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this DescribeIpamDiscoveredResourceCidrsRequest.  # noqa: E501
+
+
+        :return: The page_size of this DescribeIpamDiscoveredResourceCidrsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this DescribeIpamDiscoveredResourceCidrsRequest.
+
+
+        :param page_size: The page_size of this DescribeIpamDiscoveredResourceCidrsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
+
+    @property
     def resource_region_id(self):
         """Gets the resource_region_id of this DescribeIpamDiscoveredResourceCidrsRequest.  # noqa: E501
 
@@ -175,8 +228,6 @@ class DescribeIpamDiscoveredResourceCidrsRequest(object):
         :param resource_type: The resource_type of this DescribeIpamDiscoveredResourceCidrsRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and resource_type is None:
-            raise ValueError("Invalid value for `resource_type`, must not be `None`")  # noqa: E501
 
         self._resource_type = resource_type
 

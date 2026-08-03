@@ -35,6 +35,7 @@ class DescribeIpamResourceDiscoveriesRequest(object):
     swagger_types = {
         'ipam_resource_discovery_ids': 'list[str]',
         'ipam_resource_discovery_name': 'str',
+        'ipam_resource_discovery_owner_id': 'str',
         'max_results': 'int',
         'next_token': 'str',
         'project_name': 'str',
@@ -45,6 +46,7 @@ class DescribeIpamResourceDiscoveriesRequest(object):
     attribute_map = {
         'ipam_resource_discovery_ids': 'IpamResourceDiscoveryIds',
         'ipam_resource_discovery_name': 'IpamResourceDiscoveryName',
+        'ipam_resource_discovery_owner_id': 'IpamResourceDiscoveryOwnerId',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
         'project_name': 'ProjectName',
@@ -52,7 +54,7 @@ class DescribeIpamResourceDiscoveriesRequest(object):
         'type': 'Type'
     }
 
-    def __init__(self, ipam_resource_discovery_ids=None, ipam_resource_discovery_name=None, max_results=None, next_token=None, project_name=None, tag_filters=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipam_resource_discovery_ids=None, ipam_resource_discovery_name=None, ipam_resource_discovery_owner_id=None, max_results=None, next_token=None, project_name=None, tag_filters=None, type=None, _configuration=None):  # noqa: E501
         """DescribeIpamResourceDiscoveriesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +62,7 @@ class DescribeIpamResourceDiscoveriesRequest(object):
 
         self._ipam_resource_discovery_ids = None
         self._ipam_resource_discovery_name = None
+        self._ipam_resource_discovery_owner_id = None
         self._max_results = None
         self._next_token = None
         self._project_name = None
@@ -71,6 +74,8 @@ class DescribeIpamResourceDiscoveriesRequest(object):
             self.ipam_resource_discovery_ids = ipam_resource_discovery_ids
         if ipam_resource_discovery_name is not None:
             self.ipam_resource_discovery_name = ipam_resource_discovery_name
+        if ipam_resource_discovery_owner_id is not None:
+            self.ipam_resource_discovery_owner_id = ipam_resource_discovery_owner_id
         if max_results is not None:
             self.max_results = max_results
         if next_token is not None:
@@ -123,6 +128,27 @@ class DescribeIpamResourceDiscoveriesRequest(object):
         """
 
         self._ipam_resource_discovery_name = ipam_resource_discovery_name
+
+    @property
+    def ipam_resource_discovery_owner_id(self):
+        """Gets the ipam_resource_discovery_owner_id of this DescribeIpamResourceDiscoveriesRequest.  # noqa: E501
+
+
+        :return: The ipam_resource_discovery_owner_id of this DescribeIpamResourceDiscoveriesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipam_resource_discovery_owner_id
+
+    @ipam_resource_discovery_owner_id.setter
+    def ipam_resource_discovery_owner_id(self, ipam_resource_discovery_owner_id):
+        """Sets the ipam_resource_discovery_owner_id of this DescribeIpamResourceDiscoveriesRequest.
+
+
+        :param ipam_resource_discovery_owner_id: The ipam_resource_discovery_owner_id of this DescribeIpamResourceDiscoveriesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipam_resource_discovery_owner_id = ipam_resource_discovery_owner_id
 
     @property
     def max_results(self):

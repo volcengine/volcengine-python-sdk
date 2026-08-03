@@ -41,6 +41,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'creation_time': 'str',
         'delete_time': 'str',
         'isp': 'str',
+        'independent_limited': 'bool',
         'instance_id': 'str',
         'instance_type': 'str',
         'ipv6_address': 'str',
@@ -50,6 +51,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'overdue_time': 'str',
         'project_name': 'str',
         'request_id': 'str',
+        'reservation_bandwidth': 'int',
         'service_managed': 'bool',
         'specific_egress': 'str',
         'status': 'str',
@@ -66,6 +68,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'creation_time': 'CreationTime',
         'delete_time': 'DeleteTime',
         'isp': 'ISP',
+        'independent_limited': 'IndependentLimited',
         'instance_id': 'InstanceId',
         'instance_type': 'InstanceType',
         'ipv6_address': 'Ipv6Address',
@@ -75,6 +78,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
+        'reservation_bandwidth': 'ReservationBandwidth',
         'service_managed': 'ServiceManaged',
         'specific_egress': 'SpecificEgress',
         'status': 'Status',
@@ -82,7 +86,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, delete_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, request_id=None, service_managed=None, specific_egress=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, delete_time=None, isp=None, independent_limited=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, request_id=None, reservation_bandwidth=None, service_managed=None, specific_egress=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeIpv6AddressBandwidthAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +100,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         self._creation_time = None
         self._delete_time = None
         self._isp = None
+        self._independent_limited = None
         self._instance_id = None
         self._instance_type = None
         self._ipv6_address = None
@@ -105,6 +110,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         self._overdue_time = None
         self._project_name = None
         self._request_id = None
+        self._reservation_bandwidth = None
         self._service_managed = None
         self._specific_egress = None
         self._status = None
@@ -128,6 +134,8 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
             self.delete_time = delete_time
         if isp is not None:
             self.isp = isp
+        if independent_limited is not None:
+            self.independent_limited = independent_limited
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_type is not None:
@@ -146,6 +154,8 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
             self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
+        if reservation_bandwidth is not None:
+            self.reservation_bandwidth = reservation_bandwidth
         if service_managed is not None:
             self.service_managed = service_managed
         if specific_egress is not None:
@@ -324,6 +334,27 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         """
 
         self._isp = isp
+
+    @property
+    def independent_limited(self):
+        """Gets the independent_limited of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+
+
+        :return: The independent_limited of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._independent_limited
+
+    @independent_limited.setter
+    def independent_limited(self, independent_limited):
+        """Sets the independent_limited of this DescribeIpv6AddressBandwidthAttributesResponse.
+
+
+        :param independent_limited: The independent_limited of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._independent_limited = independent_limited
 
     @property
     def instance_id(self):
@@ -513,6 +544,27 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         """
 
         self._request_id = request_id
+
+    @property
+    def reservation_bandwidth(self):
+        """Gets the reservation_bandwidth of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+
+
+        :return: The reservation_bandwidth of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._reservation_bandwidth
+
+    @reservation_bandwidth.setter
+    def reservation_bandwidth(self, reservation_bandwidth):
+        """Sets the reservation_bandwidth of this DescribeIpv6AddressBandwidthAttributesResponse.
+
+
+        :param reservation_bandwidth: The reservation_bandwidth of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._reservation_bandwidth = reservation_bandwidth
 
     @property
     def service_managed(self):

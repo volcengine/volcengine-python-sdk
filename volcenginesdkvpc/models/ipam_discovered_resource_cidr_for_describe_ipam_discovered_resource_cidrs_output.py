@@ -33,80 +33,69 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput(obj
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cidr_block': 'str',
         'discovery_time': 'str',
         'ip_usage': 'str',
         'ipam_resource_discovery_id': 'str',
+        'resource_cidr': 'str',
         'resource_id': 'str',
+        'resource_name': 'str',
+        'resource_owner_id': 'str',
         'resource_region_id': 'str',
         'resource_type': 'str',
         'vpc_id': 'str'
     }
 
     attribute_map = {
-        'cidr_block': 'CidrBlock',
         'discovery_time': 'DiscoveryTime',
         'ip_usage': 'IpUsage',
         'ipam_resource_discovery_id': 'IpamResourceDiscoveryId',
+        'resource_cidr': 'ResourceCidr',
         'resource_id': 'ResourceId',
+        'resource_name': 'ResourceName',
+        'resource_owner_id': 'ResourceOwnerId',
         'resource_region_id': 'ResourceRegionId',
         'resource_type': 'ResourceType',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, cidr_block=None, discovery_time=None, ip_usage=None, ipam_resource_discovery_id=None, resource_id=None, resource_region_id=None, resource_type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, discovery_time=None, ip_usage=None, ipam_resource_discovery_id=None, resource_cidr=None, resource_id=None, resource_name=None, resource_owner_id=None, resource_region_id=None, resource_type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cidr_block = None
         self._discovery_time = None
         self._ip_usage = None
         self._ipam_resource_discovery_id = None
+        self._resource_cidr = None
         self._resource_id = None
+        self._resource_name = None
+        self._resource_owner_id = None
         self._resource_region_id = None
         self._resource_type = None
         self._vpc_id = None
         self.discriminator = None
 
-        if cidr_block is not None:
-            self.cidr_block = cidr_block
         if discovery_time is not None:
             self.discovery_time = discovery_time
         if ip_usage is not None:
             self.ip_usage = ip_usage
         if ipam_resource_discovery_id is not None:
             self.ipam_resource_discovery_id = ipam_resource_discovery_id
+        if resource_cidr is not None:
+            self.resource_cidr = resource_cidr
         if resource_id is not None:
             self.resource_id = resource_id
+        if resource_name is not None:
+            self.resource_name = resource_name
+        if resource_owner_id is not None:
+            self.resource_owner_id = resource_owner_id
         if resource_region_id is not None:
             self.resource_region_id = resource_region_id
         if resource_type is not None:
             self.resource_type = resource_type
         if vpc_id is not None:
             self.vpc_id = vpc_id
-
-    @property
-    def cidr_block(self):
-        """Gets the cidr_block of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
-
-
-        :return: The cidr_block of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cidr_block
-
-    @cidr_block.setter
-    def cidr_block(self, cidr_block):
-        """Sets the cidr_block of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.
-
-
-        :param cidr_block: The cidr_block of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cidr_block = cidr_block
 
     @property
     def discovery_time(self):
@@ -172,6 +161,27 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput(obj
         self._ipam_resource_discovery_id = ipam_resource_discovery_id
 
     @property
+    def resource_cidr(self):
+        """Gets the resource_cidr of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
+
+
+        :return: The resource_cidr of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_cidr
+
+    @resource_cidr.setter
+    def resource_cidr(self, resource_cidr):
+        """Sets the resource_cidr of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.
+
+
+        :param resource_cidr: The resource_cidr of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_cidr = resource_cidr
+
+    @property
     def resource_id(self):
         """Gets the resource_id of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
 
@@ -191,6 +201,48 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput(obj
         """
 
         self._resource_id = resource_id
+
+    @property
+    def resource_name(self):
+        """Gets the resource_name of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
+
+
+        :return: The resource_name of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_name
+
+    @resource_name.setter
+    def resource_name(self, resource_name):
+        """Sets the resource_name of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.
+
+
+        :param resource_name: The resource_name of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_name = resource_name
+
+    @property
+    def resource_owner_id(self):
+        """Gets the resource_owner_id of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
+
+
+        :return: The resource_owner_id of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_owner_id
+
+    @resource_owner_id.setter
+    def resource_owner_id(self, resource_owner_id):
+        """Sets the resource_owner_id of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.
+
+
+        :param resource_owner_id: The resource_owner_id of this IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_owner_id = resource_owner_id
 
     @property
     def resource_region_id(self):

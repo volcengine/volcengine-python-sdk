@@ -33,6 +33,7 @@ class AssociateVpcCidrBlockRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ipv4_ipam_pool_id': 'str',
         'ipv6_cidr_block': 'str',
         'ipv6_isp': 'str',
         'ipv6_mask_len': 'int',
@@ -41,6 +42,7 @@ class AssociateVpcCidrBlockRequest(object):
     }
 
     attribute_map = {
+        'ipv4_ipam_pool_id': 'Ipv4IpamPoolId',
         'ipv6_cidr_block': 'Ipv6CidrBlock',
         'ipv6_isp': 'Ipv6Isp',
         'ipv6_mask_len': 'Ipv6MaskLen',
@@ -48,12 +50,13 @@ class AssociateVpcCidrBlockRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, ipv6_cidr_block=None, ipv6_isp=None, ipv6_mask_len=None, secondary_cidr_block=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv4_ipam_pool_id=None, ipv6_cidr_block=None, ipv6_isp=None, ipv6_mask_len=None, secondary_cidr_block=None, vpc_id=None, _configuration=None):  # noqa: E501
         """AssociateVpcCidrBlockRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ipv4_ipam_pool_id = None
         self._ipv6_cidr_block = None
         self._ipv6_isp = None
         self._ipv6_mask_len = None
@@ -61,6 +64,8 @@ class AssociateVpcCidrBlockRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if ipv4_ipam_pool_id is not None:
+            self.ipv4_ipam_pool_id = ipv4_ipam_pool_id
         if ipv6_cidr_block is not None:
             self.ipv6_cidr_block = ipv6_cidr_block
         if ipv6_isp is not None:
@@ -70,6 +75,27 @@ class AssociateVpcCidrBlockRequest(object):
         if secondary_cidr_block is not None:
             self.secondary_cidr_block = secondary_cidr_block
         self.vpc_id = vpc_id
+
+    @property
+    def ipv4_ipam_pool_id(self):
+        """Gets the ipv4_ipam_pool_id of this AssociateVpcCidrBlockRequest.  # noqa: E501
+
+
+        :return: The ipv4_ipam_pool_id of this AssociateVpcCidrBlockRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv4_ipam_pool_id
+
+    @ipv4_ipam_pool_id.setter
+    def ipv4_ipam_pool_id(self, ipv4_ipam_pool_id):
+        """Sets the ipv4_ipam_pool_id of this AssociateVpcCidrBlockRequest.
+
+
+        :param ipv4_ipam_pool_id: The ipv4_ipam_pool_id of this AssociateVpcCidrBlockRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv4_ipam_pool_id = ipv4_ipam_pool_id
 
     @property
     def ipv6_cidr_block(self):

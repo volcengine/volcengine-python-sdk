@@ -35,16 +35,20 @@ class CreateIpamRequest(object):
     swagger_types = {
         'description': 'str',
         'ipam_name': 'str',
-        'operating_regions': 'list[str]'
+        'operating_regions': 'list[str]',
+        'project_name': 'str',
+        'tags': 'list[TagForCreateIpamInput]'
     }
 
     attribute_map = {
         'description': 'Description',
         'ipam_name': 'IpamName',
-        'operating_regions': 'OperatingRegions'
+        'operating_regions': 'OperatingRegions',
+        'project_name': 'ProjectName',
+        'tags': 'Tags'
     }
 
-    def __init__(self, description=None, ipam_name=None, operating_regions=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, ipam_name=None, operating_regions=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateIpamRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +57,8 @@ class CreateIpamRequest(object):
         self._description = None
         self._ipam_name = None
         self._operating_regions = None
+        self._project_name = None
+        self._tags = None
         self.discriminator = None
 
         if description is not None:
@@ -61,6 +67,10 @@ class CreateIpamRequest(object):
             self.ipam_name = ipam_name
         if operating_regions is not None:
             self.operating_regions = operating_regions
+        if project_name is not None:
+            self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
 
     @property
     def description(self):
@@ -136,6 +146,48 @@ class CreateIpamRequest(object):
         """
 
         self._operating_regions = operating_regions
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateIpamRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateIpamRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateIpamRequest.
+
+
+        :param project_name: The project_name of this CreateIpamRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateIpamRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateIpamRequest.  # noqa: E501
+        :rtype: list[TagForCreateIpamInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateIpamRequest.
+
+
+        :param tags: The tags of this CreateIpamRequest.  # noqa: E501
+        :type: list[TagForCreateIpamInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,6 +36,7 @@ class DescribeIpamPoolsRequest(object):
         'ip_version': 'str',
         'ipam_pool_ids': 'list[str]',
         'ipam_pool_name': 'str',
+        'ipam_pool_owner_id': 'str',
         'ipam_scope_id': 'str',
         'max_results': 'int',
         'next_token': 'str',
@@ -49,6 +50,7 @@ class DescribeIpamPoolsRequest(object):
         'ip_version': 'IpVersion',
         'ipam_pool_ids': 'IpamPoolIds',
         'ipam_pool_name': 'IpamPoolName',
+        'ipam_pool_owner_id': 'IpamPoolOwnerId',
         'ipam_scope_id': 'IpamScopeId',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
@@ -58,7 +60,7 @@ class DescribeIpamPoolsRequest(object):
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, ip_version=None, ipam_pool_ids=None, ipam_pool_name=None, ipam_scope_id=None, max_results=None, next_token=None, pool_region_id=None, project_name=None, source_ipam_pool_id=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip_version=None, ipam_pool_ids=None, ipam_pool_name=None, ipam_pool_owner_id=None, ipam_scope_id=None, max_results=None, next_token=None, pool_region_id=None, project_name=None, source_ipam_pool_id=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeIpamPoolsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class DescribeIpamPoolsRequest(object):
         self._ip_version = None
         self._ipam_pool_ids = None
         self._ipam_pool_name = None
+        self._ipam_pool_owner_id = None
         self._ipam_scope_id = None
         self._max_results = None
         self._next_token = None
@@ -82,6 +85,8 @@ class DescribeIpamPoolsRequest(object):
             self.ipam_pool_ids = ipam_pool_ids
         if ipam_pool_name is not None:
             self.ipam_pool_name = ipam_pool_name
+        if ipam_pool_owner_id is not None:
+            self.ipam_pool_owner_id = ipam_pool_owner_id
         if ipam_scope_id is not None:
             self.ipam_scope_id = ipam_scope_id
         if max_results is not None:
@@ -159,6 +164,27 @@ class DescribeIpamPoolsRequest(object):
         """
 
         self._ipam_pool_name = ipam_pool_name
+
+    @property
+    def ipam_pool_owner_id(self):
+        """Gets the ipam_pool_owner_id of this DescribeIpamPoolsRequest.  # noqa: E501
+
+
+        :return: The ipam_pool_owner_id of this DescribeIpamPoolsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipam_pool_owner_id
+
+    @ipam_pool_owner_id.setter
+    def ipam_pool_owner_id(self, ipam_pool_owner_id):
+        """Sets the ipam_pool_owner_id of this DescribeIpamPoolsRequest.
+
+
+        :param ipam_pool_owner_id: The ipam_pool_owner_id of this DescribeIpamPoolsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipam_pool_owner_id = ipam_pool_owner_id
 
     @property
     def ipam_scope_id(self):
