@@ -455,7 +455,7 @@ default_endpoint = {
     ),
     'acep': ServiceEndpointInfo(
         service='acep',
-        is_global=True,
+        is_global=False,
         global_endpoint='',
         region_endpoint_map={},
     ),
