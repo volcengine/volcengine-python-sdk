@@ -37,7 +37,8 @@ class CreatePolicyRequest(object):
         'description': 'str',
         'namespace_name': 'str',
         'policy': 'str',
-        'policy_name': 'str'
+        'policy_name': 'str',
+        'status': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class CreatePolicyRequest(object):
         'description': 'Description',
         'namespace_name': 'NamespaceName',
         'policy': 'Policy',
-        'policy_name': 'PolicyName'
+        'policy_name': 'PolicyName',
+        'status': 'Status'
     }
 
-    def __init__(self, definition=None, description=None, namespace_name=None, policy=None, policy_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, definition=None, description=None, namespace_name=None, policy=None, policy_name=None, status=None, _configuration=None):  # noqa: E501
         """CreatePolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CreatePolicyRequest(object):
         self._namespace_name = None
         self._policy = None
         self._policy_name = None
+        self._status = None
         self.discriminator = None
 
         if definition is not None:
@@ -71,6 +74,8 @@ class CreatePolicyRequest(object):
             self.policy = policy
         if policy_name is not None:
             self.policy_name = policy_name
+        if status is not None:
+            self.status = status
 
     @property
     def definition(self):
@@ -176,6 +181,27 @@ class CreatePolicyRequest(object):
         """
 
         self._policy_name = policy_name
+
+    @property
+    def status(self):
+        """Gets the status of this CreatePolicyRequest.  # noqa: E501
+
+
+        :return: The status of this CreatePolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this CreatePolicyRequest.
+
+
+        :param status: The status of this CreatePolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

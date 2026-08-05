@@ -33,24 +33,34 @@ class GetIdentityProviderFeishuScopesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'scopes': 'list[str]'
+        'scopes': 'list[str]',
+        'tenant_scopes': 'list[str]',
+        'user_scopes': 'list[str]'
     }
 
     attribute_map = {
-        'scopes': 'Scopes'
+        'scopes': 'Scopes',
+        'tenant_scopes': 'TenantScopes',
+        'user_scopes': 'UserScopes'
     }
 
-    def __init__(self, scopes=None, _configuration=None):  # noqa: E501
+    def __init__(self, scopes=None, tenant_scopes=None, user_scopes=None, _configuration=None):  # noqa: E501
         """GetIdentityProviderFeishuScopesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._scopes = None
+        self._tenant_scopes = None
+        self._user_scopes = None
         self.discriminator = None
 
         if scopes is not None:
             self.scopes = scopes
+        if tenant_scopes is not None:
+            self.tenant_scopes = tenant_scopes
+        if user_scopes is not None:
+            self.user_scopes = user_scopes
 
     @property
     def scopes(self):
@@ -72,6 +82,48 @@ class GetIdentityProviderFeishuScopesResponse(object):
         """
 
         self._scopes = scopes
+
+    @property
+    def tenant_scopes(self):
+        """Gets the tenant_scopes of this GetIdentityProviderFeishuScopesResponse.  # noqa: E501
+
+
+        :return: The tenant_scopes of this GetIdentityProviderFeishuScopesResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tenant_scopes
+
+    @tenant_scopes.setter
+    def tenant_scopes(self, tenant_scopes):
+        """Sets the tenant_scopes of this GetIdentityProviderFeishuScopesResponse.
+
+
+        :param tenant_scopes: The tenant_scopes of this GetIdentityProviderFeishuScopesResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tenant_scopes = tenant_scopes
+
+    @property
+    def user_scopes(self):
+        """Gets the user_scopes of this GetIdentityProviderFeishuScopesResponse.  # noqa: E501
+
+
+        :return: The user_scopes of this GetIdentityProviderFeishuScopesResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._user_scopes
+
+    @user_scopes.setter
+    def user_scopes(self, user_scopes):
+        """Sets the user_scopes of this GetIdentityProviderFeishuScopesResponse.
+
+
+        :param user_scopes: The user_scopes of this GetIdentityProviderFeishuScopesResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._user_scopes = user_scopes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

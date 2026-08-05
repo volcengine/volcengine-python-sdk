@@ -38,7 +38,8 @@ class ListUserPoolsRequest(object):
         'page_size': 'int',
         'project_name': 'str',
         'sort_direction': 'str',
-        'sort_field': 'str'
+        'sort_field': 'str',
+        'tag_filters': 'list[TagFilterForListUserPoolsInput]'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class ListUserPoolsRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'sort_direction': 'SortDirection',
-        'sort_field': 'SortField'
+        'sort_field': 'SortField',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, filter=None, page_number=None, page_size=None, project_name=None, sort_direction=None, sort_field=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, page_number=None, page_size=None, project_name=None, sort_direction=None, sort_field=None, tag_filters=None, _configuration=None):  # noqa: E501
         """ListUserPoolsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class ListUserPoolsRequest(object):
         self._project_name = None
         self._sort_direction = None
         self._sort_field = None
+        self._tag_filters = None
         self.discriminator = None
 
         if filter is not None:
@@ -74,6 +77,8 @@ class ListUserPoolsRequest(object):
             self.sort_direction = sort_direction
         if sort_field is not None:
             self.sort_field = sort_field
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def filter(self):
@@ -207,6 +212,27 @@ class ListUserPoolsRequest(object):
         """
 
         self._sort_field = sort_field
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this ListUserPoolsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this ListUserPoolsRequest.  # noqa: E501
+        :rtype: list[TagFilterForListUserPoolsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this ListUserPoolsRequest.
+
+
+        :param tag_filters: The tag_filters of this ListUserPoolsRequest.  # noqa: E501
+        :type: list[TagFilterForListUserPoolsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

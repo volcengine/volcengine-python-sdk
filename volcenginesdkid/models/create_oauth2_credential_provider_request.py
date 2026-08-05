@@ -37,6 +37,7 @@ class CreateOauth2CredentialProviderRequest(object):
         'name': 'str',
         'pool_name': 'str',
         'project_name': 'str',
+        'source': 'str',
         'vendor': 'int'
     }
 
@@ -45,10 +46,11 @@ class CreateOauth2CredentialProviderRequest(object):
         'name': 'Name',
         'pool_name': 'PoolName',
         'project_name': 'ProjectName',
+        'source': 'Source',
         'vendor': 'Vendor'
     }
 
-    def __init__(self, config=None, name=None, pool_name=None, project_name=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, config=None, name=None, pool_name=None, project_name=None, source=None, vendor=None, _configuration=None):  # noqa: E501
         """CreateOauth2CredentialProviderRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class CreateOauth2CredentialProviderRequest(object):
         self._name = None
         self._pool_name = None
         self._project_name = None
+        self._source = None
         self._vendor = None
         self.discriminator = None
 
@@ -68,6 +71,8 @@ class CreateOauth2CredentialProviderRequest(object):
             self.pool_name = pool_name
         if project_name is not None:
             self.project_name = project_name
+        if source is not None:
+            self.source = source
         self.vendor = vendor
 
     @property
@@ -155,6 +160,27 @@ class CreateOauth2CredentialProviderRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def source(self):
+        """Gets the source of this CreateOauth2CredentialProviderRequest.  # noqa: E501
+
+
+        :return: The source of this CreateOauth2CredentialProviderRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this CreateOauth2CredentialProviderRequest.
+
+
+        :param source: The source of this CreateOauth2CredentialProviderRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
 
     @property
     def vendor(self):

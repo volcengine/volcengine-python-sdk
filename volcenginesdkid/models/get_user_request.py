@@ -33,27 +33,53 @@ class GetUserRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'response_value_mask': 'ResponseValueMaskForGetUserInput',
         'user_pool_uid': 'str',
         'user_uid': 'str'
     }
 
     attribute_map = {
+        'response_value_mask': 'ResponseValueMask',
         'user_pool_uid': 'UserPoolUid',
         'user_uid': 'UserUid'
     }
 
-    def __init__(self, user_pool_uid=None, user_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, response_value_mask=None, user_pool_uid=None, user_uid=None, _configuration=None):  # noqa: E501
         """GetUserRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._response_value_mask = None
         self._user_pool_uid = None
         self._user_uid = None
         self.discriminator = None
 
+        if response_value_mask is not None:
+            self.response_value_mask = response_value_mask
         self.user_pool_uid = user_pool_uid
         self.user_uid = user_uid
+
+    @property
+    def response_value_mask(self):
+        """Gets the response_value_mask of this GetUserRequest.  # noqa: E501
+
+
+        :return: The response_value_mask of this GetUserRequest.  # noqa: E501
+        :rtype: ResponseValueMaskForGetUserInput
+        """
+        return self._response_value_mask
+
+    @response_value_mask.setter
+    def response_value_mask(self, response_value_mask):
+        """Sets the response_value_mask of this GetUserRequest.
+
+
+        :param response_value_mask: The response_value_mask of this GetUserRequest.  # noqa: E501
+        :type: ResponseValueMaskForGetUserInput
+        """
+
+        self._response_value_mask = response_value_mask
 
     @property
     def user_pool_uid(self):

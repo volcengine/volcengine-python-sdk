@@ -71,6 +71,9 @@ class GetSmsServiceRequest(object):
         """
         if self._configuration.client_side_validation and user_pool_uid is None:
             raise ValueError("Invalid value for `user_pool_uid`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                user_pool_uid is not None and len(user_pool_uid) < 1):
+            raise ValueError("Invalid value for `user_pool_uid`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._user_pool_uid = user_pool_uid
 

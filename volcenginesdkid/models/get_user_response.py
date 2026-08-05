@@ -36,6 +36,7 @@ class GetUserResponse(object):
         'birthdate': 'str',
         'connection': 'str',
         'create_time': 'str',
+        'custom_attributes': 'list[CustomAttributeForGetUserOutput]',
         'department_uids': 'list[str]',
         'email': 'str',
         'email_verified': 'bool',
@@ -46,6 +47,9 @@ class GetUserResponse(object):
         'group_uids': 'list[str]',
         'latest_browser': 'str',
         'latest_login': 'str',
+        'latest_login_connection_name': 'str',
+        'latest_login_connection_provider': 'str',
+        'latest_login_connection_type': 'str',
         'latest_login_method': 'str',
         'locale': 'str',
         'middle_name': 'str',
@@ -70,6 +74,7 @@ class GetUserResponse(object):
         'birthdate': 'Birthdate',
         'connection': 'Connection',
         'create_time': 'CreateTime',
+        'custom_attributes': 'CustomAttributes',
         'department_uids': 'DepartmentUids',
         'email': 'Email',
         'email_verified': 'EmailVerified',
@@ -80,6 +85,9 @@ class GetUserResponse(object):
         'group_uids': 'GroupUids',
         'latest_browser': 'LatestBrowser',
         'latest_login': 'LatestLogin',
+        'latest_login_connection_name': 'LatestLoginConnectionName',
+        'latest_login_connection_provider': 'LatestLoginConnectionProvider',
+        'latest_login_connection_type': 'LatestLoginConnectionType',
         'latest_login_method': 'LatestLoginMethod',
         'locale': 'Locale',
         'middle_name': 'MiddleName',
@@ -100,7 +108,7 @@ class GetUserResponse(object):
         'zoneinfo': 'Zoneinfo'
     }
 
-    def __init__(self, birthdate=None, connection=None, create_time=None, department_uids=None, email=None, email_verified=None, external_identities=None, family_name=None, gender=None, given_name=None, group_uids=None, latest_browser=None, latest_login=None, latest_login_method=None, locale=None, middle_name=None, name=None, nickname=None, num_logins=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, sub=None, uid=None, update_time=None, user_metadata=None, user_state=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
+    def __init__(self, birthdate=None, connection=None, create_time=None, custom_attributes=None, department_uids=None, email=None, email_verified=None, external_identities=None, family_name=None, gender=None, given_name=None, group_uids=None, latest_browser=None, latest_login=None, latest_login_connection_name=None, latest_login_connection_provider=None, latest_login_connection_type=None, latest_login_method=None, locale=None, middle_name=None, name=None, nickname=None, num_logins=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, sub=None, uid=None, update_time=None, user_metadata=None, user_state=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
         """GetUserResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -109,6 +117,7 @@ class GetUserResponse(object):
         self._birthdate = None
         self._connection = None
         self._create_time = None
+        self._custom_attributes = None
         self._department_uids = None
         self._email = None
         self._email_verified = None
@@ -119,6 +128,9 @@ class GetUserResponse(object):
         self._group_uids = None
         self._latest_browser = None
         self._latest_login = None
+        self._latest_login_connection_name = None
+        self._latest_login_connection_provider = None
+        self._latest_login_connection_type = None
         self._latest_login_method = None
         self._locale = None
         self._middle_name = None
@@ -145,6 +157,8 @@ class GetUserResponse(object):
             self.connection = connection
         if create_time is not None:
             self.create_time = create_time
+        if custom_attributes is not None:
+            self.custom_attributes = custom_attributes
         if department_uids is not None:
             self.department_uids = department_uids
         if email is not None:
@@ -165,6 +179,12 @@ class GetUserResponse(object):
             self.latest_browser = latest_browser
         if latest_login is not None:
             self.latest_login = latest_login
+        if latest_login_connection_name is not None:
+            self.latest_login_connection_name = latest_login_connection_name
+        if latest_login_connection_provider is not None:
+            self.latest_login_connection_provider = latest_login_connection_provider
+        if latest_login_connection_type is not None:
+            self.latest_login_connection_type = latest_login_connection_type
         if latest_login_method is not None:
             self.latest_login_method = latest_login_method
         if locale is not None:
@@ -264,6 +284,27 @@ class GetUserResponse(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def custom_attributes(self):
+        """Gets the custom_attributes of this GetUserResponse.  # noqa: E501
+
+
+        :return: The custom_attributes of this GetUserResponse.  # noqa: E501
+        :rtype: list[CustomAttributeForGetUserOutput]
+        """
+        return self._custom_attributes
+
+    @custom_attributes.setter
+    def custom_attributes(self, custom_attributes):
+        """Sets the custom_attributes of this GetUserResponse.
+
+
+        :param custom_attributes: The custom_attributes of this GetUserResponse.  # noqa: E501
+        :type: list[CustomAttributeForGetUserOutput]
+        """
+
+        self._custom_attributes = custom_attributes
 
     @property
     def department_uids(self):
@@ -474,6 +515,69 @@ class GetUserResponse(object):
         """
 
         self._latest_login = latest_login
+
+    @property
+    def latest_login_connection_name(self):
+        """Gets the latest_login_connection_name of this GetUserResponse.  # noqa: E501
+
+
+        :return: The latest_login_connection_name of this GetUserResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._latest_login_connection_name
+
+    @latest_login_connection_name.setter
+    def latest_login_connection_name(self, latest_login_connection_name):
+        """Sets the latest_login_connection_name of this GetUserResponse.
+
+
+        :param latest_login_connection_name: The latest_login_connection_name of this GetUserResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._latest_login_connection_name = latest_login_connection_name
+
+    @property
+    def latest_login_connection_provider(self):
+        """Gets the latest_login_connection_provider of this GetUserResponse.  # noqa: E501
+
+
+        :return: The latest_login_connection_provider of this GetUserResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._latest_login_connection_provider
+
+    @latest_login_connection_provider.setter
+    def latest_login_connection_provider(self, latest_login_connection_provider):
+        """Sets the latest_login_connection_provider of this GetUserResponse.
+
+
+        :param latest_login_connection_provider: The latest_login_connection_provider of this GetUserResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._latest_login_connection_provider = latest_login_connection_provider
+
+    @property
+    def latest_login_connection_type(self):
+        """Gets the latest_login_connection_type of this GetUserResponse.  # noqa: E501
+
+
+        :return: The latest_login_connection_type of this GetUserResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._latest_login_connection_type
+
+    @latest_login_connection_type.setter
+    def latest_login_connection_type(self, latest_login_connection_type):
+        """Sets the latest_login_connection_type of this GetUserResponse.
+
+
+        :param latest_login_connection_type: The latest_login_connection_type of this GetUserResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._latest_login_connection_type = latest_login_connection_type
 
     @property
     def latest_login_method(self):

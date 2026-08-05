@@ -182,6 +182,7 @@ ServiceInfos = {
     "cloudcontrol": ServiceInfo("cloudcontrol", False),
     "vikingdb": ServiceInfo("vikingdb", False),
     "volcsms": ServiceInfo("volcsms", True),
+    "id": ServiceInfo("id", False),
 }
 
 

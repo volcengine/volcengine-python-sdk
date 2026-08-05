@@ -33,66 +33,84 @@ class CreateIdentityProviderOIDCRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attribute_mappings': 'list[AttributeMappingForCreateIdentityProviderOIDCInput]',
         'claims_propagation_config': 'ClaimsPropagationConfigForCreateIdentityProviderOIDCInput',
         'client_id': 'str',
         'client_secret': 'str',
+        'eip_id': 'str',
         'enabled': 'bool',
         'is_id_token_mapping': 'bool',
         'issuer': 'str',
         'name': 'str',
+        'passvault_oauth2_credential_provider_options': 'PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput',
         'provider': 'str',
         'provider_options': 'ProviderOptionsForCreateIdentityProviderOIDCInput',
         'scim_provisioning': 'ScimProvisioningForCreateIdentityProviderOIDCInput',
         'scopes_list': 'list[str]',
+        'sole_provider_connection': 'bool',
         'use_pkce': 'bool',
         'user_pool_uid': 'str'
     }
 
     attribute_map = {
+        'attribute_mappings': 'AttributeMappings',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
+        'eip_id': 'EipId',
         'enabled': 'Enabled',
         'is_id_token_mapping': 'IsIdTokenMapping',
         'issuer': 'Issuer',
         'name': 'Name',
+        'passvault_oauth2_credential_provider_options': 'PassvaultOauth2CredentialProviderOptions',
         'provider': 'Provider',
         'provider_options': 'ProviderOptions',
         'scim_provisioning': 'ScimProvisioning',
         'scopes_list': 'ScopesList',
+        'sole_provider_connection': 'SoleProviderConnection',
         'use_pkce': 'UsePkce',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scim_provisioning=None, scopes_list=None, use_pkce=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mappings=None, claims_propagation_config=None, client_id=None, client_secret=None, eip_id=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, passvault_oauth2_credential_provider_options=None, provider=None, provider_options=None, scim_provisioning=None, scopes_list=None, sole_provider_connection=None, use_pkce=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderOIDCRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attribute_mappings = None
         self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
+        self._eip_id = None
         self._enabled = None
         self._is_id_token_mapping = None
         self._issuer = None
         self._name = None
+        self._passvault_oauth2_credential_provider_options = None
         self._provider = None
         self._provider_options = None
         self._scim_provisioning = None
         self._scopes_list = None
+        self._sole_provider_connection = None
         self._use_pkce = None
         self._user_pool_uid = None
         self.discriminator = None
 
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         if claims_propagation_config is not None:
             self.claims_propagation_config = claims_propagation_config
         self.client_id = client_id
         self.client_secret = client_secret
+        if eip_id is not None:
+            self.eip_id = eip_id
         self.enabled = enabled
         self.is_id_token_mapping = is_id_token_mapping
         self.issuer = issuer
         self.name = name
+        if passvault_oauth2_credential_provider_options is not None:
+            self.passvault_oauth2_credential_provider_options = passvault_oauth2_credential_provider_options
         if provider is not None:
             self.provider = provider
         if provider_options is not None:
@@ -101,8 +119,31 @@ class CreateIdentityProviderOIDCRequest(object):
             self.scim_provisioning = scim_provisioning
         if scopes_list is not None:
             self.scopes_list = scopes_list
+        if sole_provider_connection is not None:
+            self.sole_provider_connection = sole_provider_connection
         self.use_pkce = use_pkce
         self.user_pool_uid = user_pool_uid
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+
+
+        :return: The attribute_mappings of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :rtype: list[AttributeMappingForCreateIdentityProviderOIDCInput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this CreateIdentityProviderOIDCRequest.
+
+
+        :param attribute_mappings: The attribute_mappings of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :type: list[AttributeMappingForCreateIdentityProviderOIDCInput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def claims_propagation_config(self):
@@ -170,6 +211,27 @@ class CreateIdentityProviderOIDCRequest(object):
             raise ValueError("Invalid value for `client_secret`, must not be `None`")  # noqa: E501
 
         self._client_secret = client_secret
+
+    @property
+    def eip_id(self):
+        """Gets the eip_id of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+
+
+        :return: The eip_id of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this CreateIdentityProviderOIDCRequest.
+
+
+        :param eip_id: The eip_id of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
 
     @property
     def enabled(self):
@@ -264,6 +326,27 @@ class CreateIdentityProviderOIDCRequest(object):
         self._name = name
 
     @property
+    def passvault_oauth2_credential_provider_options(self):
+        """Gets the passvault_oauth2_credential_provider_options of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+
+
+        :return: The passvault_oauth2_credential_provider_options of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :rtype: PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput
+        """
+        return self._passvault_oauth2_credential_provider_options
+
+    @passvault_oauth2_credential_provider_options.setter
+    def passvault_oauth2_credential_provider_options(self, passvault_oauth2_credential_provider_options):
+        """Sets the passvault_oauth2_credential_provider_options of this CreateIdentityProviderOIDCRequest.
+
+
+        :param passvault_oauth2_credential_provider_options: The passvault_oauth2_credential_provider_options of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :type: PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput
+        """
+
+        self._passvault_oauth2_credential_provider_options = passvault_oauth2_credential_provider_options
+
+    @property
     def provider(self):
         """Gets the provider of this CreateIdentityProviderOIDCRequest.  # noqa: E501
 
@@ -346,6 +429,27 @@ class CreateIdentityProviderOIDCRequest(object):
         """
 
         self._scopes_list = scopes_list
+
+    @property
+    def sole_provider_connection(self):
+        """Gets the sole_provider_connection of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+
+
+        :return: The sole_provider_connection of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sole_provider_connection
+
+    @sole_provider_connection.setter
+    def sole_provider_connection(self, sole_provider_connection):
+        """Sets the sole_provider_connection of this CreateIdentityProviderOIDCRequest.
+
+
+        :param sole_provider_connection: The sole_provider_connection of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sole_provider_connection = sole_provider_connection
 
     @property
     def use_pkce(self):

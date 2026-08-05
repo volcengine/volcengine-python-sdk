@@ -34,6 +34,8 @@ class ListDepartmentsRequest(object):
     """
     swagger_types = {
         'filter': 'FilterForListDepartmentsInput',
+        'max_results': 'int',
+        'next_token': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'parent_department_uid': 'str',
@@ -44,6 +46,8 @@ class ListDepartmentsRequest(object):
 
     attribute_map = {
         'filter': 'Filter',
+        'max_results': 'MaxResults',
+        'next_token': 'NextToken',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'parent_department_uid': 'ParentDepartmentUid',
@@ -52,13 +56,15 @@ class ListDepartmentsRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, filter=None, page_number=None, page_size=None, parent_department_uid=None, sort_direction=None, sort_field=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, max_results=None, next_token=None, page_number=None, page_size=None, parent_department_uid=None, sort_direction=None, sort_field=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """ListDepartmentsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._filter = None
+        self._max_results = None
+        self._next_token = None
         self._page_number = None
         self._page_size = None
         self._parent_department_uid = None
@@ -69,6 +75,10 @@ class ListDepartmentsRequest(object):
 
         if filter is not None:
             self.filter = filter
+        if max_results is not None:
+            self.max_results = max_results
+        if next_token is not None:
+            self.next_token = next_token
         self.page_number = page_number
         self.page_size = page_size
         self.parent_department_uid = parent_department_uid
@@ -98,6 +108,51 @@ class ListDepartmentsRequest(object):
         """
 
         self._filter = filter
+
+    @property
+    def max_results(self):
+        """Gets the max_results of this ListDepartmentsRequest.  # noqa: E501
+
+
+        :return: The max_results of this ListDepartmentsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_results
+
+    @max_results.setter
+    def max_results(self, max_results):
+        """Sets the max_results of this ListDepartmentsRequest.
+
+
+        :param max_results: The max_results of this ListDepartmentsRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results > 100):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value less than or equal to `100`")  # noqa: E501
+
+        self._max_results = max_results
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this ListDepartmentsRequest.  # noqa: E501
+
+
+        :return: The next_token of this ListDepartmentsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this ListDepartmentsRequest.
+
+
+        :param next_token: The next_token of this ListDepartmentsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def page_number(self):

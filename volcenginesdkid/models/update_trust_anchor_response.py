@@ -33,45 +33,201 @@ class UpdateTrustAnchorResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'trust_anchor': 'TrustAnchorForUpdateTrustAnchorOutput'
+        'account_id': 'str',
+        'created_at': 'str',
+        'name': 'str',
+        'trn': 'str',
+        'trust_anchor_cfg': 'list[TrustAnchorCfgForUpdateTrustAnchorOutput]',
+        'trust_anchor_type': 'str',
+        'updated_at': 'str'
     }
 
     attribute_map = {
-        'trust_anchor': 'TrustAnchor'
+        'account_id': 'AccountId',
+        'created_at': 'CreatedAt',
+        'name': 'Name',
+        'trn': 'Trn',
+        'trust_anchor_cfg': 'TrustAnchorCfg',
+        'trust_anchor_type': 'TrustAnchorType',
+        'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, trust_anchor=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, created_at=None, name=None, trn=None, trust_anchor_cfg=None, trust_anchor_type=None, updated_at=None, _configuration=None):  # noqa: E501
         """UpdateTrustAnchorResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._trust_anchor = None
+        self._account_id = None
+        self._created_at = None
+        self._name = None
+        self._trn = None
+        self._trust_anchor_cfg = None
+        self._trust_anchor_type = None
+        self._updated_at = None
         self.discriminator = None
 
-        if trust_anchor is not None:
-            self.trust_anchor = trust_anchor
+        if account_id is not None:
+            self.account_id = account_id
+        if created_at is not None:
+            self.created_at = created_at
+        if name is not None:
+            self.name = name
+        if trn is not None:
+            self.trn = trn
+        if trust_anchor_cfg is not None:
+            self.trust_anchor_cfg = trust_anchor_cfg
+        if trust_anchor_type is not None:
+            self.trust_anchor_type = trust_anchor_type
+        if updated_at is not None:
+            self.updated_at = updated_at
 
     @property
-    def trust_anchor(self):
-        """Gets the trust_anchor of this UpdateTrustAnchorResponse.  # noqa: E501
+    def account_id(self):
+        """Gets the account_id of this UpdateTrustAnchorResponse.  # noqa: E501
 
 
-        :return: The trust_anchor of this UpdateTrustAnchorResponse.  # noqa: E501
-        :rtype: TrustAnchorForUpdateTrustAnchorOutput
+        :return: The account_id of this UpdateTrustAnchorResponse.  # noqa: E501
+        :rtype: str
         """
-        return self._trust_anchor
+        return self._account_id
 
-    @trust_anchor.setter
-    def trust_anchor(self, trust_anchor):
-        """Sets the trust_anchor of this UpdateTrustAnchorResponse.
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this UpdateTrustAnchorResponse.
 
 
-        :param trust_anchor: The trust_anchor of this UpdateTrustAnchorResponse.  # noqa: E501
-        :type: TrustAnchorForUpdateTrustAnchorOutput
+        :param account_id: The account_id of this UpdateTrustAnchorResponse.  # noqa: E501
+        :type: str
         """
 
-        self._trust_anchor = trust_anchor
+        self._account_id = account_id
+
+    @property
+    def created_at(self):
+        """Gets the created_at of this UpdateTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The created_at of this UpdateTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this UpdateTrustAnchorResponse.
+
+
+        :param created_at: The created_at of this UpdateTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._created_at = created_at
+
+    @property
+    def name(self):
+        """Gets the name of this UpdateTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The name of this UpdateTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this UpdateTrustAnchorResponse.
+
+
+        :param name: The name of this UpdateTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def trn(self):
+        """Gets the trn of this UpdateTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The trn of this UpdateTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._trn
+
+    @trn.setter
+    def trn(self, trn):
+        """Sets the trn of this UpdateTrustAnchorResponse.
+
+
+        :param trn: The trn of this UpdateTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._trn = trn
+
+    @property
+    def trust_anchor_cfg(self):
+        """Gets the trust_anchor_cfg of this UpdateTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The trust_anchor_cfg of this UpdateTrustAnchorResponse.  # noqa: E501
+        :rtype: list[TrustAnchorCfgForUpdateTrustAnchorOutput]
+        """
+        return self._trust_anchor_cfg
+
+    @trust_anchor_cfg.setter
+    def trust_anchor_cfg(self, trust_anchor_cfg):
+        """Sets the trust_anchor_cfg of this UpdateTrustAnchorResponse.
+
+
+        :param trust_anchor_cfg: The trust_anchor_cfg of this UpdateTrustAnchorResponse.  # noqa: E501
+        :type: list[TrustAnchorCfgForUpdateTrustAnchorOutput]
+        """
+
+        self._trust_anchor_cfg = trust_anchor_cfg
+
+    @property
+    def trust_anchor_type(self):
+        """Gets the trust_anchor_type of this UpdateTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The trust_anchor_type of this UpdateTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._trust_anchor_type
+
+    @trust_anchor_type.setter
+    def trust_anchor_type(self, trust_anchor_type):
+        """Sets the trust_anchor_type of this UpdateTrustAnchorResponse.
+
+
+        :param trust_anchor_type: The trust_anchor_type of this UpdateTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._trust_anchor_type = trust_anchor_type
+
+    @property
+    def updated_at(self):
+        """Gets the updated_at of this UpdateTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The updated_at of this UpdateTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._updated_at
+
+    @updated_at.setter
+    def updated_at(self, updated_at):
+        """Sets the updated_at of this UpdateTrustAnchorResponse.
+
+
+        :param updated_at: The updated_at of this UpdateTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._updated_at = updated_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

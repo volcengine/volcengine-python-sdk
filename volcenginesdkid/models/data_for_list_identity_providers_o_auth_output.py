@@ -37,6 +37,7 @@ class DataForListIdentityProvidersOAuthOutput(object):
         'claims_propagation_config': 'ClaimsPropagationConfigForListIdentityProvidersOAuthOutput',
         'client_id': 'str',
         'client_secret': 'str',
+        'eip_record': 'EipRecordForListIdentityProvidersOAuthOutput',
         'enabled': 'bool',
         'id_attribute': 'str',
         'name': 'str',
@@ -54,6 +55,7 @@ class DataForListIdentityProvidersOAuthOutput(object):
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
+        'eip_record': 'EipRecord',
         'enabled': 'Enabled',
         'id_attribute': 'IdAttribute',
         'name': 'Name',
@@ -66,7 +68,7 @@ class DataForListIdentityProvidersOAuthOutput(object):
         'user_endpoint': 'UserEndpoint'
     }
 
-    def __init__(self, authorization_endpoint=None, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, id_attribute=None, name=None, provider=None, provider_options=None, scopes_list=None, token_endpoint=None, uid=None, use_pkce=None, user_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorization_endpoint=None, claims_propagation_config=None, client_id=None, client_secret=None, eip_record=None, enabled=None, id_attribute=None, name=None, provider=None, provider_options=None, scopes_list=None, token_endpoint=None, uid=None, use_pkce=None, user_endpoint=None, _configuration=None):  # noqa: E501
         """DataForListIdentityProvidersOAuthOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class DataForListIdentityProvidersOAuthOutput(object):
         self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
+        self._eip_record = None
         self._enabled = None
         self._id_attribute = None
         self._name = None
@@ -96,6 +99,8 @@ class DataForListIdentityProvidersOAuthOutput(object):
             self.client_id = client_id
         if client_secret is not None:
             self.client_secret = client_secret
+        if eip_record is not None:
+            self.eip_record = eip_record
         if enabled is not None:
             self.enabled = enabled
         if id_attribute is not None:
@@ -200,6 +205,27 @@ class DataForListIdentityProvidersOAuthOutput(object):
         """
 
         self._client_secret = client_secret
+
+    @property
+    def eip_record(self):
+        """Gets the eip_record of this DataForListIdentityProvidersOAuthOutput.  # noqa: E501
+
+
+        :return: The eip_record of this DataForListIdentityProvidersOAuthOutput.  # noqa: E501
+        :rtype: EipRecordForListIdentityProvidersOAuthOutput
+        """
+        return self._eip_record
+
+    @eip_record.setter
+    def eip_record(self, eip_record):
+        """Sets the eip_record of this DataForListIdentityProvidersOAuthOutput.
+
+
+        :param eip_record: The eip_record of this DataForListIdentityProvidersOAuthOutput.  # noqa: E501
+        :type: EipRecordForListIdentityProvidersOAuthOutput
+        """
+
+        self._eip_record = eip_record
 
     @property
     def enabled(self):

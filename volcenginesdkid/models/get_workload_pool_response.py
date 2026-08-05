@@ -33,6 +33,7 @@ class GetWorkloadPoolResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_auto_create_identity': 'bool',
         'created_at': 'str',
         'description': 'str',
         'discovery_url': 'str',
@@ -41,12 +42,15 @@ class GetWorkloadPoolResponse(object):
         'total_credentials': 'int',
         'total_workloads': 'int',
         'trn': 'str',
+        'trust_anchors': 'list[str]',
         'updated_at': 'str',
+        'url': 'str',
         'workload_pool_id': 'str',
         'workload_pool_name': 'str'
     }
 
     attribute_map = {
+        'allow_auto_create_identity': 'AllowAutoCreateIdentity',
         'created_at': 'CreatedAt',
         'description': 'Description',
         'discovery_url': 'DiscoveryUrl',
@@ -55,17 +59,20 @@ class GetWorkloadPoolResponse(object):
         'total_credentials': 'TotalCredentials',
         'total_workloads': 'TotalWorkloads',
         'trn': 'Trn',
+        'trust_anchors': 'TrustAnchors',
         'updated_at': 'UpdatedAt',
+        'url': 'Url',
         'workload_pool_id': 'WorkloadPoolId',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, created_at=None, description=None, discovery_url=None, project_name=None, tags=None, total_credentials=None, total_workloads=None, trn=None, updated_at=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_auto_create_identity=None, created_at=None, description=None, discovery_url=None, project_name=None, tags=None, total_credentials=None, total_workloads=None, trn=None, trust_anchors=None, updated_at=None, url=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """GetWorkloadPoolResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_auto_create_identity = None
         self._created_at = None
         self._description = None
         self._discovery_url = None
@@ -74,11 +81,15 @@ class GetWorkloadPoolResponse(object):
         self._total_credentials = None
         self._total_workloads = None
         self._trn = None
+        self._trust_anchors = None
         self._updated_at = None
+        self._url = None
         self._workload_pool_id = None
         self._workload_pool_name = None
         self.discriminator = None
 
+        if allow_auto_create_identity is not None:
+            self.allow_auto_create_identity = allow_auto_create_identity
         if created_at is not None:
             self.created_at = created_at
         if description is not None:
@@ -95,12 +106,37 @@ class GetWorkloadPoolResponse(object):
             self.total_workloads = total_workloads
         if trn is not None:
             self.trn = trn
+        if trust_anchors is not None:
+            self.trust_anchors = trust_anchors
         if updated_at is not None:
             self.updated_at = updated_at
+        if url is not None:
+            self.url = url
         if workload_pool_id is not None:
             self.workload_pool_id = workload_pool_id
         if workload_pool_name is not None:
             self.workload_pool_name = workload_pool_name
+
+    @property
+    def allow_auto_create_identity(self):
+        """Gets the allow_auto_create_identity of this GetWorkloadPoolResponse.  # noqa: E501
+
+
+        :return: The allow_auto_create_identity of this GetWorkloadPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_auto_create_identity
+
+    @allow_auto_create_identity.setter
+    def allow_auto_create_identity(self, allow_auto_create_identity):
+        """Sets the allow_auto_create_identity of this GetWorkloadPoolResponse.
+
+
+        :param allow_auto_create_identity: The allow_auto_create_identity of this GetWorkloadPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_auto_create_identity = allow_auto_create_identity
 
     @property
     def created_at(self):
@@ -271,6 +307,27 @@ class GetWorkloadPoolResponse(object):
         self._trn = trn
 
     @property
+    def trust_anchors(self):
+        """Gets the trust_anchors of this GetWorkloadPoolResponse.  # noqa: E501
+
+
+        :return: The trust_anchors of this GetWorkloadPoolResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._trust_anchors
+
+    @trust_anchors.setter
+    def trust_anchors(self, trust_anchors):
+        """Sets the trust_anchors of this GetWorkloadPoolResponse.
+
+
+        :param trust_anchors: The trust_anchors of this GetWorkloadPoolResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._trust_anchors = trust_anchors
+
+    @property
     def updated_at(self):
         """Gets the updated_at of this GetWorkloadPoolResponse.  # noqa: E501
 
@@ -290,6 +347,27 @@ class GetWorkloadPoolResponse(object):
         """
 
         self._updated_at = updated_at
+
+    @property
+    def url(self):
+        """Gets the url of this GetWorkloadPoolResponse.  # noqa: E501
+
+
+        :return: The url of this GetWorkloadPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this GetWorkloadPoolResponse.
+
+
+        :param url: The url of this GetWorkloadPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._url = url
 
     @property
     def workload_pool_id(self):

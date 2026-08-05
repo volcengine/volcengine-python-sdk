@@ -33,10 +33,12 @@ class UpdateIdentityProviderOIDCRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attribute_mappings': 'list[AttributeMappingForUpdateIdentityProviderOIDCInput]',
         'claims_propagation_config': 'ClaimsPropagationConfigForUpdateIdentityProviderOIDCInput',
         'client_id': 'str',
         'client_secret': 'str',
         'connection_uid': 'str',
+        'eip_id': 'str',
         'enabled': 'bool',
         'is_id_token_mapping': 'bool',
         'issuer': 'str',
@@ -49,10 +51,12 @@ class UpdateIdentityProviderOIDCRequest(object):
     }
 
     attribute_map = {
+        'attribute_mappings': 'AttributeMappings',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
         'connection_uid': 'ConnectionUid',
+        'eip_id': 'EipId',
         'enabled': 'Enabled',
         'is_id_token_mapping': 'IsIdTokenMapping',
         'issuer': 'Issuer',
@@ -64,16 +68,18 @@ class UpdateIdentityProviderOIDCRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, connection_uid=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider_options=None, scim_provisioning=None, scopes_list=None, use_pkce=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mappings=None, claims_propagation_config=None, client_id=None, client_secret=None, connection_uid=None, eip_id=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider_options=None, scim_provisioning=None, scopes_list=None, use_pkce=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderOIDCRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attribute_mappings = None
         self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
         self._connection_uid = None
+        self._eip_id = None
         self._enabled = None
         self._is_id_token_mapping = None
         self._issuer = None
@@ -85,12 +91,16 @@ class UpdateIdentityProviderOIDCRequest(object):
         self._user_pool_uid = None
         self.discriminator = None
 
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         if claims_propagation_config is not None:
             self.claims_propagation_config = claims_propagation_config
         self.client_id = client_id
         if client_secret is not None:
             self.client_secret = client_secret
         self.connection_uid = connection_uid
+        if eip_id is not None:
+            self.eip_id = eip_id
         if enabled is not None:
             self.enabled = enabled
         self.is_id_token_mapping = is_id_token_mapping
@@ -106,6 +116,27 @@ class UpdateIdentityProviderOIDCRequest(object):
             self.scopes_list = scopes_list
         self.use_pkce = use_pkce
         self.user_pool_uid = user_pool_uid
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this UpdateIdentityProviderOIDCRequest.  # noqa: E501
+
+
+        :return: The attribute_mappings of this UpdateIdentityProviderOIDCRequest.  # noqa: E501
+        :rtype: list[AttributeMappingForUpdateIdentityProviderOIDCInput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this UpdateIdentityProviderOIDCRequest.
+
+
+        :param attribute_mappings: The attribute_mappings of this UpdateIdentityProviderOIDCRequest.  # noqa: E501
+        :type: list[AttributeMappingForUpdateIdentityProviderOIDCInput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def claims_propagation_config(self):
@@ -194,6 +225,27 @@ class UpdateIdentityProviderOIDCRequest(object):
             raise ValueError("Invalid value for `connection_uid`, must not be `None`")  # noqa: E501
 
         self._connection_uid = connection_uid
+
+    @property
+    def eip_id(self):
+        """Gets the eip_id of this UpdateIdentityProviderOIDCRequest.  # noqa: E501
+
+
+        :return: The eip_id of this UpdateIdentityProviderOIDCRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this UpdateIdentityProviderOIDCRequest.
+
+
+        :param eip_id: The eip_id of this UpdateIdentityProviderOIDCRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
 
     @property
     def enabled(self):

@@ -36,6 +36,7 @@ class ErrorsStructuredForCreateUsersOutput(object):
         'duplicated_user_uid': 'str',
         'error': 'str',
         'error_type': 'str',
+        'external_provider_user_identifier': 'str',
         'field': 'str',
         'index': 'int'
     }
@@ -44,11 +45,12 @@ class ErrorsStructuredForCreateUsersOutput(object):
         'duplicated_user_uid': 'DuplicatedUserUid',
         'error': 'Error',
         'error_type': 'ErrorType',
+        'external_provider_user_identifier': 'ExternalProviderUserIdentifier',
         'field': 'Field',
         'index': 'Index'
     }
 
-    def __init__(self, duplicated_user_uid=None, error=None, error_type=None, field=None, index=None, _configuration=None):  # noqa: E501
+    def __init__(self, duplicated_user_uid=None, error=None, error_type=None, external_provider_user_identifier=None, field=None, index=None, _configuration=None):  # noqa: E501
         """ErrorsStructuredForCreateUsersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class ErrorsStructuredForCreateUsersOutput(object):
         self._duplicated_user_uid = None
         self._error = None
         self._error_type = None
+        self._external_provider_user_identifier = None
         self._field = None
         self._index = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class ErrorsStructuredForCreateUsersOutput(object):
             self.error = error
         if error_type is not None:
             self.error_type = error_type
+        if external_provider_user_identifier is not None:
+            self.external_provider_user_identifier = external_provider_user_identifier
         if field is not None:
             self.field = field
         if index is not None:
@@ -134,6 +139,27 @@ class ErrorsStructuredForCreateUsersOutput(object):
         """
 
         self._error_type = error_type
+
+    @property
+    def external_provider_user_identifier(self):
+        """Gets the external_provider_user_identifier of this ErrorsStructuredForCreateUsersOutput.  # noqa: E501
+
+
+        :return: The external_provider_user_identifier of this ErrorsStructuredForCreateUsersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_provider_user_identifier
+
+    @external_provider_user_identifier.setter
+    def external_provider_user_identifier(self, external_provider_user_identifier):
+        """Sets the external_provider_user_identifier of this ErrorsStructuredForCreateUsersOutput.
+
+
+        :param external_provider_user_identifier: The external_provider_user_identifier of this ErrorsStructuredForCreateUsersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._external_provider_user_identifier = external_provider_user_identifier
 
     @property
     def field(self):

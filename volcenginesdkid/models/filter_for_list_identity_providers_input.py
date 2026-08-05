@@ -34,26 +34,36 @@ class FilterForListIdentityProvidersInput(object):
     """
     swagger_types = {
         'connection_type': 'str',
+        'eip_id': 'str',
+        'exclude_connection_type': 'str',
         'name': 'str'
     }
 
     attribute_map = {
         'connection_type': 'ConnectionType',
+        'eip_id': 'EipId',
+        'exclude_connection_type': 'ExcludeConnectionType',
         'name': 'Name'
     }
 
-    def __init__(self, connection_type=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection_type=None, eip_id=None, exclude_connection_type=None, name=None, _configuration=None):  # noqa: E501
         """FilterForListIdentityProvidersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._connection_type = None
+        self._eip_id = None
+        self._exclude_connection_type = None
         self._name = None
         self.discriminator = None
 
         if connection_type is not None:
             self.connection_type = connection_type
+        if eip_id is not None:
+            self.eip_id = eip_id
+        if exclude_connection_type is not None:
+            self.exclude_connection_type = exclude_connection_type
         if name is not None:
             self.name = name
 
@@ -77,6 +87,48 @@ class FilterForListIdentityProvidersInput(object):
         """
 
         self._connection_type = connection_type
+
+    @property
+    def eip_id(self):
+        """Gets the eip_id of this FilterForListIdentityProvidersInput.  # noqa: E501
+
+
+        :return: The eip_id of this FilterForListIdentityProvidersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this FilterForListIdentityProvidersInput.
+
+
+        :param eip_id: The eip_id of this FilterForListIdentityProvidersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
+
+    @property
+    def exclude_connection_type(self):
+        """Gets the exclude_connection_type of this FilterForListIdentityProvidersInput.  # noqa: E501
+
+
+        :return: The exclude_connection_type of this FilterForListIdentityProvidersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._exclude_connection_type
+
+    @exclude_connection_type.setter
+    def exclude_connection_type(self, exclude_connection_type):
+        """Sets the exclude_connection_type of this FilterForListIdentityProvidersInput.
+
+
+        :param exclude_connection_type: The exclude_connection_type of this FilterForListIdentityProvidersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._exclude_connection_type = exclude_connection_type
 
     @property
     def name(self):

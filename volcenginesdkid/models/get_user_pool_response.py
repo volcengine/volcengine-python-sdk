@@ -33,11 +33,15 @@ class GetUserPoolResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'authentication_method_order': 'list[str]',
         'brand': 'BrandForGetUserPoolOutput',
         'create_time': 'str',
+        'custom_attributes': 'list[CustomAttributeForGetUserPoolOutput]',
+        'custom_domain': 'str',
         'description': 'str',
         'discovery_url': 'str',
         'domain': 'str',
+        'email_anonymous_sign_up_enabled': 'bool',
         'email_passwordless_sign_in_enabled': 'bool',
         'enabled': 'bool',
         'issuer_url': 'str',
@@ -52,6 +56,7 @@ class GetUserPoolResponse(object):
         'saml_login_callback_url': 'str',
         'saml_sign_up_callback_url': 'str',
         'self_account_recovery_enabled': 'bool',
+        'self_account_recovery_verification_attributes': 'list[str]',
         'self_sign_up_enabled': 'bool',
         'sign_in_attributes': 'list[str]',
         'sign_up_auto_verification_enabled': 'bool',
@@ -70,11 +75,15 @@ class GetUserPoolResponse(object):
     }
 
     attribute_map = {
+        'authentication_method_order': 'AuthenticationMethodOrder',
         'brand': 'Brand',
         'create_time': 'CreateTime',
+        'custom_attributes': 'CustomAttributes',
+        'custom_domain': 'CustomDomain',
         'description': 'Description',
         'discovery_url': 'DiscoveryUrl',
         'domain': 'Domain',
+        'email_anonymous_sign_up_enabled': 'EmailAnonymousSignUpEnabled',
         'email_passwordless_sign_in_enabled': 'EmailPasswordlessSignInEnabled',
         'enabled': 'Enabled',
         'issuer_url': 'IssuerUrl',
@@ -89,6 +98,7 @@ class GetUserPoolResponse(object):
         'saml_login_callback_url': 'SamlLoginCallbackUrl',
         'saml_sign_up_callback_url': 'SamlSignUpCallbackUrl',
         'self_account_recovery_enabled': 'SelfAccountRecoveryEnabled',
+        'self_account_recovery_verification_attributes': 'SelfAccountRecoveryVerificationAttributes',
         'self_sign_up_enabled': 'SelfSignUpEnabled',
         'sign_in_attributes': 'SignInAttributes',
         'sign_up_auto_verification_enabled': 'SignUpAutoVerificationEnabled',
@@ -106,17 +116,21 @@ class GetUserPoolResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, brand=None, create_time=None, description=None, discovery_url=None, domain=None, email_passwordless_sign_in_enabled=None, enabled=None, issuer_url=None, name=None, oauth_login_callback_url=None, oauth_sign_up_callback_url=None, oidc_login_callback_url=None, oidc_sign_up_callback_url=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, saml_login_callback_url=None, saml_sign_up_callback_url=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_in_attributes=None, sign_up_auto_verification_enabled=None, sms_anonymous_sign_up_enabled=None, sms_passwordless_sign_in_enabled=None, tags=None, token_signing_key_url=None, token_url=None, total_clients=None, total_connections=None, total_users=None, trn=None, uid=None, unconfirmed_user_sign_in_enabled=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, authentication_method_order=None, brand=None, create_time=None, custom_attributes=None, custom_domain=None, description=None, discovery_url=None, domain=None, email_anonymous_sign_up_enabled=None, email_passwordless_sign_in_enabled=None, enabled=None, issuer_url=None, name=None, oauth_login_callback_url=None, oauth_sign_up_callback_url=None, oidc_login_callback_url=None, oidc_sign_up_callback_url=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, saml_login_callback_url=None, saml_sign_up_callback_url=None, self_account_recovery_enabled=None, self_account_recovery_verification_attributes=None, self_sign_up_enabled=None, sign_in_attributes=None, sign_up_auto_verification_enabled=None, sms_anonymous_sign_up_enabled=None, sms_passwordless_sign_in_enabled=None, tags=None, token_signing_key_url=None, token_url=None, total_clients=None, total_connections=None, total_users=None, trn=None, uid=None, unconfirmed_user_sign_in_enabled=None, update_time=None, _configuration=None):  # noqa: E501
         """GetUserPoolResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._authentication_method_order = None
         self._brand = None
         self._create_time = None
+        self._custom_attributes = None
+        self._custom_domain = None
         self._description = None
         self._discovery_url = None
         self._domain = None
+        self._email_anonymous_sign_up_enabled = None
         self._email_passwordless_sign_in_enabled = None
         self._enabled = None
         self._issuer_url = None
@@ -131,6 +145,7 @@ class GetUserPoolResponse(object):
         self._saml_login_callback_url = None
         self._saml_sign_up_callback_url = None
         self._self_account_recovery_enabled = None
+        self._self_account_recovery_verification_attributes = None
         self._self_sign_up_enabled = None
         self._sign_in_attributes = None
         self._sign_up_auto_verification_enabled = None
@@ -148,16 +163,24 @@ class GetUserPoolResponse(object):
         self._update_time = None
         self.discriminator = None
 
+        if authentication_method_order is not None:
+            self.authentication_method_order = authentication_method_order
         if brand is not None:
             self.brand = brand
         if create_time is not None:
             self.create_time = create_time
+        if custom_attributes is not None:
+            self.custom_attributes = custom_attributes
+        if custom_domain is not None:
+            self.custom_domain = custom_domain
         if description is not None:
             self.description = description
         if discovery_url is not None:
             self.discovery_url = discovery_url
         if domain is not None:
             self.domain = domain
+        if email_anonymous_sign_up_enabled is not None:
+            self.email_anonymous_sign_up_enabled = email_anonymous_sign_up_enabled
         if email_passwordless_sign_in_enabled is not None:
             self.email_passwordless_sign_in_enabled = email_passwordless_sign_in_enabled
         if enabled is not None:
@@ -186,6 +209,8 @@ class GetUserPoolResponse(object):
             self.saml_sign_up_callback_url = saml_sign_up_callback_url
         if self_account_recovery_enabled is not None:
             self.self_account_recovery_enabled = self_account_recovery_enabled
+        if self_account_recovery_verification_attributes is not None:
+            self.self_account_recovery_verification_attributes = self_account_recovery_verification_attributes
         if self_sign_up_enabled is not None:
             self.self_sign_up_enabled = self_sign_up_enabled
         if sign_in_attributes is not None:
@@ -216,6 +241,27 @@ class GetUserPoolResponse(object):
             self.unconfirmed_user_sign_in_enabled = unconfirmed_user_sign_in_enabled
         if update_time is not None:
             self.update_time = update_time
+
+    @property
+    def authentication_method_order(self):
+        """Gets the authentication_method_order of this GetUserPoolResponse.  # noqa: E501
+
+
+        :return: The authentication_method_order of this GetUserPoolResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._authentication_method_order
+
+    @authentication_method_order.setter
+    def authentication_method_order(self, authentication_method_order):
+        """Sets the authentication_method_order of this GetUserPoolResponse.
+
+
+        :param authentication_method_order: The authentication_method_order of this GetUserPoolResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._authentication_method_order = authentication_method_order
 
     @property
     def brand(self):
@@ -258,6 +304,48 @@ class GetUserPoolResponse(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def custom_attributes(self):
+        """Gets the custom_attributes of this GetUserPoolResponse.  # noqa: E501
+
+
+        :return: The custom_attributes of this GetUserPoolResponse.  # noqa: E501
+        :rtype: list[CustomAttributeForGetUserPoolOutput]
+        """
+        return self._custom_attributes
+
+    @custom_attributes.setter
+    def custom_attributes(self, custom_attributes):
+        """Sets the custom_attributes of this GetUserPoolResponse.
+
+
+        :param custom_attributes: The custom_attributes of this GetUserPoolResponse.  # noqa: E501
+        :type: list[CustomAttributeForGetUserPoolOutput]
+        """
+
+        self._custom_attributes = custom_attributes
+
+    @property
+    def custom_domain(self):
+        """Gets the custom_domain of this GetUserPoolResponse.  # noqa: E501
+
+
+        :return: The custom_domain of this GetUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_domain
+
+    @custom_domain.setter
+    def custom_domain(self, custom_domain):
+        """Sets the custom_domain of this GetUserPoolResponse.
+
+
+        :param custom_domain: The custom_domain of this GetUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_domain = custom_domain
 
     @property
     def description(self):
@@ -321,6 +409,27 @@ class GetUserPoolResponse(object):
         """
 
         self._domain = domain
+
+    @property
+    def email_anonymous_sign_up_enabled(self):
+        """Gets the email_anonymous_sign_up_enabled of this GetUserPoolResponse.  # noqa: E501
+
+
+        :return: The email_anonymous_sign_up_enabled of this GetUserPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._email_anonymous_sign_up_enabled
+
+    @email_anonymous_sign_up_enabled.setter
+    def email_anonymous_sign_up_enabled(self, email_anonymous_sign_up_enabled):
+        """Sets the email_anonymous_sign_up_enabled of this GetUserPoolResponse.
+
+
+        :param email_anonymous_sign_up_enabled: The email_anonymous_sign_up_enabled of this GetUserPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._email_anonymous_sign_up_enabled = email_anonymous_sign_up_enabled
 
     @property
     def email_passwordless_sign_in_enabled(self):
@@ -615,6 +724,27 @@ class GetUserPoolResponse(object):
         """
 
         self._self_account_recovery_enabled = self_account_recovery_enabled
+
+    @property
+    def self_account_recovery_verification_attributes(self):
+        """Gets the self_account_recovery_verification_attributes of this GetUserPoolResponse.  # noqa: E501
+
+
+        :return: The self_account_recovery_verification_attributes of this GetUserPoolResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._self_account_recovery_verification_attributes
+
+    @self_account_recovery_verification_attributes.setter
+    def self_account_recovery_verification_attributes(self, self_account_recovery_verification_attributes):
+        """Sets the self_account_recovery_verification_attributes of this GetUserPoolResponse.
+
+
+        :param self_account_recovery_verification_attributes: The self_account_recovery_verification_attributes of this GetUserPoolResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._self_account_recovery_verification_attributes = self_account_recovery_verification_attributes
 
     @property
     def self_sign_up_enabled(self):

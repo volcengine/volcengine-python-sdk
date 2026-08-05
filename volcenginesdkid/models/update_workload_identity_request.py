@@ -35,6 +35,8 @@ class UpdateWorkloadIdentityRequest(object):
     swagger_types = {
         'allowed_resource_oauth2_return_urls': 'list[str]',
         'description': 'str',
+        'meta_data': 'list[MetaDataForUpdateWorkloadIdentityInput]',
+        'meta_data_update_mode': 'str',
         'name': 'str',
         'workload_pool_name': 'str'
     }
@@ -42,11 +44,13 @@ class UpdateWorkloadIdentityRequest(object):
     attribute_map = {
         'allowed_resource_oauth2_return_urls': 'AllowedResourceOauth2ReturnUrls',
         'description': 'Description',
+        'meta_data': 'MetaData',
+        'meta_data_update_mode': 'MetaDataUpdateMode',
         'name': 'Name',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, allowed_resource_oauth2_return_urls=None, description=None, name=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_resource_oauth2_return_urls=None, description=None, meta_data=None, meta_data_update_mode=None, name=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """UpdateWorkloadIdentityRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +58,8 @@ class UpdateWorkloadIdentityRequest(object):
 
         self._allowed_resource_oauth2_return_urls = None
         self._description = None
+        self._meta_data = None
+        self._meta_data_update_mode = None
         self._name = None
         self._workload_pool_name = None
         self.discriminator = None
@@ -62,6 +68,10 @@ class UpdateWorkloadIdentityRequest(object):
             self.allowed_resource_oauth2_return_urls = allowed_resource_oauth2_return_urls
         if description is not None:
             self.description = description
+        if meta_data is not None:
+            self.meta_data = meta_data
+        if meta_data_update_mode is not None:
+            self.meta_data_update_mode = meta_data_update_mode
         self.name = name
         if workload_pool_name is not None:
             self.workload_pool_name = workload_pool_name
@@ -107,6 +117,48 @@ class UpdateWorkloadIdentityRequest(object):
         """
 
         self._description = description
+
+    @property
+    def meta_data(self):
+        """Gets the meta_data of this UpdateWorkloadIdentityRequest.  # noqa: E501
+
+
+        :return: The meta_data of this UpdateWorkloadIdentityRequest.  # noqa: E501
+        :rtype: list[MetaDataForUpdateWorkloadIdentityInput]
+        """
+        return self._meta_data
+
+    @meta_data.setter
+    def meta_data(self, meta_data):
+        """Sets the meta_data of this UpdateWorkloadIdentityRequest.
+
+
+        :param meta_data: The meta_data of this UpdateWorkloadIdentityRequest.  # noqa: E501
+        :type: list[MetaDataForUpdateWorkloadIdentityInput]
+        """
+
+        self._meta_data = meta_data
+
+    @property
+    def meta_data_update_mode(self):
+        """Gets the meta_data_update_mode of this UpdateWorkloadIdentityRequest.  # noqa: E501
+
+
+        :return: The meta_data_update_mode of this UpdateWorkloadIdentityRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._meta_data_update_mode
+
+    @meta_data_update_mode.setter
+    def meta_data_update_mode(self, meta_data_update_mode):
+        """Sets the meta_data_update_mode of this UpdateWorkloadIdentityRequest.
+
+
+        :param meta_data_update_mode: The meta_data_update_mode of this UpdateWorkloadIdentityRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._meta_data_update_mode = meta_data_update_mode
 
     @property
     def name(self):
