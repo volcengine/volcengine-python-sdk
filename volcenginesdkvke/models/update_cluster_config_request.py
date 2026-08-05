@@ -41,6 +41,7 @@ class UpdateClusterConfigRequest(object):
         'irsa_enabled': 'bool',
         'kubernetes_config': 'KubernetesConfigForUpdateClusterConfigInput',
         'logging_config': 'LoggingConfigForUpdateClusterConfigInput',
+        'maintenance_window_config': 'MaintenanceWindowConfigForUpdateClusterConfigInput',
         'monitoring_config': 'MonitoringConfigForUpdateClusterConfigInput',
         'name': 'str',
         'pods_config': 'PodsConfigForUpdateClusterConfigInput',
@@ -57,6 +58,7 @@ class UpdateClusterConfigRequest(object):
         'irsa_enabled': 'IrsaEnabled',
         'kubernetes_config': 'KubernetesConfig',
         'logging_config': 'LoggingConfig',
+        'maintenance_window_config': 'MaintenanceWindowConfig',
         'monitoring_config': 'MonitoringConfig',
         'name': 'Name',
         'pods_config': 'PodsConfig',
@@ -64,7 +66,7 @@ class UpdateClusterConfigRequest(object):
         'source_region': 'SourceRegion'
     }
 
-    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, id=None, irsa_enabled=None, kubernetes_config=None, logging_config=None, monitoring_config=None, name=None, pods_config=None, register_monitoring_config=None, source_region=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, id=None, irsa_enabled=None, kubernetes_config=None, logging_config=None, maintenance_window_config=None, monitoring_config=None, name=None, pods_config=None, register_monitoring_config=None, source_region=None, _configuration=None):  # noqa: E501
         """UpdateClusterConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class UpdateClusterConfigRequest(object):
         self._irsa_enabled = None
         self._kubernetes_config = None
         self._logging_config = None
+        self._maintenance_window_config = None
         self._monitoring_config = None
         self._name = None
         self._pods_config = None
@@ -100,6 +103,8 @@ class UpdateClusterConfigRequest(object):
             self.kubernetes_config = kubernetes_config
         if logging_config is not None:
             self.logging_config = logging_config
+        if maintenance_window_config is not None:
+            self.maintenance_window_config = maintenance_window_config
         if monitoring_config is not None:
             self.monitoring_config = monitoring_config
         if name is not None:
@@ -280,6 +285,27 @@ class UpdateClusterConfigRequest(object):
         """
 
         self._logging_config = logging_config
+
+    @property
+    def maintenance_window_config(self):
+        """Gets the maintenance_window_config of this UpdateClusterConfigRequest.  # noqa: E501
+
+
+        :return: The maintenance_window_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :rtype: MaintenanceWindowConfigForUpdateClusterConfigInput
+        """
+        return self._maintenance_window_config
+
+    @maintenance_window_config.setter
+    def maintenance_window_config(self, maintenance_window_config):
+        """Sets the maintenance_window_config of this UpdateClusterConfigRequest.
+
+
+        :param maintenance_window_config: The maintenance_window_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :type: MaintenanceWindowConfigForUpdateClusterConfigInput
+        """
+
+        self._maintenance_window_config = maintenance_window_config
 
     @property
     def monitoring_config(self):
