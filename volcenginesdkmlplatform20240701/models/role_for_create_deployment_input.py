@@ -33,6 +33,7 @@ class RoleForCreateDeploymentInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'autoscaler': 'AutoscalerForCreateDeploymentInput',
         'command': 'str',
         'credential': 'CredentialForCreateDeploymentInput',
         'envs': 'list[EnvForCreateDeploymentInput]',
@@ -55,6 +56,7 @@ class RoleForCreateDeploymentInput(object):
     }
 
     attribute_map = {
+        'autoscaler': 'Autoscaler',
         'command': 'Command',
         'credential': 'Credential',
         'envs': 'Envs',
@@ -76,12 +78,13 @@ class RoleForCreateDeploymentInput(object):
         'storages': 'Storages'
     }
 
-    def __init__(self, command=None, credential=None, envs=None, expose=None, graceful_shutdown_period=None, image=None, liveness_probe=None, model=None, name=None, node_affinity_spec=None, ports=None, readiness_probe=None, replicas=None, resource=None, rolling_update_strategy=None, security_group_ids=None, shard_num=None, startup_probe=None, storages=None, _configuration=None):  # noqa: E501
+    def __init__(self, autoscaler=None, command=None, credential=None, envs=None, expose=None, graceful_shutdown_period=None, image=None, liveness_probe=None, model=None, name=None, node_affinity_spec=None, ports=None, readiness_probe=None, replicas=None, resource=None, rolling_update_strategy=None, security_group_ids=None, shard_num=None, startup_probe=None, storages=None, _configuration=None):  # noqa: E501
         """RoleForCreateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._autoscaler = None
         self._command = None
         self._credential = None
         self._envs = None
@@ -103,6 +106,8 @@ class RoleForCreateDeploymentInput(object):
         self._storages = None
         self.discriminator = None
 
+        if autoscaler is not None:
+            self.autoscaler = autoscaler
         if command is not None:
             self.command = command
         if credential is not None:
@@ -141,6 +146,27 @@ class RoleForCreateDeploymentInput(object):
             self.startup_probe = startup_probe
         if storages is not None:
             self.storages = storages
+
+    @property
+    def autoscaler(self):
+        """Gets the autoscaler of this RoleForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The autoscaler of this RoleForCreateDeploymentInput.  # noqa: E501
+        :rtype: AutoscalerForCreateDeploymentInput
+        """
+        return self._autoscaler
+
+    @autoscaler.setter
+    def autoscaler(self, autoscaler):
+        """Sets the autoscaler of this RoleForCreateDeploymentInput.
+
+
+        :param autoscaler: The autoscaler of this RoleForCreateDeploymentInput.  # noqa: E501
+        :type: AutoscalerForCreateDeploymentInput
+        """
+
+        self._autoscaler = autoscaler
 
     @property
     def command(self):

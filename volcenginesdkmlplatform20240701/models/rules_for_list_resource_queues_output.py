@@ -34,6 +34,7 @@ class RulesForListResourceQueuesOutput(object):
     """
     swagger_types = {
         'auto_compact_gpu_resource_rule': 'AutoCompactGPUResourceRuleForListResourceQueuesOutput',
+        'command_hook_rule': 'CommandHookRuleForListResourceQueuesOutput',
         'dev_cpu_low_usage_rule': 'DevCpuLowUsageRuleForListResourceQueuesOutput',
         'general_idle_rule': 'GeneralIdleRuleForListResourceQueuesOutput',
         'gpu_utilization_rule': 'GpuUtilizationRuleForListResourceQueuesOutput'
@@ -41,18 +42,20 @@ class RulesForListResourceQueuesOutput(object):
 
     attribute_map = {
         'auto_compact_gpu_resource_rule': 'AutoCompactGPUResourceRule',
+        'command_hook_rule': 'CommandHookRule',
         'dev_cpu_low_usage_rule': 'DevCpuLowUsageRule',
         'general_idle_rule': 'GeneralIdleRule',
         'gpu_utilization_rule': 'GpuUtilizationRule'
     }
 
-    def __init__(self, auto_compact_gpu_resource_rule=None, dev_cpu_low_usage_rule=None, general_idle_rule=None, gpu_utilization_rule=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_compact_gpu_resource_rule=None, command_hook_rule=None, dev_cpu_low_usage_rule=None, general_idle_rule=None, gpu_utilization_rule=None, _configuration=None):  # noqa: E501
         """RulesForListResourceQueuesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_compact_gpu_resource_rule = None
+        self._command_hook_rule = None
         self._dev_cpu_low_usage_rule = None
         self._general_idle_rule = None
         self._gpu_utilization_rule = None
@@ -60,6 +63,8 @@ class RulesForListResourceQueuesOutput(object):
 
         if auto_compact_gpu_resource_rule is not None:
             self.auto_compact_gpu_resource_rule = auto_compact_gpu_resource_rule
+        if command_hook_rule is not None:
+            self.command_hook_rule = command_hook_rule
         if dev_cpu_low_usage_rule is not None:
             self.dev_cpu_low_usage_rule = dev_cpu_low_usage_rule
         if general_idle_rule is not None:
@@ -87,6 +92,27 @@ class RulesForListResourceQueuesOutput(object):
         """
 
         self._auto_compact_gpu_resource_rule = auto_compact_gpu_resource_rule
+
+    @property
+    def command_hook_rule(self):
+        """Gets the command_hook_rule of this RulesForListResourceQueuesOutput.  # noqa: E501
+
+
+        :return: The command_hook_rule of this RulesForListResourceQueuesOutput.  # noqa: E501
+        :rtype: CommandHookRuleForListResourceQueuesOutput
+        """
+        return self._command_hook_rule
+
+    @command_hook_rule.setter
+    def command_hook_rule(self, command_hook_rule):
+        """Sets the command_hook_rule of this RulesForListResourceQueuesOutput.
+
+
+        :param command_hook_rule: The command_hook_rule of this RulesForListResourceQueuesOutput.  # noqa: E501
+        :type: CommandHookRuleForListResourceQueuesOutput
+        """
+
+        self._command_hook_rule = command_hook_rule
 
     @property
     def dev_cpu_low_usage_rule(self):

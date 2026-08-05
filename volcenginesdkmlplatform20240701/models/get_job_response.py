@@ -39,6 +39,7 @@ class GetJobResponse(object):
         'diagnose_config': 'list[DiagnoseConfigForGetJobOutput]',
         'id': 'str',
         'initial_id': 'str',
+        'latest_retried_id': 'str',
         'name': 'str',
         'observable_config': 'ObservableConfigForGetJobOutput',
         'private_network_config': 'PrivateNetworkConfigForGetJobOutput',
@@ -59,6 +60,7 @@ class GetJobResponse(object):
         'diagnose_config': 'DiagnoseConfig',
         'id': 'Id',
         'initial_id': 'InitialId',
+        'latest_retried_id': 'LatestRetriedId',
         'name': 'Name',
         'observable_config': 'ObservableConfig',
         'private_network_config': 'PrivateNetworkConfig',
@@ -72,7 +74,7 @@ class GetJobResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, created_by=None, description=None, diagnose_config=None, id=None, initial_id=None, name=None, observable_config=None, private_network_config=None, project_name=None, resource_config=None, retry_config=None, runtime_config=None, status=None, stop_reason=None, storage_config=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, created_by=None, description=None, diagnose_config=None, id=None, initial_id=None, latest_retried_id=None, name=None, observable_config=None, private_network_config=None, project_name=None, resource_config=None, retry_config=None, runtime_config=None, status=None, stop_reason=None, storage_config=None, update_time=None, _configuration=None):  # noqa: E501
         """GetJobResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +86,7 @@ class GetJobResponse(object):
         self._diagnose_config = None
         self._id = None
         self._initial_id = None
+        self._latest_retried_id = None
         self._name = None
         self._observable_config = None
         self._private_network_config = None
@@ -109,6 +112,8 @@ class GetJobResponse(object):
             self.id = id
         if initial_id is not None:
             self.initial_id = initial_id
+        if latest_retried_id is not None:
+            self.latest_retried_id = latest_retried_id
         if name is not None:
             self.name = name
         if observable_config is not None:
@@ -257,6 +262,27 @@ class GetJobResponse(object):
         """
 
         self._initial_id = initial_id
+
+    @property
+    def latest_retried_id(self):
+        """Gets the latest_retried_id of this GetJobResponse.  # noqa: E501
+
+
+        :return: The latest_retried_id of this GetJobResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._latest_retried_id
+
+    @latest_retried_id.setter
+    def latest_retried_id(self, latest_retried_id):
+        """Sets the latest_retried_id of this GetJobResponse.
+
+
+        :param latest_retried_id: The latest_retried_id of this GetJobResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._latest_retried_id = latest_retried_id
 
     @property
     def name(self):
