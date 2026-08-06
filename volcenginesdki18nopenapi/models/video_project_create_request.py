@@ -35,7 +35,7 @@ class VideoProjectCreateRequest(object):
     swagger_types = {
         'cloud_storage_link': 'str',
         'comment': 'str',
-        'contributors': 'list[int]',
+        'contributors': 'list[str]',
         'name': 'str',
         'project_type': 'int',
         'roles': 'str'
@@ -123,7 +123,7 @@ class VideoProjectCreateRequest(object):
 
 
         :return: The contributors of this VideoProjectCreateRequest.  # noqa: E501
-        :rtype: list[int]
+        :rtype: list[str]
         """
         return self._contributors
 
@@ -133,7 +133,7 @@ class VideoProjectCreateRequest(object):
 
 
         :param contributors: The contributors of this VideoProjectCreateRequest.  # noqa: E501
-        :type: list[int]
+        :type: list[str]
         """
 
         self._contributors = contributors

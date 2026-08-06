@@ -35,7 +35,7 @@ class HiForTermBaseTermGroupsOutput(object):
     swagger_types = {
         'acronym': 'str',
         'apply_mode': 'int',
-        'case_sensitive': 'int',
+        'case_sensitive': 'bool',
         'content': 'str',
         'create_time': 'str',
         'created_at': 'str',
@@ -170,7 +170,7 @@ class HiForTermBaseTermGroupsOutput(object):
 
 
         :return: The case_sensitive of this HiForTermBaseTermGroupsOutput.  # noqa: E501
-        :rtype: int
+        :rtype: bool
         """
         return self._case_sensitive
 
@@ -180,7 +180,7 @@ class HiForTermBaseTermGroupsOutput(object):
 
 
         :param case_sensitive: The case_sensitive of this HiForTermBaseTermGroupsOutput.  # noqa: E501
-        :type: int
+        :type: bool
         """
 
         self._case_sensitive = case_sensitive

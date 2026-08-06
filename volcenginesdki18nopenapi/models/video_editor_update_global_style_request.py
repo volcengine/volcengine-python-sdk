@@ -54,8 +54,7 @@ class VideoEditorUpdateGlobalStyleRequest(object):
 
         if style_config is not None:
             self.style_config = style_config
-        if subtask_id is not None:
-            self.subtask_id = subtask_id
+        self.subtask_id = subtask_id
 
     @property
     def style_config(self):
@@ -96,6 +95,8 @@ class VideoEditorUpdateGlobalStyleRequest(object):
         :param subtask_id: The subtask_id of this VideoEditorUpdateGlobalStyleRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subtask_id is None:
+            raise ValueError("Invalid value for `subtask_id`, must not be `None`")  # noqa: E501
 
         self._subtask_id = subtask_id
 

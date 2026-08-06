@@ -55,7 +55,8 @@ class VideoProjectDeleteVideoDramaRequest(object):
         self._project_id = None
         self.discriminator = None
 
-        self.delete_source_video = delete_source_video
+        if delete_source_video is not None:
+            self.delete_source_video = delete_source_video
         self.drama_id = drama_id
         self.project_id = project_id
 
@@ -77,8 +78,6 @@ class VideoProjectDeleteVideoDramaRequest(object):
         :param delete_source_video: The delete_source_video of this VideoProjectDeleteVideoDramaRequest.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and delete_source_video is None:
-            raise ValueError("Invalid value for `delete_source_video`, must not be `None`")  # noqa: E501
 
         self._delete_source_video = delete_source_video
 

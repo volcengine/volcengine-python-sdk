@@ -39,6 +39,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         'dub_voice_mode': 'int',
         'from_task_type': 'int',
         'is_dub': 'bool',
+        'need_term_validation': 'bool',
         'project_id': 'str',
         'target_languages': 'list[str]',
         'target_style_map': 'TargetStyleMapForVideoProjectAddTargetLangsToExistingDramaInput',
@@ -53,6 +54,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         'dub_voice_mode': 'dubVoiceMode',
         'from_task_type': 'fromTaskType',
         'is_dub': 'isDub',
+        'need_term_validation': 'needTermValidation',
         'project_id': 'projectId',
         'target_languages': 'targetLanguages',
         'target_style_map': 'targetStyleMap',
@@ -60,7 +62,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         'video_speed_policy': 'videoSpeedPolicy'
     }
 
-    def __init__(self, bgm_policy=None, deadline=None, drama_id=None, dub_voice_mode=None, from_task_type=None, is_dub=None, project_id=None, target_languages=None, target_style_map=None, video_identifiers=None, video_speed_policy=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgm_policy=None, deadline=None, drama_id=None, dub_voice_mode=None, from_task_type=None, is_dub=None, need_term_validation=None, project_id=None, target_languages=None, target_style_map=None, video_identifiers=None, video_speed_policy=None, _configuration=None):  # noqa: E501
         """VideoProjectAddTargetLangsToExistingDramaRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         self._dub_voice_mode = None
         self._from_task_type = None
         self._is_dub = None
+        self._need_term_validation = None
         self._project_id = None
         self._target_languages = None
         self._target_style_map = None
@@ -89,6 +92,8 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         self.from_task_type = from_task_type
         if is_dub is not None:
             self.is_dub = is_dub
+        if need_term_validation is not None:
+            self.need_term_validation = need_term_validation
         self.project_id = project_id
         if target_languages is not None:
             self.target_languages = target_languages
@@ -228,6 +233,27 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         """
 
         self._is_dub = is_dub
+
+    @property
+    def need_term_validation(self):
+        """Gets the need_term_validation of this VideoProjectAddTargetLangsToExistingDramaRequest.  # noqa: E501
+
+
+        :return: The need_term_validation of this VideoProjectAddTargetLangsToExistingDramaRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._need_term_validation
+
+    @need_term_validation.setter
+    def need_term_validation(self, need_term_validation):
+        """Sets the need_term_validation of this VideoProjectAddTargetLangsToExistingDramaRequest.
+
+
+        :param need_term_validation: The need_term_validation of this VideoProjectAddTargetLangsToExistingDramaRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._need_term_validation = need_term_validation
 
     @property
     def project_id(self):

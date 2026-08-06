@@ -36,9 +36,9 @@ class SourceForVideoEditorUpdateGlobalStyleInput(object):
         'alignment': 'int',
         'font_family': 'str',
         'font_size': 'int',
-        'show': 'float',
-        'x': 'int',
-        'y': 'int'
+        'show': 'bool',
+        'x': 'float',
+        'y': 'float'
     }
 
     attribute_map = {
@@ -158,7 +158,7 @@ class SourceForVideoEditorUpdateGlobalStyleInput(object):
 
 
         :return: The show of this SourceForVideoEditorUpdateGlobalStyleInput.  # noqa: E501
-        :rtype: float
+        :rtype: bool
         """
         return self._show
 
@@ -168,7 +168,7 @@ class SourceForVideoEditorUpdateGlobalStyleInput(object):
 
 
         :param show: The show of this SourceForVideoEditorUpdateGlobalStyleInput.  # noqa: E501
-        :type: float
+        :type: bool
         """
 
         self._show = show
@@ -179,7 +179,7 @@ class SourceForVideoEditorUpdateGlobalStyleInput(object):
 
 
         :return: The x of this SourceForVideoEditorUpdateGlobalStyleInput.  # noqa: E501
-        :rtype: int
+        :rtype: float
         """
         return self._x
 
@@ -189,14 +189,8 @@ class SourceForVideoEditorUpdateGlobalStyleInput(object):
 
 
         :param x: The x of this SourceForVideoEditorUpdateGlobalStyleInput.  # noqa: E501
-        :type: int
+        :type: float
         """
-        if (self._configuration.client_side_validation and
-                x is not None and x > 1):  # noqa: E501
-            raise ValueError("Invalid value for `x`, must be a value less than or equal to `1`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                x is not None and x < -1):  # noqa: E501
-            raise ValueError("Invalid value for `x`, must be a value greater than or equal to `-1`")  # noqa: E501
 
         self._x = x
 
@@ -206,7 +200,7 @@ class SourceForVideoEditorUpdateGlobalStyleInput(object):
 
 
         :return: The y of this SourceForVideoEditorUpdateGlobalStyleInput.  # noqa: E501
-        :rtype: int
+        :rtype: float
         """
         return self._y
 
@@ -216,14 +210,8 @@ class SourceForVideoEditorUpdateGlobalStyleInput(object):
 
 
         :param y: The y of this SourceForVideoEditorUpdateGlobalStyleInput.  # noqa: E501
-        :type: int
+        :type: float
         """
-        if (self._configuration.client_side_validation and
-                y is not None and y > 1):  # noqa: E501
-            raise ValueError("Invalid value for `y`, must be a value less than or equal to `1`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                y is not None and y < -1):  # noqa: E501
-            raise ValueError("Invalid value for `y`, must be a value greater than or equal to `-1`")  # noqa: E501
 
         self._y = y
 

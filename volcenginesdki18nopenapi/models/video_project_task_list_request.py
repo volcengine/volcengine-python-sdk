@@ -33,6 +33,7 @@ class VideoProjectTaskListRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'drama_id': 'str',
         'end_time': 'int',
         'limit': 'int',
         'offset': 'int',
@@ -49,6 +50,7 @@ class VideoProjectTaskListRequest(object):
     }
 
     attribute_map = {
+        'drama_id': 'dramaId',
         'end_time': 'endTime',
         'limit': 'limit',
         'offset': 'offset',
@@ -64,12 +66,13 @@ class VideoProjectTaskListRequest(object):
         'task_types': 'taskTypes'
     }
 
-    def __init__(self, end_time=None, limit=None, offset=None, project_id=None, source_languages=None, start_time=None, status=None, subtask_id=None, target_languages=None, task_ids=None, task_name=None, task_type=None, task_types=None, _configuration=None):  # noqa: E501
+    def __init__(self, drama_id=None, end_time=None, limit=None, offset=None, project_id=None, source_languages=None, start_time=None, status=None, subtask_id=None, target_languages=None, task_ids=None, task_name=None, task_type=None, task_types=None, _configuration=None):  # noqa: E501
         """VideoProjectTaskListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._drama_id = None
         self._end_time = None
         self._limit = None
         self._offset = None
@@ -85,6 +88,8 @@ class VideoProjectTaskListRequest(object):
         self._task_types = None
         self.discriminator = None
 
+        if drama_id is not None:
+            self.drama_id = drama_id
         if end_time is not None:
             self.end_time = end_time
         if limit is not None:
@@ -110,6 +115,27 @@ class VideoProjectTaskListRequest(object):
             self.task_type = task_type
         if task_types is not None:
             self.task_types = task_types
+
+    @property
+    def drama_id(self):
+        """Gets the drama_id of this VideoProjectTaskListRequest.  # noqa: E501
+
+
+        :return: The drama_id of this VideoProjectTaskListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._drama_id
+
+    @drama_id.setter
+    def drama_id(self, drama_id):
+        """Sets the drama_id of this VideoProjectTaskListRequest.
+
+
+        :param drama_id: The drama_id of this VideoProjectTaskListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._drama_id = drama_id
 
     @property
     def end_time(self):
