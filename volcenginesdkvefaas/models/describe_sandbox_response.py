@@ -53,6 +53,8 @@ class DescribeSandboxResponse(object):
         'pending': 'bool',
         'request_timeout': 'int',
         'revision_number': 'int',
+        'role_chain_trn': 'list[str]',
+        'role_trn': 'str',
         'session_id': 'str',
         'sidecars': 'list[SidecarForDescribeSandboxOutput]',
         'status': 'str'
@@ -79,12 +81,14 @@ class DescribeSandboxResponse(object):
         'pending': 'Pending',
         'request_timeout': 'RequestTimeout',
         'revision_number': 'RevisionNumber',
+        'role_chain_trn': 'RoleChainTrn',
+        'role_trn': 'RoleTrn',
         'session_id': 'SessionId',
         'sidecars': 'Sidecars',
         'status': 'Status'
     }
 
-    def __init__(self, assign_status=None, availability_zone=None, cpu_milli=None, created_at=None, envs=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, instance_type=None, max_concurrency=None, memory_mb=None, metadata_list=None, pending=None, request_timeout=None, revision_number=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, assign_status=None, availability_zone=None, cpu_milli=None, created_at=None, envs=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, instance_type=None, max_concurrency=None, memory_mb=None, metadata_list=None, pending=None, request_timeout=None, revision_number=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
         """DescribeSandboxResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -110,6 +114,8 @@ class DescribeSandboxResponse(object):
         self._pending = None
         self._request_timeout = None
         self._revision_number = None
+        self._role_chain_trn = None
+        self._role_trn = None
         self._session_id = None
         self._sidecars = None
         self._status = None
@@ -155,6 +161,10 @@ class DescribeSandboxResponse(object):
             self.request_timeout = request_timeout
         if revision_number is not None:
             self.revision_number = revision_number
+        if role_chain_trn is not None:
+            self.role_chain_trn = role_chain_trn
+        if role_trn is not None:
+            self.role_trn = role_trn
         if session_id is not None:
             self.session_id = session_id
         if sidecars is not None:
@@ -581,6 +591,48 @@ class DescribeSandboxResponse(object):
         """
 
         self._revision_number = revision_number
+
+    @property
+    def role_chain_trn(self):
+        """Gets the role_chain_trn of this DescribeSandboxResponse.  # noqa: E501
+
+
+        :return: The role_chain_trn of this DescribeSandboxResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._role_chain_trn
+
+    @role_chain_trn.setter
+    def role_chain_trn(self, role_chain_trn):
+        """Sets the role_chain_trn of this DescribeSandboxResponse.
+
+
+        :param role_chain_trn: The role_chain_trn of this DescribeSandboxResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._role_chain_trn = role_chain_trn
+
+    @property
+    def role_trn(self):
+        """Gets the role_trn of this DescribeSandboxResponse.  # noqa: E501
+
+
+        :return: The role_trn of this DescribeSandboxResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._role_trn
+
+    @role_trn.setter
+    def role_trn(self, role_trn):
+        """Sets the role_trn of this DescribeSandboxResponse.
+
+
+        :param role_trn: The role_trn of this DescribeSandboxResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._role_trn = role_trn
 
     @property
     def session_id(self):
