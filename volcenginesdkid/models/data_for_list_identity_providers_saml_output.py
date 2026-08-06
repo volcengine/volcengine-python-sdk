@@ -36,6 +36,7 @@ class DataForListIdentityProvidersSAMLOutput(object):
         'attribute_mapping': 'str',
         'certificate': 'str',
         'claims_propagation_config': 'ClaimsPropagationConfigForListIdentityProvidersSAMLOutput',
+        'eip_record': 'EipRecordForListIdentityProvidersSAMLOutput',
         'enabled': 'bool',
         'enabled_encryption': 'bool',
         'enabled_sign': 'bool',
@@ -53,6 +54,7 @@ class DataForListIdentityProvidersSAMLOutput(object):
         'attribute_mapping': 'AttributeMapping',
         'certificate': 'Certificate',
         'claims_propagation_config': 'ClaimsPropagationConfig',
+        'eip_record': 'EipRecord',
         'enabled': 'Enabled',
         'enabled_encryption': 'EnabledEncryption',
         'enabled_sign': 'EnabledSign',
@@ -66,7 +68,7 @@ class DataForListIdentityProvidersSAMLOutput(object):
         'uid': 'Uid'
     }
 
-    def __init__(self, attribute_mapping=None, certificate=None, claims_propagation_config=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider=None, provider_options=None, scim_provisioning=None, sp_metadata=None, uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mapping=None, certificate=None, claims_propagation_config=None, eip_record=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider=None, provider_options=None, scim_provisioning=None, sp_metadata=None, uid=None, _configuration=None):  # noqa: E501
         """DataForListIdentityProvidersSAMLOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class DataForListIdentityProvidersSAMLOutput(object):
         self._attribute_mapping = None
         self._certificate = None
         self._claims_propagation_config = None
+        self._eip_record = None
         self._enabled = None
         self._enabled_encryption = None
         self._enabled_sign = None
@@ -94,6 +97,8 @@ class DataForListIdentityProvidersSAMLOutput(object):
             self.certificate = certificate
         if claims_propagation_config is not None:
             self.claims_propagation_config = claims_propagation_config
+        if eip_record is not None:
+            self.eip_record = eip_record
         if enabled is not None:
             self.enabled = enabled
         if enabled_encryption is not None:
@@ -179,6 +184,27 @@ class DataForListIdentityProvidersSAMLOutput(object):
         """
 
         self._claims_propagation_config = claims_propagation_config
+
+    @property
+    def eip_record(self):
+        """Gets the eip_record of this DataForListIdentityProvidersSAMLOutput.  # noqa: E501
+
+
+        :return: The eip_record of this DataForListIdentityProvidersSAMLOutput.  # noqa: E501
+        :rtype: EipRecordForListIdentityProvidersSAMLOutput
+        """
+        return self._eip_record
+
+    @eip_record.setter
+    def eip_record(self, eip_record):
+        """Sets the eip_record of this DataForListIdentityProvidersSAMLOutput.
+
+
+        :param eip_record: The eip_record of this DataForListIdentityProvidersSAMLOutput.  # noqa: E501
+        :type: EipRecordForListIdentityProvidersSAMLOutput
+        """
+
+        self._eip_record = eip_record
 
     @property
     def enabled(self):

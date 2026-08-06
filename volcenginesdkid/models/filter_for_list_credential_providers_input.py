@@ -33,37 +33,45 @@ class FilterForListCredentialProvidersInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'binding_status': 'bool',
         'flow': 'str',
         'name': 'str',
         'pool_name': 'str',
         'project_name': 'str',
+        'source': 'str',
         'type': 'str',
         'vendor': 'int'
     }
 
     attribute_map = {
+        'binding_status': 'BindingStatus',
         'flow': 'Flow',
         'name': 'Name',
         'pool_name': 'PoolName',
         'project_name': 'ProjectName',
+        'source': 'Source',
         'type': 'Type',
         'vendor': 'Vendor'
     }
 
-    def __init__(self, flow=None, name=None, pool_name=None, project_name=None, type=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, binding_status=None, flow=None, name=None, pool_name=None, project_name=None, source=None, type=None, vendor=None, _configuration=None):  # noqa: E501
         """FilterForListCredentialProvidersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._binding_status = None
         self._flow = None
         self._name = None
         self._pool_name = None
         self._project_name = None
+        self._source = None
         self._type = None
         self._vendor = None
         self.discriminator = None
 
+        if binding_status is not None:
+            self.binding_status = binding_status
         if flow is not None:
             self.flow = flow
         if name is not None:
@@ -72,10 +80,33 @@ class FilterForListCredentialProvidersInput(object):
             self.pool_name = pool_name
         if project_name is not None:
             self.project_name = project_name
+        if source is not None:
+            self.source = source
         if type is not None:
             self.type = type
         if vendor is not None:
             self.vendor = vendor
+
+    @property
+    def binding_status(self):
+        """Gets the binding_status of this FilterForListCredentialProvidersInput.  # noqa: E501
+
+
+        :return: The binding_status of this FilterForListCredentialProvidersInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._binding_status
+
+    @binding_status.setter
+    def binding_status(self, binding_status):
+        """Sets the binding_status of this FilterForListCredentialProvidersInput.
+
+
+        :param binding_status: The binding_status of this FilterForListCredentialProvidersInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._binding_status = binding_status
 
     @property
     def flow(self):
@@ -167,6 +198,27 @@ class FilterForListCredentialProvidersInput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def source(self):
+        """Gets the source of this FilterForListCredentialProvidersInput.  # noqa: E501
+
+
+        :return: The source of this FilterForListCredentialProvidersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this FilterForListCredentialProvidersInput.
+
+
+        :param source: The source of this FilterForListCredentialProvidersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
 
     @property
     def type(self):

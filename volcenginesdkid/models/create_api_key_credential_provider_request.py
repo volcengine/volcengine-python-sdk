@@ -38,7 +38,8 @@ class CreateApiKeyCredentialProviderRequest(object):
         'name': 'str',
         'pool_name': 'str',
         'project_name': 'str',
-        'secret_storage': 'SecretStorageForCreateApiKeyCredentialProviderInput'
+        'secret_storage': 'SecretStorageForCreateApiKeyCredentialProviderInput',
+        'source': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class CreateApiKeyCredentialProviderRequest(object):
         'name': 'Name',
         'pool_name': 'PoolName',
         'project_name': 'ProjectName',
-        'secret_storage': 'SecretStorage'
+        'secret_storage': 'SecretStorage',
+        'source': 'Source'
     }
 
-    def __init__(self, api_key=None, api_key_metadata=None, name=None, pool_name=None, project_name=None, secret_storage=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_key=None, api_key_metadata=None, name=None, pool_name=None, project_name=None, secret_storage=None, source=None, _configuration=None):  # noqa: E501
         """CreateApiKeyCredentialProviderRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class CreateApiKeyCredentialProviderRequest(object):
         self._pool_name = None
         self._project_name = None
         self._secret_storage = None
+        self._source = None
         self.discriminator = None
 
         self.api_key = api_key
@@ -74,6 +77,8 @@ class CreateApiKeyCredentialProviderRequest(object):
             self.project_name = project_name
         if secret_storage is not None:
             self.secret_storage = secret_storage
+        if source is not None:
+            self.source = source
 
     @property
     def api_key(self):
@@ -204,6 +209,27 @@ class CreateApiKeyCredentialProviderRequest(object):
         """
 
         self._secret_storage = secret_storage
+
+    @property
+    def source(self):
+        """Gets the source of this CreateApiKeyCredentialProviderRequest.  # noqa: E501
+
+
+        :return: The source of this CreateApiKeyCredentialProviderRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this CreateApiKeyCredentialProviderRequest.
+
+
+        :param source: The source of this CreateApiKeyCredentialProviderRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
 
     def to_dict(self):
         """Returns the model properties as a dict"""

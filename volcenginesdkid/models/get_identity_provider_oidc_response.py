@@ -33,9 +33,11 @@ class GetIdentityProviderOIDCResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attribute_mappings': 'list[AttributeMappingForGetIdentityProviderOIDCOutput]',
         'claims_propagation_config': 'ClaimsPropagationConfigForGetIdentityProviderOIDCOutput',
         'client_id': 'str',
         'client_secret': 'str',
+        'eip_record': 'EipRecordForGetIdentityProviderOIDCOutput',
         'enabled': 'bool',
         'is_id_token_mapping': 'bool',
         'issuer': 'str',
@@ -49,9 +51,11 @@ class GetIdentityProviderOIDCResponse(object):
     }
 
     attribute_map = {
+        'attribute_mappings': 'AttributeMappings',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
+        'eip_record': 'EipRecord',
         'enabled': 'Enabled',
         'is_id_token_mapping': 'IsIdTokenMapping',
         'issuer': 'Issuer',
@@ -64,15 +68,17 @@ class GetIdentityProviderOIDCResponse(object):
         'use_pkce': 'UsePkce'
     }
 
-    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scim_provisioning=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mappings=None, claims_propagation_config=None, client_id=None, client_secret=None, eip_record=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scim_provisioning=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
         """GetIdentityProviderOIDCResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attribute_mappings = None
         self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
+        self._eip_record = None
         self._enabled = None
         self._is_id_token_mapping = None
         self._issuer = None
@@ -85,12 +91,16 @@ class GetIdentityProviderOIDCResponse(object):
         self._use_pkce = None
         self.discriminator = None
 
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         if claims_propagation_config is not None:
             self.claims_propagation_config = claims_propagation_config
         if client_id is not None:
             self.client_id = client_id
         if client_secret is not None:
             self.client_secret = client_secret
+        if eip_record is not None:
+            self.eip_record = eip_record
         if enabled is not None:
             self.enabled = enabled
         if is_id_token_mapping is not None:
@@ -111,6 +121,27 @@ class GetIdentityProviderOIDCResponse(object):
             self.uid = uid
         if use_pkce is not None:
             self.use_pkce = use_pkce
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this GetIdentityProviderOIDCResponse.  # noqa: E501
+
+
+        :return: The attribute_mappings of this GetIdentityProviderOIDCResponse.  # noqa: E501
+        :rtype: list[AttributeMappingForGetIdentityProviderOIDCOutput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this GetIdentityProviderOIDCResponse.
+
+
+        :param attribute_mappings: The attribute_mappings of this GetIdentityProviderOIDCResponse.  # noqa: E501
+        :type: list[AttributeMappingForGetIdentityProviderOIDCOutput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def claims_propagation_config(self):
@@ -174,6 +205,27 @@ class GetIdentityProviderOIDCResponse(object):
         """
 
         self._client_secret = client_secret
+
+    @property
+    def eip_record(self):
+        """Gets the eip_record of this GetIdentityProviderOIDCResponse.  # noqa: E501
+
+
+        :return: The eip_record of this GetIdentityProviderOIDCResponse.  # noqa: E501
+        :rtype: EipRecordForGetIdentityProviderOIDCOutput
+        """
+        return self._eip_record
+
+    @eip_record.setter
+    def eip_record(self, eip_record):
+        """Sets the eip_record of this GetIdentityProviderOIDCResponse.
+
+
+        :param eip_record: The eip_record of this GetIdentityProviderOIDCResponse.  # noqa: E501
+        :type: EipRecordForGetIdentityProviderOIDCOutput
+        """
+
+        self._eip_record = eip_record
 
     @property
     def enabled(self):

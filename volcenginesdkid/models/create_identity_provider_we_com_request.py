@@ -34,17 +34,20 @@ class CreateIdentityProviderWeComRequest(object):
     """
     swagger_types = {
         'agent_id': 'str',
+        'attribute_mappings': 'list[AttributeMappingForCreateIdentityProviderWeComInput]',
         'authorization_endpoint': 'str',
         'claims_propagation_config': 'ClaimsPropagationConfigForCreateIdentityProviderWeComInput',
         'corp_id': 'str',
         'detailed_user_info_endpoint': 'str',
         'domain_verify_content': 'str',
         'domain_verify_file_name': 'str',
+        'eip_id': 'str',
         'enabled': 'bool',
         'name': 'str',
         'provider_options': 'ProviderOptionsForCreateIdentityProviderWeComInput',
         'retrieve_sensitive_user_info_enabled': 'bool',
         'secret': 'str',
+        'sole_provider_connection': 'str',
         'token_endpoint': 'str',
         'user_endpoint': 'str',
         'user_pool_uid': 'str'
@@ -52,46 +55,54 @@ class CreateIdentityProviderWeComRequest(object):
 
     attribute_map = {
         'agent_id': 'AgentId',
+        'attribute_mappings': 'AttributeMappings',
         'authorization_endpoint': 'AuthorizationEndpoint',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'corp_id': 'CorpId',
         'detailed_user_info_endpoint': 'DetailedUserInfoEndpoint',
         'domain_verify_content': 'DomainVerifyContent',
         'domain_verify_file_name': 'DomainVerifyFileName',
+        'eip_id': 'EipId',
         'enabled': 'Enabled',
         'name': 'Name',
         'provider_options': 'ProviderOptions',
         'retrieve_sensitive_user_info_enabled': 'RetrieveSensitiveUserInfoEnabled',
         'secret': 'Secret',
+        'sole_provider_connection': 'SoleProviderConnection',
         'token_endpoint': 'TokenEndpoint',
         'user_endpoint': 'UserEndpoint',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, agent_id=None, authorization_endpoint=None, claims_propagation_config=None, corp_id=None, detailed_user_info_endpoint=None, domain_verify_content=None, domain_verify_file_name=None, enabled=None, name=None, provider_options=None, retrieve_sensitive_user_info_enabled=None, secret=None, token_endpoint=None, user_endpoint=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, attribute_mappings=None, authorization_endpoint=None, claims_propagation_config=None, corp_id=None, detailed_user_info_endpoint=None, domain_verify_content=None, domain_verify_file_name=None, eip_id=None, enabled=None, name=None, provider_options=None, retrieve_sensitive_user_info_enabled=None, secret=None, sole_provider_connection=None, token_endpoint=None, user_endpoint=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderWeComRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._agent_id = None
+        self._attribute_mappings = None
         self._authorization_endpoint = None
         self._claims_propagation_config = None
         self._corp_id = None
         self._detailed_user_info_endpoint = None
         self._domain_verify_content = None
         self._domain_verify_file_name = None
+        self._eip_id = None
         self._enabled = None
         self._name = None
         self._provider_options = None
         self._retrieve_sensitive_user_info_enabled = None
         self._secret = None
+        self._sole_provider_connection = None
         self._token_endpoint = None
         self._user_endpoint = None
         self._user_pool_uid = None
         self.discriminator = None
 
         self.agent_id = agent_id
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         self.authorization_endpoint = authorization_endpoint
         if claims_propagation_config is not None:
             self.claims_propagation_config = claims_propagation_config
@@ -101,6 +112,8 @@ class CreateIdentityProviderWeComRequest(object):
             self.domain_verify_content = domain_verify_content
         if domain_verify_file_name is not None:
             self.domain_verify_file_name = domain_verify_file_name
+        if eip_id is not None:
+            self.eip_id = eip_id
         self.enabled = enabled
         self.name = name
         if provider_options is not None:
@@ -108,6 +121,8 @@ class CreateIdentityProviderWeComRequest(object):
         if retrieve_sensitive_user_info_enabled is not None:
             self.retrieve_sensitive_user_info_enabled = retrieve_sensitive_user_info_enabled
         self.secret = secret
+        if sole_provider_connection is not None:
+            self.sole_provider_connection = sole_provider_connection
         self.token_endpoint = token_endpoint
         self.user_endpoint = user_endpoint
         self.user_pool_uid = user_pool_uid
@@ -134,6 +149,27 @@ class CreateIdentityProviderWeComRequest(object):
             raise ValueError("Invalid value for `agent_id`, must not be `None`")  # noqa: E501
 
         self._agent_id = agent_id
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this CreateIdentityProviderWeComRequest.  # noqa: E501
+
+
+        :return: The attribute_mappings of this CreateIdentityProviderWeComRequest.  # noqa: E501
+        :rtype: list[AttributeMappingForCreateIdentityProviderWeComInput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this CreateIdentityProviderWeComRequest.
+
+
+        :param attribute_mappings: The attribute_mappings of this CreateIdentityProviderWeComRequest.  # noqa: E501
+        :type: list[AttributeMappingForCreateIdentityProviderWeComInput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def authorization_endpoint(self):
@@ -268,6 +304,27 @@ class CreateIdentityProviderWeComRequest(object):
         self._domain_verify_file_name = domain_verify_file_name
 
     @property
+    def eip_id(self):
+        """Gets the eip_id of this CreateIdentityProviderWeComRequest.  # noqa: E501
+
+
+        :return: The eip_id of this CreateIdentityProviderWeComRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this CreateIdentityProviderWeComRequest.
+
+
+        :param eip_id: The eip_id of this CreateIdentityProviderWeComRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
+
+    @property
     def enabled(self):
         """Gets the enabled of this CreateIdentityProviderWeComRequest.  # noqa: E501
 
@@ -377,6 +434,27 @@ class CreateIdentityProviderWeComRequest(object):
             raise ValueError("Invalid value for `secret`, must not be `None`")  # noqa: E501
 
         self._secret = secret
+
+    @property
+    def sole_provider_connection(self):
+        """Gets the sole_provider_connection of this CreateIdentityProviderWeComRequest.  # noqa: E501
+
+
+        :return: The sole_provider_connection of this CreateIdentityProviderWeComRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sole_provider_connection
+
+    @sole_provider_connection.setter
+    def sole_provider_connection(self, sole_provider_connection):
+        """Sets the sole_provider_connection of this CreateIdentityProviderWeComRequest.
+
+
+        :param sole_provider_connection: The sole_provider_connection of this CreateIdentityProviderWeComRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sole_provider_connection = sole_provider_connection
 
     @property
     def token_endpoint(self):

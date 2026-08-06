@@ -33,45 +33,279 @@ class BindWorkloadPoolTrustAnchorResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'workload_pool': 'WorkloadPoolForBindWorkloadPoolTrustAnchorOutput'
+        'allow_auto_create_identity': 'bool',
+        'created_at': 'str',
+        'description': 'str',
+        'discovery_url': 'str',
+        'trn': 'str',
+        'trust_anchors': 'list[str]',
+        'updated_at': 'str',
+        'url': 'str',
+        'workload_pool_id': 'str',
+        'workload_pool_name': 'str'
     }
 
     attribute_map = {
-        'workload_pool': 'WorkloadPool'
+        'allow_auto_create_identity': 'AllowAutoCreateIdentity',
+        'created_at': 'CreatedAt',
+        'description': 'Description',
+        'discovery_url': 'DiscoveryUrl',
+        'trn': 'Trn',
+        'trust_anchors': 'TrustAnchors',
+        'updated_at': 'UpdatedAt',
+        'url': 'Url',
+        'workload_pool_id': 'WorkloadPoolId',
+        'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, workload_pool=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_auto_create_identity=None, created_at=None, description=None, discovery_url=None, trn=None, trust_anchors=None, updated_at=None, url=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """BindWorkloadPoolTrustAnchorResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._workload_pool = None
+        self._allow_auto_create_identity = None
+        self._created_at = None
+        self._description = None
+        self._discovery_url = None
+        self._trn = None
+        self._trust_anchors = None
+        self._updated_at = None
+        self._url = None
+        self._workload_pool_id = None
+        self._workload_pool_name = None
         self.discriminator = None
 
-        if workload_pool is not None:
-            self.workload_pool = workload_pool
+        if allow_auto_create_identity is not None:
+            self.allow_auto_create_identity = allow_auto_create_identity
+        if created_at is not None:
+            self.created_at = created_at
+        if description is not None:
+            self.description = description
+        if discovery_url is not None:
+            self.discovery_url = discovery_url
+        if trn is not None:
+            self.trn = trn
+        if trust_anchors is not None:
+            self.trust_anchors = trust_anchors
+        if updated_at is not None:
+            self.updated_at = updated_at
+        if url is not None:
+            self.url = url
+        if workload_pool_id is not None:
+            self.workload_pool_id = workload_pool_id
+        if workload_pool_name is not None:
+            self.workload_pool_name = workload_pool_name
 
     @property
-    def workload_pool(self):
-        """Gets the workload_pool of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+    def allow_auto_create_identity(self):
+        """Gets the allow_auto_create_identity of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
 
 
-        :return: The workload_pool of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
-        :rtype: WorkloadPoolForBindWorkloadPoolTrustAnchorOutput
+        :return: The allow_auto_create_identity of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: bool
         """
-        return self._workload_pool
+        return self._allow_auto_create_identity
 
-    @workload_pool.setter
-    def workload_pool(self, workload_pool):
-        """Sets the workload_pool of this BindWorkloadPoolTrustAnchorResponse.
+    @allow_auto_create_identity.setter
+    def allow_auto_create_identity(self, allow_auto_create_identity):
+        """Sets the allow_auto_create_identity of this BindWorkloadPoolTrustAnchorResponse.
 
 
-        :param workload_pool: The workload_pool of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
-        :type: WorkloadPoolForBindWorkloadPoolTrustAnchorOutput
+        :param allow_auto_create_identity: The allow_auto_create_identity of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: bool
         """
 
-        self._workload_pool = workload_pool
+        self._allow_auto_create_identity = allow_auto_create_identity
+
+    @property
+    def created_at(self):
+        """Gets the created_at of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The created_at of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this BindWorkloadPoolTrustAnchorResponse.
+
+
+        :param created_at: The created_at of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._created_at = created_at
+
+    @property
+    def description(self):
+        """Gets the description of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The description of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this BindWorkloadPoolTrustAnchorResponse.
+
+
+        :param description: The description of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def discovery_url(self):
+        """Gets the discovery_url of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The discovery_url of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._discovery_url
+
+    @discovery_url.setter
+    def discovery_url(self, discovery_url):
+        """Sets the discovery_url of this BindWorkloadPoolTrustAnchorResponse.
+
+
+        :param discovery_url: The discovery_url of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._discovery_url = discovery_url
+
+    @property
+    def trn(self):
+        """Gets the trn of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The trn of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._trn
+
+    @trn.setter
+    def trn(self, trn):
+        """Sets the trn of this BindWorkloadPoolTrustAnchorResponse.
+
+
+        :param trn: The trn of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._trn = trn
+
+    @property
+    def trust_anchors(self):
+        """Gets the trust_anchors of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The trust_anchors of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._trust_anchors
+
+    @trust_anchors.setter
+    def trust_anchors(self, trust_anchors):
+        """Sets the trust_anchors of this BindWorkloadPoolTrustAnchorResponse.
+
+
+        :param trust_anchors: The trust_anchors of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._trust_anchors = trust_anchors
+
+    @property
+    def updated_at(self):
+        """Gets the updated_at of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The updated_at of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._updated_at
+
+    @updated_at.setter
+    def updated_at(self, updated_at):
+        """Sets the updated_at of this BindWorkloadPoolTrustAnchorResponse.
+
+
+        :param updated_at: The updated_at of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._updated_at = updated_at
+
+    @property
+    def url(self):
+        """Gets the url of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The url of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this BindWorkloadPoolTrustAnchorResponse.
+
+
+        :param url: The url of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._url = url
+
+    @property
+    def workload_pool_id(self):
+        """Gets the workload_pool_id of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The workload_pool_id of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_pool_id
+
+    @workload_pool_id.setter
+    def workload_pool_id(self, workload_pool_id):
+        """Sets the workload_pool_id of this BindWorkloadPoolTrustAnchorResponse.
+
+
+        :param workload_pool_id: The workload_pool_id of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_pool_id = workload_pool_id
+
+    @property
+    def workload_pool_name(self):
+        """Gets the workload_pool_name of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The workload_pool_name of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_pool_name
+
+    @workload_pool_name.setter
+    def workload_pool_name(self, workload_pool_name):
+        """Sets the workload_pool_name of this BindWorkloadPoolTrustAnchorResponse.
+
+
+        :param workload_pool_name: The workload_pool_name of this BindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_pool_name = workload_pool_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

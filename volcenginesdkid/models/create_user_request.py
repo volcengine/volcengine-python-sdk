@@ -34,8 +34,11 @@ class CreateUserRequest(object):
     """
     swagger_types = {
         'birthdate': 'str',
+        'custom_attributes_to_upsert': 'list[CustomAttributesToUpsertForCreateUserInput]',
         'email': 'str',
         'email_verified': 'bool',
+        'external_provider_connection_uid': 'str',
+        'external_provider_user_identifier': 'str',
         'family_name': 'str',
         'gender': 'str',
         'given_name': 'str',
@@ -57,8 +60,11 @@ class CreateUserRequest(object):
 
     attribute_map = {
         'birthdate': 'Birthdate',
+        'custom_attributes_to_upsert': 'CustomAttributesToUpsert',
         'email': 'Email',
         'email_verified': 'EmailVerified',
+        'external_provider_connection_uid': 'ExternalProviderConnectionUid',
+        'external_provider_user_identifier': 'ExternalProviderUserIdentifier',
         'family_name': 'FamilyName',
         'gender': 'Gender',
         'given_name': 'GivenName',
@@ -78,15 +84,18 @@ class CreateUserRequest(object):
         'zoneinfo': 'Zoneinfo'
     }
 
-    def __init__(self, birthdate=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, locale=None, middle_name=None, name=None, nickname=None, password=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, user_metadata=None, user_pool_uid=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
+    def __init__(self, birthdate=None, custom_attributes_to_upsert=None, email=None, email_verified=None, external_provider_connection_uid=None, external_provider_user_identifier=None, family_name=None, gender=None, given_name=None, locale=None, middle_name=None, name=None, nickname=None, password=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, user_metadata=None, user_pool_uid=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
         """CreateUserRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._birthdate = None
+        self._custom_attributes_to_upsert = None
         self._email = None
         self._email_verified = None
+        self._external_provider_connection_uid = None
+        self._external_provider_user_identifier = None
         self._family_name = None
         self._gender = None
         self._given_name = None
@@ -108,10 +117,16 @@ class CreateUserRequest(object):
 
         if birthdate is not None:
             self.birthdate = birthdate
+        if custom_attributes_to_upsert is not None:
+            self.custom_attributes_to_upsert = custom_attributes_to_upsert
         if email is not None:
             self.email = email
         if email_verified is not None:
             self.email_verified = email_verified
+        if external_provider_connection_uid is not None:
+            self.external_provider_connection_uid = external_provider_connection_uid
+        if external_provider_user_identifier is not None:
+            self.external_provider_user_identifier = external_provider_user_identifier
         if family_name is not None:
             self.family_name = family_name
         if gender is not None:
@@ -126,7 +141,8 @@ class CreateUserRequest(object):
             self.name = name
         if nickname is not None:
             self.nickname = nickname
-        self.password = password
+        if password is not None:
+            self.password = password
         if phone_number is not None:
             self.phone_number = phone_number
         if phone_number_verified is not None:
@@ -165,6 +181,27 @@ class CreateUserRequest(object):
         """
 
         self._birthdate = birthdate
+
+    @property
+    def custom_attributes_to_upsert(self):
+        """Gets the custom_attributes_to_upsert of this CreateUserRequest.  # noqa: E501
+
+
+        :return: The custom_attributes_to_upsert of this CreateUserRequest.  # noqa: E501
+        :rtype: list[CustomAttributesToUpsertForCreateUserInput]
+        """
+        return self._custom_attributes_to_upsert
+
+    @custom_attributes_to_upsert.setter
+    def custom_attributes_to_upsert(self, custom_attributes_to_upsert):
+        """Sets the custom_attributes_to_upsert of this CreateUserRequest.
+
+
+        :param custom_attributes_to_upsert: The custom_attributes_to_upsert of this CreateUserRequest.  # noqa: E501
+        :type: list[CustomAttributesToUpsertForCreateUserInput]
+        """
+
+        self._custom_attributes_to_upsert = custom_attributes_to_upsert
 
     @property
     def email(self):
@@ -207,6 +244,48 @@ class CreateUserRequest(object):
         """
 
         self._email_verified = email_verified
+
+    @property
+    def external_provider_connection_uid(self):
+        """Gets the external_provider_connection_uid of this CreateUserRequest.  # noqa: E501
+
+
+        :return: The external_provider_connection_uid of this CreateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_provider_connection_uid
+
+    @external_provider_connection_uid.setter
+    def external_provider_connection_uid(self, external_provider_connection_uid):
+        """Sets the external_provider_connection_uid of this CreateUserRequest.
+
+
+        :param external_provider_connection_uid: The external_provider_connection_uid of this CreateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._external_provider_connection_uid = external_provider_connection_uid
+
+    @property
+    def external_provider_user_identifier(self):
+        """Gets the external_provider_user_identifier of this CreateUserRequest.  # noqa: E501
+
+
+        :return: The external_provider_user_identifier of this CreateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_provider_user_identifier
+
+    @external_provider_user_identifier.setter
+    def external_provider_user_identifier(self, external_provider_user_identifier):
+        """Sets the external_provider_user_identifier of this CreateUserRequest.
+
+
+        :param external_provider_user_identifier: The external_provider_user_identifier of this CreateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._external_provider_user_identifier = external_provider_user_identifier
 
     @property
     def family_name(self):
@@ -373,8 +452,6 @@ class CreateUserRequest(object):
         :param password: The password of this CreateUserRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and password is None:
-            raise ValueError("Invalid value for `password`, must not be `None`")  # noqa: E501
 
         self._password = password
 

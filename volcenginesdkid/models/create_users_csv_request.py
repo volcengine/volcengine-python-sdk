@@ -34,15 +34,17 @@ class CreateUsersCSVRequest(object):
     """
     swagger_types = {
         'external_provider_connection_uid': 'str',
-        'user_pool_uid': 'str'
+        'user_pool_uid': 'str',
+        'users_csv_b64': 'str'
     }
 
     attribute_map = {
         'external_provider_connection_uid': 'ExternalProviderConnectionUid',
-        'user_pool_uid': 'UserPoolUid'
+        'user_pool_uid': 'UserPoolUid',
+        'users_csv_b64': 'UsersCsvB64'
     }
 
-    def __init__(self, external_provider_connection_uid=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, external_provider_connection_uid=None, user_pool_uid=None, users_csv_b64=None, _configuration=None):  # noqa: E501
         """CreateUsersCSVRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,11 +52,14 @@ class CreateUsersCSVRequest(object):
 
         self._external_provider_connection_uid = None
         self._user_pool_uid = None
+        self._users_csv_b64 = None
         self.discriminator = None
 
         if external_provider_connection_uid is not None:
             self.external_provider_connection_uid = external_provider_connection_uid
         self.user_pool_uid = user_pool_uid
+        if users_csv_b64 is not None:
+            self.users_csv_b64 = users_csv_b64
 
     @property
     def external_provider_connection_uid(self):
@@ -99,6 +104,27 @@ class CreateUsersCSVRequest(object):
             raise ValueError("Invalid value for `user_pool_uid`, must not be `None`")  # noqa: E501
 
         self._user_pool_uid = user_pool_uid
+
+    @property
+    def users_csv_b64(self):
+        """Gets the users_csv_b64 of this CreateUsersCSVRequest.  # noqa: E501
+
+
+        :return: The users_csv_b64 of this CreateUsersCSVRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._users_csv_b64
+
+    @users_csv_b64.setter
+    def users_csv_b64(self, users_csv_b64):
+        """Sets the users_csv_b64 of this CreateUsersCSVRequest.
+
+
+        :param users_csv_b64: The users_csv_b64 of this CreateUsersCSVRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._users_csv_b64 = users_csv_b64
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,55 +33,39 @@ class ClaimRuleForUpdateIdentityProviderWeComInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'claim_key': 'str',
         'claim_type': 'str',
-        'claim_value': 'str'
+        'required': 'bool',
+        'source_claim_path': 'str',
+        'target_claim': 'str'
     }
 
     attribute_map = {
-        'claim_key': 'ClaimKey',
         'claim_type': 'ClaimType',
-        'claim_value': 'ClaimValue'
+        'required': 'Required',
+        'source_claim_path': 'SourceClaimPath',
+        'target_claim': 'TargetClaim'
     }
 
-    def __init__(self, claim_key=None, claim_type=None, claim_value=None, _configuration=None):  # noqa: E501
+    def __init__(self, claim_type=None, required=None, source_claim_path=None, target_claim=None, _configuration=None):  # noqa: E501
         """ClaimRuleForUpdateIdentityProviderWeComInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._claim_key = None
         self._claim_type = None
-        self._claim_value = None
+        self._required = None
+        self._source_claim_path = None
+        self._target_claim = None
         self.discriminator = None
 
-        if claim_key is not None:
-            self.claim_key = claim_key
         if claim_type is not None:
             self.claim_type = claim_type
-        if claim_value is not None:
-            self.claim_value = claim_value
-
-    @property
-    def claim_key(self):
-        """Gets the claim_key of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
-
-
-        :return: The claim_key of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._claim_key
-
-    @claim_key.setter
-    def claim_key(self, claim_key):
-        """Sets the claim_key of this ClaimRuleForUpdateIdentityProviderWeComInput.
-
-
-        :param claim_key: The claim_key of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
-        :type: str
-        """
-
-        self._claim_key = claim_key
+        if required is not None:
+            self.required = required
+        if source_claim_path is not None:
+            self.source_claim_path = source_claim_path
+        if target_claim is not None:
+            self.target_claim = target_claim
 
     @property
     def claim_type(self):
@@ -105,25 +89,67 @@ class ClaimRuleForUpdateIdentityProviderWeComInput(object):
         self._claim_type = claim_type
 
     @property
-    def claim_value(self):
-        """Gets the claim_value of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
+    def required(self):
+        """Gets the required of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
 
 
-        :return: The claim_value of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
+        :return: The required of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._required
+
+    @required.setter
+    def required(self, required):
+        """Sets the required of this ClaimRuleForUpdateIdentityProviderWeComInput.
+
+
+        :param required: The required of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._required = required
+
+    @property
+    def source_claim_path(self):
+        """Gets the source_claim_path of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
+
+
+        :return: The source_claim_path of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
         :rtype: str
         """
-        return self._claim_value
+        return self._source_claim_path
 
-    @claim_value.setter
-    def claim_value(self, claim_value):
-        """Sets the claim_value of this ClaimRuleForUpdateIdentityProviderWeComInput.
+    @source_claim_path.setter
+    def source_claim_path(self, source_claim_path):
+        """Sets the source_claim_path of this ClaimRuleForUpdateIdentityProviderWeComInput.
 
 
-        :param claim_value: The claim_value of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
+        :param source_claim_path: The source_claim_path of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
         :type: str
         """
 
-        self._claim_value = claim_value
+        self._source_claim_path = source_claim_path
+
+    @property
+    def target_claim(self):
+        """Gets the target_claim of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
+
+
+        :return: The target_claim of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_claim
+
+    @target_claim.setter
+    def target_claim(self, target_claim):
+        """Sets the target_claim of this ClaimRuleForUpdateIdentityProviderWeComInput.
+
+
+        :param target_claim: The target_claim of this ClaimRuleForUpdateIdentityProviderWeComInput.  # noqa: E501
+        :type: str
+        """
+
+        self._target_claim = target_claim
 
     def to_dict(self):
         """Returns the model properties as a dict"""

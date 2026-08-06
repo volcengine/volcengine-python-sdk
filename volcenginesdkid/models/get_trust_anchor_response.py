@@ -33,45 +33,253 @@ class GetTrustAnchorResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'trust_anchor': 'TrustAnchorForGetTrustAnchorOutput'
+        'account_id': 'str',
+        'created_at': 'str',
+        'description': 'str',
+        'identity_name_template': 'str',
+        'name': 'str',
+        'trn': 'str',
+        'trust_anchor_cfg': 'list[TrustAnchorCfgForGetTrustAnchorOutput]',
+        'trust_anchor_type': 'str',
+        'updated_at': 'str'
     }
 
     attribute_map = {
-        'trust_anchor': 'TrustAnchor'
+        'account_id': 'AccountId',
+        'created_at': 'CreatedAt',
+        'description': 'Description',
+        'identity_name_template': 'IdentityNameTemplate',
+        'name': 'Name',
+        'trn': 'Trn',
+        'trust_anchor_cfg': 'TrustAnchorCfg',
+        'trust_anchor_type': 'TrustAnchorType',
+        'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, trust_anchor=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, created_at=None, description=None, identity_name_template=None, name=None, trn=None, trust_anchor_cfg=None, trust_anchor_type=None, updated_at=None, _configuration=None):  # noqa: E501
         """GetTrustAnchorResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._trust_anchor = None
+        self._account_id = None
+        self._created_at = None
+        self._description = None
+        self._identity_name_template = None
+        self._name = None
+        self._trn = None
+        self._trust_anchor_cfg = None
+        self._trust_anchor_type = None
+        self._updated_at = None
         self.discriminator = None
 
-        if trust_anchor is not None:
-            self.trust_anchor = trust_anchor
+        if account_id is not None:
+            self.account_id = account_id
+        if created_at is not None:
+            self.created_at = created_at
+        if description is not None:
+            self.description = description
+        if identity_name_template is not None:
+            self.identity_name_template = identity_name_template
+        if name is not None:
+            self.name = name
+        if trn is not None:
+            self.trn = trn
+        if trust_anchor_cfg is not None:
+            self.trust_anchor_cfg = trust_anchor_cfg
+        if trust_anchor_type is not None:
+            self.trust_anchor_type = trust_anchor_type
+        if updated_at is not None:
+            self.updated_at = updated_at
 
     @property
-    def trust_anchor(self):
-        """Gets the trust_anchor of this GetTrustAnchorResponse.  # noqa: E501
+    def account_id(self):
+        """Gets the account_id of this GetTrustAnchorResponse.  # noqa: E501
 
 
-        :return: The trust_anchor of this GetTrustAnchorResponse.  # noqa: E501
-        :rtype: TrustAnchorForGetTrustAnchorOutput
+        :return: The account_id of this GetTrustAnchorResponse.  # noqa: E501
+        :rtype: str
         """
-        return self._trust_anchor
+        return self._account_id
 
-    @trust_anchor.setter
-    def trust_anchor(self, trust_anchor):
-        """Sets the trust_anchor of this GetTrustAnchorResponse.
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this GetTrustAnchorResponse.
 
 
-        :param trust_anchor: The trust_anchor of this GetTrustAnchorResponse.  # noqa: E501
-        :type: TrustAnchorForGetTrustAnchorOutput
+        :param account_id: The account_id of this GetTrustAnchorResponse.  # noqa: E501
+        :type: str
         """
 
-        self._trust_anchor = trust_anchor
+        self._account_id = account_id
+
+    @property
+    def created_at(self):
+        """Gets the created_at of this GetTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The created_at of this GetTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this GetTrustAnchorResponse.
+
+
+        :param created_at: The created_at of this GetTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._created_at = created_at
+
+    @property
+    def description(self):
+        """Gets the description of this GetTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The description of this GetTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this GetTrustAnchorResponse.
+
+
+        :param description: The description of this GetTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def identity_name_template(self):
+        """Gets the identity_name_template of this GetTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The identity_name_template of this GetTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._identity_name_template
+
+    @identity_name_template.setter
+    def identity_name_template(self, identity_name_template):
+        """Sets the identity_name_template of this GetTrustAnchorResponse.
+
+
+        :param identity_name_template: The identity_name_template of this GetTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._identity_name_template = identity_name_template
+
+    @property
+    def name(self):
+        """Gets the name of this GetTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The name of this GetTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this GetTrustAnchorResponse.
+
+
+        :param name: The name of this GetTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def trn(self):
+        """Gets the trn of this GetTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The trn of this GetTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._trn
+
+    @trn.setter
+    def trn(self, trn):
+        """Sets the trn of this GetTrustAnchorResponse.
+
+
+        :param trn: The trn of this GetTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._trn = trn
+
+    @property
+    def trust_anchor_cfg(self):
+        """Gets the trust_anchor_cfg of this GetTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The trust_anchor_cfg of this GetTrustAnchorResponse.  # noqa: E501
+        :rtype: list[TrustAnchorCfgForGetTrustAnchorOutput]
+        """
+        return self._trust_anchor_cfg
+
+    @trust_anchor_cfg.setter
+    def trust_anchor_cfg(self, trust_anchor_cfg):
+        """Sets the trust_anchor_cfg of this GetTrustAnchorResponse.
+
+
+        :param trust_anchor_cfg: The trust_anchor_cfg of this GetTrustAnchorResponse.  # noqa: E501
+        :type: list[TrustAnchorCfgForGetTrustAnchorOutput]
+        """
+
+        self._trust_anchor_cfg = trust_anchor_cfg
+
+    @property
+    def trust_anchor_type(self):
+        """Gets the trust_anchor_type of this GetTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The trust_anchor_type of this GetTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._trust_anchor_type
+
+    @trust_anchor_type.setter
+    def trust_anchor_type(self, trust_anchor_type):
+        """Sets the trust_anchor_type of this GetTrustAnchorResponse.
+
+
+        :param trust_anchor_type: The trust_anchor_type of this GetTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._trust_anchor_type = trust_anchor_type
+
+    @property
+    def updated_at(self):
+        """Gets the updated_at of this GetTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The updated_at of this GetTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._updated_at
+
+    @updated_at.setter
+    def updated_at(self, updated_at):
+        """Sets the updated_at of this GetTrustAnchorResponse.
+
+
+        :param updated_at: The updated_at of this GetTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._updated_at = updated_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

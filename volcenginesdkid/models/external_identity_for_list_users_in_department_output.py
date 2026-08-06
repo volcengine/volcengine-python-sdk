@@ -37,6 +37,7 @@ class ExternalIdentityForListUsersInDepartmentOutput(object):
         'connection_uid': 'str',
         'external_provider_user_identifier': 'str',
         'external_provider_user_metadata': 'str',
+        'last_login_at': 'str',
         'link_source': 'str',
         'provider': 'str',
         'updated_at': 'str'
@@ -47,12 +48,13 @@ class ExternalIdentityForListUsersInDepartmentOutput(object):
         'connection_uid': 'ConnectionUid',
         'external_provider_user_identifier': 'ExternalProviderUserIdentifier',
         'external_provider_user_metadata': 'ExternalProviderUserMetadata',
+        'last_login_at': 'LastLoginAt',
         'link_source': 'LinkSource',
         'provider': 'Provider',
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, connection_type=None, connection_uid=None, external_provider_user_identifier=None, external_provider_user_metadata=None, link_source=None, provider=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection_type=None, connection_uid=None, external_provider_user_identifier=None, external_provider_user_metadata=None, last_login_at=None, link_source=None, provider=None, updated_at=None, _configuration=None):  # noqa: E501
         """ExternalIdentityForListUsersInDepartmentOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class ExternalIdentityForListUsersInDepartmentOutput(object):
         self._connection_uid = None
         self._external_provider_user_identifier = None
         self._external_provider_user_metadata = None
+        self._last_login_at = None
         self._link_source = None
         self._provider = None
         self._updated_at = None
@@ -75,6 +78,8 @@ class ExternalIdentityForListUsersInDepartmentOutput(object):
             self.external_provider_user_identifier = external_provider_user_identifier
         if external_provider_user_metadata is not None:
             self.external_provider_user_metadata = external_provider_user_metadata
+        if last_login_at is not None:
+            self.last_login_at = last_login_at
         if link_source is not None:
             self.link_source = link_source
         if provider is not None:
@@ -165,6 +170,27 @@ class ExternalIdentityForListUsersInDepartmentOutput(object):
         """
 
         self._external_provider_user_metadata = external_provider_user_metadata
+
+    @property
+    def last_login_at(self):
+        """Gets the last_login_at of this ExternalIdentityForListUsersInDepartmentOutput.  # noqa: E501
+
+
+        :return: The last_login_at of this ExternalIdentityForListUsersInDepartmentOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_login_at
+
+    @last_login_at.setter
+    def last_login_at(self, last_login_at):
+        """Sets the last_login_at of this ExternalIdentityForListUsersInDepartmentOutput.
+
+
+        :param last_login_at: The last_login_at of this ExternalIdentityForListUsersInDepartmentOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._last_login_at = last_login_at
 
     @property
     def link_source(self):

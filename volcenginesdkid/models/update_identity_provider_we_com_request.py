@@ -34,6 +34,7 @@ class UpdateIdentityProviderWeComRequest(object):
     """
     swagger_types = {
         'agent_id': 'str',
+        'attribute_mappings': 'list[AttributeMappingForUpdateIdentityProviderWeComInput]',
         'authorization_endpoint': 'str',
         'claims_propagation_config': 'ClaimsPropagationConfigForUpdateIdentityProviderWeComInput',
         'connection_uid': 'str',
@@ -41,6 +42,7 @@ class UpdateIdentityProviderWeComRequest(object):
         'detailed_user_info_endpoint': 'str',
         'domain_verify_content': 'str',
         'domain_verify_file_name': 'str',
+        'eip_id': 'str',
         'enabled': 'bool',
         'name': 'str',
         'provider_options': 'ProviderOptionsForUpdateIdentityProviderWeComInput',
@@ -53,6 +55,7 @@ class UpdateIdentityProviderWeComRequest(object):
 
     attribute_map = {
         'agent_id': 'AgentId',
+        'attribute_mappings': 'AttributeMappings',
         'authorization_endpoint': 'AuthorizationEndpoint',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'connection_uid': 'ConnectionUid',
@@ -60,6 +63,7 @@ class UpdateIdentityProviderWeComRequest(object):
         'detailed_user_info_endpoint': 'DetailedUserInfoEndpoint',
         'domain_verify_content': 'DomainVerifyContent',
         'domain_verify_file_name': 'DomainVerifyFileName',
+        'eip_id': 'EipId',
         'enabled': 'Enabled',
         'name': 'Name',
         'provider_options': 'ProviderOptions',
@@ -70,13 +74,14 @@ class UpdateIdentityProviderWeComRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, agent_id=None, authorization_endpoint=None, claims_propagation_config=None, connection_uid=None, corp_id=None, detailed_user_info_endpoint=None, domain_verify_content=None, domain_verify_file_name=None, enabled=None, name=None, provider_options=None, retrieve_sensitive_user_info_enabled=None, secret=None, token_endpoint=None, user_endpoint=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, attribute_mappings=None, authorization_endpoint=None, claims_propagation_config=None, connection_uid=None, corp_id=None, detailed_user_info_endpoint=None, domain_verify_content=None, domain_verify_file_name=None, eip_id=None, enabled=None, name=None, provider_options=None, retrieve_sensitive_user_info_enabled=None, secret=None, token_endpoint=None, user_endpoint=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderWeComRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._agent_id = None
+        self._attribute_mappings = None
         self._authorization_endpoint = None
         self._claims_propagation_config = None
         self._connection_uid = None
@@ -84,6 +89,7 @@ class UpdateIdentityProviderWeComRequest(object):
         self._detailed_user_info_endpoint = None
         self._domain_verify_content = None
         self._domain_verify_file_name = None
+        self._eip_id = None
         self._enabled = None
         self._name = None
         self._provider_options = None
@@ -96,6 +102,8 @@ class UpdateIdentityProviderWeComRequest(object):
 
         if agent_id is not None:
             self.agent_id = agent_id
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         if authorization_endpoint is not None:
             self.authorization_endpoint = authorization_endpoint
         if claims_propagation_config is not None:
@@ -109,6 +117,8 @@ class UpdateIdentityProviderWeComRequest(object):
             self.domain_verify_content = domain_verify_content
         if domain_verify_file_name is not None:
             self.domain_verify_file_name = domain_verify_file_name
+        if eip_id is not None:
+            self.eip_id = eip_id
         if enabled is not None:
             self.enabled = enabled
         if name is not None:
@@ -145,6 +155,27 @@ class UpdateIdentityProviderWeComRequest(object):
         """
 
         self._agent_id = agent_id
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this UpdateIdentityProviderWeComRequest.  # noqa: E501
+
+
+        :return: The attribute_mappings of this UpdateIdentityProviderWeComRequest.  # noqa: E501
+        :rtype: list[AttributeMappingForUpdateIdentityProviderWeComInput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this UpdateIdentityProviderWeComRequest.
+
+
+        :param attribute_mappings: The attribute_mappings of this UpdateIdentityProviderWeComRequest.  # noqa: E501
+        :type: list[AttributeMappingForUpdateIdentityProviderWeComInput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def authorization_endpoint(self):
@@ -294,6 +325,27 @@ class UpdateIdentityProviderWeComRequest(object):
         """
 
         self._domain_verify_file_name = domain_verify_file_name
+
+    @property
+    def eip_id(self):
+        """Gets the eip_id of this UpdateIdentityProviderWeComRequest.  # noqa: E501
+
+
+        :return: The eip_id of this UpdateIdentityProviderWeComRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this UpdateIdentityProviderWeComRequest.
+
+
+        :param eip_id: The eip_id of this UpdateIdentityProviderWeComRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
 
     @property
     def enabled(self):

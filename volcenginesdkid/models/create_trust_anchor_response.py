@@ -36,6 +36,7 @@ class CreateTrustAnchorResponse(object):
         'account_id': 'str',
         'created_at': 'str',
         'description': 'str',
+        'identity_name_template': 'str',
         'name': 'str',
         'trn': 'str',
         'trust_anchor_cfg': 'list[TrustAnchorCfgForCreateTrustAnchorOutput]',
@@ -47,6 +48,7 @@ class CreateTrustAnchorResponse(object):
         'account_id': 'AccountId',
         'created_at': 'CreatedAt',
         'description': 'Description',
+        'identity_name_template': 'IdentityNameTemplate',
         'name': 'Name',
         'trn': 'Trn',
         'trust_anchor_cfg': 'TrustAnchorCfg',
@@ -54,7 +56,7 @@ class CreateTrustAnchorResponse(object):
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, account_id=None, created_at=None, description=None, name=None, trn=None, trust_anchor_cfg=None, trust_anchor_type=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, created_at=None, description=None, identity_name_template=None, name=None, trn=None, trust_anchor_cfg=None, trust_anchor_type=None, updated_at=None, _configuration=None):  # noqa: E501
         """CreateTrustAnchorResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class CreateTrustAnchorResponse(object):
         self._account_id = None
         self._created_at = None
         self._description = None
+        self._identity_name_template = None
         self._name = None
         self._trn = None
         self._trust_anchor_cfg = None
@@ -76,6 +79,8 @@ class CreateTrustAnchorResponse(object):
             self.created_at = created_at
         if description is not None:
             self.description = description
+        if identity_name_template is not None:
+            self.identity_name_template = identity_name_template
         if name is not None:
             self.name = name
         if trn is not None:
@@ -149,6 +154,27 @@ class CreateTrustAnchorResponse(object):
         """
 
         self._description = description
+
+    @property
+    def identity_name_template(self):
+        """Gets the identity_name_template of this CreateTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The identity_name_template of this CreateTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._identity_name_template
+
+    @identity_name_template.setter
+    def identity_name_template(self, identity_name_template):
+        """Sets the identity_name_template of this CreateTrustAnchorResponse.
+
+
+        :param identity_name_template: The identity_name_template of this CreateTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._identity_name_template = identity_name_template
 
     @property
     def name(self):

@@ -40,6 +40,7 @@ class DataForListPoliciesOutput(object):
         'policy': 'str',
         'policy_id': 'str',
         'policy_name': 'str',
+        'status': 'str',
         'trn': 'str',
         'update_time': 'str'
     }
@@ -52,11 +53,12 @@ class DataForListPoliciesOutput(object):
         'policy': 'Policy',
         'policy_id': 'PolicyId',
         'policy_name': 'PolicyName',
+        'status': 'Status',
         'trn': 'Trn',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, definition=None, description=None, namespace_id=None, policy=None, policy_id=None, policy_name=None, trn=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, definition=None, description=None, namespace_id=None, policy=None, policy_id=None, policy_name=None, status=None, trn=None, update_time=None, _configuration=None):  # noqa: E501
         """DataForListPoliciesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class DataForListPoliciesOutput(object):
         self._policy = None
         self._policy_id = None
         self._policy_name = None
+        self._status = None
         self._trn = None
         self._update_time = None
         self.discriminator = None
@@ -87,6 +90,8 @@ class DataForListPoliciesOutput(object):
             self.policy_id = policy_id
         if policy_name is not None:
             self.policy_name = policy_name
+        if status is not None:
+            self.status = status
         if trn is not None:
             self.trn = trn
         if update_time is not None:
@@ -238,6 +243,27 @@ class DataForListPoliciesOutput(object):
         """
 
         self._policy_name = policy_name
+
+    @property
+    def status(self):
+        """Gets the status of this DataForListPoliciesOutput.  # noqa: E501
+
+
+        :return: The status of this DataForListPoliciesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this DataForListPoliciesOutput.
+
+
+        :param status: The status of this DataForListPoliciesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     @property
     def trn(self):

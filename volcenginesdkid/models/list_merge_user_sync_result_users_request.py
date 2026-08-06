@@ -33,6 +33,7 @@ class ListMergeUserSyncResultUsersRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'error_message_language': 'str',
         'filter': 'FilterForListMergeUserSyncResultUsersInput',
         'page_number': 'int',
         'page_size': 'int',
@@ -44,6 +45,7 @@ class ListMergeUserSyncResultUsersRequest(object):
     }
 
     attribute_map = {
+        'error_message_language': 'ErrorMessageLanguage',
         'filter': 'Filter',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -54,12 +56,13 @@ class ListMergeUserSyncResultUsersRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, filter=None, page_number=None, page_size=None, sort_direction=None, sort_field=None, task_filter=None, task_uid=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, error_message_language=None, filter=None, page_number=None, page_size=None, sort_direction=None, sort_field=None, task_filter=None, task_uid=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """ListMergeUserSyncResultUsersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._error_message_language = None
         self._filter = None
         self._page_number = None
         self._page_size = None
@@ -70,6 +73,8 @@ class ListMergeUserSyncResultUsersRequest(object):
         self._user_pool_uid = None
         self.discriminator = None
 
+        if error_message_language is not None:
+            self.error_message_language = error_message_language
         if filter is not None:
             self.filter = filter
         self.page_number = page_number
@@ -83,6 +88,27 @@ class ListMergeUserSyncResultUsersRequest(object):
         if task_uid is not None:
             self.task_uid = task_uid
         self.user_pool_uid = user_pool_uid
+
+    @property
+    def error_message_language(self):
+        """Gets the error_message_language of this ListMergeUserSyncResultUsersRequest.  # noqa: E501
+
+
+        :return: The error_message_language of this ListMergeUserSyncResultUsersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_message_language
+
+    @error_message_language.setter
+    def error_message_language(self, error_message_language):
+        """Sets the error_message_language of this ListMergeUserSyncResultUsersRequest.
+
+
+        :param error_message_language: The error_message_language of this ListMergeUserSyncResultUsersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._error_message_language = error_message_language
 
     @property
     def filter(self):

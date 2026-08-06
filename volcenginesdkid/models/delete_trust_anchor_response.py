@@ -33,17 +33,45 @@ class DeleteTrustAnchorResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'name': 'str'
     }
 
     attribute_map = {
+        'name': 'Name'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, _configuration=None):  # noqa: E501
         """DeleteTrustAnchorResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._name = None
         self.discriminator = None
+
+        if name is not None:
+            self.name = name
+
+    @property
+    def name(self):
+        """Gets the name of this DeleteTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The name of this DeleteTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this DeleteTrustAnchorResponse.
+
+
+        :param name: The name of this DeleteTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

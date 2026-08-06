@@ -33,6 +33,7 @@ class ListMergeUserSyncResultUsersResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'custom_attribute_headers': 'list[CustomAttributeHeaderForListMergeUserSyncResultUsersOutput]',
         'data': 'list[DataForListMergeUserSyncResultUsersOutput]',
         'page_number': 'int',
         'page_size': 'int',
@@ -40,24 +41,28 @@ class ListMergeUserSyncResultUsersResponse(object):
     }
 
     attribute_map = {
+        'custom_attribute_headers': 'CustomAttributeHeaders',
         'data': 'Data',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, data=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_attribute_headers=None, data=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
         """ListMergeUserSyncResultUsersResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._custom_attribute_headers = None
         self._data = None
         self._page_number = None
         self._page_size = None
         self._total_count = None
         self.discriminator = None
 
+        if custom_attribute_headers is not None:
+            self.custom_attribute_headers = custom_attribute_headers
         if data is not None:
             self.data = data
         if page_number is not None:
@@ -66,6 +71,27 @@ class ListMergeUserSyncResultUsersResponse(object):
             self.page_size = page_size
         if total_count is not None:
             self.total_count = total_count
+
+    @property
+    def custom_attribute_headers(self):
+        """Gets the custom_attribute_headers of this ListMergeUserSyncResultUsersResponse.  # noqa: E501
+
+
+        :return: The custom_attribute_headers of this ListMergeUserSyncResultUsersResponse.  # noqa: E501
+        :rtype: list[CustomAttributeHeaderForListMergeUserSyncResultUsersOutput]
+        """
+        return self._custom_attribute_headers
+
+    @custom_attribute_headers.setter
+    def custom_attribute_headers(self, custom_attribute_headers):
+        """Sets the custom_attribute_headers of this ListMergeUserSyncResultUsersResponse.
+
+
+        :param custom_attribute_headers: The custom_attribute_headers of this ListMergeUserSyncResultUsersResponse.  # noqa: E501
+        :type: list[CustomAttributeHeaderForListMergeUserSyncResultUsersOutput]
+        """
+
+        self._custom_attribute_headers = custom_attribute_headers
 
     @property
     def data(self):

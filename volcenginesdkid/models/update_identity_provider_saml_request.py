@@ -34,8 +34,10 @@ class UpdateIdentityProviderSAMLRequest(object):
     """
     swagger_types = {
         'attribute_mapping': 'str',
+        'attribute_mappings': 'list[AttributeMappingForUpdateIdentityProviderSAMLInput]',
         'claims_propagation_config': 'ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput',
         'connection_uid': 'str',
+        'eip_id': 'str',
         'enabled': 'bool',
         'enabled_encryption': 'bool',
         'enabled_sign': 'bool',
@@ -49,8 +51,10 @@ class UpdateIdentityProviderSAMLRequest(object):
 
     attribute_map = {
         'attribute_mapping': 'AttributeMapping',
+        'attribute_mappings': 'AttributeMappings',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'connection_uid': 'ConnectionUid',
+        'eip_id': 'EipId',
         'enabled': 'Enabled',
         'enabled_encryption': 'EnabledEncryption',
         'enabled_sign': 'EnabledSign',
@@ -62,15 +66,17 @@ class UpdateIdentityProviderSAMLRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, attribute_mapping=None, claims_propagation_config=None, connection_uid=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider_options=None, scim_provisioning=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mapping=None, attribute_mappings=None, claims_propagation_config=None, connection_uid=None, eip_id=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider_options=None, scim_provisioning=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderSAMLRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._attribute_mapping = None
+        self._attribute_mappings = None
         self._claims_propagation_config = None
         self._connection_uid = None
+        self._eip_id = None
         self._enabled = None
         self._enabled_encryption = None
         self._enabled_sign = None
@@ -84,9 +90,13 @@ class UpdateIdentityProviderSAMLRequest(object):
 
         if attribute_mapping is not None:
             self.attribute_mapping = attribute_mapping
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         if claims_propagation_config is not None:
             self.claims_propagation_config = claims_propagation_config
         self.connection_uid = connection_uid
+        if eip_id is not None:
+            self.eip_id = eip_id
         if enabled is not None:
             self.enabled = enabled
         if enabled_encryption is not None:
@@ -125,6 +135,27 @@ class UpdateIdentityProviderSAMLRequest(object):
         """
 
         self._attribute_mapping = attribute_mapping
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+
+
+        :return: The attribute_mappings of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+        :rtype: list[AttributeMappingForUpdateIdentityProviderSAMLInput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this UpdateIdentityProviderSAMLRequest.
+
+
+        :param attribute_mappings: The attribute_mappings of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+        :type: list[AttributeMappingForUpdateIdentityProviderSAMLInput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def claims_propagation_config(self):
@@ -169,6 +200,27 @@ class UpdateIdentityProviderSAMLRequest(object):
             raise ValueError("Invalid value for `connection_uid`, must not be `None`")  # noqa: E501
 
         self._connection_uid = connection_uid
+
+    @property
+    def eip_id(self):
+        """Gets the eip_id of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+
+
+        :return: The eip_id of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this UpdateIdentityProviderSAMLRequest.
+
+
+        :param eip_id: The eip_id of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
 
     @property
     def enabled(self):

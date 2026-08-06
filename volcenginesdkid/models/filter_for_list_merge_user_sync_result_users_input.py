@@ -42,6 +42,7 @@ class FilterForListMergeUserSyncResultUsersInput(object):
         'new_name': 'str',
         'new_phone_number': 'str',
         'status': 'str',
+        'statuses': 'list[str]',
         'user_uid': 'str'
     }
 
@@ -55,10 +56,11 @@ class FilterForListMergeUserSyncResultUsersInput(object):
         'new_name': 'NewName',
         'new_phone_number': 'NewPhoneNumber',
         'status': 'Status',
+        'statuses': 'Statuses',
         'user_uid': 'UserUid'
     }
 
-    def __init__(self, conflict_fields=None, current_email=None, current_name=None, current_phone_number=None, external_provider_user_identifier=None, new_email=None, new_name=None, new_phone_number=None, status=None, user_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, conflict_fields=None, current_email=None, current_name=None, current_phone_number=None, external_provider_user_identifier=None, new_email=None, new_name=None, new_phone_number=None, status=None, statuses=None, user_uid=None, _configuration=None):  # noqa: E501
         """FilterForListMergeUserSyncResultUsersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class FilterForListMergeUserSyncResultUsersInput(object):
         self._new_name = None
         self._new_phone_number = None
         self._status = None
+        self._statuses = None
         self._user_uid = None
         self.discriminator = None
 
@@ -94,6 +97,8 @@ class FilterForListMergeUserSyncResultUsersInput(object):
             self.new_phone_number = new_phone_number
         if status is not None:
             self.status = status
+        if statuses is not None:
+            self.statuses = statuses
         if user_uid is not None:
             self.user_uid = user_uid
 
@@ -285,6 +290,27 @@ class FilterForListMergeUserSyncResultUsersInput(object):
         """
 
         self._status = status
+
+    @property
+    def statuses(self):
+        """Gets the statuses of this FilterForListMergeUserSyncResultUsersInput.  # noqa: E501
+
+
+        :return: The statuses of this FilterForListMergeUserSyncResultUsersInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._statuses
+
+    @statuses.setter
+    def statuses(self, statuses):
+        """Sets the statuses of this FilterForListMergeUserSyncResultUsersInput.
+
+
+        :param statuses: The statuses of this FilterForListMergeUserSyncResultUsersInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._statuses = statuses
 
     @property
     def user_uid(self):

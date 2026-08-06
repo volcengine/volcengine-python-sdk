@@ -33,16 +33,21 @@ class CreateIdentityProviderOAuthRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attribute_mappings': 'list[AttributeMappingForCreateIdentityProviderOAuthInput]',
         'authorization_endpoint': 'str',
         'claims_propagation_config': 'ClaimsPropagationConfigForCreateIdentityProviderOAuthInput',
         'client_id': 'str',
         'client_secret': 'str',
+        'eip_id': 'str',
         'enabled': 'bool',
+        'extra_provider_configuration': 'ExtraProviderConfigurationForCreateIdentityProviderOAuthInput',
         'id_attribute': 'str',
         'name': 'str',
+        'passvault_oauth2_credential_provider_options': 'PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOAuthInput',
         'provider': 'str',
         'provider_options': 'ProviderOptionsForCreateIdentityProviderOAuthInput',
         'scopes_list': 'list[str]',
+        'sole_provider_connection': 'bool',
         'token_endpoint': 'str',
         'use_pkce': 'bool',
         'user_endpoint': 'str',
@@ -50,62 +55,103 @@ class CreateIdentityProviderOAuthRequest(object):
     }
 
     attribute_map = {
+        'attribute_mappings': 'AttributeMappings',
         'authorization_endpoint': 'AuthorizationEndpoint',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
+        'eip_id': 'EipId',
         'enabled': 'Enabled',
+        'extra_provider_configuration': 'ExtraProviderConfiguration',
         'id_attribute': 'IdAttribute',
         'name': 'Name',
+        'passvault_oauth2_credential_provider_options': 'PassvaultOauth2CredentialProviderOptions',
         'provider': 'Provider',
         'provider_options': 'ProviderOptions',
         'scopes_list': 'ScopesList',
+        'sole_provider_connection': 'SoleProviderConnection',
         'token_endpoint': 'TokenEndpoint',
         'use_pkce': 'UsePkce',
         'user_endpoint': 'UserEndpoint',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, authorization_endpoint=None, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, id_attribute=None, name=None, provider=None, provider_options=None, scopes_list=None, token_endpoint=None, use_pkce=None, user_endpoint=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mappings=None, authorization_endpoint=None, claims_propagation_config=None, client_id=None, client_secret=None, eip_id=None, enabled=None, extra_provider_configuration=None, id_attribute=None, name=None, passvault_oauth2_credential_provider_options=None, provider=None, provider_options=None, scopes_list=None, sole_provider_connection=None, token_endpoint=None, use_pkce=None, user_endpoint=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderOAuthRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attribute_mappings = None
         self._authorization_endpoint = None
         self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
+        self._eip_id = None
         self._enabled = None
+        self._extra_provider_configuration = None
         self._id_attribute = None
         self._name = None
+        self._passvault_oauth2_credential_provider_options = None
         self._provider = None
         self._provider_options = None
         self._scopes_list = None
+        self._sole_provider_connection = None
         self._token_endpoint = None
         self._use_pkce = None
         self._user_endpoint = None
         self._user_pool_uid = None
         self.discriminator = None
 
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         self.authorization_endpoint = authorization_endpoint
         if claims_propagation_config is not None:
             self.claims_propagation_config = claims_propagation_config
         self.client_id = client_id
         self.client_secret = client_secret
+        if eip_id is not None:
+            self.eip_id = eip_id
         self.enabled = enabled
+        if extra_provider_configuration is not None:
+            self.extra_provider_configuration = extra_provider_configuration
         self.id_attribute = id_attribute
         self.name = name
+        if passvault_oauth2_credential_provider_options is not None:
+            self.passvault_oauth2_credential_provider_options = passvault_oauth2_credential_provider_options
         if provider is not None:
             self.provider = provider
         if provider_options is not None:
             self.provider_options = provider_options
         if scopes_list is not None:
             self.scopes_list = scopes_list
+        if sole_provider_connection is not None:
+            self.sole_provider_connection = sole_provider_connection
         self.token_endpoint = token_endpoint
         self.use_pkce = use_pkce
         self.user_endpoint = user_endpoint
         self.user_pool_uid = user_pool_uid
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+
+
+        :return: The attribute_mappings of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+        :rtype: list[AttributeMappingForCreateIdentityProviderOAuthInput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this CreateIdentityProviderOAuthRequest.
+
+
+        :param attribute_mappings: The attribute_mappings of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+        :type: list[AttributeMappingForCreateIdentityProviderOAuthInput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def authorization_endpoint(self):
@@ -198,6 +244,27 @@ class CreateIdentityProviderOAuthRequest(object):
         self._client_secret = client_secret
 
     @property
+    def eip_id(self):
+        """Gets the eip_id of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+
+
+        :return: The eip_id of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this CreateIdentityProviderOAuthRequest.
+
+
+        :param eip_id: The eip_id of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
+
+    @property
     def enabled(self):
         """Gets the enabled of this CreateIdentityProviderOAuthRequest.  # noqa: E501
 
@@ -219,6 +286,27 @@ class CreateIdentityProviderOAuthRequest(object):
             raise ValueError("Invalid value for `enabled`, must not be `None`")  # noqa: E501
 
         self._enabled = enabled
+
+    @property
+    def extra_provider_configuration(self):
+        """Gets the extra_provider_configuration of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+
+
+        :return: The extra_provider_configuration of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+        :rtype: ExtraProviderConfigurationForCreateIdentityProviderOAuthInput
+        """
+        return self._extra_provider_configuration
+
+    @extra_provider_configuration.setter
+    def extra_provider_configuration(self, extra_provider_configuration):
+        """Sets the extra_provider_configuration of this CreateIdentityProviderOAuthRequest.
+
+
+        :param extra_provider_configuration: The extra_provider_configuration of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+        :type: ExtraProviderConfigurationForCreateIdentityProviderOAuthInput
+        """
+
+        self._extra_provider_configuration = extra_provider_configuration
 
     @property
     def id_attribute(self):
@@ -265,6 +353,27 @@ class CreateIdentityProviderOAuthRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def passvault_oauth2_credential_provider_options(self):
+        """Gets the passvault_oauth2_credential_provider_options of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+
+
+        :return: The passvault_oauth2_credential_provider_options of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+        :rtype: PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOAuthInput
+        """
+        return self._passvault_oauth2_credential_provider_options
+
+    @passvault_oauth2_credential_provider_options.setter
+    def passvault_oauth2_credential_provider_options(self, passvault_oauth2_credential_provider_options):
+        """Sets the passvault_oauth2_credential_provider_options of this CreateIdentityProviderOAuthRequest.
+
+
+        :param passvault_oauth2_credential_provider_options: The passvault_oauth2_credential_provider_options of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+        :type: PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOAuthInput
+        """
+
+        self._passvault_oauth2_credential_provider_options = passvault_oauth2_credential_provider_options
 
     @property
     def provider(self):
@@ -328,6 +437,27 @@ class CreateIdentityProviderOAuthRequest(object):
         """
 
         self._scopes_list = scopes_list
+
+    @property
+    def sole_provider_connection(self):
+        """Gets the sole_provider_connection of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+
+
+        :return: The sole_provider_connection of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sole_provider_connection
+
+    @sole_provider_connection.setter
+    def sole_provider_connection(self, sole_provider_connection):
+        """Sets the sole_provider_connection of this CreateIdentityProviderOAuthRequest.
+
+
+        :param sole_provider_connection: The sole_provider_connection of this CreateIdentityProviderOAuthRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sole_provider_connection = sole_provider_connection
 
     @property
     def token_endpoint(self):

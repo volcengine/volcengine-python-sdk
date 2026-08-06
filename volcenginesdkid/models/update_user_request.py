@@ -34,6 +34,7 @@ class UpdateUserRequest(object):
     """
     swagger_types = {
         'birthdate': 'str',
+        'custom_attributes_to_upsert': 'list[CustomAttributesToUpsertForUpdateUserInput]',
         'email': 'str',
         'email_verified': 'bool',
         'family_name': 'str',
@@ -59,6 +60,7 @@ class UpdateUserRequest(object):
 
     attribute_map = {
         'birthdate': 'Birthdate',
+        'custom_attributes_to_upsert': 'CustomAttributesToUpsert',
         'email': 'Email',
         'email_verified': 'EmailVerified',
         'family_name': 'FamilyName',
@@ -82,13 +84,14 @@ class UpdateUserRequest(object):
         'zoneinfo': 'Zoneinfo'
     }
 
-    def __init__(self, birthdate=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, locale=None, middle_name=None, name=None, nickname=None, password=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, user_metadata=None, user_pool_uid=None, user_state=None, user_uid=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
+    def __init__(self, birthdate=None, custom_attributes_to_upsert=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, locale=None, middle_name=None, name=None, nickname=None, password=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, user_metadata=None, user_pool_uid=None, user_state=None, user_uid=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
         """UpdateUserRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._birthdate = None
+        self._custom_attributes_to_upsert = None
         self._email = None
         self._email_verified = None
         self._family_name = None
@@ -114,6 +117,8 @@ class UpdateUserRequest(object):
 
         if birthdate is not None:
             self.birthdate = birthdate
+        if custom_attributes_to_upsert is not None:
+            self.custom_attributes_to_upsert = custom_attributes_to_upsert
         if email is not None:
             self.email = email
         if email_verified is not None:
@@ -175,6 +180,27 @@ class UpdateUserRequest(object):
         """
 
         self._birthdate = birthdate
+
+    @property
+    def custom_attributes_to_upsert(self):
+        """Gets the custom_attributes_to_upsert of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The custom_attributes_to_upsert of this UpdateUserRequest.  # noqa: E501
+        :rtype: list[CustomAttributesToUpsertForUpdateUserInput]
+        """
+        return self._custom_attributes_to_upsert
+
+    @custom_attributes_to_upsert.setter
+    def custom_attributes_to_upsert(self, custom_attributes_to_upsert):
+        """Sets the custom_attributes_to_upsert of this UpdateUserRequest.
+
+
+        :param custom_attributes_to_upsert: The custom_attributes_to_upsert of this UpdateUserRequest.  # noqa: E501
+        :type: list[CustomAttributesToUpsertForUpdateUserInput]
+        """
+
+        self._custom_attributes_to_upsert = custom_attributes_to_upsert
 
     @property
     def email(self):

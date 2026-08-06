@@ -33,32 +33,84 @@ class GetDepartmentTreeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'filter': 'FilterForGetDepartmentTreeInput',
+        'filter_result_mode': 'int',
         'max_depth': 'int',
         'root_department_uid': 'str',
         'user_pool_uid': 'str'
     }
 
     attribute_map = {
+        'filter': 'Filter',
+        'filter_result_mode': 'FilterResultMode',
         'max_depth': 'MaxDepth',
         'root_department_uid': 'RootDepartmentUid',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, max_depth=None, root_department_uid=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, filter_result_mode=None, max_depth=None, root_department_uid=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """GetDepartmentTreeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._filter = None
+        self._filter_result_mode = None
         self._max_depth = None
         self._root_department_uid = None
         self._user_pool_uid = None
         self.discriminator = None
 
+        if filter is not None:
+            self.filter = filter
+        if filter_result_mode is not None:
+            self.filter_result_mode = filter_result_mode
         if max_depth is not None:
             self.max_depth = max_depth
         self.root_department_uid = root_department_uid
         self.user_pool_uid = user_pool_uid
+
+    @property
+    def filter(self):
+        """Gets the filter of this GetDepartmentTreeRequest.  # noqa: E501
+
+
+        :return: The filter of this GetDepartmentTreeRequest.  # noqa: E501
+        :rtype: FilterForGetDepartmentTreeInput
+        """
+        return self._filter
+
+    @filter.setter
+    def filter(self, filter):
+        """Sets the filter of this GetDepartmentTreeRequest.
+
+
+        :param filter: The filter of this GetDepartmentTreeRequest.  # noqa: E501
+        :type: FilterForGetDepartmentTreeInput
+        """
+
+        self._filter = filter
+
+    @property
+    def filter_result_mode(self):
+        """Gets the filter_result_mode of this GetDepartmentTreeRequest.  # noqa: E501
+
+
+        :return: The filter_result_mode of this GetDepartmentTreeRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._filter_result_mode
+
+    @filter_result_mode.setter
+    def filter_result_mode(self, filter_result_mode):
+        """Sets the filter_result_mode of this GetDepartmentTreeRequest.
+
+
+        :param filter_result_mode: The filter_result_mode of this GetDepartmentTreeRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._filter_result_mode = filter_result_mode
 
     @property
     def max_depth(self):
@@ -78,12 +130,6 @@ class GetDepartmentTreeRequest(object):
         :param max_depth: The max_depth of this GetDepartmentTreeRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                max_depth is not None and max_depth > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `max_depth`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                max_depth is not None and max_depth < 0):  # noqa: E501
-            raise ValueError("Invalid value for `max_depth`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._max_depth = max_depth
 
@@ -107,12 +153,6 @@ class GetDepartmentTreeRequest(object):
         """
         if self._configuration.client_side_validation and root_department_uid is None:
             raise ValueError("Invalid value for `root_department_uid`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                root_department_uid is not None and len(root_department_uid) > 128):
-            raise ValueError("Invalid value for `root_department_uid`, length must be less than or equal to `128`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                root_department_uid is not None and len(root_department_uid) < 1):
-            raise ValueError("Invalid value for `root_department_uid`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._root_department_uid = root_department_uid
 
@@ -136,12 +176,6 @@ class GetDepartmentTreeRequest(object):
         """
         if self._configuration.client_side_validation and user_pool_uid is None:
             raise ValueError("Invalid value for `user_pool_uid`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                user_pool_uid is not None and len(user_pool_uid) > 128):
-            raise ValueError("Invalid value for `user_pool_uid`, length must be less than or equal to `128`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                user_pool_uid is not None and len(user_pool_uid) < 1):
-            raise ValueError("Invalid value for `user_pool_uid`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._user_pool_uid = user_pool_uid
 

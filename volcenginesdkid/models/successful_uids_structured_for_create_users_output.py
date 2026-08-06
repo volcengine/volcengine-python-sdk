@@ -33,29 +33,55 @@ class SuccessfulUidsStructuredForCreateUsersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'external_provider_user_identifier': 'str',
         'index': 'int',
         'uid': 'str'
     }
 
     attribute_map = {
+        'external_provider_user_identifier': 'ExternalProviderUserIdentifier',
         'index': 'Index',
         'uid': 'Uid'
     }
 
-    def __init__(self, index=None, uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, external_provider_user_identifier=None, index=None, uid=None, _configuration=None):  # noqa: E501
         """SuccessfulUidsStructuredForCreateUsersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._external_provider_user_identifier = None
         self._index = None
         self._uid = None
         self.discriminator = None
 
+        if external_provider_user_identifier is not None:
+            self.external_provider_user_identifier = external_provider_user_identifier
         if index is not None:
             self.index = index
         if uid is not None:
             self.uid = uid
+
+    @property
+    def external_provider_user_identifier(self):
+        """Gets the external_provider_user_identifier of this SuccessfulUidsStructuredForCreateUsersOutput.  # noqa: E501
+
+
+        :return: The external_provider_user_identifier of this SuccessfulUidsStructuredForCreateUsersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_provider_user_identifier
+
+    @external_provider_user_identifier.setter
+    def external_provider_user_identifier(self, external_provider_user_identifier):
+        """Sets the external_provider_user_identifier of this SuccessfulUidsStructuredForCreateUsersOutput.
+
+
+        :param external_provider_user_identifier: The external_provider_user_identifier of this SuccessfulUidsStructuredForCreateUsersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._external_provider_user_identifier = external_provider_user_identifier
 
     @property
     def index(self):

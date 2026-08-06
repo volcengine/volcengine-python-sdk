@@ -630,6 +630,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'id': ServiceEndpointInfo(
+        service='id',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {
