@@ -36,21 +36,27 @@ class RuntimeConfigForGetJobOutput(object):
         'advance_args': 'str',
         'code': 'CodeForGetJobOutput',
         'command': 'str',
+        'enable_post_command': 'bool',
+        'enable_pre_command': 'bool',
         'envs': 'list[EnvForGetJobOutput]',
         'framework': 'str',
-        'image': 'ImageForGetJobOutput'
+        'image': 'ImageForGetJobOutput',
+        'pre_command_failed_continue': 'bool'
     }
 
     attribute_map = {
         'advance_args': 'AdvanceArgs',
         'code': 'Code',
         'command': 'Command',
+        'enable_post_command': 'EnablePostCommand',
+        'enable_pre_command': 'EnablePreCommand',
         'envs': 'Envs',
         'framework': 'Framework',
-        'image': 'Image'
+        'image': 'Image',
+        'pre_command_failed_continue': 'PreCommandFailedContinue'
     }
 
-    def __init__(self, advance_args=None, code=None, command=None, envs=None, framework=None, image=None, _configuration=None):  # noqa: E501
+    def __init__(self, advance_args=None, code=None, command=None, enable_post_command=None, enable_pre_command=None, envs=None, framework=None, image=None, pre_command_failed_continue=None, _configuration=None):  # noqa: E501
         """RuntimeConfigForGetJobOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,9 +65,12 @@ class RuntimeConfigForGetJobOutput(object):
         self._advance_args = None
         self._code = None
         self._command = None
+        self._enable_post_command = None
+        self._enable_pre_command = None
         self._envs = None
         self._framework = None
         self._image = None
+        self._pre_command_failed_continue = None
         self.discriminator = None
 
         if advance_args is not None:
@@ -70,12 +79,18 @@ class RuntimeConfigForGetJobOutput(object):
             self.code = code
         if command is not None:
             self.command = command
+        if enable_post_command is not None:
+            self.enable_post_command = enable_post_command
+        if enable_pre_command is not None:
+            self.enable_pre_command = enable_pre_command
         if envs is not None:
             self.envs = envs
         if framework is not None:
             self.framework = framework
         if image is not None:
             self.image = image
+        if pre_command_failed_continue is not None:
+            self.pre_command_failed_continue = pre_command_failed_continue
 
     @property
     def advance_args(self):
@@ -141,6 +156,48 @@ class RuntimeConfigForGetJobOutput(object):
         self._command = command
 
     @property
+    def enable_post_command(self):
+        """Gets the enable_post_command of this RuntimeConfigForGetJobOutput.  # noqa: E501
+
+
+        :return: The enable_post_command of this RuntimeConfigForGetJobOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_post_command
+
+    @enable_post_command.setter
+    def enable_post_command(self, enable_post_command):
+        """Sets the enable_post_command of this RuntimeConfigForGetJobOutput.
+
+
+        :param enable_post_command: The enable_post_command of this RuntimeConfigForGetJobOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_post_command = enable_post_command
+
+    @property
+    def enable_pre_command(self):
+        """Gets the enable_pre_command of this RuntimeConfigForGetJobOutput.  # noqa: E501
+
+
+        :return: The enable_pre_command of this RuntimeConfigForGetJobOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_pre_command
+
+    @enable_pre_command.setter
+    def enable_pre_command(self, enable_pre_command):
+        """Sets the enable_pre_command of this RuntimeConfigForGetJobOutput.
+
+
+        :param enable_pre_command: The enable_pre_command of this RuntimeConfigForGetJobOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_pre_command = enable_pre_command
+
+    @property
     def envs(self):
         """Gets the envs of this RuntimeConfigForGetJobOutput.  # noqa: E501
 
@@ -202,6 +259,27 @@ class RuntimeConfigForGetJobOutput(object):
         """
 
         self._image = image
+
+    @property
+    def pre_command_failed_continue(self):
+        """Gets the pre_command_failed_continue of this RuntimeConfigForGetJobOutput.  # noqa: E501
+
+
+        :return: The pre_command_failed_continue of this RuntimeConfigForGetJobOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._pre_command_failed_continue
+
+    @pre_command_failed_continue.setter
+    def pre_command_failed_continue(self, pre_command_failed_continue):
+        """Sets the pre_command_failed_continue of this RuntimeConfigForGetJobOutput.
+
+
+        :param pre_command_failed_continue: The pre_command_failed_continue of this RuntimeConfigForGetJobOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._pre_command_failed_continue = pre_command_failed_continue
 
     def to_dict(self):
         """Returns the model properties as a dict"""

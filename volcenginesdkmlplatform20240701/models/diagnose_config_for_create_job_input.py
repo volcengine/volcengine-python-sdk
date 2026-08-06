@@ -34,6 +34,7 @@ class DiagnoseConfigForCreateJobInput(object):
     """
     swagger_types = {
         'detection_interval_seconds': 'int',
+        'enable_information_collection_on_hang': 'bool',
         'first_detection_wait_seconds': 'int',
         'name': 'str',
         'triggers': 'list[str]'
@@ -41,18 +42,20 @@ class DiagnoseConfigForCreateJobInput(object):
 
     attribute_map = {
         'detection_interval_seconds': 'DetectionIntervalSeconds',
+        'enable_information_collection_on_hang': 'EnableInformationCollectionOnHang',
         'first_detection_wait_seconds': 'FirstDetectionWaitSeconds',
         'name': 'Name',
         'triggers': 'Triggers'
     }
 
-    def __init__(self, detection_interval_seconds=None, first_detection_wait_seconds=None, name=None, triggers=None, _configuration=None):  # noqa: E501
+    def __init__(self, detection_interval_seconds=None, enable_information_collection_on_hang=None, first_detection_wait_seconds=None, name=None, triggers=None, _configuration=None):  # noqa: E501
         """DiagnoseConfigForCreateJobInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._detection_interval_seconds = None
+        self._enable_information_collection_on_hang = None
         self._first_detection_wait_seconds = None
         self._name = None
         self._triggers = None
@@ -60,6 +63,8 @@ class DiagnoseConfigForCreateJobInput(object):
 
         if detection_interval_seconds is not None:
             self.detection_interval_seconds = detection_interval_seconds
+        if enable_information_collection_on_hang is not None:
+            self.enable_information_collection_on_hang = enable_information_collection_on_hang
         if first_detection_wait_seconds is not None:
             self.first_detection_wait_seconds = first_detection_wait_seconds
         if name is not None:
@@ -87,6 +92,27 @@ class DiagnoseConfigForCreateJobInput(object):
         """
 
         self._detection_interval_seconds = detection_interval_seconds
+
+    @property
+    def enable_information_collection_on_hang(self):
+        """Gets the enable_information_collection_on_hang of this DiagnoseConfigForCreateJobInput.  # noqa: E501
+
+
+        :return: The enable_information_collection_on_hang of this DiagnoseConfigForCreateJobInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_information_collection_on_hang
+
+    @enable_information_collection_on_hang.setter
+    def enable_information_collection_on_hang(self, enable_information_collection_on_hang):
+        """Sets the enable_information_collection_on_hang of this DiagnoseConfigForCreateJobInput.
+
+
+        :param enable_information_collection_on_hang: The enable_information_collection_on_hang of this DiagnoseConfigForCreateJobInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_information_collection_on_hang = enable_information_collection_on_hang
 
     @property
     def first_detection_wait_seconds(self):

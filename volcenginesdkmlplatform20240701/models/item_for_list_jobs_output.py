@@ -38,6 +38,7 @@ class ItemForListJobsOutput(object):
         'description': 'str',
         'id': 'str',
         'initial_id': 'str',
+        'latest_retried_id': 'str',
         'name': 'str',
         'project_name': 'str',
         'resource_config': 'ResourceConfigForListJobsOutput',
@@ -52,6 +53,7 @@ class ItemForListJobsOutput(object):
         'description': 'Description',
         'id': 'Id',
         'initial_id': 'InitialId',
+        'latest_retried_id': 'LatestRetriedId',
         'name': 'Name',
         'project_name': 'ProjectName',
         'resource_config': 'ResourceConfig',
@@ -60,7 +62,7 @@ class ItemForListJobsOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, created_by=None, description=None, id=None, initial_id=None, name=None, project_name=None, resource_config=None, status=None, stop_reason=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, created_by=None, description=None, id=None, initial_id=None, latest_retried_id=None, name=None, project_name=None, resource_config=None, status=None, stop_reason=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListJobsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class ItemForListJobsOutput(object):
         self._description = None
         self._id = None
         self._initial_id = None
+        self._latest_retried_id = None
         self._name = None
         self._project_name = None
         self._resource_config = None
@@ -89,6 +92,8 @@ class ItemForListJobsOutput(object):
             self.id = id
         if initial_id is not None:
             self.initial_id = initial_id
+        if latest_retried_id is not None:
+            self.latest_retried_id = latest_retried_id
         if name is not None:
             self.name = name
         if project_name is not None:
@@ -206,6 +211,27 @@ class ItemForListJobsOutput(object):
         """
 
         self._initial_id = initial_id
+
+    @property
+    def latest_retried_id(self):
+        """Gets the latest_retried_id of this ItemForListJobsOutput.  # noqa: E501
+
+
+        :return: The latest_retried_id of this ItemForListJobsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._latest_retried_id
+
+    @latest_retried_id.setter
+    def latest_retried_id(self, latest_retried_id):
+        """Sets the latest_retried_id of this ItemForListJobsOutput.
+
+
+        :param latest_retried_id: The latest_retried_id of this ItemForListJobsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._latest_retried_id = latest_retried_id
 
     @property
     def name(self):

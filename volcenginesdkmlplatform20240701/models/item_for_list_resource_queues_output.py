@@ -38,13 +38,17 @@ class ItemForListResourceQueuesOutput(object):
         'description': 'str',
         'flavor_ongoing': 'list[FlavorOngoingForListResourceQueuesOutput]',
         'flavor_outgoing': 'list[FlavorOutgoingForListResourceQueuesOutput]',
+        'gpu_fragment_rates': 'list[GpuFragmentRateForListResourceQueuesOutput]',
         'id': 'str',
+        'idle_whole_gpu_machines': 'list[IdleWholeGpuMachineForListResourceQueuesOutput]',
         'is_over_quota': 'bool',
         'name': 'str',
         'project_name': 'str',
         'quota_allocated': 'QuotaAllocatedForListResourceQueuesOutput',
         'quota_capability': 'QuotaCapabilityForListResourceQueuesOutput',
+        'quota_idle': 'QuotaIdleForListResourceQueuesOutput',
         'resource_group_id': 'str',
+        'resource_warning': 'ResourceWarningForListResourceQueuesOutput',
         'rules': 'RulesForListResourceQueuesOutput',
         'shareable': 'bool',
         'shared_quota_allocated': 'SharedQuotaAllocatedForListResourceQueuesOutput',
@@ -61,13 +65,17 @@ class ItemForListResourceQueuesOutput(object):
         'description': 'Description',
         'flavor_ongoing': 'FlavorOngoing',
         'flavor_outgoing': 'FlavorOutgoing',
+        'gpu_fragment_rates': 'GpuFragmentRates',
         'id': 'Id',
+        'idle_whole_gpu_machines': 'IdleWholeGpuMachines',
         'is_over_quota': 'IsOverQuota',
         'name': 'Name',
         'project_name': 'ProjectName',
         'quota_allocated': 'QuotaAllocated',
         'quota_capability': 'QuotaCapability',
+        'quota_idle': 'QuotaIdle',
         'resource_group_id': 'ResourceGroupId',
+        'resource_warning': 'ResourceWarning',
         'rules': 'Rules',
         'shareable': 'Shareable',
         'shared_quota_allocated': 'SharedQuotaAllocated',
@@ -78,7 +86,7 @@ class ItemForListResourceQueuesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_type=None, compute_resources=None, description=None, flavor_ongoing=None, flavor_outgoing=None, id=None, is_over_quota=None, name=None, project_name=None, quota_allocated=None, quota_capability=None, resource_group_id=None, rules=None, shareable=None, shared_quota_allocated=None, status=None, system_quota_allocated=None, volume_resources=None, workload_infos=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, compute_resources=None, description=None, flavor_ongoing=None, flavor_outgoing=None, gpu_fragment_rates=None, id=None, idle_whole_gpu_machines=None, is_over_quota=None, name=None, project_name=None, quota_allocated=None, quota_capability=None, quota_idle=None, resource_group_id=None, resource_warning=None, rules=None, shareable=None, shared_quota_allocated=None, status=None, system_quota_allocated=None, volume_resources=None, workload_infos=None, zone_ids=None, _configuration=None):  # noqa: E501
         """ItemForListResourceQueuesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,13 +97,17 @@ class ItemForListResourceQueuesOutput(object):
         self._description = None
         self._flavor_ongoing = None
         self._flavor_outgoing = None
+        self._gpu_fragment_rates = None
         self._id = None
+        self._idle_whole_gpu_machines = None
         self._is_over_quota = None
         self._name = None
         self._project_name = None
         self._quota_allocated = None
         self._quota_capability = None
+        self._quota_idle = None
         self._resource_group_id = None
+        self._resource_warning = None
         self._rules = None
         self._shareable = None
         self._shared_quota_allocated = None
@@ -116,8 +128,12 @@ class ItemForListResourceQueuesOutput(object):
             self.flavor_ongoing = flavor_ongoing
         if flavor_outgoing is not None:
             self.flavor_outgoing = flavor_outgoing
+        if gpu_fragment_rates is not None:
+            self.gpu_fragment_rates = gpu_fragment_rates
         if id is not None:
             self.id = id
+        if idle_whole_gpu_machines is not None:
+            self.idle_whole_gpu_machines = idle_whole_gpu_machines
         if is_over_quota is not None:
             self.is_over_quota = is_over_quota
         if name is not None:
@@ -128,8 +144,12 @@ class ItemForListResourceQueuesOutput(object):
             self.quota_allocated = quota_allocated
         if quota_capability is not None:
             self.quota_capability = quota_capability
+        if quota_idle is not None:
+            self.quota_idle = quota_idle
         if resource_group_id is not None:
             self.resource_group_id = resource_group_id
+        if resource_warning is not None:
+            self.resource_warning = resource_warning
         if rules is not None:
             self.rules = rules
         if shareable is not None:
@@ -253,6 +273,27 @@ class ItemForListResourceQueuesOutput(object):
         self._flavor_outgoing = flavor_outgoing
 
     @property
+    def gpu_fragment_rates(self):
+        """Gets the gpu_fragment_rates of this ItemForListResourceQueuesOutput.  # noqa: E501
+
+
+        :return: The gpu_fragment_rates of this ItemForListResourceQueuesOutput.  # noqa: E501
+        :rtype: list[GpuFragmentRateForListResourceQueuesOutput]
+        """
+        return self._gpu_fragment_rates
+
+    @gpu_fragment_rates.setter
+    def gpu_fragment_rates(self, gpu_fragment_rates):
+        """Sets the gpu_fragment_rates of this ItemForListResourceQueuesOutput.
+
+
+        :param gpu_fragment_rates: The gpu_fragment_rates of this ItemForListResourceQueuesOutput.  # noqa: E501
+        :type: list[GpuFragmentRateForListResourceQueuesOutput]
+        """
+
+        self._gpu_fragment_rates = gpu_fragment_rates
+
+    @property
     def id(self):
         """Gets the id of this ItemForListResourceQueuesOutput.  # noqa: E501
 
@@ -272,6 +313,27 @@ class ItemForListResourceQueuesOutput(object):
         """
 
         self._id = id
+
+    @property
+    def idle_whole_gpu_machines(self):
+        """Gets the idle_whole_gpu_machines of this ItemForListResourceQueuesOutput.  # noqa: E501
+
+
+        :return: The idle_whole_gpu_machines of this ItemForListResourceQueuesOutput.  # noqa: E501
+        :rtype: list[IdleWholeGpuMachineForListResourceQueuesOutput]
+        """
+        return self._idle_whole_gpu_machines
+
+    @idle_whole_gpu_machines.setter
+    def idle_whole_gpu_machines(self, idle_whole_gpu_machines):
+        """Sets the idle_whole_gpu_machines of this ItemForListResourceQueuesOutput.
+
+
+        :param idle_whole_gpu_machines: The idle_whole_gpu_machines of this ItemForListResourceQueuesOutput.  # noqa: E501
+        :type: list[IdleWholeGpuMachineForListResourceQueuesOutput]
+        """
+
+        self._idle_whole_gpu_machines = idle_whole_gpu_machines
 
     @property
     def is_over_quota(self):
@@ -379,6 +441,27 @@ class ItemForListResourceQueuesOutput(object):
         self._quota_capability = quota_capability
 
     @property
+    def quota_idle(self):
+        """Gets the quota_idle of this ItemForListResourceQueuesOutput.  # noqa: E501
+
+
+        :return: The quota_idle of this ItemForListResourceQueuesOutput.  # noqa: E501
+        :rtype: QuotaIdleForListResourceQueuesOutput
+        """
+        return self._quota_idle
+
+    @quota_idle.setter
+    def quota_idle(self, quota_idle):
+        """Sets the quota_idle of this ItemForListResourceQueuesOutput.
+
+
+        :param quota_idle: The quota_idle of this ItemForListResourceQueuesOutput.  # noqa: E501
+        :type: QuotaIdleForListResourceQueuesOutput
+        """
+
+        self._quota_idle = quota_idle
+
+    @property
     def resource_group_id(self):
         """Gets the resource_group_id of this ItemForListResourceQueuesOutput.  # noqa: E501
 
@@ -398,6 +481,27 @@ class ItemForListResourceQueuesOutput(object):
         """
 
         self._resource_group_id = resource_group_id
+
+    @property
+    def resource_warning(self):
+        """Gets the resource_warning of this ItemForListResourceQueuesOutput.  # noqa: E501
+
+
+        :return: The resource_warning of this ItemForListResourceQueuesOutput.  # noqa: E501
+        :rtype: ResourceWarningForListResourceQueuesOutput
+        """
+        return self._resource_warning
+
+    @resource_warning.setter
+    def resource_warning(self, resource_warning):
+        """Sets the resource_warning of this ItemForListResourceQueuesOutput.
+
+
+        :param resource_warning: The resource_warning of this ItemForListResourceQueuesOutput.  # noqa: E501
+        :type: ResourceWarningForListResourceQueuesOutput
+        """
+
+        self._resource_warning = resource_warning
 
     @property
     def rules(self):
