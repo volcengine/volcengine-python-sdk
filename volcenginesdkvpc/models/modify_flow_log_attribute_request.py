@@ -38,7 +38,7 @@ class ModifyFlowLogAttributeRequest(object):
         'description': 'str',
         'flow_log_id': 'str',
         'flow_log_name': 'str',
-        'traffic_path': 'list[int]'
+        'traffic_path': 'list[str]'
     }
 
     attribute_map = {
@@ -198,7 +198,7 @@ class ModifyFlowLogAttributeRequest(object):
 
 
         :return: The traffic_path of this ModifyFlowLogAttributeRequest.  # noqa: E501
-        :rtype: list[int]
+        :rtype: list[str]
         """
         return self._traffic_path
 
@@ -208,7 +208,7 @@ class ModifyFlowLogAttributeRequest(object):
 
 
         :param traffic_path: The traffic_path of this ModifyFlowLogAttributeRequest.  # noqa: E501
-        :type: list[int]
+        :type: list[str]
         """
 
         self._traffic_path = traffic_path

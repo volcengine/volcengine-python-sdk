@@ -33,6 +33,7 @@ class CreateIpamResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_id': 'str',
         'default_resource_discovery_id': 'str',
         'ipam_id': 'str',
         'private_default_scope_id': 'str',
@@ -41,6 +42,7 @@ class CreateIpamResponse(object):
     }
 
     attribute_map = {
+        'async_task_id': 'AsyncTaskId',
         'default_resource_discovery_id': 'DefaultResourceDiscoveryId',
         'ipam_id': 'IpamId',
         'private_default_scope_id': 'PrivateDefaultScopeId',
@@ -48,12 +50,13 @@ class CreateIpamResponse(object):
         'request_id': 'RequestId'
     }
 
-    def __init__(self, default_resource_discovery_id=None, ipam_id=None, private_default_scope_id=None, public_default_scope_id=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_id=None, default_resource_discovery_id=None, ipam_id=None, private_default_scope_id=None, public_default_scope_id=None, request_id=None, _configuration=None):  # noqa: E501
         """CreateIpamResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_id = None
         self._default_resource_discovery_id = None
         self._ipam_id = None
         self._private_default_scope_id = None
@@ -61,6 +64,8 @@ class CreateIpamResponse(object):
         self._request_id = None
         self.discriminator = None
 
+        if async_task_id is not None:
+            self.async_task_id = async_task_id
         if default_resource_discovery_id is not None:
             self.default_resource_discovery_id = default_resource_discovery_id
         if ipam_id is not None:
@@ -71,6 +76,27 @@ class CreateIpamResponse(object):
             self.public_default_scope_id = public_default_scope_id
         if request_id is not None:
             self.request_id = request_id
+
+    @property
+    def async_task_id(self):
+        """Gets the async_task_id of this CreateIpamResponse.  # noqa: E501
+
+
+        :return: The async_task_id of this CreateIpamResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._async_task_id
+
+    @async_task_id.setter
+    def async_task_id(self, async_task_id):
+        """Sets the async_task_id of this CreateIpamResponse.
+
+
+        :param async_task_id: The async_task_id of this CreateIpamResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._async_task_id = async_task_id
 
     @property
     def default_resource_discovery_id(self):

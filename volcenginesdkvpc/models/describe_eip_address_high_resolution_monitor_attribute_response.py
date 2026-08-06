@@ -38,7 +38,8 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse(object):
         'log_project_id': 'str',
         'log_project_name': 'str',
         'log_topic_id': 'str',
-        'log_topic_name': 'str'
+        'log_topic_name': 'str',
+        'request_id': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse(object):
         'log_project_id': 'LogProjectId',
         'log_project_name': 'LogProjectName',
         'log_topic_id': 'LogTopicId',
-        'log_topic_name': 'LogTopicName'
+        'log_topic_name': 'LogTopicName',
+        'request_id': 'RequestId'
     }
 
-    def __init__(self, allocation_id=None, eip_address=None, log_project_id=None, log_project_name=None, log_topic_id=None, log_topic_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, eip_address=None, log_project_id=None, log_project_name=None, log_topic_id=None, log_topic_name=None, request_id=None, _configuration=None):  # noqa: E501
         """DescribeEipAddressHighResolutionMonitorAttributeResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse(object):
         self._log_project_name = None
         self._log_topic_id = None
         self._log_topic_name = None
+        self._request_id = None
         self.discriminator = None
 
         if allocation_id is not None:
@@ -76,6 +79,8 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse(object):
             self.log_topic_id = log_topic_id
         if log_topic_name is not None:
             self.log_topic_name = log_topic_name
+        if request_id is not None:
+            self.request_id = request_id
 
     @property
     def allocation_id(self):
@@ -202,6 +207,27 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse(object):
         """
 
         self._log_topic_name = log_topic_name
+
+    @property
+    def request_id(self):
+        """Gets the request_id of this DescribeEipAddressHighResolutionMonitorAttributeResponse.  # noqa: E501
+
+
+        :return: The request_id of this DescribeEipAddressHighResolutionMonitorAttributeResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_id
+
+    @request_id.setter
+    def request_id(self, request_id):
+        """Sets the request_id of this DescribeEipAddressHighResolutionMonitorAttributeResponse.
+
+
+        :param request_id: The request_id of this DescribeEipAddressHighResolutionMonitorAttributeResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._request_id = request_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -44,7 +44,7 @@ class CreateFlowLogRequest(object):
         'resource_id': 'str',
         'resource_type': 'str',
         'tags': 'list[TagForCreateFlowLogInput]',
-        'traffic_path': 'list[int]',
+        'traffic_path': 'list[str]',
         'traffic_type': 'str'
     }
 
@@ -363,7 +363,7 @@ class CreateFlowLogRequest(object):
 
 
         :return: The traffic_path of this CreateFlowLogRequest.  # noqa: E501
-        :rtype: list[int]
+        :rtype: list[str]
         """
         return self._traffic_path
 
@@ -373,7 +373,7 @@ class CreateFlowLogRequest(object):
 
 
         :param traffic_path: The traffic_path of this CreateFlowLogRequest.  # noqa: E501
-        :type: list[int]
+        :type: list[str]
         """
 
         self._traffic_path = traffic_path
