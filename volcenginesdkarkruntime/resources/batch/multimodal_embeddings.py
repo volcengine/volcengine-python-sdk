@@ -36,6 +36,7 @@ class MultimodalEmbeddings(SyncAPIResource):
         model: str,
         encoding_format: Literal["float", "base64"] = "float",
         dimensions: int | None = None,
+        instructions: str | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -56,6 +57,7 @@ class MultimodalEmbeddings(SyncAPIResource):
                 "model": model,
                 "encoding_format": encoding_format,
                 "dimensions": dimensions,
+                "instructions": instructions,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -80,6 +82,7 @@ class AsyncMultimodalEmbeddings(AsyncAPIResource):
         model: str,
         encoding_format: Literal["float", "base64"] = "float",
         dimensions: int | None = None,
+        instructions: str | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -100,6 +103,7 @@ class AsyncMultimodalEmbeddings(AsyncAPIResource):
                 "model": model,
                 "encoding_format": encoding_format,
                 "dimensions": dimensions,
+                "instructions": instructions,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
