@@ -34,29 +34,34 @@ class BatchUpsertDepartmentsRequest(object):
     """
     swagger_types = {
         'departments': 'list[DepartmentForBatchUpsertDepartmentsInput]',
+        'dry_run': 'bool',
         'source': 'str',
         'user_pool_uid': 'str'
     }
 
     attribute_map = {
         'departments': 'Departments',
+        'dry_run': 'DryRun',
         'source': 'Source',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, departments=None, source=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, departments=None, dry_run=None, source=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """BatchUpsertDepartmentsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._departments = None
+        self._dry_run = None
         self._source = None
         self._user_pool_uid = None
         self.discriminator = None
 
         if departments is not None:
             self.departments = departments
+        if dry_run is not None:
+            self.dry_run = dry_run
         self.source = source
         self.user_pool_uid = user_pool_uid
 
@@ -80,6 +85,27 @@ class BatchUpsertDepartmentsRequest(object):
         """
 
         self._departments = departments
+
+    @property
+    def dry_run(self):
+        """Gets the dry_run of this BatchUpsertDepartmentsRequest.  # noqa: E501
+
+
+        :return: The dry_run of this BatchUpsertDepartmentsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dry_run
+
+    @dry_run.setter
+    def dry_run(self, dry_run):
+        """Sets the dry_run of this BatchUpsertDepartmentsRequest.
+
+
+        :param dry_run: The dry_run of this BatchUpsertDepartmentsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dry_run = dry_run
 
     @property
     def source(self):

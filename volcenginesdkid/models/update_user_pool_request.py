@@ -33,12 +33,15 @@ class UpdateUserPoolRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'authentication_method_order': 'list[str]',
         'brand': 'BrandForUpdateUserPoolInput',
         'description': 'str',
+        'email_anonymous_sign_up_enabled': 'bool',
         'email_passwordless_sign_in_enabled': 'bool',
         'name': 'str',
         'password_sign_in_enabled': 'bool',
         'self_account_recovery_enabled': 'bool',
+        'self_account_recovery_verification_attributes': 'list[str]',
         'self_sign_up_enabled': 'bool',
         'sign_up_auto_verification_enabled': 'bool',
         'sms_anonymous_sign_up_enabled': 'bool',
@@ -48,12 +51,15 @@ class UpdateUserPoolRequest(object):
     }
 
     attribute_map = {
+        'authentication_method_order': 'AuthenticationMethodOrder',
         'brand': 'Brand',
         'description': 'Description',
+        'email_anonymous_sign_up_enabled': 'EmailAnonymousSignUpEnabled',
         'email_passwordless_sign_in_enabled': 'EmailPasswordlessSignInEnabled',
         'name': 'Name',
         'password_sign_in_enabled': 'PasswordSignInEnabled',
         'self_account_recovery_enabled': 'SelfAccountRecoveryEnabled',
+        'self_account_recovery_verification_attributes': 'SelfAccountRecoveryVerificationAttributes',
         'self_sign_up_enabled': 'SelfSignUpEnabled',
         'sign_up_auto_verification_enabled': 'SignUpAutoVerificationEnabled',
         'sms_anonymous_sign_up_enabled': 'SmsAnonymousSignUpEnabled',
@@ -62,18 +68,21 @@ class UpdateUserPoolRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, brand=None, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_up_auto_verification_enabled=None, sms_anonymous_sign_up_enabled=None, sms_passwordless_sign_in_enabled=None, unconfirmed_user_sign_in_enabled=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, authentication_method_order=None, brand=None, description=None, email_anonymous_sign_up_enabled=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, self_account_recovery_enabled=None, self_account_recovery_verification_attributes=None, self_sign_up_enabled=None, sign_up_auto_verification_enabled=None, sms_anonymous_sign_up_enabled=None, sms_passwordless_sign_in_enabled=None, unconfirmed_user_sign_in_enabled=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateUserPoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._authentication_method_order = None
         self._brand = None
         self._description = None
+        self._email_anonymous_sign_up_enabled = None
         self._email_passwordless_sign_in_enabled = None
         self._name = None
         self._password_sign_in_enabled = None
         self._self_account_recovery_enabled = None
+        self._self_account_recovery_verification_attributes = None
         self._self_sign_up_enabled = None
         self._sign_up_auto_verification_enabled = None
         self._sms_anonymous_sign_up_enabled = None
@@ -82,10 +91,14 @@ class UpdateUserPoolRequest(object):
         self._user_pool_uid = None
         self.discriminator = None
 
+        if authentication_method_order is not None:
+            self.authentication_method_order = authentication_method_order
         if brand is not None:
             self.brand = brand
         if description is not None:
             self.description = description
+        if email_anonymous_sign_up_enabled is not None:
+            self.email_anonymous_sign_up_enabled = email_anonymous_sign_up_enabled
         if email_passwordless_sign_in_enabled is not None:
             self.email_passwordless_sign_in_enabled = email_passwordless_sign_in_enabled
         if name is not None:
@@ -94,6 +107,8 @@ class UpdateUserPoolRequest(object):
             self.password_sign_in_enabled = password_sign_in_enabled
         if self_account_recovery_enabled is not None:
             self.self_account_recovery_enabled = self_account_recovery_enabled
+        if self_account_recovery_verification_attributes is not None:
+            self.self_account_recovery_verification_attributes = self_account_recovery_verification_attributes
         if self_sign_up_enabled is not None:
             self.self_sign_up_enabled = self_sign_up_enabled
         if sign_up_auto_verification_enabled is not None:
@@ -105,6 +120,27 @@ class UpdateUserPoolRequest(object):
         if unconfirmed_user_sign_in_enabled is not None:
             self.unconfirmed_user_sign_in_enabled = unconfirmed_user_sign_in_enabled
         self.user_pool_uid = user_pool_uid
+
+    @property
+    def authentication_method_order(self):
+        """Gets the authentication_method_order of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The authentication_method_order of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._authentication_method_order
+
+    @authentication_method_order.setter
+    def authentication_method_order(self, authentication_method_order):
+        """Sets the authentication_method_order of this UpdateUserPoolRequest.
+
+
+        :param authentication_method_order: The authentication_method_order of this UpdateUserPoolRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._authentication_method_order = authentication_method_order
 
     @property
     def brand(self):
@@ -147,6 +183,27 @@ class UpdateUserPoolRequest(object):
         """
 
         self._description = description
+
+    @property
+    def email_anonymous_sign_up_enabled(self):
+        """Gets the email_anonymous_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The email_anonymous_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._email_anonymous_sign_up_enabled
+
+    @email_anonymous_sign_up_enabled.setter
+    def email_anonymous_sign_up_enabled(self, email_anonymous_sign_up_enabled):
+        """Sets the email_anonymous_sign_up_enabled of this UpdateUserPoolRequest.
+
+
+        :param email_anonymous_sign_up_enabled: The email_anonymous_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._email_anonymous_sign_up_enabled = email_anonymous_sign_up_enabled
 
     @property
     def email_passwordless_sign_in_enabled(self):
@@ -231,6 +288,27 @@ class UpdateUserPoolRequest(object):
         """
 
         self._self_account_recovery_enabled = self_account_recovery_enabled
+
+    @property
+    def self_account_recovery_verification_attributes(self):
+        """Gets the self_account_recovery_verification_attributes of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The self_account_recovery_verification_attributes of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._self_account_recovery_verification_attributes
+
+    @self_account_recovery_verification_attributes.setter
+    def self_account_recovery_verification_attributes(self, self_account_recovery_verification_attributes):
+        """Sets the self_account_recovery_verification_attributes of this UpdateUserPoolRequest.
+
+
+        :param self_account_recovery_verification_attributes: The self_account_recovery_verification_attributes of this UpdateUserPoolRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._self_account_recovery_verification_attributes = self_account_recovery_verification_attributes
 
     @property
     def self_sign_up_enabled(self):

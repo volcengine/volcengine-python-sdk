@@ -33,6 +33,7 @@ class CredentialProviderForListCredentialProvidersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'binding_resource_number': 'int',
         'created_at': 'str',
         'credential_provider_trn': 'str',
         'flow': 'str',
@@ -45,6 +46,7 @@ class CredentialProviderForListCredentialProvidersOutput(object):
     }
 
     attribute_map = {
+        'binding_resource_number': 'BindingResourceNumber',
         'created_at': 'CreatedAt',
         'credential_provider_trn': 'CredentialProviderTrn',
         'flow': 'Flow',
@@ -56,12 +58,13 @@ class CredentialProviderForListCredentialProvidersOutput(object):
         'vendor': 'Vendor'
     }
 
-    def __init__(self, created_at=None, credential_provider_trn=None, flow=None, name=None, pool_name=None, project_name=None, type=None, updated_at=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, binding_resource_number=None, created_at=None, credential_provider_trn=None, flow=None, name=None, pool_name=None, project_name=None, type=None, updated_at=None, vendor=None, _configuration=None):  # noqa: E501
         """CredentialProviderForListCredentialProvidersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._binding_resource_number = None
         self._created_at = None
         self._credential_provider_trn = None
         self._flow = None
@@ -73,6 +76,8 @@ class CredentialProviderForListCredentialProvidersOutput(object):
         self._vendor = None
         self.discriminator = None
 
+        if binding_resource_number is not None:
+            self.binding_resource_number = binding_resource_number
         if created_at is not None:
             self.created_at = created_at
         if credential_provider_trn is not None:
@@ -91,6 +96,27 @@ class CredentialProviderForListCredentialProvidersOutput(object):
             self.updated_at = updated_at
         if vendor is not None:
             self.vendor = vendor
+
+    @property
+    def binding_resource_number(self):
+        """Gets the binding_resource_number of this CredentialProviderForListCredentialProvidersOutput.  # noqa: E501
+
+
+        :return: The binding_resource_number of this CredentialProviderForListCredentialProvidersOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._binding_resource_number
+
+    @binding_resource_number.setter
+    def binding_resource_number(self, binding_resource_number):
+        """Sets the binding_resource_number of this CredentialProviderForListCredentialProvidersOutput.
+
+
+        :param binding_resource_number: The binding_resource_number of this CredentialProviderForListCredentialProvidersOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._binding_resource_number = binding_resource_number
 
     @property
     def created_at(self):

@@ -34,10 +34,14 @@ class FilterForListUsersInGroupInput(object):
     """
     swagger_types = {
         'connection': 'str',
+        'custom_attribute_filter': 'CustomAttributeFilterForListUsersInGroupInput',
         'department_uid': 'str',
+        'department_uid_recursive': 'bool',
         'email': 'str',
+        'email_is_duplicated': 'bool',
         'email_is_null_or_empty': 'bool',
         'email_phone_name_is_null_or_empty': 'bool',
+        'external_provider_user_identifiers_or': 'list[str]',
         'family_name': 'str',
         'family_name_is_null_or_empty': 'bool',
         'gender': 'str',
@@ -45,6 +49,7 @@ class FilterForListUsersInGroupInput(object):
         'given_name': 'str',
         'given_name_is_null_or_empty': 'bool',
         'group_uid': 'str',
+        'group_uids_or': 'list[str]',
         'latest_browser': 'str',
         'latest_login_method': 'str',
         'locale': 'str',
@@ -54,10 +59,14 @@ class FilterForListUsersInGroupInput(object):
         'name_is_null_or_empty': 'bool',
         'nickname': 'str',
         'nickname_is_null_or_empty': 'bool',
+        'not_in_any_department': 'bool',
+        'not_in_any_group': 'bool',
         'phone_number': 'str',
+        'phone_number_is_duplicated': 'bool',
         'phone_number_is_null_or_empty': 'bool',
         'preferred_username': 'str',
         'preferred_username_is_null_or_empty': 'bool',
+        'universal_search': 'list[UniversalSearchForListUsersInGroupInput]',
         'user_uids_or': 'list[str]',
         'website': 'str',
         'website_is_null_or_empty': 'bool'
@@ -65,10 +74,14 @@ class FilterForListUsersInGroupInput(object):
 
     attribute_map = {
         'connection': 'Connection',
+        'custom_attribute_filter': 'CustomAttributeFilter',
         'department_uid': 'DepartmentUid',
+        'department_uid_recursive': 'DepartmentUidRecursive',
         'email': 'Email',
+        'email_is_duplicated': 'EmailIsDuplicated',
         'email_is_null_or_empty': 'EmailIsNullOrEmpty',
         'email_phone_name_is_null_or_empty': 'EmailPhoneNameIsNullOrEmpty',
+        'external_provider_user_identifiers_or': 'ExternalProviderUserIdentifiersOr',
         'family_name': 'FamilyName',
         'family_name_is_null_or_empty': 'FamilyNameIsNullOrEmpty',
         'gender': 'Gender',
@@ -76,6 +89,7 @@ class FilterForListUsersInGroupInput(object):
         'given_name': 'GivenName',
         'given_name_is_null_or_empty': 'GivenNameIsNullOrEmpty',
         'group_uid': 'GroupUid',
+        'group_uids_or': 'GroupUidsOr',
         'latest_browser': 'LatestBrowser',
         'latest_login_method': 'LatestLoginMethod',
         'locale': 'Locale',
@@ -85,26 +99,34 @@ class FilterForListUsersInGroupInput(object):
         'name_is_null_or_empty': 'NameIsNullOrEmpty',
         'nickname': 'Nickname',
         'nickname_is_null_or_empty': 'NicknameIsNullOrEmpty',
+        'not_in_any_department': 'NotInAnyDepartment',
+        'not_in_any_group': 'NotInAnyGroup',
         'phone_number': 'PhoneNumber',
+        'phone_number_is_duplicated': 'PhoneNumberIsDuplicated',
         'phone_number_is_null_or_empty': 'PhoneNumberIsNullOrEmpty',
         'preferred_username': 'PreferredUsername',
         'preferred_username_is_null_or_empty': 'PreferredUsernameIsNullOrEmpty',
+        'universal_search': 'UniversalSearch',
         'user_uids_or': 'UserUidsOr',
         'website': 'Website',
         'website_is_null_or_empty': 'WebsiteIsNullOrEmpty'
     }
 
-    def __init__(self, connection=None, department_uid=None, email=None, email_is_null_or_empty=None, email_phone_name_is_null_or_empty=None, family_name=None, family_name_is_null_or_empty=None, gender=None, gender_is_null_or_empty=None, given_name=None, given_name_is_null_or_empty=None, group_uid=None, latest_browser=None, latest_login_method=None, locale=None, middle_name=None, middle_name_is_null_or_empty=None, name=None, name_is_null_or_empty=None, nickname=None, nickname_is_null_or_empty=None, phone_number=None, phone_number_is_null_or_empty=None, preferred_username=None, preferred_username_is_null_or_empty=None, user_uids_or=None, website=None, website_is_null_or_empty=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection=None, custom_attribute_filter=None, department_uid=None, department_uid_recursive=None, email=None, email_is_duplicated=None, email_is_null_or_empty=None, email_phone_name_is_null_or_empty=None, external_provider_user_identifiers_or=None, family_name=None, family_name_is_null_or_empty=None, gender=None, gender_is_null_or_empty=None, given_name=None, given_name_is_null_or_empty=None, group_uid=None, group_uids_or=None, latest_browser=None, latest_login_method=None, locale=None, middle_name=None, middle_name_is_null_or_empty=None, name=None, name_is_null_or_empty=None, nickname=None, nickname_is_null_or_empty=None, not_in_any_department=None, not_in_any_group=None, phone_number=None, phone_number_is_duplicated=None, phone_number_is_null_or_empty=None, preferred_username=None, preferred_username_is_null_or_empty=None, universal_search=None, user_uids_or=None, website=None, website_is_null_or_empty=None, _configuration=None):  # noqa: E501
         """FilterForListUsersInGroupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._connection = None
+        self._custom_attribute_filter = None
         self._department_uid = None
+        self._department_uid_recursive = None
         self._email = None
+        self._email_is_duplicated = None
         self._email_is_null_or_empty = None
         self._email_phone_name_is_null_or_empty = None
+        self._external_provider_user_identifiers_or = None
         self._family_name = None
         self._family_name_is_null_or_empty = None
         self._gender = None
@@ -112,6 +134,7 @@ class FilterForListUsersInGroupInput(object):
         self._given_name = None
         self._given_name_is_null_or_empty = None
         self._group_uid = None
+        self._group_uids_or = None
         self._latest_browser = None
         self._latest_login_method = None
         self._locale = None
@@ -121,10 +144,14 @@ class FilterForListUsersInGroupInput(object):
         self._name_is_null_or_empty = None
         self._nickname = None
         self._nickname_is_null_or_empty = None
+        self._not_in_any_department = None
+        self._not_in_any_group = None
         self._phone_number = None
+        self._phone_number_is_duplicated = None
         self._phone_number_is_null_or_empty = None
         self._preferred_username = None
         self._preferred_username_is_null_or_empty = None
+        self._universal_search = None
         self._user_uids_or = None
         self._website = None
         self._website_is_null_or_empty = None
@@ -132,14 +159,22 @@ class FilterForListUsersInGroupInput(object):
 
         if connection is not None:
             self.connection = connection
+        if custom_attribute_filter is not None:
+            self.custom_attribute_filter = custom_attribute_filter
         if department_uid is not None:
             self.department_uid = department_uid
+        if department_uid_recursive is not None:
+            self.department_uid_recursive = department_uid_recursive
         if email is not None:
             self.email = email
+        if email_is_duplicated is not None:
+            self.email_is_duplicated = email_is_duplicated
         if email_is_null_or_empty is not None:
             self.email_is_null_or_empty = email_is_null_or_empty
         if email_phone_name_is_null_or_empty is not None:
             self.email_phone_name_is_null_or_empty = email_phone_name_is_null_or_empty
+        if external_provider_user_identifiers_or is not None:
+            self.external_provider_user_identifiers_or = external_provider_user_identifiers_or
         if family_name is not None:
             self.family_name = family_name
         if family_name_is_null_or_empty is not None:
@@ -154,6 +189,8 @@ class FilterForListUsersInGroupInput(object):
             self.given_name_is_null_or_empty = given_name_is_null_or_empty
         if group_uid is not None:
             self.group_uid = group_uid
+        if group_uids_or is not None:
+            self.group_uids_or = group_uids_or
         if latest_browser is not None:
             self.latest_browser = latest_browser
         if latest_login_method is not None:
@@ -172,14 +209,22 @@ class FilterForListUsersInGroupInput(object):
             self.nickname = nickname
         if nickname_is_null_or_empty is not None:
             self.nickname_is_null_or_empty = nickname_is_null_or_empty
+        if not_in_any_department is not None:
+            self.not_in_any_department = not_in_any_department
+        if not_in_any_group is not None:
+            self.not_in_any_group = not_in_any_group
         if phone_number is not None:
             self.phone_number = phone_number
+        if phone_number_is_duplicated is not None:
+            self.phone_number_is_duplicated = phone_number_is_duplicated
         if phone_number_is_null_or_empty is not None:
             self.phone_number_is_null_or_empty = phone_number_is_null_or_empty
         if preferred_username is not None:
             self.preferred_username = preferred_username
         if preferred_username_is_null_or_empty is not None:
             self.preferred_username_is_null_or_empty = preferred_username_is_null_or_empty
+        if universal_search is not None:
+            self.universal_search = universal_search
         if user_uids_or is not None:
             self.user_uids_or = user_uids_or
         if website is not None:
@@ -209,6 +254,27 @@ class FilterForListUsersInGroupInput(object):
         self._connection = connection
 
     @property
+    def custom_attribute_filter(self):
+        """Gets the custom_attribute_filter of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The custom_attribute_filter of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: CustomAttributeFilterForListUsersInGroupInput
+        """
+        return self._custom_attribute_filter
+
+    @custom_attribute_filter.setter
+    def custom_attribute_filter(self, custom_attribute_filter):
+        """Sets the custom_attribute_filter of this FilterForListUsersInGroupInput.
+
+
+        :param custom_attribute_filter: The custom_attribute_filter of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: CustomAttributeFilterForListUsersInGroupInput
+        """
+
+        self._custom_attribute_filter = custom_attribute_filter
+
+    @property
     def department_uid(self):
         """Gets the department_uid of this FilterForListUsersInGroupInput.  # noqa: E501
 
@@ -230,6 +296,27 @@ class FilterForListUsersInGroupInput(object):
         self._department_uid = department_uid
 
     @property
+    def department_uid_recursive(self):
+        """Gets the department_uid_recursive of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The department_uid_recursive of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._department_uid_recursive
+
+    @department_uid_recursive.setter
+    def department_uid_recursive(self, department_uid_recursive):
+        """Sets the department_uid_recursive of this FilterForListUsersInGroupInput.
+
+
+        :param department_uid_recursive: The department_uid_recursive of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._department_uid_recursive = department_uid_recursive
+
+    @property
     def email(self):
         """Gets the email of this FilterForListUsersInGroupInput.  # noqa: E501
 
@@ -249,6 +336,27 @@ class FilterForListUsersInGroupInput(object):
         """
 
         self._email = email
+
+    @property
+    def email_is_duplicated(self):
+        """Gets the email_is_duplicated of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The email_is_duplicated of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._email_is_duplicated
+
+    @email_is_duplicated.setter
+    def email_is_duplicated(self, email_is_duplicated):
+        """Sets the email_is_duplicated of this FilterForListUsersInGroupInput.
+
+
+        :param email_is_duplicated: The email_is_duplicated of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._email_is_duplicated = email_is_duplicated
 
     @property
     def email_is_null_or_empty(self):
@@ -291,6 +399,27 @@ class FilterForListUsersInGroupInput(object):
         """
 
         self._email_phone_name_is_null_or_empty = email_phone_name_is_null_or_empty
+
+    @property
+    def external_provider_user_identifiers_or(self):
+        """Gets the external_provider_user_identifiers_or of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The external_provider_user_identifiers_or of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._external_provider_user_identifiers_or
+
+    @external_provider_user_identifiers_or.setter
+    def external_provider_user_identifiers_or(self, external_provider_user_identifiers_or):
+        """Sets the external_provider_user_identifiers_or of this FilterForListUsersInGroupInput.
+
+
+        :param external_provider_user_identifiers_or: The external_provider_user_identifiers_or of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._external_provider_user_identifiers_or = external_provider_user_identifiers_or
 
     @property
     def family_name(self):
@@ -438,6 +567,27 @@ class FilterForListUsersInGroupInput(object):
         """
 
         self._group_uid = group_uid
+
+    @property
+    def group_uids_or(self):
+        """Gets the group_uids_or of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The group_uids_or of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._group_uids_or
+
+    @group_uids_or.setter
+    def group_uids_or(self, group_uids_or):
+        """Sets the group_uids_or of this FilterForListUsersInGroupInput.
+
+
+        :param group_uids_or: The group_uids_or of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._group_uids_or = group_uids_or
 
     @property
     def latest_browser(self):
@@ -629,6 +779,48 @@ class FilterForListUsersInGroupInput(object):
         self._nickname_is_null_or_empty = nickname_is_null_or_empty
 
     @property
+    def not_in_any_department(self):
+        """Gets the not_in_any_department of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The not_in_any_department of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._not_in_any_department
+
+    @not_in_any_department.setter
+    def not_in_any_department(self, not_in_any_department):
+        """Sets the not_in_any_department of this FilterForListUsersInGroupInput.
+
+
+        :param not_in_any_department: The not_in_any_department of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._not_in_any_department = not_in_any_department
+
+    @property
+    def not_in_any_group(self):
+        """Gets the not_in_any_group of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The not_in_any_group of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._not_in_any_group
+
+    @not_in_any_group.setter
+    def not_in_any_group(self, not_in_any_group):
+        """Sets the not_in_any_group of this FilterForListUsersInGroupInput.
+
+
+        :param not_in_any_group: The not_in_any_group of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._not_in_any_group = not_in_any_group
+
+    @property
     def phone_number(self):
         """Gets the phone_number of this FilterForListUsersInGroupInput.  # noqa: E501
 
@@ -648,6 +840,27 @@ class FilterForListUsersInGroupInput(object):
         """
 
         self._phone_number = phone_number
+
+    @property
+    def phone_number_is_duplicated(self):
+        """Gets the phone_number_is_duplicated of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The phone_number_is_duplicated of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._phone_number_is_duplicated
+
+    @phone_number_is_duplicated.setter
+    def phone_number_is_duplicated(self, phone_number_is_duplicated):
+        """Sets the phone_number_is_duplicated of this FilterForListUsersInGroupInput.
+
+
+        :param phone_number_is_duplicated: The phone_number_is_duplicated of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._phone_number_is_duplicated = phone_number_is_duplicated
 
     @property
     def phone_number_is_null_or_empty(self):
@@ -711,6 +924,27 @@ class FilterForListUsersInGroupInput(object):
         """
 
         self._preferred_username_is_null_or_empty = preferred_username_is_null_or_empty
+
+    @property
+    def universal_search(self):
+        """Gets the universal_search of this FilterForListUsersInGroupInput.  # noqa: E501
+
+
+        :return: The universal_search of this FilterForListUsersInGroupInput.  # noqa: E501
+        :rtype: list[UniversalSearchForListUsersInGroupInput]
+        """
+        return self._universal_search
+
+    @universal_search.setter
+    def universal_search(self, universal_search):
+        """Sets the universal_search of this FilterForListUsersInGroupInput.
+
+
+        :param universal_search: The universal_search of this FilterForListUsersInGroupInput.  # noqa: E501
+        :type: list[UniversalSearchForListUsersInGroupInput]
+        """
+
+        self._universal_search = universal_search
 
     @property
     def user_uids_or(self):

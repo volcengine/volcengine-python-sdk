@@ -33,12 +33,15 @@ class UpdateIdentityProviderOAuthRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attribute_mappings': 'list[AttributeMappingForUpdateIdentityProviderOAuthInput]',
         'authorization_endpoint': 'str',
         'claims_propagation_config': 'ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput',
         'client_id': 'str',
         'client_secret': 'str',
         'connection_uid': 'str',
+        'eip_id': 'str',
         'enabled': 'bool',
+        'extra_provider_configuration': 'ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput',
         'id_attribute': 'str',
         'name': 'str',
         'provider_options': 'ProviderOptionsForUpdateIdentityProviderOAuthInput',
@@ -50,12 +53,15 @@ class UpdateIdentityProviderOAuthRequest(object):
     }
 
     attribute_map = {
+        'attribute_mappings': 'AttributeMappings',
         'authorization_endpoint': 'AuthorizationEndpoint',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
         'connection_uid': 'ConnectionUid',
+        'eip_id': 'EipId',
         'enabled': 'Enabled',
+        'extra_provider_configuration': 'ExtraProviderConfiguration',
         'id_attribute': 'IdAttribute',
         'name': 'Name',
         'provider_options': 'ProviderOptions',
@@ -66,18 +72,21 @@ class UpdateIdentityProviderOAuthRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, authorization_endpoint=None, claims_propagation_config=None, client_id=None, client_secret=None, connection_uid=None, enabled=None, id_attribute=None, name=None, provider_options=None, scopes_list=None, token_endpoint=None, use_pkce=None, user_endpoint=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mappings=None, authorization_endpoint=None, claims_propagation_config=None, client_id=None, client_secret=None, connection_uid=None, eip_id=None, enabled=None, extra_provider_configuration=None, id_attribute=None, name=None, provider_options=None, scopes_list=None, token_endpoint=None, use_pkce=None, user_endpoint=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderOAuthRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attribute_mappings = None
         self._authorization_endpoint = None
         self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
         self._connection_uid = None
+        self._eip_id = None
         self._enabled = None
+        self._extra_provider_configuration = None
         self._id_attribute = None
         self._name = None
         self._provider_options = None
@@ -88,17 +97,25 @@ class UpdateIdentityProviderOAuthRequest(object):
         self._user_pool_uid = None
         self.discriminator = None
 
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         if authorization_endpoint is not None:
             self.authorization_endpoint = authorization_endpoint
         if claims_propagation_config is not None:
             self.claims_propagation_config = claims_propagation_config
-        self.client_id = client_id
+        if client_id is not None:
+            self.client_id = client_id
         if client_secret is not None:
             self.client_secret = client_secret
         self.connection_uid = connection_uid
+        if eip_id is not None:
+            self.eip_id = eip_id
         if enabled is not None:
             self.enabled = enabled
-        self.id_attribute = id_attribute
+        if extra_provider_configuration is not None:
+            self.extra_provider_configuration = extra_provider_configuration
+        if id_attribute is not None:
+            self.id_attribute = id_attribute
         if name is not None:
             self.name = name
         if provider_options is not None:
@@ -107,10 +124,32 @@ class UpdateIdentityProviderOAuthRequest(object):
             self.scopes_list = scopes_list
         if token_endpoint is not None:
             self.token_endpoint = token_endpoint
-        self.use_pkce = use_pkce
+        if use_pkce is not None:
+            self.use_pkce = use_pkce
         if user_endpoint is not None:
             self.user_endpoint = user_endpoint
         self.user_pool_uid = user_pool_uid
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+
+
+        :return: The attribute_mappings of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+        :rtype: list[AttributeMappingForUpdateIdentityProviderOAuthInput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this UpdateIdentityProviderOAuthRequest.
+
+
+        :param attribute_mappings: The attribute_mappings of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+        :type: list[AttributeMappingForUpdateIdentityProviderOAuthInput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def authorization_endpoint(self):
@@ -172,8 +211,6 @@ class UpdateIdentityProviderOAuthRequest(object):
         :param client_id: The client_id of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and client_id is None:
-            raise ValueError("Invalid value for `client_id`, must not be `None`")  # noqa: E501
 
         self._client_id = client_id
 
@@ -222,6 +259,27 @@ class UpdateIdentityProviderOAuthRequest(object):
         self._connection_uid = connection_uid
 
     @property
+    def eip_id(self):
+        """Gets the eip_id of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+
+
+        :return: The eip_id of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this UpdateIdentityProviderOAuthRequest.
+
+
+        :param eip_id: The eip_id of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
+
+    @property
     def enabled(self):
         """Gets the enabled of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
 
@@ -243,6 +301,27 @@ class UpdateIdentityProviderOAuthRequest(object):
         self._enabled = enabled
 
     @property
+    def extra_provider_configuration(self):
+        """Gets the extra_provider_configuration of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+
+
+        :return: The extra_provider_configuration of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+        :rtype: ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput
+        """
+        return self._extra_provider_configuration
+
+    @extra_provider_configuration.setter
+    def extra_provider_configuration(self, extra_provider_configuration):
+        """Sets the extra_provider_configuration of this UpdateIdentityProviderOAuthRequest.
+
+
+        :param extra_provider_configuration: The extra_provider_configuration of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
+        :type: ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput
+        """
+
+        self._extra_provider_configuration = extra_provider_configuration
+
+    @property
     def id_attribute(self):
         """Gets the id_attribute of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
 
@@ -260,8 +339,6 @@ class UpdateIdentityProviderOAuthRequest(object):
         :param id_attribute: The id_attribute of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and id_attribute is None:
-            raise ValueError("Invalid value for `id_attribute`, must not be `None`")  # noqa: E501
 
         self._id_attribute = id_attribute
 
@@ -367,8 +444,6 @@ class UpdateIdentityProviderOAuthRequest(object):
         :param use_pkce: The use_pkce of this UpdateIdentityProviderOAuthRequest.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and use_pkce is None:
-            raise ValueError("Invalid value for `use_pkce`, must not be `None`")  # noqa: E501
 
         self._use_pkce = use_pkce
 

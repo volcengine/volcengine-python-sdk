@@ -35,6 +35,7 @@ class MappingResultForCommitDepartmentSyncSessionOutput(object):
     swagger_types = {
         'added': 'int',
         'external_department_id': 'str',
+        'member_diffs': 'list[MemberDiffForCommitDepartmentSyncSessionOutput]',
         'message': 'str',
         'removed': 'int',
         'status': 'str',
@@ -44,13 +45,14 @@ class MappingResultForCommitDepartmentSyncSessionOutput(object):
     attribute_map = {
         'added': 'Added',
         'external_department_id': 'ExternalDepartmentID',
+        'member_diffs': 'MemberDiffs',
         'message': 'Message',
         'removed': 'Removed',
         'status': 'Status',
         'unchanged': 'Unchanged'
     }
 
-    def __init__(self, added=None, external_department_id=None, message=None, removed=None, status=None, unchanged=None, _configuration=None):  # noqa: E501
+    def __init__(self, added=None, external_department_id=None, member_diffs=None, message=None, removed=None, status=None, unchanged=None, _configuration=None):  # noqa: E501
         """MappingResultForCommitDepartmentSyncSessionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class MappingResultForCommitDepartmentSyncSessionOutput(object):
 
         self._added = None
         self._external_department_id = None
+        self._member_diffs = None
         self._message = None
         self._removed = None
         self._status = None
@@ -68,6 +71,8 @@ class MappingResultForCommitDepartmentSyncSessionOutput(object):
             self.added = added
         if external_department_id is not None:
             self.external_department_id = external_department_id
+        if member_diffs is not None:
+            self.member_diffs = member_diffs
         if message is not None:
             self.message = message
         if removed is not None:
@@ -118,6 +123,27 @@ class MappingResultForCommitDepartmentSyncSessionOutput(object):
         """
 
         self._external_department_id = external_department_id
+
+    @property
+    def member_diffs(self):
+        """Gets the member_diffs of this MappingResultForCommitDepartmentSyncSessionOutput.  # noqa: E501
+
+
+        :return: The member_diffs of this MappingResultForCommitDepartmentSyncSessionOutput.  # noqa: E501
+        :rtype: list[MemberDiffForCommitDepartmentSyncSessionOutput]
+        """
+        return self._member_diffs
+
+    @member_diffs.setter
+    def member_diffs(self, member_diffs):
+        """Sets the member_diffs of this MappingResultForCommitDepartmentSyncSessionOutput.
+
+
+        :param member_diffs: The member_diffs of this MappingResultForCommitDepartmentSyncSessionOutput.  # noqa: E501
+        :type: list[MemberDiffForCommitDepartmentSyncSessionOutput]
+        """
+
+        self._member_diffs = member_diffs
 
     @property
     def message(self):

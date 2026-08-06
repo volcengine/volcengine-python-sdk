@@ -40,6 +40,7 @@ class DataForListIdentityProvidersWeComOutput(object):
         'detailed_user_info_endpoint': 'str',
         'domain_verify_content': 'str',
         'domain_verify_file_name': 'str',
+        'eip_record': 'EipRecordForListIdentityProvidersWeComOutput',
         'enabled': 'bool',
         'name': 'str',
         'outbound_egress_ips': 'list[str]',
@@ -59,6 +60,7 @@ class DataForListIdentityProvidersWeComOutput(object):
         'detailed_user_info_endpoint': 'DetailedUserInfoEndpoint',
         'domain_verify_content': 'DomainVerifyContent',
         'domain_verify_file_name': 'DomainVerifyFileName',
+        'eip_record': 'EipRecord',
         'enabled': 'Enabled',
         'name': 'Name',
         'outbound_egress_ips': 'OutboundEgressIps',
@@ -70,7 +72,7 @@ class DataForListIdentityProvidersWeComOutput(object):
         'user_endpoint': 'UserEndpoint'
     }
 
-    def __init__(self, agent_id=None, authorization_endpoint=None, claims_propagation_config=None, corp_id=None, detailed_user_info_endpoint=None, domain_verify_content=None, domain_verify_file_name=None, enabled=None, name=None, outbound_egress_ips=None, provider_options=None, retrieve_sensitive_user_info_enabled=None, secret=None, token_endpoint=None, uid=None, user_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, authorization_endpoint=None, claims_propagation_config=None, corp_id=None, detailed_user_info_endpoint=None, domain_verify_content=None, domain_verify_file_name=None, eip_record=None, enabled=None, name=None, outbound_egress_ips=None, provider_options=None, retrieve_sensitive_user_info_enabled=None, secret=None, token_endpoint=None, uid=None, user_endpoint=None, _configuration=None):  # noqa: E501
         """DataForListIdentityProvidersWeComOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +85,7 @@ class DataForListIdentityProvidersWeComOutput(object):
         self._detailed_user_info_endpoint = None
         self._domain_verify_content = None
         self._domain_verify_file_name = None
+        self._eip_record = None
         self._enabled = None
         self._name = None
         self._outbound_egress_ips = None
@@ -108,6 +111,8 @@ class DataForListIdentityProvidersWeComOutput(object):
             self.domain_verify_content = domain_verify_content
         if domain_verify_file_name is not None:
             self.domain_verify_file_name = domain_verify_file_name
+        if eip_record is not None:
+            self.eip_record = eip_record
         if enabled is not None:
             self.enabled = enabled
         if name is not None:
@@ -273,6 +278,27 @@ class DataForListIdentityProvidersWeComOutput(object):
         """
 
         self._domain_verify_file_name = domain_verify_file_name
+
+    @property
+    def eip_record(self):
+        """Gets the eip_record of this DataForListIdentityProvidersWeComOutput.  # noqa: E501
+
+
+        :return: The eip_record of this DataForListIdentityProvidersWeComOutput.  # noqa: E501
+        :rtype: EipRecordForListIdentityProvidersWeComOutput
+        """
+        return self._eip_record
+
+    @eip_record.setter
+    def eip_record(self, eip_record):
+        """Sets the eip_record of this DataForListIdentityProvidersWeComOutput.
+
+
+        :param eip_record: The eip_record of this DataForListIdentityProvidersWeComOutput.  # noqa: E501
+        :type: EipRecordForListIdentityProvidersWeComOutput
+        """
+
+        self._eip_record = eip_record
 
     @property
     def enabled(self):

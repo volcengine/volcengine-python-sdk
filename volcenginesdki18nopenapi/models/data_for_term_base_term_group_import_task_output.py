@@ -37,7 +37,7 @@ class DataForTermBaseTermGroupImportTaskOutput(object):
         'id': 'str',
         'operator': 'str',
         'status': 'int',
-        'term_baseld': 'str',
+        'term_base_id': 'str',
         'total': 'int',
         'update_time': 'str',
         'uploaded_count': 'int'
@@ -48,13 +48,13 @@ class DataForTermBaseTermGroupImportTaskOutput(object):
         'id': 'id',
         'operator': 'operator',
         'status': 'status',
-        'term_baseld': 'termBaseld',
+        'term_base_id': 'termBaseId',
         'total': 'total',
         'update_time': 'updateTime',
         'uploaded_count': 'uploadedCount'
     }
 
-    def __init__(self, create_time=None, id=None, operator=None, status=None, term_baseld=None, total=None, update_time=None, uploaded_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, id=None, operator=None, status=None, term_base_id=None, total=None, update_time=None, uploaded_count=None, _configuration=None):  # noqa: E501
         """DataForTermBaseTermGroupImportTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,7 +64,7 @@ class DataForTermBaseTermGroupImportTaskOutput(object):
         self._id = None
         self._operator = None
         self._status = None
-        self._term_baseld = None
+        self._term_base_id = None
         self._total = None
         self._update_time = None
         self._uploaded_count = None
@@ -78,8 +78,8 @@ class DataForTermBaseTermGroupImportTaskOutput(object):
             self.operator = operator
         if status is not None:
             self.status = status
-        if term_baseld is not None:
-            self.term_baseld = term_baseld
+        if term_base_id is not None:
+            self.term_base_id = term_base_id
         if total is not None:
             self.total = total
         if update_time is not None:
@@ -172,25 +172,25 @@ class DataForTermBaseTermGroupImportTaskOutput(object):
         self._status = status
 
     @property
-    def term_baseld(self):
-        """Gets the term_baseld of this DataForTermBaseTermGroupImportTaskOutput.  # noqa: E501
+    def term_base_id(self):
+        """Gets the term_base_id of this DataForTermBaseTermGroupImportTaskOutput.  # noqa: E501
 
 
-        :return: The term_baseld of this DataForTermBaseTermGroupImportTaskOutput.  # noqa: E501
+        :return: The term_base_id of this DataForTermBaseTermGroupImportTaskOutput.  # noqa: E501
         :rtype: str
         """
-        return self._term_baseld
+        return self._term_base_id
 
-    @term_baseld.setter
-    def term_baseld(self, term_baseld):
-        """Sets the term_baseld of this DataForTermBaseTermGroupImportTaskOutput.
+    @term_base_id.setter
+    def term_base_id(self, term_base_id):
+        """Sets the term_base_id of this DataForTermBaseTermGroupImportTaskOutput.
 
 
-        :param term_baseld: The term_baseld of this DataForTermBaseTermGroupImportTaskOutput.  # noqa: E501
+        :param term_base_id: The term_base_id of this DataForTermBaseTermGroupImportTaskOutput.  # noqa: E501
         :type: str
         """
 
-        self._term_baseld = term_baseld
+        self._term_base_id = term_base_id
 
     @property
     def total(self):

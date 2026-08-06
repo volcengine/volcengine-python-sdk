@@ -33,34 +33,42 @@ class CurrentUserForListMergeUserSyncResultUsersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'custom_attributes': 'list[CustomAttributeForListMergeUserSyncResultUsersOutput]',
         'email': 'str',
         'email_verified': 'bool',
         'name': 'str',
         'phone_number': 'str',
-        'phone_number_verified': 'bool'
+        'phone_number_verified': 'bool',
+        'preferred_username': 'str'
     }
 
     attribute_map = {
+        'custom_attributes': 'CustomAttributes',
         'email': 'Email',
         'email_verified': 'EmailVerified',
         'name': 'Name',
         'phone_number': 'PhoneNumber',
-        'phone_number_verified': 'PhoneNumberVerified'
+        'phone_number_verified': 'PhoneNumberVerified',
+        'preferred_username': 'PreferredUsername'
     }
 
-    def __init__(self, email=None, email_verified=None, name=None, phone_number=None, phone_number_verified=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_attributes=None, email=None, email_verified=None, name=None, phone_number=None, phone_number_verified=None, preferred_username=None, _configuration=None):  # noqa: E501
         """CurrentUserForListMergeUserSyncResultUsersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._custom_attributes = None
         self._email = None
         self._email_verified = None
         self._name = None
         self._phone_number = None
         self._phone_number_verified = None
+        self._preferred_username = None
         self.discriminator = None
 
+        if custom_attributes is not None:
+            self.custom_attributes = custom_attributes
         if email is not None:
             self.email = email
         if email_verified is not None:
@@ -71,6 +79,29 @@ class CurrentUserForListMergeUserSyncResultUsersOutput(object):
             self.phone_number = phone_number
         if phone_number_verified is not None:
             self.phone_number_verified = phone_number_verified
+        if preferred_username is not None:
+            self.preferred_username = preferred_username
+
+    @property
+    def custom_attributes(self):
+        """Gets the custom_attributes of this CurrentUserForListMergeUserSyncResultUsersOutput.  # noqa: E501
+
+
+        :return: The custom_attributes of this CurrentUserForListMergeUserSyncResultUsersOutput.  # noqa: E501
+        :rtype: list[CustomAttributeForListMergeUserSyncResultUsersOutput]
+        """
+        return self._custom_attributes
+
+    @custom_attributes.setter
+    def custom_attributes(self, custom_attributes):
+        """Sets the custom_attributes of this CurrentUserForListMergeUserSyncResultUsersOutput.
+
+
+        :param custom_attributes: The custom_attributes of this CurrentUserForListMergeUserSyncResultUsersOutput.  # noqa: E501
+        :type: list[CustomAttributeForListMergeUserSyncResultUsersOutput]
+        """
+
+        self._custom_attributes = custom_attributes
 
     @property
     def email(self):
@@ -176,6 +207,27 @@ class CurrentUserForListMergeUserSyncResultUsersOutput(object):
         """
 
         self._phone_number_verified = phone_number_verified
+
+    @property
+    def preferred_username(self):
+        """Gets the preferred_username of this CurrentUserForListMergeUserSyncResultUsersOutput.  # noqa: E501
+
+
+        :return: The preferred_username of this CurrentUserForListMergeUserSyncResultUsersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._preferred_username
+
+    @preferred_username.setter
+    def preferred_username(self, preferred_username):
+        """Sets the preferred_username of this CurrentUserForListMergeUserSyncResultUsersOutput.
+
+
+        :param preferred_username: The preferred_username of this CurrentUserForListMergeUserSyncResultUsersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._preferred_username = preferred_username
 
     def to_dict(self):
         """Returns the model properties as a dict"""

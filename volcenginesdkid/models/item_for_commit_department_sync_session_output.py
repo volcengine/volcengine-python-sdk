@@ -33,6 +33,8 @@ class ItemForCommitDepartmentSyncSessionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'after': 'AfterForCommitDepartmentSyncSessionOutput',
+        'before': 'BeforeForCommitDepartmentSyncSessionOutput',
         'department_uid': 'str',
         'external_id': 'str',
         'message': 'str',
@@ -41,6 +43,8 @@ class ItemForCommitDepartmentSyncSessionOutput(object):
     }
 
     attribute_map = {
+        'after': 'After',
+        'before': 'Before',
         'department_uid': 'DepartmentUid',
         'external_id': 'ExternalID',
         'message': 'Message',
@@ -48,12 +52,14 @@ class ItemForCommitDepartmentSyncSessionOutput(object):
         'status': 'Status'
     }
 
-    def __init__(self, department_uid=None, external_id=None, message=None, operation=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, after=None, before=None, department_uid=None, external_id=None, message=None, operation=None, status=None, _configuration=None):  # noqa: E501
         """ItemForCommitDepartmentSyncSessionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._after = None
+        self._before = None
         self._department_uid = None
         self._external_id = None
         self._message = None
@@ -61,6 +67,10 @@ class ItemForCommitDepartmentSyncSessionOutput(object):
         self._status = None
         self.discriminator = None
 
+        if after is not None:
+            self.after = after
+        if before is not None:
+            self.before = before
         if department_uid is not None:
             self.department_uid = department_uid
         if external_id is not None:
@@ -71,6 +81,48 @@ class ItemForCommitDepartmentSyncSessionOutput(object):
             self.operation = operation
         if status is not None:
             self.status = status
+
+    @property
+    def after(self):
+        """Gets the after of this ItemForCommitDepartmentSyncSessionOutput.  # noqa: E501
+
+
+        :return: The after of this ItemForCommitDepartmentSyncSessionOutput.  # noqa: E501
+        :rtype: AfterForCommitDepartmentSyncSessionOutput
+        """
+        return self._after
+
+    @after.setter
+    def after(self, after):
+        """Sets the after of this ItemForCommitDepartmentSyncSessionOutput.
+
+
+        :param after: The after of this ItemForCommitDepartmentSyncSessionOutput.  # noqa: E501
+        :type: AfterForCommitDepartmentSyncSessionOutput
+        """
+
+        self._after = after
+
+    @property
+    def before(self):
+        """Gets the before of this ItemForCommitDepartmentSyncSessionOutput.  # noqa: E501
+
+
+        :return: The before of this ItemForCommitDepartmentSyncSessionOutput.  # noqa: E501
+        :rtype: BeforeForCommitDepartmentSyncSessionOutput
+        """
+        return self._before
+
+    @before.setter
+    def before(self, before):
+        """Sets the before of this ItemForCommitDepartmentSyncSessionOutput.
+
+
+        :param before: The before of this ItemForCommitDepartmentSyncSessionOutput.  # noqa: E501
+        :type: BeforeForCommitDepartmentSyncSessionOutput
+        """
+
+        self._before = before
 
     @property
     def department_uid(self):

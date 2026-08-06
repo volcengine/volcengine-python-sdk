@@ -33,10 +33,12 @@ class ListUsersRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'department_uid_recursive': 'bool',
         'filter': 'FilterForListUsersInput',
+        'max_results': 'int',
+        'next_token': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'response_value_mask': 'ResponseValueMaskForListUsersInput',
         'response_value_null': 'ResponseValueNullForListUsersInput',
         'sort_direction': 'str',
         'sort_field': 'str',
@@ -44,38 +46,48 @@ class ListUsersRequest(object):
     }
 
     attribute_map = {
-        'department_uid_recursive': 'DepartmentUidRecursive',
         'filter': 'Filter',
+        'max_results': 'MaxResults',
+        'next_token': 'NextToken',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'response_value_mask': 'ResponseValueMask',
         'response_value_null': 'ResponseValueNull',
         'sort_direction': 'SortDirection',
         'sort_field': 'SortField',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, department_uid_recursive=None, filter=None, page_number=None, page_size=None, response_value_null=None, sort_direction=None, sort_field=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, max_results=None, next_token=None, page_number=None, page_size=None, response_value_mask=None, response_value_null=None, sort_direction=None, sort_field=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """ListUsersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._department_uid_recursive = None
         self._filter = None
+        self._max_results = None
+        self._next_token = None
         self._page_number = None
         self._page_size = None
+        self._response_value_mask = None
         self._response_value_null = None
         self._sort_direction = None
         self._sort_field = None
         self._user_pool_uid = None
         self.discriminator = None
 
-        if department_uid_recursive is not None:
-            self.department_uid_recursive = department_uid_recursive
         if filter is not None:
             self.filter = filter
-        self.page_number = page_number
-        self.page_size = page_size
+        if max_results is not None:
+            self.max_results = max_results
+        if next_token is not None:
+            self.next_token = next_token
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
+        if response_value_mask is not None:
+            self.response_value_mask = response_value_mask
         if response_value_null is not None:
             self.response_value_null = response_value_null
         if sort_direction is not None:
@@ -83,27 +95,6 @@ class ListUsersRequest(object):
         if sort_field is not None:
             self.sort_field = sort_field
         self.user_pool_uid = user_pool_uid
-
-    @property
-    def department_uid_recursive(self):
-        """Gets the department_uid_recursive of this ListUsersRequest.  # noqa: E501
-
-
-        :return: The department_uid_recursive of this ListUsersRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._department_uid_recursive
-
-    @department_uid_recursive.setter
-    def department_uid_recursive(self, department_uid_recursive):
-        """Sets the department_uid_recursive of this ListUsersRequest.
-
-
-        :param department_uid_recursive: The department_uid_recursive of this ListUsersRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._department_uid_recursive = department_uid_recursive
 
     @property
     def filter(self):
@@ -127,6 +118,51 @@ class ListUsersRequest(object):
         self._filter = filter
 
     @property
+    def max_results(self):
+        """Gets the max_results of this ListUsersRequest.  # noqa: E501
+
+
+        :return: The max_results of this ListUsersRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_results
+
+    @max_results.setter
+    def max_results(self, max_results):
+        """Sets the max_results of this ListUsersRequest.
+
+
+        :param max_results: The max_results of this ListUsersRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results > 100):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value less than or equal to `100`")  # noqa: E501
+
+        self._max_results = max_results
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this ListUsersRequest.  # noqa: E501
+
+
+        :return: The next_token of this ListUsersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this ListUsersRequest.
+
+
+        :param next_token: The next_token of this ListUsersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
+
+    @property
     def page_number(self):
         """Gets the page_number of this ListUsersRequest.  # noqa: E501
 
@@ -144,8 +180,6 @@ class ListUsersRequest(object):
         :param page_number: The page_number of this ListUsersRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and page_number is None:
-            raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -167,10 +201,29 @@ class ListUsersRequest(object):
         :param page_size: The page_size of this ListUsersRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and page_size is None:
-            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def response_value_mask(self):
+        """Gets the response_value_mask of this ListUsersRequest.  # noqa: E501
+
+
+        :return: The response_value_mask of this ListUsersRequest.  # noqa: E501
+        :rtype: ResponseValueMaskForListUsersInput
+        """
+        return self._response_value_mask
+
+    @response_value_mask.setter
+    def response_value_mask(self, response_value_mask):
+        """Sets the response_value_mask of this ListUsersRequest.
+
+
+        :param response_value_mask: The response_value_mask of this ListUsersRequest.  # noqa: E501
+        :type: ResponseValueMaskForListUsersInput
+        """
+
+        self._response_value_mask = response_value_mask
 
     @property
     def response_value_null(self):

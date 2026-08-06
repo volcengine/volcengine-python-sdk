@@ -36,6 +36,7 @@ class UpdateIdentityProviderOIDCResponse(object):
         'claims_propagation_config': 'ClaimsPropagationConfigForUpdateIdentityProviderOIDCOutput',
         'client_id': 'str',
         'client_secret': 'str',
+        'eip_record': 'EipRecordForUpdateIdentityProviderOIDCOutput',
         'enabled': 'bool',
         'is_id_token_mapping': 'bool',
         'issuer': 'str',
@@ -52,6 +53,7 @@ class UpdateIdentityProviderOIDCResponse(object):
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
+        'eip_record': 'EipRecord',
         'enabled': 'Enabled',
         'is_id_token_mapping': 'IsIdTokenMapping',
         'issuer': 'Issuer',
@@ -64,7 +66,7 @@ class UpdateIdentityProviderOIDCResponse(object):
         'use_pkce': 'UsePkce'
     }
 
-    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scim_provisioning=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
+    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, eip_record=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scim_provisioning=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderOIDCResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class UpdateIdentityProviderOIDCResponse(object):
         self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
+        self._eip_record = None
         self._enabled = None
         self._is_id_token_mapping = None
         self._issuer = None
@@ -91,6 +94,8 @@ class UpdateIdentityProviderOIDCResponse(object):
             self.client_id = client_id
         if client_secret is not None:
             self.client_secret = client_secret
+        if eip_record is not None:
+            self.eip_record = eip_record
         if enabled is not None:
             self.enabled = enabled
         if is_id_token_mapping is not None:
@@ -174,6 +179,27 @@ class UpdateIdentityProviderOIDCResponse(object):
         """
 
         self._client_secret = client_secret
+
+    @property
+    def eip_record(self):
+        """Gets the eip_record of this UpdateIdentityProviderOIDCResponse.  # noqa: E501
+
+
+        :return: The eip_record of this UpdateIdentityProviderOIDCResponse.  # noqa: E501
+        :rtype: EipRecordForUpdateIdentityProviderOIDCOutput
+        """
+        return self._eip_record
+
+    @eip_record.setter
+    def eip_record(self, eip_record):
+        """Sets the eip_record of this UpdateIdentityProviderOIDCResponse.
+
+
+        :param eip_record: The eip_record of this UpdateIdentityProviderOIDCResponse.  # noqa: E501
+        :type: EipRecordForUpdateIdentityProviderOIDCOutput
+        """
+
+        self._eip_record = eip_record
 
     @property
     def enabled(self):

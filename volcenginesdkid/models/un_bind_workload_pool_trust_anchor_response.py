@@ -33,49 +33,105 @@ class UnBindWorkloadPoolTrustAnchorResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_auto_create_identity': 'bool',
         'binding_uid': 'str',
         'created_at': 'str',
+        'description': 'str',
+        'discovery_url': 'str',
         'meta_data': 'list[MetaDataForUnBindWorkloadPoolTrustAnchorOutput]',
+        'trn': 'str',
+        'trust_anchors': 'list[str]',
         'updated_at': 'str',
+        'url': 'str',
         'workload_identity': 'str',
+        'workload_pool_id': 'str',
         'workload_pool_name': 'str'
     }
 
     attribute_map = {
+        'allow_auto_create_identity': 'AllowAutoCreateIdentity',
         'binding_uid': 'BindingUID',
         'created_at': 'CreatedAt',
+        'description': 'Description',
+        'discovery_url': 'DiscoveryUrl',
         'meta_data': 'MetaData',
+        'trn': 'Trn',
+        'trust_anchors': 'TrustAnchors',
         'updated_at': 'UpdatedAt',
+        'url': 'Url',
         'workload_identity': 'WorkloadIdentity',
+        'workload_pool_id': 'WorkloadPoolId',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, binding_uid=None, created_at=None, meta_data=None, updated_at=None, workload_identity=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_auto_create_identity=None, binding_uid=None, created_at=None, description=None, discovery_url=None, meta_data=None, trn=None, trust_anchors=None, updated_at=None, url=None, workload_identity=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """UnBindWorkloadPoolTrustAnchorResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_auto_create_identity = None
         self._binding_uid = None
         self._created_at = None
+        self._description = None
+        self._discovery_url = None
         self._meta_data = None
+        self._trn = None
+        self._trust_anchors = None
         self._updated_at = None
+        self._url = None
         self._workload_identity = None
+        self._workload_pool_id = None
         self._workload_pool_name = None
         self.discriminator = None
 
+        if allow_auto_create_identity is not None:
+            self.allow_auto_create_identity = allow_auto_create_identity
         if binding_uid is not None:
             self.binding_uid = binding_uid
         if created_at is not None:
             self.created_at = created_at
+        if description is not None:
+            self.description = description
+        if discovery_url is not None:
+            self.discovery_url = discovery_url
         if meta_data is not None:
             self.meta_data = meta_data
+        if trn is not None:
+            self.trn = trn
+        if trust_anchors is not None:
+            self.trust_anchors = trust_anchors
         if updated_at is not None:
             self.updated_at = updated_at
+        if url is not None:
+            self.url = url
         if workload_identity is not None:
             self.workload_identity = workload_identity
+        if workload_pool_id is not None:
+            self.workload_pool_id = workload_pool_id
         if workload_pool_name is not None:
             self.workload_pool_name = workload_pool_name
+
+    @property
+    def allow_auto_create_identity(self):
+        """Gets the allow_auto_create_identity of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The allow_auto_create_identity of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_auto_create_identity
+
+    @allow_auto_create_identity.setter
+    def allow_auto_create_identity(self, allow_auto_create_identity):
+        """Sets the allow_auto_create_identity of this UnBindWorkloadPoolTrustAnchorResponse.
+
+
+        :param allow_auto_create_identity: The allow_auto_create_identity of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_auto_create_identity = allow_auto_create_identity
 
     @property
     def binding_uid(self):
@@ -120,6 +176,48 @@ class UnBindWorkloadPoolTrustAnchorResponse(object):
         self._created_at = created_at
 
     @property
+    def description(self):
+        """Gets the description of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The description of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this UnBindWorkloadPoolTrustAnchorResponse.
+
+
+        :param description: The description of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def discovery_url(self):
+        """Gets the discovery_url of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The discovery_url of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._discovery_url
+
+    @discovery_url.setter
+    def discovery_url(self, discovery_url):
+        """Sets the discovery_url of this UnBindWorkloadPoolTrustAnchorResponse.
+
+
+        :param discovery_url: The discovery_url of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._discovery_url = discovery_url
+
+    @property
     def meta_data(self):
         """Gets the meta_data of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
 
@@ -139,6 +237,48 @@ class UnBindWorkloadPoolTrustAnchorResponse(object):
         """
 
         self._meta_data = meta_data
+
+    @property
+    def trn(self):
+        """Gets the trn of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The trn of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._trn
+
+    @trn.setter
+    def trn(self, trn):
+        """Sets the trn of this UnBindWorkloadPoolTrustAnchorResponse.
+
+
+        :param trn: The trn of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._trn = trn
+
+    @property
+    def trust_anchors(self):
+        """Gets the trust_anchors of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The trust_anchors of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._trust_anchors
+
+    @trust_anchors.setter
+    def trust_anchors(self, trust_anchors):
+        """Sets the trust_anchors of this UnBindWorkloadPoolTrustAnchorResponse.
+
+
+        :param trust_anchors: The trust_anchors of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._trust_anchors = trust_anchors
 
     @property
     def updated_at(self):
@@ -162,6 +302,27 @@ class UnBindWorkloadPoolTrustAnchorResponse(object):
         self._updated_at = updated_at
 
     @property
+    def url(self):
+        """Gets the url of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The url of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this UnBindWorkloadPoolTrustAnchorResponse.
+
+
+        :param url: The url of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._url = url
+
+    @property
     def workload_identity(self):
         """Gets the workload_identity of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
 
@@ -181,6 +342,27 @@ class UnBindWorkloadPoolTrustAnchorResponse(object):
         """
 
         self._workload_identity = workload_identity
+
+    @property
+    def workload_pool_id(self):
+        """Gets the workload_pool_id of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+
+
+        :return: The workload_pool_id of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_pool_id
+
+    @workload_pool_id.setter
+    def workload_pool_id(self, workload_pool_id):
+        """Sets the workload_pool_id of this UnBindWorkloadPoolTrustAnchorResponse.
+
+
+        :param workload_pool_id: The workload_pool_id of this UnBindWorkloadPoolTrustAnchorResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_pool_id = workload_pool_id
 
     @property
     def workload_pool_name(self):

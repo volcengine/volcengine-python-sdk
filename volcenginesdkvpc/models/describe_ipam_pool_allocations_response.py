@@ -35,16 +35,22 @@ class DescribeIpamPoolAllocationsResponse(object):
     swagger_types = {
         'ipam_pool_allocations': 'list[IpamPoolAllocationForDescribeIpamPoolAllocationsOutput]',
         'next_token': 'str',
-        'request_id': 'str'
+        'page_number': 'int',
+        'page_size': 'int',
+        'request_id': 'str',
+        'total_count': 'int'
     }
 
     attribute_map = {
         'ipam_pool_allocations': 'IpamPoolAllocations',
         'next_token': 'NextToken',
-        'request_id': 'RequestId'
+        'page_number': 'PageNumber',
+        'page_size': 'PageSize',
+        'request_id': 'RequestId',
+        'total_count': 'TotalCount'
     }
 
-    def __init__(self, ipam_pool_allocations=None, next_token=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipam_pool_allocations=None, next_token=None, page_number=None, page_size=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
         """DescribeIpamPoolAllocationsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,15 +58,24 @@ class DescribeIpamPoolAllocationsResponse(object):
 
         self._ipam_pool_allocations = None
         self._next_token = None
+        self._page_number = None
+        self._page_size = None
         self._request_id = None
+        self._total_count = None
         self.discriminator = None
 
         if ipam_pool_allocations is not None:
             self.ipam_pool_allocations = ipam_pool_allocations
         if next_token is not None:
             self.next_token = next_token
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
         if request_id is not None:
             self.request_id = request_id
+        if total_count is not None:
+            self.total_count = total_count
 
     @property
     def ipam_pool_allocations(self):
@@ -105,6 +120,48 @@ class DescribeIpamPoolAllocationsResponse(object):
         self._next_token = next_token
 
     @property
+    def page_number(self):
+        """Gets the page_number of this DescribeIpamPoolAllocationsResponse.  # noqa: E501
+
+
+        :return: The page_number of this DescribeIpamPoolAllocationsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_number
+
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this DescribeIpamPoolAllocationsResponse.
+
+
+        :param page_number: The page_number of this DescribeIpamPoolAllocationsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._page_number = page_number
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this DescribeIpamPoolAllocationsResponse.  # noqa: E501
+
+
+        :return: The page_size of this DescribeIpamPoolAllocationsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this DescribeIpamPoolAllocationsResponse.
+
+
+        :param page_size: The page_size of this DescribeIpamPoolAllocationsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
+
+    @property
     def request_id(self):
         """Gets the request_id of this DescribeIpamPoolAllocationsResponse.  # noqa: E501
 
@@ -124,6 +181,27 @@ class DescribeIpamPoolAllocationsResponse(object):
         """
 
         self._request_id = request_id
+
+    @property
+    def total_count(self):
+        """Gets the total_count of this DescribeIpamPoolAllocationsResponse.  # noqa: E501
+
+
+        :return: The total_count of this DescribeIpamPoolAllocationsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_count
+
+    @total_count.setter
+    def total_count(self, total_count):
+        """Sets the total_count of this DescribeIpamPoolAllocationsResponse.
+
+
+        :param total_count: The total_count of this DescribeIpamPoolAllocationsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total_count = total_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

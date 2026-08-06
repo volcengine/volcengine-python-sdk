@@ -33,9 +33,11 @@ class CreateIdentityProviderOIDCResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attribute_mappings': 'list[AttributeMappingForCreateIdentityProviderOIDCOutput]',
         'claims_propagation_config': 'ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput',
         'client_id': 'str',
         'client_secret': 'str',
+        'eip_record': 'EipRecordForCreateIdentityProviderOIDCOutput',
         'enabled': 'bool',
         'is_id_token_mapping': 'bool',
         'issuer': 'str',
@@ -44,14 +46,17 @@ class CreateIdentityProviderOIDCResponse(object):
         'provider_options': 'ProviderOptionsForCreateIdentityProviderOIDCOutput',
         'scim_provisioning': 'ScimProvisioningForCreateIdentityProviderOIDCOutput',
         'scopes_list': 'list[str]',
+        'sole_provider_connection': 'bool',
         'uid': 'str',
         'use_pkce': 'bool'
     }
 
     attribute_map = {
+        'attribute_mappings': 'AttributeMappings',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
+        'eip_record': 'EipRecord',
         'enabled': 'Enabled',
         'is_id_token_mapping': 'IsIdTokenMapping',
         'issuer': 'Issuer',
@@ -60,19 +65,22 @@ class CreateIdentityProviderOIDCResponse(object):
         'provider_options': 'ProviderOptions',
         'scim_provisioning': 'ScimProvisioning',
         'scopes_list': 'ScopesList',
+        'sole_provider_connection': 'SoleProviderConnection',
         'uid': 'Uid',
         'use_pkce': 'UsePkce'
     }
 
-    def __init__(self, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scim_provisioning=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mappings=None, claims_propagation_config=None, client_id=None, client_secret=None, eip_record=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scim_provisioning=None, scopes_list=None, sole_provider_connection=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderOIDCResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attribute_mappings = None
         self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
+        self._eip_record = None
         self._enabled = None
         self._is_id_token_mapping = None
         self._issuer = None
@@ -81,16 +89,21 @@ class CreateIdentityProviderOIDCResponse(object):
         self._provider_options = None
         self._scim_provisioning = None
         self._scopes_list = None
+        self._sole_provider_connection = None
         self._uid = None
         self._use_pkce = None
         self.discriminator = None
 
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         if claims_propagation_config is not None:
             self.claims_propagation_config = claims_propagation_config
         if client_id is not None:
             self.client_id = client_id
         if client_secret is not None:
             self.client_secret = client_secret
+        if eip_record is not None:
+            self.eip_record = eip_record
         if enabled is not None:
             self.enabled = enabled
         if is_id_token_mapping is not None:
@@ -107,10 +120,33 @@ class CreateIdentityProviderOIDCResponse(object):
             self.scim_provisioning = scim_provisioning
         if scopes_list is not None:
             self.scopes_list = scopes_list
+        if sole_provider_connection is not None:
+            self.sole_provider_connection = sole_provider_connection
         if uid is not None:
             self.uid = uid
         if use_pkce is not None:
             self.use_pkce = use_pkce
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+
+
+        :return: The attribute_mappings of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+        :rtype: list[AttributeMappingForCreateIdentityProviderOIDCOutput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this CreateIdentityProviderOIDCResponse.
+
+
+        :param attribute_mappings: The attribute_mappings of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+        :type: list[AttributeMappingForCreateIdentityProviderOIDCOutput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def claims_propagation_config(self):
@@ -174,6 +210,27 @@ class CreateIdentityProviderOIDCResponse(object):
         """
 
         self._client_secret = client_secret
+
+    @property
+    def eip_record(self):
+        """Gets the eip_record of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+
+
+        :return: The eip_record of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+        :rtype: EipRecordForCreateIdentityProviderOIDCOutput
+        """
+        return self._eip_record
+
+    @eip_record.setter
+    def eip_record(self, eip_record):
+        """Sets the eip_record of this CreateIdentityProviderOIDCResponse.
+
+
+        :param eip_record: The eip_record of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+        :type: EipRecordForCreateIdentityProviderOIDCOutput
+        """
+
+        self._eip_record = eip_record
 
     @property
     def enabled(self):
@@ -342,6 +399,27 @@ class CreateIdentityProviderOIDCResponse(object):
         """
 
         self._scopes_list = scopes_list
+
+    @property
+    def sole_provider_connection(self):
+        """Gets the sole_provider_connection of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+
+
+        :return: The sole_provider_connection of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sole_provider_connection
+
+    @sole_provider_connection.setter
+    def sole_provider_connection(self, sole_provider_connection):
+        """Sets the sole_provider_connection of this CreateIdentityProviderOIDCResponse.
+
+
+        :param sole_provider_connection: The sole_provider_connection of this CreateIdentityProviderOIDCResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._sole_provider_connection = sole_provider_connection
 
     @property
     def uid(self):

@@ -61,8 +61,7 @@ class VideoEditorAddSubtitleRequest(object):
         if segment_inputs is not None:
             self.segment_inputs = segment_inputs
         self.source_language = source_language
-        if subtask_id is not None:
-            self.subtask_id = subtask_id
+        self.subtask_id = subtask_id
         self.target_language = target_language
 
     @property
@@ -127,6 +126,8 @@ class VideoEditorAddSubtitleRequest(object):
         :param subtask_id: The subtask_id of this VideoEditorAddSubtitleRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subtask_id is None:
+            raise ValueError("Invalid value for `subtask_id`, must not be `None`")  # noqa: E501
 
         self._subtask_id = subtask_id
 

@@ -33,6 +33,7 @@ class FilterForListDepartmentsInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'department_uid': 'str',
         'description': 'str',
         'external_id': 'str',
         'name': 'str',
@@ -41,6 +42,7 @@ class FilterForListDepartmentsInput(object):
     }
 
     attribute_map = {
+        'department_uid': 'DepartmentUid',
         'description': 'Description',
         'external_id': 'ExternalID',
         'name': 'Name',
@@ -48,12 +50,13 @@ class FilterForListDepartmentsInput(object):
         'source': 'Source'
     }
 
-    def __init__(self, description=None, external_id=None, name=None, name_match_mode=None, source=None, _configuration=None):  # noqa: E501
+    def __init__(self, department_uid=None, description=None, external_id=None, name=None, name_match_mode=None, source=None, _configuration=None):  # noqa: E501
         """FilterForListDepartmentsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._department_uid = None
         self._description = None
         self._external_id = None
         self._name = None
@@ -61,6 +64,8 @@ class FilterForListDepartmentsInput(object):
         self._source = None
         self.discriminator = None
 
+        if department_uid is not None:
+            self.department_uid = department_uid
         if description is not None:
             self.description = description
         if external_id is not None:
@@ -71,6 +76,27 @@ class FilterForListDepartmentsInput(object):
             self.name_match_mode = name_match_mode
         if source is not None:
             self.source = source
+
+    @property
+    def department_uid(self):
+        """Gets the department_uid of this FilterForListDepartmentsInput.  # noqa: E501
+
+
+        :return: The department_uid of this FilterForListDepartmentsInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._department_uid
+
+    @department_uid.setter
+    def department_uid(self, department_uid):
+        """Sets the department_uid of this FilterForListDepartmentsInput.
+
+
+        :param department_uid: The department_uid of this FilterForListDepartmentsInput.  # noqa: E501
+        :type: str
+        """
+
+        self._department_uid = department_uid
 
     @property
     def description(self):

@@ -33,6 +33,7 @@ class DataForListIdentityProvidersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attribute_mappings': 'list[AttributeMappingForListIdentityProvidersOutput]',
         'connection_type': 'str',
         'create_time': 'str',
         'enabled': 'bool',
@@ -43,6 +44,7 @@ class DataForListIdentityProvidersOutput(object):
     }
 
     attribute_map = {
+        'attribute_mappings': 'AttributeMappings',
         'connection_type': 'ConnectionType',
         'create_time': 'CreateTime',
         'enabled': 'Enabled',
@@ -52,12 +54,13 @@ class DataForListIdentityProvidersOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, connection_type=None, create_time=None, enabled=None, name=None, provider=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mappings=None, connection_type=None, create_time=None, enabled=None, name=None, provider=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
         """DataForListIdentityProvidersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attribute_mappings = None
         self._connection_type = None
         self._create_time = None
         self._enabled = None
@@ -67,6 +70,8 @@ class DataForListIdentityProvidersOutput(object):
         self._update_time = None
         self.discriminator = None
 
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         if connection_type is not None:
             self.connection_type = connection_type
         if create_time is not None:
@@ -81,6 +86,27 @@ class DataForListIdentityProvidersOutput(object):
             self.uid = uid
         if update_time is not None:
             self.update_time = update_time
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this DataForListIdentityProvidersOutput.  # noqa: E501
+
+
+        :return: The attribute_mappings of this DataForListIdentityProvidersOutput.  # noqa: E501
+        :rtype: list[AttributeMappingForListIdentityProvidersOutput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this DataForListIdentityProvidersOutput.
+
+
+        :param attribute_mappings: The attribute_mappings of this DataForListIdentityProvidersOutput.  # noqa: E501
+        :type: list[AttributeMappingForListIdentityProvidersOutput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def connection_type(self):

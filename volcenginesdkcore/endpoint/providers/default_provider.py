@@ -455,7 +455,7 @@ default_endpoint = {
     ),
     'acep': ServiceEndpointInfo(
         service='acep',
-        is_global=True,
+        is_global=False,
         global_endpoint='',
         region_endpoint_map={},
     ),
@@ -627,6 +627,12 @@ default_endpoint = {
     'volcsms': ServiceEndpointInfo(
         service='volcsms',
         is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'id': ServiceEndpointInfo(
+        service='id',
+        is_global=False,
         global_endpoint='',
         region_endpoint_map={},
     ),

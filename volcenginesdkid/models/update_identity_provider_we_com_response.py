@@ -34,18 +34,21 @@ class UpdateIdentityProviderWeComResponse(object):
     """
     swagger_types = {
         'agent_id': 'str',
+        'attribute_mappings': 'list[AttributeMappingForUpdateIdentityProviderWeComOutput]',
         'authorization_endpoint': 'str',
         'claims_propagation_config': 'ClaimsPropagationConfigForUpdateIdentityProviderWeComOutput',
         'corp_id': 'str',
         'detailed_user_info_endpoint': 'str',
         'domain_verify_content': 'str',
         'domain_verify_file_name': 'str',
+        'eip_record': 'EipRecordForUpdateIdentityProviderWeComOutput',
         'enabled': 'bool',
         'name': 'str',
         'outbound_egress_ips': 'list[str]',
         'provider_options': 'ProviderOptionsForUpdateIdentityProviderWeComOutput',
         'retrieve_sensitive_user_info_enabled': 'bool',
         'secret': 'str',
+        'sole_provider_connection': 'bool',
         'token_endpoint': 'str',
         'uid': 'str',
         'user_endpoint': 'str'
@@ -53,42 +56,48 @@ class UpdateIdentityProviderWeComResponse(object):
 
     attribute_map = {
         'agent_id': 'AgentId',
+        'attribute_mappings': 'AttributeMappings',
         'authorization_endpoint': 'AuthorizationEndpoint',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'corp_id': 'CorpId',
         'detailed_user_info_endpoint': 'DetailedUserInfoEndpoint',
         'domain_verify_content': 'DomainVerifyContent',
         'domain_verify_file_name': 'DomainVerifyFileName',
+        'eip_record': 'EipRecord',
         'enabled': 'Enabled',
         'name': 'Name',
         'outbound_egress_ips': 'OutboundEgressIps',
         'provider_options': 'ProviderOptions',
         'retrieve_sensitive_user_info_enabled': 'RetrieveSensitiveUserInfoEnabled',
         'secret': 'Secret',
+        'sole_provider_connection': 'SoleProviderConnection',
         'token_endpoint': 'TokenEndpoint',
         'uid': 'Uid',
         'user_endpoint': 'UserEndpoint'
     }
 
-    def __init__(self, agent_id=None, authorization_endpoint=None, claims_propagation_config=None, corp_id=None, detailed_user_info_endpoint=None, domain_verify_content=None, domain_verify_file_name=None, enabled=None, name=None, outbound_egress_ips=None, provider_options=None, retrieve_sensitive_user_info_enabled=None, secret=None, token_endpoint=None, uid=None, user_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, attribute_mappings=None, authorization_endpoint=None, claims_propagation_config=None, corp_id=None, detailed_user_info_endpoint=None, domain_verify_content=None, domain_verify_file_name=None, eip_record=None, enabled=None, name=None, outbound_egress_ips=None, provider_options=None, retrieve_sensitive_user_info_enabled=None, secret=None, sole_provider_connection=None, token_endpoint=None, uid=None, user_endpoint=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderWeComResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._agent_id = None
+        self._attribute_mappings = None
         self._authorization_endpoint = None
         self._claims_propagation_config = None
         self._corp_id = None
         self._detailed_user_info_endpoint = None
         self._domain_verify_content = None
         self._domain_verify_file_name = None
+        self._eip_record = None
         self._enabled = None
         self._name = None
         self._outbound_egress_ips = None
         self._provider_options = None
         self._retrieve_sensitive_user_info_enabled = None
         self._secret = None
+        self._sole_provider_connection = None
         self._token_endpoint = None
         self._uid = None
         self._user_endpoint = None
@@ -96,6 +105,8 @@ class UpdateIdentityProviderWeComResponse(object):
 
         if agent_id is not None:
             self.agent_id = agent_id
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         if authorization_endpoint is not None:
             self.authorization_endpoint = authorization_endpoint
         if claims_propagation_config is not None:
@@ -108,6 +119,8 @@ class UpdateIdentityProviderWeComResponse(object):
             self.domain_verify_content = domain_verify_content
         if domain_verify_file_name is not None:
             self.domain_verify_file_name = domain_verify_file_name
+        if eip_record is not None:
+            self.eip_record = eip_record
         if enabled is not None:
             self.enabled = enabled
         if name is not None:
@@ -120,6 +133,8 @@ class UpdateIdentityProviderWeComResponse(object):
             self.retrieve_sensitive_user_info_enabled = retrieve_sensitive_user_info_enabled
         if secret is not None:
             self.secret = secret
+        if sole_provider_connection is not None:
+            self.sole_provider_connection = sole_provider_connection
         if token_endpoint is not None:
             self.token_endpoint = token_endpoint
         if uid is not None:
@@ -147,6 +162,27 @@ class UpdateIdentityProviderWeComResponse(object):
         """
 
         self._agent_id = agent_id
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this UpdateIdentityProviderWeComResponse.  # noqa: E501
+
+
+        :return: The attribute_mappings of this UpdateIdentityProviderWeComResponse.  # noqa: E501
+        :rtype: list[AttributeMappingForUpdateIdentityProviderWeComOutput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this UpdateIdentityProviderWeComResponse.
+
+
+        :param attribute_mappings: The attribute_mappings of this UpdateIdentityProviderWeComResponse.  # noqa: E501
+        :type: list[AttributeMappingForUpdateIdentityProviderWeComOutput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def authorization_endpoint(self):
@@ -275,6 +311,27 @@ class UpdateIdentityProviderWeComResponse(object):
         self._domain_verify_file_name = domain_verify_file_name
 
     @property
+    def eip_record(self):
+        """Gets the eip_record of this UpdateIdentityProviderWeComResponse.  # noqa: E501
+
+
+        :return: The eip_record of this UpdateIdentityProviderWeComResponse.  # noqa: E501
+        :rtype: EipRecordForUpdateIdentityProviderWeComOutput
+        """
+        return self._eip_record
+
+    @eip_record.setter
+    def eip_record(self, eip_record):
+        """Sets the eip_record of this UpdateIdentityProviderWeComResponse.
+
+
+        :param eip_record: The eip_record of this UpdateIdentityProviderWeComResponse.  # noqa: E501
+        :type: EipRecordForUpdateIdentityProviderWeComOutput
+        """
+
+        self._eip_record = eip_record
+
+    @property
     def enabled(self):
         """Gets the enabled of this UpdateIdentityProviderWeComResponse.  # noqa: E501
 
@@ -399,6 +456,27 @@ class UpdateIdentityProviderWeComResponse(object):
         """
 
         self._secret = secret
+
+    @property
+    def sole_provider_connection(self):
+        """Gets the sole_provider_connection of this UpdateIdentityProviderWeComResponse.  # noqa: E501
+
+
+        :return: The sole_provider_connection of this UpdateIdentityProviderWeComResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sole_provider_connection
+
+    @sole_provider_connection.setter
+    def sole_provider_connection(self, sole_provider_connection):
+        """Sets the sole_provider_connection of this UpdateIdentityProviderWeComResponse.
+
+
+        :param sole_provider_connection: The sole_provider_connection of this UpdateIdentityProviderWeComResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._sole_provider_connection = sole_provider_connection
 
     @property
     def token_endpoint(self):

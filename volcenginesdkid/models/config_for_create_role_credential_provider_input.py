@@ -33,55 +33,55 @@ class ConfigForCreateRoleCredentialProviderInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'identity_source': 'IdentitySourceForCreateRoleCredentialProviderInput',
+        'identity_pool': 'IdentityPoolForCreateRoleCredentialProviderInput',
         'metadata': 'str',
         'role_mapping': 'RoleMappingForCreateRoleCredentialProviderInput'
     }
 
     attribute_map = {
-        'identity_source': 'IdentitySource',
+        'identity_pool': 'IdentityPool',
         'metadata': 'Metadata',
         'role_mapping': 'RoleMapping'
     }
 
-    def __init__(self, identity_source=None, metadata=None, role_mapping=None, _configuration=None):  # noqa: E501
+    def __init__(self, identity_pool=None, metadata=None, role_mapping=None, _configuration=None):  # noqa: E501
         """ConfigForCreateRoleCredentialProviderInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._identity_source = None
+        self._identity_pool = None
         self._metadata = None
         self._role_mapping = None
         self.discriminator = None
 
-        if identity_source is not None:
-            self.identity_source = identity_source
+        if identity_pool is not None:
+            self.identity_pool = identity_pool
         if metadata is not None:
             self.metadata = metadata
         if role_mapping is not None:
             self.role_mapping = role_mapping
 
     @property
-    def identity_source(self):
-        """Gets the identity_source of this ConfigForCreateRoleCredentialProviderInput.  # noqa: E501
+    def identity_pool(self):
+        """Gets the identity_pool of this ConfigForCreateRoleCredentialProviderInput.  # noqa: E501
 
 
-        :return: The identity_source of this ConfigForCreateRoleCredentialProviderInput.  # noqa: E501
-        :rtype: IdentitySourceForCreateRoleCredentialProviderInput
+        :return: The identity_pool of this ConfigForCreateRoleCredentialProviderInput.  # noqa: E501
+        :rtype: IdentityPoolForCreateRoleCredentialProviderInput
         """
-        return self._identity_source
+        return self._identity_pool
 
-    @identity_source.setter
-    def identity_source(self, identity_source):
-        """Sets the identity_source of this ConfigForCreateRoleCredentialProviderInput.
+    @identity_pool.setter
+    def identity_pool(self, identity_pool):
+        """Sets the identity_pool of this ConfigForCreateRoleCredentialProviderInput.
 
 
-        :param identity_source: The identity_source of this ConfigForCreateRoleCredentialProviderInput.  # noqa: E501
-        :type: IdentitySourceForCreateRoleCredentialProviderInput
+        :param identity_pool: The identity_pool of this ConfigForCreateRoleCredentialProviderInput.  # noqa: E501
+        :type: IdentityPoolForCreateRoleCredentialProviderInput
         """
 
-        self._identity_source = identity_source
+        self._identity_pool = identity_pool
 
     @property
     def metadata(self):

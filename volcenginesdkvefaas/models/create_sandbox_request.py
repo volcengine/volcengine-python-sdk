@@ -47,6 +47,7 @@ class CreateSandboxRequest(object):
         'metadata': 'dict(str, str)',
         'request_timeout': 'int',
         'role_chain_trn': 'list[str]',
+        'role_trn': 'str',
         'session_id': 'str',
         'sidecars': 'list[SidecarForCreateSandboxInput]',
         'snapshot_id': 'str',
@@ -69,6 +70,7 @@ class CreateSandboxRequest(object):
         'metadata': 'Metadata',
         'request_timeout': 'RequestTimeout',
         'role_chain_trn': 'RoleChainTrn',
+        'role_trn': 'RoleTrn',
         'session_id': 'SessionId',
         'sidecars': 'Sidecars',
         'snapshot_id': 'SnapshotId',
@@ -76,7 +78,7 @@ class CreateSandboxRequest(object):
         'timeout_unit': 'TimeoutUnit'
     }
 
-    def __init__(self, _async=None, cpu_milli=None, ebs_volumes=None, empty_dir_volume=None, envs=None, function_id=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, role_chain_trn=None, session_id=None, sidecars=None, snapshot_id=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, _async=None, cpu_milli=None, ebs_volumes=None, empty_dir_volume=None, envs=None, function_id=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, snapshot_id=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
         """CreateSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class CreateSandboxRequest(object):
         self._metadata = None
         self._request_timeout = None
         self._role_chain_trn = None
+        self._role_trn = None
         self._session_id = None
         self._sidecars = None
         self._snapshot_id = None
@@ -130,6 +133,8 @@ class CreateSandboxRequest(object):
             self.request_timeout = request_timeout
         if role_chain_trn is not None:
             self.role_chain_trn = role_chain_trn
+        if role_trn is not None:
+            self.role_trn = role_trn
         if session_id is not None:
             self.session_id = session_id
         if sidecars is not None:
@@ -436,6 +441,27 @@ class CreateSandboxRequest(object):
         """
 
         self._role_chain_trn = role_chain_trn
+
+    @property
+    def role_trn(self):
+        """Gets the role_trn of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The role_trn of this CreateSandboxRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._role_trn
+
+    @role_trn.setter
+    def role_trn(self, role_trn):
+        """Sets the role_trn of this CreateSandboxRequest.
+
+
+        :param role_trn: The role_trn of this CreateSandboxRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._role_trn = role_trn
 
     @property
     def session_id(self):

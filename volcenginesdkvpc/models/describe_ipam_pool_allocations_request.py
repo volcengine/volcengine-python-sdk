@@ -37,7 +37,9 @@ class DescribeIpamPoolAllocationsRequest(object):
         'ipam_pool_allocation_ids': 'list[str]',
         'ipam_pool_id': 'str',
         'max_results': 'int',
-        'next_token': 'str'
+        'next_token': 'str',
+        'page_number': 'int',
+        'page_size': 'int'
     }
 
     attribute_map = {
@@ -45,10 +47,12 @@ class DescribeIpamPoolAllocationsRequest(object):
         'ipam_pool_allocation_ids': 'IpamPoolAllocationIds',
         'ipam_pool_id': 'IpamPoolId',
         'max_results': 'MaxResults',
-        'next_token': 'NextToken'
+        'next_token': 'NextToken',
+        'page_number': 'PageNumber',
+        'page_size': 'PageSize'
     }
 
-    def __init__(self, cidr_block=None, ipam_pool_allocation_ids=None, ipam_pool_id=None, max_results=None, next_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_block=None, ipam_pool_allocation_ids=None, ipam_pool_id=None, max_results=None, next_token=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
         """DescribeIpamPoolAllocationsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +63,8 @@ class DescribeIpamPoolAllocationsRequest(object):
         self._ipam_pool_id = None
         self._max_results = None
         self._next_token = None
+        self._page_number = None
+        self._page_size = None
         self.discriminator = None
 
         if cidr_block is not None:
@@ -70,6 +76,10 @@ class DescribeIpamPoolAllocationsRequest(object):
             self.max_results = max_results
         if next_token is not None:
             self.next_token = next_token
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
 
     @property
     def cidr_block(self):
@@ -177,6 +187,48 @@ class DescribeIpamPoolAllocationsRequest(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def page_number(self):
+        """Gets the page_number of this DescribeIpamPoolAllocationsRequest.  # noqa: E501
+
+
+        :return: The page_number of this DescribeIpamPoolAllocationsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_number
+
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this DescribeIpamPoolAllocationsRequest.
+
+
+        :param page_number: The page_number of this DescribeIpamPoolAllocationsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_number = page_number
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this DescribeIpamPoolAllocationsRequest.  # noqa: E501
+
+
+        :return: The page_size of this DescribeIpamPoolAllocationsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this DescribeIpamPoolAllocationsRequest.
+
+
+        :param page_size: The page_size of this DescribeIpamPoolAllocationsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
 
     def to_dict(self):
         """Returns the model properties as a dict"""

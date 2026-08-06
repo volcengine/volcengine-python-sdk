@@ -37,6 +37,7 @@ class FilterForListGroupsForUserInput(object):
         'group_id_token_name': 'str',
         'group_uids_or': 'list[str]',
         'name': 'str',
+        'name_match_mode': 'int',
         'source': 'str'
     }
 
@@ -45,10 +46,11 @@ class FilterForListGroupsForUserInput(object):
         'group_id_token_name': 'GroupIdTokenName',
         'group_uids_or': 'GroupUidsOr',
         'name': 'Name',
+        'name_match_mode': 'NameMatchMode',
         'source': 'Source'
     }
 
-    def __init__(self, description=None, group_id_token_name=None, group_uids_or=None, name=None, source=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, group_id_token_name=None, group_uids_or=None, name=None, name_match_mode=None, source=None, _configuration=None):  # noqa: E501
         """FilterForListGroupsForUserInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class FilterForListGroupsForUserInput(object):
         self._group_id_token_name = None
         self._group_uids_or = None
         self._name = None
+        self._name_match_mode = None
         self._source = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class FilterForListGroupsForUserInput(object):
             self.group_uids_or = group_uids_or
         if name is not None:
             self.name = name
+        if name_match_mode is not None:
+            self.name_match_mode = name_match_mode
         if source is not None:
             self.source = source
 
@@ -155,6 +160,27 @@ class FilterForListGroupsForUserInput(object):
         """
 
         self._name = name
+
+    @property
+    def name_match_mode(self):
+        """Gets the name_match_mode of this FilterForListGroupsForUserInput.  # noqa: E501
+
+
+        :return: The name_match_mode of this FilterForListGroupsForUserInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._name_match_mode
+
+    @name_match_mode.setter
+    def name_match_mode(self, name_match_mode):
+        """Sets the name_match_mode of this FilterForListGroupsForUserInput.
+
+
+        :param name_match_mode: The name_match_mode of this FilterForListGroupsForUserInput.  # noqa: E501
+        :type: int
+        """
+
+        self._name_match_mode = name_match_mode
 
     @property
     def source(self):

@@ -35,6 +35,8 @@ class ListUsersInGroupRequest(object):
     swagger_types = {
         'filter': 'FilterForListUsersInGroupInput',
         'group_uid': 'str',
+        'max_results': 'int',
+        'next_token': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'user_pool_uid': 'str'
@@ -43,12 +45,14 @@ class ListUsersInGroupRequest(object):
     attribute_map = {
         'filter': 'Filter',
         'group_uid': 'GroupUid',
+        'max_results': 'MaxResults',
+        'next_token': 'NextToken',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, filter=None, group_uid=None, page_number=None, page_size=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, group_uid=None, max_results=None, next_token=None, page_number=None, page_size=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """ListUsersInGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +60,8 @@ class ListUsersInGroupRequest(object):
 
         self._filter = None
         self._group_uid = None
+        self._max_results = None
+        self._next_token = None
         self._page_number = None
         self._page_size = None
         self._user_pool_uid = None
@@ -64,8 +70,14 @@ class ListUsersInGroupRequest(object):
         if filter is not None:
             self.filter = filter
         self.group_uid = group_uid
-        self.page_number = page_number
-        self.page_size = page_size
+        if max_results is not None:
+            self.max_results = max_results
+        if next_token is not None:
+            self.next_token = next_token
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
         self.user_pool_uid = user_pool_uid
 
     @property
@@ -113,6 +125,51 @@ class ListUsersInGroupRequest(object):
         self._group_uid = group_uid
 
     @property
+    def max_results(self):
+        """Gets the max_results of this ListUsersInGroupRequest.  # noqa: E501
+
+
+        :return: The max_results of this ListUsersInGroupRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_results
+
+    @max_results.setter
+    def max_results(self, max_results):
+        """Sets the max_results of this ListUsersInGroupRequest.
+
+
+        :param max_results: The max_results of this ListUsersInGroupRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results > 100):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value less than or equal to `100`")  # noqa: E501
+
+        self._max_results = max_results
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this ListUsersInGroupRequest.  # noqa: E501
+
+
+        :return: The next_token of this ListUsersInGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this ListUsersInGroupRequest.
+
+
+        :param next_token: The next_token of this ListUsersInGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
+
+    @property
     def page_number(self):
         """Gets the page_number of this ListUsersInGroupRequest.  # noqa: E501
 
@@ -130,8 +187,6 @@ class ListUsersInGroupRequest(object):
         :param page_number: The page_number of this ListUsersInGroupRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and page_number is None:
-            raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -153,8 +208,6 @@ class ListUsersInGroupRequest(object):
         :param page_size: The page_size of this ListUsersInGroupRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and page_size is None:
-            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
 

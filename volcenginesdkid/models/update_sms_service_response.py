@@ -33,7 +33,15 @@ class UpdateSmsServiceResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cn_usage_enabled': 'bool',
         'enabled': 'bool',
+        'login_row_template_id': 'str',
+        'password_reset_cn_template_id': 'str',
+        'password_reset_row_template_id': 'str',
+        'row_usage_enabled': 'bool',
+        'sender_id': 'str',
+        'sign_up_cn_template_id': 'str',
+        'sign_up_row_template_id': 'str',
         'signature_content': 'str',
         'sms_account_id': 'str',
         'template_id': 'str',
@@ -41,28 +49,60 @@ class UpdateSmsServiceResponse(object):
     }
 
     attribute_map = {
+        'cn_usage_enabled': 'CnUsageEnabled',
         'enabled': 'Enabled',
+        'login_row_template_id': 'LoginRowTemplateId',
+        'password_reset_cn_template_id': 'PasswordResetCnTemplateId',
+        'password_reset_row_template_id': 'PasswordResetRowTemplateId',
+        'row_usage_enabled': 'RowUsageEnabled',
+        'sender_id': 'SenderId',
+        'sign_up_cn_template_id': 'SignUpCnTemplateId',
+        'sign_up_row_template_id': 'SignUpRowTemplateId',
         'signature_content': 'SignatureContent',
         'sms_account_id': 'SmsAccountId',
         'template_id': 'TemplateId',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, enabled=None, signature_content=None, sms_account_id=None, template_id=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, cn_usage_enabled=None, enabled=None, login_row_template_id=None, password_reset_cn_template_id=None, password_reset_row_template_id=None, row_usage_enabled=None, sender_id=None, sign_up_cn_template_id=None, sign_up_row_template_id=None, signature_content=None, sms_account_id=None, template_id=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateSmsServiceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cn_usage_enabled = None
         self._enabled = None
+        self._login_row_template_id = None
+        self._password_reset_cn_template_id = None
+        self._password_reset_row_template_id = None
+        self._row_usage_enabled = None
+        self._sender_id = None
+        self._sign_up_cn_template_id = None
+        self._sign_up_row_template_id = None
         self._signature_content = None
         self._sms_account_id = None
         self._template_id = None
         self._user_pool_uid = None
         self.discriminator = None
 
+        if cn_usage_enabled is not None:
+            self.cn_usage_enabled = cn_usage_enabled
         if enabled is not None:
             self.enabled = enabled
+        if login_row_template_id is not None:
+            self.login_row_template_id = login_row_template_id
+        if password_reset_cn_template_id is not None:
+            self.password_reset_cn_template_id = password_reset_cn_template_id
+        if password_reset_row_template_id is not None:
+            self.password_reset_row_template_id = password_reset_row_template_id
+        if row_usage_enabled is not None:
+            self.row_usage_enabled = row_usage_enabled
+        if sender_id is not None:
+            self.sender_id = sender_id
+        if sign_up_cn_template_id is not None:
+            self.sign_up_cn_template_id = sign_up_cn_template_id
+        if sign_up_row_template_id is not None:
+            self.sign_up_row_template_id = sign_up_row_template_id
         if signature_content is not None:
             self.signature_content = signature_content
         if sms_account_id is not None:
@@ -71,6 +111,27 @@ class UpdateSmsServiceResponse(object):
             self.template_id = template_id
         if user_pool_uid is not None:
             self.user_pool_uid = user_pool_uid
+
+    @property
+    def cn_usage_enabled(self):
+        """Gets the cn_usage_enabled of this UpdateSmsServiceResponse.  # noqa: E501
+
+
+        :return: The cn_usage_enabled of this UpdateSmsServiceResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cn_usage_enabled
+
+    @cn_usage_enabled.setter
+    def cn_usage_enabled(self, cn_usage_enabled):
+        """Sets the cn_usage_enabled of this UpdateSmsServiceResponse.
+
+
+        :param cn_usage_enabled: The cn_usage_enabled of this UpdateSmsServiceResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._cn_usage_enabled = cn_usage_enabled
 
     @property
     def enabled(self):
@@ -92,6 +153,153 @@ class UpdateSmsServiceResponse(object):
         """
 
         self._enabled = enabled
+
+    @property
+    def login_row_template_id(self):
+        """Gets the login_row_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+
+
+        :return: The login_row_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._login_row_template_id
+
+    @login_row_template_id.setter
+    def login_row_template_id(self, login_row_template_id):
+        """Sets the login_row_template_id of this UpdateSmsServiceResponse.
+
+
+        :param login_row_template_id: The login_row_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._login_row_template_id = login_row_template_id
+
+    @property
+    def password_reset_cn_template_id(self):
+        """Gets the password_reset_cn_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+
+
+        :return: The password_reset_cn_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._password_reset_cn_template_id
+
+    @password_reset_cn_template_id.setter
+    def password_reset_cn_template_id(self, password_reset_cn_template_id):
+        """Sets the password_reset_cn_template_id of this UpdateSmsServiceResponse.
+
+
+        :param password_reset_cn_template_id: The password_reset_cn_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._password_reset_cn_template_id = password_reset_cn_template_id
+
+    @property
+    def password_reset_row_template_id(self):
+        """Gets the password_reset_row_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+
+
+        :return: The password_reset_row_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._password_reset_row_template_id
+
+    @password_reset_row_template_id.setter
+    def password_reset_row_template_id(self, password_reset_row_template_id):
+        """Sets the password_reset_row_template_id of this UpdateSmsServiceResponse.
+
+
+        :param password_reset_row_template_id: The password_reset_row_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._password_reset_row_template_id = password_reset_row_template_id
+
+    @property
+    def row_usage_enabled(self):
+        """Gets the row_usage_enabled of this UpdateSmsServiceResponse.  # noqa: E501
+
+
+        :return: The row_usage_enabled of this UpdateSmsServiceResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._row_usage_enabled
+
+    @row_usage_enabled.setter
+    def row_usage_enabled(self, row_usage_enabled):
+        """Sets the row_usage_enabled of this UpdateSmsServiceResponse.
+
+
+        :param row_usage_enabled: The row_usage_enabled of this UpdateSmsServiceResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._row_usage_enabled = row_usage_enabled
+
+    @property
+    def sender_id(self):
+        """Gets the sender_id of this UpdateSmsServiceResponse.  # noqa: E501
+
+
+        :return: The sender_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._sender_id
+
+    @sender_id.setter
+    def sender_id(self, sender_id):
+        """Sets the sender_id of this UpdateSmsServiceResponse.
+
+
+        :param sender_id: The sender_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._sender_id = sender_id
+
+    @property
+    def sign_up_cn_template_id(self):
+        """Gets the sign_up_cn_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+
+
+        :return: The sign_up_cn_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._sign_up_cn_template_id
+
+    @sign_up_cn_template_id.setter
+    def sign_up_cn_template_id(self, sign_up_cn_template_id):
+        """Sets the sign_up_cn_template_id of this UpdateSmsServiceResponse.
+
+
+        :param sign_up_cn_template_id: The sign_up_cn_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._sign_up_cn_template_id = sign_up_cn_template_id
+
+    @property
+    def sign_up_row_template_id(self):
+        """Gets the sign_up_row_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+
+
+        :return: The sign_up_row_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._sign_up_row_template_id
+
+    @sign_up_row_template_id.setter
+    def sign_up_row_template_id(self, sign_up_row_template_id):
+        """Sets the sign_up_row_template_id of this UpdateSmsServiceResponse.
+
+
+        :param sign_up_row_template_id: The sign_up_row_template_id of this UpdateSmsServiceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._sign_up_row_template_id = sign_up_row_template_id
 
     @property
     def signature_content(self):

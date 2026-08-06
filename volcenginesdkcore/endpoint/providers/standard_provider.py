@@ -142,7 +142,7 @@ ServiceInfos = {
     "sec_agent": ServiceInfo("sec_agent", True),
     "sec_intelligent_dev": ServiceInfo("sec_intelligent_dev", True),
     "vegame": ServiceInfo("vegame", False),
-    "acep": ServiceInfo("acep", True),
+    "acep": ServiceInfo("acep", False),
     "private_zone": ServiceInfo("private_zone", True),
     "sqs": ServiceInfo("sqs", False),
     "resourcecenter": ServiceInfo("resourcecenter", True),
@@ -182,6 +182,7 @@ ServiceInfos = {
     "cloudcontrol": ServiceInfo("cloudcontrol", False),
     "vikingdb": ServiceInfo("vikingdb", False),
     "volcsms": ServiceInfo("volcsms", True),
+    "id": ServiceInfo("id", False),
 }
 
 

@@ -33,16 +33,20 @@ class UpdateIdentityProviderOAuthResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attribute_mappings': 'list[AttributeMappingForUpdateIdentityProviderOAuthOutput]',
         'authorization_endpoint': 'str',
         'claims_propagation_config': 'ClaimsPropagationConfigForUpdateIdentityProviderOAuthOutput',
         'client_id': 'str',
         'client_secret': 'str',
+        'eip_record': 'EipRecordForUpdateIdentityProviderOAuthOutput',
         'enabled': 'bool',
+        'extra_provider_configuration': 'ExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput',
         'id_attribute': 'str',
         'name': 'str',
         'provider': 'str',
         'provider_options': 'ProviderOptionsForUpdateIdentityProviderOAuthOutput',
         'scopes_list': 'list[str]',
+        'sole_provider_connection': 'bool',
         'token_endpoint': 'str',
         'uid': 'str',
         'use_pkce': 'bool',
@@ -50,44 +54,54 @@ class UpdateIdentityProviderOAuthResponse(object):
     }
 
     attribute_map = {
+        'attribute_mappings': 'AttributeMappings',
         'authorization_endpoint': 'AuthorizationEndpoint',
         'claims_propagation_config': 'ClaimsPropagationConfig',
         'client_id': 'ClientId',
         'client_secret': 'ClientSecret',
+        'eip_record': 'EipRecord',
         'enabled': 'Enabled',
+        'extra_provider_configuration': 'ExtraProviderConfiguration',
         'id_attribute': 'IdAttribute',
         'name': 'Name',
         'provider': 'Provider',
         'provider_options': 'ProviderOptions',
         'scopes_list': 'ScopesList',
+        'sole_provider_connection': 'SoleProviderConnection',
         'token_endpoint': 'TokenEndpoint',
         'uid': 'Uid',
         'use_pkce': 'UsePkce',
         'user_endpoint': 'UserEndpoint'
     }
 
-    def __init__(self, authorization_endpoint=None, claims_propagation_config=None, client_id=None, client_secret=None, enabled=None, id_attribute=None, name=None, provider=None, provider_options=None, scopes_list=None, token_endpoint=None, uid=None, use_pkce=None, user_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mappings=None, authorization_endpoint=None, claims_propagation_config=None, client_id=None, client_secret=None, eip_record=None, enabled=None, extra_provider_configuration=None, id_attribute=None, name=None, provider=None, provider_options=None, scopes_list=None, sole_provider_connection=None, token_endpoint=None, uid=None, use_pkce=None, user_endpoint=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderOAuthResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attribute_mappings = None
         self._authorization_endpoint = None
         self._claims_propagation_config = None
         self._client_id = None
         self._client_secret = None
+        self._eip_record = None
         self._enabled = None
+        self._extra_provider_configuration = None
         self._id_attribute = None
         self._name = None
         self._provider = None
         self._provider_options = None
         self._scopes_list = None
+        self._sole_provider_connection = None
         self._token_endpoint = None
         self._uid = None
         self._use_pkce = None
         self._user_endpoint = None
         self.discriminator = None
 
+        if attribute_mappings is not None:
+            self.attribute_mappings = attribute_mappings
         if authorization_endpoint is not None:
             self.authorization_endpoint = authorization_endpoint
         if claims_propagation_config is not None:
@@ -96,8 +110,12 @@ class UpdateIdentityProviderOAuthResponse(object):
             self.client_id = client_id
         if client_secret is not None:
             self.client_secret = client_secret
+        if eip_record is not None:
+            self.eip_record = eip_record
         if enabled is not None:
             self.enabled = enabled
+        if extra_provider_configuration is not None:
+            self.extra_provider_configuration = extra_provider_configuration
         if id_attribute is not None:
             self.id_attribute = id_attribute
         if name is not None:
@@ -108,6 +126,8 @@ class UpdateIdentityProviderOAuthResponse(object):
             self.provider_options = provider_options
         if scopes_list is not None:
             self.scopes_list = scopes_list
+        if sole_provider_connection is not None:
+            self.sole_provider_connection = sole_provider_connection
         if token_endpoint is not None:
             self.token_endpoint = token_endpoint
         if uid is not None:
@@ -116,6 +136,27 @@ class UpdateIdentityProviderOAuthResponse(object):
             self.use_pkce = use_pkce
         if user_endpoint is not None:
             self.user_endpoint = user_endpoint
+
+    @property
+    def attribute_mappings(self):
+        """Gets the attribute_mappings of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+
+
+        :return: The attribute_mappings of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+        :rtype: list[AttributeMappingForUpdateIdentityProviderOAuthOutput]
+        """
+        return self._attribute_mappings
+
+    @attribute_mappings.setter
+    def attribute_mappings(self, attribute_mappings):
+        """Sets the attribute_mappings of this UpdateIdentityProviderOAuthResponse.
+
+
+        :param attribute_mappings: The attribute_mappings of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+        :type: list[AttributeMappingForUpdateIdentityProviderOAuthOutput]
+        """
+
+        self._attribute_mappings = attribute_mappings
 
     @property
     def authorization_endpoint(self):
@@ -202,6 +243,27 @@ class UpdateIdentityProviderOAuthResponse(object):
         self._client_secret = client_secret
 
     @property
+    def eip_record(self):
+        """Gets the eip_record of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+
+
+        :return: The eip_record of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+        :rtype: EipRecordForUpdateIdentityProviderOAuthOutput
+        """
+        return self._eip_record
+
+    @eip_record.setter
+    def eip_record(self, eip_record):
+        """Sets the eip_record of this UpdateIdentityProviderOAuthResponse.
+
+
+        :param eip_record: The eip_record of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+        :type: EipRecordForUpdateIdentityProviderOAuthOutput
+        """
+
+        self._eip_record = eip_record
+
+    @property
     def enabled(self):
         """Gets the enabled of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
 
@@ -221,6 +283,27 @@ class UpdateIdentityProviderOAuthResponse(object):
         """
 
         self._enabled = enabled
+
+    @property
+    def extra_provider_configuration(self):
+        """Gets the extra_provider_configuration of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+
+
+        :return: The extra_provider_configuration of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+        :rtype: ExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput
+        """
+        return self._extra_provider_configuration
+
+    @extra_provider_configuration.setter
+    def extra_provider_configuration(self, extra_provider_configuration):
+        """Sets the extra_provider_configuration of this UpdateIdentityProviderOAuthResponse.
+
+
+        :param extra_provider_configuration: The extra_provider_configuration of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+        :type: ExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput
+        """
+
+        self._extra_provider_configuration = extra_provider_configuration
 
     @property
     def id_attribute(self):
@@ -326,6 +409,27 @@ class UpdateIdentityProviderOAuthResponse(object):
         """
 
         self._scopes_list = scopes_list
+
+    @property
+    def sole_provider_connection(self):
+        """Gets the sole_provider_connection of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+
+
+        :return: The sole_provider_connection of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sole_provider_connection
+
+    @sole_provider_connection.setter
+    def sole_provider_connection(self, sole_provider_connection):
+        """Sets the sole_provider_connection of this UpdateIdentityProviderOAuthResponse.
+
+
+        :param sole_provider_connection: The sole_provider_connection of this UpdateIdentityProviderOAuthResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._sole_provider_connection = sole_provider_connection
 
     @property
     def token_endpoint(self):

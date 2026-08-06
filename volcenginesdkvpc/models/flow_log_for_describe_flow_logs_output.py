@@ -48,7 +48,7 @@ class FlowLogForDescribeFlowLogsOutput(object):
         'resource_type': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeFlowLogsOutput]',
-        'traffic_path': 'list[int]',
+        'traffic_path': 'list[str]',
         'traffic_type': 'str',
         'updated_at': 'str',
         'version': 'int',
@@ -468,7 +468,7 @@ class FlowLogForDescribeFlowLogsOutput(object):
 
 
         :return: The traffic_path of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
-        :rtype: list[int]
+        :rtype: list[str]
         """
         return self._traffic_path
 
@@ -478,7 +478,7 @@ class FlowLogForDescribeFlowLogsOutput(object):
 
 
         :param traffic_path: The traffic_path of this FlowLogForDescribeFlowLogsOutput.  # noqa: E501
-        :type: list[int]
+        :type: list[str]
         """
 
         self._traffic_path = traffic_path

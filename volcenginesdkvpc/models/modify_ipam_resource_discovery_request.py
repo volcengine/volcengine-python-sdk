@@ -33,64 +33,33 @@ class ModifyIpamResourceDiscoveryRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'add_operating_regions': 'list[str]',
         'description': 'str',
         'ipam_resource_discovery_id': 'str',
-        'ipam_resource_discovery_name': 'str',
-        'remove_operating_regions': 'list[str]'
+        'ipam_resource_discovery_name': 'str'
     }
 
     attribute_map = {
-        'add_operating_regions': 'AddOperatingRegions',
         'description': 'Description',
         'ipam_resource_discovery_id': 'IpamResourceDiscoveryId',
-        'ipam_resource_discovery_name': 'IpamResourceDiscoveryName',
-        'remove_operating_regions': 'RemoveOperatingRegions'
+        'ipam_resource_discovery_name': 'IpamResourceDiscoveryName'
     }
 
-    def __init__(self, add_operating_regions=None, description=None, ipam_resource_discovery_id=None, ipam_resource_discovery_name=None, remove_operating_regions=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, ipam_resource_discovery_id=None, ipam_resource_discovery_name=None, _configuration=None):  # noqa: E501
         """ModifyIpamResourceDiscoveryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._add_operating_regions = None
         self._description = None
         self._ipam_resource_discovery_id = None
         self._ipam_resource_discovery_name = None
-        self._remove_operating_regions = None
         self.discriminator = None
 
-        if add_operating_regions is not None:
-            self.add_operating_regions = add_operating_regions
         if description is not None:
             self.description = description
         self.ipam_resource_discovery_id = ipam_resource_discovery_id
         if ipam_resource_discovery_name is not None:
             self.ipam_resource_discovery_name = ipam_resource_discovery_name
-        if remove_operating_regions is not None:
-            self.remove_operating_regions = remove_operating_regions
-
-    @property
-    def add_operating_regions(self):
-        """Gets the add_operating_regions of this ModifyIpamResourceDiscoveryRequest.  # noqa: E501
-
-
-        :return: The add_operating_regions of this ModifyIpamResourceDiscoveryRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._add_operating_regions
-
-    @add_operating_regions.setter
-    def add_operating_regions(self, add_operating_regions):
-        """Sets the add_operating_regions of this ModifyIpamResourceDiscoveryRequest.
-
-
-        :param add_operating_regions: The add_operating_regions of this ModifyIpamResourceDiscoveryRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._add_operating_regions = add_operating_regions
 
     @property
     def description(self):
@@ -162,27 +131,6 @@ class ModifyIpamResourceDiscoveryRequest(object):
         """
 
         self._ipam_resource_discovery_name = ipam_resource_discovery_name
-
-    @property
-    def remove_operating_regions(self):
-        """Gets the remove_operating_regions of this ModifyIpamResourceDiscoveryRequest.  # noqa: E501
-
-
-        :return: The remove_operating_regions of this ModifyIpamResourceDiscoveryRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._remove_operating_regions
-
-    @remove_operating_regions.setter
-    def remove_operating_regions(self, remove_operating_regions):
-        """Sets the remove_operating_regions of this ModifyIpamResourceDiscoveryRequest.
-
-
-        :param remove_operating_regions: The remove_operating_regions of this ModifyIpamResourceDiscoveryRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._remove_operating_regions = remove_operating_regions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

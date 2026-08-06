@@ -33,6 +33,7 @@ class CheckPermissionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'extra': 'ExtraForCheckPermissionInput',
         'namespace_name': 'str',
         'operation': 'OperationForCheckPermissionInput',
         'original_callers': 'list[OriginalCallerForCheckPermissionInput]',
@@ -43,6 +44,7 @@ class CheckPermissionRequest(object):
     }
 
     attribute_map = {
+        'extra': 'Extra',
         'namespace_name': 'NamespaceName',
         'operation': 'Operation',
         'original_callers': 'OriginalCallers',
@@ -52,12 +54,13 @@ class CheckPermissionRequest(object):
         'resource': 'Resource'
     }
 
-    def __init__(self, namespace_name=None, operation=None, original_callers=None, permission_point_id=None, principal=None, references=None, resource=None, _configuration=None):  # noqa: E501
+    def __init__(self, extra=None, namespace_name=None, operation=None, original_callers=None, permission_point_id=None, principal=None, references=None, resource=None, _configuration=None):  # noqa: E501
         """CheckPermissionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._extra = None
         self._namespace_name = None
         self._operation = None
         self._original_callers = None
@@ -67,6 +70,8 @@ class CheckPermissionRequest(object):
         self._resource = None
         self.discriminator = None
 
+        if extra is not None:
+            self.extra = extra
         self.namespace_name = namespace_name
         if operation is not None:
             self.operation = operation
@@ -80,6 +85,27 @@ class CheckPermissionRequest(object):
             self.references = references
         if resource is not None:
             self.resource = resource
+
+    @property
+    def extra(self):
+        """Gets the extra of this CheckPermissionRequest.  # noqa: E501
+
+
+        :return: The extra of this CheckPermissionRequest.  # noqa: E501
+        :rtype: ExtraForCheckPermissionInput
+        """
+        return self._extra
+
+    @extra.setter
+    def extra(self, extra):
+        """Sets the extra of this CheckPermissionRequest.
+
+
+        :param extra: The extra of this CheckPermissionRequest.  # noqa: E501
+        :type: ExtraForCheckPermissionInput
+        """
+
+        self._extra = extra
 
     @property
     def namespace_name(self):

@@ -35,16 +35,18 @@ class VideoProjectListRequest(object):
     swagger_types = {
         'limit': 'int',
         'offset': 'int',
-        'project_name': 'str'
+        'project_name': 'str',
+        'project_type': 'int'
     }
 
     attribute_map = {
         'limit': 'limit',
         'offset': 'offset',
-        'project_name': 'projectName'
+        'project_name': 'projectName',
+        'project_type': 'projectType'
     }
 
-    def __init__(self, limit=None, offset=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, limit=None, offset=None, project_name=None, project_type=None, _configuration=None):  # noqa: E501
         """VideoProjectListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,12 +55,15 @@ class VideoProjectListRequest(object):
         self._limit = None
         self._offset = None
         self._project_name = None
+        self._project_type = None
         self.discriminator = None
 
         self.limit = limit
         self.offset = offset
         if project_name is not None:
             self.project_name = project_name
+        if project_type is not None:
+            self.project_type = project_type
 
     @property
     def limit(self):
@@ -126,6 +131,27 @@ class VideoProjectListRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def project_type(self):
+        """Gets the project_type of this VideoProjectListRequest.  # noqa: E501
+
+
+        :return: The project_type of this VideoProjectListRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._project_type
+
+    @project_type.setter
+    def project_type(self, project_type):
+        """Sets the project_type of this VideoProjectListRequest.
+
+
+        :param project_type: The project_type of this VideoProjectListRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._project_type = project_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
