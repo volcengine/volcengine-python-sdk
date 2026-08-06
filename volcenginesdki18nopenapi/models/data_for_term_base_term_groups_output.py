@@ -48,6 +48,7 @@ class DataForTermBaseTermGroupsOutput(object):
         'related_text_project': 'RelatedTextProjectForTermBaseTermGroupsOutput',
         'tags': 'list[TagForTermBaseTermGroupsOutput]',
         'term_base_id': 'str',
+        'term_key': 'str',
         'term_type': 'int',
         'updated_at': 'str'
     }
@@ -68,11 +69,12 @@ class DataForTermBaseTermGroupsOutput(object):
         'related_text_project': 'relatedTextProject',
         'tags': 'tags',
         'term_base_id': 'termBaseId',
+        'term_key': 'termKey',
         'term_type': 'termType',
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, apply_mode=None, case_sensitive=None, created_at=None, creator=None, description=None, id=None, lang_item_map=None, localism_match_type=None, matched_source_locale=None, matched_target_locale=None, operator=None, part_of_speech=None, related_text_project=None, tags=None, term_base_id=None, term_type=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, apply_mode=None, case_sensitive=None, created_at=None, creator=None, description=None, id=None, lang_item_map=None, localism_match_type=None, matched_source_locale=None, matched_target_locale=None, operator=None, part_of_speech=None, related_text_project=None, tags=None, term_base_id=None, term_key=None, term_type=None, updated_at=None, _configuration=None):  # noqa: E501
         """DataForTermBaseTermGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class DataForTermBaseTermGroupsOutput(object):
         self._related_text_project = None
         self._tags = None
         self._term_base_id = None
+        self._term_key = None
         self._term_type = None
         self._updated_at = None
         self.discriminator = None
@@ -127,6 +130,8 @@ class DataForTermBaseTermGroupsOutput(object):
             self.tags = tags
         if term_base_id is not None:
             self.term_base_id = term_base_id
+        if term_key is not None:
+            self.term_key = term_key
         if term_type is not None:
             self.term_type = term_type
         if updated_at is not None:
@@ -446,6 +451,27 @@ class DataForTermBaseTermGroupsOutput(object):
         """
 
         self._term_base_id = term_base_id
+
+    @property
+    def term_key(self):
+        """Gets the term_key of this DataForTermBaseTermGroupsOutput.  # noqa: E501
+
+
+        :return: The term_key of this DataForTermBaseTermGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._term_key
+
+    @term_key.setter
+    def term_key(self, term_key):
+        """Sets the term_key of this DataForTermBaseTermGroupsOutput.
+
+
+        :param term_key: The term_key of this DataForTermBaseTermGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._term_key = term_key
 
     @property
     def term_type(self):

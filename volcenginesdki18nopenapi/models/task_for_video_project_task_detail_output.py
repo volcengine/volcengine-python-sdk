@@ -41,6 +41,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
         'duration_count': 'str',
         'id': 'str',
         'name': 'str',
+        'need_term_validation': 'bool',
         'project_id': 'str',
         'project_name': 'str',
         'source_language': 'str',
@@ -64,6 +65,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
         'duration_count': 'durationCount',
         'id': 'id',
         'name': 'name',
+        'need_term_validation': 'needTermValidation',
         'project_id': 'projectId',
         'project_name': 'projectName',
         'source_language': 'sourceLanguage',
@@ -78,7 +80,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
         'workflow_type': 'workflowType'
     }
 
-    def __init__(self, comment=None, created_at=None, creator=None, deadline=None, drama_task_workflow=None, duration_count=None, id=None, name=None, project_id=None, project_name=None, source_language=None, source_videos=None, status=None, target_languages=None, task_type=None, translation_team=None, updated_at=None, updater=None, words_count=None, workflow_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, comment=None, created_at=None, creator=None, deadline=None, drama_task_workflow=None, duration_count=None, id=None, name=None, need_term_validation=None, project_id=None, project_name=None, source_language=None, source_videos=None, status=None, target_languages=None, task_type=None, translation_team=None, updated_at=None, updater=None, words_count=None, workflow_type=None, _configuration=None):  # noqa: E501
         """TaskForVideoProjectTaskDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,6 +94,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
         self._duration_count = None
         self._id = None
         self._name = None
+        self._need_term_validation = None
         self._project_id = None
         self._project_name = None
         self._source_language = None
@@ -122,6 +125,8 @@ class TaskForVideoProjectTaskDetailOutput(object):
             self.id = id
         if name is not None:
             self.name = name
+        if need_term_validation is not None:
+            self.need_term_validation = need_term_validation
         if project_id is not None:
             self.project_id = project_id
         if project_name is not None:
@@ -314,6 +319,27 @@ class TaskForVideoProjectTaskDetailOutput(object):
         """
 
         self._name = name
+
+    @property
+    def need_term_validation(self):
+        """Gets the need_term_validation of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The need_term_validation of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._need_term_validation
+
+    @need_term_validation.setter
+    def need_term_validation(self, need_term_validation):
+        """Sets the need_term_validation of this TaskForVideoProjectTaskDetailOutput.
+
+
+        :param need_term_validation: The need_term_validation of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._need_term_validation = need_term_validation
 
     @property
     def project_id(self):

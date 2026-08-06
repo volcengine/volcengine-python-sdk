@@ -41,6 +41,7 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput(object):
         'project_id': 'str',
         'status': 'int',
         'subtitle_id': 'str',
+        'type': 'int',
         'url': 'str'
     }
 
@@ -53,10 +54,11 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput(object):
         'project_id': 'projectId',
         'status': 'status',
         'subtitle_id': 'subtitleId',
+        'type': 'type',
         'url': 'url'
     }
 
-    def __init__(self, bind_vid=None, err_msg=None, file_type=None, langs=None, name=None, project_id=None, status=None, subtitle_id=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, bind_vid=None, err_msg=None, file_type=None, langs=None, name=None, project_id=None, status=None, subtitle_id=None, type=None, url=None, _configuration=None):  # noqa: E501
         """UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput(object):
         self._project_id = None
         self._status = None
         self._subtitle_id = None
+        self._type = None
         self._url = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput(object):
             self.status = status
         if subtitle_id is not None:
             self.subtitle_id = subtitle_id
+        if type is not None:
+            self.type = type
         if url is not None:
             self.url = url
 
@@ -259,6 +264,27 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput(object):
         """
 
         self._subtitle_id = subtitle_id
+
+    @property
+    def type(self):
+        """Gets the type of this UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput.  # noqa: E501
+
+
+        :return: The type of this UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput.
+
+
+        :param type: The type of this UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._type = type
 
     @property
     def url(self):
