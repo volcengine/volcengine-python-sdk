@@ -60,6 +60,7 @@ class Tasks(SyncAPIResource):
         duration: Optional[int] = None,
         frames: Optional[int] = None,
         tools: Optional[List[ContentGenerationTool]] = None,
+        output_format: Optional[str] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -86,6 +87,7 @@ class Tasks(SyncAPIResource):
                 "duration": duration,
                 "frames": frames,
                 "tools": tools,
+                "output_format": output_format,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -212,6 +214,7 @@ class AsyncTasks(AsyncAPIResource):
         duration: Optional[int] = None,
         frames: Optional[int] = None,
         tools: Optional[List[ContentGenerationTool]] = None,
+        output_format: Optional[str] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -238,6 +241,7 @@ class AsyncTasks(AsyncAPIResource):
                 "duration": duration,
                 "frames": frames,
                 "tools": tools,
+                "output_format": output_format,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
