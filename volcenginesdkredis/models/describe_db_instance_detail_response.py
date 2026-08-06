@@ -48,6 +48,7 @@ class DescribeDBInstanceDetailResponse(object):
         'instance_name': 'str',
         'maintenance_time': 'str',
         'max_connections': 'int',
+        'modules': 'list[str]',
         'multi_az': 'str',
         'node_number': 'int',
         'project_name': 'str',
@@ -81,6 +82,7 @@ class DescribeDBInstanceDetailResponse(object):
         'instance_name': 'InstanceName',
         'maintenance_time': 'MaintenanceTime',
         'max_connections': 'MaxConnections',
+        'modules': 'Modules',
         'multi_az': 'MultiAZ',
         'node_number': 'NodeNumber',
         'project_name': 'ProjectName',
@@ -98,7 +100,7 @@ class DescribeDBInstanceDetailResponse(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, blue_green_role=None, capacity=None, charge_type=None, configure_nodes=None, create_time=None, data_layout=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, maintenance_time=None, max_connections=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_capacity_v2=None, shard_number=None, sharded_cluster=None, status=None, subnet_id=None, tags=None, visit_addrs=None, vpc_auth_mode=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, blue_green_role=None, capacity=None, charge_type=None, configure_nodes=None, create_time=None, data_layout=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, maintenance_time=None, max_connections=None, modules=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_capacity_v2=None, shard_number=None, sharded_cluster=None, status=None, subnet_id=None, tags=None, visit_addrs=None, vpc_auth_mode=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -119,6 +121,7 @@ class DescribeDBInstanceDetailResponse(object):
         self._instance_name = None
         self._maintenance_time = None
         self._max_connections = None
+        self._modules = None
         self._multi_az = None
         self._node_number = None
         self._project_name = None
@@ -166,6 +169,8 @@ class DescribeDBInstanceDetailResponse(object):
             self.maintenance_time = maintenance_time
         if max_connections is not None:
             self.max_connections = max_connections
+        if modules is not None:
+            self.modules = modules
         if multi_az is not None:
             self.multi_az = multi_az
         if node_number is not None:
@@ -511,6 +516,27 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._max_connections = max_connections
+
+    @property
+    def modules(self):
+        """Gets the modules of this DescribeDBInstanceDetailResponse.  # noqa: E501
+
+
+        :return: The modules of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._modules
+
+    @modules.setter
+    def modules(self, modules):
+        """Sets the modules of this DescribeDBInstanceDetailResponse.
+
+
+        :param modules: The modules of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._modules = modules
 
     @property
     def multi_az(self):
