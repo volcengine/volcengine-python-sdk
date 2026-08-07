@@ -12,7 +12,7 @@ English | [中文](README.md)
 ### Requirements
 
 * Python version **>= 2.7**.
-* If you use Ark Runtime (`arkruntime`), Python version **>= 3.6** is required.
+* If you use Ark Runtime (`arkruntime`), Python version **>= 3.10** is required.
 
 ### Install
 
@@ -22,10 +22,22 @@ Install via pip:
 pip install volcengine-python-sdk
 ```
 
-To use Ark Runtime, install the optional Ark dependencies:
+`volcengine-python-sdk` is a compatibility meta-package that installs every
+service. To install only one product, install its split distribution, for
+example ECS:
 
 ```sh
-pip install "volcengine-python-sdk[ark]"
+pip install volcenginesdk-ecs
+```
+
+The Python import paths do not change, so existing `import volcenginesdkecs`
+statements remain valid. See the [package splitting design](./docs/package-splitting-zh.md)
+for the complete mapping and release process.
+
+To use Ark Runtime, install its split distribution:
+
+```sh
+pip install volcenginesdk-arkruntime
 ```
 
 ### Usage

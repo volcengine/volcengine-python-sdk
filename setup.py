@@ -1,35 +1,52 @@
 # coding: utf-8
 
-from setuptools import setup, find_packages  # noqa: H301
+import json
+import os
+from io import open
 
-NAME = "volcengine-python-sdk"
-VERSION = "5.0.53"
-# To install the library, run the following
-#
-# python setup.py install
-#
-# prerequisite: setuptools
-# http://pypi.python.org/pypi/setuptools
+from setuptools import setup
 
-REQUIRES = ["certifi>=2017.4.17", "python-dateutil>=2.1", "six>=1.16", "urllib3>=1.26.5"]
+
+ROOT = os.path.abspath(os.path.dirname(__file__))
+with open(os.path.join(ROOT, "split-packages.json")) as manifest_file:
+    MANIFEST = json.load(manifest_file)
+
+VERSION = os.environ.get("VOLCENGINE_SDK_BUILD_VERSION", MANIFEST["version"])
+PREFIX = "volcenginesdk"
+
+
+def distribution_name(module):
+    if module == "volcenginesdkcore":
+        return "volcenginesdk-core"
+    return MANIFEST["distribution_prefix"] + module[len(PREFIX):]
+
+
+def meta_requirement(module):
+    requirement = "{}=={}".format(distribution_name(module), VERSION)
+    python_requires = MANIFEST["python_requires"].get(module)
+    if python_requires and python_requires.startswith(">="):
+        requirement += "; python_version >= '{}'".format(python_requires[2:])
+    return requirement
+
 
 setup(
-    name=NAME,
+    name="volcengine-python-sdk",
     version=VERSION,
-    install_requires=REQUIRES,
-    packages=find_packages(),
-    include_package_data=True,
-    description="Volcengine SDK for Python",
+    install_requires=[meta_requirement(module) for module in MANIFEST["modules"]],
+    packages=[],
+    description="Volcengine SDK for Python (all services)",
+    long_description=open(os.path.join(ROOT, "README.md"), encoding="utf-8").read(),
+    long_description_content_type="text/markdown",
+    author="volc-engine",
+    author_email="volc-sdk-team@bytedance.com",
     license="Apache License 2.0",
     platforms="any",
     url="https://github.com/volcengine/volcengine-python-sdk",
+    python_requires=MANIFEST["python_requires"]["default"],
+    options={"bdist_wheel": {"universal": True}},
     extras_require={
         "ark": [
-            "pydantic>=1.9.0, <3",
-            "httpx>=0.23.0, <1",
-            "anyio>=3.5.0, <5",
-            "cached-property; python_version < '3.8'",
-            "cryptography>=44.0.1"
+            "volcenginesdk-arkruntime=={}; python_version >= '3.10'".format(VERSION)
         ]
     },
 )
