@@ -54,6 +54,20 @@ class ContentGenerationTaskFieldsTest(unittest.TestCase):
 
         self.assertIsNone(task.output_format)
 
+    def test_fractional_duration_is_preserved(self):
+        payload = {**self.payload, "duration": 5.5}
+
+        task = model_parse(ContentGenerationTask, payload)
+
+        self.assertEqual(task.duration, 5.5)
+        self.assertIsInstance(task.duration, float)
+
+    def test_integer_duration_is_normalized_to_float(self):
+        task = model_parse(ContentGenerationTask, self.payload)
+
+        self.assertEqual(task.duration, 5.0)
+        self.assertIsInstance(task.duration, float)
+
 
 if __name__ == "__main__":
     unittest.main()
