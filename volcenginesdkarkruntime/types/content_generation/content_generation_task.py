@@ -125,3 +125,6 @@ class ContentGenerationTask(BaseModel):
 
     tools: List[ContentGenerationTool]
     """The list of content generation tools."""
+
+    output_format: Optional[str] = None
+    """The output format of the generated content."""

@@ -60,6 +60,16 @@ class TasksOutputFormatTest(unittest.TestCase):
         tasks.create(model="test-model", content=[])
         self.assertIsNone(client.body["output_format"])
 
+        tasks.create(
+            model="test-model",
+            content=[],
+            omni_reference_task_type="reference",
+        )
+        self.assertEqual(client.body["omni_reference_task_type"], "reference")
+
+        tasks.create(model="test-model", content=[])
+        self.assertIsNone(client.body["omni_reference_task_type"])
+
 
 class AsyncTasksOutputFormatTest(unittest.IsolatedAsyncioTestCase):
     async def test_create_includes_optional_output_format(self):
@@ -71,6 +81,16 @@ class AsyncTasksOutputFormatTest(unittest.IsolatedAsyncioTestCase):
 
         await tasks.create(model="test-model", content=[])
         self.assertIsNone(client.body["output_format"])
+
+        await tasks.create(
+            model="test-model",
+            content=[],
+            omni_reference_task_type="reference",
+        )
+        self.assertEqual(client.body["omni_reference_task_type"], "reference")
+
+        await tasks.create(model="test-model", content=[])
+        self.assertIsNone(client.body["omni_reference_task_type"])
 
 
 if __name__ == "__main__":
