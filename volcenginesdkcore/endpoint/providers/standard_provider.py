@@ -183,6 +183,7 @@ ServiceInfos = {
     "vikingdb": ServiceInfo("vikingdb", False),
     "volcsms": ServiceInfo("volcsms", True),
     "id": ServiceInfo("id", False),
+    "tidb": ServiceInfo("tidb", False),
 }
 
 
