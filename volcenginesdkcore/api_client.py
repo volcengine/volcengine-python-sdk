@@ -77,7 +77,8 @@ class ApiClient(object):
         self.interceptor_chain.append_request_interceptor(BuildRequestInterceptor())
         self.interceptor_chain.append_request_interceptor(RuntimeOptionsInterceptor())
         self.interceptor_chain.append_request_interceptor(ResolveEndpointInterceptor())
-        self.interceptor_chain.append_request_interceptor(SignRequestInterceptor())
+        self.sign_request_interceptor = SignRequestInterceptor()
+        self.interceptor_chain.append_request_interceptor(self.sign_request_interceptor)
 
         self.interceptor_chain.append_response_interceptor(DeserializedResponseInterceptor())
 
@@ -160,6 +161,8 @@ class ApiClient(object):
                 break
             retry_count += 1
             retry_err = None
+            interceptor_context.request.retry_count = retry_count
+            interceptor_context = self.sign_request_interceptor.intercept(interceptor_context)
 
         interceptor_context.response = Response(response_data)
         interceptor_context = self.interceptor_chain.execute_response(interceptor_context)
