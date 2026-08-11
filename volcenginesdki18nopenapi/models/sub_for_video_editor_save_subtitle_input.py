@@ -34,7 +34,7 @@ class SubForVideoEditorSaveSubtitleInput(object):
     """
     swagger_types = {
         'ai_voice_id': 'str',
-        'effect_type': 'str',
+        'effect_type': 'int',
         'emotion_tag': 'str',
         'end_time': 'str',
         'segment_id': 'str',
@@ -134,7 +134,7 @@ class SubForVideoEditorSaveSubtitleInput(object):
 
 
         :return: The effect_type of this SubForVideoEditorSaveSubtitleInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._effect_type
 
@@ -144,7 +144,7 @@ class SubForVideoEditorSaveSubtitleInput(object):
 
 
         :param effect_type: The effect_type of this SubForVideoEditorSaveSubtitleInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._effect_type = effect_type
