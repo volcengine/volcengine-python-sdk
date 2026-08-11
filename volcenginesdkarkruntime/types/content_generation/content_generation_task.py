@@ -108,7 +108,7 @@ class ContentGenerationTask(BaseModel):
     generate_audio: bool
     """Whether to generate audio."""
 
-    duration: float
+    duration: int
     """The duration of the generated content in seconds."""
 
     ratio: str
