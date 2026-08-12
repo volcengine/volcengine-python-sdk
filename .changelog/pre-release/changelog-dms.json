@@ -1,0 +1,11 @@
+{
+  "actions": [
+    "ListFailedObjects",
+    "RetryMigrateTaskCallback",
+    "CreateDataMigrateTask",
+    "QueryDataMigrateTask"
+  ],
+  "description": "DMS: 新增 ListFailedObjects, RetryMigrateTaskCallback；修改 CreateDataMigrateTask, QueryDataMigrateTask",
+  "modules": "service/dms",
+  "type": "feature"
+}
