@@ -206,13 +206,13 @@ class CPAASApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/GetTemplateV2/2026-04-30/cpaas/post/application_x-www-form-urlencoded/', 'POST',
+            '/GetTemplateV2/2026-04-30/cpaas/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,

@@ -39,6 +39,8 @@ class BasicConfigForCreateDataMigrateTaskInput(object):
         'object_migration_policy': 'ObjectMigrationPolicyForCreateDataMigrateTaskInput',
         'offline_migration_policy': 'OfflineMigrationPolicyForCreateDataMigrateTaskInput',
         'overwrite_policy': 'str',
+        'report_path_prefix': 'str',
+        'skip_archive_object': 'bool',
         'source_type': 'str',
         'storage_class': 'str',
         'task_name': 'str'
@@ -51,12 +53,14 @@ class BasicConfigForCreateDataMigrateTaskInput(object):
         'object_migration_policy': 'ObjectMigrationPolicy',
         'offline_migration_policy': 'OfflineMigrationPolicy',
         'overwrite_policy': 'OverwritePolicy',
+        'report_path_prefix': 'ReportPathPrefix',
+        'skip_archive_object': 'SkipArchiveObject',
         'source_type': 'SourceType',
         'storage_class': 'StorageClass',
         'task_name': 'TaskName'
     }
 
-    def __init__(self, bandwidth=None, enable_range_check=None, failed_num_to_abort=None, object_migration_policy=None, offline_migration_policy=None, overwrite_policy=None, source_type=None, storage_class=None, task_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, enable_range_check=None, failed_num_to_abort=None, object_migration_policy=None, offline_migration_policy=None, overwrite_policy=None, report_path_prefix=None, skip_archive_object=None, source_type=None, storage_class=None, task_name=None, _configuration=None):  # noqa: E501
         """BasicConfigForCreateDataMigrateTaskInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +72,8 @@ class BasicConfigForCreateDataMigrateTaskInput(object):
         self._object_migration_policy = None
         self._offline_migration_policy = None
         self._overwrite_policy = None
+        self._report_path_prefix = None
+        self._skip_archive_object = None
         self._source_type = None
         self._storage_class = None
         self._task_name = None
@@ -85,6 +91,10 @@ class BasicConfigForCreateDataMigrateTaskInput(object):
             self.offline_migration_policy = offline_migration_policy
         if overwrite_policy is not None:
             self.overwrite_policy = overwrite_policy
+        if report_path_prefix is not None:
+            self.report_path_prefix = report_path_prefix
+        if skip_archive_object is not None:
+            self.skip_archive_object = skip_archive_object
         if source_type is not None:
             self.source_type = source_type
         if storage_class is not None:
@@ -227,6 +237,48 @@ class BasicConfigForCreateDataMigrateTaskInput(object):
             )
 
         self._overwrite_policy = overwrite_policy
+
+    @property
+    def report_path_prefix(self):
+        """Gets the report_path_prefix of this BasicConfigForCreateDataMigrateTaskInput.  # noqa: E501
+
+
+        :return: The report_path_prefix of this BasicConfigForCreateDataMigrateTaskInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._report_path_prefix
+
+    @report_path_prefix.setter
+    def report_path_prefix(self, report_path_prefix):
+        """Sets the report_path_prefix of this BasicConfigForCreateDataMigrateTaskInput.
+
+
+        :param report_path_prefix: The report_path_prefix of this BasicConfigForCreateDataMigrateTaskInput.  # noqa: E501
+        :type: str
+        """
+
+        self._report_path_prefix = report_path_prefix
+
+    @property
+    def skip_archive_object(self):
+        """Gets the skip_archive_object of this BasicConfigForCreateDataMigrateTaskInput.  # noqa: E501
+
+
+        :return: The skip_archive_object of this BasicConfigForCreateDataMigrateTaskInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_archive_object
+
+    @skip_archive_object.setter
+    def skip_archive_object(self, skip_archive_object):
+        """Sets the skip_archive_object of this BasicConfigForCreateDataMigrateTaskInput.
+
+
+        :param skip_archive_object: The skip_archive_object of this BasicConfigForCreateDataMigrateTaskInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._skip_archive_object = skip_archive_object
 
     @property
     def source_type(self):

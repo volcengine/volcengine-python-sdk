@@ -100,6 +100,13 @@ class PriorityForSendBatchMessageInput(object):
         :param channel_type: The channel_type of this PriorityForSendBatchMessageInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["WhatsApp", "SMS", "VMS", "AIM", "VOLC_SMS", "VOLC_RCS"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                channel_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `channel_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(channel_type, allowed_values)
+            )
 
         self._channel_type = channel_type
 

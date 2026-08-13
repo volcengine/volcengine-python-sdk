@@ -33,24 +33,51 @@ class VideoEditorBatchUpdateStyleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'subtask_id': 'str',
         'subtitle_styles': 'list[SubtitleStyleForVideoEditorBatchUpdateStyleInput]'
     }
 
     attribute_map = {
+        'subtask_id': 'subtaskId',
         'subtitle_styles': 'subtitleStyles'
     }
 
-    def __init__(self, subtitle_styles=None, _configuration=None):  # noqa: E501
+    def __init__(self, subtask_id=None, subtitle_styles=None, _configuration=None):  # noqa: E501
         """VideoEditorBatchUpdateStyleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._subtask_id = None
         self._subtitle_styles = None
         self.discriminator = None
 
+        self.subtask_id = subtask_id
         if subtitle_styles is not None:
             self.subtitle_styles = subtitle_styles
+
+    @property
+    def subtask_id(self):
+        """Gets the subtask_id of this VideoEditorBatchUpdateStyleRequest.  # noqa: E501
+
+
+        :return: The subtask_id of this VideoEditorBatchUpdateStyleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._subtask_id
+
+    @subtask_id.setter
+    def subtask_id(self, subtask_id):
+        """Sets the subtask_id of this VideoEditorBatchUpdateStyleRequest.
+
+
+        :param subtask_id: The subtask_id of this VideoEditorBatchUpdateStyleRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and subtask_id is None:
+            raise ValueError("Invalid value for `subtask_id`, must not be `None`")  # noqa: E501
+
+        self._subtask_id = subtask_id
 
     @property
     def subtitle_styles(self):
