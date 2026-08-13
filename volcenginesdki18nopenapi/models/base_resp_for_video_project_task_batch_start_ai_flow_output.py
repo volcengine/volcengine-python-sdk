@@ -33,7 +33,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'status_code': 'str',
+        'status_code': 'int',
         'status_message': 'str'
     }
 
@@ -63,7 +63,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput(object):
 
 
         :return: The status_code of this BaseRespForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._status_code
 
@@ -73,7 +73,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput(object):
 
 
         :param status_code: The status_code of this BaseRespForVideoProjectTaskBatchStartAIFlowOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._status_code = status_code
