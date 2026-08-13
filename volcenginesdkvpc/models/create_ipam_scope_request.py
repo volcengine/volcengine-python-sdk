@@ -87,9 +87,6 @@ class CreateIpamScopeRequest(object):
         if (self._configuration.client_side_validation and
                 description is not None and len(description) > 255):
             raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
@@ -141,8 +138,8 @@ class CreateIpamScopeRequest(object):
         :type: str
         """
         if (self._configuration.client_side_validation and
-                ipam_scope_name is not None and len(ipam_scope_name) > 255):
-            raise ValueError("Invalid value for `ipam_scope_name`, length must be less than or equal to `255`")  # noqa: E501
+                ipam_scope_name is not None and len(ipam_scope_name) > 128):
+            raise ValueError("Invalid value for `ipam_scope_name`, length must be less than or equal to `128`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 ipam_scope_name is not None and len(ipam_scope_name) < 1):
             raise ValueError("Invalid value for `ipam_scope_name`, length must be greater than or equal to `1`")  # noqa: E501

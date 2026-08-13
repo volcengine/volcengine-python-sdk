@@ -126,6 +126,12 @@ class DescribeIpamResourceDiscoveriesRequest(object):
         :param ipam_resource_discovery_name: The ipam_resource_discovery_name of this DescribeIpamResourceDiscoveriesRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                ipam_resource_discovery_name is not None and len(ipam_resource_discovery_name) > 128):
+            raise ValueError("Invalid value for `ipam_resource_discovery_name`, length must be less than or equal to `128`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ipam_resource_discovery_name is not None and len(ipam_resource_discovery_name) < 1):
+            raise ValueError("Invalid value for `ipam_resource_discovery_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._ipam_resource_discovery_name = ipam_resource_discovery_name
 
