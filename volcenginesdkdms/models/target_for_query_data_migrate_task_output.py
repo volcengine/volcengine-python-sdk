@@ -39,6 +39,7 @@ class TargetForQueryDataMigrateTaskOutput(object):
         'region': 'str',
         'role_trn': 'str',
         'sk': 'str',
+        'security_token': 'str',
         'vendor': 'str'
     }
 
@@ -49,10 +50,11 @@ class TargetForQueryDataMigrateTaskOutput(object):
         'region': 'Region',
         'role_trn': 'RoleTrn',
         'sk': 'SK',
+        'security_token': 'SecurityToken',
         'vendor': 'Vendor'
     }
 
-    def __init__(self, ak=None, bucket_name=None, endpoint=None, region=None, role_trn=None, sk=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, ak=None, bucket_name=None, endpoint=None, region=None, role_trn=None, sk=None, security_token=None, vendor=None, _configuration=None):  # noqa: E501
         """TargetForQueryDataMigrateTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class TargetForQueryDataMigrateTaskOutput(object):
         self._region = None
         self._role_trn = None
         self._sk = None
+        self._security_token = None
         self._vendor = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class TargetForQueryDataMigrateTaskOutput(object):
             self.role_trn = role_trn
         if sk is not None:
             self.sk = sk
+        if security_token is not None:
+            self.security_token = security_token
         if vendor is not None:
             self.vendor = vendor
 
@@ -207,6 +212,27 @@ class TargetForQueryDataMigrateTaskOutput(object):
         """
 
         self._sk = sk
+
+    @property
+    def security_token(self):
+        """Gets the security_token of this TargetForQueryDataMigrateTaskOutput.  # noqa: E501
+
+
+        :return: The security_token of this TargetForQueryDataMigrateTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_token
+
+    @security_token.setter
+    def security_token(self, security_token):
+        """Sets the security_token of this TargetForQueryDataMigrateTaskOutput.
+
+
+        :param security_token: The security_token of this TargetForQueryDataMigrateTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_token = security_token
 
     @property
     def vendor(self):
