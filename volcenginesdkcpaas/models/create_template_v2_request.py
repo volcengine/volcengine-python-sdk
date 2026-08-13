@@ -34,11 +34,10 @@ class CreateTemplateV2Request(object):
     """
     swagger_types = {
         'business_type': 'str',
-        'enable_short_url': 'str',
+        'enabled_short_url': 'str',
         'language': 'str',
         'scene_template_name': 'str',
         'send_audit': 'str',
-        'signature': 'str',
         'sub_account_id': 'str',
         'template_list': 'list[TemplateListForCreateTemplateV2Input]',
         'waba_id': 'str'
@@ -46,28 +45,26 @@ class CreateTemplateV2Request(object):
 
     attribute_map = {
         'business_type': 'BusinessType',
-        'enable_short_url': 'EnableShortUrl',
+        'enabled_short_url': 'EnabledShortUrl',
         'language': 'Language',
         'scene_template_name': 'SceneTemplateName',
         'send_audit': 'SendAudit',
-        'signature': 'Signature',
         'sub_account_id': 'SubAccountId',
         'template_list': 'TemplateList',
         'waba_id': 'WabaId'
     }
 
-    def __init__(self, business_type=None, enable_short_url=None, language=None, scene_template_name=None, send_audit=None, signature=None, sub_account_id=None, template_list=None, waba_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, business_type=None, enabled_short_url=None, language=None, scene_template_name=None, send_audit=None, sub_account_id=None, template_list=None, waba_id=None, _configuration=None):  # noqa: E501
         """CreateTemplateV2Request - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._business_type = None
-        self._enable_short_url = None
+        self._enabled_short_url = None
         self._language = None
         self._scene_template_name = None
         self._send_audit = None
-        self._signature = None
         self._sub_account_id = None
         self._template_list = None
         self._waba_id = None
@@ -75,15 +72,13 @@ class CreateTemplateV2Request(object):
 
         if business_type is not None:
             self.business_type = business_type
-        if enable_short_url is not None:
-            self.enable_short_url = enable_short_url
+        if enabled_short_url is not None:
+            self.enabled_short_url = enabled_short_url
         if language is not None:
             self.language = language
         self.scene_template_name = scene_template_name
         if send_audit is not None:
             self.send_audit = send_audit
-        if signature is not None:
-            self.signature = signature
         if sub_account_id is not None:
             self.sub_account_id = sub_account_id
         if template_list is not None:
@@ -113,25 +108,25 @@ class CreateTemplateV2Request(object):
         self._business_type = business_type
 
     @property
-    def enable_short_url(self):
-        """Gets the enable_short_url of this CreateTemplateV2Request.  # noqa: E501
+    def enabled_short_url(self):
+        """Gets the enabled_short_url of this CreateTemplateV2Request.  # noqa: E501
 
 
-        :return: The enable_short_url of this CreateTemplateV2Request.  # noqa: E501
+        :return: The enabled_short_url of this CreateTemplateV2Request.  # noqa: E501
         :rtype: str
         """
-        return self._enable_short_url
+        return self._enabled_short_url
 
-    @enable_short_url.setter
-    def enable_short_url(self, enable_short_url):
-        """Sets the enable_short_url of this CreateTemplateV2Request.
+    @enabled_short_url.setter
+    def enabled_short_url(self, enabled_short_url):
+        """Sets the enabled_short_url of this CreateTemplateV2Request.
 
 
-        :param enable_short_url: The enable_short_url of this CreateTemplateV2Request.  # noqa: E501
+        :param enabled_short_url: The enabled_short_url of this CreateTemplateV2Request.  # noqa: E501
         :type: str
         """
 
-        self._enable_short_url = enable_short_url
+        self._enabled_short_url = enabled_short_url
 
     @property
     def language(self):
@@ -197,27 +192,6 @@ class CreateTemplateV2Request(object):
         """
 
         self._send_audit = send_audit
-
-    @property
-    def signature(self):
-        """Gets the signature of this CreateTemplateV2Request.  # noqa: E501
-
-
-        :return: The signature of this CreateTemplateV2Request.  # noqa: E501
-        :rtype: str
-        """
-        return self._signature
-
-    @signature.setter
-    def signature(self, signature):
-        """Sets the signature of this CreateTemplateV2Request.
-
-
-        :param signature: The signature of this CreateTemplateV2Request.  # noqa: E501
-        :type: str
-        """
-
-        self._signature = signature
 
     @property
     def sub_account_id(self):

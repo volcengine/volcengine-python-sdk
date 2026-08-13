@@ -1,0 +1,11 @@
+{
+  "actions": [
+    "GetTemplateV2",
+    "SendBatchMessage",
+    "SendMessage",
+    "CreateTemplateV2"
+  ],
+  "description": "CPAAS: 新增 GetTemplateV2；修改 GetTemplateV2, SendBatchMessage, SendMessage, CreateTemplateV2",
+  "modules": "service/cpaas",
+  "type": "breaking-change"
+}
