@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "DeletePod",
-    "DeletePortMappingRule"
-  ],
-  "description": "ACEP: 新增 DeletePortMappingRule；修改 DeletePod",
-  "modules": "service/ACEP",
-  "type": "breaking-change"
-}
