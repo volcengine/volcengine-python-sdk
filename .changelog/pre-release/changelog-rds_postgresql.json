@@ -1,0 +1,10 @@
+{
+  "actions": [
+    "DescribeDBInstanceDetail",
+    "ModifyDBInstanceSpec",
+    "CreateDBInstance"
+  ],
+  "description": "RDS_POSTGRESQL: 修改 CreateDBInstance, DescribeDBInstanceDetail, ModifyDBInstanceSpec",
+  "modules": "service/rds_postgresql",
+  "type": "feature"
+}
