@@ -3,7 +3,11 @@ try:
     from typing import TYPE_CHECKING
 except ImportError:
     TYPE_CHECKING = False
-from volcenginesdkcore.retryer.backoff_strategy import ExponentialWithRandomJitterBackoffStrategy
+from volcenginesdkcore.retryer.backoff_strategy import (
+    ExponentialBackoffStrategy,
+    ExponentialWithRandomJitterBackoffStrategy,
+    NoBackoffStrategy,
+)
 from volcenginesdkcore.retryer.retry_condition import DefaultRetryCondition
 
 if TYPE_CHECKING:
@@ -11,20 +15,80 @@ if TYPE_CHECKING:
     from volcenginesdkcore.retryer.backoff_strategy import BackoffStrategy
     from volcenginesdkcore.retryer.retry_condition import RetryCondition
 
-_DEFAULT_BACKOFF_STRATEGY = ExponentialWithRandomJitterBackoffStrategy(
-    min_retry_delay_ms=300,
-    max_retry_delay_ms=300 * 1000,
+DEFAULT_NUM_MAX_RETRIES = 3
+DEFAULT_MIN_RETRY_DELAY_MS = 300
+DEFAULT_MAX_RETRY_DELAY_MS = 300 * 1000
+_UNSET = object()
+
+_BUILT_IN_BACKOFF_STRATEGIES = (
+    NoBackoffStrategy,
+    ExponentialBackoffStrategy,
+    ExponentialWithRandomJitterBackoffStrategy,
 )
 
-_DEFAULT_RETRY_CONDITION = DefaultRetryCondition(retry_error_codes=set())
+
+def new_backoff_strategy(backoff_strategy=_UNSET, min_retry_delay_ms=None, max_retry_delay_ms=None):
+    if backoff_strategy is _UNSET:
+        strategy_type = ExponentialWithRandomJitterBackoffStrategy
+        current_min_retry_delay_ms = DEFAULT_MIN_RETRY_DELAY_MS
+        current_max_retry_delay_ms = DEFAULT_MAX_RETRY_DELAY_MS
+    elif type(backoff_strategy) in _BUILT_IN_BACKOFF_STRATEGIES:
+        strategy_type = type(backoff_strategy)
+        current_min_retry_delay_ms = backoff_strategy.min_retry_delay_ms
+        current_max_retry_delay_ms = backoff_strategy.max_retry_delay_ms
+    else:
+        if min_retry_delay_ms is not None or max_retry_delay_ms is not None:
+            raise ValueError(
+                "min_retry_delay_ms and max_retry_delay_ms cannot override a custom backoff_strategy"
+            )
+        return backoff_strategy
+
+    return strategy_type(
+        min_retry_delay_ms=(min_retry_delay_ms
+                            if min_retry_delay_ms is not None else current_min_retry_delay_ms),
+        max_retry_delay_ms=(max_retry_delay_ms
+                            if max_retry_delay_ms is not None else current_max_retry_delay_ms),
+    )
+
+
+def new_retry_condition(retry_condition=_UNSET, retry_error_codes=None):
+    if retry_condition is _UNSET:
+        return DefaultRetryCondition(retry_error_codes=retry_error_codes)
+    if type(retry_condition) is DefaultRetryCondition:
+        error_codes = retry_error_codes \
+            if retry_error_codes is not None else retry_condition.retry_error_codes
+        return DefaultRetryCondition(retry_error_codes=error_codes)
+    if retry_error_codes is not None:
+        raise ValueError("retry_error_codes cannot override a custom retry_condition")
+    return retry_condition
+
+
+def new_retryer(num_max_retries=DEFAULT_NUM_MAX_RETRIES,
+                backoff_strategy=_UNSET,
+                retry_condition=_UNSET,
+                retry_error_codes=None,
+                min_retry_delay_ms=None,
+                max_retry_delay_ms=None):
+    return Retryer(
+        num_max_retries=num_max_retries,
+        backoff_strategy=new_backoff_strategy(
+            backoff_strategy,
+            min_retry_delay_ms=min_retry_delay_ms,
+            max_retry_delay_ms=max_retry_delay_ms,
+        ),
+        retry_condition=new_retry_condition(
+            retry_condition,
+            retry_error_codes=retry_error_codes,
+        ),
+    )
 
 
 class Retryer:
     def __init__(
             self,
-            num_max_retries=3,
-            backoff_strategy=_DEFAULT_BACKOFF_STRATEGY,
-            retry_condition=_DEFAULT_RETRY_CONDITION,
+            num_max_retries=DEFAULT_NUM_MAX_RETRIES,
+            backoff_strategy=_UNSET,
+            retry_condition=_UNSET,
     ):
         # type: (int, BackoffStrategy, RetryCondition) -> None
         """
@@ -35,8 +99,10 @@ class Retryer:
             :param retry_condition: The retry condition to use.
         """
         self.num_max_retries = num_max_retries
-        self.backoff_strategy = backoff_strategy
-        self.retry_condition = retry_condition
+        self.backoff_strategy = new_backoff_strategy() \
+            if backoff_strategy is _UNSET else backoff_strategy
+        self.retry_condition = new_retry_condition() \
+            if retry_condition is _UNSET else retry_condition
 
     def should_retry(
             self,

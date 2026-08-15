@@ -77,12 +77,6 @@ class StsCredentialProvider(Provider):
         configuration.read_timeout = self.timeout
 
         # Retry: apply provider-level retry semantics to this STS call only.
-        # Deep-copy the retryer so we don't mutate DEFAULT_RETRYER (module-level
-        # singleton shared across Configurations). Configuration exposes retryer
-        # via a getter-only property; swap the underlying __retryer via name
-        # mangling.
-        import copy
-        configuration._Configuration__retryer = copy.deepcopy(configuration.retryer)
         # Provider semantics: max_retries = TOTAL attempts. Configuration
         # semantics: num_max_retries = retries AFTER the initial attempt.
         configuration.num_max_retries = max(self.max_retries - 1, 0)

@@ -61,9 +61,9 @@ class Request(object):
         self.custom_bootstrap_region = configuration.custom_bootstrap_region
         self.use_dual_stack = configuration.use_dual_stack
 
-        # retryer setting, default use global configration if value not set
+        # ApiClient injects its private base retryer before interception.
         self.auto_retry = configuration.auto_retry
-        self.retryer = configuration.retryer
+        self.retryer = None
         self.credential_provider = configuration.credential_provider
         self.invocation_id = str(uuid.uuid4())
         self.retry_count = 0
