@@ -19,6 +19,7 @@ from volcenginesdkllmshield.api.llm_shield_sdk_v2 import ClientV2, SetServiceDev
 from volcenginesdkllmshield.api.llm_shield_sdk_v2 import (
     OPTION_ENABLE_AICC,
     OPTION_LOG_LEVEL,
+    OPTION_REWRITE_URL,
     ContentTypeV2,
     DecisionTypeV2,
     UserAction,
@@ -61,6 +62,7 @@ __all__ = [
     # 全局常量
     'OPTION_ENABLE_AICC',
     'OPTION_LOG_LEVEL',
+    'OPTION_REWRITE_URL',
     # 常量类
     'ContentTypeV2',
     'DecisionTypeV2',

@@ -20,6 +20,7 @@ LLM_STREAM_SEND_EXPONENT_V2 = 2
 # 客户端初始化选项 Key
 OPTION_ENABLE_AICC = "EnableAicc"
 OPTION_LOG_LEVEL = "LogLevel"
+OPTION_REWRITE_URL = "RewriteUrl"
 
 # 定义内容类型常量
 class ContentTypeV2:
@@ -367,6 +368,7 @@ class SessionTimeout(requests.Session):
 class ClientV2:
     def __init__(self, url: str, ak: str, sk: str, region: str, timeout: float, options: Optional[Dict[str, Any]] = None):
         self.url = url
+        self.rewrite_url = options.get(OPTION_REWRITE_URL) if options else None
         self.ak = ak
         self.sk = sk
         self.region = region
@@ -395,7 +397,9 @@ class ClientV2:
         header = {
         }
 
-        sign_header = request_sign(header, self.ak, self.sk, self.region, self.url, path, action, request_body)
+        sign_header = request_sign(
+            header, self.ak, self.sk, self.region, self.url, path, action, request_body, self.rewrite_url
+        )
         resp = self.http_client.post(
                 url=self.url + path + "?Action=" + action + "&Version=" + str(version),
                 data=request_body,
@@ -500,7 +504,9 @@ class ClientV2:
         header = {
         }
 
-        sign_header = request_sign(header, self.ak, self.sk, self.region, self.url, path, action, request_body)
+        sign_header = request_sign(
+            header, self.ak, self.sk, self.region, self.url, path, action, request_body, self.rewrite_url
+        )
 
         try:
             enc_req_key = None
@@ -587,7 +593,9 @@ class ClientV2:
         headers = {
             # "Content-Type": "application/json",
         }
-        sign_header = request_sign(headers, self.ak, self.sk, self.region, self.url, path, action, request_body)
+        sign_header = request_sign(
+            headers, self.ak, self.sk, self.region, self.url, path, action, request_body, self.rewrite_url
+        )
         try:
             response = self.http_client.post(
                 url=self.url + path + "?Action=" + action + "&Version=" + Version,
@@ -631,7 +639,9 @@ class ClientV2:
             # "Content-Type": "application/json",
         }
         try:
-            sign_header = request_sign(headers, self.ak, self.sk, self.region, self.url, path, action, requestBody)
+            sign_header = request_sign(
+                headers, self.ak, self.sk, self.region, self.url, path, action, requestBody, self.rewrite_url
+            )
             # 发送 HTTP 请求
             resp = self.http_client.post(url=self.url + path + "?Action=" + action + "&Version=" + Version,
                                          data=requestBody, headers=sign_header, stream=True)
