@@ -1,13 +1,18 @@
 name: Split Release
 
 on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.changelog/v*.md'
   workflow_dispatch:
     inputs:
       version:
         description: "Version for every distribution (PEP 440, e.g. 5.0.45.post1)"
         required: true
       packages:
-        description: "Modules/distributions to build, comma-separated; empty = all 138"
+        description: "Modules/distributions to build, comma-separated; empty = all 137"
         required: false
         default: ""
       target:
@@ -35,6 +40,24 @@ jobs:
       - name: Install build tools
         run: python -m pip install --upgrade pip build twine requests packaging
 
+      - name: Resolve version
+        id: resolve
+        run: |
+          version="${{ inputs.version }}"
+          if [ -z "$version" ]; then
+            # push 触发：从本次提交携带的 .changelog/v<ver>.md 文件名取版本
+            changed=$(git diff --name-only HEAD^ HEAD -- '.changelog/v*.md' | head -1)
+            if [ -n "$changed" ]; then
+              version=$(basename "$changed" .md | sed 's/^v//')
+            fi
+          fi
+          if [ -z "$version" ]; then
+            # 兜底：meta.json.lasted（codegen autoUpdateVersion 维护）
+            version=$(python3 -c 'import json; print(json.load(open("meta.json"))["lasted"])')
+          fi
+          echo "resolved version: $version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
       - name: Validate manifest
         run: python3 scripts/build_split_packages.py validate
 
@@ -46,7 +69,7 @@ jobs:
             for p in "${pkgs[@]}"; do args+=(--package "$p"); done
           fi
           python3 scripts/build_split_packages.py build \
-            --version "${{ inputs.version }}" \
+            --version "${{ steps.resolve.outputs.version }}" \
             --output-dir dist/split \
             "${args[@]}"
 
@@ -61,10 +84,10 @@ jobs:
             /tmp/venv/bin/pip install dist/split/*.whl
             /tmp/venv/bin/python scripts/verify_split_install.py \
               --manifest split-packages.json \
-              --version "${{ inputs.version }}" \
+              --version "${{ steps.resolve.outputs.version }}" \
               --expect-meta
           else
-            # 子集构建：元包 install_requires 锁定全部 136 个产品包，
+            # 子集构建：元包 install_requires 锁定全部产品包，
             # 本地只有子集时不能安装元包，只装 core + 产品包（volcenginesdk_* 前缀）
             /tmp/venv/bin/pip install dist/split/volcenginesdk_*.whl
             IFS=',' read -ra pkgs <<< "${{ inputs.packages }}"
@@ -75,7 +98,7 @@ jobs:
             done
             /tmp/venv/bin/python scripts/verify_split_install.py \
               --manifest split-packages.json \
-              --version "${{ inputs.version }}" \
+              --version "${{ steps.resolve.outputs.version }}" \
               "${args[@]}"
           fi
 
@@ -88,8 +111,10 @@ jobs:
             testpypi) idx=https://test.pypi.org ;;
             pypi) idx=https://pypi.org ;;
           esac
+          # push 触发（target 输入为空）默认发 TestPyPI；正式发布用 workflow_dispatch 选 pypi
+          if [ -z "${{ inputs.target }}" ]; then idx=https://test.pypi.org; fi
           python3 scripts/upload_split_packages.py dist/split \
-            --repository "${{ inputs.target }}" \
+            --repository "${{ inputs.target:-testpypi }}" \
             --index-url "$idx"
 
       - name: Verify public index
@@ -100,6 +125,7 @@ jobs:
           case "${{ inputs.target }}" in
             testpypi) idx=https://test.pypi.org/simple/ ;;
             pypi) idx=https://pypi.org/simple/ ;;
+            *) idx=https://test.pypi.org/simple/ ;;
           esac
           python -m venv /tmp/idx-venv
           # 外部依赖只从正式 PyPI 装，避免 --extra-index-url 混用拉到同名第三方包
@@ -110,12 +136,12 @@ jobs:
             # 分钟级延迟，重试到可见为止）
             for i in $(seq 1 15); do
               if /tmp/idx-venv/bin/pip install --no-deps --index-url "$idx" \
-                   "volcengine-python-sdk==${{ inputs.version }}"; then break; fi
+                   "volcengine-python-sdk==${{ steps.resolve.outputs.version }}"; then break; fi
               echo "meta not visible yet, retry $i/15"; sleep 20
             done
             /tmp/idx-venv/bin/python scripts/verify_split_install.py \
               --manifest split-packages.json \
-              --version "${{ inputs.version }}" \
+              --version "${{ steps.resolve.outputs.version }}" \
               --expect-meta
           else
             # 子集发布：--no-deps 从目标索引装本次上传的包并复验
@@ -128,7 +154,7 @@ jobs:
               esac
               for i in $(seq 1 15); do
                 if /tmp/idx-venv/bin/pip install --no-deps --index-url "$idx" \
-                     "$dist==${{ inputs.version }}"; then break; fi
+                     "$dist==${{ steps.resolve.outputs.version }}"; then break; fi
                 echo "$dist not visible yet, retry $i/15"; sleep 20
               done
             done
@@ -139,6 +165,6 @@ jobs:
             done
             /tmp/idx-venv/bin/python scripts/verify_split_install.py \
               --manifest split-packages.json \
-              --version "${{ inputs.version }}" \
+              --version "${{ steps.resolve.outputs.version }}" \
               "${args[@]}"
           fi
