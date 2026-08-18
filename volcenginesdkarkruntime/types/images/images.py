@@ -38,7 +38,7 @@ class ToolUsage(BaseModel):
 
 
 class Usage(BaseModel):
-    input_images: int
+    input_images: Optional[int] = None
     """The number of reference images supplied by the client."""
     generated_images: int
     """The number of images generated."""
