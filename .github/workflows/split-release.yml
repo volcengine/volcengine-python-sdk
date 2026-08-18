@@ -68,10 +68,15 @@ jobs:
             # 本地只有子集时不能安装元包，只装 core + 产品包（volcenginesdk_* 前缀）
             /tmp/venv/bin/pip install dist/split/volcenginesdk_*.whl
             IFS=',' read -ra pkgs <<< "${{ inputs.packages }}"
+            args=()
             for p in "${pkgs[@]}"; do
               [ "$p" = "volcengine-python-sdk" ] && continue
-              /tmp/venv/bin/python -c "import $p; print('import ok: $p')"
+              args+=(--package "$p")
             done
+            /tmp/venv/bin/python scripts/verify_split_install.py \
+              --manifest split-packages.json \
+              --version "${{ inputs.version }}" \
+              "${args[@]}"
           fi
 
       - name: Upload

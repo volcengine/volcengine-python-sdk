@@ -3,12 +3,14 @@
 
 import argparse
 import ast
+import io
 import json
 import os
 import shutil
 import subprocess
 import sys
 import tempfile
+import zipfile
 from pathlib import Path
 
 
@@ -17,6 +19,9 @@ MANIFEST_PATH = ROOT / "split-packages.json"
 META_DISTRIBUTION = "volcengine-python-sdk"
 MODULE_PREFIX = "volcenginesdk"
 ARTIFACT_SUFFIXES = (".whl", ".tar.gz")
+# 体积门禁（ECS 目标）：core + 单产品 wheel 合计 ≤ 15 MB
+SIZE_GATE_MODULES = ("volcenginesdkcore", "volcenginesdkecs")
+SIZE_GATE_LIMIT_BYTES = 15 * 1024 * 1024
 
 
 def load_manifest():
@@ -199,7 +204,32 @@ def validate_manifest(manifest, verify_imports=False):
         if not reaches_core(module, set()):
             errors.append("{} does not transitively depend on core".format(module))
 
+    total_size = sum(staged_wheel_size(module) for module in SIZE_GATE_MODULES)
+    if total_size > SIZE_GATE_LIMIT_BYTES:
+        errors.append(
+            "size gate: {} + {} wheel estimate {:.1f} MB exceeds {:.0f} MB".format(
+                SIZE_GATE_MODULES[0],
+                SIZE_GATE_MODULES[1],
+                total_size / 1024 / 1024,
+                SIZE_GATE_LIMIT_BYTES / 1024 / 1024,
+            )
+        )
+
     return errors, graph
+
+
+def staged_wheel_size(module):
+    """估算 wheel 体积：与 wheel 相同的 ZIP_DEFLATED 压缩包内全部文件。"""
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as archive:
+        for source_path in sorted((ROOT / module).rglob("*")):
+            if source_path.is_file():
+                archive.write(source_path, source_path.relative_to(ROOT))
+        for extra in ("LICENSE.txt", "NOTICE.md"):
+            extra_path = ROOT / extra
+            if extra_path.is_file():
+                archive.write(extra_path, extra)
+    return buffer.tell()
 
 
 def requirements_for(module, version, manifest, graph):

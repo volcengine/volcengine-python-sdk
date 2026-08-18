@@ -134,6 +134,7 @@ def upload_wheel(session, args, position, total, name, version, path):
         print("[{}/{}] verified existing {}".format(position, total, name), flush=True)
         return False
 
+    last_output = ""
     for attempt in range(1, args.max_attempts + 1):
         print(
             "[{}/{}] uploading {} (attempt {})".format(
@@ -166,15 +167,9 @@ def upload_wheel(session, args, position, total, name, version, path):
             )
             print("[{}/{}] published {}".format(position, total, name), flush=True)
             return True
+        last_output = completed.stdout
         if "429" not in completed.stdout or attempt == args.max_attempts:
-            print(completed.stdout, file=sys.stderr)
-            if "429" in completed.stdout:
-                print(
-                    "new-project limits may require waiting for the hourly window; "
-                    "rerun this command to resume with hash verification",
-                    file=sys.stderr,
-                )
-            raise subprocess.CalledProcessError(completed.returncode, completed.args)
+            break
         print(
             "rate limited while uploading {}; retrying in {} seconds".format(
                 name, args.retry_delay
@@ -182,7 +177,28 @@ def upload_wheel(session, args, position, total, name, version, path):
             flush=True,
         )
         time.sleep(args.retry_delay)
-    return False
+
+    # twine 失败不代表文件没上去：TestPyPI 索引延迟期间重跑会撞上
+    # "File already exists" 400，连接中断也可能发生在服务端收完文件之后。
+    # 在可见性窗口内复查索引，SHA-256 一致即视为已发布；否则按失败处理。
+    try:
+        wait_until_visible(session, args, name, version, path, local_digest)
+    except RuntimeError:
+        print(last_output, file=sys.stderr)
+        if "429" in last_output:
+            print(
+                "new-project limits may require waiting for the hourly window; "
+                "rerun this command to resume with hash verification",
+                file=sys.stderr,
+            )
+        raise subprocess.CalledProcessError(1, ["twine", "upload", str(path)])
+    print(
+        "[{}/{}] published {} (confirmed after twine error)".format(
+            position, total, name
+        ),
+        flush=True,
+    )
+    return True
 
 
 def parse_args():
@@ -193,8 +209,13 @@ def parse_args():
     parser.add_argument("--pace", type=float, default=4.0)
     parser.add_argument("--retry-delay", type=float, default=30.0)
     parser.add_argument("--max-attempts", type=int, default=1)
-    parser.add_argument("--visibility-attempts", type=int, default=10)
-    parser.add_argument("--visibility-delay", type=float, default=2.0)
+    parser.add_argument(
+        "--visibility-attempts",
+        type=int,
+        default=30,
+        help="index visibility polls (TestPyPI indexing can lag minutes)",
+    )
+    parser.add_argument("--visibility-delay", type=float, default=10.0)
     return parser.parse_args()
 
 

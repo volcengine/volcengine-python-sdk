@@ -36,6 +36,12 @@ def parse_args():
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--version", required=True)
     parser.add_argument("--expect-meta", action="store_true")
+    parser.add_argument(
+        "--package",
+        dest="packages",
+        action="append",
+        help="module or distribution to verify; repeatable. Default: all modules",
+    )
     return parser.parse_args()
 
 
@@ -54,8 +60,30 @@ def main():
                 )
             )
 
+    if args.packages:
+        module_by_distribution = {
+            distribution_name(module, manifest): module
+            for module in manifest["modules"]
+        }
+        selected = []
+        for item in args.packages:
+            if item in manifest["modules"]:
+                selected.append(item)
+            elif item in module_by_distribution:
+                selected.append(module_by_distribution[item])
+            elif item == META_DISTRIBUTION:
+                continue
+            else:
+                failures.append("unknown package: {}".format(item))
+        if failures:
+            for failure in failures:
+                print("error: {}".format(failure), file=sys.stderr)
+            return 1
+    else:
+        selected = manifest["modules"]
+
     default_python_requires = manifest["python_requires"]["default"]
-    for module in manifest["modules"]:
+    for module in selected:
         python_requires = manifest["python_requires"].get(
             module,
             default_python_requires,
