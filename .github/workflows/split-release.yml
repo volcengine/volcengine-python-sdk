@@ -91,3 +91,54 @@ jobs:
           python3 scripts/upload_split_packages.py dist/split \
             --repository "${{ inputs.target }}" \
             --index-url "$idx"
+
+      - name: Verify public index
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        run: |
+          case "${{ inputs.target }}" in
+            testpypi) idx=https://test.pypi.org/simple/ ;;
+            pypi) idx=https://pypi.org/simple/ ;;
+          esac
+          python -m venv /tmp/idx-venv
+          # 外部依赖只从正式 PyPI 装，避免 --extra-index-url 混用拉到同名第三方包
+          /tmp/idx-venv/bin/pip install --index-url https://pypi.org/simple/ \
+            certifi python-dateutil six urllib3
+          if [ -z "${{ inputs.packages }}" ]; then
+            # 全量发布：元包的 137 个 == 锁定全部从目标索引解析（TestPyPI 索引有
+            # 分钟级延迟，重试到可见为止）
+            for i in $(seq 1 15); do
+              if /tmp/idx-venv/bin/pip install --no-deps --index-url "$idx" \
+                   "volcengine-python-sdk==${{ inputs.version }}"; then break; fi
+              echo "meta not visible yet, retry $i/15"; sleep 20
+            done
+            /tmp/idx-venv/bin/python scripts/verify_split_install.py \
+              --manifest split-packages.json \
+              --version "${{ inputs.version }}" \
+              --expect-meta
+          else
+            # 子集发布：--no-deps 从目标索引装本次上传的包并复验
+            IFS=',' read -ra pkgs <<< "${{ inputs.packages }}"
+            for p in "${pkgs[@]}"; do
+              case "$p" in
+                volcenginesdk-*) dist="$p" ;;
+                volcenginesdk*) dist="volcenginesdk-${p#volcenginesdk}" ;;
+                *) dist="$p" ;;
+              esac
+              for i in $(seq 1 15); do
+                if /tmp/idx-venv/bin/pip install --no-deps --index-url "$idx" \
+                     "$dist==${{ inputs.version }}"; then break; fi
+                echo "$dist not visible yet, retry $i/15"; sleep 20
+              done
+            done
+            args=()
+            for p in "${pkgs[@]}"; do
+              [ "$p" = "volcengine-python-sdk" ] && continue
+              args+=(--package "$p")
+            done
+            /tmp/idx-venv/bin/python scripts/verify_split_install.py \
+              --manifest split-packages.json \
+              --version "${{ inputs.version }}" \
+              "${args[@]}"
+          fi
