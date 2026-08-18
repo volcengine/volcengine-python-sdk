@@ -56,13 +56,17 @@ jobs:
       - name: Install and import check
         run: |
           python -m venv /tmp/venv
-          /tmp/venv/bin/pip install dist/split/*.whl
           if [ -z "${{ inputs.packages }}" ]; then
+            # 全量构建：元包 + 全部产品包都在本地，直接整目录安装
+            /tmp/venv/bin/pip install dist/split/*.whl
             /tmp/venv/bin/python scripts/verify_split_install.py \
               --manifest split-packages.json \
               --version "${{ inputs.version }}" \
               --expect-meta
           else
+            # 子集构建：元包 install_requires 锁定全部 136 个产品包，
+            # 本地只有子集时不能安装元包，只装 core + 产品包（volcenginesdk_* 前缀）
+            /tmp/venv/bin/pip install dist/split/volcenginesdk_*.whl
             IFS=',' read -ra pkgs <<< "${{ inputs.packages }}"
             for p in "${pkgs[@]}"; do
               [ "$p" = "volcengine-python-sdk" ] && continue
