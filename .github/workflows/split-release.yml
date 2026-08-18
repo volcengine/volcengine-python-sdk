@@ -1,0 +1,84 @@
+name: Split Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version for every distribution (PEP 440, e.g. 5.0.45.post1)"
+        required: true
+      packages:
+        description: "Modules/distributions to build, comma-separated; empty = all 138"
+        required: false
+        default: ""
+      target:
+        description: "Upload target"
+        type: choice
+        options:
+          - testpypi
+          - pypi
+        default: testpypi
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install build tools
+        run: python -m pip install --upgrade pip build twine requests packaging
+
+      - name: Validate manifest
+        run: python3 scripts/build_split_packages.py validate
+
+      - name: Build distributions
+        run: |
+          args=()
+          if [ -n "${{ inputs.packages }}" ]; then
+            IFS=',' read -ra pkgs <<< "${{ inputs.packages }}"
+            for p in "${pkgs[@]}"; do args+=(--package "$p"); done
+          fi
+          python3 scripts/build_split_packages.py build \
+            --version "${{ inputs.version }}" \
+            --output-dir dist/split \
+            "${args[@]}"
+
+      - name: Twine check
+        run: python3 -m twine check dist/split/*
+
+      - name: Install and import check
+        run: |
+          python -m venv /tmp/venv
+          /tmp/venv/bin/pip install dist/split/*.whl
+          if [ -z "${{ inputs.packages }}" ]; then
+            /tmp/venv/bin/python scripts/verify_split_install.py \
+              --manifest split-packages.json \
+              --version "${{ inputs.version }}" \
+              --expect-meta
+          else
+            IFS=',' read -ra pkgs <<< "${{ inputs.packages }}"
+            for p in "${pkgs[@]}"; do
+              [ "$p" = "volcengine-python-sdk" ] && continue
+              /tmp/venv/bin/python -c "import $p; print('import ok: $p')"
+            done
+          fi
+
+      - name: Upload
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        run: |
+          case "${{ inputs.target }}" in
+            testpypi) idx=https://test.pypi.org ;;
+            pypi) idx=https://pypi.org ;;
+          esac
+          python3 scripts/upload_split_packages.py dist/split \
+            --repository "${{ inputs.target }}" \
+            --index-url "$idx"
