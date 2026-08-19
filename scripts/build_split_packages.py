@@ -387,6 +387,10 @@ def resolve_selection(requested, manifest, modules):
             raise ValueError("unknown package: {}".format(item))
         if resolved not in selected:
             selected.append(resolved)
+    # core 是所有产品包的运行时依赖，子集构建必须一并打包，
+    # 否则本地安装校验时产品包无法从公共索引解析到同版本 core。
+    if "volcenginesdkcore" in module_names and "volcenginesdkcore" not in selected:
+        selected.insert(0, "volcenginesdkcore")
     return selected
 
 
