@@ -38,6 +38,7 @@ class UpdatedSegmentForVideoEditorAddSubtitleOutput(object):
         'assist_text_type': 'int',
         'create_time': 'str',
         'effect_type': 'int',
+        'emotion_tag': 'str',
         'end_time': 'str',
         'extra': 'str',
         'operator': 'str',
@@ -60,6 +61,7 @@ class UpdatedSegmentForVideoEditorAddSubtitleOutput(object):
         'assist_text_type': 'assistTextType',
         'create_time': 'createTime',
         'effect_type': 'effectType',
+        'emotion_tag': 'emotionTag',
         'end_time': 'endTime',
         'extra': 'extra',
         'operator': 'operator',
@@ -76,7 +78,7 @@ class UpdatedSegmentForVideoEditorAddSubtitleOutput(object):
         'voice_tos_url': 'voiceTosUrl'
     }
 
-    def __init__(self, ai_voice_id=None, assist_text=None, assist_text_type=None, create_time=None, effect_type=None, end_time=None, extra=None, operator=None, related_segment_id=None, segment_id=None, source=None, source_style=None, speaker_id=None, start_time=None, status=None, target=None, target_style=None, update_time=None, voice_tos_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_voice_id=None, assist_text=None, assist_text_type=None, create_time=None, effect_type=None, emotion_tag=None, end_time=None, extra=None, operator=None, related_segment_id=None, segment_id=None, source=None, source_style=None, speaker_id=None, start_time=None, status=None, target=None, target_style=None, update_time=None, voice_tos_url=None, _configuration=None):  # noqa: E501
         """UpdatedSegmentForVideoEditorAddSubtitleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class UpdatedSegmentForVideoEditorAddSubtitleOutput(object):
         self._assist_text_type = None
         self._create_time = None
         self._effect_type = None
+        self._emotion_tag = None
         self._end_time = None
         self._extra = None
         self._operator = None
@@ -113,6 +116,8 @@ class UpdatedSegmentForVideoEditorAddSubtitleOutput(object):
             self.create_time = create_time
         if effect_type is not None:
             self.effect_type = effect_type
+        if emotion_tag is not None:
+            self.emotion_tag = emotion_tag
         if end_time is not None:
             self.end_time = end_time
         if extra is not None:
@@ -246,6 +251,27 @@ class UpdatedSegmentForVideoEditorAddSubtitleOutput(object):
         """
 
         self._effect_type = effect_type
+
+    @property
+    def emotion_tag(self):
+        """Gets the emotion_tag of this UpdatedSegmentForVideoEditorAddSubtitleOutput.  # noqa: E501
+
+
+        :return: The emotion_tag of this UpdatedSegmentForVideoEditorAddSubtitleOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._emotion_tag
+
+    @emotion_tag.setter
+    def emotion_tag(self, emotion_tag):
+        """Sets the emotion_tag of this UpdatedSegmentForVideoEditorAddSubtitleOutput.
+
+
+        :param emotion_tag: The emotion_tag of this UpdatedSegmentForVideoEditorAddSubtitleOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._emotion_tag = emotion_tag
 
     @property
     def end_time(self):
