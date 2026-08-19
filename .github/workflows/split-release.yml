@@ -146,6 +146,12 @@ jobs:
           else
             # 子集发布：--no-deps 从目标索引装本次上传的包并复验
             IFS=',' read -ra pkgs <<< "${{ inputs.packages }}"
+            # core 是所有产品包的运行时依赖，子集构建也会上传，需一并安装
+            for i in $(seq 1 15); do
+              if /tmp/idx-venv/bin/pip install --no-deps --index-url "$idx" \
+                   "volcenginesdk-core==${{ steps.resolve.outputs.version }}"; then break; fi
+              echo "volcenginesdk-core not visible yet, retry $i/15"; sleep 20
+            done
             for p in "${pkgs[@]}"; do
               case "$p" in
                 volcenginesdk-*) dist="$p" ;;
