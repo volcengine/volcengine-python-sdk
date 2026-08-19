@@ -27,15 +27,25 @@ META_DISTRIBUTION = "volcengine-python-sdk"
 RESERVED_VERSION = "0.0.1"
 
 
-def load_distributions():
+def load_manifest():
     with MANIFEST_PATH.open(encoding="utf-8") as manifest_file:
-        manifest = json.load(manifest_file)
+        return json.load(manifest_file)
+
+
+def load_distributions():
+    manifest = load_manifest()
+    excluded = set(manifest.get("excluded_modules", {}))
     names = ["volcenginesdk-core"]
-    names.extend(
-        manifest["distribution_prefix"] + module[len("volcenginesdk"):]
-        for module in manifest["modules"]
-        if module != "volcenginesdkcore"
-    )
+    for path in sorted(ROOT.iterdir()):
+        if (
+            path.is_dir()
+            and path.name.startswith("volcenginesdk")
+            and path.name not in excluded
+            and path.name != "volcenginesdkcore"
+        ):
+            names.append(
+                manifest["distribution_prefix"] + path.name[len("volcenginesdk"):]
+            )
     names.append(META_DISTRIBUTION)
     return names
 

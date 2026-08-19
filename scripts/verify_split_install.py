@@ -23,6 +23,19 @@ def distribution_name(module, manifest):
     return manifest["distribution_prefix"] + module[len(MODULE_PREFIX):]
 
 
+def discover_modules(manifest):
+    """扫描仓内 volcenginesdk* 目录得出模块清单（与 build_split_packages 一致）。"""
+    root = Path(__file__).resolve().parents[1]
+    excluded = set(manifest.get("excluded_modules", {}))
+    return sorted(
+        path.name
+        for path in root.iterdir()
+        if path.is_dir()
+        and path.name.startswith(MODULE_PREFIX)
+        and path.name not in excluded
+    )
+
+
 def is_supported(python_requires):
     if not python_requires or not python_requires.startswith(">="):
         return True
@@ -60,14 +73,14 @@ def main():
                 )
             )
 
+    modules = discover_modules(manifest)
     if args.packages:
         module_by_distribution = {
-            distribution_name(module, manifest): module
-            for module in manifest["modules"]
+            distribution_name(module, manifest): module for module in modules
         }
         selected = []
         for item in args.packages:
-            if item in manifest["modules"]:
+            if item in modules:
                 selected.append(item)
             elif item in module_by_distribution:
                 selected.append(module_by_distribution[item])
@@ -80,14 +93,18 @@ def main():
                 print("error: {}".format(failure), file=sys.stderr)
             return 1
     else:
-        selected = manifest["modules"]
+        selected = modules
 
-    default_python_requires = manifest["python_requires"]["default"]
+    default_python_requires = manifest.get("default_python_requires", ">=2.7")
     for module in selected:
-        python_requires = manifest["python_requires"].get(
-            module,
-            default_python_requires,
+        # 服务自带的 split-package.json 声明 python_requires（缺失回退默认值）
+        service_meta_path = (
+            Path(__file__).resolve().parents[1] / module / "split-package.json"
         )
+        python_requires = default_python_requires
+        if service_meta_path.is_file():
+            service_meta = json.loads(service_meta_path.read_text(encoding="utf-8"))
+            python_requires = service_meta.get("python_requires", default_python_requires)
         if not is_supported(python_requires):
             continue
 

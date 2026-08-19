@@ -1,0 +1,9 @@
+{
+  "internal_dependencies": [
+    "volcenginesdkwaf"
+  ],
+  "external_dependencies": [
+    "six>=1.16"
+  ],
+  "python_requires": ">=2.7"
+}

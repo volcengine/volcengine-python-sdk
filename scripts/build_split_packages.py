@@ -29,6 +29,41 @@ def load_manifest():
         return json.load(manifest_file)
 
 
+def discover_modules(manifest):
+    """扫描仓内 volcenginesdk* 目录，排除 excluded_modules 与非包目录。
+
+    模块清单不再由根 manifest 维护（避免并发服务生成时合并冲突），
+    每个服务的元数据在其自身目录的 split-package.json 中。
+    """
+    excluded = set(manifest.get("excluded_modules", {}))
+    modules = sorted(
+        path.name
+        for path in ROOT.iterdir()
+        if path.is_dir()
+        and path.name.startswith(MODULE_PREFIX)
+        and path.name not in excluded
+    )
+    return modules
+
+
+def load_service_metadata(module, manifest):
+    """读取服务自带的 split-package.json；缺失字段回退根 manifest 默认值。"""
+    defaults = {
+        "internal_dependencies": list(manifest.get("default_internal_dependencies", [])),
+        "external_dependencies": list(manifest.get("default_product_dependencies", [])),
+        "python_requires": manifest.get("default_python_requires", ">=2.7"),
+    }
+    metadata_path = ROOT / module / "split-package.json"
+    if not metadata_path.is_file():
+        return defaults
+    with metadata_path.open(encoding="utf-8") as metadata_file:
+        overrides = json.load(metadata_file)
+    for key in defaults:
+        if key in overrides:
+            defaults[key] = overrides[key]
+    return defaults
+
+
 def distribution_name(module, manifest):
     if module == "volcenginesdkcore":
         return "volcenginesdk-core"
@@ -58,110 +93,70 @@ def imported_sdk_modules(module, known_modules):
     return sorted(dependencies)
 
 
-def discovered_dependency_graph(manifest):
-    modules = set(manifest["modules"])
-    return {
-        module: imported_sdk_modules(module, modules)
-        for module in manifest["modules"]
-    }
+def discovered_dependency_graph(modules):
+    known = set(modules)
+    return {module: imported_sdk_modules(module, known) for module in modules}
 
 
-def declared_dependency_graph(manifest):
-    default_dependencies = manifest["default_internal_dependencies"]
-    overrides = manifest["internal_dependencies"]
+def declared_dependency_graph(modules, manifest):
     return {
-        module: list(overrides.get(module, default_dependencies))
-        for module in manifest["modules"]
+        module: list(load_service_metadata(module, manifest)["internal_dependencies"])
+        for module in modules
     }
 
 
 def validate_manifest(manifest, verify_imports=False):
     errors = []
-    modules = manifest.get("modules", [])
     excluded_modules = set(manifest.get("excluded_modules", {}))
 
     if manifest.get("schema_version") != 1:
         errors.append("schema_version must be 1")
-    if modules != sorted(modules):
-        errors.append("modules must be sorted")
-    if len(modules) != len(set(modules)):
-        errors.append("modules contains duplicate entries")
+    if "distribution_prefix" not in manifest:
+        errors.append("distribution_prefix is required")
+    if "default_python_requires" not in manifest:
+        errors.append("default_python_requires is required")
+
+    # 模块清单由目录扫描得出（不再由根 manifest 维护）
+    modules = discover_modules(manifest)
     if "volcenginesdkcore" not in modules:
         errors.append("volcenginesdkcore must be published")
+
+    # 每个服务的元数据文件必须存在且字段合法
+    metadata = {}
+    for module in modules:
+        try:
+            meta = load_service_metadata(module, manifest)
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            errors.append("{}: invalid split-package.json: {}".format(module, exc))
+            continue
+        metadata[module] = meta
+        unknown_deps = sorted(set(meta["internal_dependencies"]) - set(modules))
+        if unknown_deps:
+            errors.append(
+                "{} references unknown dependencies: {}".format(
+                    module, ", ".join(unknown_deps)
+                )
+            )
 
     discovered_modules = {
         path.name
         for path in ROOT.iterdir()
         if path.is_dir() and path.name.startswith(MODULE_PREFIX)
     }
-    declared_modules = set(modules) | excluded_modules
-    undeclared = sorted(discovered_modules - declared_modules)
-    missing = sorted(declared_modules - discovered_modules)
+    undeclared = sorted(discovered_modules - set(modules) - excluded_modules)
     if undeclared:
         errors.append("undeclared SDK modules: {}".format(", ".join(undeclared)))
-    if missing:
-        errors.append("manifest modules missing from source: {}".format(", ".join(missing)))
 
     distributions = [distribution_name(module, manifest) for module in modules]
     if len(distributions) != len(set(distributions)):
         errors.append("multiple modules map to the same distribution")
 
-    external_dependencies = manifest.get("external_dependencies", {})
-    unknown_overrides = sorted(set(external_dependencies) - set(modules))
-    if unknown_overrides:
-        errors.append(
-            "dependency overrides reference unknown modules: {}".format(
-                ", ".join(unknown_overrides)
-            )
-        )
-
-    internal_dependencies = manifest.get("internal_dependencies", {})
-    default_internal_dependencies = manifest.get("default_internal_dependencies", [])
-    unknown_default_dependencies = sorted(
-        set(default_internal_dependencies) - set(modules)
-    )
-    if unknown_default_dependencies:
-        errors.append(
-            "default internal dependencies reference unknown modules: {}".format(
-                ", ".join(unknown_default_dependencies)
-            )
-        )
-    unknown_internal_overrides = sorted(set(internal_dependencies) - set(modules))
-    if unknown_internal_overrides:
-        errors.append(
-            "internal dependency overrides reference unknown modules: {}".format(
-                ", ".join(unknown_internal_overrides)
-            )
-        )
-    known_modules = set(modules)
-    for module, dependencies in internal_dependencies.items():
-        unknown_dependencies = sorted(set(dependencies) - known_modules)
-        if unknown_dependencies:
-            errors.append(
-                "{} references unknown dependencies: {}".format(
-                    module, ", ".join(unknown_dependencies)
-                )
-            )
-
-    python_requires = manifest.get("python_requires", {})
-    if "default" not in python_requires:
-        errors.append("python_requires.default is required")
-    unknown_python_overrides = sorted(
-        set(python_requires) - set(modules) - {"default"}
-    )
-    if unknown_python_overrides:
-        errors.append(
-            "python_requires references unknown modules: {}".format(
-                ", ".join(unknown_python_overrides)
-            )
-        )
-
     if errors:
         return errors, {}
 
-    graph = declared_dependency_graph(manifest)
+    graph = declared_dependency_graph(modules, manifest)
     if verify_imports:
-        discovered_graph = discovered_dependency_graph(manifest)
+        discovered_graph = discovered_dependency_graph(modules)
         for module in modules:
             if graph[module] != discovered_graph[module]:
                 errors.append(
@@ -237,18 +232,14 @@ def requirements_for(module, version, manifest, graph):
         "{}=={}".format(distribution_name(dependency, manifest), version)
         for dependency in graph[module]
     ]
-    external_requirements = manifest["external_dependencies"].get(
-        module,
-        manifest["default_product_dependencies"],
-    )
+    external_requirements = load_service_metadata(module, manifest)[
+        "external_dependencies"
+    ]
     return internal_requirements + external_requirements
 
 
 def python_requires_for(module, manifest):
-    return manifest["python_requires"].get(
-        module,
-        manifest["python_requires"]["default"],
-    )
+    return load_service_metadata(module, manifest)["python_requires"]
 
 
 def write_text(path, content):
@@ -320,7 +311,7 @@ setup(
     write_text(stage_dir / "setup.py", setup_source)
 
 
-def stage_meta(stage_dir):
+def stage_meta(stage_dir, modules, manifest):
     for filename in (
         "LICENSE.txt",
         "MANIFEST.in",
@@ -331,6 +322,10 @@ def stage_meta(stage_dir):
         "split-packages.json",
     ):
         shutil.copy2(ROOT / filename, stage_dir / filename)
+    # 元包 install_requires 需要完整模块清单；stage 目录不含各服务源码目录，
+    # 由构建方把扫描出的模块清单写入 stage，setup.py 优先读取。
+    with (stage_dir / "split-modules.json").open("w", encoding="utf-8") as modules_file:
+        json.dump({"modules": modules}, modules_file)
 
 
 def build_staged_package(
@@ -372,13 +367,13 @@ def build_staged_package(
         raise subprocess.CalledProcessError(completed.returncode, command)
 
 
-def resolve_selection(requested, manifest):
+def resolve_selection(requested, manifest, modules):
     module_by_distribution = {
-        distribution_name(module, manifest): module for module in manifest["modules"]
+        distribution_name(module, manifest): module for module in modules
     }
-    module_names = set(manifest["modules"])
+    module_names = set(modules)
     if not requested:
-        return list(manifest["modules"]) + [META_DISTRIBUTION]
+        return list(modules) + [META_DISTRIBUTION]
 
     selected = []
     for item in requested:
@@ -395,7 +390,7 @@ def resolve_selection(requested, manifest):
     return selected
 
 
-def build_packages(args, manifest, graph):
+def build_packages(args, manifest, graph, modules):
     output_dir = Path(args.output_dir)
     if not output_dir.is_absolute():
         output_dir = ROOT / output_dir
@@ -409,7 +404,7 @@ def build_packages(args, manifest, graph):
             "output directory already contains package artifacts: {}".format(output_dir)
         )
 
-    selected = resolve_selection(args.packages, manifest)
+    selected = resolve_selection(args.packages, manifest, modules)
     with tempfile.TemporaryDirectory(prefix="volcengine-sdk-split-") as temporary_dir:
         temporary_root = Path(temporary_dir)
         for index, package in enumerate(selected, 1):
@@ -420,7 +415,7 @@ def build_packages(args, manifest, graph):
 
             display_name = package
             if package == META_DISTRIBUTION:
-                stage_meta(stage_dir)
+                stage_meta(stage_dir, modules, manifest)
                 version_override = args.version
             else:
                 stage_product(package, args.version, manifest, graph, stage_dir)
@@ -494,17 +489,19 @@ def main():
             print("error: {}".format(error), file=sys.stderr)
         return 1
 
+    modules = discover_modules(manifest)
+
     if args.command == "validate":
         edge_count = sum(len(dependencies) for dependencies in graph.values())
         print(
             "validated {} distributions and {} internal dependency edges".format(
-                len(manifest["modules"]), edge_count
+                len(modules), edge_count
             )
         )
         return 0
 
     if args.command == "list":
-        for module in manifest["modules"]:
+        for module in modules:
             print("{}\t{}".format(module, distribution_name(module, manifest)))
         print("-\t{}".format(META_DISTRIBUTION))
         return 0
@@ -513,7 +510,7 @@ def main():
         if not args.version:
             args.version = manifest["version"]
         try:
-            build_packages(args, manifest, graph)
+            build_packages(args, manifest, graph, modules)
         except (OSError, subprocess.CalledProcessError, ValueError) as exc:
             print("error: {}".format(exc), file=sys.stderr)
             return 1
