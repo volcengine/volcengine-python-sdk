@@ -36,7 +36,7 @@ class SfcsForGetDeploymentOutput(object):
         'cache_policy_id': 'str',
         'file_system_name': 'str',
         'options': 'ConvertOptionsForGetDeploymentOutput',
-        'tos': 'TosForGetDeploymentOutput'
+        'tos': 'ConvertTosForGetDeploymentOutput'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class SfcsForGetDeploymentOutput(object):
 
 
         :return: The tos of this SfcsForGetDeploymentOutput.  # noqa: E501
-        :rtype: TosForGetDeploymentOutput
+        :rtype: ConvertTosForGetDeploymentOutput
         """
         return self._tos
 
@@ -146,7 +146,7 @@ class SfcsForGetDeploymentOutput(object):
 
 
         :param tos: The tos of this SfcsForGetDeploymentOutput.  # noqa: E501
-        :type: TosForGetDeploymentOutput
+        :type: ConvertTosForGetDeploymentOutput
         """
 
         self._tos = tos

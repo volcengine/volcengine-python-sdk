@@ -36,7 +36,7 @@ class CfsForUpdateDeploymentInput(object):
         'file_system_name': 'str',
         'namespace_id': 'str',
         'options': 'OptionsForUpdateDeploymentInput',
-        'tos': 'TosForUpdateDeploymentInput'
+        'tos': 'ConvertTosForUpdateDeploymentInput'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class CfsForUpdateDeploymentInput(object):
 
 
         :return: The tos of this CfsForUpdateDeploymentInput.  # noqa: E501
-        :rtype: TosForUpdateDeploymentInput
+        :rtype: ConvertTosForUpdateDeploymentInput
         """
         return self._tos
 
@@ -146,7 +146,7 @@ class CfsForUpdateDeploymentInput(object):
 
 
         :param tos: The tos of this CfsForUpdateDeploymentInput.  # noqa: E501
-        :type: TosForUpdateDeploymentInput
+        :type: ConvertTosForUpdateDeploymentInput
         """
 
         self._tos = tos

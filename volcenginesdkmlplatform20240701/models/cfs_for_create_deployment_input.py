@@ -36,7 +36,7 @@ class CfsForCreateDeploymentInput(object):
         'file_system_name': 'str',
         'namespace_id': 'str',
         'options': 'OptionsForCreateDeploymentInput',
-        'tos': 'TosForCreateDeploymentInput'
+        'tos': 'ConvertTosForCreateDeploymentInput'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class CfsForCreateDeploymentInput(object):
 
 
         :return: The tos of this CfsForCreateDeploymentInput.  # noqa: E501
-        :rtype: TosForCreateDeploymentInput
+        :rtype: ConvertTosForCreateDeploymentInput
         """
         return self._tos
 
@@ -146,7 +146,7 @@ class CfsForCreateDeploymentInput(object):
 
 
         :param tos: The tos of this CfsForCreateDeploymentInput.  # noqa: E501
-        :type: TosForCreateDeploymentInput
+        :type: ConvertTosForCreateDeploymentInput
         """
 
         self._tos = tos

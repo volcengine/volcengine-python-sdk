@@ -39,7 +39,7 @@ class ConfigForCreateDeploymentInput(object):
         'nas': 'NasForCreateDeploymentInput',
         'nas_ap': 'NasAPForCreateDeploymentInput',
         'sfcs': 'SfcsForCreateDeploymentInput',
-        'tos': 'TosForCreateDeploymentInput',
+        'tos': 'ConvertTosForCreateDeploymentInput',
         'tos_ap': 'TosAPForCreateDeploymentInput',
         'vepfs': 'VepfsForCreateDeploymentInput',
         'vepfs_ap': 'VepfsAPForCreateDeploymentInput'
@@ -229,7 +229,7 @@ class ConfigForCreateDeploymentInput(object):
 
 
         :return: The tos of this ConfigForCreateDeploymentInput.  # noqa: E501
-        :rtype: TosForCreateDeploymentInput
+        :rtype: ConvertTosForCreateDeploymentInput
         """
         return self._tos
 
@@ -239,7 +239,7 @@ class ConfigForCreateDeploymentInput(object):
 
 
         :param tos: The tos of this ConfigForCreateDeploymentInput.  # noqa: E501
-        :type: TosForCreateDeploymentInput
+        :type: ConvertTosForCreateDeploymentInput
         """
 
         self._tos = tos
