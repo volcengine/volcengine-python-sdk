@@ -35,10 +35,12 @@ class RuleForListAclRuleOutput(object):
     swagger_types = {
         'accurate_group': 'AccurateGroupForListAclRuleOutput',
         'action': 'str',
+        'add_src': 'int',
         'advanced': 'int',
         'client_ip': 'str',
         'description': 'str',
         'enable': 'int',
+        'host': 'str',
         'host_add_type': 'int',
         'host_group_id': 'list[int]',
         'host_groups': 'list[HostGroupForListAclRuleOutput]',
@@ -51,6 +53,8 @@ class RuleForListAclRuleOutput(object):
         'ip_location_country': 'list[str]',
         'ip_location_subregion': 'list[str]',
         'name': 'str',
+        'permit_feature': 'list[str]',
+        'prefix_switch': 'int',
         'rule_tag': 'str',
         'update_time': 'str',
         'url': 'str'
@@ -59,10 +63,12 @@ class RuleForListAclRuleOutput(object):
     attribute_map = {
         'accurate_group': 'AccurateGroup',
         'action': 'Action',
+        'add_src': 'AddSrc',
         'advanced': 'Advanced',
         'client_ip': 'ClientIp',
         'description': 'Description',
         'enable': 'Enable',
+        'host': 'Host',
         'host_add_type': 'HostAddType',
         'host_group_id': 'HostGroupId',
         'host_groups': 'HostGroups',
@@ -75,12 +81,14 @@ class RuleForListAclRuleOutput(object):
         'ip_location_country': 'IpLocationCountry',
         'ip_location_subregion': 'IpLocationSubregion',
         'name': 'Name',
+        'permit_feature': 'PermitFeature',
+        'prefix_switch': 'PrefixSwitch',
         'rule_tag': 'RuleTag',
         'update_time': 'UpdateTime',
         'url': 'Url'
     }
 
-    def __init__(self, accurate_group=None, action=None, advanced=None, client_ip=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_groups=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_groups=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, action=None, add_src=None, advanced=None, client_ip=None, description=None, enable=None, host=None, host_add_type=None, host_group_id=None, host_groups=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_groups=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, permit_feature=None, prefix_switch=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
         """RuleForListAclRuleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,10 +96,12 @@ class RuleForListAclRuleOutput(object):
 
         self._accurate_group = None
         self._action = None
+        self._add_src = None
         self._advanced = None
         self._client_ip = None
         self._description = None
         self._enable = None
+        self._host = None
         self._host_add_type = None
         self._host_group_id = None
         self._host_groups = None
@@ -104,6 +114,8 @@ class RuleForListAclRuleOutput(object):
         self._ip_location_country = None
         self._ip_location_subregion = None
         self._name = None
+        self._permit_feature = None
+        self._prefix_switch = None
         self._rule_tag = None
         self._update_time = None
         self._url = None
@@ -113,6 +125,8 @@ class RuleForListAclRuleOutput(object):
             self.accurate_group = accurate_group
         if action is not None:
             self.action = action
+        if add_src is not None:
+            self.add_src = add_src
         if advanced is not None:
             self.advanced = advanced
         if client_ip is not None:
@@ -121,6 +135,8 @@ class RuleForListAclRuleOutput(object):
             self.description = description
         if enable is not None:
             self.enable = enable
+        if host is not None:
+            self.host = host
         if host_add_type is not None:
             self.host_add_type = host_add_type
         if host_group_id is not None:
@@ -145,6 +161,10 @@ class RuleForListAclRuleOutput(object):
             self.ip_location_subregion = ip_location_subregion
         if name is not None:
             self.name = name
+        if permit_feature is not None:
+            self.permit_feature = permit_feature
+        if prefix_switch is not None:
+            self.prefix_switch = prefix_switch
         if rule_tag is not None:
             self.rule_tag = rule_tag
         if update_time is not None:
@@ -193,6 +213,27 @@ class RuleForListAclRuleOutput(object):
         """
 
         self._action = action
+
+    @property
+    def add_src(self):
+        """Gets the add_src of this RuleForListAclRuleOutput.  # noqa: E501
+
+
+        :return: The add_src of this RuleForListAclRuleOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._add_src
+
+    @add_src.setter
+    def add_src(self, add_src):
+        """Sets the add_src of this RuleForListAclRuleOutput.
+
+
+        :param add_src: The add_src of this RuleForListAclRuleOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._add_src = add_src
 
     @property
     def advanced(self):
@@ -277,6 +318,27 @@ class RuleForListAclRuleOutput(object):
         """
 
         self._enable = enable
+
+    @property
+    def host(self):
+        """Gets the host of this RuleForListAclRuleOutput.  # noqa: E501
+
+
+        :return: The host of this RuleForListAclRuleOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        """Sets the host of this RuleForListAclRuleOutput.
+
+
+        :param host: The host of this RuleForListAclRuleOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._host = host
 
     @property
     def host_add_type(self):
@@ -529,6 +591,48 @@ class RuleForListAclRuleOutput(object):
         """
 
         self._name = name
+
+    @property
+    def permit_feature(self):
+        """Gets the permit_feature of this RuleForListAclRuleOutput.  # noqa: E501
+
+
+        :return: The permit_feature of this RuleForListAclRuleOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._permit_feature
+
+    @permit_feature.setter
+    def permit_feature(self, permit_feature):
+        """Sets the permit_feature of this RuleForListAclRuleOutput.
+
+
+        :param permit_feature: The permit_feature of this RuleForListAclRuleOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._permit_feature = permit_feature
+
+    @property
+    def prefix_switch(self):
+        """Gets the prefix_switch of this RuleForListAclRuleOutput.  # noqa: E501
+
+
+        :return: The prefix_switch of this RuleForListAclRuleOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._prefix_switch
+
+    @prefix_switch.setter
+    def prefix_switch(self, prefix_switch):
+        """Sets the prefix_switch of this RuleForListAclRuleOutput.
+
+
+        :param prefix_switch: The prefix_switch of this RuleForListAclRuleOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._prefix_switch = prefix_switch
 
     @property
     def rule_tag(self):

@@ -35,20 +35,26 @@ class ListAclRuleResponse(object):
     swagger_types = {
         'count': 'int',
         'current_page': 'int',
+        'page_info': 'PageInfoForListAclRuleOutput',
         'page_size': 'int',
-        'rules': 'list[RuleForListAclRuleOutput]',
+        'response_metadata': 'ResponseMetadataForListAclRuleOutput',
+        'result': 'ResultForListAclRuleOutput',
+        'rules': 'list[ConvertRuleForListAclRuleOutput]',
         'total_count': 'int'
     }
 
     attribute_map = {
         'count': 'Count',
         'current_page': 'CurrentPage',
+        'page_info': 'PageInfo',
         'page_size': 'PageSize',
+        'response_metadata': 'ResponseMetadata',
+        'result': 'Result',
         'rules': 'Rules',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, count=None, current_page=None, page_size=None, rules=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, count=None, current_page=None, page_info=None, page_size=None, response_metadata=None, result=None, rules=None, total_count=None, _configuration=None):  # noqa: E501
         """ListAclRuleResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,7 +62,10 @@ class ListAclRuleResponse(object):
 
         self._count = None
         self._current_page = None
+        self._page_info = None
         self._page_size = None
+        self._response_metadata = None
+        self._result = None
         self._rules = None
         self._total_count = None
         self.discriminator = None
@@ -65,8 +74,14 @@ class ListAclRuleResponse(object):
             self.count = count
         if current_page is not None:
             self.current_page = current_page
+        if page_info is not None:
+            self.page_info = page_info
         if page_size is not None:
             self.page_size = page_size
+        if response_metadata is not None:
+            self.response_metadata = response_metadata
+        if result is not None:
+            self.result = result
         if rules is not None:
             self.rules = rules
         if total_count is not None:
@@ -115,6 +130,27 @@ class ListAclRuleResponse(object):
         self._current_page = current_page
 
     @property
+    def page_info(self):
+        """Gets the page_info of this ListAclRuleResponse.  # noqa: E501
+
+
+        :return: The page_info of this ListAclRuleResponse.  # noqa: E501
+        :rtype: PageInfoForListAclRuleOutput
+        """
+        return self._page_info
+
+    @page_info.setter
+    def page_info(self, page_info):
+        """Sets the page_info of this ListAclRuleResponse.
+
+
+        :param page_info: The page_info of this ListAclRuleResponse.  # noqa: E501
+        :type: PageInfoForListAclRuleOutput
+        """
+
+        self._page_info = page_info
+
+    @property
     def page_size(self):
         """Gets the page_size of this ListAclRuleResponse.  # noqa: E501
 
@@ -136,12 +172,54 @@ class ListAclRuleResponse(object):
         self._page_size = page_size
 
     @property
+    def response_metadata(self):
+        """Gets the response_metadata of this ListAclRuleResponse.  # noqa: E501
+
+
+        :return: The response_metadata of this ListAclRuleResponse.  # noqa: E501
+        :rtype: ResponseMetadataForListAclRuleOutput
+        """
+        return self._response_metadata
+
+    @response_metadata.setter
+    def response_metadata(self, response_metadata):
+        """Sets the response_metadata of this ListAclRuleResponse.
+
+
+        :param response_metadata: The response_metadata of this ListAclRuleResponse.  # noqa: E501
+        :type: ResponseMetadataForListAclRuleOutput
+        """
+
+        self._response_metadata = response_metadata
+
+    @property
+    def result(self):
+        """Gets the result of this ListAclRuleResponse.  # noqa: E501
+
+
+        :return: The result of this ListAclRuleResponse.  # noqa: E501
+        :rtype: ResultForListAclRuleOutput
+        """
+        return self._result
+
+    @result.setter
+    def result(self, result):
+        """Sets the result of this ListAclRuleResponse.
+
+
+        :param result: The result of this ListAclRuleResponse.  # noqa: E501
+        :type: ResultForListAclRuleOutput
+        """
+
+        self._result = result
+
+    @property
     def rules(self):
         """Gets the rules of this ListAclRuleResponse.  # noqa: E501
 
 
         :return: The rules of this ListAclRuleResponse.  # noqa: E501
-        :rtype: list[RuleForListAclRuleOutput]
+        :rtype: list[ConvertRuleForListAclRuleOutput]
         """
         return self._rules
 
@@ -151,7 +229,7 @@ class ListAclRuleResponse(object):
 
 
         :param rules: The rules of this ListAclRuleResponse.  # noqa: E501
-        :type: list[RuleForListAclRuleOutput]
+        :type: list[ConvertRuleForListAclRuleOutput]
         """
 
         self._rules = rules

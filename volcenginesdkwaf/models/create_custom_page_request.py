@@ -37,7 +37,7 @@ class CreateCustomPageRequest(object):
         'advanced': 'int',
         'body': 'str',
         'client_ip': 'str',
-        'code': 'int',
+        'code': 'str',
         'content_type': 'str',
         'description': 'str',
         'enable': 'int',
@@ -45,6 +45,7 @@ class CreateCustomPageRequest(object):
         'name': 'str',
         'page_mode': 'int',
         'policy': 'int',
+        'prefix_switch': 'int',
         'project_name': 'str',
         'redirect_url': 'str',
         'url': 'str'
@@ -63,12 +64,13 @@ class CreateCustomPageRequest(object):
         'name': 'Name',
         'page_mode': 'PageMode',
         'policy': 'Policy',
+        'prefix_switch': 'PrefixSwitch',
         'project_name': 'ProjectName',
         'redirect_url': 'RedirectUrl',
         'url': 'Url'
     }
 
-    def __init__(self, accurate=None, advanced=None, body=None, client_ip=None, code=None, content_type=None, description=None, enable=None, host=None, name=None, page_mode=None, policy=None, project_name=None, redirect_url=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate=None, advanced=None, body=None, client_ip=None, code=None, content_type=None, description=None, enable=None, host=None, name=None, page_mode=None, policy=None, prefix_switch=None, project_name=None, redirect_url=None, url=None, _configuration=None):  # noqa: E501
         """CreateCustomPageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class CreateCustomPageRequest(object):
         self._name = None
         self._page_mode = None
         self._policy = None
+        self._prefix_switch = None
         self._project_name = None
         self._redirect_url = None
         self._url = None
@@ -98,16 +101,19 @@ class CreateCustomPageRequest(object):
         if body is not None:
             self.body = body
         self.client_ip = client_ip
-        self.code = code
+        if code is not None:
+            self.code = code
         if content_type is not None:
             self.content_type = content_type
-        if description is not None:
-            self.description = description
-        self.enable = enable
+        self.description = description
+        if enable is not None:
+            self.enable = enable
         self.host = host
         self.name = name
         self.page_mode = page_mode
         self.policy = policy
+        if prefix_switch is not None:
+            self.prefix_switch = prefix_switch
         if project_name is not None:
             self.project_name = project_name
         if redirect_url is not None:
@@ -206,7 +212,7 @@ class CreateCustomPageRequest(object):
 
 
         :return: The code of this CreateCustomPageRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._code
 
@@ -216,10 +222,8 @@ class CreateCustomPageRequest(object):
 
 
         :param code: The code of this CreateCustomPageRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
-        if self._configuration.client_side_validation and code is None:
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
 
@@ -262,6 +266,8 @@ class CreateCustomPageRequest(object):
         :param description: The description of this CreateCustomPageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and description is None:
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
 
@@ -283,8 +289,6 @@ class CreateCustomPageRequest(object):
         :param enable: The enable of this CreateCustomPageRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and enable is None:
-            raise ValueError("Invalid value for `enable`, must not be `None`")  # noqa: E501
 
         self._enable = enable
 
@@ -379,6 +383,27 @@ class CreateCustomPageRequest(object):
             raise ValueError("Invalid value for `policy`, must not be `None`")  # noqa: E501
 
         self._policy = policy
+
+    @property
+    def prefix_switch(self):
+        """Gets the prefix_switch of this CreateCustomPageRequest.  # noqa: E501
+
+
+        :return: The prefix_switch of this CreateCustomPageRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._prefix_switch
+
+    @prefix_switch.setter
+    def prefix_switch(self, prefix_switch):
+        """Sets the prefix_switch of this CreateCustomPageRequest.
+
+
+        :param prefix_switch: The prefix_switch of this CreateCustomPageRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._prefix_switch = prefix_switch
 
     @property
     def project_name(self):

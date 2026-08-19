@@ -80,6 +80,13 @@ class DeleteAclRuleRequest(object):
         """
         if self._configuration.client_side_validation and acl_type is None:
             raise ValueError("Invalid value for `acl_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["Allow", "Block"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                acl_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `acl_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(acl_type, allowed_values)
+            )
 
         self._acl_type = acl_type
 

@@ -34,28 +34,39 @@ class UpdateCustomSystemVulRuleRequest(object):
     """
     swagger_types = {
         'host': 'str',
+        'host_add_type': 'int',
+        'host_list': 'list[str]',
         'project_name': 'str',
         'system_rule_switch': 'list[SystemRuleSwitchForUpdateCustomSystemVulRuleInput]'
     }
 
     attribute_map = {
         'host': 'Host',
+        'host_add_type': 'HostAddType',
+        'host_list': 'HostList',
         'project_name': 'ProjectName',
         'system_rule_switch': 'SystemRuleSwitch'
     }
 
-    def __init__(self, host=None, project_name=None, system_rule_switch=None, _configuration=None):  # noqa: E501
+    def __init__(self, host=None, host_add_type=None, host_list=None, project_name=None, system_rule_switch=None, _configuration=None):  # noqa: E501
         """UpdateCustomSystemVulRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._host = None
+        self._host_add_type = None
+        self._host_list = None
         self._project_name = None
         self._system_rule_switch = None
         self.discriminator = None
 
-        self.host = host
+        if host is not None:
+            self.host = host
+        if host_add_type is not None:
+            self.host_add_type = host_add_type
+        if host_list is not None:
+            self.host_list = host_list
         if project_name is not None:
             self.project_name = project_name
         if system_rule_switch is not None:
@@ -79,10 +90,50 @@ class UpdateCustomSystemVulRuleRequest(object):
         :param host: The host of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and host is None:
-            raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
+
+    @property
+    def host_add_type(self):
+        """Gets the host_add_type of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+
+
+        :return: The host_add_type of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._host_add_type
+
+    @host_add_type.setter
+    def host_add_type(self, host_add_type):
+        """Sets the host_add_type of this UpdateCustomSystemVulRuleRequest.
+
+
+        :param host_add_type: The host_add_type of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._host_add_type = host_add_type
+
+    @property
+    def host_list(self):
+        """Gets the host_list of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+
+
+        :return: The host_list of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._host_list
+
+    @host_list.setter
+    def host_list(self, host_list):
+        """Sets the host_list of this UpdateCustomSystemVulRuleRequest.
+
+
+        :param host_list: The host_list of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._host_list = host_list
 
     @property
     def project_name(self):

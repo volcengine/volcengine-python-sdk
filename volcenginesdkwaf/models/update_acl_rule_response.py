@@ -33,24 +33,39 @@ class UpdateAclRuleResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int'
+        'id': 'int',
+        'page_info': 'PageInfoForUpdateAclRuleOutput',
+        'response_metadata': 'ResponseMetadataForUpdateAclRuleOutput',
+        'result': 'ResultForUpdateAclRuleOutput'
     }
 
     attribute_map = {
-        'id': 'Id'
+        'id': 'Id',
+        'page_info': 'PageInfo',
+        'response_metadata': 'ResponseMetadata',
+        'result': 'Result'
     }
 
-    def __init__(self, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, page_info=None, response_metadata=None, result=None, _configuration=None):  # noqa: E501
         """UpdateAclRuleResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._id = None
+        self._page_info = None
+        self._response_metadata = None
+        self._result = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
+        if page_info is not None:
+            self.page_info = page_info
+        if response_metadata is not None:
+            self.response_metadata = response_metadata
+        if result is not None:
+            self.result = result
 
     @property
     def id(self):
@@ -72,6 +87,69 @@ class UpdateAclRuleResponse(object):
         """
 
         self._id = id
+
+    @property
+    def page_info(self):
+        """Gets the page_info of this UpdateAclRuleResponse.  # noqa: E501
+
+
+        :return: The page_info of this UpdateAclRuleResponse.  # noqa: E501
+        :rtype: PageInfoForUpdateAclRuleOutput
+        """
+        return self._page_info
+
+    @page_info.setter
+    def page_info(self, page_info):
+        """Sets the page_info of this UpdateAclRuleResponse.
+
+
+        :param page_info: The page_info of this UpdateAclRuleResponse.  # noqa: E501
+        :type: PageInfoForUpdateAclRuleOutput
+        """
+
+        self._page_info = page_info
+
+    @property
+    def response_metadata(self):
+        """Gets the response_metadata of this UpdateAclRuleResponse.  # noqa: E501
+
+
+        :return: The response_metadata of this UpdateAclRuleResponse.  # noqa: E501
+        :rtype: ResponseMetadataForUpdateAclRuleOutput
+        """
+        return self._response_metadata
+
+    @response_metadata.setter
+    def response_metadata(self, response_metadata):
+        """Sets the response_metadata of this UpdateAclRuleResponse.
+
+
+        :param response_metadata: The response_metadata of this UpdateAclRuleResponse.  # noqa: E501
+        :type: ResponseMetadataForUpdateAclRuleOutput
+        """
+
+        self._response_metadata = response_metadata
+
+    @property
+    def result(self):
+        """Gets the result of this UpdateAclRuleResponse.  # noqa: E501
+
+
+        :return: The result of this UpdateAclRuleResponse.  # noqa: E501
+        :rtype: ResultForUpdateAclRuleOutput
+        """
+        return self._result
+
+    @result.setter
+    def result(self, result):
+        """Sets the result of this UpdateAclRuleResponse.
+
+
+        :param result: The result of this UpdateAclRuleResponse.  # noqa: E501
+        :type: ResultForUpdateAclRuleOutput
+        """
+
+        self._result = result
 
     def to_dict(self):
         """Returns the model properties as a dict"""

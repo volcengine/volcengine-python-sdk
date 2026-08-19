@@ -35,18 +35,24 @@ class ListCustomPageResponse(object):
     swagger_types = {
         'current_page': 'int',
         'data': 'list[DataForListCustomPageOutput]',
+        'page_info': 'PageInfoForListCustomPageOutput',
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'response_metadata': 'ResponseMetadataForListCustomPageOutput',
+        'result': 'list[ResultForListCustomPageOutput]'
     }
 
     attribute_map = {
         'current_page': 'CurrentPage',
         'data': 'Data',
+        'page_info': 'PageInfo',
         'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'response_metadata': 'ResponseMetadata',
+        'result': 'Result'
     }
 
-    def __init__(self, current_page=None, data=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, current_page=None, data=None, page_info=None, page_number=None, page_size=None, response_metadata=None, result=None, _configuration=None):  # noqa: E501
         """ListCustomPageResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,18 +60,27 @@ class ListCustomPageResponse(object):
 
         self._current_page = None
         self._data = None
+        self._page_info = None
         self._page_number = None
         self._page_size = None
+        self._response_metadata = None
+        self._result = None
         self.discriminator = None
 
         if current_page is not None:
             self.current_page = current_page
         if data is not None:
             self.data = data
+        if page_info is not None:
+            self.page_info = page_info
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if response_metadata is not None:
+            self.response_metadata = response_metadata
+        if result is not None:
+            self.result = result
 
     @property
     def current_page(self):
@@ -110,6 +125,27 @@ class ListCustomPageResponse(object):
         self._data = data
 
     @property
+    def page_info(self):
+        """Gets the page_info of this ListCustomPageResponse.  # noqa: E501
+
+
+        :return: The page_info of this ListCustomPageResponse.  # noqa: E501
+        :rtype: PageInfoForListCustomPageOutput
+        """
+        return self._page_info
+
+    @page_info.setter
+    def page_info(self, page_info):
+        """Sets the page_info of this ListCustomPageResponse.
+
+
+        :param page_info: The page_info of this ListCustomPageResponse.  # noqa: E501
+        :type: PageInfoForListCustomPageOutput
+        """
+
+        self._page_info = page_info
+
+    @property
     def page_number(self):
         """Gets the page_number of this ListCustomPageResponse.  # noqa: E501
 
@@ -150,6 +186,48 @@ class ListCustomPageResponse(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def response_metadata(self):
+        """Gets the response_metadata of this ListCustomPageResponse.  # noqa: E501
+
+
+        :return: The response_metadata of this ListCustomPageResponse.  # noqa: E501
+        :rtype: ResponseMetadataForListCustomPageOutput
+        """
+        return self._response_metadata
+
+    @response_metadata.setter
+    def response_metadata(self, response_metadata):
+        """Sets the response_metadata of this ListCustomPageResponse.
+
+
+        :param response_metadata: The response_metadata of this ListCustomPageResponse.  # noqa: E501
+        :type: ResponseMetadataForListCustomPageOutput
+        """
+
+        self._response_metadata = response_metadata
+
+    @property
+    def result(self):
+        """Gets the result of this ListCustomPageResponse.  # noqa: E501
+
+
+        :return: The result of this ListCustomPageResponse.  # noqa: E501
+        :rtype: list[ResultForListCustomPageOutput]
+        """
+        return self._result
+
+    @result.setter
+    def result(self, result):
+        """Sets the result of this ListCustomPageResponse.
+
+
+        :param result: The result of this ListCustomPageResponse.  # noqa: E501
+        :type: list[ResultForListCustomPageOutput]
+        """
+
+        self._result = result
 
     def to_dict(self):
         """Returns the model properties as a dict"""

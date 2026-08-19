@@ -38,7 +38,6 @@ class CloudAccessConfigForListDomainOutput(object):
         'instance_id': 'str',
         'instance_name': 'str',
         'listener_id': 'str',
-        'lost_association_from_alb': 'int',
         'port': 'str',
         'protocol': 'str'
     }
@@ -49,12 +48,11 @@ class CloudAccessConfigForListDomainOutput(object):
         'instance_id': 'InstanceID',
         'instance_name': 'InstanceName',
         'listener_id': 'ListenerID',
-        'lost_association_from_alb': 'LostAssociationFromALB',
         'port': 'Port',
         'protocol': 'Protocol'
     }
 
-    def __init__(self, access_protocol=None, defence_mode=None, instance_id=None, instance_name=None, listener_id=None, lost_association_from_alb=None, port=None, protocol=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_protocol=None, defence_mode=None, instance_id=None, instance_name=None, listener_id=None, port=None, protocol=None, _configuration=None):  # noqa: E501
         """CloudAccessConfigForListDomainOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,7 +63,6 @@ class CloudAccessConfigForListDomainOutput(object):
         self._instance_id = None
         self._instance_name = None
         self._listener_id = None
-        self._lost_association_from_alb = None
         self._port = None
         self._protocol = None
         self.discriminator = None
@@ -80,8 +77,6 @@ class CloudAccessConfigForListDomainOutput(object):
             self.instance_name = instance_name
         if listener_id is not None:
             self.listener_id = listener_id
-        if lost_association_from_alb is not None:
-            self.lost_association_from_alb = lost_association_from_alb
         if port is not None:
             self.port = port
         if protocol is not None:
@@ -191,27 +186,6 @@ class CloudAccessConfigForListDomainOutput(object):
         """
 
         self._listener_id = listener_id
-
-    @property
-    def lost_association_from_alb(self):
-        """Gets the lost_association_from_alb of this CloudAccessConfigForListDomainOutput.  # noqa: E501
-
-
-        :return: The lost_association_from_alb of this CloudAccessConfigForListDomainOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._lost_association_from_alb
-
-    @lost_association_from_alb.setter
-    def lost_association_from_alb(self, lost_association_from_alb):
-        """Sets the lost_association_from_alb of this CloudAccessConfigForListDomainOutput.
-
-
-        :param lost_association_from_alb: The lost_association_from_alb of this CloudAccessConfigForListDomainOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._lost_association_from_alb = lost_association_from_alb
 
     @property
     def port(self):

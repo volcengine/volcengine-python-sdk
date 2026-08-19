@@ -33,9 +33,11 @@ class UpdateBotAnalyseProtectRuleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'accurate_group': 'list[AccurateGroupForUpdateBotAnalyseProtectRuleInput]',
-        'action_after_verification': 'int',
+        'accurate_group': 'AccurateGroupForUpdateBotAnalyseProtectRuleInput',
+        'accurate_group_priority': 'int',
         'action_type': 'int',
+        'cron_confs': 'list[CronConfForUpdateBotAnalyseProtectRuleInput]',
+        'cron_enable': 'int',
         'effect_time': 'int',
         'enable': 'int',
         'exemption_time': 'int',
@@ -50,13 +52,16 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         'single_proportion': 'float',
         'single_threshold': 'int',
         'statistical_duration': 'int',
-        'statistical_type': 'int'
+        'statistical_type': 'int',
+        'update_time': 'str'
     }
 
     attribute_map = {
         'accurate_group': 'AccurateGroup',
-        'action_after_verification': 'ActionAfterVerification',
+        'accurate_group_priority': 'AccurateGroupPriority',
         'action_type': 'ActionType',
+        'cron_confs': 'CronConfs',
+        'cron_enable': 'CronEnable',
         'effect_time': 'EffectTime',
         'enable': 'Enable',
         'exemption_time': 'ExemptionTime',
@@ -71,18 +76,21 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         'single_proportion': 'SingleProportion',
         'single_threshold': 'SingleThreshold',
         'statistical_duration': 'StatisticalDuration',
-        'statistical_type': 'StatisticalType'
+        'statistical_type': 'StatisticalType',
+        'update_time': 'UpdateTime'
     }
 
-    def __init__(self, accurate_group=None, action_after_verification=None, action_type=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, id=None, name=None, path=None, path_threshold=None, project_name=None, rule_priority=None, single_proportion=None, single_threshold=None, statistical_duration=None, statistical_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, accurate_group_priority=None, action_type=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, id=None, name=None, path=None, path_threshold=None, project_name=None, rule_priority=None, single_proportion=None, single_threshold=None, statistical_duration=None, statistical_type=None, update_time=None, _configuration=None):  # noqa: E501
         """UpdateBotAnalyseProtectRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._accurate_group = None
-        self._action_after_verification = None
+        self._accurate_group_priority = None
         self._action_type = None
+        self._cron_confs = None
+        self._cron_enable = None
         self._effect_time = None
         self._enable = None
         self._exemption_time = None
@@ -98,14 +106,20 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         self._single_threshold = None
         self._statistical_duration = None
         self._statistical_type = None
+        self._update_time = None
         self.discriminator = None
 
         if accurate_group is not None:
             self.accurate_group = accurate_group
-        if action_after_verification is not None:
-            self.action_after_verification = action_after_verification
+        if accurate_group_priority is not None:
+            self.accurate_group_priority = accurate_group_priority
         self.action_type = action_type
-        self.effect_time = effect_time
+        if cron_confs is not None:
+            self.cron_confs = cron_confs
+        if cron_enable is not None:
+            self.cron_enable = cron_enable
+        if effect_time is not None:
+            self.effect_time = effect_time
         self.enable = enable
         if exemption_time is not None:
             self.exemption_time = exemption_time
@@ -121,9 +135,12 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         self.rule_priority = rule_priority
         if single_proportion is not None:
             self.single_proportion = single_proportion
-        self.single_threshold = single_threshold
+        if single_threshold is not None:
+            self.single_threshold = single_threshold
         self.statistical_duration = statistical_duration
         self.statistical_type = statistical_type
+        if update_time is not None:
+            self.update_time = update_time
 
     @property
     def accurate_group(self):
@@ -131,7 +148,7 @@ class UpdateBotAnalyseProtectRuleRequest(object):
 
 
         :return: The accurate_group of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
-        :rtype: list[AccurateGroupForUpdateBotAnalyseProtectRuleInput]
+        :rtype: AccurateGroupForUpdateBotAnalyseProtectRuleInput
         """
         return self._accurate_group
 
@@ -141,31 +158,31 @@ class UpdateBotAnalyseProtectRuleRequest(object):
 
 
         :param accurate_group: The accurate_group of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
-        :type: list[AccurateGroupForUpdateBotAnalyseProtectRuleInput]
+        :type: AccurateGroupForUpdateBotAnalyseProtectRuleInput
         """
 
         self._accurate_group = accurate_group
 
     @property
-    def action_after_verification(self):
-        """Gets the action_after_verification of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+    def accurate_group_priority(self):
+        """Gets the accurate_group_priority of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
 
 
-        :return: The action_after_verification of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :return: The accurate_group_priority of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
         :rtype: int
         """
-        return self._action_after_verification
+        return self._accurate_group_priority
 
-    @action_after_verification.setter
-    def action_after_verification(self, action_after_verification):
-        """Sets the action_after_verification of this UpdateBotAnalyseProtectRuleRequest.
+    @accurate_group_priority.setter
+    def accurate_group_priority(self, accurate_group_priority):
+        """Sets the accurate_group_priority of this UpdateBotAnalyseProtectRuleRequest.
 
 
-        :param action_after_verification: The action_after_verification of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :param accurate_group_priority: The accurate_group_priority of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
         :type: int
         """
 
-        self._action_after_verification = action_after_verification
+        self._accurate_group_priority = accurate_group_priority
 
     @property
     def action_type(self):
@@ -191,6 +208,48 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         self._action_type = action_type
 
     @property
+    def cron_confs(self):
+        """Gets the cron_confs of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+
+
+        :return: The cron_confs of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :rtype: list[CronConfForUpdateBotAnalyseProtectRuleInput]
+        """
+        return self._cron_confs
+
+    @cron_confs.setter
+    def cron_confs(self, cron_confs):
+        """Sets the cron_confs of this UpdateBotAnalyseProtectRuleRequest.
+
+
+        :param cron_confs: The cron_confs of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :type: list[CronConfForUpdateBotAnalyseProtectRuleInput]
+        """
+
+        self._cron_confs = cron_confs
+
+    @property
+    def cron_enable(self):
+        """Gets the cron_enable of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+
+
+        :return: The cron_enable of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._cron_enable
+
+    @cron_enable.setter
+    def cron_enable(self, cron_enable):
+        """Sets the cron_enable of this UpdateBotAnalyseProtectRuleRequest.
+
+
+        :param cron_enable: The cron_enable of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._cron_enable = cron_enable
+
+    @property
     def effect_time(self):
         """Gets the effect_time of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
 
@@ -208,8 +267,6 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         :param effect_time: The effect_time of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and effect_time is None:
-            raise ValueError("Invalid value for `effect_time`, must not be `None`")  # noqa: E501
 
         self._effect_time = effect_time
 
@@ -476,8 +533,6 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         :param single_threshold: The single_threshold of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and single_threshold is None:
-            raise ValueError("Invalid value for `single_threshold`, must not be `None`")  # noqa: E501
 
         self._single_threshold = single_threshold
 
@@ -526,6 +581,27 @@ class UpdateBotAnalyseProtectRuleRequest(object):
             raise ValueError("Invalid value for `statistical_type`, must not be `None`")  # noqa: E501
 
         self._statistical_type = statistical_type
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+
+
+        :return: The update_time of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this UpdateBotAnalyseProtectRuleRequest.
+
+
+        :param update_time: The update_time of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._update_time = update_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

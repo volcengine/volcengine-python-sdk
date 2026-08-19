@@ -52,7 +52,8 @@ class ListAreaBlockRuleRequest(object):
         self._project_name = None
         self.discriminator = None
 
-        self.host = host
+        if host is not None:
+            self.host = host
         if project_name is not None:
             self.project_name = project_name
 
@@ -74,8 +75,6 @@ class ListAreaBlockRuleRequest(object):
         :param host: The host of this ListAreaBlockRuleRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and host is None:
-            raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
 

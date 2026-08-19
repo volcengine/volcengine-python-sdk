@@ -195,6 +195,13 @@ class ListCCRuleRequest(object):
         :param path_order_by: The path_order_by of this ListCCRuleRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ASC", "DESC"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                path_order_by not in allowed_values):
+            raise ValueError(
+                "Invalid value for `path_order_by` ({0}), must be one of {1}"  # noqa: E501
+                .format(path_order_by, allowed_values)
+            )
 
         self._path_order_by = path_order_by
 
