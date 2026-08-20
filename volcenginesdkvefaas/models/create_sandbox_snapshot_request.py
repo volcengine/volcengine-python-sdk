@@ -34,28 +34,38 @@ class CreateSandboxSnapshotRequest(object):
     """
     swagger_types = {
         'function_id': 'str',
+        'metadata': 'MetadataForCreateSandboxSnapshotInput',
+        'retention_days': 'int',
         'sandbox_id': 'str',
         'type': 'str'
     }
 
     attribute_map = {
         'function_id': 'FunctionId',
+        'metadata': 'Metadata',
+        'retention_days': 'RetentionDays',
         'sandbox_id': 'SandboxId',
         'type': 'Type'
     }
 
-    def __init__(self, function_id=None, sandbox_id=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, function_id=None, metadata=None, retention_days=None, sandbox_id=None, type=None, _configuration=None):  # noqa: E501
         """CreateSandboxSnapshotRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._function_id = None
+        self._metadata = None
+        self._retention_days = None
         self._sandbox_id = None
         self._type = None
         self.discriminator = None
 
         self.function_id = function_id
+        if metadata is not None:
+            self.metadata = metadata
+        if retention_days is not None:
+            self.retention_days = retention_days
         self.sandbox_id = sandbox_id
         if type is not None:
             self.type = type
@@ -82,6 +92,48 @@ class CreateSandboxSnapshotRequest(object):
             raise ValueError("Invalid value for `function_id`, must not be `None`")  # noqa: E501
 
         self._function_id = function_id
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this CreateSandboxSnapshotRequest.  # noqa: E501
+
+
+        :return: The metadata of this CreateSandboxSnapshotRequest.  # noqa: E501
+        :rtype: MetadataForCreateSandboxSnapshotInput
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this CreateSandboxSnapshotRequest.
+
+
+        :param metadata: The metadata of this CreateSandboxSnapshotRequest.  # noqa: E501
+        :type: MetadataForCreateSandboxSnapshotInput
+        """
+
+        self._metadata = metadata
+
+    @property
+    def retention_days(self):
+        """Gets the retention_days of this CreateSandboxSnapshotRequest.  # noqa: E501
+
+
+        :return: The retention_days of this CreateSandboxSnapshotRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._retention_days
+
+    @retention_days.setter
+    def retention_days(self, retention_days):
+        """Sets the retention_days of this CreateSandboxSnapshotRequest.
+
+
+        :param retention_days: The retention_days of this CreateSandboxSnapshotRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._retention_days = retention_days
 
     @property
     def sandbox_id(self):

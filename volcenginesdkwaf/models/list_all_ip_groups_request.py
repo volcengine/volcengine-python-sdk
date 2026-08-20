@@ -34,6 +34,8 @@ class ListAllIpGroupsRequest(object):
     """
     swagger_types = {
         'ip': 'str',
+        'ip_group_id': 'int',
+        'ip_group_ids': 'list[int]',
         'page': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -43,6 +45,8 @@ class ListAllIpGroupsRequest(object):
 
     attribute_map = {
         'ip': 'Ip',
+        'ip_group_id': 'IpGroupId',
+        'ip_group_ids': 'IpGroupIds',
         'page': 'Page',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
@@ -50,13 +54,15 @@ class ListAllIpGroupsRequest(object):
         'time_order_by': 'TimeOrderBy'
     }
 
-    def __init__(self, ip=None, page=None, page_size=None, project_name=None, rule_tag=None, time_order_by=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip=None, ip_group_id=None, ip_group_ids=None, page=None, page_size=None, project_name=None, rule_tag=None, time_order_by=None, _configuration=None):  # noqa: E501
         """ListAllIpGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._ip = None
+        self._ip_group_id = None
+        self._ip_group_ids = None
         self._page = None
         self._page_size = None
         self._project_name = None
@@ -66,6 +72,10 @@ class ListAllIpGroupsRequest(object):
 
         if ip is not None:
             self.ip = ip
+        if ip_group_id is not None:
+            self.ip_group_id = ip_group_id
+        if ip_group_ids is not None:
+            self.ip_group_ids = ip_group_ids
         if page is not None:
             self.page = page
         if page_size is not None:
@@ -96,6 +106,48 @@ class ListAllIpGroupsRequest(object):
         """
 
         self._ip = ip
+
+    @property
+    def ip_group_id(self):
+        """Gets the ip_group_id of this ListAllIpGroupsRequest.  # noqa: E501
+
+
+        :return: The ip_group_id of this ListAllIpGroupsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ip_group_id
+
+    @ip_group_id.setter
+    def ip_group_id(self, ip_group_id):
+        """Sets the ip_group_id of this ListAllIpGroupsRequest.
+
+
+        :param ip_group_id: The ip_group_id of this ListAllIpGroupsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ip_group_id = ip_group_id
+
+    @property
+    def ip_group_ids(self):
+        """Gets the ip_group_ids of this ListAllIpGroupsRequest.  # noqa: E501
+
+
+        :return: The ip_group_ids of this ListAllIpGroupsRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._ip_group_ids
+
+    @ip_group_ids.setter
+    def ip_group_ids(self, ip_group_ids):
+        """Sets the ip_group_ids of this ListAllIpGroupsRequest.
+
+
+        :param ip_group_ids: The ip_group_ids of this ListAllIpGroupsRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._ip_group_ids = ip_group_ids
 
     @property
     def page(self):

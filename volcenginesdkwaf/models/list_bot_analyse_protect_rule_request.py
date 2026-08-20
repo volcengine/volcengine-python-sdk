@@ -33,6 +33,7 @@ class ListBotAnalyseProtectRuleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'action_type_key': 'list[int]',
         'bot_space': 'str',
         'host': 'str',
         'name': 'str',
@@ -45,6 +46,7 @@ class ListBotAnalyseProtectRuleRequest(object):
     }
 
     attribute_map = {
+        'action_type_key': 'ActionTypeKey',
         'bot_space': 'BotSpace',
         'host': 'Host',
         'name': 'Name',
@@ -56,12 +58,13 @@ class ListBotAnalyseProtectRuleRequest(object):
         'rule_tag': 'RuleTag'
     }
 
-    def __init__(self, bot_space=None, host=None, name=None, page=None, page_size=None, path=None, project_name=None, region=None, rule_tag=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_type_key=None, bot_space=None, host=None, name=None, page=None, page_size=None, path=None, project_name=None, region=None, rule_tag=None, _configuration=None):  # noqa: E501
         """ListBotAnalyseProtectRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._action_type_key = None
         self._bot_space = None
         self._host = None
         self._name = None
@@ -73,7 +76,10 @@ class ListBotAnalyseProtectRuleRequest(object):
         self._rule_tag = None
         self.discriminator = None
 
-        self.bot_space = bot_space
+        if action_type_key is not None:
+            self.action_type_key = action_type_key
+        if bot_space is not None:
+            self.bot_space = bot_space
         self.host = host
         if name is not None:
             self.name = name
@@ -88,6 +94,27 @@ class ListBotAnalyseProtectRuleRequest(object):
         self.region = region
         if rule_tag is not None:
             self.rule_tag = rule_tag
+
+    @property
+    def action_type_key(self):
+        """Gets the action_type_key of this ListBotAnalyseProtectRuleRequest.  # noqa: E501
+
+
+        :return: The action_type_key of this ListBotAnalyseProtectRuleRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._action_type_key
+
+    @action_type_key.setter
+    def action_type_key(self, action_type_key):
+        """Sets the action_type_key of this ListBotAnalyseProtectRuleRequest.
+
+
+        :param action_type_key: The action_type_key of this ListBotAnalyseProtectRuleRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._action_type_key = action_type_key
 
     @property
     def bot_space(self):
@@ -107,8 +134,13 @@ class ListBotAnalyseProtectRuleRequest(object):
         :param bot_space: The bot_space of this ListBotAnalyseProtectRuleRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and bot_space is None:
-            raise ValueError("Invalid value for `bot_space`, must not be `None`")  # noqa: E501
+        allowed_values = ["BotFrequency", "BotRepeat"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                bot_space not in allowed_values):
+            raise ValueError(
+                "Invalid value for `bot_space` ({0}), must be one of {1}"  # noqa: E501
+                .format(bot_space, allowed_values)
+            )
 
         self._bot_space = bot_space
 

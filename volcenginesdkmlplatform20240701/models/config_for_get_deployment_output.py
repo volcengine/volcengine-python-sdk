@@ -39,7 +39,7 @@ class ConfigForGetDeploymentOutput(object):
         'nas': 'NasForGetDeploymentOutput',
         'nas_ap': 'NasAPForGetDeploymentOutput',
         'sfcs': 'SfcsForGetDeploymentOutput',
-        'tos': 'TosForGetDeploymentOutput',
+        'tos': 'ConvertTosForGetDeploymentOutput',
         'tos_ap': 'TosAPForGetDeploymentOutput',
         'vepfs': 'VepfsForGetDeploymentOutput',
         'vepfs_ap': 'VepfsAPForGetDeploymentOutput'
@@ -229,7 +229,7 @@ class ConfigForGetDeploymentOutput(object):
 
 
         :return: The tos of this ConfigForGetDeploymentOutput.  # noqa: E501
-        :rtype: TosForGetDeploymentOutput
+        :rtype: ConvertTosForGetDeploymentOutput
         """
         return self._tos
 
@@ -239,7 +239,7 @@ class ConfigForGetDeploymentOutput(object):
 
 
         :param tos: The tos of this ConfigForGetDeploymentOutput.  # noqa: E501
-        :type: TosForGetDeploymentOutput
+        :type: ConvertTosForGetDeploymentOutput
         """
 
         self._tos = tos

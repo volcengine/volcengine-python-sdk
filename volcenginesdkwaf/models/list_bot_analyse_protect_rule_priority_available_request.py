@@ -33,6 +33,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'accurate_group': 'AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput',
         'bot_space': 'str',
         'host': 'str',
         'page': 'int',
@@ -42,6 +43,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
     }
 
     attribute_map = {
+        'accurate_group': 'AccurateGroup',
         'bot_space': 'BotSpace',
         'host': 'Host',
         'page': 'Page',
@@ -50,12 +52,13 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         'project_name': 'ProjectName'
     }
 
-    def __init__(self, bot_space=None, host=None, page=None, page_size=None, path=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, bot_space=None, host=None, page=None, page_size=None, path=None, project_name=None, _configuration=None):  # noqa: E501
         """ListBotAnalyseProtectRulePriorityAvailableRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._accurate_group = None
         self._bot_space = None
         self._host = None
         self._page = None
@@ -64,6 +67,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         self._project_name = None
         self.discriminator = None
 
+        if accurate_group is not None:
+            self.accurate_group = accurate_group
         self.bot_space = bot_space
         self.host = host
         if page is not None:
@@ -73,6 +78,27 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         self.path = path
         if project_name is not None:
             self.project_name = project_name
+
+    @property
+    def accurate_group(self):
+        """Gets the accurate_group of this ListBotAnalyseProtectRulePriorityAvailableRequest.  # noqa: E501
+
+
+        :return: The accurate_group of this ListBotAnalyseProtectRulePriorityAvailableRequest.  # noqa: E501
+        :rtype: AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput
+        """
+        return self._accurate_group
+
+    @accurate_group.setter
+    def accurate_group(self, accurate_group):
+        """Sets the accurate_group of this ListBotAnalyseProtectRulePriorityAvailableRequest.
+
+
+        :param accurate_group: The accurate_group of this ListBotAnalyseProtectRulePriorityAvailableRequest.  # noqa: E501
+        :type: AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput
+        """
+
+        self._accurate_group = accurate_group
 
     @property
     def bot_space(self):
@@ -94,6 +120,13 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         """
         if self._configuration.client_side_validation and bot_space is None:
             raise ValueError("Invalid value for `bot_space`, must not be `None`")  # noqa: E501
+        allowed_values = ["BotFrequency", "BotRepeat"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                bot_space not in allowed_values):
+            raise ValueError(
+                "Invalid value for `bot_space` ({0}), must be one of {1}"  # noqa: E501
+                .format(bot_space, allowed_values)
+            )
 
         self._bot_space = bot_space
 

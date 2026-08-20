@@ -39,7 +39,7 @@ class ConfigForUpdateDeploymentInput(object):
         'nas': 'NasForUpdateDeploymentInput',
         'nas_ap': 'NasAPForUpdateDeploymentInput',
         'sfcs': 'SfcsForUpdateDeploymentInput',
-        'tos': 'TosForUpdateDeploymentInput',
+        'tos': 'ConvertTosForUpdateDeploymentInput',
         'tos_ap': 'TosAPForUpdateDeploymentInput',
         'vepfs': 'VepfsForUpdateDeploymentInput',
         'vepfs_ap': 'VepfsAPForUpdateDeploymentInput'
@@ -229,7 +229,7 @@ class ConfigForUpdateDeploymentInput(object):
 
 
         :return: The tos of this ConfigForUpdateDeploymentInput.  # noqa: E501
-        :rtype: TosForUpdateDeploymentInput
+        :rtype: ConvertTosForUpdateDeploymentInput
         """
         return self._tos
 
@@ -239,7 +239,7 @@ class ConfigForUpdateDeploymentInput(object):
 
 
         :param tos: The tos of this ConfigForUpdateDeploymentInput.  # noqa: E501
-        :type: TosForUpdateDeploymentInput
+        :type: ConvertTosForUpdateDeploymentInput
         """
 
         self._tos = tos

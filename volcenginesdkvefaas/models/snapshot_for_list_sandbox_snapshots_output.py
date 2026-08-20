@@ -34,7 +34,12 @@ class SnapshotForListSandboxSnapshotsOutput(object):
     """
     swagger_types = {
         'created_at': 'str',
+        'created_by_job_id': 'str',
+        'metadata': 'MetadataForListSandboxSnapshotsOutput',
+        'retention_days': 'int',
+        'retention_expires_at': 'str',
         'sandbox_id': 'str',
+        'sandbox_info': 'SandboxInfoForListSandboxSnapshotsOutput',
         'snapshot_id': 'str',
         'snapshot_type': 'str',
         'source': 'str',
@@ -43,21 +48,31 @@ class SnapshotForListSandboxSnapshotsOutput(object):
 
     attribute_map = {
         'created_at': 'CreatedAt',
+        'created_by_job_id': 'CreatedByJobId',
+        'metadata': 'Metadata',
+        'retention_days': 'RetentionDays',
+        'retention_expires_at': 'RetentionExpiresAt',
         'sandbox_id': 'SandboxId',
+        'sandbox_info': 'SandboxInfo',
         'snapshot_id': 'SnapshotId',
         'snapshot_type': 'SnapshotType',
         'source': 'Source',
         'status': 'Status'
     }
 
-    def __init__(self, created_at=None, sandbox_id=None, snapshot_id=None, snapshot_type=None, source=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, created_by_job_id=None, metadata=None, retention_days=None, retention_expires_at=None, sandbox_id=None, sandbox_info=None, snapshot_id=None, snapshot_type=None, source=None, status=None, _configuration=None):  # noqa: E501
         """SnapshotForListSandboxSnapshotsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._created_at = None
+        self._created_by_job_id = None
+        self._metadata = None
+        self._retention_days = None
+        self._retention_expires_at = None
         self._sandbox_id = None
+        self._sandbox_info = None
         self._snapshot_id = None
         self._snapshot_type = None
         self._source = None
@@ -66,8 +81,18 @@ class SnapshotForListSandboxSnapshotsOutput(object):
 
         if created_at is not None:
             self.created_at = created_at
+        if created_by_job_id is not None:
+            self.created_by_job_id = created_by_job_id
+        if metadata is not None:
+            self.metadata = metadata
+        if retention_days is not None:
+            self.retention_days = retention_days
+        if retention_expires_at is not None:
+            self.retention_expires_at = retention_expires_at
         if sandbox_id is not None:
             self.sandbox_id = sandbox_id
+        if sandbox_info is not None:
+            self.sandbox_info = sandbox_info
         if snapshot_id is not None:
             self.snapshot_id = snapshot_id
         if snapshot_type is not None:
@@ -99,6 +124,90 @@ class SnapshotForListSandboxSnapshotsOutput(object):
         self._created_at = created_at
 
     @property
+    def created_by_job_id(self):
+        """Gets the created_by_job_id of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+
+
+        :return: The created_by_job_id of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_by_job_id
+
+    @created_by_job_id.setter
+    def created_by_job_id(self, created_by_job_id):
+        """Sets the created_by_job_id of this SnapshotForListSandboxSnapshotsOutput.
+
+
+        :param created_by_job_id: The created_by_job_id of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._created_by_job_id = created_by_job_id
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+
+
+        :return: The metadata of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+        :rtype: MetadataForListSandboxSnapshotsOutput
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this SnapshotForListSandboxSnapshotsOutput.
+
+
+        :param metadata: The metadata of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+        :type: MetadataForListSandboxSnapshotsOutput
+        """
+
+        self._metadata = metadata
+
+    @property
+    def retention_days(self):
+        """Gets the retention_days of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+
+
+        :return: The retention_days of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._retention_days
+
+    @retention_days.setter
+    def retention_days(self, retention_days):
+        """Sets the retention_days of this SnapshotForListSandboxSnapshotsOutput.
+
+
+        :param retention_days: The retention_days of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._retention_days = retention_days
+
+    @property
+    def retention_expires_at(self):
+        """Gets the retention_expires_at of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+
+
+        :return: The retention_expires_at of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._retention_expires_at
+
+    @retention_expires_at.setter
+    def retention_expires_at(self, retention_expires_at):
+        """Sets the retention_expires_at of this SnapshotForListSandboxSnapshotsOutput.
+
+
+        :param retention_expires_at: The retention_expires_at of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._retention_expires_at = retention_expires_at
+
+    @property
     def sandbox_id(self):
         """Gets the sandbox_id of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
 
@@ -118,6 +227,27 @@ class SnapshotForListSandboxSnapshotsOutput(object):
         """
 
         self._sandbox_id = sandbox_id
+
+    @property
+    def sandbox_info(self):
+        """Gets the sandbox_info of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+
+
+        :return: The sandbox_info of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+        :rtype: SandboxInfoForListSandboxSnapshotsOutput
+        """
+        return self._sandbox_info
+
+    @sandbox_info.setter
+    def sandbox_info(self, sandbox_info):
+        """Sets the sandbox_info of this SnapshotForListSandboxSnapshotsOutput.
+
+
+        :param sandbox_info: The sandbox_info of this SnapshotForListSandboxSnapshotsOutput.  # noqa: E501
+        :type: SandboxInfoForListSandboxSnapshotsOutput
+        """
+
+        self._sandbox_info = sandbox_info
 
     @property
     def snapshot_id(self):

@@ -33,17 +33,71 @@ class UpdateAreaBlockRuleResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'page_info': 'PageInfoForUpdateAreaBlockRuleOutput',
+        'response_metadata': 'ResponseMetadataForUpdateAreaBlockRuleOutput'
     }
 
     attribute_map = {
+        'page_info': 'PageInfo',
+        'response_metadata': 'ResponseMetadata'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, page_info=None, response_metadata=None, _configuration=None):  # noqa: E501
         """UpdateAreaBlockRuleResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._page_info = None
+        self._response_metadata = None
         self.discriminator = None
+
+        if page_info is not None:
+            self.page_info = page_info
+        if response_metadata is not None:
+            self.response_metadata = response_metadata
+
+    @property
+    def page_info(self):
+        """Gets the page_info of this UpdateAreaBlockRuleResponse.  # noqa: E501
+
+
+        :return: The page_info of this UpdateAreaBlockRuleResponse.  # noqa: E501
+        :rtype: PageInfoForUpdateAreaBlockRuleOutput
+        """
+        return self._page_info
+
+    @page_info.setter
+    def page_info(self, page_info):
+        """Sets the page_info of this UpdateAreaBlockRuleResponse.
+
+
+        :param page_info: The page_info of this UpdateAreaBlockRuleResponse.  # noqa: E501
+        :type: PageInfoForUpdateAreaBlockRuleOutput
+        """
+
+        self._page_info = page_info
+
+    @property
+    def response_metadata(self):
+        """Gets the response_metadata of this UpdateAreaBlockRuleResponse.  # noqa: E501
+
+
+        :return: The response_metadata of this UpdateAreaBlockRuleResponse.  # noqa: E501
+        :rtype: ResponseMetadataForUpdateAreaBlockRuleOutput
+        """
+        return self._response_metadata
+
+    @response_metadata.setter
+    def response_metadata(self, response_metadata):
+        """Sets the response_metadata of this UpdateAreaBlockRuleResponse.
+
+
+        :param response_metadata: The response_metadata of this UpdateAreaBlockRuleResponse.  # noqa: E501
+        :type: ResponseMetadataForUpdateAreaBlockRuleOutput
+        """
+
+        self._response_metadata = response_metadata
 
     def to_dict(self):
         """Returns the model properties as a dict"""

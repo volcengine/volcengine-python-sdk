@@ -36,7 +36,7 @@ class SfcsForCreateDeploymentInput(object):
         'cache_policy_id': 'str',
         'file_system_name': 'str',
         'options': 'ConvertOptionsForCreateDeploymentInput',
-        'tos': 'TosForCreateDeploymentInput'
+        'tos': 'ConvertTosForCreateDeploymentInput'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class SfcsForCreateDeploymentInput(object):
 
 
         :return: The tos of this SfcsForCreateDeploymentInput.  # noqa: E501
-        :rtype: TosForCreateDeploymentInput
+        :rtype: ConvertTosForCreateDeploymentInput
         """
         return self._tos
 
@@ -146,7 +146,7 @@ class SfcsForCreateDeploymentInput(object):
 
 
         :param tos: The tos of this SfcsForCreateDeploymentInput.  # noqa: E501
-        :type: TosForCreateDeploymentInput
+        :type: ConvertTosForCreateDeploymentInput
         """
 
         self._tos = tos

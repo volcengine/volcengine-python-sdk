@@ -61,7 +61,8 @@ class ListCustomPageRequest(object):
         self._rule_tag = None
         self.discriminator = None
 
-        self.host = host
+        if host is not None:
+            self.host = host
         if page is not None:
             self.page = page
         if page_size is not None:
@@ -89,8 +90,6 @@ class ListCustomPageRequest(object):
         :param host: The host of this ListCustomPageRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and host is None:
-            raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
 

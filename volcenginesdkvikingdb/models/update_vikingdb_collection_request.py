@@ -37,6 +37,7 @@ class UpdateVikingdbCollectionRequest(object):
         'del_protection': 'bool',
         'description': 'str',
         'fields': 'list[FieldForUpdateVikingdbCollectionInput]',
+        'full_text': 'list[FullTextForUpdateVikingdbCollectionInput]',
         'project_name': 'str',
         'resource_id': 'str'
     }
@@ -46,11 +47,12 @@ class UpdateVikingdbCollectionRequest(object):
         'del_protection': 'DelProtection',
         'description': 'Description',
         'fields': 'Fields',
+        'full_text': 'FullText',
         'project_name': 'ProjectName',
         'resource_id': 'ResourceId'
     }
 
-    def __init__(self, collection_name=None, del_protection=None, description=None, fields=None, project_name=None, resource_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, collection_name=None, del_protection=None, description=None, fields=None, full_text=None, project_name=None, resource_id=None, _configuration=None):  # noqa: E501
         """UpdateVikingdbCollectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +62,7 @@ class UpdateVikingdbCollectionRequest(object):
         self._del_protection = None
         self._description = None
         self._fields = None
+        self._full_text = None
         self._project_name = None
         self._resource_id = None
         self.discriminator = None
@@ -72,6 +75,8 @@ class UpdateVikingdbCollectionRequest(object):
             self.description = description
         if fields is not None:
             self.fields = fields
+        if full_text is not None:
+            self.full_text = full_text
         if project_name is not None:
             self.project_name = project_name
         if resource_id is not None:
@@ -160,6 +165,27 @@ class UpdateVikingdbCollectionRequest(object):
         """
 
         self._fields = fields
+
+    @property
+    def full_text(self):
+        """Gets the full_text of this UpdateVikingdbCollectionRequest.  # noqa: E501
+
+
+        :return: The full_text of this UpdateVikingdbCollectionRequest.  # noqa: E501
+        :rtype: list[FullTextForUpdateVikingdbCollectionInput]
+        """
+        return self._full_text
+
+    @full_text.setter
+    def full_text(self, full_text):
+        """Sets the full_text of this UpdateVikingdbCollectionRequest.
+
+
+        :param full_text: The full_text of this UpdateVikingdbCollectionRequest.  # noqa: E501
+        :type: list[FullTextForUpdateVikingdbCollectionInput]
+        """
+
+        self._full_text = full_text
 
     @property
     def project_name(self):

@@ -37,6 +37,9 @@ class CreateScheduledJobRequest(object):
         'instructions': 'str',
         'name': 'str',
         'project_name': 'str',
+        'result_delivery_channel': 'str',
+        'result_delivery_chat_id': 'str',
+        'result_delivery_target': 'str',
         'schedule_expr': 'str',
         'schedule_type': 'str',
         'space_id': 'str',
@@ -49,6 +52,9 @@ class CreateScheduledJobRequest(object):
         'instructions': 'Instructions',
         'name': 'Name',
         'project_name': 'ProjectName',
+        'result_delivery_channel': 'ResultDelivery.Channel',
+        'result_delivery_chat_id': 'ResultDelivery.ChatId',
+        'result_delivery_target': 'ResultDelivery.Target',
         'schedule_expr': 'ScheduleExpr',
         'schedule_type': 'ScheduleType',
         'space_id': 'SpaceId',
@@ -56,7 +62,7 @@ class CreateScheduledJobRequest(object):
         'timezone': 'Timezone'
     }
 
-    def __init__(self, instance_id=None, instructions=None, name=None, project_name=None, schedule_expr=None, schedule_type=None, space_id=None, timeout_minutes=None, timezone=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, instructions=None, name=None, project_name=None, result_delivery_channel=None, result_delivery_chat_id=None, result_delivery_target=None, schedule_expr=None, schedule_type=None, space_id=None, timeout_minutes=None, timezone=None, _configuration=None):  # noqa: E501
         """CreateScheduledJobRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +72,9 @@ class CreateScheduledJobRequest(object):
         self._instructions = None
         self._name = None
         self._project_name = None
+        self._result_delivery_channel = None
+        self._result_delivery_chat_id = None
+        self._result_delivery_target = None
         self._schedule_expr = None
         self._schedule_type = None
         self._space_id = None
@@ -78,6 +87,12 @@ class CreateScheduledJobRequest(object):
         self.name = name
         if project_name is not None:
             self.project_name = project_name
+        if result_delivery_channel is not None:
+            self.result_delivery_channel = result_delivery_channel
+        if result_delivery_chat_id is not None:
+            self.result_delivery_chat_id = result_delivery_chat_id
+        if result_delivery_target is not None:
+            self.result_delivery_target = result_delivery_target
         self.schedule_expr = schedule_expr
         if schedule_type is not None:
             self.schedule_type = schedule_type
@@ -176,6 +191,69 @@ class CreateScheduledJobRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def result_delivery_channel(self):
+        """Gets the result_delivery_channel of this CreateScheduledJobRequest.  # noqa: E501
+
+
+        :return: The result_delivery_channel of this CreateScheduledJobRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._result_delivery_channel
+
+    @result_delivery_channel.setter
+    def result_delivery_channel(self, result_delivery_channel):
+        """Sets the result_delivery_channel of this CreateScheduledJobRequest.
+
+
+        :param result_delivery_channel: The result_delivery_channel of this CreateScheduledJobRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._result_delivery_channel = result_delivery_channel
+
+    @property
+    def result_delivery_chat_id(self):
+        """Gets the result_delivery_chat_id of this CreateScheduledJobRequest.  # noqa: E501
+
+
+        :return: The result_delivery_chat_id of this CreateScheduledJobRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._result_delivery_chat_id
+
+    @result_delivery_chat_id.setter
+    def result_delivery_chat_id(self, result_delivery_chat_id):
+        """Sets the result_delivery_chat_id of this CreateScheduledJobRequest.
+
+
+        :param result_delivery_chat_id: The result_delivery_chat_id of this CreateScheduledJobRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._result_delivery_chat_id = result_delivery_chat_id
+
+    @property
+    def result_delivery_target(self):
+        """Gets the result_delivery_target of this CreateScheduledJobRequest.  # noqa: E501
+
+
+        :return: The result_delivery_target of this CreateScheduledJobRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._result_delivery_target
+
+    @result_delivery_target.setter
+    def result_delivery_target(self, result_delivery_target):
+        """Sets the result_delivery_target of this CreateScheduledJobRequest.
+
+
+        :param result_delivery_target: The result_delivery_target of this CreateScheduledJobRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._result_delivery_target = result_delivery_target
 
     @property
     def schedule_expr(self):

@@ -33,28 +33,80 @@ class ListSystemBotConfigRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'filer_by_rule_match': 'FilerByRuleMatchForListSystemBotConfigInput',
         'host': 'str',
-        'project_name': 'str'
+        'ip_match': 'bool',
+        'name': 'str',
+        'page': 'int',
+        'page_size': 'int',
+        'project_name': 'str',
+        'rule_tag': 'str'
     }
 
     attribute_map = {
+        'filer_by_rule_match': 'FilerByRuleMatch',
         'host': 'Host',
-        'project_name': 'ProjectName'
+        'ip_match': 'IPMatch',
+        'name': 'Name',
+        'page': 'Page',
+        'page_size': 'PageSize',
+        'project_name': 'ProjectName',
+        'rule_tag': 'RuleTag'
     }
 
-    def __init__(self, host=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, filer_by_rule_match=None, host=None, ip_match=None, name=None, page=None, page_size=None, project_name=None, rule_tag=None, _configuration=None):  # noqa: E501
         """ListSystemBotConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._filer_by_rule_match = None
         self._host = None
+        self._ip_match = None
+        self._name = None
+        self._page = None
+        self._page_size = None
         self._project_name = None
+        self._rule_tag = None
         self.discriminator = None
 
-        self.host = host
+        if filer_by_rule_match is not None:
+            self.filer_by_rule_match = filer_by_rule_match
+        if host is not None:
+            self.host = host
+        if ip_match is not None:
+            self.ip_match = ip_match
+        if name is not None:
+            self.name = name
+        if page is not None:
+            self.page = page
+        if page_size is not None:
+            self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if rule_tag is not None:
+            self.rule_tag = rule_tag
+
+    @property
+    def filer_by_rule_match(self):
+        """Gets the filer_by_rule_match of this ListSystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The filer_by_rule_match of this ListSystemBotConfigRequest.  # noqa: E501
+        :rtype: FilerByRuleMatchForListSystemBotConfigInput
+        """
+        return self._filer_by_rule_match
+
+    @filer_by_rule_match.setter
+    def filer_by_rule_match(self, filer_by_rule_match):
+        """Sets the filer_by_rule_match of this ListSystemBotConfigRequest.
+
+
+        :param filer_by_rule_match: The filer_by_rule_match of this ListSystemBotConfigRequest.  # noqa: E501
+        :type: FilerByRuleMatchForListSystemBotConfigInput
+        """
+
+        self._filer_by_rule_match = filer_by_rule_match
 
     @property
     def host(self):
@@ -74,10 +126,92 @@ class ListSystemBotConfigRequest(object):
         :param host: The host of this ListSystemBotConfigRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and host is None:
-            raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
+
+    @property
+    def ip_match(self):
+        """Gets the ip_match of this ListSystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The ip_match of this ListSystemBotConfigRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ip_match
+
+    @ip_match.setter
+    def ip_match(self, ip_match):
+        """Sets the ip_match of this ListSystemBotConfigRequest.
+
+
+        :param ip_match: The ip_match of this ListSystemBotConfigRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ip_match = ip_match
+
+    @property
+    def name(self):
+        """Gets the name of this ListSystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The name of this ListSystemBotConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ListSystemBotConfigRequest.
+
+
+        :param name: The name of this ListSystemBotConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def page(self):
+        """Gets the page of this ListSystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The page of this ListSystemBotConfigRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page
+
+    @page.setter
+    def page(self, page):
+        """Sets the page of this ListSystemBotConfigRequest.
+
+
+        :param page: The page of this ListSystemBotConfigRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page = page
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this ListSystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The page_size of this ListSystemBotConfigRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this ListSystemBotConfigRequest.
+
+
+        :param page_size: The page_size of this ListSystemBotConfigRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
 
     @property
     def project_name(self):
@@ -99,6 +233,27 @@ class ListSystemBotConfigRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def rule_tag(self):
+        """Gets the rule_tag of this ListSystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The rule_tag of this ListSystemBotConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._rule_tag
+
+    @rule_tag.setter
+    def rule_tag(self, rule_tag):
+        """Sets the rule_tag of this ListSystemBotConfigRequest.
+
+
+        :param rule_tag: The rule_tag of this ListSystemBotConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._rule_tag = rule_tag
 
     def to_dict(self):
         """Returns the model properties as a dict"""

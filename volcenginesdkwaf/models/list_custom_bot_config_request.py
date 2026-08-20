@@ -36,17 +36,19 @@ class ListCustomBotConfigRequest(object):
         'host': 'str',
         'page': 'int',
         'page_size': 'int',
-        'project_name': 'str'
+        'project_name': 'str',
+        'rule_tag': 'str'
     }
 
     attribute_map = {
         'host': 'Host',
         'page': 'Page',
         'page_size': 'PageSize',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'rule_tag': 'RuleTag'
     }
 
-    def __init__(self, host=None, page=None, page_size=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, host=None, page=None, page_size=None, project_name=None, rule_tag=None, _configuration=None):  # noqa: E501
         """ListCustomBotConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ListCustomBotConfigRequest(object):
         self._page = None
         self._page_size = None
         self._project_name = None
+        self._rule_tag = None
         self.discriminator = None
 
         self.host = host
@@ -65,6 +68,8 @@ class ListCustomBotConfigRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if rule_tag is not None:
+            self.rule_tag = rule_tag
 
     @property
     def host(self):
@@ -151,6 +156,27 @@ class ListCustomBotConfigRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def rule_tag(self):
+        """Gets the rule_tag of this ListCustomBotConfigRequest.  # noqa: E501
+
+
+        :return: The rule_tag of this ListCustomBotConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._rule_tag
+
+    @rule_tag.setter
+    def rule_tag(self, rule_tag):
+        """Sets the rule_tag of this ListCustomBotConfigRequest.
+
+
+        :param rule_tag: The rule_tag of this ListCustomBotConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._rule_tag = rule_tag
 
     def to_dict(self):
         """Returns the model properties as a dict"""

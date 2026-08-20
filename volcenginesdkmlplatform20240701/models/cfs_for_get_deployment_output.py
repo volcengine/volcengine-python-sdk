@@ -36,7 +36,7 @@ class CfsForGetDeploymentOutput(object):
         'file_system_name': 'str',
         'namespace_id': 'str',
         'options': 'OptionsForGetDeploymentOutput',
-        'tos': 'TosForGetDeploymentOutput'
+        'tos': 'ConvertTosForGetDeploymentOutput'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class CfsForGetDeploymentOutput(object):
 
 
         :return: The tos of this CfsForGetDeploymentOutput.  # noqa: E501
-        :rtype: TosForGetDeploymentOutput
+        :rtype: ConvertTosForGetDeploymentOutput
         """
         return self._tos
 
@@ -146,7 +146,7 @@ class CfsForGetDeploymentOutput(object):
 
 
         :param tos: The tos of this CfsForGetDeploymentOutput.  # noqa: E501
-        :type: TosForGetDeploymentOutput
+        :type: ConvertTosForGetDeploymentOutput
         """
 
         self._tos = tos

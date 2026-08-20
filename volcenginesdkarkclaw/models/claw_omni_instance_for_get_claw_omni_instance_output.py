@@ -46,12 +46,17 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         'memory_mb': 'int',
         'model_config': 'ModelConfigForGetClawOmniInstanceOutput',
         'name': 'str',
+        'operation_lock': 'OperationLockForGetClawOmniInstanceOutput',
         'project_name': 'str',
         'soul': 'str',
         'space_id': 'str',
         'status': 'str',
         'tags': 'list[TagForGetClawOmniInstanceOutput]',
         'template_id': 'str',
+        'token_limit_per_day': 'str',
+        'token_limit_per_min': 'str',
+        'token_limit_per_week': 'str',
+        'token_quota': 'TokenQuotaForGetClawOmniInstanceOutput',
         'updated_at': 'str'
     }
 
@@ -69,16 +74,21 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         'memory_mb': 'MemoryMb',
         'model_config': 'ModelConfig',
         'name': 'Name',
+        'operation_lock': 'OperationLock',
         'project_name': 'ProjectName',
         'soul': 'Soul',
         'space_id': 'SpaceId',
         'status': 'Status',
         'tags': 'Tags',
         'template_id': 'TemplateId',
+        'token_limit_per_day': 'TokenLimitPerDay',
+        'token_limit_per_min': 'TokenLimitPerMin',
+        'token_limit_per_week': 'TokenLimitPerWeek',
+        'token_quota': 'TokenQuota',
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, agent_md=None, cpu_milli=None, created_at=None, description=None, endpoint=None, expired_action=None, expired_at=None, id=None, image=None, internal_endpoint=None, memory_mb=None, model_config=None, name=None, project_name=None, soul=None, space_id=None, status=None, tags=None, template_id=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_md=None, cpu_milli=None, created_at=None, description=None, endpoint=None, expired_action=None, expired_at=None, id=None, image=None, internal_endpoint=None, memory_mb=None, model_config=None, name=None, operation_lock=None, project_name=None, soul=None, space_id=None, status=None, tags=None, template_id=None, token_limit_per_day=None, token_limit_per_min=None, token_limit_per_week=None, token_quota=None, updated_at=None, _configuration=None):  # noqa: E501
         """ClawOmniInstanceForGetClawOmniInstanceOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,12 +107,17 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         self._memory_mb = None
         self._model_config = None
         self._name = None
+        self._operation_lock = None
         self._project_name = None
         self._soul = None
         self._space_id = None
         self._status = None
         self._tags = None
         self._template_id = None
+        self._token_limit_per_day = None
+        self._token_limit_per_min = None
+        self._token_limit_per_week = None
+        self._token_quota = None
         self._updated_at = None
         self.discriminator = None
 
@@ -132,6 +147,8 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
             self.model_config = model_config
         if name is not None:
             self.name = name
+        if operation_lock is not None:
+            self.operation_lock = operation_lock
         if project_name is not None:
             self.project_name = project_name
         if soul is not None:
@@ -144,6 +161,14 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
             self.tags = tags
         if template_id is not None:
             self.template_id = template_id
+        if token_limit_per_day is not None:
+            self.token_limit_per_day = token_limit_per_day
+        if token_limit_per_min is not None:
+            self.token_limit_per_min = token_limit_per_min
+        if token_limit_per_week is not None:
+            self.token_limit_per_week = token_limit_per_week
+        if token_quota is not None:
+            self.token_quota = token_quota
         if updated_at is not None:
             self.updated_at = updated_at
 
@@ -421,6 +446,27 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         self._name = name
 
     @property
+    def operation_lock(self):
+        """Gets the operation_lock of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+
+
+        :return: The operation_lock of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :rtype: OperationLockForGetClawOmniInstanceOutput
+        """
+        return self._operation_lock
+
+    @operation_lock.setter
+    def operation_lock(self, operation_lock):
+        """Sets the operation_lock of this ClawOmniInstanceForGetClawOmniInstanceOutput.
+
+
+        :param operation_lock: The operation_lock of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :type: OperationLockForGetClawOmniInstanceOutput
+        """
+
+        self._operation_lock = operation_lock
+
+    @property
     def project_name(self):
         """Gets the project_name of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
 
@@ -545,6 +591,90 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput(object):
         """
 
         self._template_id = template_id
+
+    @property
+    def token_limit_per_day(self):
+        """Gets the token_limit_per_day of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+
+
+        :return: The token_limit_per_day of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._token_limit_per_day
+
+    @token_limit_per_day.setter
+    def token_limit_per_day(self, token_limit_per_day):
+        """Sets the token_limit_per_day of this ClawOmniInstanceForGetClawOmniInstanceOutput.
+
+
+        :param token_limit_per_day: The token_limit_per_day of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._token_limit_per_day = token_limit_per_day
+
+    @property
+    def token_limit_per_min(self):
+        """Gets the token_limit_per_min of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+
+
+        :return: The token_limit_per_min of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._token_limit_per_min
+
+    @token_limit_per_min.setter
+    def token_limit_per_min(self, token_limit_per_min):
+        """Sets the token_limit_per_min of this ClawOmniInstanceForGetClawOmniInstanceOutput.
+
+
+        :param token_limit_per_min: The token_limit_per_min of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._token_limit_per_min = token_limit_per_min
+
+    @property
+    def token_limit_per_week(self):
+        """Gets the token_limit_per_week of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+
+
+        :return: The token_limit_per_week of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._token_limit_per_week
+
+    @token_limit_per_week.setter
+    def token_limit_per_week(self, token_limit_per_week):
+        """Sets the token_limit_per_week of this ClawOmniInstanceForGetClawOmniInstanceOutput.
+
+
+        :param token_limit_per_week: The token_limit_per_week of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._token_limit_per_week = token_limit_per_week
+
+    @property
+    def token_quota(self):
+        """Gets the token_quota of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+
+
+        :return: The token_quota of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :rtype: TokenQuotaForGetClawOmniInstanceOutput
+        """
+        return self._token_quota
+
+    @token_quota.setter
+    def token_quota(self, token_quota):
+        """Sets the token_quota of this ClawOmniInstanceForGetClawOmniInstanceOutput.
+
+
+        :param token_quota: The token_quota of this ClawOmniInstanceForGetClawOmniInstanceOutput.  # noqa: E501
+        :type: TokenQuotaForGetClawOmniInstanceOutput
+        """
+
+        self._token_quota = token_quota
 
     @property
     def updated_at(self):

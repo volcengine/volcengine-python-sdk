@@ -34,10 +34,12 @@ class CreateCCRuleRequest(object):
     """
     swagger_types = {
         'accurate_group': 'AccurateGroupForCreateCCRuleInput',
+        'accurate_group_priority': 'int',
         'cc_type': 'int',
         'count_time': 'int',
         'cron_confs': 'list[CronConfForCreateCCRuleInput]',
         'cron_enable': 'int',
+        'custom_response_page_id': 'str',
         'effect_time': 'int',
         'enable': 'int',
         'exemption_time': 'int',
@@ -49,15 +51,21 @@ class CreateCCRuleRequest(object):
         'rule_priority': 'int',
         'rule_tag': 'str',
         'single_threshold': 'int',
-        'url': 'str'
+        'url': 'str',
+        'ws_cdn_byte_threshold': 'int',
+        'ws_cdn_enable': 'int',
+        'ws_cdn_frame_threshold': 'int',
+        'ws_cdn_unit': 'str'
     }
 
     attribute_map = {
         'accurate_group': 'AccurateGroup',
+        'accurate_group_priority': 'AccurateGroupPriority',
         'cc_type': 'CCType',
         'count_time': 'CountTime',
         'cron_confs': 'CronConfs',
         'cron_enable': 'CronEnable',
+        'custom_response_page_id': 'CustomResponsePageID',
         'effect_time': 'EffectTime',
         'enable': 'Enable',
         'exemption_time': 'ExemptionTime',
@@ -69,20 +77,26 @@ class CreateCCRuleRequest(object):
         'rule_priority': 'RulePriority',
         'rule_tag': 'RuleTag',
         'single_threshold': 'SingleThreshold',
-        'url': 'Url'
+        'url': 'Url',
+        'ws_cdn_byte_threshold': 'WSCdnByteThreshold',
+        'ws_cdn_enable': 'WSCdnEnable',
+        'ws_cdn_frame_threshold': 'WSCdnFrameThreshold',
+        'ws_cdn_unit': 'WSCdnUnit'
     }
 
-    def __init__(self, accurate_group=None, cc_type=None, count_time=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, name=None, path_threshold=None, project_name=None, rule_priority=None, rule_tag=None, single_threshold=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, accurate_group_priority=None, cc_type=None, count_time=None, cron_confs=None, cron_enable=None, custom_response_page_id=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, name=None, path_threshold=None, project_name=None, rule_priority=None, rule_tag=None, single_threshold=None, url=None, ws_cdn_byte_threshold=None, ws_cdn_enable=None, ws_cdn_frame_threshold=None, ws_cdn_unit=None, _configuration=None):  # noqa: E501
         """CreateCCRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._accurate_group = None
+        self._accurate_group_priority = None
         self._cc_type = None
         self._count_time = None
         self._cron_confs = None
         self._cron_enable = None
+        self._custom_response_page_id = None
         self._effect_time = None
         self._enable = None
         self._exemption_time = None
@@ -95,10 +109,16 @@ class CreateCCRuleRequest(object):
         self._rule_tag = None
         self._single_threshold = None
         self._url = None
+        self._ws_cdn_byte_threshold = None
+        self._ws_cdn_enable = None
+        self._ws_cdn_frame_threshold = None
+        self._ws_cdn_unit = None
         self.discriminator = None
 
         if accurate_group is not None:
             self.accurate_group = accurate_group
+        if accurate_group_priority is not None:
+            self.accurate_group_priority = accurate_group_priority
         if cc_type is not None:
             self.cc_type = cc_type
         if count_time is not None:
@@ -107,6 +127,8 @@ class CreateCCRuleRequest(object):
             self.cron_confs = cron_confs
         if cron_enable is not None:
             self.cron_enable = cron_enable
+        if custom_response_page_id is not None:
+            self.custom_response_page_id = custom_response_page_id
         self.effect_time = effect_time
         self.enable = enable
         if exemption_time is not None:
@@ -124,6 +146,14 @@ class CreateCCRuleRequest(object):
         if single_threshold is not None:
             self.single_threshold = single_threshold
         self.url = url
+        if ws_cdn_byte_threshold is not None:
+            self.ws_cdn_byte_threshold = ws_cdn_byte_threshold
+        if ws_cdn_enable is not None:
+            self.ws_cdn_enable = ws_cdn_enable
+        if ws_cdn_frame_threshold is not None:
+            self.ws_cdn_frame_threshold = ws_cdn_frame_threshold
+        if ws_cdn_unit is not None:
+            self.ws_cdn_unit = ws_cdn_unit
 
     @property
     def accurate_group(self):
@@ -145,6 +175,27 @@ class CreateCCRuleRequest(object):
         """
 
         self._accurate_group = accurate_group
+
+    @property
+    def accurate_group_priority(self):
+        """Gets the accurate_group_priority of this CreateCCRuleRequest.  # noqa: E501
+
+
+        :return: The accurate_group_priority of this CreateCCRuleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._accurate_group_priority
+
+    @accurate_group_priority.setter
+    def accurate_group_priority(self, accurate_group_priority):
+        """Sets the accurate_group_priority of this CreateCCRuleRequest.
+
+
+        :param accurate_group_priority: The accurate_group_priority of this CreateCCRuleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._accurate_group_priority = accurate_group_priority
 
     @property
     def cc_type(self):
@@ -229,6 +280,27 @@ class CreateCCRuleRequest(object):
         """
 
         self._cron_enable = cron_enable
+
+    @property
+    def custom_response_page_id(self):
+        """Gets the custom_response_page_id of this CreateCCRuleRequest.  # noqa: E501
+
+
+        :return: The custom_response_page_id of this CreateCCRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_response_page_id
+
+    @custom_response_page_id.setter
+    def custom_response_page_id(self, custom_response_page_id):
+        """Sets the custom_response_page_id of this CreateCCRuleRequest.
+
+
+        :param custom_response_page_id: The custom_response_page_id of this CreateCCRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_response_page_id = custom_response_page_id
 
     @property
     def effect_time(self):
@@ -495,6 +567,97 @@ class CreateCCRuleRequest(object):
             raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
+
+    @property
+    def ws_cdn_byte_threshold(self):
+        """Gets the ws_cdn_byte_threshold of this CreateCCRuleRequest.  # noqa: E501
+
+
+        :return: The ws_cdn_byte_threshold of this CreateCCRuleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ws_cdn_byte_threshold
+
+    @ws_cdn_byte_threshold.setter
+    def ws_cdn_byte_threshold(self, ws_cdn_byte_threshold):
+        """Sets the ws_cdn_byte_threshold of this CreateCCRuleRequest.
+
+
+        :param ws_cdn_byte_threshold: The ws_cdn_byte_threshold of this CreateCCRuleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ws_cdn_byte_threshold = ws_cdn_byte_threshold
+
+    @property
+    def ws_cdn_enable(self):
+        """Gets the ws_cdn_enable of this CreateCCRuleRequest.  # noqa: E501
+
+
+        :return: The ws_cdn_enable of this CreateCCRuleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ws_cdn_enable
+
+    @ws_cdn_enable.setter
+    def ws_cdn_enable(self, ws_cdn_enable):
+        """Sets the ws_cdn_enable of this CreateCCRuleRequest.
+
+
+        :param ws_cdn_enable: The ws_cdn_enable of this CreateCCRuleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ws_cdn_enable = ws_cdn_enable
+
+    @property
+    def ws_cdn_frame_threshold(self):
+        """Gets the ws_cdn_frame_threshold of this CreateCCRuleRequest.  # noqa: E501
+
+
+        :return: The ws_cdn_frame_threshold of this CreateCCRuleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ws_cdn_frame_threshold
+
+    @ws_cdn_frame_threshold.setter
+    def ws_cdn_frame_threshold(self, ws_cdn_frame_threshold):
+        """Sets the ws_cdn_frame_threshold of this CreateCCRuleRequest.
+
+
+        :param ws_cdn_frame_threshold: The ws_cdn_frame_threshold of this CreateCCRuleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ws_cdn_frame_threshold = ws_cdn_frame_threshold
+
+    @property
+    def ws_cdn_unit(self):
+        """Gets the ws_cdn_unit of this CreateCCRuleRequest.  # noqa: E501
+
+
+        :return: The ws_cdn_unit of this CreateCCRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ws_cdn_unit
+
+    @ws_cdn_unit.setter
+    def ws_cdn_unit(self, ws_cdn_unit):
+        """Sets the ws_cdn_unit of this CreateCCRuleRequest.
+
+
+        :param ws_cdn_unit: The ws_cdn_unit of this CreateCCRuleRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["KB", "MB", "GB"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ws_cdn_unit not in allowed_values):
+            raise ValueError(
+                "Invalid value for `ws_cdn_unit` ({0}), must be one of {1}"  # noqa: E501
+                .format(ws_cdn_unit, allowed_values)
+            )
+
+        self._ws_cdn_unit = ws_cdn_unit
 
     def to_dict(self):
         """Returns the model properties as a dict"""

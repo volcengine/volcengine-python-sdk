@@ -35,6 +35,7 @@ class MountPointForCreateFunctionOutput(object):
     swagger_types = {
         'bucket_name': 'str',
         'bucket_path': 'str',
+        'encryption_config': 'EncryptionConfigForCreateFunctionOutput',
         'endpoint': 'str',
         'local_mount_path': 'str',
         'read_only': 'bool'
@@ -43,12 +44,13 @@ class MountPointForCreateFunctionOutput(object):
     attribute_map = {
         'bucket_name': 'BucketName',
         'bucket_path': 'BucketPath',
+        'encryption_config': 'EncryptionConfig',
         'endpoint': 'Endpoint',
         'local_mount_path': 'LocalMountPath',
         'read_only': 'ReadOnly'
     }
 
-    def __init__(self, bucket_name=None, bucket_path=None, endpoint=None, local_mount_path=None, read_only=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_name=None, bucket_path=None, encryption_config=None, endpoint=None, local_mount_path=None, read_only=None, _configuration=None):  # noqa: E501
         """MountPointForCreateFunctionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class MountPointForCreateFunctionOutput(object):
 
         self._bucket_name = None
         self._bucket_path = None
+        self._encryption_config = None
         self._endpoint = None
         self._local_mount_path = None
         self._read_only = None
@@ -65,6 +68,8 @@ class MountPointForCreateFunctionOutput(object):
             self.bucket_name = bucket_name
         if bucket_path is not None:
             self.bucket_path = bucket_path
+        if encryption_config is not None:
+            self.encryption_config = encryption_config
         if endpoint is not None:
             self.endpoint = endpoint
         if local_mount_path is not None:
@@ -113,6 +118,27 @@ class MountPointForCreateFunctionOutput(object):
         """
 
         self._bucket_path = bucket_path
+
+    @property
+    def encryption_config(self):
+        """Gets the encryption_config of this MountPointForCreateFunctionOutput.  # noqa: E501
+
+
+        :return: The encryption_config of this MountPointForCreateFunctionOutput.  # noqa: E501
+        :rtype: EncryptionConfigForCreateFunctionOutput
+        """
+        return self._encryption_config
+
+    @encryption_config.setter
+    def encryption_config(self, encryption_config):
+        """Sets the encryption_config of this MountPointForCreateFunctionOutput.
+
+
+        :param encryption_config: The encryption_config of this MountPointForCreateFunctionOutput.  # noqa: E501
+        :type: EncryptionConfigForCreateFunctionOutput
+        """
+
+        self._encryption_config = encryption_config
 
     @property
     def endpoint(self):

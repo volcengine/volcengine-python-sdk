@@ -34,41 +34,47 @@ class UpdateSystemBotConfigRequest(object):
     """
     swagger_types = {
         'action': 'str',
-        'bot_type': 'str',
         'enable': 'int',
         'host': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'rule_tag_list': 'list[str]',
+        'verification_exemption_time': 'int'
     }
 
     attribute_map = {
         'action': 'Action',
-        'bot_type': 'BotType',
         'enable': 'Enable',
         'host': 'Host',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'rule_tag_list': 'RuleTagList',
+        'verification_exemption_time': 'VerificationExemptionTime'
     }
 
-    def __init__(self, action=None, bot_type=None, enable=None, host=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, enable=None, host=None, project_name=None, rule_tag_list=None, verification_exemption_time=None, _configuration=None):  # noqa: E501
         """UpdateSystemBotConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._action = None
-        self._bot_type = None
         self._enable = None
         self._host = None
         self._project_name = None
+        self._rule_tag_list = None
+        self._verification_exemption_time = None
         self.discriminator = None
 
         if action is not None:
             self.action = action
-        self.bot_type = bot_type
         if enable is not None:
             self.enable = enable
         self.host = host
         if project_name is not None:
             self.project_name = project_name
+        if rule_tag_list is not None:
+            self.rule_tag_list = rule_tag_list
+        if verification_exemption_time is not None:
+            self.verification_exemption_time = verification_exemption_time
 
     @property
     def action(self):
@@ -88,31 +94,15 @@ class UpdateSystemBotConfigRequest(object):
         :param action: The action of this UpdateSystemBotConfigRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["observe", "block", "js", "pow", "captcha", "permit"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `action` ({0}), must be one of {1}"  # noqa: E501
+                .format(action, allowed_values)
+            )
 
         self._action = action
-
-    @property
-    def bot_type(self):
-        """Gets the bot_type of this UpdateSystemBotConfigRequest.  # noqa: E501
-
-
-        :return: The bot_type of this UpdateSystemBotConfigRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._bot_type
-
-    @bot_type.setter
-    def bot_type(self, bot_type):
-        """Sets the bot_type of this UpdateSystemBotConfigRequest.
-
-
-        :param bot_type: The bot_type of this UpdateSystemBotConfigRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and bot_type is None:
-            raise ValueError("Invalid value for `bot_type`, must not be `None`")  # noqa: E501
-
-        self._bot_type = bot_type
 
     @property
     def enable(self):
@@ -178,6 +168,48 @@ class UpdateSystemBotConfigRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def rule_tag_list(self):
+        """Gets the rule_tag_list of this UpdateSystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The rule_tag_list of this UpdateSystemBotConfigRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._rule_tag_list
+
+    @rule_tag_list.setter
+    def rule_tag_list(self, rule_tag_list):
+        """Sets the rule_tag_list of this UpdateSystemBotConfigRequest.
+
+
+        :param rule_tag_list: The rule_tag_list of this UpdateSystemBotConfigRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._rule_tag_list = rule_tag_list
+
+    @property
+    def verification_exemption_time(self):
+        """Gets the verification_exemption_time of this UpdateSystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The verification_exemption_time of this UpdateSystemBotConfigRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._verification_exemption_time
+
+    @verification_exemption_time.setter
+    def verification_exemption_time(self, verification_exemption_time):
+        """Sets the verification_exemption_time of this UpdateSystemBotConfigRequest.
+
+
+        :param verification_exemption_time: The verification_exemption_time of this UpdateSystemBotConfigRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._verification_exemption_time = verification_exemption_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

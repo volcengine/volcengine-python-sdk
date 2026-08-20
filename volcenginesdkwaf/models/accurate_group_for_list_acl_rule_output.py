@@ -34,26 +34,31 @@ class AccurateGroupForListAclRuleOutput(object):
     """
     swagger_types = {
         'accurate_rules': 'list[AccurateRuleForListAclRuleOutput]',
+        'id': 'int',
         'logic': 'int'
     }
 
     attribute_map = {
         'accurate_rules': 'AccurateRules',
+        'id': 'Id',
         'logic': 'Logic'
     }
 
-    def __init__(self, accurate_rules=None, logic=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_rules=None, id=None, logic=None, _configuration=None):  # noqa: E501
         """AccurateGroupForListAclRuleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._accurate_rules = None
+        self._id = None
         self._logic = None
         self.discriminator = None
 
         if accurate_rules is not None:
             self.accurate_rules = accurate_rules
+        if id is not None:
+            self.id = id
         if logic is not None:
             self.logic = logic
 
@@ -77,6 +82,27 @@ class AccurateGroupForListAclRuleOutput(object):
         """
 
         self._accurate_rules = accurate_rules
+
+    @property
+    def id(self):
+        """Gets the id of this AccurateGroupForListAclRuleOutput.  # noqa: E501
+
+
+        :return: The id of this AccurateGroupForListAclRuleOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this AccurateGroupForListAclRuleOutput.
+
+
+        :param id: The id of this AccurateGroupForListAclRuleOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     @property
     def logic(self):

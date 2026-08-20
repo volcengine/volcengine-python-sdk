@@ -35,6 +35,9 @@ class UpdateClawOmniInstanceRequest(object):
     swagger_types = {
         'field_mask': 'str',
         'id': 'str',
+        'name': 'str',
+        'operation_lock': 'OperationLockForUpdateClawOmniInstanceInput',
+        'timeout': 'int',
         'token_limit_per_day': 'int',
         'token_limit_per_min': 'int',
         'token_limit_per_week': 'str',
@@ -44,13 +47,16 @@ class UpdateClawOmniInstanceRequest(object):
     attribute_map = {
         'field_mask': 'FieldMask',
         'id': 'Id',
+        'name': 'Name',
+        'operation_lock': 'OperationLock',
+        'timeout': 'Timeout',
         'token_limit_per_day': 'TokenLimitPerDay',
         'token_limit_per_min': 'TokenLimitPerMin',
         'token_limit_per_week': 'TokenLimitPerWeek',
         'token_quota': 'TokenQuota'
     }
 
-    def __init__(self, field_mask=None, id=None, token_limit_per_day=None, token_limit_per_min=None, token_limit_per_week=None, token_quota=None, _configuration=None):  # noqa: E501
+    def __init__(self, field_mask=None, id=None, name=None, operation_lock=None, timeout=None, token_limit_per_day=None, token_limit_per_min=None, token_limit_per_week=None, token_quota=None, _configuration=None):  # noqa: E501
         """UpdateClawOmniInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +64,9 @@ class UpdateClawOmniInstanceRequest(object):
 
         self._field_mask = None
         self._id = None
+        self._name = None
+        self._operation_lock = None
+        self._timeout = None
         self._token_limit_per_day = None
         self._token_limit_per_min = None
         self._token_limit_per_week = None
@@ -67,6 +76,11 @@ class UpdateClawOmniInstanceRequest(object):
         if field_mask is not None:
             self.field_mask = field_mask
         self.id = id
+        self.name = name
+        if operation_lock is not None:
+            self.operation_lock = operation_lock
+        if timeout is not None:
+            self.timeout = timeout
         if token_limit_per_day is not None:
             self.token_limit_per_day = token_limit_per_day
         if token_limit_per_min is not None:
@@ -119,6 +133,71 @@ class UpdateClawOmniInstanceRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def name(self):
+        """Gets the name of this UpdateClawOmniInstanceRequest.  # noqa: E501
+
+
+        :return: The name of this UpdateClawOmniInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this UpdateClawOmniInstanceRequest.
+
+
+        :param name: The name of this UpdateClawOmniInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
+
+    @property
+    def operation_lock(self):
+        """Gets the operation_lock of this UpdateClawOmniInstanceRequest.  # noqa: E501
+
+
+        :return: The operation_lock of this UpdateClawOmniInstanceRequest.  # noqa: E501
+        :rtype: OperationLockForUpdateClawOmniInstanceInput
+        """
+        return self._operation_lock
+
+    @operation_lock.setter
+    def operation_lock(self, operation_lock):
+        """Sets the operation_lock of this UpdateClawOmniInstanceRequest.
+
+
+        :param operation_lock: The operation_lock of this UpdateClawOmniInstanceRequest.  # noqa: E501
+        :type: OperationLockForUpdateClawOmniInstanceInput
+        """
+
+        self._operation_lock = operation_lock
+
+    @property
+    def timeout(self):
+        """Gets the timeout of this UpdateClawOmniInstanceRequest.  # noqa: E501
+
+
+        :return: The timeout of this UpdateClawOmniInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._timeout
+
+    @timeout.setter
+    def timeout(self, timeout):
+        """Sets the timeout of this UpdateClawOmniInstanceRequest.
+
+
+        :param timeout: The timeout of this UpdateClawOmniInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._timeout = timeout
 
     @property
     def token_limit_per_day(self):

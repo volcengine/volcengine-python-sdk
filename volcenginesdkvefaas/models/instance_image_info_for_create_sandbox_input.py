@@ -36,17 +36,19 @@ class InstanceImageInfoForCreateSandboxInput(object):
         'command': 'str',
         'id': 'str',
         'image': 'str',
-        'port': 'int'
+        'port': 'int',
+        'source_image_url': 'str'
     }
 
     attribute_map = {
         'command': 'Command',
         'id': 'Id',
         'image': 'Image',
-        'port': 'Port'
+        'port': 'Port',
+        'source_image_url': 'SourceImageUrl'
     }
 
-    def __init__(self, command=None, id=None, image=None, port=None, _configuration=None):  # noqa: E501
+    def __init__(self, command=None, id=None, image=None, port=None, source_image_url=None, _configuration=None):  # noqa: E501
         """InstanceImageInfoForCreateSandboxInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class InstanceImageInfoForCreateSandboxInput(object):
         self._id = None
         self._image = None
         self._port = None
+        self._source_image_url = None
         self.discriminator = None
 
         if command is not None:
@@ -66,6 +69,8 @@ class InstanceImageInfoForCreateSandboxInput(object):
             self.image = image
         if port is not None:
             self.port = port
+        if source_image_url is not None:
+            self.source_image_url = source_image_url
 
     @property
     def command(self):
@@ -150,6 +155,27 @@ class InstanceImageInfoForCreateSandboxInput(object):
         """
 
         self._port = port
+
+    @property
+    def source_image_url(self):
+        """Gets the source_image_url of this InstanceImageInfoForCreateSandboxInput.  # noqa: E501
+
+
+        :return: The source_image_url of this InstanceImageInfoForCreateSandboxInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_image_url
+
+    @source_image_url.setter
+    def source_image_url(self, source_image_url):
+        """Sets the source_image_url of this InstanceImageInfoForCreateSandboxInput.
+
+
+        :param source_image_url: The source_image_url of this InstanceImageInfoForCreateSandboxInput.  # noqa: E501
+        :type: str
+        """
+
+        self._source_image_url = source_image_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""
