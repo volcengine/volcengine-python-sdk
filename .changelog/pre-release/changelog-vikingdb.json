@@ -1,8 +1,0 @@
-{
-  "actions": [
-    "UpdateVikingdbCollection"
-  ],
-  "description": "VIKINGDB: 修改 UpdateVikingdbCollection",
-  "modules": "service/vikingdb",
-  "type": "feature"
-}
