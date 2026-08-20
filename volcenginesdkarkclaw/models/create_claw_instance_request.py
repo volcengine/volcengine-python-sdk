@@ -38,6 +38,7 @@ class CreateClawInstanceRequest(object):
         'client_token': 'str',
         'description': 'str',
         'dry_run': 'bool',
+        'enable_headless': 'bool',
         'model_api_key': 'str',
         'model_base_url': 'str',
         'model_name': 'str',
@@ -58,6 +59,7 @@ class CreateClawInstanceRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'dry_run': 'DryRun',
+        'enable_headless': 'EnableHeadless',
         'model_api_key': 'ModelApiKey',
         'model_base_url': 'ModelBaseUrl',
         'model_name': 'ModelName',
@@ -72,7 +74,7 @@ class CreateClawInstanceRequest(object):
         'user_pool_user_uid': 'UserPoolUserUid'
     }
 
-    def __init__(self, auto_renew=None, billing_type=None, client_token=None, description=None, dry_run=None, model_api_key=None, model_base_url=None, model_name=None, model_source=None, name=None, period=None, project_name=None, soul=None, space_id=None, spec=None, template_id=None, user_pool_user_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, billing_type=None, client_token=None, description=None, dry_run=None, enable_headless=None, model_api_key=None, model_base_url=None, model_name=None, model_source=None, name=None, period=None, project_name=None, soul=None, space_id=None, spec=None, template_id=None, user_pool_user_uid=None, _configuration=None):  # noqa: E501
         """CreateClawInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +85,7 @@ class CreateClawInstanceRequest(object):
         self._client_token = None
         self._description = None
         self._dry_run = None
+        self._enable_headless = None
         self._model_api_key = None
         self._model_base_url = None
         self._model_name = None
@@ -107,6 +110,8 @@ class CreateClawInstanceRequest(object):
             self.description = description
         if dry_run is not None:
             self.dry_run = dry_run
+        if enable_headless is not None:
+            self.enable_headless = enable_headless
         if model_api_key is not None:
             self.model_api_key = model_api_key
         if model_base_url is not None:
@@ -233,6 +238,27 @@ class CreateClawInstanceRequest(object):
         """
 
         self._dry_run = dry_run
+
+    @property
+    def enable_headless(self):
+        """Gets the enable_headless of this CreateClawInstanceRequest.  # noqa: E501
+
+
+        :return: The enable_headless of this CreateClawInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_headless
+
+    @enable_headless.setter
+    def enable_headless(self, enable_headless):
+        """Sets the enable_headless of this CreateClawInstanceRequest.
+
+
+        :param enable_headless: The enable_headless of this CreateClawInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_headless = enable_headless
 
     @property
     def model_api_key(self):
