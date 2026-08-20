@@ -61,6 +61,7 @@ class ExtensionsKey:
     SESSION_ID = "session_id"
     CONTEXT_ID = "context_id"
     HOOK_NAME = "hook_name"
+    TRACE_ID = "trace_id"
 
 
 # 定义消息结构体
