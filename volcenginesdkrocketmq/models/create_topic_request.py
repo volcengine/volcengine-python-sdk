@@ -36,6 +36,7 @@ class CreateTopicRequest(object):
         'access_policies': 'list[AccessPolicyForCreateTopicInput]',
         'description': 'str',
         'instance_id': 'str',
+        'lite_topic_ttl_minutes': 'int',
         'message_type': 'int',
         'queue_number': 'int',
         'topic_name': 'str'
@@ -45,12 +46,13 @@ class CreateTopicRequest(object):
         'access_policies': 'AccessPolicies',
         'description': 'Description',
         'instance_id': 'InstanceId',
+        'lite_topic_ttl_minutes': 'LiteTopicTTLMinutes',
         'message_type': 'MessageType',
         'queue_number': 'QueueNumber',
         'topic_name': 'TopicName'
     }
 
-    def __init__(self, access_policies=None, description=None, instance_id=None, message_type=None, queue_number=None, topic_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_policies=None, description=None, instance_id=None, lite_topic_ttl_minutes=None, message_type=None, queue_number=None, topic_name=None, _configuration=None):  # noqa: E501
         """CreateTopicRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CreateTopicRequest(object):
         self._access_policies = None
         self._description = None
         self._instance_id = None
+        self._lite_topic_ttl_minutes = None
         self._message_type = None
         self._queue_number = None
         self._topic_name = None
@@ -69,6 +72,8 @@ class CreateTopicRequest(object):
         if description is not None:
             self.description = description
         self.instance_id = instance_id
+        if lite_topic_ttl_minutes is not None:
+            self.lite_topic_ttl_minutes = lite_topic_ttl_minutes
         self.message_type = message_type
         self.queue_number = queue_number
         self.topic_name = topic_name
@@ -137,6 +142,27 @@ class CreateTopicRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def lite_topic_ttl_minutes(self):
+        """Gets the lite_topic_ttl_minutes of this CreateTopicRequest.  # noqa: E501
+
+
+        :return: The lite_topic_ttl_minutes of this CreateTopicRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._lite_topic_ttl_minutes
+
+    @lite_topic_ttl_minutes.setter
+    def lite_topic_ttl_minutes(self, lite_topic_ttl_minutes):
+        """Sets the lite_topic_ttl_minutes of this CreateTopicRequest.
+
+
+        :param lite_topic_ttl_minutes: The lite_topic_ttl_minutes of this CreateTopicRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._lite_topic_ttl_minutes = lite_topic_ttl_minutes
 
     @property
     def message_type(self):

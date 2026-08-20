@@ -34,6 +34,7 @@ class QueryMessageByTimestampRequest(object):
     """
     swagger_types = {
         'instance_id': 'str',
+        'lite_topic': 'str',
         'page_number': 'int',
         'query_end_timestamp': 'str',
         'query_start_timestamp': 'str',
@@ -42,19 +43,21 @@ class QueryMessageByTimestampRequest(object):
 
     attribute_map = {
         'instance_id': 'InstanceId',
+        'lite_topic': 'LiteTopic',
         'page_number': 'PageNumber',
         'query_end_timestamp': 'QueryEndTimestamp',
         'query_start_timestamp': 'QueryStartTimestamp',
         'topic_name': 'TopicName'
     }
 
-    def __init__(self, instance_id=None, page_number=None, query_end_timestamp=None, query_start_timestamp=None, topic_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, lite_topic=None, page_number=None, query_end_timestamp=None, query_start_timestamp=None, topic_name=None, _configuration=None):  # noqa: E501
         """QueryMessageByTimestampRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
+        self._lite_topic = None
         self._page_number = None
         self._query_end_timestamp = None
         self._query_start_timestamp = None
@@ -62,6 +65,8 @@ class QueryMessageByTimestampRequest(object):
         self.discriminator = None
 
         self.instance_id = instance_id
+        if lite_topic is not None:
+            self.lite_topic = lite_topic
         self.page_number = page_number
         self.query_end_timestamp = query_end_timestamp
         self.query_start_timestamp = query_start_timestamp
@@ -89,6 +94,27 @@ class QueryMessageByTimestampRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def lite_topic(self):
+        """Gets the lite_topic of this QueryMessageByTimestampRequest.  # noqa: E501
+
+
+        :return: The lite_topic of this QueryMessageByTimestampRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._lite_topic
+
+    @lite_topic.setter
+    def lite_topic(self, lite_topic):
+        """Sets the lite_topic of this QueryMessageByTimestampRequest.
+
+
+        :param lite_topic: The lite_topic of this QueryMessageByTimestampRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._lite_topic = lite_topic
 
     @property
     def page_number(self):

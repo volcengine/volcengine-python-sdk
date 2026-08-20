@@ -1,0 +1,20 @@
+{
+  "actions": [
+    "ExportDLQMessages",
+    "DeleteConsumerGroupSubscription",
+    "CreateGroup",
+    "CreateTopicAsync",
+    "DescribeTopicDetail",
+    "QueryMessageByTimestamp",
+    "DescribeInstanceDetail",
+    "ListRocketmqVersions",
+    "UpdateGroup",
+    "UpdateTopic",
+    "DescribeProducers",
+    "CreateGroupAsync",
+    "CreateTopic"
+  ],
+  "description": "ROCKETMQ: 新增 ExportDLQMessages, ListRocketmqVersions, UpdateGroup, UpdateTopic, DeleteConsumerGroupSubscription, DescribeProducers；修改 CreateGroup, CreateGroupAsync, CreateTopic, CreateTopicAsync, DescribeInstanceDetail, DescribeTopicDetail, QueryMessageByTimestamp",
+  "modules": "service/RocketMQ",
+  "type": "feature"
+}
