@@ -33,34 +33,60 @@ class TosMountConfigForUpdateFunctionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auth_mode': 'str',
         'credentials': 'CredentialsForUpdateFunctionOutput',
         'enable_tos': 'bool',
         'mount_points': 'list[MountPointForUpdateFunctionOutput]'
     }
 
     attribute_map = {
+        'auth_mode': 'AuthMode',
         'credentials': 'Credentials',
         'enable_tos': 'EnableTos',
         'mount_points': 'MountPoints'
     }
 
-    def __init__(self, credentials=None, enable_tos=None, mount_points=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode=None, credentials=None, enable_tos=None, mount_points=None, _configuration=None):  # noqa: E501
         """TosMountConfigForUpdateFunctionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auth_mode = None
         self._credentials = None
         self._enable_tos = None
         self._mount_points = None
         self.discriminator = None
 
+        if auth_mode is not None:
+            self.auth_mode = auth_mode
         if credentials is not None:
             self.credentials = credentials
         if enable_tos is not None:
             self.enable_tos = enable_tos
         if mount_points is not None:
             self.mount_points = mount_points
+
+    @property
+    def auth_mode(self):
+        """Gets the auth_mode of this TosMountConfigForUpdateFunctionOutput.  # noqa: E501
+
+
+        :return: The auth_mode of this TosMountConfigForUpdateFunctionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_mode
+
+    @auth_mode.setter
+    def auth_mode(self, auth_mode):
+        """Sets the auth_mode of this TosMountConfigForUpdateFunctionOutput.
+
+
+        :param auth_mode: The auth_mode of this TosMountConfigForUpdateFunctionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_mode = auth_mode
 
     @property
     def credentials(self):

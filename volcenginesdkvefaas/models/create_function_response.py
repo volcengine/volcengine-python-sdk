@@ -42,6 +42,7 @@ class CreateFunctionResponse(object):
         'cpu_strategy': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'efs_mount_config': 'EfsMountConfigForCreateFunctionOutput',
         'enable_apmplus': 'bool',
         'envs': 'list[EnvForCreateFunctionOutput]',
         'exclusive_mode': 'bool',
@@ -80,6 +81,7 @@ class CreateFunctionResponse(object):
         'cpu_strategy': 'CpuStrategy',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'efs_mount_config': 'EfsMountConfig',
         'enable_apmplus': 'EnableApmplus',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
@@ -108,7 +110,7 @@ class CreateFunctionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, async_task_config=None, cell=None, code_size=None, code_size_limit=None, command=None, cpu=None, cpu_strategy=None, creation_time=None, description=None, enable_apmplus=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, cell=None, code_size=None, code_size_limit=None, command=None, cpu=None, cpu_strategy=None, creation_time=None, description=None, efs_mount_config=None, enable_apmplus=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -123,6 +125,7 @@ class CreateFunctionResponse(object):
         self._cpu_strategy = None
         self._creation_time = None
         self._description = None
+        self._efs_mount_config = None
         self._enable_apmplus = None
         self._envs = None
         self._exclusive_mode = None
@@ -169,6 +172,8 @@ class CreateFunctionResponse(object):
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if efs_mount_config is not None:
+            self.efs_mount_config = efs_mount_config
         if enable_apmplus is not None:
             self.enable_apmplus = enable_apmplus
         if envs is not None:
@@ -410,6 +415,27 @@ class CreateFunctionResponse(object):
         """
 
         self._description = description
+
+    @property
+    def efs_mount_config(self):
+        """Gets the efs_mount_config of this CreateFunctionResponse.  # noqa: E501
+
+
+        :return: The efs_mount_config of this CreateFunctionResponse.  # noqa: E501
+        :rtype: EfsMountConfigForCreateFunctionOutput
+        """
+        return self._efs_mount_config
+
+    @efs_mount_config.setter
+    def efs_mount_config(self, efs_mount_config):
+        """Sets the efs_mount_config of this CreateFunctionResponse.
+
+
+        :param efs_mount_config: The efs_mount_config of this CreateFunctionResponse.  # noqa: E501
+        :type: EfsMountConfigForCreateFunctionOutput
+        """
+
+        self._efs_mount_config = efs_mount_config
 
     @property
     def enable_apmplus(self):
