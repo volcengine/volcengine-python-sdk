@@ -116,6 +116,13 @@ class ListAclRuleRequest(object):
         """
         if self._configuration.client_side_validation and acl_type is None:
             raise ValueError("Invalid value for `acl_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["Allow", "Block"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                acl_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `acl_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(acl_type, allowed_values)
+            )
 
         self._acl_type = acl_type
 
@@ -137,6 +144,14 @@ class ListAclRuleRequest(object):
         :param action: The action of this ListAclRuleRequest.  # noqa: E501
         :type: list[str]
         """
+        allowed_values = ["block", "observe"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(action).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `action` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(action) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
 
         self._action = action
 
@@ -305,6 +320,13 @@ class ListAclRuleRequest(object):
         :param time_order_by: The time_order_by of this ListAclRuleRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ASC", "DESC"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                time_order_by not in allowed_values):
+            raise ValueError(
+                "Invalid value for `time_order_by` ({0}), must be one of {1}"  # noqa: E501
+                .format(time_order_by, allowed_values)
+            )
 
         self._time_order_by = time_order_by
 

@@ -33,24 +33,34 @@ class CreateCustomPageResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int'
+        'id': 'int',
+        'response_metadata': 'ResponseMetadataForCreateCustomPageOutput',
+        'result': 'ResultForCreateCustomPageOutput'
     }
 
     attribute_map = {
-        'id': 'Id'
+        'id': 'Id',
+        'response_metadata': 'ResponseMetadata',
+        'result': 'Result'
     }
 
-    def __init__(self, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, response_metadata=None, result=None, _configuration=None):  # noqa: E501
         """CreateCustomPageResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._id = None
+        self._response_metadata = None
+        self._result = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
+        if response_metadata is not None:
+            self.response_metadata = response_metadata
+        if result is not None:
+            self.result = result
 
     @property
     def id(self):
@@ -72,6 +82,48 @@ class CreateCustomPageResponse(object):
         """
 
         self._id = id
+
+    @property
+    def response_metadata(self):
+        """Gets the response_metadata of this CreateCustomPageResponse.  # noqa: E501
+
+
+        :return: The response_metadata of this CreateCustomPageResponse.  # noqa: E501
+        :rtype: ResponseMetadataForCreateCustomPageOutput
+        """
+        return self._response_metadata
+
+    @response_metadata.setter
+    def response_metadata(self, response_metadata):
+        """Sets the response_metadata of this CreateCustomPageResponse.
+
+
+        :param response_metadata: The response_metadata of this CreateCustomPageResponse.  # noqa: E501
+        :type: ResponseMetadataForCreateCustomPageOutput
+        """
+
+        self._response_metadata = response_metadata
+
+    @property
+    def result(self):
+        """Gets the result of this CreateCustomPageResponse.  # noqa: E501
+
+
+        :return: The result of this CreateCustomPageResponse.  # noqa: E501
+        :rtype: ResultForCreateCustomPageOutput
+        """
+        return self._result
+
+    @result.setter
+    def result(self, result):
+        """Sets the result of this CreateCustomPageResponse.
+
+
+        :param result: The result of this CreateCustomPageResponse.  # noqa: E501
+        :type: ResultForCreateCustomPageOutput
+        """
+
+        self._result = result
 
     def to_dict(self):
         """Returns the model properties as a dict"""

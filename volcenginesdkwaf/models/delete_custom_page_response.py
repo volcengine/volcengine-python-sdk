@@ -33,17 +33,45 @@ class DeleteCustomPageResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'response_metadata': 'ResponseMetadataForDeleteCustomPageOutput'
     }
 
     attribute_map = {
+        'response_metadata': 'ResponseMetadata'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, response_metadata=None, _configuration=None):  # noqa: E501
         """DeleteCustomPageResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._response_metadata = None
         self.discriminator = None
+
+        if response_metadata is not None:
+            self.response_metadata = response_metadata
+
+    @property
+    def response_metadata(self):
+        """Gets the response_metadata of this DeleteCustomPageResponse.  # noqa: E501
+
+
+        :return: The response_metadata of this DeleteCustomPageResponse.  # noqa: E501
+        :rtype: ResponseMetadataForDeleteCustomPageOutput
+        """
+        return self._response_metadata
+
+    @response_metadata.setter
+    def response_metadata(self, response_metadata):
+        """Sets the response_metadata of this DeleteCustomPageResponse.
+
+
+        :param response_metadata: The response_metadata of this DeleteCustomPageResponse.  # noqa: E501
+        :type: ResponseMetadataForDeleteCustomPageOutput
+        """
+
+        self._response_metadata = response_metadata
 
     def to_dict(self):
         """Returns the model properties as a dict"""

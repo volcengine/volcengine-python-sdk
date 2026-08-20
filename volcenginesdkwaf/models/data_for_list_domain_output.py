@@ -106,7 +106,8 @@ class DataForListDomainOutput(object):
         'waf_enable': 'int',
         'waf_white_req_enable': 'int',
         'white_enable': 'int',
-        'white_field_enable': 'int'
+        'white_field_enable': 'int',
+        'xff_reset': 'int'
     }
 
     attribute_map = {
@@ -183,10 +184,11 @@ class DataForListDomainOutput(object):
         'waf_enable': 'WafEnable',
         'waf_white_req_enable': 'WafWhiteReqEnable',
         'white_enable': 'WhiteEnable',
-        'white_field_enable': 'WhiteFieldEnable'
+        'white_field_enable': 'WhiteFieldEnable',
+        'xff_reset': 'XFFReset'
     }
 
-    def __init__(self, access_mode=None, advanced_defense_ip=None, advanced_defense_i_pv6=None, api_enable=None, attack_status=None, auto_cc_enable=None, automatic_black_enable=None, backend_groups=None, black_ip_enable=None, black_lct_enable=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, cc_enable=None, certificate_id=None, certificate_name=None, certificate_platform=None, clb_instance_i_ds=None, clb_listener_id=None, clb_pool_id=None, clb_server_id=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, cname=None, custom_bot_enable=None, custom_header=None, custom_rsp_enable=None, custom_sni=None, defence_mode=None, dlp_enable=None, domain=None, enable_custom_redirect=None, enable_http2=None, enable_i_pv6=None, enable_sni=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, port=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, rsp_abnormal_enable=None, ssl_ciphers=None, ssl_protocols=None, server_ips=None, src_ips=None, src_protocol=None, status=None, system_bot_enable=None, tcp_listener_config=None, tls_enable=None, tls_fields_config=None, tamper_proof_enable=None, update_time=None, volc_certificate_id=None, vpc_id=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, advanced_defense_ip=None, advanced_defense_i_pv6=None, api_enable=None, attack_status=None, auto_cc_enable=None, automatic_black_enable=None, backend_groups=None, black_ip_enable=None, black_lct_enable=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, cc_enable=None, certificate_id=None, certificate_name=None, certificate_platform=None, clb_instance_i_ds=None, clb_listener_id=None, clb_pool_id=None, clb_server_id=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, cname=None, custom_bot_enable=None, custom_header=None, custom_rsp_enable=None, custom_sni=None, defence_mode=None, dlp_enable=None, domain=None, enable_custom_redirect=None, enable_http2=None, enable_i_pv6=None, enable_sni=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, port=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, rsp_abnormal_enable=None, ssl_ciphers=None, ssl_protocols=None, server_ips=None, src_ips=None, src_protocol=None, status=None, system_bot_enable=None, tcp_listener_config=None, tls_enable=None, tls_fields_config=None, tamper_proof_enable=None, update_time=None, volc_certificate_id=None, vpc_id=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, xff_reset=None, _configuration=None):  # noqa: E501
         """DataForListDomainOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -266,6 +268,7 @@ class DataForListDomainOutput(object):
         self._waf_white_req_enable = None
         self._white_enable = None
         self._white_field_enable = None
+        self._xff_reset = None
         self.discriminator = None
 
         if access_mode is not None:
@@ -416,6 +419,8 @@ class DataForListDomainOutput(object):
             self.white_enable = white_enable
         if white_field_enable is not None:
             self.white_field_enable = white_field_enable
+        if xff_reset is not None:
+            self.xff_reset = xff_reset
 
     @property
     def access_mode(self):
@@ -1970,6 +1975,27 @@ class DataForListDomainOutput(object):
         """
 
         self._white_field_enable = white_field_enable
+
+    @property
+    def xff_reset(self):
+        """Gets the xff_reset of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The xff_reset of this DataForListDomainOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._xff_reset
+
+    @xff_reset.setter
+    def xff_reset(self, xff_reset):
+        """Sets the xff_reset of this DataForListDomainOutput.
+
+
+        :param xff_reset: The xff_reset of this DataForListDomainOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._xff_reset = xff_reset
 
     def to_dict(self):
         """Returns the model properties as a dict"""

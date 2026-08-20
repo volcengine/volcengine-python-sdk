@@ -37,6 +37,8 @@ class CreateVulWhiteFieldRequest(object):
         'field_area': 'str',
         'field_list': 'str',
         'host': 'str',
+        'host_add_type': 'int',
+        'host_list': 'list[str]',
         'name': 'str',
         'project_name': 'str'
     }
@@ -46,11 +48,13 @@ class CreateVulWhiteFieldRequest(object):
         'field_area': 'FieldArea',
         'field_list': 'FieldList',
         'host': 'Host',
+        'host_add_type': 'HostAddType',
+        'host_list': 'HostList',
         'name': 'Name',
         'project_name': 'ProjectName'
     }
 
-    def __init__(self, enable=None, field_area=None, field_list=None, host=None, name=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable=None, field_area=None, field_list=None, host=None, host_add_type=None, host_list=None, name=None, project_name=None, _configuration=None):  # noqa: E501
         """CreateVulWhiteFieldRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,14 +64,23 @@ class CreateVulWhiteFieldRequest(object):
         self._field_area = None
         self._field_list = None
         self._host = None
+        self._host_add_type = None
+        self._host_list = None
         self._name = None
         self._project_name = None
         self.discriminator = None
 
-        self.enable = enable
+        if enable is not None:
+            self.enable = enable
         self.field_area = field_area
-        self.field_list = field_list
-        self.host = host
+        if field_list is not None:
+            self.field_list = field_list
+        if host is not None:
+            self.host = host
+        if host_add_type is not None:
+            self.host_add_type = host_add_type
+        if host_list is not None:
+            self.host_list = host_list
         self.name = name
         if project_name is not None:
             self.project_name = project_name
@@ -90,8 +103,6 @@ class CreateVulWhiteFieldRequest(object):
         :param enable: The enable of this CreateVulWhiteFieldRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and enable is None:
-            raise ValueError("Invalid value for `enable`, must not be `None`")  # noqa: E501
 
         self._enable = enable
 
@@ -136,8 +147,6 @@ class CreateVulWhiteFieldRequest(object):
         :param field_list: The field_list of this CreateVulWhiteFieldRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and field_list is None:
-            raise ValueError("Invalid value for `field_list`, must not be `None`")  # noqa: E501
 
         self._field_list = field_list
 
@@ -159,10 +168,50 @@ class CreateVulWhiteFieldRequest(object):
         :param host: The host of this CreateVulWhiteFieldRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and host is None:
-            raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
+
+    @property
+    def host_add_type(self):
+        """Gets the host_add_type of this CreateVulWhiteFieldRequest.  # noqa: E501
+
+
+        :return: The host_add_type of this CreateVulWhiteFieldRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._host_add_type
+
+    @host_add_type.setter
+    def host_add_type(self, host_add_type):
+        """Sets the host_add_type of this CreateVulWhiteFieldRequest.
+
+
+        :param host_add_type: The host_add_type of this CreateVulWhiteFieldRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._host_add_type = host_add_type
+
+    @property
+    def host_list(self):
+        """Gets the host_list of this CreateVulWhiteFieldRequest.  # noqa: E501
+
+
+        :return: The host_list of this CreateVulWhiteFieldRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._host_list
+
+    @host_list.setter
+    def host_list(self, host_list):
+        """Sets the host_list of this CreateVulWhiteFieldRequest.
+
+
+        :param host_list: The host_list of this CreateVulWhiteFieldRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._host_list = host_list
 
     @property
     def name(self):

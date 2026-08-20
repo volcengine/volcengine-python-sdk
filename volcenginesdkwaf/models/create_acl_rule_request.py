@@ -48,6 +48,7 @@ class CreateAclRuleRequest(object):
         'ip_location_country': 'list[str]',
         'ip_location_subregion': 'list[str]',
         'name': 'str',
+        'permit_feature': 'list[str]',
         'project_name': 'str',
         'url': 'str'
     }
@@ -68,11 +69,12 @@ class CreateAclRuleRequest(object):
         'ip_location_country': 'IpLocationCountry',
         'ip_location_subregion': 'IpLocationSubregion',
         'name': 'Name',
+        'permit_feature': 'PermitFeature',
         'project_name': 'ProjectName',
         'url': 'Url'
     }
 
-    def __init__(self, accurate_group=None, acl_type=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_list=None, ip_add_type=None, ip_group_id=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, project_name=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, acl_type=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_list=None, ip_add_type=None, ip_group_id=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, permit_feature=None, project_name=None, url=None, _configuration=None):  # noqa: E501
         """CreateAclRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class CreateAclRuleRequest(object):
         self._ip_location_country = None
         self._ip_location_subregion = None
         self._name = None
+        self._permit_feature = None
         self._project_name = None
         self._url = None
         self.discriminator = None
@@ -122,6 +125,8 @@ class CreateAclRuleRequest(object):
         if ip_location_subregion is not None:
             self.ip_location_subregion = ip_location_subregion
         self.name = name
+        if permit_feature is not None:
+            self.permit_feature = permit_feature
         if project_name is not None:
             self.project_name = project_name
         self.url = url
@@ -167,6 +172,13 @@ class CreateAclRuleRequest(object):
         """
         if self._configuration.client_side_validation and acl_type is None:
             raise ValueError("Invalid value for `acl_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["Allow", "Block"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                acl_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `acl_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(acl_type, allowed_values)
+            )
 
         self._acl_type = acl_type
 
@@ -188,6 +200,13 @@ class CreateAclRuleRequest(object):
         :param action: The action of this CreateAclRuleRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["block", "observe"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `action` ({0}), must be one of {1}"  # noqa: E501
+                .format(action, allowed_values)
+            )
 
         self._action = action
 
@@ -450,6 +469,35 @@ class CreateAclRuleRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def permit_feature(self):
+        """Gets the permit_feature of this CreateAclRuleRequest.  # noqa: E501
+
+
+        :return: The permit_feature of this CreateAclRuleRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._permit_feature
+
+    @permit_feature.setter
+    def permit_feature(self, permit_feature):
+        """Sets the permit_feature of this CreateAclRuleRequest.
+
+
+        :param permit_feature: The permit_feature of this CreateAclRuleRequest.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["allowlist", "blocklist", "geo_black", "api_route", "api_schema", "api_sensitive", "bot_dytoken", "bot_frequency", "bot_repeat", "bot_sequence", "user_ua_bot", "bot_ua_system", "httpflood", "vuln_signature", "scan_freqvuln", "scan_direnum", "bot_session_protection"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(permit_feature).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `permit_feature` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(permit_feature) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._permit_feature = permit_feature
 
     @property
     def project_name(self):

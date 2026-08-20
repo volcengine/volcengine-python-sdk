@@ -35,6 +35,9 @@ class ListAreaBlockRuleResponse(object):
     swagger_types = {
         'action': 'str',
         'country': 'list[str]',
+        'page_info': 'PageInfoForListAreaBlockRuleOutput',
+        'response_metadata': 'ResponseMetadataForListAreaBlockRuleOutput',
+        'result': 'ResultForListAreaBlockRuleOutput',
         'rule_tag': 'str',
         'sub_region': 'list[str]'
     }
@@ -42,11 +45,14 @@ class ListAreaBlockRuleResponse(object):
     attribute_map = {
         'action': 'Action',
         'country': 'Country',
+        'page_info': 'PageInfo',
+        'response_metadata': 'ResponseMetadata',
+        'result': 'Result',
         'rule_tag': 'RuleTag',
         'sub_region': 'SubRegion'
     }
 
-    def __init__(self, action=None, country=None, rule_tag=None, sub_region=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, country=None, page_info=None, response_metadata=None, result=None, rule_tag=None, sub_region=None, _configuration=None):  # noqa: E501
         """ListAreaBlockRuleResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +60,9 @@ class ListAreaBlockRuleResponse(object):
 
         self._action = None
         self._country = None
+        self._page_info = None
+        self._response_metadata = None
+        self._result = None
         self._rule_tag = None
         self._sub_region = None
         self.discriminator = None
@@ -62,6 +71,12 @@ class ListAreaBlockRuleResponse(object):
             self.action = action
         if country is not None:
             self.country = country
+        if page_info is not None:
+            self.page_info = page_info
+        if response_metadata is not None:
+            self.response_metadata = response_metadata
+        if result is not None:
+            self.result = result
         if rule_tag is not None:
             self.rule_tag = rule_tag
         if sub_region is not None:
@@ -108,6 +123,69 @@ class ListAreaBlockRuleResponse(object):
         """
 
         self._country = country
+
+    @property
+    def page_info(self):
+        """Gets the page_info of this ListAreaBlockRuleResponse.  # noqa: E501
+
+
+        :return: The page_info of this ListAreaBlockRuleResponse.  # noqa: E501
+        :rtype: PageInfoForListAreaBlockRuleOutput
+        """
+        return self._page_info
+
+    @page_info.setter
+    def page_info(self, page_info):
+        """Sets the page_info of this ListAreaBlockRuleResponse.
+
+
+        :param page_info: The page_info of this ListAreaBlockRuleResponse.  # noqa: E501
+        :type: PageInfoForListAreaBlockRuleOutput
+        """
+
+        self._page_info = page_info
+
+    @property
+    def response_metadata(self):
+        """Gets the response_metadata of this ListAreaBlockRuleResponse.  # noqa: E501
+
+
+        :return: The response_metadata of this ListAreaBlockRuleResponse.  # noqa: E501
+        :rtype: ResponseMetadataForListAreaBlockRuleOutput
+        """
+        return self._response_metadata
+
+    @response_metadata.setter
+    def response_metadata(self, response_metadata):
+        """Sets the response_metadata of this ListAreaBlockRuleResponse.
+
+
+        :param response_metadata: The response_metadata of this ListAreaBlockRuleResponse.  # noqa: E501
+        :type: ResponseMetadataForListAreaBlockRuleOutput
+        """
+
+        self._response_metadata = response_metadata
+
+    @property
+    def result(self):
+        """Gets the result of this ListAreaBlockRuleResponse.  # noqa: E501
+
+
+        :return: The result of this ListAreaBlockRuleResponse.  # noqa: E501
+        :rtype: ResultForListAreaBlockRuleOutput
+        """
+        return self._result
+
+    @result.setter
+    def result(self, result):
+        """Sets the result of this ListAreaBlockRuleResponse.
+
+
+        :param result: The result of this ListAreaBlockRuleResponse.  # noqa: E501
+        :type: ResultForListAreaBlockRuleOutput
+        """
+
+        self._result = result
 
     @property
     def rule_tag(self):

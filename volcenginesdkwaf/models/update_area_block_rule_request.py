@@ -36,6 +36,7 @@ class UpdateAreaBlockRuleRequest(object):
         'action': 'str',
         'country': 'list[str]',
         'host': 'str',
+        'location': 'list[str]',
         'project_name': 'str',
         'sub_region': 'list[str]'
     }
@@ -44,11 +45,12 @@ class UpdateAreaBlockRuleRequest(object):
         'action': 'Action',
         'country': 'Country',
         'host': 'Host',
+        'location': 'Location',
         'project_name': 'ProjectName',
         'sub_region': 'SubRegion'
     }
 
-    def __init__(self, action=None, country=None, host=None, project_name=None, sub_region=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, country=None, host=None, location=None, project_name=None, sub_region=None, _configuration=None):  # noqa: E501
         """UpdateAreaBlockRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class UpdateAreaBlockRuleRequest(object):
         self._action = None
         self._country = None
         self._host = None
+        self._location = None
         self._project_name = None
         self._sub_region = None
         self.discriminator = None
@@ -65,6 +68,8 @@ class UpdateAreaBlockRuleRequest(object):
         if country is not None:
             self.country = country
         self.host = host
+        if location is not None:
+            self.location = location
         if project_name is not None:
             self.project_name = project_name
         if sub_region is not None:
@@ -90,6 +95,13 @@ class UpdateAreaBlockRuleRequest(object):
         """
         if self._configuration.client_side_validation and action is None:
             raise ValueError("Invalid value for `action`, must not be `None`")  # noqa: E501
+        allowed_values = ["observe", "block"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `action` ({0}), must be one of {1}"  # noqa: E501
+                .format(action, allowed_values)
+            )
 
         self._action = action
 
@@ -136,6 +148,27 @@ class UpdateAreaBlockRuleRequest(object):
             raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
+
+    @property
+    def location(self):
+        """Gets the location of this UpdateAreaBlockRuleRequest.  # noqa: E501
+
+
+        :return: The location of this UpdateAreaBlockRuleRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._location
+
+    @location.setter
+    def location(self, location):
+        """Sets the location of this UpdateAreaBlockRuleRequest.
+
+
+        :param location: The location of this UpdateAreaBlockRuleRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._location = location
 
     @property
     def project_name(self):

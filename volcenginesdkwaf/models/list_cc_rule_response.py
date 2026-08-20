@@ -35,10 +35,11 @@ class ListCCRuleResponse(object):
     swagger_types = {
         'count': 'int',
         'current_page': 'int',
+        'data': 'list[DataForListCCRuleOutput]',
         'enable_count': 'int',
         'insert_time': 'str',
         'page_size': 'int',
-        'rule_group': 'list[RuleGroupForListCCRuleOutput]',
+        'rule_group': 'list[ConvertRuleGroupForListCCRuleOutput]',
         'total_count': 'int',
         'url': 'str'
     }
@@ -46,6 +47,7 @@ class ListCCRuleResponse(object):
     attribute_map = {
         'count': 'Count',
         'current_page': 'CurrentPage',
+        'data': 'Data',
         'enable_count': 'EnableCount',
         'insert_time': 'InsertTime',
         'page_size': 'PageSize',
@@ -54,7 +56,7 @@ class ListCCRuleResponse(object):
         'url': 'Url'
     }
 
-    def __init__(self, count=None, current_page=None, enable_count=None, insert_time=None, page_size=None, rule_group=None, total_count=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, count=None, current_page=None, data=None, enable_count=None, insert_time=None, page_size=None, rule_group=None, total_count=None, url=None, _configuration=None):  # noqa: E501
         """ListCCRuleResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class ListCCRuleResponse(object):
 
         self._count = None
         self._current_page = None
+        self._data = None
         self._enable_count = None
         self._insert_time = None
         self._page_size = None
@@ -74,6 +77,8 @@ class ListCCRuleResponse(object):
             self.count = count
         if current_page is not None:
             self.current_page = current_page
+        if data is not None:
+            self.data = data
         if enable_count is not None:
             self.enable_count = enable_count
         if insert_time is not None:
@@ -128,6 +133,27 @@ class ListCCRuleResponse(object):
         """
 
         self._current_page = current_page
+
+    @property
+    def data(self):
+        """Gets the data of this ListCCRuleResponse.  # noqa: E501
+
+
+        :return: The data of this ListCCRuleResponse.  # noqa: E501
+        :rtype: list[DataForListCCRuleOutput]
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this ListCCRuleResponse.
+
+
+        :param data: The data of this ListCCRuleResponse.  # noqa: E501
+        :type: list[DataForListCCRuleOutput]
+        """
+
+        self._data = data
 
     @property
     def enable_count(self):
@@ -198,7 +224,7 @@ class ListCCRuleResponse(object):
 
 
         :return: The rule_group of this ListCCRuleResponse.  # noqa: E501
-        :rtype: list[RuleGroupForListCCRuleOutput]
+        :rtype: list[ConvertRuleGroupForListCCRuleOutput]
         """
         return self._rule_group
 
@@ -208,7 +234,7 @@ class ListCCRuleResponse(object):
 
 
         :param rule_group: The rule_group of this ListCCRuleResponse.  # noqa: E501
-        :type: list[RuleGroupForListCCRuleOutput]
+        :type: list[ConvertRuleGroupForListCCRuleOutput]
         """
 
         self._rule_group = rule_group

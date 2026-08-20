@@ -35,7 +35,7 @@ class ListIpGroupRequest(object):
     swagger_types = {
         'ip': 'str',
         'ip_group_id': 'int',
-        'list_all': 'str',
+        'list_all': 'bool',
         'page': 'int',
         'page_size': 'int',
         'project_name': 'str'
@@ -124,7 +124,7 @@ class ListIpGroupRequest(object):
 
 
         :return: The list_all of this ListIpGroupRequest.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._list_all
 
@@ -134,7 +134,7 @@ class ListIpGroupRequest(object):
 
 
         :param list_all: The list_all of this ListIpGroupRequest.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._list_all = list_all
