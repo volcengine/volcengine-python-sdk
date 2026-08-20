@@ -1,0 +1,23 @@
+{
+  "actions": [
+    "CreateCluster",
+    "DeleteCluster",
+    "ListBranches",
+    "ResetClusterPassword",
+    "UpdateBranch",
+    "DeleteBranch",
+    "ListBranchDatabases",
+    "ListClusters",
+    "CreateBranch",
+    "DescribePriceDetail",
+    "UpdateCluster",
+    "ChangeBranchPassword",
+    "ResetBranch",
+    "ListClusterDatabases",
+    "GetClusterDetails",
+    "GetBranchDetails"
+  ],
+  "description": "TIDB: 新增 ListClusterDatabases, UpdateBranch, CreateCluster, DeleteBranch, DeleteCluster, GetClusterDetails, ListBranchDatabases, ListBranches, ListClusters, ResetBranch, CreateBranch, DescribePriceDetail, GetBranchDetails, UpdateCluster, ChangeBranchPassword, ResetClusterPassword",
+  "modules": "service/tidb",
+  "type": "feature"
+}
