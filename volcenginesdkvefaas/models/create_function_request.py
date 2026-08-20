@@ -39,6 +39,7 @@ class CreateFunctionRequest(object):
         'cpu_milli': 'int',
         'cpu_strategy': 'str',
         'description': 'str',
+        'efs_mount_config': 'EfsMountConfigForCreateFunctionInput',
         'enable_apmplus': 'bool',
         'enable_zti_token': 'str',
         'envs': 'list[EnvForCreateFunctionInput]',
@@ -70,6 +71,7 @@ class CreateFunctionRequest(object):
         'cpu_milli': 'CpuMilli',
         'cpu_strategy': 'CpuStrategy',
         'description': 'Description',
+        'efs_mount_config': 'EfsMountConfig',
         'enable_apmplus': 'EnableApmplus',
         'enable_zti_token': 'EnableZTIToken',
         'envs': 'Envs',
@@ -94,7 +96,7 @@ class CreateFunctionRequest(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, async_task_config=None, cell=None, command=None, cpu_milli=None, cpu_strategy=None, description=None, enable_apmplus=None, enable_zti_token=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, cell=None, command=None, cpu_milli=None, cpu_strategy=None, description=None, efs_mount_config=None, enable_apmplus=None, enable_zti_token=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,6 +108,7 @@ class CreateFunctionRequest(object):
         self._cpu_milli = None
         self._cpu_strategy = None
         self._description = None
+        self._efs_mount_config = None
         self._enable_apmplus = None
         self._enable_zti_token = None
         self._envs = None
@@ -142,6 +145,8 @@ class CreateFunctionRequest(object):
             self.cpu_strategy = cpu_strategy
         if description is not None:
             self.description = description
+        if efs_mount_config is not None:
+            self.efs_mount_config = efs_mount_config
         if enable_apmplus is not None:
             self.enable_apmplus = enable_apmplus
         if enable_zti_token is not None:
@@ -310,6 +315,27 @@ class CreateFunctionRequest(object):
         """
 
         self._description = description
+
+    @property
+    def efs_mount_config(self):
+        """Gets the efs_mount_config of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The efs_mount_config of this CreateFunctionRequest.  # noqa: E501
+        :rtype: EfsMountConfigForCreateFunctionInput
+        """
+        return self._efs_mount_config
+
+    @efs_mount_config.setter
+    def efs_mount_config(self, efs_mount_config):
+        """Sets the efs_mount_config of this CreateFunctionRequest.
+
+
+        :param efs_mount_config: The efs_mount_config of this CreateFunctionRequest.  # noqa: E501
+        :type: EfsMountConfigForCreateFunctionInput
+        """
+
+        self._efs_mount_config = efs_mount_config
 
     @property
     def enable_apmplus(self):
