@@ -38,6 +38,7 @@ class JobForGetScheduledJobOutput(object):
         'instructions': 'str',
         'job_id': 'str',
         'name': 'str',
+        'result_delivery': 'ResultDeliveryForGetScheduledJobOutput',
         'schedule_expr': 'str',
         'schedule_type': 'str',
         'status': 'str',
@@ -52,6 +53,7 @@ class JobForGetScheduledJobOutput(object):
         'instructions': 'Instructions',
         'job_id': 'JobId',
         'name': 'Name',
+        'result_delivery': 'ResultDelivery',
         'schedule_expr': 'ScheduleExpr',
         'schedule_type': 'ScheduleType',
         'status': 'Status',
@@ -60,7 +62,7 @@ class JobForGetScheduledJobOutput(object):
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, created_at=None, instance_id=None, instructions=None, job_id=None, name=None, schedule_expr=None, schedule_type=None, status=None, timeout_minutes=None, timezone=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, instance_id=None, instructions=None, job_id=None, name=None, result_delivery=None, schedule_expr=None, schedule_type=None, status=None, timeout_minutes=None, timezone=None, updated_at=None, _configuration=None):  # noqa: E501
         """JobForGetScheduledJobOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class JobForGetScheduledJobOutput(object):
         self._instructions = None
         self._job_id = None
         self._name = None
+        self._result_delivery = None
         self._schedule_expr = None
         self._schedule_type = None
         self._status = None
@@ -89,6 +92,8 @@ class JobForGetScheduledJobOutput(object):
             self.job_id = job_id
         if name is not None:
             self.name = name
+        if result_delivery is not None:
+            self.result_delivery = result_delivery
         if schedule_expr is not None:
             self.schedule_expr = schedule_expr
         if schedule_type is not None:
@@ -206,6 +211,27 @@ class JobForGetScheduledJobOutput(object):
         """
 
         self._name = name
+
+    @property
+    def result_delivery(self):
+        """Gets the result_delivery of this JobForGetScheduledJobOutput.  # noqa: E501
+
+
+        :return: The result_delivery of this JobForGetScheduledJobOutput.  # noqa: E501
+        :rtype: ResultDeliveryForGetScheduledJobOutput
+        """
+        return self._result_delivery
+
+    @result_delivery.setter
+    def result_delivery(self, result_delivery):
+        """Sets the result_delivery of this JobForGetScheduledJobOutput.
+
+
+        :param result_delivery: The result_delivery of this JobForGetScheduledJobOutput.  # noqa: E501
+        :type: ResultDeliveryForGetScheduledJobOutput
+        """
+
+        self._result_delivery = result_delivery
 
     @property
     def schedule_expr(self):

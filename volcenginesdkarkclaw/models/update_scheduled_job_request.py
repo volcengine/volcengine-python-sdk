@@ -38,6 +38,7 @@ class UpdateScheduledJobRequest(object):
         'job_id': 'str',
         'name': 'str',
         'project_name': 'str',
+        'result_delivery': 'ResultDeliveryForUpdateScheduledJobInput',
         'schedule_expr': 'str',
         'schedule_type': 'str',
         'space_id': 'str',
@@ -51,6 +52,7 @@ class UpdateScheduledJobRequest(object):
         'job_id': 'JobId',
         'name': 'Name',
         'project_name': 'ProjectName',
+        'result_delivery': 'ResultDelivery',
         'schedule_expr': 'ScheduleExpr',
         'schedule_type': 'ScheduleType',
         'space_id': 'SpaceId',
@@ -58,7 +60,7 @@ class UpdateScheduledJobRequest(object):
         'timezone': 'Timezone'
     }
 
-    def __init__(self, field_mask=None, instructions=None, job_id=None, name=None, project_name=None, schedule_expr=None, schedule_type=None, space_id=None, timeout_minutes=None, timezone=None, _configuration=None):  # noqa: E501
+    def __init__(self, field_mask=None, instructions=None, job_id=None, name=None, project_name=None, result_delivery=None, schedule_expr=None, schedule_type=None, space_id=None, timeout_minutes=None, timezone=None, _configuration=None):  # noqa: E501
         """UpdateScheduledJobRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class UpdateScheduledJobRequest(object):
         self._job_id = None
         self._name = None
         self._project_name = None
+        self._result_delivery = None
         self._schedule_expr = None
         self._schedule_type = None
         self._space_id = None
@@ -85,6 +88,8 @@ class UpdateScheduledJobRequest(object):
             self.name = name
         if project_name is not None:
             self.project_name = project_name
+        if result_delivery is not None:
+            self.result_delivery = result_delivery
         if schedule_expr is not None:
             self.schedule_expr = schedule_expr
         if schedule_type is not None:
@@ -201,6 +206,27 @@ class UpdateScheduledJobRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def result_delivery(self):
+        """Gets the result_delivery of this UpdateScheduledJobRequest.  # noqa: E501
+
+
+        :return: The result_delivery of this UpdateScheduledJobRequest.  # noqa: E501
+        :rtype: ResultDeliveryForUpdateScheduledJobInput
+        """
+        return self._result_delivery
+
+    @result_delivery.setter
+    def result_delivery(self, result_delivery):
+        """Sets the result_delivery of this UpdateScheduledJobRequest.
+
+
+        :param result_delivery: The result_delivery of this UpdateScheduledJobRequest.  # noqa: E501
+        :type: ResultDeliveryForUpdateScheduledJobInput
+        """
+
+        self._result_delivery = result_delivery
 
     @property
     def schedule_expr(self):
