@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "5.0.44",
+  "version": "5.0.45",
   "distribution_prefix": "volcenginesdk-",
   "excluded_modules": {
     "volcenginesdkexamples": "Examples are source documentation, not an installable runtime package."
