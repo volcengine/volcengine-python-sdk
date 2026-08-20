@@ -44,12 +44,16 @@ class SandboxForListSandboxesOutput(object):
         'function_id': 'str',
         'id': 'str',
         'image': 'str',
+        'instance_efs_mount_config': 'InstanceEfsMountConfigForListSandboxesOutput',
         'instance_type': 'str',
         'memory_mb': 'int',
         'metadata': 'dict(str, str)',
+        'network_rules': 'NetworkRulesForListSandboxesOutput',
         'paused_at': 'str',
         'pending': 'bool',
         'revision_number': 'int',
+        'role_chain_trn': 'list[str]',
+        'role_trn': 'str',
         'session_id': 'str',
         'sidecars': 'list[SidecarForListSandboxesOutput]',
         'status': 'str'
@@ -67,18 +71,22 @@ class SandboxForListSandboxesOutput(object):
         'function_id': 'FunctionId',
         'id': 'Id',
         'image': 'Image',
+        'instance_efs_mount_config': 'InstanceEfsMountConfig',
         'instance_type': 'InstanceType',
         'memory_mb': 'MemoryMB',
         'metadata': 'Metadata',
+        'network_rules': 'NetworkRules',
         'paused_at': 'PausedAt',
         'pending': 'Pending',
         'revision_number': 'RevisionNumber',
+        'role_chain_trn': 'RoleChainTrn',
+        'role_trn': 'RoleTrn',
         'session_id': 'SessionId',
         'sidecars': 'Sidecars',
         'status': 'Status'
     }
 
-    def __init__(self, assign_status=None, availability_zone=None, cpu_milli=None, created_at=None, ebs_volumes=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image=None, instance_type=None, memory_mb=None, metadata=None, paused_at=None, pending=None, revision_number=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, assign_status=None, availability_zone=None, cpu_milli=None, created_at=None, ebs_volumes=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image=None, instance_efs_mount_config=None, instance_type=None, memory_mb=None, metadata=None, network_rules=None, paused_at=None, pending=None, revision_number=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
         """SandboxForListSandboxesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,12 +103,16 @@ class SandboxForListSandboxesOutput(object):
         self._function_id = None
         self._id = None
         self._image = None
+        self._instance_efs_mount_config = None
         self._instance_type = None
         self._memory_mb = None
         self._metadata = None
+        self._network_rules = None
         self._paused_at = None
         self._pending = None
         self._revision_number = None
+        self._role_chain_trn = None
+        self._role_trn = None
         self._session_id = None
         self._sidecars = None
         self._status = None
@@ -128,18 +140,26 @@ class SandboxForListSandboxesOutput(object):
             self.id = id
         if image is not None:
             self.image = image
+        if instance_efs_mount_config is not None:
+            self.instance_efs_mount_config = instance_efs_mount_config
         if instance_type is not None:
             self.instance_type = instance_type
         if memory_mb is not None:
             self.memory_mb = memory_mb
         if metadata is not None:
             self.metadata = metadata
+        if network_rules is not None:
+            self.network_rules = network_rules
         if paused_at is not None:
             self.paused_at = paused_at
         if pending is not None:
             self.pending = pending
         if revision_number is not None:
             self.revision_number = revision_number
+        if role_chain_trn is not None:
+            self.role_chain_trn = role_chain_trn
+        if role_trn is not None:
+            self.role_trn = role_trn
         if session_id is not None:
             self.session_id = session_id
         if sidecars is not None:
@@ -379,6 +399,27 @@ class SandboxForListSandboxesOutput(object):
         self._image = image
 
     @property
+    def instance_efs_mount_config(self):
+        """Gets the instance_efs_mount_config of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The instance_efs_mount_config of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: InstanceEfsMountConfigForListSandboxesOutput
+        """
+        return self._instance_efs_mount_config
+
+    @instance_efs_mount_config.setter
+    def instance_efs_mount_config(self, instance_efs_mount_config):
+        """Sets the instance_efs_mount_config of this SandboxForListSandboxesOutput.
+
+
+        :param instance_efs_mount_config: The instance_efs_mount_config of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: InstanceEfsMountConfigForListSandboxesOutput
+        """
+
+        self._instance_efs_mount_config = instance_efs_mount_config
+
+    @property
     def instance_type(self):
         """Gets the instance_type of this SandboxForListSandboxesOutput.  # noqa: E501
 
@@ -442,6 +483,27 @@ class SandboxForListSandboxesOutput(object):
         self._metadata = metadata
 
     @property
+    def network_rules(self):
+        """Gets the network_rules of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The network_rules of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: NetworkRulesForListSandboxesOutput
+        """
+        return self._network_rules
+
+    @network_rules.setter
+    def network_rules(self, network_rules):
+        """Sets the network_rules of this SandboxForListSandboxesOutput.
+
+
+        :param network_rules: The network_rules of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: NetworkRulesForListSandboxesOutput
+        """
+
+        self._network_rules = network_rules
+
+    @property
     def paused_at(self):
         """Gets the paused_at of this SandboxForListSandboxesOutput.  # noqa: E501
 
@@ -503,6 +565,48 @@ class SandboxForListSandboxesOutput(object):
         """
 
         self._revision_number = revision_number
+
+    @property
+    def role_chain_trn(self):
+        """Gets the role_chain_trn of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The role_chain_trn of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._role_chain_trn
+
+    @role_chain_trn.setter
+    def role_chain_trn(self, role_chain_trn):
+        """Sets the role_chain_trn of this SandboxForListSandboxesOutput.
+
+
+        :param role_chain_trn: The role_chain_trn of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._role_chain_trn = role_chain_trn
+
+    @property
+    def role_trn(self):
+        """Gets the role_trn of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The role_trn of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._role_trn
+
+    @role_trn.setter
+    def role_trn(self, role_trn):
+        """Sets the role_trn of this SandboxForListSandboxesOutput.
+
+
+        :param role_trn: The role_trn of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._role_trn = role_trn
 
     @property
     def session_id(self):
