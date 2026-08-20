@@ -35,7 +35,7 @@ class TosMountConfigForGetFunctionOutput(object):
     swagger_types = {
         'credentials': 'CredentialsForGetFunctionOutput',
         'enable_tos': 'bool',
-        'mount_points': 'list[ConvertMountPointForGetFunctionOutput]'
+        'mount_points': 'list[MountPointForGetFunctionOutput]'
     }
 
     attribute_map = {
@@ -110,7 +110,7 @@ class TosMountConfigForGetFunctionOutput(object):
 
 
         :return: The mount_points of this TosMountConfigForGetFunctionOutput.  # noqa: E501
-        :rtype: list[ConvertMountPointForGetFunctionOutput]
+        :rtype: list[MountPointForGetFunctionOutput]
         """
         return self._mount_points
 
@@ -120,7 +120,7 @@ class TosMountConfigForGetFunctionOutput(object):
 
 
         :param mount_points: The mount_points of this TosMountConfigForGetFunctionOutput.  # noqa: E501
-        :type: list[ConvertMountPointForGetFunctionOutput]
+        :type: list[MountPointForGetFunctionOutput]
         """
 
         self._mount_points = mount_points
