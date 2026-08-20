@@ -38,6 +38,7 @@ class GetRevisionResponse(object):
         'code_size_limit': 'int',
         'creation_time': 'str',
         'description': 'str',
+        'efs_mount_config': 'EfsMountConfigForGetRevisionOutput',
         'envs': 'list[EnvForGetRevisionOutput]',
         'exclusive_mode': 'bool',
         'health_check_config': 'HealthCheckConfigForGetRevisionOutput',
@@ -69,6 +70,7 @@ class GetRevisionResponse(object):
         'code_size_limit': 'CodeSizeLimit',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'efs_mount_config': 'EfsMountConfig',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
         'health_check_config': 'HealthCheckConfig',
@@ -94,7 +96,7 @@ class GetRevisionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, async_task_config=None, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, health_check_config=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, code_size=None, code_size_limit=None, creation_time=None, description=None, efs_mount_config=None, envs=None, exclusive_mode=None, health_check_config=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """GetRevisionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -105,6 +107,7 @@ class GetRevisionResponse(object):
         self._code_size_limit = None
         self._creation_time = None
         self._description = None
+        self._efs_mount_config = None
         self._envs = None
         self._exclusive_mode = None
         self._health_check_config = None
@@ -140,6 +143,8 @@ class GetRevisionResponse(object):
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if efs_mount_config is not None:
+            self.efs_mount_config = efs_mount_config
         if envs is not None:
             self.envs = envs
         if exclusive_mode is not None:
@@ -291,6 +296,27 @@ class GetRevisionResponse(object):
         """
 
         self._description = description
+
+    @property
+    def efs_mount_config(self):
+        """Gets the efs_mount_config of this GetRevisionResponse.  # noqa: E501
+
+
+        :return: The efs_mount_config of this GetRevisionResponse.  # noqa: E501
+        :rtype: EfsMountConfigForGetRevisionOutput
+        """
+        return self._efs_mount_config
+
+    @efs_mount_config.setter
+    def efs_mount_config(self, efs_mount_config):
+        """Sets the efs_mount_config of this GetRevisionResponse.
+
+
+        :param efs_mount_config: The efs_mount_config of this GetRevisionResponse.  # noqa: E501
+        :type: EfsMountConfigForGetRevisionOutput
+        """
+
+        self._efs_mount_config = efs_mount_config
 
     @property
     def envs(self):

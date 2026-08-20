@@ -34,6 +34,8 @@ class DescribeSandboxResponse(object):
     """
     swagger_types = {
         'assign_status': 'str',
+        'auto_pause_config': 'AutoPauseConfigForDescribeSandboxOutput',
+        'auto_snapshot_config': 'AutoSnapshotConfigForDescribeSandboxOutput',
         'availability_zone': 'str',
         'cpu_milli': 'int',
         'created_at': 'str',
@@ -44,12 +46,15 @@ class DescribeSandboxResponse(object):
         'function_id': 'str',
         'id': 'str',
         'image_info': 'ImageInfoForDescribeSandboxOutput',
+        'instance_efs_mount_config': 'InstanceEfsMountConfigForDescribeSandboxOutput',
         'instance_nas_mount_config': 'InstanceNasMountConfigForDescribeSandboxOutput',
         'instance_tos_mount_config': 'InstanceTosMountConfigForDescribeSandboxOutput',
         'instance_type': 'str',
         'max_concurrency': 'int',
         'memory_mb': 'int',
         'metadata_list': 'list[MetadataListForDescribeSandboxOutput]',
+        'network_rules': 'NetworkRulesForDescribeSandboxOutput',
+        'paused_at': 'str',
         'pending': 'bool',
         'request_timeout': 'int',
         'revision_number': 'int',
@@ -62,6 +67,8 @@ class DescribeSandboxResponse(object):
 
     attribute_map = {
         'assign_status': 'AssignStatus',
+        'auto_pause_config': 'AutoPauseConfig',
+        'auto_snapshot_config': 'AutoSnapshotConfig',
         'availability_zone': 'AvailabilityZone',
         'cpu_milli': 'CpuMilli',
         'created_at': 'CreatedAt',
@@ -72,12 +79,15 @@ class DescribeSandboxResponse(object):
         'function_id': 'FunctionId',
         'id': 'Id',
         'image_info': 'ImageInfo',
+        'instance_efs_mount_config': 'InstanceEfsMountConfig',
         'instance_nas_mount_config': 'InstanceNasMountConfig',
         'instance_tos_mount_config': 'InstanceTosMountConfig',
         'instance_type': 'InstanceType',
         'max_concurrency': 'MaxConcurrency',
         'memory_mb': 'MemoryMB',
         'metadata_list': 'MetadataList',
+        'network_rules': 'NetworkRules',
+        'paused_at': 'PausedAt',
         'pending': 'Pending',
         'request_timeout': 'RequestTimeout',
         'revision_number': 'RevisionNumber',
@@ -88,13 +98,15 @@ class DescribeSandboxResponse(object):
         'status': 'Status'
     }
 
-    def __init__(self, assign_status=None, availability_zone=None, cpu_milli=None, created_at=None, envs=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, instance_type=None, max_concurrency=None, memory_mb=None, metadata_list=None, pending=None, request_timeout=None, revision_number=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, assign_status=None, auto_pause_config=None, auto_snapshot_config=None, availability_zone=None, cpu_milli=None, created_at=None, envs=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image_info=None, instance_efs_mount_config=None, instance_nas_mount_config=None, instance_tos_mount_config=None, instance_type=None, max_concurrency=None, memory_mb=None, metadata_list=None, network_rules=None, paused_at=None, pending=None, request_timeout=None, revision_number=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
         """DescribeSandboxResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._assign_status = None
+        self._auto_pause_config = None
+        self._auto_snapshot_config = None
         self._availability_zone = None
         self._cpu_milli = None
         self._created_at = None
@@ -105,12 +117,15 @@ class DescribeSandboxResponse(object):
         self._function_id = None
         self._id = None
         self._image_info = None
+        self._instance_efs_mount_config = None
         self._instance_nas_mount_config = None
         self._instance_tos_mount_config = None
         self._instance_type = None
         self._max_concurrency = None
         self._memory_mb = None
         self._metadata_list = None
+        self._network_rules = None
+        self._paused_at = None
         self._pending = None
         self._request_timeout = None
         self._revision_number = None
@@ -123,6 +138,10 @@ class DescribeSandboxResponse(object):
 
         if assign_status is not None:
             self.assign_status = assign_status
+        if auto_pause_config is not None:
+            self.auto_pause_config = auto_pause_config
+        if auto_snapshot_config is not None:
+            self.auto_snapshot_config = auto_snapshot_config
         if availability_zone is not None:
             self.availability_zone = availability_zone
         if cpu_milli is not None:
@@ -143,6 +162,8 @@ class DescribeSandboxResponse(object):
             self.id = id
         if image_info is not None:
             self.image_info = image_info
+        if instance_efs_mount_config is not None:
+            self.instance_efs_mount_config = instance_efs_mount_config
         if instance_nas_mount_config is not None:
             self.instance_nas_mount_config = instance_nas_mount_config
         if instance_tos_mount_config is not None:
@@ -155,6 +176,10 @@ class DescribeSandboxResponse(object):
             self.memory_mb = memory_mb
         if metadata_list is not None:
             self.metadata_list = metadata_list
+        if network_rules is not None:
+            self.network_rules = network_rules
+        if paused_at is not None:
+            self.paused_at = paused_at
         if pending is not None:
             self.pending = pending
         if request_timeout is not None:
@@ -192,6 +217,48 @@ class DescribeSandboxResponse(object):
         """
 
         self._assign_status = assign_status
+
+    @property
+    def auto_pause_config(self):
+        """Gets the auto_pause_config of this DescribeSandboxResponse.  # noqa: E501
+
+
+        :return: The auto_pause_config of this DescribeSandboxResponse.  # noqa: E501
+        :rtype: AutoPauseConfigForDescribeSandboxOutput
+        """
+        return self._auto_pause_config
+
+    @auto_pause_config.setter
+    def auto_pause_config(self, auto_pause_config):
+        """Sets the auto_pause_config of this DescribeSandboxResponse.
+
+
+        :param auto_pause_config: The auto_pause_config of this DescribeSandboxResponse.  # noqa: E501
+        :type: AutoPauseConfigForDescribeSandboxOutput
+        """
+
+        self._auto_pause_config = auto_pause_config
+
+    @property
+    def auto_snapshot_config(self):
+        """Gets the auto_snapshot_config of this DescribeSandboxResponse.  # noqa: E501
+
+
+        :return: The auto_snapshot_config of this DescribeSandboxResponse.  # noqa: E501
+        :rtype: AutoSnapshotConfigForDescribeSandboxOutput
+        """
+        return self._auto_snapshot_config
+
+    @auto_snapshot_config.setter
+    def auto_snapshot_config(self, auto_snapshot_config):
+        """Sets the auto_snapshot_config of this DescribeSandboxResponse.
+
+
+        :param auto_snapshot_config: The auto_snapshot_config of this DescribeSandboxResponse.  # noqa: E501
+        :type: AutoSnapshotConfigForDescribeSandboxOutput
+        """
+
+        self._auto_snapshot_config = auto_snapshot_config
 
     @property
     def availability_zone(self):
@@ -404,6 +471,27 @@ class DescribeSandboxResponse(object):
         self._image_info = image_info
 
     @property
+    def instance_efs_mount_config(self):
+        """Gets the instance_efs_mount_config of this DescribeSandboxResponse.  # noqa: E501
+
+
+        :return: The instance_efs_mount_config of this DescribeSandboxResponse.  # noqa: E501
+        :rtype: InstanceEfsMountConfigForDescribeSandboxOutput
+        """
+        return self._instance_efs_mount_config
+
+    @instance_efs_mount_config.setter
+    def instance_efs_mount_config(self, instance_efs_mount_config):
+        """Sets the instance_efs_mount_config of this DescribeSandboxResponse.
+
+
+        :param instance_efs_mount_config: The instance_efs_mount_config of this DescribeSandboxResponse.  # noqa: E501
+        :type: InstanceEfsMountConfigForDescribeSandboxOutput
+        """
+
+        self._instance_efs_mount_config = instance_efs_mount_config
+
+    @property
     def instance_nas_mount_config(self):
         """Gets the instance_nas_mount_config of this DescribeSandboxResponse.  # noqa: E501
 
@@ -528,6 +616,48 @@ class DescribeSandboxResponse(object):
         """
 
         self._metadata_list = metadata_list
+
+    @property
+    def network_rules(self):
+        """Gets the network_rules of this DescribeSandboxResponse.  # noqa: E501
+
+
+        :return: The network_rules of this DescribeSandboxResponse.  # noqa: E501
+        :rtype: NetworkRulesForDescribeSandboxOutput
+        """
+        return self._network_rules
+
+    @network_rules.setter
+    def network_rules(self, network_rules):
+        """Sets the network_rules of this DescribeSandboxResponse.
+
+
+        :param network_rules: The network_rules of this DescribeSandboxResponse.  # noqa: E501
+        :type: NetworkRulesForDescribeSandboxOutput
+        """
+
+        self._network_rules = network_rules
+
+    @property
+    def paused_at(self):
+        """Gets the paused_at of this DescribeSandboxResponse.  # noqa: E501
+
+
+        :return: The paused_at of this DescribeSandboxResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._paused_at
+
+    @paused_at.setter
+    def paused_at(self, paused_at):
+        """Sets the paused_at of this DescribeSandboxResponse.
+
+
+        :param paused_at: The paused_at of this DescribeSandboxResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._paused_at = paused_at
 
     @property
     def pending(self):
