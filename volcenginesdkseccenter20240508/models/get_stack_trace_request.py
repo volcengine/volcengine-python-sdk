@@ -49,8 +49,7 @@ class GetStackTraceRequest(object):
         self._stack_trace_hash = None
         self.discriminator = None
 
-        if stack_trace_hash is not None:
-            self.stack_trace_hash = stack_trace_hash
+        self.stack_trace_hash = stack_trace_hash
 
     @property
     def stack_trace_hash(self):
@@ -70,6 +69,8 @@ class GetStackTraceRequest(object):
         :param stack_trace_hash: The stack_trace_hash of this GetStackTraceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and stack_trace_hash is None:
+            raise ValueError("Invalid value for `stack_trace_hash`, must not be `None`")  # noqa: E501
 
         self._stack_trace_hash = stack_trace_hash
 

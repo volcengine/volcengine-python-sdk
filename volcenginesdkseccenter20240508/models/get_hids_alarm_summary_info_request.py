@@ -49,8 +49,7 @@ class GetHidsAlarmSummaryInfoRequest(object):
         self._alarm_id = None
         self.discriminator = None
 
-        if alarm_id is not None:
-            self.alarm_id = alarm_id
+        self.alarm_id = alarm_id
 
     @property
     def alarm_id(self):
@@ -70,6 +69,8 @@ class GetHidsAlarmSummaryInfoRequest(object):
         :param alarm_id: The alarm_id of this GetHidsAlarmSummaryInfoRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and alarm_id is None:
+            raise ValueError("Invalid value for `alarm_id`, must not be `None`")  # noqa: E501
 
         self._alarm_id = alarm_id
 

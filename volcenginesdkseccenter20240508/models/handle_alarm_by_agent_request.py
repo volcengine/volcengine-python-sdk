@@ -36,17 +36,21 @@ class HandleAlarmByAgentRequest(object):
         'alarm_id': 'str',
         'alarm_type': 'str',
         'files': 'list[FileForHandleAlarmByAgentInput]',
-        'processes': 'list[ProcessForHandleAlarmByAgentInput]'
+        'processes': 'list[ProcessForHandleAlarmByAgentInput]',
+        'span_trace_id': 'list[int]',
+        'span_unique_id': 'list[int]'
     }
 
     attribute_map = {
         'alarm_id': 'AlarmID',
         'alarm_type': 'AlarmType',
         'files': 'Files',
-        'processes': 'Processes'
+        'processes': 'Processes',
+        'span_trace_id': 'SpanTraceID',
+        'span_unique_id': 'SpanUniqueID'
     }
 
-    def __init__(self, alarm_id=None, alarm_type=None, files=None, processes=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_id=None, alarm_type=None, files=None, processes=None, span_trace_id=None, span_unique_id=None, _configuration=None):  # noqa: E501
         """HandleAlarmByAgentRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +60,8 @@ class HandleAlarmByAgentRequest(object):
         self._alarm_type = None
         self._files = None
         self._processes = None
+        self._span_trace_id = None
+        self._span_unique_id = None
         self.discriminator = None
 
         if alarm_id is not None:
@@ -65,6 +71,10 @@ class HandleAlarmByAgentRequest(object):
             self.files = files
         if processes is not None:
             self.processes = processes
+        if span_trace_id is not None:
+            self.span_trace_id = span_trace_id
+        if span_unique_id is not None:
+            self.span_unique_id = span_unique_id
 
     @property
     def alarm_id(self):
@@ -107,13 +117,6 @@ class HandleAlarmByAgentRequest(object):
         """
         if self._configuration.client_side_validation and alarm_type is None:
             raise ValueError("Invalid value for `alarm_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["hids", "virus"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                alarm_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `alarm_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(alarm_type, allowed_values)
-            )
 
         self._alarm_type = alarm_type
 
@@ -158,6 +161,48 @@ class HandleAlarmByAgentRequest(object):
         """
 
         self._processes = processes
+
+    @property
+    def span_trace_id(self):
+        """Gets the span_trace_id of this HandleAlarmByAgentRequest.  # noqa: E501
+
+
+        :return: The span_trace_id of this HandleAlarmByAgentRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._span_trace_id
+
+    @span_trace_id.setter
+    def span_trace_id(self, span_trace_id):
+        """Sets the span_trace_id of this HandleAlarmByAgentRequest.
+
+
+        :param span_trace_id: The span_trace_id of this HandleAlarmByAgentRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._span_trace_id = span_trace_id
+
+    @property
+    def span_unique_id(self):
+        """Gets the span_unique_id of this HandleAlarmByAgentRequest.  # noqa: E501
+
+
+        :return: The span_unique_id of this HandleAlarmByAgentRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._span_unique_id
+
+    @span_unique_id.setter
+    def span_unique_id(self, span_unique_id):
+        """Sets the span_unique_id of this HandleAlarmByAgentRequest.
+
+
+        :param span_unique_id: The span_unique_id of this HandleAlarmByAgentRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._span_unique_id = span_unique_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

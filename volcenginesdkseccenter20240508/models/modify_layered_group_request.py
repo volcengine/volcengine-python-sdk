@@ -69,8 +69,7 @@ class ModifyLayeredGroupRequest(object):
 
         if agent_ids is not None:
             self.agent_ids = agent_ids
-        if group_id is not None:
-            self.group_id = group_id
+        self.group_id = group_id
         if group_name is not None:
             self.group_name = group_name
         if origin_group_name is not None:
@@ -121,6 +120,8 @@ class ModifyLayeredGroupRequest(object):
         :param group_id: The group_id of this ModifyLayeredGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and group_id is None:
+            raise ValueError("Invalid value for `group_id`, must not be `None`")  # noqa: E501
 
         self._group_id = group_id
 

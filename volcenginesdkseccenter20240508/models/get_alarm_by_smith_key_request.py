@@ -55,10 +55,8 @@ class GetAlarmBySmithKeyRequest(object):
         self._type = None
         self.discriminator = None
 
-        if alarm_category is not None:
-            self.alarm_category = alarm_category
-        if smith_key is not None:
-            self.smith_key = smith_key
+        self.alarm_category = alarm_category
+        self.smith_key = smith_key
         if type is not None:
             self.type = type
 
@@ -80,6 +78,8 @@ class GetAlarmBySmithKeyRequest(object):
         :param alarm_category: The alarm_category of this GetAlarmBySmithKeyRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and alarm_category is None:
+            raise ValueError("Invalid value for `alarm_category`, must not be `None`")  # noqa: E501
 
         self._alarm_category = alarm_category
 
@@ -101,6 +101,8 @@ class GetAlarmBySmithKeyRequest(object):
         :param smith_key: The smith_key of this GetAlarmBySmithKeyRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and smith_key is None:
+            raise ValueError("Invalid value for `smith_key`, must not be `None`")  # noqa: E501
 
         self._smith_key = smith_key
 

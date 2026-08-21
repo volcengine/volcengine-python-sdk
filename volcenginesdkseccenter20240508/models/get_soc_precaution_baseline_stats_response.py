@@ -39,9 +39,9 @@ class GetSOCPrecautionBaselineStatsResponse(object):
     }
 
     attribute_map = {
-        'passed': 'passed',
-        'risky': 'risky',
-        'total': 'total'
+        'passed': 'Passed',
+        'risky': 'Risky',
+        'total': 'Total'
     }
 
     def __init__(self, passed=None, risky=None, total=None, _configuration=None):  # noqa: E501

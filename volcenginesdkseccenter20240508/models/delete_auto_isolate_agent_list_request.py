@@ -39,7 +39,7 @@ class DeleteAutoIsolateAgentListRequest(object):
 
     attribute_map = {
         'agent_id_list': 'AgentIDList',
-        'basic_query': 'basicQuery'
+        'basic_query': 'BasicQuery'
     }
 
     def __init__(self, agent_id_list=None, basic_query=None, _configuration=None):  # noqa: E501

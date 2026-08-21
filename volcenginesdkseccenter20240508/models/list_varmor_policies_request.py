@@ -39,6 +39,7 @@ class ListVarmorPoliciesRequest(object):
         'namespace': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'policy_ids': 'list[str]',
         'policy_mode': 'str',
         'policy_name': 'str',
         'policy_type': 'str',
@@ -56,6 +57,7 @@ class ListVarmorPoliciesRequest(object):
         'namespace': 'Namespace',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'policy_ids': 'PolicyIds',
         'policy_mode': 'PolicyMode',
         'policy_name': 'PolicyName',
         'policy_type': 'PolicyType',
@@ -66,7 +68,7 @@ class ListVarmorPoliciesRequest(object):
         'target_workload': 'TargetWorkload'
     }
 
-    def __init__(self, cluster_id=None, cluster_name=None, enforcer=None, namespace=None, page_number=None, page_size=None, policy_mode=None, policy_name=None, policy_type=None, region=None, sort_by=None, sort_order=None, status=None, target_workload=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, cluster_name=None, enforcer=None, namespace=None, page_number=None, page_size=None, policy_ids=None, policy_mode=None, policy_name=None, policy_type=None, region=None, sort_by=None, sort_order=None, status=None, target_workload=None, _configuration=None):  # noqa: E501
         """ListVarmorPoliciesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class ListVarmorPoliciesRequest(object):
         self._namespace = None
         self._page_number = None
         self._page_size = None
+        self._policy_ids = None
         self._policy_mode = None
         self._policy_name = None
         self._policy_type = None
@@ -98,6 +101,8 @@ class ListVarmorPoliciesRequest(object):
             self.namespace = namespace
         self.page_number = page_number
         self.page_size = page_size
+        if policy_ids is not None:
+            self.policy_ids = policy_ids
         if policy_mode is not None:
             self.policy_mode = policy_mode
         if policy_name is not None:
@@ -244,6 +249,27 @@ class ListVarmorPoliciesRequest(object):
             raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def policy_ids(self):
+        """Gets the policy_ids of this ListVarmorPoliciesRequest.  # noqa: E501
+
+
+        :return: The policy_ids of this ListVarmorPoliciesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._policy_ids
+
+    @policy_ids.setter
+    def policy_ids(self, policy_ids):
+        """Sets the policy_ids of this ListVarmorPoliciesRequest.
+
+
+        :param policy_ids: The policy_ids of this ListVarmorPoliciesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._policy_ids = policy_ids
 
     @property
     def policy_mode(self):

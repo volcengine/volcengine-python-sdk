@@ -63,6 +63,8 @@ class DataForGetOfflineNotificationListOutput(object):
         'risk': 'RiskForGetOfflineNotificationListOutput',
         'security_enhancement': 'bool',
         'start_time': 'int',
+        'state': 'str',
+        'state_detail': 'str',
         'status': 'str',
         'tags': 'list[str]',
         'total_mem': 'int',
@@ -102,6 +104,8 @@ class DataForGetOfflineNotificationListOutput(object):
         'risk': 'Risk',
         'security_enhancement': 'SecurityEnhancement',
         'start_time': 'StartTime',
+        'state': 'State',
+        'state_detail': 'StateDetail',
         'status': 'Status',
         'tags': 'Tags',
         'total_mem': 'TotalMem',
@@ -110,7 +114,7 @@ class DataForGetOfflineNotificationListOutput(object):
         'user_status_reason_code': 'UserStatusReasonCode'
     }
 
-    def __init__(self, abnormal_plugins_list=None, account_id=None, agent_id=None, agent_offline_time=None, agent_status=None, client_public_ip=None, cloud_provider=None, cpu_usage=None, dns=None, ecs_instance=None, first_heartbeat_time=None, gateway=None, group=None, group_path=None, group_path_en=None, kernel_version=None, last_heartbeat_time=None, mem_usage=None, notification_threshold=None, notification_time=None, old_valid_code=None, online=None, platform=None, platform_version=None, plugins_brief_info=None, plugins_status=None, reason=None, risk=None, security_enhancement=None, start_time=None, status=None, tags=None, total_mem=None, user_status=None, user_status_reason=None, user_status_reason_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, abnormal_plugins_list=None, account_id=None, agent_id=None, agent_offline_time=None, agent_status=None, client_public_ip=None, cloud_provider=None, cpu_usage=None, dns=None, ecs_instance=None, first_heartbeat_time=None, gateway=None, group=None, group_path=None, group_path_en=None, kernel_version=None, last_heartbeat_time=None, mem_usage=None, notification_threshold=None, notification_time=None, old_valid_code=None, online=None, platform=None, platform_version=None, plugins_brief_info=None, plugins_status=None, reason=None, risk=None, security_enhancement=None, start_time=None, state=None, state_detail=None, status=None, tags=None, total_mem=None, user_status=None, user_status_reason=None, user_status_reason_code=None, _configuration=None):  # noqa: E501
         """DataForGetOfflineNotificationListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -146,6 +150,8 @@ class DataForGetOfflineNotificationListOutput(object):
         self._risk = None
         self._security_enhancement = None
         self._start_time = None
+        self._state = None
+        self._state_detail = None
         self._status = None
         self._tags = None
         self._total_mem = None
@@ -214,6 +220,10 @@ class DataForGetOfflineNotificationListOutput(object):
             self.security_enhancement = security_enhancement
         if start_time is not None:
             self.start_time = start_time
+        if state is not None:
+            self.state = state
+        if state_detail is not None:
+            self.state_detail = state_detail
         if status is not None:
             self.status = status
         if tags is not None:
@@ -856,6 +866,48 @@ class DataForGetOfflineNotificationListOutput(object):
         """
 
         self._start_time = start_time
+
+    @property
+    def state(self):
+        """Gets the state of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+
+
+        :return: The state of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """Sets the state of this DataForGetOfflineNotificationListOutput.
+
+
+        :param state: The state of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._state = state
+
+    @property
+    def state_detail(self):
+        """Gets the state_detail of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+
+
+        :return: The state_detail of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._state_detail
+
+    @state_detail.setter
+    def state_detail(self, state_detail):
+        """Sets the state_detail of this DataForGetOfflineNotificationListOutput.
+
+
+        :param state_detail: The state_detail of this DataForGetOfflineNotificationListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._state_detail = state_detail
 
     @property
     def status(self):

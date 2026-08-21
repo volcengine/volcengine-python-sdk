@@ -134,7 +134,9 @@ class KillChainNodeListForGetHidsAlarmSummaryInfoOutput(object):
         'run_path': 'str',
         'sam_account_name': 'str',
         'security_intelligence_complete': 'bool',
+        'security_intelligence_error': 'str',
         'security_intelligence_result': 'str',
+        'security_intelligence_status': 'str',
         'service_account': 'str',
         'service_file_name': 'str',
         'service_name': 'str',
@@ -288,7 +290,9 @@ class KillChainNodeListForGetHidsAlarmSummaryInfoOutput(object):
         'run_path': 'RunPath',
         'sam_account_name': 'SamAccountName',
         'security_intelligence_complete': 'SecurityIntelligenceComplete',
+        'security_intelligence_error': 'SecurityIntelligenceError',
         'security_intelligence_result': 'SecurityIntelligenceResult',
+        'security_intelligence_status': 'SecurityIntelligenceStatus',
         'service_account': 'ServiceAccount',
         'service_file_name': 'ServiceFileName',
         'service_name': 'ServiceName',
@@ -340,7 +344,7 @@ class KillChainNodeListForGetHidsAlarmSummaryInfoOutput(object):
         'virus_hit_data_list': 'VirusHitDataList'
     }
 
-    def __init__(self, account_expires=None, additional_actions_string=None, analysis_record_uuid=None, args_array=None, argv=None, backend_alarm_tags=None, bruteforce_sip=None, category_name=None, _class=None, cmd=None, comm=None, command_line=None, confidence=None, configuration=None, configuration_file_hash=None, connect_info=None, contents=None, create_at=None, current_directory=None, data_type=None, description=None, destination_hostname=None, destination_ip=None, destination_port=None, destination_port_name=None, details=None, detection_user=None, dip=None, dport=None, dst_list=None, elkeid_save_data=None, en_hanced=None, event_type=None, exe=None, exe_hash=None, external_conns=None, failure_reason=None, fd_name=None, file_downloadable=None, file_name=None, file_path=None, flags=None, hash=None, hashes=None, highlight_fields=None, hit_argv_list=None, hit_data=None, home_directory=None, ip_intelligence=None, ip_source=None, ip_source_us=None, image=None, image_loaded=None, interrupt_number=None, ioc_detail=None, ioc_meta=None, ioc_severity=None, ioc_source=None, ip_address=None, is_inner_account=None, ko_file=None, ld_preload=None, login_count=None, logon_type=None, md5_hash=None, mod_info=None, modify_at=None, module_name=None, name=None, new_name=None, new_thread_id=None, nspid=None, old_name=None, old_uid=None, old_username=None, original_file_name=None, parent_command_line=None, parent_image=None, path=None, pgid=None, pgid_argv=None, pid=None, pid_set=None, pid_tree=None, ppid=None, ppid_argv=None, privilege_list=None, probe_hook=None, process_guid=None, process_id=None, process_name=None, protocol=None, ptrace_request=None, query=None, query_name=None, query_results=None, query_status=None, root_pns=None, run_path=None, sam_account_name=None, security_intelligence_complete=None, security_intelligence_result=None, service_account=None, service_file_name=None, service_name=None, service_start_type=None, service_type=None, severity_name=None, sid=None, signature=None, signature_status=None, sip=None, socket_argv=None, socket_pid=None, source_ip=None, source_image=None, source_name=None, source_port=None, source_process_guid=None, source_user=None, sport=None, src_list=None, ssh=None, ssh_info=None, stack_trace_format=None, stack_trace_hash=None, start_function=None, start_module=None, static_file=None, stdin=None, stdout=None, subject_user_name=None, symbol_hooked=None, symbol_so=None, syscall_number=None, target_argv=None, target_domain_name=None, target_filename=None, target_object=None, target_pid=None, target_user_name=None, task_content=None, task_name=None, threat_name=None, timestamp=None, types=None, uid=None, user=None, user_principal_name=None, username=None, virus_hit_data_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_expires=None, additional_actions_string=None, analysis_record_uuid=None, args_array=None, argv=None, backend_alarm_tags=None, bruteforce_sip=None, category_name=None, _class=None, cmd=None, comm=None, command_line=None, confidence=None, configuration=None, configuration_file_hash=None, connect_info=None, contents=None, create_at=None, current_directory=None, data_type=None, description=None, destination_hostname=None, destination_ip=None, destination_port=None, destination_port_name=None, details=None, detection_user=None, dip=None, dport=None, dst_list=None, elkeid_save_data=None, en_hanced=None, event_type=None, exe=None, exe_hash=None, external_conns=None, failure_reason=None, fd_name=None, file_downloadable=None, file_name=None, file_path=None, flags=None, hash=None, hashes=None, highlight_fields=None, hit_argv_list=None, hit_data=None, home_directory=None, ip_intelligence=None, ip_source=None, ip_source_us=None, image=None, image_loaded=None, interrupt_number=None, ioc_detail=None, ioc_meta=None, ioc_severity=None, ioc_source=None, ip_address=None, is_inner_account=None, ko_file=None, ld_preload=None, login_count=None, logon_type=None, md5_hash=None, mod_info=None, modify_at=None, module_name=None, name=None, new_name=None, new_thread_id=None, nspid=None, old_name=None, old_uid=None, old_username=None, original_file_name=None, parent_command_line=None, parent_image=None, path=None, pgid=None, pgid_argv=None, pid=None, pid_set=None, pid_tree=None, ppid=None, ppid_argv=None, privilege_list=None, probe_hook=None, process_guid=None, process_id=None, process_name=None, protocol=None, ptrace_request=None, query=None, query_name=None, query_results=None, query_status=None, root_pns=None, run_path=None, sam_account_name=None, security_intelligence_complete=None, security_intelligence_error=None, security_intelligence_result=None, security_intelligence_status=None, service_account=None, service_file_name=None, service_name=None, service_start_type=None, service_type=None, severity_name=None, sid=None, signature=None, signature_status=None, sip=None, socket_argv=None, socket_pid=None, source_ip=None, source_image=None, source_name=None, source_port=None, source_process_guid=None, source_user=None, sport=None, src_list=None, ssh=None, ssh_info=None, stack_trace_format=None, stack_trace_hash=None, start_function=None, start_module=None, static_file=None, stdin=None, stdout=None, subject_user_name=None, symbol_hooked=None, symbol_so=None, syscall_number=None, target_argv=None, target_domain_name=None, target_filename=None, target_object=None, target_pid=None, target_user_name=None, task_content=None, task_name=None, threat_name=None, timestamp=None, types=None, uid=None, user=None, user_principal_name=None, username=None, virus_hit_data_list=None, _configuration=None):  # noqa: E501
         """KillChainNodeListForGetHidsAlarmSummaryInfoOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -447,7 +451,9 @@ class KillChainNodeListForGetHidsAlarmSummaryInfoOutput(object):
         self._run_path = None
         self._sam_account_name = None
         self._security_intelligence_complete = None
+        self._security_intelligence_error = None
         self._security_intelligence_result = None
+        self._security_intelligence_status = None
         self._service_account = None
         self._service_file_name = None
         self._service_name = None
@@ -701,8 +707,12 @@ class KillChainNodeListForGetHidsAlarmSummaryInfoOutput(object):
             self.sam_account_name = sam_account_name
         if security_intelligence_complete is not None:
             self.security_intelligence_complete = security_intelligence_complete
+        if security_intelligence_error is not None:
+            self.security_intelligence_error = security_intelligence_error
         if security_intelligence_result is not None:
             self.security_intelligence_result = security_intelligence_result
+        if security_intelligence_status is not None:
+            self.security_intelligence_status = security_intelligence_status
         if service_account is not None:
             self.service_account = service_account
         if service_file_name is not None:
@@ -2924,6 +2934,27 @@ class KillChainNodeListForGetHidsAlarmSummaryInfoOutput(object):
         self._security_intelligence_complete = security_intelligence_complete
 
     @property
+    def security_intelligence_error(self):
+        """Gets the security_intelligence_error of this KillChainNodeListForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The security_intelligence_error of this KillChainNodeListForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_intelligence_error
+
+    @security_intelligence_error.setter
+    def security_intelligence_error(self, security_intelligence_error):
+        """Sets the security_intelligence_error of this KillChainNodeListForGetHidsAlarmSummaryInfoOutput.
+
+
+        :param security_intelligence_error: The security_intelligence_error of this KillChainNodeListForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_intelligence_error = security_intelligence_error
+
+    @property
     def security_intelligence_result(self):
         """Gets the security_intelligence_result of this KillChainNodeListForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
 
@@ -2943,6 +2974,27 @@ class KillChainNodeListForGetHidsAlarmSummaryInfoOutput(object):
         """
 
         self._security_intelligence_result = security_intelligence_result
+
+    @property
+    def security_intelligence_status(self):
+        """Gets the security_intelligence_status of this KillChainNodeListForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+
+
+        :return: The security_intelligence_status of this KillChainNodeListForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_intelligence_status
+
+    @security_intelligence_status.setter
+    def security_intelligence_status(self, security_intelligence_status):
+        """Sets the security_intelligence_status of this KillChainNodeListForGetHidsAlarmSummaryInfoOutput.
+
+
+        :param security_intelligence_status: The security_intelligence_status of this KillChainNodeListForGetHidsAlarmSummaryInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_intelligence_status = security_intelligence_status
 
     @property
     def service_account(self):
