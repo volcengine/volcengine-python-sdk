@@ -113,6 +113,7 @@ class ModerateV2Request(BaseModel):
     scene: str = Field("", alias="Scene")
     history: List[MessageV2] = Field([], alias="History")
     extensions: Optional[Dict[str, str]] = Field(None, alias="Extensions")
+    call_generate_on_optimize: Optional[bool] = Field(None, alias="CallGenerateOnOptimize")
 
     class Config:
         populate_by_name = True
@@ -136,6 +137,24 @@ class RiskMatchV2(BaseModel):
     action: Optional[int] = Field(None, alias="Action")
     source: Optional[int] = Field(None, alias="Source")
     rule_id: Optional[Any] = Field(None, alias="RuleID")
+    position: Optional["PositionInfo"] = Field(None, alias="Position")
+
+    class Config:
+        populate_by_name = True
+
+
+class ImagePositionInfo(BaseModel):
+    x_start: str = Field("", alias="xStart")
+    y_start: str = Field("", alias="yStart")
+    x_end: str = Field("", alias="xEnd")
+    y_end: str = Field("", alias="yEnd")
+
+    class Config:
+        populate_by_name = True
+
+
+class PositionInfo(BaseModel):
+    image_position: Optional[ImagePositionInfo] = Field(None, alias="ImagePosition")
 
     class Config:
         populate_by_name = True
@@ -561,7 +580,6 @@ class ClientV2:
 
         # 2. 初始化或追加会话请求（深拷贝确保隔离）
         if session.request is None:
-            # 首次请求：深拷贝初始请求到 session
             session.request = ModerateV2Request(request)
         else:
             # 后续请求：追加当前请求内容到 session 积累的请求中
@@ -574,15 +592,17 @@ class ClientV2:
         session.stream_send_len += len(request.message.content)
 
         # 3. 判断是否需要发送请求到后端
-        # 只有当未检测长度 >= 10 或者是第一次或者是最后一次请求时，才发送请求
-        need_send_request = is_last_request or is_first_request or (
-                session.stream_send_len >= session.CurrentSendWindow)
+        need_send_request = (
+            is_last_request
+            or is_first_request
+            or session.stream_send_len >= session.CurrentSendWindow
+        )
 
         # 如果不需要发送请求，直接返回上次的默认响应（如果有）
         if not need_send_request:
             return session.default_body
-        else:
-            session.CurrentSendWindow = session.CurrentSendWindow * LLM_STREAM_SEND_EXPONENT_V2
+
+        session.CurrentSendWindow = session.CurrentSendWindow * LLM_STREAM_SEND_EXPONENT_V2
 
         # 3. 序列化请求（使用 Pydantic 的 model_dump 方法）
         try:
@@ -624,8 +644,6 @@ class ClientV2:
             print(f"最终检测内容: {final_content}")
 
         return moderate_response
-
-
     def GenerateV2Stream(self, request):
         path = "/v2/generate"
         action = "Generate"
@@ -675,3 +693,6 @@ class CustomJSONEncoder(json.JSONEncoder):
             return obj.__dict__  # 返回对象的属性字典
         # 调用默认处理（会抛出TypeError）
         return super().default(obj)
+
+
+RiskMatchV2.model_rebuild()
