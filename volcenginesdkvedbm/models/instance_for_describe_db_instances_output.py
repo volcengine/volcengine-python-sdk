@@ -48,6 +48,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'region_id': 'str',
         'spec_family': 'str',
         'storage_charge_type': 'str',
+        'storage_type': 'str',
         'storage_used_gi_b': 'float',
         'subnet_id': 'str',
         'tags': 'list[TagForDescribeDBInstancesOutput]',
@@ -72,6 +73,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'region_id': 'RegionId',
         'spec_family': 'SpecFamily',
         'storage_charge_type': 'StorageChargeType',
+        'storage_type': 'StorageType',
         'storage_used_gi_b': 'StorageUsedGiB',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
@@ -80,7 +82,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, db_revision_version=None, deletion_protection=None, instance_id=None, instance_name=None, instance_status=None, lower_case_table_names=None, nodes=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, spec_family=None, storage_charge_type=None, storage_used_gi_b=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, db_revision_version=None, deletion_protection=None, instance_id=None, instance_name=None, instance_status=None, lower_case_table_names=None, nodes=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, spec_family=None, storage_charge_type=None, storage_type=None, storage_used_gi_b=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -101,6 +103,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._region_id = None
         self._spec_family = None
         self._storage_charge_type = None
+        self._storage_type = None
         self._storage_used_gi_b = None
         self._subnet_id = None
         self._tags = None
@@ -139,6 +142,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.spec_family = spec_family
         if storage_charge_type is not None:
             self.storage_charge_type = storage_charge_type
+        if storage_type is not None:
+            self.storage_type = storage_type
         if storage_used_gi_b is not None:
             self.storage_used_gi_b = storage_used_gi_b
         if subnet_id is not None:
@@ -466,6 +471,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._storage_charge_type = storage_charge_type
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The storage_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param storage_type: The storage_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
 
     @property
     def storage_used_gi_b(self):

@@ -40,7 +40,8 @@ class DescribeDBInstancePriceDetailRequest(object):
         'period': 'int',
         'period_unit': 'str',
         'pre_paid_storage_in_gb': 'int',
-        'storage_charge_type': 'str'
+        'storage_charge_type': 'str',
+        'storage_type': 'str'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class DescribeDBInstancePriceDetailRequest(object):
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'pre_paid_storage_in_gb': 'PrePaidStorageInGB',
-        'storage_charge_type': 'StorageChargeType'
+        'storage_charge_type': 'StorageChargeType',
+        'storage_type': 'StorageType'
     }
 
-    def __init__(self, charge_type=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, pre_paid_storage_in_gb=None, storage_charge_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, pre_paid_storage_in_gb=None, storage_charge_type=None, storage_type=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancePriceDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class DescribeDBInstancePriceDetailRequest(object):
         self._period_unit = None
         self._pre_paid_storage_in_gb = None
         self._storage_charge_type = None
+        self._storage_type = None
         self.discriminator = None
 
         if charge_type is not None:
@@ -84,6 +87,8 @@ class DescribeDBInstancePriceDetailRequest(object):
             self.pre_paid_storage_in_gb = pre_paid_storage_in_gb
         if storage_charge_type is not None:
             self.storage_charge_type = storage_charge_type
+        if storage_type is not None:
+            self.storage_type = storage_type
 
     @property
     def charge_type(self):
@@ -277,6 +282,34 @@ class DescribeDBInstancePriceDetailRequest(object):
             )
 
         self._storage_charge_type = storage_charge_type
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
+
+
+        :return: The storage_type of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this DescribeDBInstancePriceDetailRequest.
+
+
+        :param storage_type: The storage_type of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["IOOptimizedStorage", "SmartCompressedStorage"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                storage_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(storage_type, allowed_values)
+            )
+
+        self._storage_type = storage_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

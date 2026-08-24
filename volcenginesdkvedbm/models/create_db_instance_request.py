@@ -50,6 +50,7 @@ class CreateDBInstanceRequest(object):
         'pre_paid_storage_in_gb': 'int',
         'project_name': 'str',
         'storage_charge_type': 'str',
+        'storage_type': 'str',
         'subnet_id': 'str',
         'super_account_name': 'str',
         'super_account_password': 'str',
@@ -77,6 +78,7 @@ class CreateDBInstanceRequest(object):
         'pre_paid_storage_in_gb': 'PrePaidStorageInGB',
         'project_name': 'ProjectName',
         'storage_charge_type': 'StorageChargeType',
+        'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
         'super_account_name': 'SuperAccountName',
         'super_account_password': 'SuperAccountPassword',
@@ -86,7 +88,7 @@ class CreateDBInstanceRequest(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, db_engine_version=None, db_minor_version=None, db_time_zone=None, deletion_protection=None, instance_name=None, lower_case_table_names=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, port=None, pre_paid_storage_in_gb=None, project_name=None, storage_charge_type=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, template_id=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, db_engine_version=None, db_minor_version=None, db_time_zone=None, deletion_protection=None, instance_name=None, lower_case_table_names=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, port=None, pre_paid_storage_in_gb=None, project_name=None, storage_charge_type=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, template_id=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -109,6 +111,7 @@ class CreateDBInstanceRequest(object):
         self._pre_paid_storage_in_gb = None
         self._project_name = None
         self._storage_charge_type = None
+        self._storage_type = None
         self._subnet_id = None
         self._super_account_name = None
         self._super_account_password = None
@@ -148,6 +151,8 @@ class CreateDBInstanceRequest(object):
             self.project_name = project_name
         if storage_charge_type is not None:
             self.storage_charge_type = storage_charge_type
+        if storage_type is not None:
+            self.storage_type = storage_type
         self.subnet_id = subnet_id
         if super_account_name is not None:
             self.super_account_name = super_account_name
@@ -580,6 +585,34 @@ class CreateDBInstanceRequest(object):
             )
 
         self._storage_charge_type = storage_charge_type
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The storage_type of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this CreateDBInstanceRequest.
+
+
+        :param storage_type: The storage_type of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["IOOptimizedStorage", "SmartCompressedStorage"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                storage_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(storage_type, allowed_values)
+            )
+
+        self._storage_type = storage_type
 
     @property
     def subnet_id(self):
