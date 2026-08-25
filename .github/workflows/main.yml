@@ -22,6 +22,10 @@ on:
           - testpypi
           - pypi
         default: testpypi
+      create_release:
+        description: "Create Git tag and GitHub release"
+        type: boolean
+        default: true
 
 jobs:
   release:
@@ -50,11 +54,13 @@ jobs:
           INPUT_VERSION: ${{ inputs.version }}
           INPUT_PACKAGES: ${{ inputs.packages }}
           INPUT_TARGET: ${{ inputs.target }}
+          INPUT_CREATE_RELEASE: ${{ inputs.create_release }}
           REPO_TARGET: ${{ vars.PYPI_TARGET }}
         run: |
           version="$INPUT_VERSION"
           packages="$INPUT_PACKAGES"
           target="$INPUT_TARGET"
+          create_release="$INPUT_CREATE_RELEASE"
           if [ -z "$version" ]; then
             # push 触发：从本次提交携带的 .changelog/v<ver>.md 文件名取版本
             changed=$(git diff --name-only HEAD^ HEAD -- '.changelog/v*.md' | head -1)
@@ -73,11 +79,17 @@ jobs:
             pypi|testpypi) ;;
             *) echo "invalid publish target: $target" >&2; exit 1 ;;
           esac
-          echo "resolved version=$version, packages=$packages, target=$target"
+          if [ -z "$create_release" ]; then create_release=true; fi
+          case "$create_release" in
+            true|false) ;;
+            *) echo "invalid create_release: $create_release" >&2; exit 1 ;;
+          esac
+          echo "resolved version=$version, packages=$packages, target=$target, create_release=$create_release"
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "tag=v$version" >> "$GITHUB_OUTPUT"
           echo "packages=$packages" >> "$GITHUB_OUTPUT"
           echo "target=$target" >> "$GITHUB_OUTPUT"
+          echo "create_release=$create_release" >> "$GITHUB_OUTPUT"
 
       - name: Validate manifest
         run: python3 scripts/build_split_packages.py validate
@@ -128,6 +140,7 @@ jobs:
           fi
 
       - name: Create Tag
+        if: steps.resolve.outputs.create_release == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -146,6 +159,7 @@ jobs:
           fi
 
       - name: Read Changelog
+        if: steps.resolve.outputs.create_release == 'true'
         id: changelog
         run: |
           CHANGELOG_FILE=".changelog/${{ steps.resolve.outputs.tag }}.md"
@@ -160,6 +174,7 @@ jobs:
           fi
 
       - name: Create Release
+        if: steps.resolve.outputs.create_release == 'true'
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
         with:
           tag_name: ${{ steps.resolve.outputs.tag }}
