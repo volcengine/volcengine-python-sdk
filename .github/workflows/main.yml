@@ -50,6 +50,7 @@ jobs:
           INPUT_VERSION: ${{ inputs.version }}
           INPUT_PACKAGES: ${{ inputs.packages }}
           INPUT_TARGET: ${{ inputs.target }}
+          REPO_TARGET: ${{ vars.PYPI_TARGET }}
         run: |
           version="$INPUT_VERSION"
           packages="$INPUT_PACKAGES"
@@ -65,8 +66,13 @@ jobs:
             # 兜底：meta.json.lasted（codegen autoUpdateVersion 维护）
             version=$(python3 -c 'import json; print(json.load(open("meta.json"))["lasted"])')
           fi
-          # push 自动触发沿用原 main.yml 语义：全量发布到正式 PyPI。
+          # 发布目标优先级：手动输入 > 仓库变量 PYPI_TARGET > 正式 PyPI。
+          if [ -z "$target" ]; then target="$REPO_TARGET"; fi
           if [ -z "$target" ]; then target=pypi; fi
+          case "$target" in
+            pypi|testpypi) ;;
+            *) echo "invalid publish target: $target" >&2; exit 1 ;;
+          esac
           echo "resolved version=$version, packages=$packages, target=$target"
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "tag=v$version" >> "$GITHUB_OUTPUT"
@@ -122,15 +128,24 @@ jobs:
           fi
 
       - name: Create Tag
-        if: steps.resolve.outputs.target == 'pypi'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag -a "${{ steps.resolve.outputs.tag }}" -m "Release ${{ steps.resolve.outputs.tag }}"
-          git push origin "${{ steps.resolve.outputs.tag }}"
+          tag="${{ steps.resolve.outputs.tag }}"
+          current_commit=$(git rev-parse HEAD)
+          if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+            tagged_commit=$(git rev-list -n 1 "$tag")
+            if [ "$tagged_commit" != "$current_commit" ]; then
+              echo "tag $tag already points to $tagged_commit, expected $current_commit" >&2
+              exit 1
+            fi
+            echo "tag $tag already exists on current commit"
+          else
+            git tag -a "$tag" -m "Release $tag"
+            git push origin "$tag"
+          fi
 
       - name: Read Changelog
-        if: steps.resolve.outputs.target == 'pypi'
         id: changelog
         run: |
           CHANGELOG_FILE=".changelog/${{ steps.resolve.outputs.tag }}.md"
@@ -145,7 +160,6 @@ jobs:
           fi
 
       - name: Create Release
-        if: steps.resolve.outputs.target == 'pypi'
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
         with:
           tag_name: ${{ steps.resolve.outputs.tag }}
