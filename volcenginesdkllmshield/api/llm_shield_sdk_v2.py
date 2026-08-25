@@ -171,15 +171,28 @@ class PermitMatchV2(BaseModel):
         populate_by_name = True
 
 
+class SourceInfoV2(BaseModel):
+    source: str = Field("", alias="Source")
+    source_detail: Dict[str, str] = Field(default_factory=dict, alias="SourceDetail")
+
+    class Config:
+        populate_by_name = True
+
+
 # 定义风险结构体
 class RiskV2(BaseModel):
     category: str = Field("", alias="Category")
     label: str = Field("", alias="Label")
     prob: Optional[float] = Field(None, alias="Prob")
     matches: List[RiskMatchV2] = Field([], alias="Matches")
+    source_infos: List[SourceInfoV2] = Field([], alias="SourceInfos")
 
     @field_validator('matches', mode="before")
     def convert_risk_matches_none_to_list(cls, value):
+        return [] if value is None else value
+
+    @field_validator('source_infos', mode="before")
+    def convert_source_infos_none_to_list(cls, value):
         return [] if value is None else value
 
     class Config:
