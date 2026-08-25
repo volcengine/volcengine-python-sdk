@@ -105,7 +105,9 @@ jobs:
       - name: Upload
         env:
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          # pypi 目标用正式 token，其余（testpypi / push 触发默认）用 TestPyPI token；
+          # PYPI_API_TOKEN 未配置时表达式回退 TestPyPI token，避免空值
+          TWINE_PASSWORD: ${{ (inputs.target == 'pypi' && secrets.PYPI_API_TOKEN) || secrets.TEST_PYPI_API_TOKEN }}
         run: |
           case "${{ inputs.target }}" in
             testpypi) idx=https://test.pypi.org ;;
