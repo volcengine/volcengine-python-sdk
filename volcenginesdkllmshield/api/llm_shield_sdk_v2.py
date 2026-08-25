@@ -62,6 +62,7 @@ class ExtensionsKey:
     SESSION_ID = "session_id"
     CONTEXT_ID = "context_id"
     HOOK_NAME = "hook_name"
+    TRACE_ID = "trace_id"
 
 
 # 定义消息结构体
@@ -171,6 +172,7 @@ class PermitMatchV2(BaseModel):
         populate_by_name = True
 
 
+# 定义风险来源结构体
 class SourceInfoV2(BaseModel):
     source: str = Field("", alias="Source")
     source_detail: Dict[str, str] = Field(default_factory=dict, alias="SourceDetail")
@@ -334,6 +336,35 @@ class ModerateV2StreamSession:
         self.CurrentSendWindow = LLM_STREAM_SEND_BASE_WINDOW_V2
         # 存储默认响应体（初始为 None，对应 Go 中的指针）
         self.default_body: Optional[ModerateV2Response] = None
+
+
+class ModerateV2AsyncStreamSession:
+    """异步流式会话结构体，不影响原有 ModerateV2StreamSession 的调用方式"""
+
+    def __init__(self, send_threshold: int = LLM_STREAM_SEND_BASE_WINDOW_V2):
+        if send_threshold <= 0:
+            raise ValueError("send_threshold must be positive")
+        self.request: Optional[ModerateV2Request] = None
+        self.stream_send_len: int = 0
+        self.send_threshold: int = send_threshold
+        self.default_body: Optional[ModerateV2Response] = None
+
+        self.lock = threading.RLock()
+        self.pending_event = threading.Event()
+        self.pending_event.set()
+        self.result_cond = threading.Condition(self.lock)
+        self.pending_thread: Optional[threading.Thread] = None
+        self.pending_request: Optional[ModerateV2Request] = None
+        self.pending_result: Optional[ModerateV2Response] = None
+        self.pending_error: Optional[Exception] = None
+        self.need_flush_after_pending: bool = False
+        self.has_last_chunk: bool = False
+        self.closed: bool = False
+        self.last_request_content_len: int = 0
+        self.result_version: int = 0
+        self.next_send_seq: int = 0
+        self.pending_send_seq: Optional[int] = None
+        self.cancelled_send_seq: int = -1
 
 
 class GenerateStreamV2Request(BaseModel):
@@ -569,6 +600,342 @@ class ClientV2:
         except Exception as e:
             raise Exception(f"处理响应失败: {e}")
 
+    def _build_stream_request_snapshot(self, request: ModerateV2Request) -> ModerateV2Request:
+        return ModerateV2Request(request)
+
+    def _get_request_content_len(self, request: Optional[ModerateV2Request]) -> int:
+        if request is None or request.message is None or request.message.content is None:
+            return 0
+        return len(request.message.content)
+
+    def _append_stream_request(self, request: ModerateV2Request, session) -> None:
+        if session.request is None:
+            session.request = ModerateV2Request(request)
+        else:
+            if request.message and request.message.content:
+                if session.request.message is None:
+                    session.request.message = MessageV2()
+                session.request.message.content += request.message.content
+            session.request.use_stream = request.use_stream
+            if request.scene:
+                session.request.scene = request.scene
+            if request.extensions is not None:
+                session.request.extensions = request.extensions
+            if request.history:
+                session.request.history = request.history
+
+        chunk_len = self._get_request_content_len(request)
+        session.stream_send_len += chunk_len
+
+    def _send_stream_request_snapshot(self, request_snapshot: ModerateV2Request) -> ModerateV2Response:
+        response = self.Moderate(request_snapshot)
+        request_snapshot.msg_id = response.result.msg_id
+        return response
+
+    def _update_async_session_after_response(
+            self,
+            session: ModerateV2AsyncStreamSession,
+            request_snapshot: ModerateV2Request,
+            moderate_response: ModerateV2Response
+    ) -> None:
+        session.default_body = moderate_response
+        session.pending_result = moderate_response
+        session.pending_error = None
+        session.last_request_content_len = self._get_request_content_len(request_snapshot)
+        session.result_version += 1
+
+        if session.request is not None:
+            session.request.msg_id = moderate_response.result.msg_id
+
+        current_len = self._get_request_content_len(session.request)
+        new_content_len = max(0, current_len - session.last_request_content_len)
+        session.need_flush_after_pending = new_content_len > 0 and (
+                session.has_last_chunk or new_content_len >= session.send_threshold)
+        session.result_cond.notify_all()
+
+    def _invalidate_pending_async_send(self, session: ModerateV2AsyncStreamSession) -> None:
+        if session.pending_send_seq is not None:
+            session.cancelled_send_seq = max(session.cancelled_send_seq, session.pending_send_seq)
+
+    def _is_async_send_cancelled(
+            self,
+            session: ModerateV2AsyncStreamSession,
+            send_seq: int
+    ) -> bool:
+        return send_seq <= session.cancelled_send_seq
+
+    def _run_async_stream_send(
+            self,
+            session: ModerateV2AsyncStreamSession,
+            request_snapshot: ModerateV2Request,
+            send_seq: int
+    ) -> None:
+        try:
+            current_snapshot = request_snapshot
+            while True:
+                moderate_response = self._send_stream_request_snapshot(current_snapshot)
+                with session.lock:
+                    if self._is_async_send_cancelled(session, send_seq):
+                        break
+                    self._update_async_session_after_response(session, current_snapshot, moderate_response)
+                    if not session.need_flush_after_pending:
+                        break
+                    current_snapshot = self._build_stream_request_snapshot(session.request)
+                    session.pending_request = current_snapshot
+                    session.pending_result = None
+                    session.pending_error = None
+                    session.need_flush_after_pending = False
+                    session.stream_send_len = 0
+                    session.last_request_content_len = self._get_request_content_len(current_snapshot)
+        except Exception as e:
+            with session.lock:
+                if self._is_async_send_cancelled(session, send_seq):
+                    session.pending_error = None
+                    session.need_flush_after_pending = False
+                    session.result_cond.notify_all()
+                    return
+                session.pending_error = e
+                current_len = self._get_request_content_len(session.request)
+                snapshot_len = self._get_request_content_len(session.pending_request or request_snapshot)
+                new_content_len = max(0, current_len - snapshot_len)
+                session.need_flush_after_pending = new_content_len > 0 and (
+                        session.has_last_chunk or new_content_len >= session.send_threshold)
+                session.result_cond.notify_all()
+        finally:
+            with session.lock:
+                if session.pending_send_seq == send_seq:
+                    session.pending_thread = None
+                    session.pending_request = None
+                    session.pending_send_seq = None
+                    session.pending_event.set()
+                    session.result_cond.notify_all()
+
+    def _start_async_stream_send(
+            self,
+            session: ModerateV2AsyncStreamSession,
+            request_snapshot: ModerateV2Request,
+            sent_len: int
+    ) -> None:
+        send_seq = session.next_send_seq
+        session.next_send_seq += 1
+        session.pending_event.clear()
+        session.pending_request = request_snapshot
+        session.pending_result = None
+        session.pending_error = None
+        session.need_flush_after_pending = False
+        session.stream_send_len = 0
+        session.last_request_content_len = sent_len
+        session.pending_send_seq = send_seq
+
+        thread = threading.Thread(
+            target=self._run_async_stream_send,
+            args=(session, request_snapshot, send_seq),
+            daemon=True
+        )
+        session.pending_thread = thread
+        thread.start()
+
+    def _wait_pending_stream_send(
+            self,
+            session: ModerateV2AsyncStreamSession,
+            timeout: Optional[float]
+    ) -> bool:
+        pending_event = session.pending_event
+        if timeout is None:
+            return pending_event.wait()
+        return pending_event.wait(timeout)
+
+    def _wait_for_async_result(
+            self,
+            session: ModerateV2AsyncStreamSession,
+            observed_result_version: int,
+            timeout: Optional[float]
+    ) -> bool:
+        with session.lock:
+            if session.result_version > observed_result_version:
+                return True
+
+            deadline = None if timeout is None else time.monotonic() + timeout
+            while session.result_version <= observed_result_version:
+                if session.pending_thread is None:
+                    break
+                if deadline is None:
+                    session.result_cond.wait()
+                    continue
+
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    break
+                session.result_cond.wait(remaining)
+
+            return session.result_version > observed_result_version
+
+    def _flush_async_stream_session(
+            self,
+            session: ModerateV2AsyncStreamSession,
+            force_until_idle: bool,
+            preempt_pending: bool = False
+    ) -> Optional[ModerateV2Response]:
+        while True:
+            with session.lock:
+                pending_exists = session.pending_thread is not None
+                if not pending_exists:
+                    if session.request is None:
+                        return session.default_body
+
+                    current_len = self._get_request_content_len(session.request)
+                    unsent_len = max(0, current_len - session.last_request_content_len)
+                    should_send = force_until_idle or session.has_last_chunk or (
+                            unsent_len >= session.send_threshold)
+
+                    if not should_send:
+                        session.stream_send_len = unsent_len
+                        session.need_flush_after_pending = False
+                        return session.default_body
+
+                    request_snapshot = self._build_stream_request_snapshot(session.request)
+                    session.pending_event.clear()
+                    session.pending_request = request_snapshot
+                    session.pending_result = None
+                    session.pending_error = None
+                    session.need_flush_after_pending = False
+                    session.stream_send_len = 0
+
+                else:
+                    if not preempt_pending:
+                        request_snapshot = None
+                    else:
+                        self._invalidate_pending_async_send(session)
+                        request_snapshot = self._build_stream_request_snapshot(session.request)
+                        session.pending_result = None
+                        session.pending_error = None
+                        session.need_flush_after_pending = False
+                        session.stream_send_len = 0
+
+            if request_snapshot is not None:
+                try:
+                    moderate_response = self._send_stream_request_snapshot(request_snapshot)
+                except Exception as e:
+                    with session.lock:
+                        session.pending_request = None
+                        session.pending_error = e
+                        session.pending_event.set()
+                    raise
+
+                with session.lock:
+                    self._update_async_session_after_response(session, request_snapshot, moderate_response)
+                    session.pending_request = None
+                    session.pending_event.set()
+                    if not session.need_flush_after_pending:
+                        return moderate_response
+                    continue
+
+            if preempt_pending:
+                with session.lock:
+                    return session.default_body
+
+            self._wait_pending_stream_send(session, None)
+            with session.lock:
+                if session.pending_error is not None and not session.need_flush_after_pending:
+                    raise session.pending_error
+                if not force_until_idle and not session.need_flush_after_pending:
+                    return session.default_body
+
+    def ModerateStreamAsync(
+            self,
+            request: ModerateV2Request,
+            session: ModerateV2AsyncStreamSession,
+            wait_timeout: float
+    ) -> Optional[ModerateV2Response]:
+        """
+        异步流式审核：
+        - 首次和尾次请求强制等待服务端返回；
+        - 中间请求相对上次已审核内容的新增长度达到固定阈值后，等待 wait_timeout，超时则返回上次缓存结果；
+        - 同一 session 同时只允许一个后台审核任务；
+        - 后台任务运行期间新增内容继续累加，任务结束后会基于首块到当前最新内容的全量快照自动补发。
+        """
+        if request is None:
+            request = ModerateV2Request()
+
+        if request.use_stream == 0 or session is None:
+            raise ValueError("use_stream cannot be 0, and session cannot be None")
+
+        if wait_timeout is not None and wait_timeout < 0:
+            raise ValueError("wait_timeout cannot be negative")
+
+        observed_result_version = 0
+        should_wait_for_result = False
+
+        with session.lock:
+            is_first_request = session.request is None
+            is_last_request = (request.use_stream == 2)
+            observed_result_version = session.result_version
+
+            self._append_stream_request(request, session)
+            session.has_last_chunk = session.has_last_chunk or is_last_request
+
+            if is_first_request:
+                request_snapshot = self._build_stream_request_snapshot(session.request)
+            else:
+                request_snapshot = None
+
+            if is_first_request:
+                session.pending_event.clear()
+                session.pending_request = request_snapshot
+                session.pending_result = None
+                session.pending_error = None
+                session.stream_send_len = 0
+            elif session.pending_thread is not None:
+                current_len = self._get_request_content_len(session.request)
+                pending_len = self._get_request_content_len(session.pending_request)
+                new_content_len = max(0, current_len - pending_len)
+                session.need_flush_after_pending = session.has_last_chunk or (
+                        new_content_len >= session.send_threshold)
+                if not is_last_request:
+                    should_wait_for_result = True
+            else:
+                current_len = self._get_request_content_len(session.request)
+                unsent_len = max(0, current_len - session.last_request_content_len)
+                session.stream_send_len = unsent_len
+                need_send_request = is_last_request or (unsent_len >= session.send_threshold)
+                if not need_send_request:
+                    return session.default_body
+
+                if not is_last_request:
+                    request_snapshot = self._build_stream_request_snapshot(session.request)
+                    self._start_async_stream_send(session, request_snapshot, current_len)
+                    should_wait_for_result = True
+
+        if is_first_request:
+            try:
+                moderate_response = self._send_stream_request_snapshot(request_snapshot)
+            except Exception as e:
+                with session.lock:
+                    session.pending_request = None
+                    session.pending_error = e
+                    session.pending_event.set()
+                    session.result_cond.notify_all()
+                raise
+
+            with session.lock:
+                self._update_async_session_after_response(session, request_snapshot, moderate_response)
+                session.pending_request = None
+                session.pending_event.set()
+                session.result_cond.notify_all()
+            return moderate_response
+
+        if is_last_request:
+            return self._flush_async_stream_session(session, True, preempt_pending=True)
+
+        if should_wait_for_result and self._wait_for_async_result(session, observed_result_version, wait_timeout):
+            with session.lock:
+                if session.pending_error is not None and session.default_body is None:
+                    raise session.pending_error
+                return session.default_body
+
+        with session.lock:
+            return session.default_body
+
     def ModerateStream(
             self, request: ModerateV2Request, session: ModerateV2StreamSession
     ) -> Optional[ModerateV2Response]:
@@ -630,6 +997,10 @@ class ClientV2:
             headers, self.ak, self.sk, self.region, self.url, path, action, request_body, self.rewrite_url
         )
         try:
+            enc_req_key = None
+            if self.aicc_client is not None:
+                request_body, enc_req_key = self.EncryptWithResponse(request_body)
+
             response = self.http_client.post(
                 url=self.url + path + "?Action=" + action + "&Version=" + Version,
                 data=request_body,
@@ -640,8 +1011,16 @@ class ClientV2:
 
         # 5. 解析响应
         try:
-            response_data = json.loads(response.text)
-            moderate_response = ModerateV2Response(**response_data)
+            if enc_req_key is not None:
+                response_body = self.DecryptResponse(enc_req_key, response.content)
+            else:
+                response_body = response.content
+
+            try:
+                moderate_response = ModerateV2Response.model_validate_json(response_body)
+            except Exception:
+                response_data = json.loads(response_body)
+                moderate_response = ModerateV2Response(**response_data)
         except Exception as e:
             raise IOError(f"Failed to parse response: {str(e)}")
 
@@ -657,6 +1036,8 @@ class ClientV2:
             print(f"最终检测内容: {final_content}")
 
         return moderate_response
+    
+
     def GenerateV2Stream(self, request):
         path = "/v2/generate"
         action = "Generate"
