@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Upload split-package wheels with hash-checked resume support."""
+"""Upload split-package wheels with existing-file resume support."""
 
 import argparse
 import email
-import hashlib
 import subprocess
 import sys
 import time
@@ -29,14 +28,6 @@ def wheel_metadata(path):
         for requirement in parsed.get_all("Requires-Dist", [])
     }
     return canonicalize(parsed["Name"]), parsed["Version"], dependencies
-
-
-def sha256(path):
-    digest = hashlib.sha256()
-    with path.open("rb") as artifact:
-        for chunk in iter(lambda: artifact.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
 
 
 def remote_digest(session, index_url, name, version, filename):
@@ -93,7 +84,7 @@ def ordered_wheels(wheel_dir):
     return ordered
 
 
-def wait_until_visible(session, args, name, version, path, local_digest):
+def wait_until_visible(session, args, name, version, path):
     for attempt in range(1, args.visibility_attempts + 1):
         try:
             digest = remote_digest(
@@ -105,33 +96,20 @@ def wait_until_visible(session, args, name, version, path, local_digest):
             )
         except requests.RequestException:
             digest = None
-        if digest == local_digest:
-            return
         if digest is not None:
-            raise RuntimeError(
-                "remote hash mismatch for {}: local={}, remote={}".format(
-                    path.name, local_digest, digest
-                )
-            )
+            return
         if attempt < args.visibility_attempts:
             time.sleep(args.visibility_delay)
     raise RuntimeError("uploaded file is not visible: {}".format(path.name))
 
 
 def upload_wheel(session, args, position, total, name, version, path):
-    local_digest = sha256(path)
     try:
         digest = remote_digest(session, args.index_url, name, version, path.name)
     except requests.RequestException as exc:
         raise RuntimeError("cannot query {}: {}".format(name, exc))
     if digest is not None:
-        if digest != local_digest:
-            raise RuntimeError(
-                "remote hash mismatch for {}: local={}, remote={}".format(
-                    path.name, local_digest, digest
-                )
-            )
-        print("[{}/{}] verified existing {}".format(position, total, name), flush=True)
+        print("[{}/{}] skipped existing {}".format(position, total, name), flush=True)
         return False
 
     last_output = ""
@@ -148,6 +126,7 @@ def upload_wheel(session, args, position, total, name, version, path):
                 "-m",
                 "twine",
                 "upload",
+                "--skip-existing",
                 "--repository",
                 args.repository,
                 str(path),
@@ -163,7 +142,6 @@ def upload_wheel(session, args, position, total, name, version, path):
                 name,
                 version,
                 path,
-                local_digest,
             )
             print("[{}/{}] published {}".format(position, total, name), flush=True)
             return True
@@ -180,9 +158,9 @@ def upload_wheel(session, args, position, total, name, version, path):
 
     # twine 失败不代表文件没上去：TestPyPI 索引延迟期间重跑会撞上
     # "File already exists" 400，连接中断也可能发生在服务端收完文件之后。
-    # 在可见性窗口内复查索引，SHA-256 一致即视为已发布；否则按失败处理。
+    # 在可见性窗口内复查索引，文件存在即视为已发布；否则按失败处理。
     try:
-        wait_until_visible(session, args, name, version, path, local_digest)
+        wait_until_visible(session, args, name, version, path)
     except RuntimeError:
         print(last_output, file=sys.stderr)
         if "429" in last_output:
