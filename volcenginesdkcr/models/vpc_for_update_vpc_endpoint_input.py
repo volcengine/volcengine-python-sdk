@@ -34,29 +34,34 @@ class VpcForUpdateVpcEndpointInput(object):
     """
     swagger_types = {
         'account_id': 'int',
+        'description': 'str',
         'subnet_id': 'str',
         'vpc_id': 'str'
     }
 
     attribute_map = {
         'account_id': 'AccountId',
+        'description': 'Description',
         'subnet_id': 'SubnetId',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, description=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """VpcForUpdateVpcEndpointInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._description = None
         self._subnet_id = None
         self._vpc_id = None
         self.discriminator = None
 
         if account_id is not None:
             self.account_id = account_id
+        if description is not None:
+            self.description = description
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if vpc_id is not None:
@@ -82,6 +87,30 @@ class VpcForUpdateVpcEndpointInput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def description(self):
+        """Gets the description of this VpcForUpdateVpcEndpointInput.  # noqa: E501
+
+
+        :return: The description of this VpcForUpdateVpcEndpointInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this VpcForUpdateVpcEndpointInput.
+
+
+        :param description: The description of this VpcForUpdateVpcEndpointInput.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) > 50):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `50`")  # noqa: E501
+
+        self._description = description
 
     @property
     def subnet_id(self):
