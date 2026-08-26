@@ -1,0 +1,9 @@
+{
+  "actions": [
+    "UpdateKubernetesObservabilityComponentConfigs",
+    "DeleteCluster"
+  ],
+  "description": "VKE: 新增 UpdateKubernetesObservabilityComponentConfigs；修改 DeleteCluster",
+  "modules": "service/vke",
+  "type": "breaking-change"
+}
