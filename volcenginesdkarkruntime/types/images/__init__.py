@@ -12,6 +12,7 @@
 from .images import (
     OptimizePromptOptions,
     SequentialImageGenerationOptions,
+    BoundingBox,
     ImagesResponse,
     ContentGenerationTool
 )
@@ -20,6 +21,7 @@ from .images import (
 __all__ = [
     "OptimizePromptOptions",
     "SequentialImageGenerationOptions",
+    "BoundingBox",
     "ImagesResponse",
     "ContentGenerationTool"
 ]
