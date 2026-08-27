@@ -41,6 +41,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'instance_status': 'str',
         'instance_tag': 'list[InstanceTagForDescribeDBInstanceDetailOutput]',
         'instance_type': 'str',
+        'kms_trn': 'str',
         'maintenance_window': 'MaintenanceWindowForDescribeDBInstanceDetailOutput',
         'memory': 'int',
         'node_number': 'str',
@@ -55,6 +56,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'storage_use': 'int',
         'storage_wal_use': 'int',
         'subnet_id': 'str',
+        'tde_enable': 'bool',
         'update_time': 'str',
         'vcpu': 'int',
         'vpc_id': 'str',
@@ -70,6 +72,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'instance_status': 'InstanceStatus',
         'instance_tag': 'InstanceTag',
         'instance_type': 'InstanceType',
+        'kms_trn': 'KMSTrn',
         'maintenance_window': 'MaintenanceWindow',
         'memory': 'Memory',
         'node_number': 'NodeNumber',
@@ -84,13 +87,14 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'storage_use': 'StorageUse',
         'storage_wal_use': 'StorageWALUse',
         'subnet_id': 'SubnetId',
+        'tde_enable': 'TDEEnable',
         'update_time': 'UpdateTime',
         'vcpu': 'VCPU',
         'vpc_id': 'VpcID',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, create_time=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_tag=None, instance_type=None, maintenance_window=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_data_use=None, storage_log_use=None, storage_space=None, storage_temp_use=None, storage_type=None, storage_use=None, storage_wal_use=None, subnet_id=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_tag=None, instance_type=None, kms_trn=None, maintenance_window=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_data_use=None, storage_log_use=None, storage_space=None, storage_temp_use=None, storage_type=None, storage_use=None, storage_wal_use=None, subnet_id=None, tde_enable=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -104,6 +108,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._instance_status = None
         self._instance_tag = None
         self._instance_type = None
+        self._kms_trn = None
         self._maintenance_window = None
         self._memory = None
         self._node_number = None
@@ -118,6 +123,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._storage_use = None
         self._storage_wal_use = None
         self._subnet_id = None
+        self._tde_enable = None
         self._update_time = None
         self._vcpu = None
         self._vpc_id = None
@@ -140,6 +146,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.instance_tag = instance_tag
         if instance_type is not None:
             self.instance_type = instance_type
+        if kms_trn is not None:
+            self.kms_trn = kms_trn
         if maintenance_window is not None:
             self.maintenance_window = maintenance_window
         if memory is not None:
@@ -168,6 +176,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.storage_wal_use = storage_wal_use
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tde_enable is not None:
+            self.tde_enable = tde_enable
         if update_time is not None:
             self.update_time = update_time
         if vcpu is not None:
@@ -344,6 +354,27 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def kms_trn(self):
+        """Gets the kms_trn of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The kms_trn of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._kms_trn
+
+    @kms_trn.setter
+    def kms_trn(self, kms_trn):
+        """Sets the kms_trn of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param kms_trn: The kms_trn of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._kms_trn = kms_trn
 
     @property
     def maintenance_window(self):
@@ -638,6 +669,27 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tde_enable(self):
+        """Gets the tde_enable of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The tde_enable of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._tde_enable
+
+    @tde_enable.setter
+    def tde_enable(self, tde_enable):
+        """Sets the tde_enable of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param tde_enable: The tde_enable of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._tde_enable = tde_enable
 
     @property
     def update_time(self):

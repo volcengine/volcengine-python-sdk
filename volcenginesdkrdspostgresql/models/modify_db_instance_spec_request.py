@@ -41,7 +41,8 @@ class ModifyDBInstanceSpecRequest(object):
         'specified_switch_end_time': 'str',
         'specified_switch_start_time': 'str',
         'storage_space': 'int',
-        'storage_type': 'str'
+        'storage_type': 'str',
+        'switch_type': 'str'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class ModifyDBInstanceSpecRequest(object):
         'specified_switch_end_time': 'SpecifiedSwitchEndTime',
         'specified_switch_start_time': 'SpecifiedSwitchStartTime',
         'storage_space': 'StorageSpace',
-        'storage_type': 'StorageType'
+        'storage_type': 'StorageType',
+        'switch_type': 'SwitchType'
     }
 
-    def __init__(self, estimate_only=None, instance_id=None, modify_type=None, node_info=None, rollback_time=None, specified_switch_end_time=None, specified_switch_start_time=None, storage_space=None, storage_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, estimate_only=None, instance_id=None, modify_type=None, node_info=None, rollback_time=None, specified_switch_end_time=None, specified_switch_start_time=None, storage_space=None, storage_type=None, switch_type=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceSpecRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class ModifyDBInstanceSpecRequest(object):
         self._specified_switch_start_time = None
         self._storage_space = None
         self._storage_type = None
+        self._switch_type = None
         self.discriminator = None
 
         if estimate_only is not None:
@@ -90,6 +93,8 @@ class ModifyDBInstanceSpecRequest(object):
             self.storage_space = storage_space
         if storage_type is not None:
             self.storage_type = storage_type
+        if switch_type is not None:
+            self.switch_type = switch_type
 
     @property
     def estimate_only(self):
@@ -281,6 +286,27 @@ class ModifyDBInstanceSpecRequest(object):
         """
 
         self._storage_type = storage_type
+
+    @property
+    def switch_type(self):
+        """Gets the switch_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The switch_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._switch_type
+
+    @switch_type.setter
+    def switch_type(self, switch_type):
+        """Sets the switch_type of this ModifyDBInstanceSpecRequest.
+
+
+        :param switch_type: The switch_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._switch_type = switch_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

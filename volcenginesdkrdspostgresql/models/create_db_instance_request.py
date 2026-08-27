@@ -37,12 +37,14 @@ class CreateDBInstanceRequest(object):
         'charge_info': 'ChargeInfoForCreateDBInstanceInput',
         'db_engine_version': 'str',
         'instance_name': 'str',
+        'kms_trn': 'str',
         'maintenance_window': 'MaintenanceWindowForCreateDBInstanceInput',
         'node_info': 'list[NodeInfoForCreateDBInstanceInput]',
         'project_name': 'str',
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
+        'tde_enable': 'bool',
         'tags': 'list[TagForCreateDBInstanceInput]',
         'vpc_id': 'str'
     }
@@ -52,17 +54,19 @@ class CreateDBInstanceRequest(object):
         'charge_info': 'ChargeInfo',
         'db_engine_version': 'DBEngineVersion',
         'instance_name': 'InstanceName',
+        'kms_trn': 'KMSTrn',
         'maintenance_window': 'MaintenanceWindow',
         'node_info': 'NodeInfo',
         'project_name': 'ProjectName',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
+        'tde_enable': 'TDEEnable',
         'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, charge_info=None, db_engine_version=None, instance_name=None, maintenance_window=None, node_info=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, charge_info=None, db_engine_version=None, instance_name=None, kms_trn=None, maintenance_window=None, node_info=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, tde_enable=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,12 +76,14 @@ class CreateDBInstanceRequest(object):
         self._charge_info = None
         self._db_engine_version = None
         self._instance_name = None
+        self._kms_trn = None
         self._maintenance_window = None
         self._node_info = None
         self._project_name = None
         self._storage_space = None
         self._storage_type = None
         self._subnet_id = None
+        self._tde_enable = None
         self._tags = None
         self._vpc_id = None
         self.discriminator = None
@@ -89,6 +95,8 @@ class CreateDBInstanceRequest(object):
         self.db_engine_version = db_engine_version
         if instance_name is not None:
             self.instance_name = instance_name
+        if kms_trn is not None:
+            self.kms_trn = kms_trn
         if maintenance_window is not None:
             self.maintenance_window = maintenance_window
         if node_info is not None:
@@ -99,6 +107,8 @@ class CreateDBInstanceRequest(object):
             self.storage_space = storage_space
         self.storage_type = storage_type
         self.subnet_id = subnet_id
+        if tde_enable is not None:
+            self.tde_enable = tde_enable
         if tags is not None:
             self.tags = tags
         self.vpc_id = vpc_id
@@ -188,6 +198,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._instance_name = instance_name
+
+    @property
+    def kms_trn(self):
+        """Gets the kms_trn of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The kms_trn of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._kms_trn
+
+    @kms_trn.setter
+    def kms_trn(self, kms_trn):
+        """Sets the kms_trn of this CreateDBInstanceRequest.
+
+
+        :param kms_trn: The kms_trn of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._kms_trn = kms_trn
 
     @property
     def maintenance_window(self):
@@ -318,6 +349,27 @@ class CreateDBInstanceRequest(object):
             raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
+
+    @property
+    def tde_enable(self):
+        """Gets the tde_enable of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The tde_enable of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._tde_enable
+
+    @tde_enable.setter
+    def tde_enable(self, tde_enable):
+        """Sets the tde_enable of this CreateDBInstanceRequest.
+
+
+        :param tde_enable: The tde_enable of this CreateDBInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._tde_enable = tde_enable
 
     @property
     def tags(self):
