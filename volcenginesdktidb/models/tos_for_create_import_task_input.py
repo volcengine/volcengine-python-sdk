@@ -101,7 +101,7 @@ class TosForCreateImportTaskInput(object):
         :param auth_type: The auth_type of this TosForCreateImportTaskInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ROLE_ARN", "ACCESS_KEY", "SERVICE_ACCOUNT_KEY", "SAS_TOKEN"]  # noqa: E501
+        allowed_values = ["2"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 auth_type not in allowed_values):
             raise ValueError(
