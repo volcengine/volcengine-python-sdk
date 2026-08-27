@@ -38,6 +38,7 @@ class DescribeTopicDetailResponse(object):
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_region': 'str',
+        'lite_topic_ttl_minutes': 'int',
         'message_type': 'str',
         'service_status': 'str',
         'topic_name': 'str',
@@ -50,13 +51,14 @@ class DescribeTopicDetailResponse(object):
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_region': 'InstanceRegion',
+        'lite_topic_ttl_minutes': 'LiteTopicTTLMinutes',
         'message_type': 'MessageType',
         'service_status': 'ServiceStatus',
         'topic_name': 'TopicName',
         'topic_queue_number': 'TopicQueueNumber'
     }
 
-    def __init__(self, created_time=None, description=None, instance_id=None, instance_name=None, instance_region=None, message_type=None, service_status=None, topic_name=None, topic_queue_number=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_time=None, description=None, instance_id=None, instance_name=None, instance_region=None, lite_topic_ttl_minutes=None, message_type=None, service_status=None, topic_name=None, topic_queue_number=None, _configuration=None):  # noqa: E501
         """DescribeTopicDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class DescribeTopicDetailResponse(object):
         self._instance_id = None
         self._instance_name = None
         self._instance_region = None
+        self._lite_topic_ttl_minutes = None
         self._message_type = None
         self._service_status = None
         self._topic_name = None
@@ -83,6 +86,8 @@ class DescribeTopicDetailResponse(object):
             self.instance_name = instance_name
         if instance_region is not None:
             self.instance_region = instance_region
+        if lite_topic_ttl_minutes is not None:
+            self.lite_topic_ttl_minutes = lite_topic_ttl_minutes
         if message_type is not None:
             self.message_type = message_type
         if service_status is not None:
@@ -196,6 +201,27 @@ class DescribeTopicDetailResponse(object):
         """
 
         self._instance_region = instance_region
+
+    @property
+    def lite_topic_ttl_minutes(self):
+        """Gets the lite_topic_ttl_minutes of this DescribeTopicDetailResponse.  # noqa: E501
+
+
+        :return: The lite_topic_ttl_minutes of this DescribeTopicDetailResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._lite_topic_ttl_minutes
+
+    @lite_topic_ttl_minutes.setter
+    def lite_topic_ttl_minutes(self, lite_topic_ttl_minutes):
+        """Sets the lite_topic_ttl_minutes of this DescribeTopicDetailResponse.
+
+
+        :param lite_topic_ttl_minutes: The lite_topic_ttl_minutes of this DescribeTopicDetailResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._lite_topic_ttl_minutes = lite_topic_ttl_minutes
 
     @property
     def message_type(self):

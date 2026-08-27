@@ -36,17 +36,19 @@ class DescribeInstanceDetailResponse(object):
         'basic_info': 'BasicInfoForDescribeInstanceDetailOutput',
         'charge_detail': 'ChargeDetailForDescribeInstanceDetailOutput',
         'connection_info': 'list[ConnectionInfoForDescribeInstanceDetailOutput]',
-        'file_reserved_time': 'int'
+        'file_reserved_time': 'int',
+        'quota_objects': 'list[QuotaObjectForDescribeInstanceDetailOutput]'
     }
 
     attribute_map = {
         'basic_info': 'BasicInfo',
         'charge_detail': 'ChargeDetail',
         'connection_info': 'ConnectionInfo',
-        'file_reserved_time': 'FileReservedTime'
+        'file_reserved_time': 'FileReservedTime',
+        'quota_objects': 'QuotaObjects'
     }
 
-    def __init__(self, basic_info=None, charge_detail=None, connection_info=None, file_reserved_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, basic_info=None, charge_detail=None, connection_info=None, file_reserved_time=None, quota_objects=None, _configuration=None):  # noqa: E501
         """DescribeInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DescribeInstanceDetailResponse(object):
         self._charge_detail = None
         self._connection_info = None
         self._file_reserved_time = None
+        self._quota_objects = None
         self.discriminator = None
 
         if basic_info is not None:
@@ -66,6 +69,8 @@ class DescribeInstanceDetailResponse(object):
             self.connection_info = connection_info
         if file_reserved_time is not None:
             self.file_reserved_time = file_reserved_time
+        if quota_objects is not None:
+            self.quota_objects = quota_objects
 
     @property
     def basic_info(self):
@@ -150,6 +155,27 @@ class DescribeInstanceDetailResponse(object):
         """
 
         self._file_reserved_time = file_reserved_time
+
+    @property
+    def quota_objects(self):
+        """Gets the quota_objects of this DescribeInstanceDetailResponse.  # noqa: E501
+
+
+        :return: The quota_objects of this DescribeInstanceDetailResponse.  # noqa: E501
+        :rtype: list[QuotaObjectForDescribeInstanceDetailOutput]
+        """
+        return self._quota_objects
+
+    @quota_objects.setter
+    def quota_objects(self, quota_objects):
+        """Sets the quota_objects of this DescribeInstanceDetailResponse.
+
+
+        :param quota_objects: The quota_objects of this DescribeInstanceDetailResponse.  # noqa: E501
+        :type: list[QuotaObjectForDescribeInstanceDetailOutput]
+        """
+
+        self._quota_objects = quota_objects
 
     def to_dict(self):
         """Returns the model properties as a dict"""
