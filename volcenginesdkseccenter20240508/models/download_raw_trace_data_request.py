@@ -49,8 +49,7 @@ class DownloadRawTraceDataRequest(object):
         self._trace_id = None
         self.discriminator = None
 
-        if trace_id is not None:
-            self.trace_id = trace_id
+        self.trace_id = trace_id
 
     @property
     def trace_id(self):
@@ -70,6 +69,8 @@ class DownloadRawTraceDataRequest(object):
         :param trace_id: The trace_id of this DownloadRawTraceDataRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and trace_id is None:
+            raise ValueError("Invalid value for `trace_id`, must not be `None`")  # noqa: E501
 
         self._trace_id = trace_id
 

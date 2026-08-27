@@ -34,6 +34,7 @@ class GetAIFingerprintAppRequest(object):
     """
     swagger_types = {
         'app_id': 'str',
+        'name': 'str',
         'only_ai_application_asset': 'bool',
         'page_number': 'int',
         'page_size': 'int',
@@ -45,6 +46,7 @@ class GetAIFingerprintAppRequest(object):
 
     attribute_map = {
         'app_id': 'AppID',
+        'name': 'Name',
         'only_ai_application_asset': 'OnlyAIApplicationAsset',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -54,13 +56,14 @@ class GetAIFingerprintAppRequest(object):
         'version': 'Version'
     }
 
-    def __init__(self, app_id=None, only_ai_application_asset=None, page_number=None, page_size=None, session_id=None, sort_by=None, sort_order=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, app_id=None, name=None, only_ai_application_asset=None, page_number=None, page_size=None, session_id=None, sort_by=None, sort_order=None, version=None, _configuration=None):  # noqa: E501
         """GetAIFingerprintAppRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._app_id = None
+        self._name = None
         self._only_ai_application_asset = None
         self._page_number = None
         self._page_size = None
@@ -72,6 +75,8 @@ class GetAIFingerprintAppRequest(object):
 
         if app_id is not None:
             self.app_id = app_id
+        if name is not None:
+            self.name = name
         if only_ai_application_asset is not None:
             self.only_ai_application_asset = only_ai_application_asset
         self.page_number = page_number
@@ -105,6 +110,27 @@ class GetAIFingerprintAppRequest(object):
         """
 
         self._app_id = app_id
+
+    @property
+    def name(self):
+        """Gets the name of this GetAIFingerprintAppRequest.  # noqa: E501
+
+
+        :return: The name of this GetAIFingerprintAppRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this GetAIFingerprintAppRequest.
+
+
+        :param name: The name of this GetAIFingerprintAppRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def only_ai_application_asset(self):

@@ -33,7 +33,7 @@ class ExportAIFingerprintDataRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'conditions': 'list[int]',
+        'conditions': 'list[ConditionForExportAIFingerprintDataInput]',
         'fingerprint_type': 'str',
         'id_list': 'list[str]'
     }
@@ -68,7 +68,7 @@ class ExportAIFingerprintDataRequest(object):
 
 
         :return: The conditions of this ExportAIFingerprintDataRequest.  # noqa: E501
-        :rtype: list[int]
+        :rtype: list[ConditionForExportAIFingerprintDataInput]
         """
         return self._conditions
 
@@ -78,7 +78,7 @@ class ExportAIFingerprintDataRequest(object):
 
 
         :param conditions: The conditions of this ExportAIFingerprintDataRequest.  # noqa: E501
-        :type: list[int]
+        :type: list[ConditionForExportAIFingerprintDataInput]
         """
 
         self._conditions = conditions

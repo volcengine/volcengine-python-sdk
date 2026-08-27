@@ -33,24 +33,50 @@ class EditAIApplicationSyncConfigRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'enable': 'bool',
         'period': 'int'
     }
 
     attribute_map = {
+        'enable': 'Enable',
         'period': 'Period'
     }
 
-    def __init__(self, period=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable=None, period=None, _configuration=None):  # noqa: E501
         """EditAIApplicationSyncConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._enable = None
         self._period = None
         self.discriminator = None
 
+        if enable is not None:
+            self.enable = enable
         if period is not None:
             self.period = period
+
+    @property
+    def enable(self):
+        """Gets the enable of this EditAIApplicationSyncConfigRequest.  # noqa: E501
+
+
+        :return: The enable of this EditAIApplicationSyncConfigRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable
+
+    @enable.setter
+    def enable(self, enable):
+        """Sets the enable of this EditAIApplicationSyncConfigRequest.
+
+
+        :param enable: The enable of this EditAIApplicationSyncConfigRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable = enable
 
     @property
     def period(self):

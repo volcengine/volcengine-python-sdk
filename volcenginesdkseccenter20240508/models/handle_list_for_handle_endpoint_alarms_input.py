@@ -36,17 +36,21 @@ class HandleListForHandleEndpointAlarmsInput(object):
         'agent_id': 'str',
         'alarm_id_list': 'list[str]',
         'files': 'list[FileForHandleEndpointAlarmsInput]',
-        'processes': 'list[ProcessForHandleEndpointAlarmsInput]'
+        'processes': 'list[ProcessForHandleEndpointAlarmsInput]',
+        'span_trace_id': 'list[int]',
+        'span_unique_id': 'list[int]'
     }
 
     attribute_map = {
         'agent_id': 'AgentID',
         'alarm_id_list': 'AlarmIDList',
         'files': 'Files',
-        'processes': 'Processes'
+        'processes': 'Processes',
+        'span_trace_id': 'SpanTraceID',
+        'span_unique_id': 'SpanUniqueID'
     }
 
-    def __init__(self, agent_id=None, alarm_id_list=None, files=None, processes=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, alarm_id_list=None, files=None, processes=None, span_trace_id=None, span_unique_id=None, _configuration=None):  # noqa: E501
         """HandleListForHandleEndpointAlarmsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +60,8 @@ class HandleListForHandleEndpointAlarmsInput(object):
         self._alarm_id_list = None
         self._files = None
         self._processes = None
+        self._span_trace_id = None
+        self._span_unique_id = None
         self.discriminator = None
 
         if agent_id is not None:
@@ -66,6 +72,10 @@ class HandleListForHandleEndpointAlarmsInput(object):
             self.files = files
         if processes is not None:
             self.processes = processes
+        if span_trace_id is not None:
+            self.span_trace_id = span_trace_id
+        if span_unique_id is not None:
+            self.span_unique_id = span_unique_id
 
     @property
     def agent_id(self):
@@ -150,6 +160,48 @@ class HandleListForHandleEndpointAlarmsInput(object):
         """
 
         self._processes = processes
+
+    @property
+    def span_trace_id(self):
+        """Gets the span_trace_id of this HandleListForHandleEndpointAlarmsInput.  # noqa: E501
+
+
+        :return: The span_trace_id of this HandleListForHandleEndpointAlarmsInput.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._span_trace_id
+
+    @span_trace_id.setter
+    def span_trace_id(self, span_trace_id):
+        """Sets the span_trace_id of this HandleListForHandleEndpointAlarmsInput.
+
+
+        :param span_trace_id: The span_trace_id of this HandleListForHandleEndpointAlarmsInput.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._span_trace_id = span_trace_id
+
+    @property
+    def span_unique_id(self):
+        """Gets the span_unique_id of this HandleListForHandleEndpointAlarmsInput.  # noqa: E501
+
+
+        :return: The span_unique_id of this HandleListForHandleEndpointAlarmsInput.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._span_unique_id
+
+    @span_unique_id.setter
+    def span_unique_id(self, span_unique_id):
+        """Sets the span_unique_id of this HandleListForHandleEndpointAlarmsInput.
+
+
+        :param span_unique_id: The span_unique_id of this HandleListForHandleEndpointAlarmsInput.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._span_unique_id = span_unique_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

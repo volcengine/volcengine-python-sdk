@@ -77,7 +77,9 @@ class DataForListHidsAlarmsOutput(object):
         'probe_hook': 'str',
         'region': 'str',
         'security_intelligence_complete': 'bool',
+        'security_intelligence_error': 'str',
         'security_intelligence_result': 'str',
+        'security_intelligence_status': 'str',
         'sid': 'str',
         'stack_trace_format': 'str',
         'stack_trace_hash': 'str',
@@ -131,7 +133,9 @@ class DataForListHidsAlarmsOutput(object):
         'probe_hook': 'ProbeHook',
         'region': 'Region',
         'security_intelligence_complete': 'SecurityIntelligenceComplete',
+        'security_intelligence_error': 'SecurityIntelligenceError',
         'security_intelligence_result': 'SecurityIntelligenceResult',
+        'security_intelligence_status': 'SecurityIntelligenceStatus',
         'sid': 'Sid',
         'stack_trace_format': 'StackTraceFormat',
         'stack_trace_hash': 'StackTraceHash',
@@ -140,7 +144,7 @@ class DataForListHidsAlarmsOutput(object):
         'type': 'Type'
     }
 
-    def __init__(self, agent_group=None, agent_id=None, alarm_count=None, alarm_handle_result=None, alarm_hostname=None, alarm_id=None, alarm_time=None, alert_tags=None, analysis_record_uuid=None, args=None, args_list=None, argv_list=None, attribution_list=None, _class=None, cluster=None, confidence=None, data_type=None, error_reason=None, event_id=None, event_name=None, exe=None, file_downloadable=None, file_hash=None, file_path=None, group_path=None, handle_fail_reason=None, handle_time=None, host=None, image_name=None, in_docker=None, llm_analysis_result=None, llm_processed=None, last_alarm_time=None, level=None, mlp_instance_id=None, mlp_private_ip=None, name=None, ns_pid=None, operation_list=None, os_type=None, pid=None, probe_hook=None, region=None, security_intelligence_complete=None, security_intelligence_result=None, sid=None, stack_trace_format=None, stack_trace_hash=None, status=None, trace_id=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_group=None, agent_id=None, alarm_count=None, alarm_handle_result=None, alarm_hostname=None, alarm_id=None, alarm_time=None, alert_tags=None, analysis_record_uuid=None, args=None, args_list=None, argv_list=None, attribution_list=None, _class=None, cluster=None, confidence=None, data_type=None, error_reason=None, event_id=None, event_name=None, exe=None, file_downloadable=None, file_hash=None, file_path=None, group_path=None, handle_fail_reason=None, handle_time=None, host=None, image_name=None, in_docker=None, llm_analysis_result=None, llm_processed=None, last_alarm_time=None, level=None, mlp_instance_id=None, mlp_private_ip=None, name=None, ns_pid=None, operation_list=None, os_type=None, pid=None, probe_hook=None, region=None, security_intelligence_complete=None, security_intelligence_error=None, security_intelligence_result=None, security_intelligence_status=None, sid=None, stack_trace_format=None, stack_trace_hash=None, status=None, trace_id=None, type=None, _configuration=None):  # noqa: E501
         """DataForListHidsAlarmsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -190,7 +194,9 @@ class DataForListHidsAlarmsOutput(object):
         self._probe_hook = None
         self._region = None
         self._security_intelligence_complete = None
+        self._security_intelligence_error = None
         self._security_intelligence_result = None
+        self._security_intelligence_status = None
         self._sid = None
         self._stack_trace_format = None
         self._stack_trace_hash = None
@@ -287,8 +293,12 @@ class DataForListHidsAlarmsOutput(object):
             self.region = region
         if security_intelligence_complete is not None:
             self.security_intelligence_complete = security_intelligence_complete
+        if security_intelligence_error is not None:
+            self.security_intelligence_error = security_intelligence_error
         if security_intelligence_result is not None:
             self.security_intelligence_result = security_intelligence_result
+        if security_intelligence_status is not None:
+            self.security_intelligence_status = security_intelligence_status
         if sid is not None:
             self.sid = sid
         if stack_trace_format is not None:
@@ -1227,6 +1237,27 @@ class DataForListHidsAlarmsOutput(object):
         self._security_intelligence_complete = security_intelligence_complete
 
     @property
+    def security_intelligence_error(self):
+        """Gets the security_intelligence_error of this DataForListHidsAlarmsOutput.  # noqa: E501
+
+
+        :return: The security_intelligence_error of this DataForListHidsAlarmsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_intelligence_error
+
+    @security_intelligence_error.setter
+    def security_intelligence_error(self, security_intelligence_error):
+        """Sets the security_intelligence_error of this DataForListHidsAlarmsOutput.
+
+
+        :param security_intelligence_error: The security_intelligence_error of this DataForListHidsAlarmsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_intelligence_error = security_intelligence_error
+
+    @property
     def security_intelligence_result(self):
         """Gets the security_intelligence_result of this DataForListHidsAlarmsOutput.  # noqa: E501
 
@@ -1246,6 +1277,27 @@ class DataForListHidsAlarmsOutput(object):
         """
 
         self._security_intelligence_result = security_intelligence_result
+
+    @property
+    def security_intelligence_status(self):
+        """Gets the security_intelligence_status of this DataForListHidsAlarmsOutput.  # noqa: E501
+
+
+        :return: The security_intelligence_status of this DataForListHidsAlarmsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_intelligence_status
+
+    @security_intelligence_status.setter
+    def security_intelligence_status(self, security_intelligence_status):
+        """Sets the security_intelligence_status of this DataForListHidsAlarmsOutput.
+
+
+        :param security_intelligence_status: The security_intelligence_status of this DataForListHidsAlarmsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_intelligence_status = security_intelligence_status
 
     @property
     def sid(self):

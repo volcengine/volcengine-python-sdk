@@ -37,6 +37,7 @@ class BasicQuotaForGetTenantQuotaOutput(object):
         'expire_time': 'int',
         'need_remove': 'bool',
         'paid_type': 'str',
+        'running_used_count': 'int',
         'total_count': 'int',
         'used_count': 'int',
         'version': 'int'
@@ -47,12 +48,13 @@ class BasicQuotaForGetTenantQuotaOutput(object):
         'expire_time': 'ExpireTime',
         'need_remove': 'NeedRemove',
         'paid_type': 'PaidType',
+        'running_used_count': 'RunningUsedCount',
         'total_count': 'TotalCount',
         'used_count': 'UsedCount',
         'version': 'Version'
     }
 
-    def __init__(self, action=None, expire_time=None, need_remove=None, paid_type=None, total_count=None, used_count=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, expire_time=None, need_remove=None, paid_type=None, running_used_count=None, total_count=None, used_count=None, version=None, _configuration=None):  # noqa: E501
         """BasicQuotaForGetTenantQuotaOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class BasicQuotaForGetTenantQuotaOutput(object):
         self._expire_time = None
         self._need_remove = None
         self._paid_type = None
+        self._running_used_count = None
         self._total_count = None
         self._used_count = None
         self._version = None
@@ -75,6 +78,8 @@ class BasicQuotaForGetTenantQuotaOutput(object):
             self.need_remove = need_remove
         if paid_type is not None:
             self.paid_type = paid_type
+        if running_used_count is not None:
+            self.running_used_count = running_used_count
         if total_count is not None:
             self.total_count = total_count
         if used_count is not None:
@@ -165,6 +170,27 @@ class BasicQuotaForGetTenantQuotaOutput(object):
         """
 
         self._paid_type = paid_type
+
+    @property
+    def running_used_count(self):
+        """Gets the running_used_count of this BasicQuotaForGetTenantQuotaOutput.  # noqa: E501
+
+
+        :return: The running_used_count of this BasicQuotaForGetTenantQuotaOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._running_used_count
+
+    @running_used_count.setter
+    def running_used_count(self, running_used_count):
+        """Sets the running_used_count of this BasicQuotaForGetTenantQuotaOutput.
+
+
+        :param running_used_count: The running_used_count of this BasicQuotaForGetTenantQuotaOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._running_used_count = running_used_count
 
     @property
     def total_count(self):

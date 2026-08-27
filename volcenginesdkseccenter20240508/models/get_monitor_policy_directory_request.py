@@ -49,8 +49,7 @@ class GetMonitorPolicyDirectoryRequest(object):
         self._id = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
+        self.id = id
 
     @property
     def id(self):
@@ -70,6 +69,8 @@ class GetMonitorPolicyDirectoryRequest(object):
         :param id: The id of this GetMonitorPolicyDirectoryRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

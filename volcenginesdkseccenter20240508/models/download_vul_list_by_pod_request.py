@@ -39,6 +39,7 @@ class DownloadVulListByPodRequest(object):
         'cluster_id': 'str',
         'cluster_name': 'str',
         'conditions': 'ConditionsForDownloadVulListByPodInput',
+        'export_job_type': 'str',
         'id_list': 'list[str]',
         'namespace': 'str',
         'status': 'list[str]',
@@ -54,6 +55,7 @@ class DownloadVulListByPodRequest(object):
         'cluster_id': 'ClusterID',
         'cluster_name': 'ClusterName',
         'conditions': 'Conditions',
+        'export_job_type': 'ExportJobType',
         'id_list': 'IDList',
         'namespace': 'Namespace',
         'status': 'Status',
@@ -62,7 +64,7 @@ class DownloadVulListByPodRequest(object):
         'workload_name': 'WorkloadName'
     }
 
-    def __init__(self, agent_id=None, asset_id=None, asset_type=None, cluster_id=None, cluster_name=None, conditions=None, id_list=None, namespace=None, status=None, vuln_type_list=None, workload_id=None, workload_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, asset_id=None, asset_type=None, cluster_id=None, cluster_name=None, conditions=None, export_job_type=None, id_list=None, namespace=None, status=None, vuln_type_list=None, workload_id=None, workload_name=None, _configuration=None):  # noqa: E501
         """DownloadVulListByPodRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class DownloadVulListByPodRequest(object):
         self._cluster_id = None
         self._cluster_name = None
         self._conditions = None
+        self._export_job_type = None
         self._id_list = None
         self._namespace = None
         self._status = None
@@ -92,6 +95,8 @@ class DownloadVulListByPodRequest(object):
         self.cluster_name = cluster_name
         if conditions is not None:
             self.conditions = conditions
+        if export_job_type is not None:
+            self.export_job_type = export_job_type
         if id_list is not None:
             self.id_list = id_list
         self.namespace = namespace
@@ -231,6 +236,27 @@ class DownloadVulListByPodRequest(object):
         """
 
         self._conditions = conditions
+
+    @property
+    def export_job_type(self):
+        """Gets the export_job_type of this DownloadVulListByPodRequest.  # noqa: E501
+
+
+        :return: The export_job_type of this DownloadVulListByPodRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._export_job_type
+
+    @export_job_type.setter
+    def export_job_type(self, export_job_type):
+        """Sets the export_job_type of this DownloadVulListByPodRequest.
+
+
+        :param export_job_type: The export_job_type of this DownloadVulListByPodRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._export_job_type = export_job_type
 
     @property
     def id_list(self):

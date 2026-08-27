@@ -64,8 +64,7 @@ class UninstallAgentClientRequest(object):
             self.reasons = reasons
         if suggestion is not None:
             self.suggestion = suggestion
-        if type is not None:
-            self.type = type
+        self.type = type
 
     @property
     def agent_ids(self):
@@ -148,6 +147,8 @@ class UninstallAgentClientRequest(object):
         :param type: The type of this UninstallAgentClientRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

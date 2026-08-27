@@ -63,7 +63,12 @@ class GetVulnInfoForAIResponse(object):
         'upload_name': 'str',
         'vuln_name': 'str',
         'vuln_name_en': 'str',
-        'cwpp_id': 'str'
+        'cwpp_id': 'str',
+        'is_important_vul': 'str',
+        'is_llm_vul': 'str',
+        'need_quick_follow': 'str',
+        'need_rasp': 'str',
+        'need_varmor': 'str'
     }
 
     attribute_map = {
@@ -97,10 +102,15 @@ class GetVulnInfoForAIResponse(object):
         'upload_name': 'UploadName',
         'vuln_name': 'VulnName',
         'vuln_name_en': 'VulnNameEn',
-        'cwpp_id': 'cwpp_id'
+        'cwpp_id': 'cwpp_id',
+        'is_important_vul': 'is_important_vul',
+        'is_llm_vul': 'is_llm_vul',
+        'need_quick_follow': 'need_quick_follow',
+        'need_rasp': 'need_rasp',
+        'need_varmor': 'need_varmor'
     }
 
-    def __init__(self, action=None, cnnvd=None, cpe_name=None, cpe_version=None, cve_id=None, cve_list=None, cves=None, cvss=None, cvss_vector=None, cwe=None, cwe_ids=None, descript=None, descript_en=None, exploit_link=None, has_exploit=None, has_payload=None, if_emg=None, if_rasp=None, level=None, md5=None, patch_url=None, refer_urls=None, storage_name=None, suggest=None, suggest_en=None, update_time=None, upload_at=None, upload_name=None, vuln_name=None, vuln_name_en=None, cwpp_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, cnnvd=None, cpe_name=None, cpe_version=None, cve_id=None, cve_list=None, cves=None, cvss=None, cvss_vector=None, cwe=None, cwe_ids=None, descript=None, descript_en=None, exploit_link=None, has_exploit=None, has_payload=None, if_emg=None, if_rasp=None, level=None, md5=None, patch_url=None, refer_urls=None, storage_name=None, suggest=None, suggest_en=None, update_time=None, upload_at=None, upload_name=None, vuln_name=None, vuln_name_en=None, cwpp_id=None, is_important_vul=None, is_llm_vul=None, need_quick_follow=None, need_rasp=None, need_varmor=None, _configuration=None):  # noqa: E501
         """GetVulnInfoForAIResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -137,6 +147,11 @@ class GetVulnInfoForAIResponse(object):
         self._vuln_name = None
         self._vuln_name_en = None
         self._cwpp_id = None
+        self._is_important_vul = None
+        self._is_llm_vul = None
+        self._need_quick_follow = None
+        self._need_rasp = None
+        self._need_varmor = None
         self.discriminator = None
 
         if action is not None:
@@ -201,6 +216,16 @@ class GetVulnInfoForAIResponse(object):
             self.vuln_name_en = vuln_name_en
         if cwpp_id is not None:
             self.cwpp_id = cwpp_id
+        if is_important_vul is not None:
+            self.is_important_vul = is_important_vul
+        if is_llm_vul is not None:
+            self.is_llm_vul = is_llm_vul
+        if need_quick_follow is not None:
+            self.need_quick_follow = need_quick_follow
+        if need_rasp is not None:
+            self.need_rasp = need_rasp
+        if need_varmor is not None:
+            self.need_varmor = need_varmor
 
     @property
     def action(self):
@@ -852,6 +877,111 @@ class GetVulnInfoForAIResponse(object):
         """
 
         self._cwpp_id = cwpp_id
+
+    @property
+    def is_important_vul(self):
+        """Gets the is_important_vul of this GetVulnInfoForAIResponse.  # noqa: E501
+
+
+        :return: The is_important_vul of this GetVulnInfoForAIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._is_important_vul
+
+    @is_important_vul.setter
+    def is_important_vul(self, is_important_vul):
+        """Sets the is_important_vul of this GetVulnInfoForAIResponse.
+
+
+        :param is_important_vul: The is_important_vul of this GetVulnInfoForAIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._is_important_vul = is_important_vul
+
+    @property
+    def is_llm_vul(self):
+        """Gets the is_llm_vul of this GetVulnInfoForAIResponse.  # noqa: E501
+
+
+        :return: The is_llm_vul of this GetVulnInfoForAIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._is_llm_vul
+
+    @is_llm_vul.setter
+    def is_llm_vul(self, is_llm_vul):
+        """Sets the is_llm_vul of this GetVulnInfoForAIResponse.
+
+
+        :param is_llm_vul: The is_llm_vul of this GetVulnInfoForAIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._is_llm_vul = is_llm_vul
+
+    @property
+    def need_quick_follow(self):
+        """Gets the need_quick_follow of this GetVulnInfoForAIResponse.  # noqa: E501
+
+
+        :return: The need_quick_follow of this GetVulnInfoForAIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._need_quick_follow
+
+    @need_quick_follow.setter
+    def need_quick_follow(self, need_quick_follow):
+        """Sets the need_quick_follow of this GetVulnInfoForAIResponse.
+
+
+        :param need_quick_follow: The need_quick_follow of this GetVulnInfoForAIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._need_quick_follow = need_quick_follow
+
+    @property
+    def need_rasp(self):
+        """Gets the need_rasp of this GetVulnInfoForAIResponse.  # noqa: E501
+
+
+        :return: The need_rasp of this GetVulnInfoForAIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._need_rasp
+
+    @need_rasp.setter
+    def need_rasp(self, need_rasp):
+        """Sets the need_rasp of this GetVulnInfoForAIResponse.
+
+
+        :param need_rasp: The need_rasp of this GetVulnInfoForAIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._need_rasp = need_rasp
+
+    @property
+    def need_varmor(self):
+        """Gets the need_varmor of this GetVulnInfoForAIResponse.  # noqa: E501
+
+
+        :return: The need_varmor of this GetVulnInfoForAIResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._need_varmor
+
+    @need_varmor.setter
+    def need_varmor(self, need_varmor):
+        """Sets the need_varmor of this GetVulnInfoForAIResponse.
+
+
+        :param need_varmor: The need_varmor of this GetVulnInfoForAIResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._need_varmor = need_varmor
 
     def to_dict(self):
         """Returns the model properties as a dict"""

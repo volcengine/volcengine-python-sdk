@@ -60,6 +60,8 @@ class AffectForGetAISessionVulnInfoOutput(object):
         'state': 'str',
         'type': 'str',
         'vuln_affect_version': 'str',
+        'vuln_name': 'str',
+        'vuln_name_en': 'str',
         'workload_id': 'str',
         'workload_name': 'str'
     }
@@ -92,11 +94,13 @@ class AffectForGetAISessionVulnInfoOutput(object):
         'state': 'State',
         'type': 'Type',
         'vuln_affect_version': 'VulnAffectVersion',
+        'vuln_name': 'VulnName',
+        'vuln_name_en': 'VulnNameEn',
         'workload_id': 'WorkloadID',
         'workload_name': 'WorkloadName'
     }
 
-    def __init__(self, cluster_id=None, cluster_name=None, cmdline=None, container_create_time=None, container_host_name=None, container_id=None, container_ip=None, container_name=None, container_net_mode=None, container_query_result=None, container_run_time=None, container_state=None, fix_command=None, fix_version=None, image_id=None, image_name=None, namespace=None, pid_list=None, pod_id=None, pod_name=None, software_name=None, software_path=None, software_source=None, software_version=None, state=None, type=None, vuln_affect_version=None, workload_id=None, workload_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, cluster_name=None, cmdline=None, container_create_time=None, container_host_name=None, container_id=None, container_ip=None, container_name=None, container_net_mode=None, container_query_result=None, container_run_time=None, container_state=None, fix_command=None, fix_version=None, image_id=None, image_name=None, namespace=None, pid_list=None, pod_id=None, pod_name=None, software_name=None, software_path=None, software_source=None, software_version=None, state=None, type=None, vuln_affect_version=None, vuln_name=None, vuln_name_en=None, workload_id=None, workload_name=None, _configuration=None):  # noqa: E501
         """AffectForGetAISessionVulnInfoOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -129,6 +133,8 @@ class AffectForGetAISessionVulnInfoOutput(object):
         self._state = None
         self._type = None
         self._vuln_affect_version = None
+        self._vuln_name = None
+        self._vuln_name_en = None
         self._workload_id = None
         self._workload_name = None
         self.discriminator = None
@@ -187,6 +193,10 @@ class AffectForGetAISessionVulnInfoOutput(object):
             self.type = type
         if vuln_affect_version is not None:
             self.vuln_affect_version = vuln_affect_version
+        if vuln_name is not None:
+            self.vuln_name = vuln_name
+        if vuln_name_en is not None:
+            self.vuln_name_en = vuln_name_en
         if workload_id is not None:
             self.workload_id = workload_id
         if workload_name is not None:
@@ -758,6 +768,48 @@ class AffectForGetAISessionVulnInfoOutput(object):
         """
 
         self._vuln_affect_version = vuln_affect_version
+
+    @property
+    def vuln_name(self):
+        """Gets the vuln_name of this AffectForGetAISessionVulnInfoOutput.  # noqa: E501
+
+
+        :return: The vuln_name of this AffectForGetAISessionVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vuln_name
+
+    @vuln_name.setter
+    def vuln_name(self, vuln_name):
+        """Sets the vuln_name of this AffectForGetAISessionVulnInfoOutput.
+
+
+        :param vuln_name: The vuln_name of this AffectForGetAISessionVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vuln_name = vuln_name
+
+    @property
+    def vuln_name_en(self):
+        """Gets the vuln_name_en of this AffectForGetAISessionVulnInfoOutput.  # noqa: E501
+
+
+        :return: The vuln_name_en of this AffectForGetAISessionVulnInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vuln_name_en
+
+    @vuln_name_en.setter
+    def vuln_name_en(self, vuln_name_en):
+        """Sets the vuln_name_en of this AffectForGetAISessionVulnInfoOutput.
+
+
+        :param vuln_name_en: The vuln_name_en of this AffectForGetAISessionVulnInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vuln_name_en = vuln_name_en
 
     @property
     def workload_id(self):

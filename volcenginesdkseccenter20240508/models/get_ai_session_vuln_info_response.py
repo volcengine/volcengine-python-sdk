@@ -39,7 +39,9 @@ class GetAISessionVulnInfoResponse(object):
         'platform': 'str',
         'primary_ip_address': 'str',
         'session_name': 'str',
-        'suggest': 'str'
+        'suggest': 'str',
+        'tool_id': 'str',
+        'tool_name': 'str'
     }
 
     attribute_map = {
@@ -49,10 +51,12 @@ class GetAISessionVulnInfoResponse(object):
         'platform': 'Platform',
         'primary_ip_address': 'PrimaryIpAddress',
         'session_name': 'SessionName',
-        'suggest': 'Suggest'
+        'suggest': 'Suggest',
+        'tool_id': 'ToolID',
+        'tool_name': 'ToolName'
     }
 
-    def __init__(self, affect=None, eip_address=None, fix_command_list=None, platform=None, primary_ip_address=None, session_name=None, suggest=None, _configuration=None):  # noqa: E501
+    def __init__(self, affect=None, eip_address=None, fix_command_list=None, platform=None, primary_ip_address=None, session_name=None, suggest=None, tool_id=None, tool_name=None, _configuration=None):  # noqa: E501
         """GetAISessionVulnInfoResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +69,8 @@ class GetAISessionVulnInfoResponse(object):
         self._primary_ip_address = None
         self._session_name = None
         self._suggest = None
+        self._tool_id = None
+        self._tool_name = None
         self.discriminator = None
 
         if affect is not None:
@@ -81,6 +87,10 @@ class GetAISessionVulnInfoResponse(object):
             self.session_name = session_name
         if suggest is not None:
             self.suggest = suggest
+        if tool_id is not None:
+            self.tool_id = tool_id
+        if tool_name is not None:
+            self.tool_name = tool_name
 
     @property
     def affect(self):
@@ -228,6 +238,48 @@ class GetAISessionVulnInfoResponse(object):
         """
 
         self._suggest = suggest
+
+    @property
+    def tool_id(self):
+        """Gets the tool_id of this GetAISessionVulnInfoResponse.  # noqa: E501
+
+
+        :return: The tool_id of this GetAISessionVulnInfoResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._tool_id
+
+    @tool_id.setter
+    def tool_id(self, tool_id):
+        """Sets the tool_id of this GetAISessionVulnInfoResponse.
+
+
+        :param tool_id: The tool_id of this GetAISessionVulnInfoResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._tool_id = tool_id
+
+    @property
+    def tool_name(self):
+        """Gets the tool_name of this GetAISessionVulnInfoResponse.  # noqa: E501
+
+
+        :return: The tool_name of this GetAISessionVulnInfoResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._tool_name
+
+    @tool_name.setter
+    def tool_name(self, tool_name):
+        """Sets the tool_name of this GetAISessionVulnInfoResponse.
+
+
+        :param tool_name: The tool_name of this GetAISessionVulnInfoResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._tool_name = tool_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

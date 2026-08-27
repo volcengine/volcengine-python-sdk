@@ -47,7 +47,8 @@ class BaselineInfoForListBaselineCheckItemsOutput(object):
         'title_cn': 'str',
         'type': 'str',
         'type_cn': 'str',
-        'update_time': 'int'
+        'update_time': 'int',
+        'whitelist_status': 'bool'
     }
 
     attribute_map = {
@@ -65,10 +66,11 @@ class BaselineInfoForListBaselineCheckItemsOutput(object):
         'title_cn': 'TitleCn',
         'type': 'Type',
         'type_cn': 'TypeCn',
-        'update_time': 'UpdateTime'
+        'update_time': 'UpdateTime',
+        'whitelist_status': 'WhitelistStatus'
     }
 
-    def __init__(self, baseline_check=None, baseline_id=None, check_id=None, description=None, description_cn=None, pass_rate=None, security=None, solution=None, solution_cn=None, status=None, title=None, title_cn=None, type=None, type_cn=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, baseline_check=None, baseline_id=None, check_id=None, description=None, description_cn=None, pass_rate=None, security=None, solution=None, solution_cn=None, status=None, title=None, title_cn=None, type=None, type_cn=None, update_time=None, whitelist_status=None, _configuration=None):  # noqa: E501
         """BaselineInfoForListBaselineCheckItemsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +91,7 @@ class BaselineInfoForListBaselineCheckItemsOutput(object):
         self._type = None
         self._type_cn = None
         self._update_time = None
+        self._whitelist_status = None
         self.discriminator = None
 
         if baseline_check is not None:
@@ -121,6 +124,8 @@ class BaselineInfoForListBaselineCheckItemsOutput(object):
             self.type_cn = type_cn
         if update_time is not None:
             self.update_time = update_time
+        if whitelist_status is not None:
+            self.whitelist_status = whitelist_status
 
     @property
     def baseline_check(self):
@@ -436,6 +441,27 @@ class BaselineInfoForListBaselineCheckItemsOutput(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def whitelist_status(self):
+        """Gets the whitelist_status of this BaselineInfoForListBaselineCheckItemsOutput.  # noqa: E501
+
+
+        :return: The whitelist_status of this BaselineInfoForListBaselineCheckItemsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._whitelist_status
+
+    @whitelist_status.setter
+    def whitelist_status(self, whitelist_status):
+        """Sets the whitelist_status of this BaselineInfoForListBaselineCheckItemsOutput.
+
+
+        :param whitelist_status: The whitelist_status of this BaselineInfoForListBaselineCheckItemsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._whitelist_status = whitelist_status
 
     def to_dict(self):
         """Returns the model properties as a dict"""
