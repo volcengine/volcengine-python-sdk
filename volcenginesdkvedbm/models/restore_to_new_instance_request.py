@@ -50,6 +50,7 @@ class RestoreToNewInstanceRequest(object):
         'src_instance_id': 'str',
         'src_project_name': 'str',
         'storage_charge_type': 'str',
+        'storage_type': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForRestoreToNewInstanceInput]',
         'template_id': 'str',
@@ -75,6 +76,7 @@ class RestoreToNewInstanceRequest(object):
         'src_instance_id': 'SrcInstanceId',
         'src_project_name': 'SrcProjectName',
         'storage_charge_type': 'StorageChargeType',
+        'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
         'template_id': 'TemplateId',
@@ -82,7 +84,7 @@ class RestoreToNewInstanceRequest(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, backup_id=None, charge_type=None, db_minor_version=None, deletion_protection=None, instance_name=None, node_number=None, node_spec=None, period=None, period_unit=None, port=None, pre_paid_storage_in_gb=None, project_name=None, restore_time=None, src_instance_id=None, src_project_name=None, storage_charge_type=None, subnet_id=None, tags=None, template_id=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, backup_id=None, charge_type=None, db_minor_version=None, deletion_protection=None, instance_name=None, node_number=None, node_spec=None, period=None, period_unit=None, port=None, pre_paid_storage_in_gb=None, project_name=None, restore_time=None, src_instance_id=None, src_project_name=None, storage_charge_type=None, storage_type=None, subnet_id=None, tags=None, template_id=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """RestoreToNewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -105,6 +107,7 @@ class RestoreToNewInstanceRequest(object):
         self._src_instance_id = None
         self._src_project_name = None
         self._storage_charge_type = None
+        self._storage_type = None
         self._subnet_id = None
         self._tags = None
         self._template_id = None
@@ -142,6 +145,8 @@ class RestoreToNewInstanceRequest(object):
             self.src_project_name = src_project_name
         if storage_charge_type is not None:
             self.storage_charge_type = storage_charge_type
+        if storage_type is not None:
+            self.storage_type = storage_type
         self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
@@ -535,6 +540,34 @@ class RestoreToNewInstanceRequest(object):
         """
 
         self._storage_charge_type = storage_charge_type
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The storage_type of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this RestoreToNewInstanceRequest.
+
+
+        :param storage_type: The storage_type of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["IOOptimizedStorage", "SmartCompressedStorage"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                storage_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(storage_type, allowed_values)
+            )
+
+        self._storage_type = storage_type
 
     @property
     def subnet_id(self):

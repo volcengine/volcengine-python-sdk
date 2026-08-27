@@ -188,7 +188,7 @@ class DescribeExistDBInstancePriceRequest(object):
         :param user_action: The user_action of this DescribeExistDBInstancePriceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ModifyDBInstanceChargeType", "ModifyDBInstanceSpec"]  # noqa: E501
+        allowed_values = ["ModifyDBInstanceChargeType", "ModifyDBInstanceSpec", "ModifyDBInstanceStorageType"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 user_action not in allowed_values):
             raise ValueError(

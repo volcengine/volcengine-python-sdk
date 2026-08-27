@@ -36,17 +36,19 @@ class InstanceForDescribeExistDBInstancePriceInput(object):
         'instance_id': 'str',
         'node_specs': 'list[NodeSpecForDescribeExistDBInstancePriceInput]',
         'pre_paid_storage_in_gb': 'int',
-        'storage_charge_type': 'str'
+        'storage_charge_type': 'str',
+        'storage_type': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
         'node_specs': 'NodeSpecs',
         'pre_paid_storage_in_gb': 'PrePaidStorageInGB',
-        'storage_charge_type': 'StorageChargeType'
+        'storage_charge_type': 'StorageChargeType',
+        'storage_type': 'StorageType'
     }
 
-    def __init__(self, instance_id=None, node_specs=None, pre_paid_storage_in_gb=None, storage_charge_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, node_specs=None, pre_paid_storage_in_gb=None, storage_charge_type=None, storage_type=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeExistDBInstancePriceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class InstanceForDescribeExistDBInstancePriceInput(object):
         self._node_specs = None
         self._pre_paid_storage_in_gb = None
         self._storage_charge_type = None
+        self._storage_type = None
         self.discriminator = None
 
         if instance_id is not None:
@@ -66,6 +69,8 @@ class InstanceForDescribeExistDBInstancePriceInput(object):
             self.pre_paid_storage_in_gb = pre_paid_storage_in_gb
         if storage_charge_type is not None:
             self.storage_charge_type = storage_charge_type
+        if storage_type is not None:
+            self.storage_type = storage_type
 
     @property
     def instance_id(self):
@@ -157,6 +162,34 @@ class InstanceForDescribeExistDBInstancePriceInput(object):
             )
 
         self._storage_charge_type = storage_charge_type
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this InstanceForDescribeExistDBInstancePriceInput.  # noqa: E501
+
+
+        :return: The storage_type of this InstanceForDescribeExistDBInstancePriceInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this InstanceForDescribeExistDBInstancePriceInput.
+
+
+        :param storage_type: The storage_type of this InstanceForDescribeExistDBInstancePriceInput.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["IOOptimizedStorage", "SmartCompressedStorage"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                storage_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(storage_type, allowed_values)
+            )
+
+        self._storage_type = storage_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

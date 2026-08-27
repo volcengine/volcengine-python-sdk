@@ -34,6 +34,7 @@ class CreateDBEndpointRequest(object):
     """
     swagger_types = {
         'auto_add_new_nodes': 'bool',
+        'connection_pool': 'str',
         'consist_level': 'str',
         'consist_timeout': 'int',
         'consist_timeout_action': 'str',
@@ -49,6 +50,7 @@ class CreateDBEndpointRequest(object):
 
     attribute_map = {
         'auto_add_new_nodes': 'AutoAddNewNodes',
+        'connection_pool': 'ConnectionPool',
         'consist_level': 'ConsistLevel',
         'consist_timeout': 'ConsistTimeout',
         'consist_timeout_action': 'ConsistTimeoutAction',
@@ -62,13 +64,14 @@ class CreateDBEndpointRequest(object):
         'read_write_mode': 'ReadWriteMode'
     }
 
-    def __init__(self, auto_add_new_nodes=None, consist_level=None, consist_timeout=None, consist_timeout_action=None, description=None, distributed_transaction=None, endpoint_name=None, endpoint_type=None, instance_id=None, master_accept_read_requests=None, nodes=None, read_write_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_add_new_nodes=None, connection_pool=None, consist_level=None, consist_timeout=None, consist_timeout_action=None, description=None, distributed_transaction=None, endpoint_name=None, endpoint_type=None, instance_id=None, master_accept_read_requests=None, nodes=None, read_write_mode=None, _configuration=None):  # noqa: E501
         """CreateDBEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_add_new_nodes = None
+        self._connection_pool = None
         self._consist_level = None
         self._consist_timeout = None
         self._consist_timeout_action = None
@@ -84,6 +87,7 @@ class CreateDBEndpointRequest(object):
 
         if auto_add_new_nodes is not None:
             self.auto_add_new_nodes = auto_add_new_nodes
+        self.connection_pool = connection_pool
         if consist_level is not None:
             self.consist_level = consist_level
         if consist_timeout is not None:
@@ -124,6 +128,36 @@ class CreateDBEndpointRequest(object):
         """
 
         self._auto_add_new_nodes = auto_add_new_nodes
+
+    @property
+    def connection_pool(self):
+        """Gets the connection_pool of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The connection_pool of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._connection_pool
+
+    @connection_pool.setter
+    def connection_pool(self, connection_pool):
+        """Sets the connection_pool of this CreateDBEndpointRequest.
+
+
+        :param connection_pool: The connection_pool of this CreateDBEndpointRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and connection_pool is None:
+            raise ValueError("Invalid value for `connection_pool`, must not be `None`")  # noqa: E501
+        allowed_values = ["Off"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                connection_pool not in allowed_values):
+            raise ValueError(
+                "Invalid value for `connection_pool` ({0}), must be one of {1}"  # noqa: E501
+                .format(connection_pool, allowed_values)
+            )
+
+        self._connection_pool = connection_pool
 
     @property
     def consist_level(self):

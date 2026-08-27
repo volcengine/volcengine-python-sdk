@@ -38,6 +38,7 @@ class NodeForDescribeDBInstancesOutput(object):
         'node_id': 'str',
         'node_spec': 'str',
         'node_type': 'str',
+        'sub_instance_type': 'str',
         'zone_id': 'str',
         'v_cpu': 'int'
     }
@@ -48,11 +49,12 @@ class NodeForDescribeDBInstancesOutput(object):
         'node_id': 'NodeId',
         'node_spec': 'NodeSpec',
         'node_type': 'NodeType',
+        'sub_instance_type': 'SubInstanceType',
         'zone_id': 'ZoneId',
         'v_cpu': 'vCPU'
     }
 
-    def __init__(self, failover_priority=None, memory=None, node_id=None, node_spec=None, node_type=None, zone_id=None, v_cpu=None, _configuration=None):  # noqa: E501
+    def __init__(self, failover_priority=None, memory=None, node_id=None, node_spec=None, node_type=None, sub_instance_type=None, zone_id=None, v_cpu=None, _configuration=None):  # noqa: E501
         """NodeForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class NodeForDescribeDBInstancesOutput(object):
         self._node_id = None
         self._node_spec = None
         self._node_type = None
+        self._sub_instance_type = None
         self._zone_id = None
         self._v_cpu = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class NodeForDescribeDBInstancesOutput(object):
             self.node_spec = node_spec
         if node_type is not None:
             self.node_type = node_type
+        if sub_instance_type is not None:
+            self.sub_instance_type = sub_instance_type
         if zone_id is not None:
             self.zone_id = zone_id
         if v_cpu is not None:
@@ -186,6 +191,27 @@ class NodeForDescribeDBInstancesOutput(object):
         """
 
         self._node_type = node_type
+
+    @property
+    def sub_instance_type(self):
+        """Gets the sub_instance_type of this NodeForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The sub_instance_type of this NodeForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sub_instance_type
+
+    @sub_instance_type.setter
+    def sub_instance_type(self, sub_instance_type):
+        """Sets the sub_instance_type of this NodeForDescribeDBInstancesOutput.
+
+
+        :param sub_instance_type: The sub_instance_type of this NodeForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._sub_instance_type = sub_instance_type
 
     @property
     def zone_id(self):

@@ -40,7 +40,8 @@ class DescribeAllowListDetailResponse(object):
         'allow_list_type': 'str',
         'associated_instance_num': 'int',
         'associated_instances': 'list[AssociatedInstanceForDescribeAllowListDetailOutput]',
-        'project_name': 'str'
+        'project_name': 'str',
+        'user_allow_list': 'str'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class DescribeAllowListDetailResponse(object):
         'allow_list_type': 'AllowListType',
         'associated_instance_num': 'AssociatedInstanceNum',
         'associated_instances': 'AssociatedInstances',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'user_allow_list': 'UserAllowList'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instance_num=None, associated_instances=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instance_num=None, associated_instances=None, project_name=None, user_allow_list=None, _configuration=None):  # noqa: E501
         """DescribeAllowListDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class DescribeAllowListDetailResponse(object):
         self._associated_instance_num = None
         self._associated_instances = None
         self._project_name = None
+        self._user_allow_list = None
         self.discriminator = None
 
         if allow_list is not None:
@@ -86,6 +89,8 @@ class DescribeAllowListDetailResponse(object):
             self.associated_instances = associated_instances
         if project_name is not None:
             self.project_name = project_name
+        if user_allow_list is not None:
+            self.user_allow_list = user_allow_list
 
     @property
     def allow_list(self):
@@ -254,6 +259,27 @@ class DescribeAllowListDetailResponse(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def user_allow_list(self):
+        """Gets the user_allow_list of this DescribeAllowListDetailResponse.  # noqa: E501
+
+
+        :return: The user_allow_list of this DescribeAllowListDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_allow_list
+
+    @user_allow_list.setter
+    def user_allow_list(self, user_allow_list):
+        """Sets the user_allow_list of this DescribeAllowListDetailResponse.
+
+
+        :param user_allow_list: The user_allow_list of this DescribeAllowListDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._user_allow_list = user_allow_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""
