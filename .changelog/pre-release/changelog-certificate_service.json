@@ -1,0 +1,5 @@
+{
+  "description": "CERTIFICATE_SERVICE: 新增 CodeSignCertificateQuickPlaceOrder, CertificateBatchDeleteInstance, CertificateGetDcvParam, CodeSignCertificateCancelInstance, CodeSignCertificateDeleteInstance, CodeSignCertificateGetInstance, CodeSignCertificateListInstances；修改 CertificateGetInstance, CertificateGetOrganization",
+  "modules": "service/certificate_service",
+  "type": "breaking-change"
+}
