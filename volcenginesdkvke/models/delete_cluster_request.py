@@ -84,7 +84,7 @@ class DeleteClusterRequest(object):
         :param cascading_delete_resources: The cascading_delete_resources of this DeleteClusterRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Nat", "Clb", "NodePoolResource", "DefaultNodePoolResource", "TryBest"]  # noqa: E501
+        allowed_values = ["Nat", "Clb", "NodePoolResource", "DefaultNodePoolResource", "All"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(cascading_delete_resources).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
