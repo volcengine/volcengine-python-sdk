@@ -33,106 +33,39 @@ class SourceForCreateImportTaskInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'azure_blob': 'AzureBlobForCreateImportTaskInput',
-        'gcs': 'GcsForCreateImportTaskInput',
         'local': 'LocalForCreateImportTaskInput',
-        'oss': 'OssForCreateImportTaskInput',
-        's3': 'S3ForCreateImportTaskInput',
-        's3_compatible': 'S3CompatibleForCreateImportTaskInput',
         'target_table_infos': 'list[TargetTableInfoForCreateImportTaskInput]',
         'tos': 'TosForCreateImportTaskInput',
         'type': 'str'
     }
 
     attribute_map = {
-        'azure_blob': 'AzureBlob',
-        'gcs': 'Gcs',
         'local': 'Local',
-        'oss': 'Oss',
-        's3': 'S3',
-        's3_compatible': 'S3Compatible',
         'target_table_infos': 'TargetTableInfos',
         'tos': 'Tos',
         'type': 'Type'
     }
 
-    def __init__(self, azure_blob=None, gcs=None, local=None, oss=None, s3=None, s3_compatible=None, target_table_infos=None, tos=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, local=None, target_table_infos=None, tos=None, type=None, _configuration=None):  # noqa: E501
         """SourceForCreateImportTaskInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._azure_blob = None
-        self._gcs = None
         self._local = None
-        self._oss = None
-        self._s3 = None
-        self._s3_compatible = None
         self._target_table_infos = None
         self._tos = None
         self._type = None
         self.discriminator = None
 
-        if azure_blob is not None:
-            self.azure_blob = azure_blob
-        if gcs is not None:
-            self.gcs = gcs
         if local is not None:
             self.local = local
-        if oss is not None:
-            self.oss = oss
-        if s3 is not None:
-            self.s3 = s3
-        if s3_compatible is not None:
-            self.s3_compatible = s3_compatible
         if target_table_infos is not None:
             self.target_table_infos = target_table_infos
         if tos is not None:
             self.tos = tos
         if type is not None:
             self.type = type
-
-    @property
-    def azure_blob(self):
-        """Gets the azure_blob of this SourceForCreateImportTaskInput.  # noqa: E501
-
-
-        :return: The azure_blob of this SourceForCreateImportTaskInput.  # noqa: E501
-        :rtype: AzureBlobForCreateImportTaskInput
-        """
-        return self._azure_blob
-
-    @azure_blob.setter
-    def azure_blob(self, azure_blob):
-        """Sets the azure_blob of this SourceForCreateImportTaskInput.
-
-
-        :param azure_blob: The azure_blob of this SourceForCreateImportTaskInput.  # noqa: E501
-        :type: AzureBlobForCreateImportTaskInput
-        """
-
-        self._azure_blob = azure_blob
-
-    @property
-    def gcs(self):
-        """Gets the gcs of this SourceForCreateImportTaskInput.  # noqa: E501
-
-
-        :return: The gcs of this SourceForCreateImportTaskInput.  # noqa: E501
-        :rtype: GcsForCreateImportTaskInput
-        """
-        return self._gcs
-
-    @gcs.setter
-    def gcs(self, gcs):
-        """Sets the gcs of this SourceForCreateImportTaskInput.
-
-
-        :param gcs: The gcs of this SourceForCreateImportTaskInput.  # noqa: E501
-        :type: GcsForCreateImportTaskInput
-        """
-
-        self._gcs = gcs
 
     @property
     def local(self):
@@ -154,69 +87,6 @@ class SourceForCreateImportTaskInput(object):
         """
 
         self._local = local
-
-    @property
-    def oss(self):
-        """Gets the oss of this SourceForCreateImportTaskInput.  # noqa: E501
-
-
-        :return: The oss of this SourceForCreateImportTaskInput.  # noqa: E501
-        :rtype: OssForCreateImportTaskInput
-        """
-        return self._oss
-
-    @oss.setter
-    def oss(self, oss):
-        """Sets the oss of this SourceForCreateImportTaskInput.
-
-
-        :param oss: The oss of this SourceForCreateImportTaskInput.  # noqa: E501
-        :type: OssForCreateImportTaskInput
-        """
-
-        self._oss = oss
-
-    @property
-    def s3(self):
-        """Gets the s3 of this SourceForCreateImportTaskInput.  # noqa: E501
-
-
-        :return: The s3 of this SourceForCreateImportTaskInput.  # noqa: E501
-        :rtype: S3ForCreateImportTaskInput
-        """
-        return self._s3
-
-    @s3.setter
-    def s3(self, s3):
-        """Sets the s3 of this SourceForCreateImportTaskInput.
-
-
-        :param s3: The s3 of this SourceForCreateImportTaskInput.  # noqa: E501
-        :type: S3ForCreateImportTaskInput
-        """
-
-        self._s3 = s3
-
-    @property
-    def s3_compatible(self):
-        """Gets the s3_compatible of this SourceForCreateImportTaskInput.  # noqa: E501
-
-
-        :return: The s3_compatible of this SourceForCreateImportTaskInput.  # noqa: E501
-        :rtype: S3CompatibleForCreateImportTaskInput
-        """
-        return self._s3_compatible
-
-    @s3_compatible.setter
-    def s3_compatible(self, s3_compatible):
-        """Sets the s3_compatible of this SourceForCreateImportTaskInput.
-
-
-        :param s3_compatible: The s3_compatible of this SourceForCreateImportTaskInput.  # noqa: E501
-        :type: S3CompatibleForCreateImportTaskInput
-        """
-
-        self._s3_compatible = s3_compatible
 
     @property
     def target_table_infos(self):
