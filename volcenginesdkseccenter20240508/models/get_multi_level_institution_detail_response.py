@@ -36,23 +36,23 @@ class GetMultiLevelInstitutionDetailResponse(object):
         'account_id': 'str',
         'auth_info': 'AuthInfoForGetMultiLevelInstitutionDetailOutput',
         'base_info': 'BaseInfoForGetMultiLevelInstitutionDetailOutput',
-        'id': 'str',
-        'configuration': 'ConfigurationForGetMultiLevelInstitutionDetailOutput',
         'host_overview': 'HostOverviewForGetMultiLevelInstitutionDetailOutput',
-        'threaten': 'ThreatenForGetMultiLevelInstitutionDetailOutput'
+        'id': 'str',
+        'threaten': 'ThreatenForGetMultiLevelInstitutionDetailOutput',
+        'configuration': 'ConfigurationForGetMultiLevelInstitutionDetailOutput'
     }
 
     attribute_map = {
         'account_id': 'AccountID',
         'auth_info': 'AuthInfo',
         'base_info': 'BaseInfo',
+        'host_overview': 'HostOverview',
         'id': 'ID',
-        'configuration': 'configuration',
-        'host_overview': 'hostOverview',
-        'threaten': 'threaten'
+        'threaten': 'Threaten',
+        'configuration': 'configuration'
     }
 
-    def __init__(self, account_id=None, auth_info=None, base_info=None, id=None, configuration=None, host_overview=None, threaten=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, auth_info=None, base_info=None, host_overview=None, id=None, threaten=None, configuration=None, _configuration=None):  # noqa: E501
         """GetMultiLevelInstitutionDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,10 +61,10 @@ class GetMultiLevelInstitutionDetailResponse(object):
         self._account_id = None
         self._auth_info = None
         self._base_info = None
-        self._id = None
-        self._configuration = None
         self._host_overview = None
+        self._id = None
         self._threaten = None
+        self._configuration = None
         self.discriminator = None
 
         if account_id is not None:
@@ -73,14 +73,14 @@ class GetMultiLevelInstitutionDetailResponse(object):
             self.auth_info = auth_info
         if base_info is not None:
             self.base_info = base_info
-        if id is not None:
-            self.id = id
-        if configuration is not None:
-            self.configuration = configuration
         if host_overview is not None:
             self.host_overview = host_overview
+        if id is not None:
+            self.id = id
         if threaten is not None:
             self.threaten = threaten
+        if configuration is not None:
+            self.configuration = configuration
 
     @property
     def account_id(self):
@@ -146,48 +146,6 @@ class GetMultiLevelInstitutionDetailResponse(object):
         self._base_info = base_info
 
     @property
-    def id(self):
-        """Gets the id of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
-
-
-        :return: The id of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this GetMultiLevelInstitutionDetailResponse.
-
-
-        :param id: The id of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def configuration(self):
-        """Gets the configuration of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
-
-
-        :return: The configuration of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
-        :rtype: ConfigurationForGetMultiLevelInstitutionDetailOutput
-        """
-        return self._configuration
-
-    @configuration.setter
-    def configuration(self, configuration):
-        """Sets the configuration of this GetMultiLevelInstitutionDetailResponse.
-
-
-        :param configuration: The configuration of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
-        :type: ConfigurationForGetMultiLevelInstitutionDetailOutput
-        """
-
-        self._configuration = configuration
-
-    @property
     def host_overview(self):
         """Gets the host_overview of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
 
@@ -209,6 +167,27 @@ class GetMultiLevelInstitutionDetailResponse(object):
         self._host_overview = host_overview
 
     @property
+    def id(self):
+        """Gets the id of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
+
+
+        :return: The id of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this GetMultiLevelInstitutionDetailResponse.
+
+
+        :param id: The id of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
     def threaten(self):
         """Gets the threaten of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
 
@@ -228,6 +207,27 @@ class GetMultiLevelInstitutionDetailResponse(object):
         """
 
         self._threaten = threaten
+
+    @property
+    def configuration(self):
+        """Gets the configuration of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
+
+
+        :return: The configuration of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
+        :rtype: ConfigurationForGetMultiLevelInstitutionDetailOutput
+        """
+        return self._configuration
+
+    @configuration.setter
+    def configuration(self, configuration):
+        """Sets the configuration of this GetMultiLevelInstitutionDetailResponse.
+
+
+        :param configuration: The configuration of this GetMultiLevelInstitutionDetailResponse.  # noqa: E501
+        :type: ConfigurationForGetMultiLevelInstitutionDetailOutput
+        """
+
+        self._configuration = configuration
 
     def to_dict(self):
         """Returns the model properties as a dict"""

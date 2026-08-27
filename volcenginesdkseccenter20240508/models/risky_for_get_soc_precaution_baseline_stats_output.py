@@ -41,11 +41,11 @@ class RiskyForGetSOCPrecautionBaselineStatsOutput(object):
     }
 
     attribute_map = {
-        'critical': 'critical',
-        'high': 'high',
-        'info': 'info',
-        'low': 'low',
-        'medium': 'medium'
+        'critical': 'Critical',
+        'high': 'High',
+        'info': 'Info',
+        'low': 'Low',
+        'medium': 'Medium'
     }
 
     def __init__(self, critical=None, high=None, info=None, low=None, medium=None, _configuration=None):  # noqa: E501

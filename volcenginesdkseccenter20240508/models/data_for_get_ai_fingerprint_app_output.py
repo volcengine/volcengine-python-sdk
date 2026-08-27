@@ -35,7 +35,7 @@ class DataForGetAIFingerprintAppOutput(object):
     swagger_types = {
         'app_id': 'str',
         'description': 'str',
-        'enabled': 'bool',
+        'enabled': 'str',
         'id': 'str',
         'name': 'str',
         'session_id': 'str',
@@ -165,7 +165,7 @@ class DataForGetAIFingerprintAppOutput(object):
 
 
         :return: The enabled of this DataForGetAIFingerprintAppOutput.  # noqa: E501
-        :rtype: bool
+        :rtype: str
         """
         return self._enabled
 
@@ -175,7 +175,7 @@ class DataForGetAIFingerprintAppOutput(object):
 
 
         :param enabled: The enabled of this DataForGetAIFingerprintAppOutput.  # noqa: E501
-        :type: bool
+        :type: str
         """
 
         self._enabled = enabled

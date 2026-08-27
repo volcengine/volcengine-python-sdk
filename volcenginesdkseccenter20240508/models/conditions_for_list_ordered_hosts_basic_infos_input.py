@@ -37,6 +37,7 @@ class ConditionsForListOrderedHostsBasicInfosInput(object):
         'agent_status': 'list[str]',
         'cloud_providers': 'list[str]',
         'hostname': 'str',
+        'instance_status': 'list[str]',
         'ip': 'str',
         'leaf_group_ids': 'list[str]',
         'platforms': 'list[str]',
@@ -53,6 +54,7 @@ class ConditionsForListOrderedHostsBasicInfosInput(object):
         'agent_status': 'AgentStatus',
         'cloud_providers': 'CloudProviders',
         'hostname': 'Hostname',
+        'instance_status': 'InstanceStatus',
         'ip': 'Ip',
         'leaf_group_ids': 'LeafGroupIDs',
         'platforms': 'Platforms',
@@ -64,7 +66,7 @@ class ConditionsForListOrderedHostsBasicInfosInput(object):
         'vpc_ids': 'VpcIds'
     }
 
-    def __init__(self, agent_id_list=None, agent_status=None, cloud_providers=None, hostname=None, ip=None, leaf_group_ids=None, platforms=None, regions=None, status=None, tags=None, top_group_id=None, visibility=None, vpc_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id_list=None, agent_status=None, cloud_providers=None, hostname=None, instance_status=None, ip=None, leaf_group_ids=None, platforms=None, regions=None, status=None, tags=None, top_group_id=None, visibility=None, vpc_ids=None, _configuration=None):  # noqa: E501
         """ConditionsForListOrderedHostsBasicInfosInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class ConditionsForListOrderedHostsBasicInfosInput(object):
         self._agent_status = None
         self._cloud_providers = None
         self._hostname = None
+        self._instance_status = None
         self._ip = None
         self._leaf_group_ids = None
         self._platforms = None
@@ -93,6 +96,8 @@ class ConditionsForListOrderedHostsBasicInfosInput(object):
             self.cloud_providers = cloud_providers
         if hostname is not None:
             self.hostname = hostname
+        if instance_status is not None:
+            self.instance_status = instance_status
         if ip is not None:
             self.ip = ip
         if leaf_group_ids is not None:
@@ -195,6 +200,27 @@ class ConditionsForListOrderedHostsBasicInfosInput(object):
         """
 
         self._hostname = hostname
+
+    @property
+    def instance_status(self):
+        """Gets the instance_status of this ConditionsForListOrderedHostsBasicInfosInput.  # noqa: E501
+
+
+        :return: The instance_status of this ConditionsForListOrderedHostsBasicInfosInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._instance_status
+
+    @instance_status.setter
+    def instance_status(self, instance_status):
+        """Sets the instance_status of this ConditionsForListOrderedHostsBasicInfosInput.
+
+
+        :param instance_status: The instance_status of this ConditionsForListOrderedHostsBasicInfosInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._instance_status = instance_status
 
     @property
     def ip(self):

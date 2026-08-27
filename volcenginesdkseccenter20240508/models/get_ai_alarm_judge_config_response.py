@@ -36,17 +36,19 @@ class GetAIAlarmJudgeConfigResponse(object):
         'auto_ai_judge_alarm': 'bool',
         'auto_handle': 'bool',
         'auto_handle_list': 'list[str]',
-        'manager_id': 'str'
+        'manager_id': 'str',
+        'remain_quota': 'int'
     }
 
     attribute_map = {
         'auto_ai_judge_alarm': 'AutoAIJudgeAlarm',
         'auto_handle': 'AutoHandle',
         'auto_handle_list': 'AutoHandleList',
-        'manager_id': 'ManagerID'
+        'manager_id': 'ManagerID',
+        'remain_quota': 'RemainQuota'
     }
 
-    def __init__(self, auto_ai_judge_alarm=None, auto_handle=None, auto_handle_list=None, manager_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_ai_judge_alarm=None, auto_handle=None, auto_handle_list=None, manager_id=None, remain_quota=None, _configuration=None):  # noqa: E501
         """GetAIAlarmJudgeConfigResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class GetAIAlarmJudgeConfigResponse(object):
         self._auto_handle = None
         self._auto_handle_list = None
         self._manager_id = None
+        self._remain_quota = None
         self.discriminator = None
 
         if auto_ai_judge_alarm is not None:
@@ -66,6 +69,8 @@ class GetAIAlarmJudgeConfigResponse(object):
             self.auto_handle_list = auto_handle_list
         if manager_id is not None:
             self.manager_id = manager_id
+        if remain_quota is not None:
+            self.remain_quota = remain_quota
 
     @property
     def auto_ai_judge_alarm(self):
@@ -150,6 +155,27 @@ class GetAIAlarmJudgeConfigResponse(object):
         """
 
         self._manager_id = manager_id
+
+    @property
+    def remain_quota(self):
+        """Gets the remain_quota of this GetAIAlarmJudgeConfigResponse.  # noqa: E501
+
+
+        :return: The remain_quota of this GetAIAlarmJudgeConfigResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._remain_quota
+
+    @remain_quota.setter
+    def remain_quota(self, remain_quota):
+        """Sets the remain_quota of this GetAIAlarmJudgeConfigResponse.
+
+
+        :param remain_quota: The remain_quota of this GetAIAlarmJudgeConfigResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._remain_quota = remain_quota
 
     def to_dict(self):
         """Returns the model properties as a dict"""

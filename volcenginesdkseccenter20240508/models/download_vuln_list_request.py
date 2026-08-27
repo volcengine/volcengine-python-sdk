@@ -37,6 +37,7 @@ class DownloadVulnListRequest(object):
         'asset_id': 'str',
         'asset_type': 'str',
         'conditions': 'ConditionsForDownloadVulnListInput',
+        'export_job_type': 'str',
         'id_list': 'list[str]',
         'status': 'list[str]',
         'vuln_type_list': 'list[str]'
@@ -47,12 +48,13 @@ class DownloadVulnListRequest(object):
         'asset_id': 'AssetID',
         'asset_type': 'AssetType',
         'conditions': 'Conditions',
+        'export_job_type': 'ExportJobType',
         'id_list': 'IDList',
         'status': 'Status',
         'vuln_type_list': 'VulnTypeList'
     }
 
-    def __init__(self, agent_id=None, asset_id=None, asset_type=None, conditions=None, id_list=None, status=None, vuln_type_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, asset_id=None, asset_type=None, conditions=None, export_job_type=None, id_list=None, status=None, vuln_type_list=None, _configuration=None):  # noqa: E501
         """DownloadVulnListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DownloadVulnListRequest(object):
         self._asset_id = None
         self._asset_type = None
         self._conditions = None
+        self._export_job_type = None
         self._id_list = None
         self._status = None
         self._vuln_type_list = None
@@ -75,6 +78,8 @@ class DownloadVulnListRequest(object):
             self.asset_type = asset_type
         if conditions is not None:
             self.conditions = conditions
+        if export_job_type is not None:
+            self.export_job_type = export_job_type
         if id_list is not None:
             self.id_list = id_list
         if status is not None:
@@ -165,6 +170,27 @@ class DownloadVulnListRequest(object):
         """
 
         self._conditions = conditions
+
+    @property
+    def export_job_type(self):
+        """Gets the export_job_type of this DownloadVulnListRequest.  # noqa: E501
+
+
+        :return: The export_job_type of this DownloadVulnListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._export_job_type
+
+    @export_job_type.setter
+    def export_job_type(self, export_job_type):
+        """Sets the export_job_type of this DownloadVulnListRequest.
+
+
+        :param export_job_type: The export_job_type of this DownloadVulnListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._export_job_type = export_job_type
 
     @property
     def id_list(self):

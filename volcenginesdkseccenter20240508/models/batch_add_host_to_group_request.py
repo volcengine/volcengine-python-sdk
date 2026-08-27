@@ -57,8 +57,7 @@ class BatchAddHostToGroupRequest(object):
 
         if agent_ids is not None:
             self.agent_ids = agent_ids
-        if group_id is not None:
-            self.group_id = group_id
+        self.group_id = group_id
         if reconfirm is not None:
             self.reconfirm = reconfirm
 
@@ -101,6 +100,8 @@ class BatchAddHostToGroupRequest(object):
         :param group_id: The group_id of this BatchAddHostToGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and group_id is None:
+            raise ValueError("Invalid value for `group_id`, must not be `None`")  # noqa: E501
 
         self._group_id = group_id
 

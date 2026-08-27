@@ -47,6 +47,8 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         'plugins_status': 'str',
         'reason': 'str',
         'security_enhancement': 'bool',
+        'state': 'str',
+        'state_detail': 'str',
         'status': 'str',
         'tags': 'list[str]',
         'user_status': 'str',
@@ -69,6 +71,8 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         'plugins_status': 'PluginsStatus',
         'reason': 'Reason',
         'security_enhancement': 'SecurityEnhancement',
+        'state': 'State',
+        'state_detail': 'StateDetail',
         'status': 'Status',
         'tags': 'Tags',
         'user_status': 'UserStatus',
@@ -76,7 +80,7 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         'user_status_reason_code': 'UserStatusReasonCode'
     }
 
-    def __init__(self, abnormal_plugins_list=None, agent_id=None, agent_status=None, cloud_provider=None, ecs_instance=None, group=None, group_path=None, last_heartbeat_time=None, old_valid_code=None, online=None, platform=None, plugins_status=None, reason=None, security_enhancement=None, status=None, tags=None, user_status=None, user_status_reason=None, user_status_reason_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, abnormal_plugins_list=None, agent_id=None, agent_status=None, cloud_provider=None, ecs_instance=None, group=None, group_path=None, last_heartbeat_time=None, old_valid_code=None, online=None, platform=None, plugins_status=None, reason=None, security_enhancement=None, state=None, state_detail=None, status=None, tags=None, user_status=None, user_status_reason=None, user_status_reason_code=None, _configuration=None):  # noqa: E501
         """DataForListOrderedHostsBasicInfosOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +100,8 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         self._plugins_status = None
         self._reason = None
         self._security_enhancement = None
+        self._state = None
+        self._state_detail = None
         self._status = None
         self._tags = None
         self._user_status = None
@@ -131,6 +137,10 @@ class DataForListOrderedHostsBasicInfosOutput(object):
             self.reason = reason
         if security_enhancement is not None:
             self.security_enhancement = security_enhancement
+        if state is not None:
+            self.state = state
+        if state_detail is not None:
+            self.state_detail = state_detail
         if status is not None:
             self.status = status
         if tags is not None:
@@ -435,6 +445,48 @@ class DataForListOrderedHostsBasicInfosOutput(object):
         """
 
         self._security_enhancement = security_enhancement
+
+    @property
+    def state(self):
+        """Gets the state of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+
+
+        :return: The state of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """Sets the state of this DataForListOrderedHostsBasicInfosOutput.
+
+
+        :param state: The state of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._state = state
+
+    @property
+    def state_detail(self):
+        """Gets the state_detail of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+
+
+        :return: The state_detail of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._state_detail
+
+    @state_detail.setter
+    def state_detail(self, state_detail):
+        """Sets the state_detail of this DataForListOrderedHostsBasicInfosOutput.
+
+
+        :param state_detail: The state_detail of this DataForListOrderedHostsBasicInfosOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._state_detail = state_detail
 
     @property
     def status(self):

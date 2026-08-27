@@ -37,7 +37,8 @@ class CapWhiteListForGetTenantQuotaOutput(object):
         'client_bruteforce_ban_cap': 'int',
         'collector_v140_cap': 'int',
         'file_monitor_cap': 'int',
-        'security_agent_cap': 'int'
+        'security_agent_cap': 'int',
+        'user_auto_defense_cap': 'int'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class CapWhiteListForGetTenantQuotaOutput(object):
         'client_bruteforce_ban_cap': 'ClientBruteforceBanCap',
         'collector_v140_cap': 'CollectorV140Cap',
         'file_monitor_cap': 'FileMonitorCap',
-        'security_agent_cap': 'SecurityAgentCap'
+        'security_agent_cap': 'SecurityAgentCap',
+        'user_auto_defense_cap': 'UserAutoDefenseCap'
     }
 
-    def __init__(self, bash_audit_cap=None, client_bruteforce_ban_cap=None, collector_v140_cap=None, file_monitor_cap=None, security_agent_cap=None, _configuration=None):  # noqa: E501
+    def __init__(self, bash_audit_cap=None, client_bruteforce_ban_cap=None, collector_v140_cap=None, file_monitor_cap=None, security_agent_cap=None, user_auto_defense_cap=None, _configuration=None):  # noqa: E501
         """CapWhiteListForGetTenantQuotaOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CapWhiteListForGetTenantQuotaOutput(object):
         self._collector_v140_cap = None
         self._file_monitor_cap = None
         self._security_agent_cap = None
+        self._user_auto_defense_cap = None
         self.discriminator = None
 
         if bash_audit_cap is not None:
@@ -71,6 +74,8 @@ class CapWhiteListForGetTenantQuotaOutput(object):
             self.file_monitor_cap = file_monitor_cap
         if security_agent_cap is not None:
             self.security_agent_cap = security_agent_cap
+        if user_auto_defense_cap is not None:
+            self.user_auto_defense_cap = user_auto_defense_cap
 
     @property
     def bash_audit_cap(self):
@@ -176,6 +181,27 @@ class CapWhiteListForGetTenantQuotaOutput(object):
         """
 
         self._security_agent_cap = security_agent_cap
+
+    @property
+    def user_auto_defense_cap(self):
+        """Gets the user_auto_defense_cap of this CapWhiteListForGetTenantQuotaOutput.  # noqa: E501
+
+
+        :return: The user_auto_defense_cap of this CapWhiteListForGetTenantQuotaOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_auto_defense_cap
+
+    @user_auto_defense_cap.setter
+    def user_auto_defense_cap(self, user_auto_defense_cap):
+        """Sets the user_auto_defense_cap of this CapWhiteListForGetTenantQuotaOutput.
+
+
+        :param user_auto_defense_cap: The user_auto_defense_cap of this CapWhiteListForGetTenantQuotaOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._user_auto_defense_cap = user_auto_defense_cap
 
     def to_dict(self):
         """Returns the model properties as a dict"""

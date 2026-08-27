@@ -33,133 +33,29 @@ class TargetForCreateExportTaskOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'azure_blob': 'AzureBlobForCreateExportTaskOutput',
-        'gcs': 'GcsForCreateExportTaskOutput',
-        'oss': 'OssForCreateExportTaskOutput',
-        's3': 'S3ForCreateExportTaskOutput',
         'tos': 'TosForCreateExportTaskOutput',
         'type': 'str'
     }
 
     attribute_map = {
-        'azure_blob': 'AzureBlob',
-        'gcs': 'Gcs',
-        'oss': 'Oss',
-        's3': 'S3',
         'tos': 'Tos',
         'type': 'Type'
     }
 
-    def __init__(self, azure_blob=None, gcs=None, oss=None, s3=None, tos=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, tos=None, type=None, _configuration=None):  # noqa: E501
         """TargetForCreateExportTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._azure_blob = None
-        self._gcs = None
-        self._oss = None
-        self._s3 = None
         self._tos = None
         self._type = None
         self.discriminator = None
 
-        if azure_blob is not None:
-            self.azure_blob = azure_blob
-        if gcs is not None:
-            self.gcs = gcs
-        if oss is not None:
-            self.oss = oss
-        if s3 is not None:
-            self.s3 = s3
         if tos is not None:
             self.tos = tos
         if type is not None:
             self.type = type
-
-    @property
-    def azure_blob(self):
-        """Gets the azure_blob of this TargetForCreateExportTaskOutput.  # noqa: E501
-
-
-        :return: The azure_blob of this TargetForCreateExportTaskOutput.  # noqa: E501
-        :rtype: AzureBlobForCreateExportTaskOutput
-        """
-        return self._azure_blob
-
-    @azure_blob.setter
-    def azure_blob(self, azure_blob):
-        """Sets the azure_blob of this TargetForCreateExportTaskOutput.
-
-
-        :param azure_blob: The azure_blob of this TargetForCreateExportTaskOutput.  # noqa: E501
-        :type: AzureBlobForCreateExportTaskOutput
-        """
-
-        self._azure_blob = azure_blob
-
-    @property
-    def gcs(self):
-        """Gets the gcs of this TargetForCreateExportTaskOutput.  # noqa: E501
-
-
-        :return: The gcs of this TargetForCreateExportTaskOutput.  # noqa: E501
-        :rtype: GcsForCreateExportTaskOutput
-        """
-        return self._gcs
-
-    @gcs.setter
-    def gcs(self, gcs):
-        """Sets the gcs of this TargetForCreateExportTaskOutput.
-
-
-        :param gcs: The gcs of this TargetForCreateExportTaskOutput.  # noqa: E501
-        :type: GcsForCreateExportTaskOutput
-        """
-
-        self._gcs = gcs
-
-    @property
-    def oss(self):
-        """Gets the oss of this TargetForCreateExportTaskOutput.  # noqa: E501
-
-
-        :return: The oss of this TargetForCreateExportTaskOutput.  # noqa: E501
-        :rtype: OssForCreateExportTaskOutput
-        """
-        return self._oss
-
-    @oss.setter
-    def oss(self, oss):
-        """Sets the oss of this TargetForCreateExportTaskOutput.
-
-
-        :param oss: The oss of this TargetForCreateExportTaskOutput.  # noqa: E501
-        :type: OssForCreateExportTaskOutput
-        """
-
-        self._oss = oss
-
-    @property
-    def s3(self):
-        """Gets the s3 of this TargetForCreateExportTaskOutput.  # noqa: E501
-
-
-        :return: The s3 of this TargetForCreateExportTaskOutput.  # noqa: E501
-        :rtype: S3ForCreateExportTaskOutput
-        """
-        return self._s3
-
-    @s3.setter
-    def s3(self, s3):
-        """Sets the s3 of this TargetForCreateExportTaskOutput.
-
-
-        :param s3: The s3 of this TargetForCreateExportTaskOutput.  # noqa: E501
-        :type: S3ForCreateExportTaskOutput
-        """
-
-        self._s3 = s3
 
     @property
     def tos(self):

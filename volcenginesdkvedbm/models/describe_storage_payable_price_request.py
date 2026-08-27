@@ -70,7 +70,7 @@ class DescribeStoragePayablePriceRequest(object):
         :param storage_types: The storage_types of this DescribeStoragePayablePriceRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Clusterpool", "ColdDataArchive"]  # noqa: E501
+        allowed_values = ["Clusterpool", "ColdDataArchive", "CompressClusterpool"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(storage_types).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

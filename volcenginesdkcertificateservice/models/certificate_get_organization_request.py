@@ -33,28 +33,23 @@ class CertificateGetOrganizationRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'organization_id': 'str',
-        'project_name': 'str'
+        'organization_id': 'str'
     }
 
     attribute_map = {
-        'organization_id': 'OrganizationId',
-        'project_name': 'ProjectName'
+        'organization_id': 'OrganizationId'
     }
 
-    def __init__(self, organization_id=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, organization_id=None, _configuration=None):  # noqa: E501
         """CertificateGetOrganizationRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._organization_id = None
-        self._project_name = None
         self.discriminator = None
 
         self.organization_id = organization_id
-        if project_name is not None:
-            self.project_name = project_name
 
     @property
     def organization_id(self):
@@ -78,27 +73,6 @@ class CertificateGetOrganizationRequest(object):
             raise ValueError("Invalid value for `organization_id`, must not be `None`")  # noqa: E501
 
         self._organization_id = organization_id
-
-    @property
-    def project_name(self):
-        """Gets the project_name of this CertificateGetOrganizationRequest.  # noqa: E501
-
-
-        :return: The project_name of this CertificateGetOrganizationRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_name
-
-    @project_name.setter
-    def project_name(self, project_name):
-        """Sets the project_name of this CertificateGetOrganizationRequest.
-
-
-        :param project_name: The project_name of this CertificateGetOrganizationRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

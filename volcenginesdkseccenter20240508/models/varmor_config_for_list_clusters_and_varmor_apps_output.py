@@ -33,34 +33,60 @@ class VarmorConfigForListClustersAndVarmorAppsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'addon_json_config': 'str',
         'config_type': 'str',
         'varmor_simple_config': 'VarmorSimpleConfigForListClustersAndVarmorAppsOutput',
         'yaml_config': 'str'
     }
 
     attribute_map = {
+        'addon_json_config': 'AddonJsonConfig',
         'config_type': 'ConfigType',
         'varmor_simple_config': 'VarmorSimpleConfig',
         'yaml_config': 'YAMLConfig'
     }
 
-    def __init__(self, config_type=None, varmor_simple_config=None, yaml_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, addon_json_config=None, config_type=None, varmor_simple_config=None, yaml_config=None, _configuration=None):  # noqa: E501
         """VarmorConfigForListClustersAndVarmorAppsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._addon_json_config = None
         self._config_type = None
         self._varmor_simple_config = None
         self._yaml_config = None
         self.discriminator = None
 
+        if addon_json_config is not None:
+            self.addon_json_config = addon_json_config
         if config_type is not None:
             self.config_type = config_type
         if varmor_simple_config is not None:
             self.varmor_simple_config = varmor_simple_config
         if yaml_config is not None:
             self.yaml_config = yaml_config
+
+    @property
+    def addon_json_config(self):
+        """Gets the addon_json_config of this VarmorConfigForListClustersAndVarmorAppsOutput.  # noqa: E501
+
+
+        :return: The addon_json_config of this VarmorConfigForListClustersAndVarmorAppsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._addon_json_config
+
+    @addon_json_config.setter
+    def addon_json_config(self, addon_json_config):
+        """Sets the addon_json_config of this VarmorConfigForListClustersAndVarmorAppsOutput.
+
+
+        :param addon_json_config: The addon_json_config of this VarmorConfigForListClustersAndVarmorAppsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._addon_json_config = addon_json_config
 
     @property
     def config_type(self):

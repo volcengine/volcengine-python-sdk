@@ -38,7 +38,9 @@ class CreateGroupRequest(object):
         'group_id': 'str',
         'group_type': 'str',
         'instance_id': 'str',
-        'retry_max_times': 'int'
+        'message_model': 'str',
+        'retry_max_times': 'int',
+        'topic_name': 'str'
     }
 
     attribute_map = {
@@ -47,10 +49,12 @@ class CreateGroupRequest(object):
         'group_id': 'GroupId',
         'group_type': 'GroupType',
         'instance_id': 'InstanceId',
-        'retry_max_times': 'RetryMaxTimes'
+        'message_model': 'MessageModel',
+        'retry_max_times': 'RetryMaxTimes',
+        'topic_name': 'TopicName'
     }
 
-    def __init__(self, consume_message_orderly=None, description=None, group_id=None, group_type=None, instance_id=None, retry_max_times=None, _configuration=None):  # noqa: E501
+    def __init__(self, consume_message_orderly=None, description=None, group_id=None, group_type=None, instance_id=None, message_model=None, retry_max_times=None, topic_name=None, _configuration=None):  # noqa: E501
         """CreateGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +65,9 @@ class CreateGroupRequest(object):
         self._group_id = None
         self._group_type = None
         self._instance_id = None
+        self._message_model = None
         self._retry_max_times = None
+        self._topic_name = None
         self.discriminator = None
 
         if consume_message_orderly is not None:
@@ -71,8 +77,12 @@ class CreateGroupRequest(object):
         self.group_id = group_id
         self.group_type = group_type
         self.instance_id = instance_id
+        if message_model is not None:
+            self.message_model = message_model
         if retry_max_times is not None:
             self.retry_max_times = retry_max_times
+        if topic_name is not None:
+            self.topic_name = topic_name
 
     @property
     def consume_message_orderly(self):
@@ -186,6 +196,34 @@ class CreateGroupRequest(object):
         self._instance_id = instance_id
 
     @property
+    def message_model(self):
+        """Gets the message_model of this CreateGroupRequest.  # noqa: E501
+
+
+        :return: The message_model of this CreateGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._message_model
+
+    @message_model.setter
+    def message_model(self, message_model):
+        """Sets the message_model of this CreateGroupRequest.
+
+
+        :param message_model: The message_model of this CreateGroupRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["CLUSTERING", "LITE_SELECTIVE"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                message_model not in allowed_values):
+            raise ValueError(
+                "Invalid value for `message_model` ({0}), must be one of {1}"  # noqa: E501
+                .format(message_model, allowed_values)
+            )
+
+        self._message_model = message_model
+
+    @property
     def retry_max_times(self):
         """Gets the retry_max_times of this CreateGroupRequest.  # noqa: E501
 
@@ -205,6 +243,27 @@ class CreateGroupRequest(object):
         """
 
         self._retry_max_times = retry_max_times
+
+    @property
+    def topic_name(self):
+        """Gets the topic_name of this CreateGroupRequest.  # noqa: E501
+
+
+        :return: The topic_name of this CreateGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._topic_name
+
+    @topic_name.setter
+    def topic_name(self, topic_name):
+        """Sets the topic_name of this CreateGroupRequest.
+
+
+        :param topic_name: The topic_name of this CreateGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._topic_name = topic_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
