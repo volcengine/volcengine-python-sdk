@@ -13,11 +13,6 @@ from six.moves import http_client as httplib
 
 from volcenginesdkcore.endpoint import DefaultEndpointProvider
 from volcenginesdkcore.observability.debugger import sdk_core_logger
-from volcenginesdkcore.retryer.backoff_strategy import (
-    ExponentialBackoffStrategy,
-    ExponentialWithRandomJitterBackoffStrategy,
-    NoBackoffStrategy,
-)
 from volcenginesdkcore.retryer.retry_condition import DefaultRetryCondition
 from volcenginesdkcore.retryer.retryer import (
     DEFAULT_NUM_MAX_RETRIES,
@@ -28,11 +23,6 @@ from volcenginesdkcore.retryer.retryer import (
 )
 
 SDK_HANDLER_FLAG = "_volcengine_sdk_handler"
-_BUILT_IN_BACKOFF_STRATEGIES = (
-    NoBackoffStrategy,
-    ExponentialBackoffStrategy,
-    ExponentialWithRandomJitterBackoffStrategy,
-)
 
 
 class TypeWithDefault(type):
@@ -344,7 +334,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     @backoff_strategy.setter
     def backoff_strategy(self, value):
         self.__backoff_strategy = value
-        if type(value) in _BUILT_IN_BACKOFF_STRATEGIES:
+        if value is not None:
             if self.min_retry_delay_ms is not None:
                 value.min_retry_delay_ms = self.min_retry_delay_ms
             if self.max_retry_delay_ms is not None:
@@ -357,8 +347,8 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     @retry_condition.setter
     def retry_condition(self, value):
         self.__retry_condition = value
-        if type(value) is DefaultRetryCondition and self.retry_error_codes is not None:
-            value.retry_error_codes = self.retry_error_codes
+        if value is not None and self.retry_error_codes is not None:
+            value.retry_error_codes = set(self.retry_error_codes)
 
     @property
     def retry_error_codes(self):
@@ -367,8 +357,8 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     @retry_error_codes.setter
     def retry_error_codes(self, value):
         self.__retry_error_codes = set(value) if value is not None else None
-        if type(self.__retry_condition) is DefaultRetryCondition:
-            self.__retry_condition.retry_error_codes = self.__retry_error_codes \
+        if self.__retry_condition is not None:
+            self.__retry_condition.retry_error_codes = set(self.__retry_error_codes) \
                 if self.__retry_error_codes is not None else set()
 
     @property
@@ -378,7 +368,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     @min_retry_delay_ms.setter
     def min_retry_delay_ms(self, value):
         self.__min_retry_delay_ms = value
-        if type(self.__backoff_strategy) in _BUILT_IN_BACKOFF_STRATEGIES:
+        if self.__backoff_strategy is not None:
             self.__backoff_strategy.min_retry_delay_ms = value
 
     @property
@@ -388,20 +378,17 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     @max_retry_delay_ms.setter
     def max_retry_delay_ms(self, value):
         self.__max_retry_delay_ms = value
-        if type(self.__backoff_strategy) in _BUILT_IN_BACKOFF_STRATEGIES:
+        if self.__backoff_strategy is not None:
             self.__backoff_strategy.max_retry_delay_ms = value
 
     @property
     def retryer(self):
-        built_in_backoff = type(self.__backoff_strategy) in _BUILT_IN_BACKOFF_STRATEGIES
-        default_condition = type(self.__retry_condition) is DefaultRetryCondition
+        # Setters have already applied scalar overrides. The factory rebuilds
+        # built-in objects by value and keeps caller-owned custom objects by reference.
         return new_retryer(
             num_max_retries=self.__num_max_retries,
             backoff_strategy=self.__backoff_strategy,
             retry_condition=self.__retry_condition,
-            retry_error_codes=None if default_condition else self.__retry_error_codes,
-            min_retry_delay_ms=None if built_in_backoff else self.__min_retry_delay_ms,
-            max_retry_delay_ms=None if built_in_backoff else self.__max_retry_delay_ms,
         )
 
     @property

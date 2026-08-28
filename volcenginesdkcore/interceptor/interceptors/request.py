@@ -35,7 +35,7 @@ class Request(object):
         self.method = method
         self.path_params = path_params
         self.query_params = query_params
-        self.header_params = header_params
+        self.header_params = {} if header_params is None else header_params
         self.body = body
         self.post_params = post_params
         self.files = files

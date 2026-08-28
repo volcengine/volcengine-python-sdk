@@ -60,10 +60,9 @@ class ApiClient(object):
         if configuration is None:
             configuration = Configuration()
         self.configuration = configuration
-        self._base_retryer = configuration.retryer
-
         # Use the pool property to lazily initialize the ThreadPool.
         self._pool = None
+        self._base_retryer = configuration.retryer
         self.rest_client = rest.RESTClientObject(configuration)
         self.default_headers = {}
         if header_name is not None:
@@ -84,9 +83,10 @@ class ApiClient(object):
         self.interceptor_chain.append_response_interceptor(DeserializedResponseInterceptor())
 
     def __del__(self):
-        if self._pool is not None:
-            self._pool.close()
-            self._pool.join()
+        pool = getattr(self, '_pool', None)
+        if pool is not None:
+            pool.close()
+            pool.join()
 
     @property
     def pool(self):
