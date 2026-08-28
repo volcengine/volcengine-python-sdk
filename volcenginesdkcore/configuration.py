@@ -13,16 +13,13 @@ from six.moves import http_client as httplib
 
 from volcenginesdkcore.endpoint import DefaultEndpointProvider
 from volcenginesdkcore.observability.debugger import sdk_core_logger
-from volcenginesdkcore.retryer.retry_condition import DefaultRetryCondition
 from volcenginesdkcore.retryer.retryer import (
-    DEFAULT_NUM_MAX_RETRIES,
     Retryer,
-    new_backoff_strategy,
-    new_retry_condition,
     new_retryer,
 )
 
 SDK_HANDLER_FLAG = "_volcengine_sdk_handler"
+_UNSET_RETRY_OVERRIDE = object()
 
 
 class TypeWithDefault(type):
@@ -150,23 +147,20 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         self.credential_provider = None
 
         self.auto_retry = True
-        default_retryer = Retryer()
-        self.__num_max_retries = DEFAULT_NUM_MAX_RETRIES
-        self.__backoff_strategy = default_retryer.backoff_strategy
-        self.__retry_condition = default_retryer.retry_condition
-        self.__retry_error_codes = None
-        self.__min_retry_delay_ms = None
-        self.__max_retry_delay_ms = None
+        self.__retryer = Retryer()
+        self.__retry_error_codes_overridden = False
+        self.__min_retry_delay_ms_overridden = False
+        self.__max_retry_delay_ms_overridden = False
+        self.__pending_retry_error_codes = _UNSET_RETRY_OVERRIDE
+        self.__pending_min_retry_delay_ms = _UNSET_RETRY_OVERRIDE
+        self.__pending_max_retry_delay_ms = _UNSET_RETRY_OVERRIDE
 
     def __copy__(self):
         result = object.__new__(type(self))
         result.__dict__.update(self.__dict__)
-        result.__backoff_strategy = new_backoff_strategy(self.__backoff_strategy)
-        result.__retry_condition = new_retry_condition(self.__retry_condition)
-        if self.__retry_error_codes is not None:
-            result.__retry_error_codes = set(self.__retry_error_codes)
-            if type(result.__retry_condition) is DefaultRetryCondition:
-                result.__retry_condition.retry_error_codes = result.__retry_error_codes
+        result.__retryer = self._new_retryer_snapshot()
+        if self.__pending_retry_error_codes is not _UNSET_RETRY_OVERRIDE:
+            result.__pending_retry_error_codes = set(self.__pending_retry_error_codes)
         return result
 
     @property
@@ -317,7 +311,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
     @property
     def num_max_retries(self):
-        return self.__num_max_retries
+        return self.__retryer.num_max_retries
 
     @num_max_retries.setter
     def num_max_retries(self, num_max_retries):
@@ -325,70 +319,114 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
             raise ValueError("num_max_retries cannot be None")
         if num_max_retries < 0:
             raise ValueError("num_max_retries must be greater than or equal to 0")
-        self.__num_max_retries = num_max_retries
+        self.__retryer.num_max_retries = num_max_retries
 
     @property
     def backoff_strategy(self):
-        return self.__backoff_strategy
+        return self.__retryer.backoff_strategy
 
     @backoff_strategy.setter
     def backoff_strategy(self, value):
-        self.__backoff_strategy = value
-        if value is not None:
-            if self.min_retry_delay_ms is not None:
-                value.min_retry_delay_ms = self.min_retry_delay_ms
-            if self.max_retry_delay_ms is not None:
-                value.max_retry_delay_ms = self.max_retry_delay_ms
+        min_retry_delay_ms = self.min_retry_delay_ms
+        max_retry_delay_ms = self.max_retry_delay_ms
+        self.__retryer.backoff_strategy = value
+        if value is None:
+            if self.__min_retry_delay_ms_overridden:
+                self.__pending_min_retry_delay_ms = min_retry_delay_ms
+            if self.__max_retry_delay_ms_overridden:
+                self.__pending_max_retry_delay_ms = max_retry_delay_ms
+            return
+        if self.__min_retry_delay_ms_overridden:
+            value.min_retry_delay_ms = min_retry_delay_ms
+            self.__pending_min_retry_delay_ms = _UNSET_RETRY_OVERRIDE
+        if self.__max_retry_delay_ms_overridden:
+            value.max_retry_delay_ms = max_retry_delay_ms
+            self.__pending_max_retry_delay_ms = _UNSET_RETRY_OVERRIDE
 
     @property
     def retry_condition(self):
-        return self.__retry_condition
+        return self.__retryer.retry_condition
 
     @retry_condition.setter
     def retry_condition(self, value):
-        self.__retry_condition = value
-        if value is not None and self.retry_error_codes is not None:
-            value.retry_error_codes = set(self.retry_error_codes)
+        retry_error_codes = self.retry_error_codes
+        self.__retryer.retry_condition = value
+        if value is None:
+            if self.__retry_error_codes_overridden:
+                self.__pending_retry_error_codes = set(retry_error_codes) \
+                    if retry_error_codes is not None else set()
+            return
+        if self.__retry_error_codes_overridden:
+            value.retry_error_codes = set(retry_error_codes) if retry_error_codes is not None else set()
+            self.__pending_retry_error_codes = _UNSET_RETRY_OVERRIDE
 
     @property
     def retry_error_codes(self):
-        return self.__retry_error_codes
+        retry_condition = self.__retryer.retry_condition
+        if retry_condition is not None:
+            return retry_condition.retry_error_codes
+        if self.__pending_retry_error_codes is not _UNSET_RETRY_OVERRIDE:
+            return self.__pending_retry_error_codes
+        return None
 
     @retry_error_codes.setter
     def retry_error_codes(self, value):
-        self.__retry_error_codes = set(value) if value is not None else None
-        if self.__retry_condition is not None:
-            self.__retry_condition.retry_error_codes = set(self.__retry_error_codes) \
-                if self.__retry_error_codes is not None else set()
+        self.__retry_error_codes_overridden = True
+        retry_condition = self.__retryer.retry_condition
+        if retry_condition is None:
+            self.__pending_retry_error_codes = set(value) if value is not None else set()
+        else:
+            retry_condition.retry_error_codes = set(value) if value is not None else set()
+            self.__pending_retry_error_codes = _UNSET_RETRY_OVERRIDE
 
     @property
     def min_retry_delay_ms(self):
-        return self.__min_retry_delay_ms
+        backoff_strategy = self.__retryer.backoff_strategy
+        if backoff_strategy is not None:
+            return backoff_strategy.min_retry_delay_ms
+        if self.__pending_min_retry_delay_ms is not _UNSET_RETRY_OVERRIDE:
+            return self.__pending_min_retry_delay_ms
+        return None
 
     @min_retry_delay_ms.setter
     def min_retry_delay_ms(self, value):
-        self.__min_retry_delay_ms = value
-        if self.__backoff_strategy is not None:
-            self.__backoff_strategy.min_retry_delay_ms = value
+        self.__min_retry_delay_ms_overridden = True
+        backoff_strategy = self.__retryer.backoff_strategy
+        if backoff_strategy is None:
+            self.__pending_min_retry_delay_ms = value
+        else:
+            backoff_strategy.min_retry_delay_ms = value
+            self.__pending_min_retry_delay_ms = _UNSET_RETRY_OVERRIDE
 
     @property
     def max_retry_delay_ms(self):
-        return self.__max_retry_delay_ms
+        backoff_strategy = self.__retryer.backoff_strategy
+        if backoff_strategy is not None:
+            return backoff_strategy.max_retry_delay_ms
+        if self.__pending_max_retry_delay_ms is not _UNSET_RETRY_OVERRIDE:
+            return self.__pending_max_retry_delay_ms
+        return None
 
     @max_retry_delay_ms.setter
     def max_retry_delay_ms(self, value):
-        self.__max_retry_delay_ms = value
-        if self.__backoff_strategy is not None:
-            self.__backoff_strategy.max_retry_delay_ms = value
+        self.__max_retry_delay_ms_overridden = True
+        backoff_strategy = self.__retryer.backoff_strategy
+        if backoff_strategy is None:
+            self.__pending_max_retry_delay_ms = value
+        else:
+            backoff_strategy.max_retry_delay_ms = value
+            self.__pending_max_retry_delay_ms = _UNSET_RETRY_OVERRIDE
 
     @property
     def retryer(self):
-        # Setters have already applied scalar overrides. The factory rebuilds
-        # built-in objects by value and keeps caller-owned custom objects by reference.
+        return self.__retryer
+
+    def _new_retryer_snapshot(self):
+        retryer = self.__retryer
         return new_retryer(
-            num_max_retries=self.__num_max_retries,
-            backoff_strategy=self.__backoff_strategy,
-            retry_condition=self.__retry_condition,
+            num_max_retries=retryer.num_max_retries,
+            backoff_strategy=retryer.backoff_strategy,
+            retry_condition=retryer.retry_condition,
         )
 
     @property

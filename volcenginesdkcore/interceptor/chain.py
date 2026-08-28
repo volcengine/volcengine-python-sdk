@@ -2,6 +2,14 @@
 from .interceptors import RequestInterceptor, ResponseInterceptor
 
 
+_RETRY_AUTH_HEADERS = frozenset((
+    'authorization',
+    'x-content-sha256',
+    'x-date',
+    'x-security-token',
+))
+
+
 def check_request_interceptor(interceptor):
     if not issubclass(interceptor.__class__, RequestInterceptor):
         raise Exception("interceptor is not for request")
@@ -53,6 +61,21 @@ class InterceptorChain:
     def execute_request(self, context):
         for interceptor in self.request_interceptors:
             context = interceptor.intercept(context)
+
+        return context
+
+    def execute_retry(self, context):
+        request = context.request
+        if request.auth_settings and not request.is_presign:
+            headers = request.header_params
+            if headers:
+                for key in list(headers):
+                    if key.lower() in _RETRY_AUTH_HEADERS:
+                        del headers[key]
+
+        for interceptor in self.request_interceptors:
+            if getattr(interceptor, 'run_on_retry', True):
+                context = interceptor.intercept(context)
 
         return context
 

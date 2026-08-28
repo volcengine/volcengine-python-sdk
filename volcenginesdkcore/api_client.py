@@ -62,7 +62,8 @@ class ApiClient(object):
         self.configuration = configuration
         # Use the pool property to lazily initialize the ThreadPool.
         self._pool = None
-        self._base_retryer = configuration.retryer
+        self._base_auto_retry = configuration.auto_retry
+        self._base_retryer = configuration._new_retryer_snapshot()
         self.rest_client = rest.RESTClientObject(configuration)
         self.default_headers = {}
         if header_name is not None:
@@ -127,6 +128,7 @@ class ApiClient(object):
             _return_http_data_only, collection_formats,
             _preload_content, _request_timeout,
         )
+        request.auto_retry = self._base_auto_retry
         request.retryer = self._base_retryer
         interceptor_context = InterceptorContext(request=request)
 
@@ -165,7 +167,7 @@ class ApiClient(object):
             retry_count += 1
             retry_err = None
             interceptor_context.request.retry_count = retry_count
-            interceptor_context = self.sign_request_interceptor.intercept(interceptor_context)
+            interceptor_context = self.interceptor_chain.execute_retry(interceptor_context)
 
         interceptor_context.response = Response(response_data)
         interceptor_context = self.interceptor_chain.execute_response(interceptor_context)

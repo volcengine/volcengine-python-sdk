@@ -9,6 +9,8 @@ from .interceptor import RequestInterceptor
 
 class RuntimeOptionsInterceptor(RequestInterceptor):
 
+    run_on_retry = False
+
     def name(self):
         return 'volcengine-runtime-options-interceptor'
 

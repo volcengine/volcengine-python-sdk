@@ -26,6 +26,13 @@ configuration.retry_error_codes = {"AccessDenied"}
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
 
+### Request Interceptor Retry Lifecycle
+
+Request interceptors run once for every HTTP attempt, including retries. Custom
+interceptors that should run only once for a logical SDK call must set
+`run_on_retry = False`. The SDK's request building, runtime option, and endpoint
+resolution interceptors run only for the first attempt.
+
 ### Retry Conditions
 
 #### Default Retry Conditions
