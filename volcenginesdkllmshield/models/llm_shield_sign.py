@@ -101,7 +101,6 @@ def request_sign(header, ak, sk, region, url, path, action, body, rewrite_url=No
     short_x_date = x_date[:8]
     x_content_sha256 = hash_sha256(request_param["body"])
     sign_result = {
-        "Host": request_param["host"],
         "X-Content-Sha256": x_content_sha256,
         "X-Date": x_date,
         "Content-Type": request_param["content_type"],
