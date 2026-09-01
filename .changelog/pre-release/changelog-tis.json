@@ -1,0 +1,9 @@
+{
+  "actions": [
+    "GetPoolDetailList",
+    "GetPoolQuotaInfo"
+  ],
+  "description": "TIS: 修改 GetPoolDetailList, GetPoolQuotaInfo",
+  "modules": "service/tis",
+  "type": "breaking-change"
+}

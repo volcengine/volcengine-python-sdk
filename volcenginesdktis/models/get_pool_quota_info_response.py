@@ -37,7 +37,7 @@ class GetPoolQuotaInfoResponse(object):
     }
 
     attribute_map = {
-        'quota_info_list': 'QuotaInfoList'
+        'quota_info_list': 'quotaInfoList'
     }
 
     def __init__(self, quota_info_list=None, _configuration=None):  # noqa: E501
