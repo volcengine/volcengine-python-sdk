@@ -34,6 +34,7 @@ class UpdateFunctionResourceResponse(object):
     """
     swagger_types = {
         'id': 'str',
+        'idle_instance': 'int',
         'max_instance': 'int',
         'min_instance': 'int',
         'reserved_frozen_instance': 'int'
@@ -41,18 +42,20 @@ class UpdateFunctionResourceResponse(object):
 
     attribute_map = {
         'id': 'Id',
+        'idle_instance': 'IdleInstance',
         'max_instance': 'MaxInstance',
         'min_instance': 'MinInstance',
         'reserved_frozen_instance': 'ReservedFrozenInstance'
     }
 
-    def __init__(self, id=None, max_instance=None, min_instance=None, reserved_frozen_instance=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, idle_instance=None, max_instance=None, min_instance=None, reserved_frozen_instance=None, _configuration=None):  # noqa: E501
         """UpdateFunctionResourceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._id = None
+        self._idle_instance = None
         self._max_instance = None
         self._min_instance = None
         self._reserved_frozen_instance = None
@@ -60,6 +63,8 @@ class UpdateFunctionResourceResponse(object):
 
         if id is not None:
             self.id = id
+        if idle_instance is not None:
+            self.idle_instance = idle_instance
         if max_instance is not None:
             self.max_instance = max_instance
         if min_instance is not None:
@@ -87,6 +92,27 @@ class UpdateFunctionResourceResponse(object):
         """
 
         self._id = id
+
+    @property
+    def idle_instance(self):
+        """Gets the idle_instance of this UpdateFunctionResourceResponse.  # noqa: E501
+
+
+        :return: The idle_instance of this UpdateFunctionResourceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._idle_instance
+
+    @idle_instance.setter
+    def idle_instance(self, idle_instance):
+        """Sets the idle_instance of this UpdateFunctionResourceResponse.
+
+
+        :param idle_instance: The idle_instance of this UpdateFunctionResourceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._idle_instance = idle_instance
 
     @property
     def max_instance(self):

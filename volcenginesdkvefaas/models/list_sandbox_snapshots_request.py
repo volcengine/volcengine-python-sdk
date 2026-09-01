@@ -33,28 +33,64 @@ class ListSandboxSnapshotsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'filters': 'list[FilterForListSandboxSnapshotsInput]',
         'function_id': 'str',
+        'page_number': 'int',
+        'page_size': 'int',
         'sandbox_id': 'str'
     }
 
     attribute_map = {
+        'filters': 'Filters',
         'function_id': 'FunctionId',
+        'page_number': 'PageNumber',
+        'page_size': 'PageSize',
         'sandbox_id': 'SandboxId'
     }
 
-    def __init__(self, function_id=None, sandbox_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, filters=None, function_id=None, page_number=None, page_size=None, sandbox_id=None, _configuration=None):  # noqa: E501
         """ListSandboxSnapshotsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._filters = None
         self._function_id = None
+        self._page_number = None
+        self._page_size = None
         self._sandbox_id = None
         self.discriminator = None
 
+        if filters is not None:
+            self.filters = filters
         self.function_id = function_id
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
         if sandbox_id is not None:
             self.sandbox_id = sandbox_id
+
+    @property
+    def filters(self):
+        """Gets the filters of this ListSandboxSnapshotsRequest.  # noqa: E501
+
+
+        :return: The filters of this ListSandboxSnapshotsRequest.  # noqa: E501
+        :rtype: list[FilterForListSandboxSnapshotsInput]
+        """
+        return self._filters
+
+    @filters.setter
+    def filters(self, filters):
+        """Sets the filters of this ListSandboxSnapshotsRequest.
+
+
+        :param filters: The filters of this ListSandboxSnapshotsRequest.  # noqa: E501
+        :type: list[FilterForListSandboxSnapshotsInput]
+        """
+
+        self._filters = filters
 
     @property
     def function_id(self):
@@ -78,6 +114,48 @@ class ListSandboxSnapshotsRequest(object):
             raise ValueError("Invalid value for `function_id`, must not be `None`")  # noqa: E501
 
         self._function_id = function_id
+
+    @property
+    def page_number(self):
+        """Gets the page_number of this ListSandboxSnapshotsRequest.  # noqa: E501
+
+
+        :return: The page_number of this ListSandboxSnapshotsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_number
+
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this ListSandboxSnapshotsRequest.
+
+
+        :param page_number: The page_number of this ListSandboxSnapshotsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_number = page_number
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this ListSandboxSnapshotsRequest.  # noqa: E501
+
+
+        :return: The page_size of this ListSandboxSnapshotsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this ListSandboxSnapshotsRequest.
+
+
+        :param page_size: The page_size of this ListSandboxSnapshotsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
 
     @property
     def sandbox_id(self):
