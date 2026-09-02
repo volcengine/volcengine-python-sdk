@@ -1,0 +1,9 @@
+{
+  "actions": [
+    "CreateDataMigrateTask",
+    "QueryDataMigrateTask"
+  ],
+  "description": "DMS: 修改 CreateDataMigrateTask, QueryDataMigrateTask",
+  "modules": "service/dms",
+  "type": "feature"
+}
