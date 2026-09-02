@@ -33,29 +33,81 @@ class DescribeWorkspacesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'has_more': 'bool',
+        'next_token': 'str',
         'total': 'int',
         'workspaces': 'list[WorkspaceForDescribeWorkspacesOutput]'
     }
 
     attribute_map = {
+        'has_more': 'HasMore',
+        'next_token': 'NextToken',
         'total': 'Total',
         'workspaces': 'Workspaces'
     }
 
-    def __init__(self, total=None, workspaces=None, _configuration=None):  # noqa: E501
+    def __init__(self, has_more=None, next_token=None, total=None, workspaces=None, _configuration=None):  # noqa: E501
         """DescribeWorkspacesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._has_more = None
+        self._next_token = None
         self._total = None
         self._workspaces = None
         self.discriminator = None
 
+        if has_more is not None:
+            self.has_more = has_more
+        if next_token is not None:
+            self.next_token = next_token
         if total is not None:
             self.total = total
         if workspaces is not None:
             self.workspaces = workspaces
+
+    @property
+    def has_more(self):
+        """Gets the has_more of this DescribeWorkspacesResponse.  # noqa: E501
+
+
+        :return: The has_more of this DescribeWorkspacesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_more
+
+    @has_more.setter
+    def has_more(self, has_more):
+        """Sets the has_more of this DescribeWorkspacesResponse.
+
+
+        :param has_more: The has_more of this DescribeWorkspacesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_more = has_more
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this DescribeWorkspacesResponse.  # noqa: E501
+
+
+        :return: The next_token of this DescribeWorkspacesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this DescribeWorkspacesResponse.
+
+
+        :param next_token: The next_token of this DescribeWorkspacesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def total(self):

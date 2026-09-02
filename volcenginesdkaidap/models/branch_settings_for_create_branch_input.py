@@ -37,7 +37,8 @@ class BranchSettingsForCreateBranchInput(object):
         'name': 'str',
         'parent_id': 'str',
         'parent_time': 'str',
-        'protected': 'bool'
+        'protected': 'bool',
+        'skip_db_roles_and_credentials_rollback': 'bool'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class BranchSettingsForCreateBranchInput(object):
         'name': 'Name',
         'parent_id': 'ParentId',
         'parent_time': 'ParentTime',
-        'protected': 'Protected'
+        'protected': 'Protected',
+        'skip_db_roles_and_credentials_rollback': 'SkipDBRolesAndCredentialsRollback'
     }
 
-    def __init__(self, init_source=None, name=None, parent_id=None, parent_time=None, protected=None, _configuration=None):  # noqa: E501
+    def __init__(self, init_source=None, name=None, parent_id=None, parent_time=None, protected=None, skip_db_roles_and_credentials_rollback=None, _configuration=None):  # noqa: E501
         """BranchSettingsForCreateBranchInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class BranchSettingsForCreateBranchInput(object):
         self._parent_id = None
         self._parent_time = None
         self._protected = None
+        self._skip_db_roles_and_credentials_rollback = None
         self.discriminator = None
 
         if init_source is not None:
@@ -71,6 +74,8 @@ class BranchSettingsForCreateBranchInput(object):
             self.parent_time = parent_time
         if protected is not None:
             self.protected = protected
+        if skip_db_roles_and_credentials_rollback is not None:
+            self.skip_db_roles_and_credentials_rollback = skip_db_roles_and_credentials_rollback
 
     @property
     def init_source(self):
@@ -183,6 +188,27 @@ class BranchSettingsForCreateBranchInput(object):
         """
 
         self._protected = protected
+
+    @property
+    def skip_db_roles_and_credentials_rollback(self):
+        """Gets the skip_db_roles_and_credentials_rollback of this BranchSettingsForCreateBranchInput.  # noqa: E501
+
+
+        :return: The skip_db_roles_and_credentials_rollback of this BranchSettingsForCreateBranchInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_db_roles_and_credentials_rollback
+
+    @skip_db_roles_and_credentials_rollback.setter
+    def skip_db_roles_and_credentials_rollback(self, skip_db_roles_and_credentials_rollback):
+        """Sets the skip_db_roles_and_credentials_rollback of this BranchSettingsForCreateBranchInput.
+
+
+        :param skip_db_roles_and_credentials_rollback: The skip_db_roles_and_credentials_rollback of this BranchSettingsForCreateBranchInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._skip_db_roles_and_credentials_rollback = skip_db_roles_and_credentials_rollback
 
     def to_dict(self):
         """Returns the model properties as a dict"""

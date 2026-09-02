@@ -35,6 +35,7 @@ class DescribeWorkspacesRequest(object):
     swagger_types = {
         'filters': 'list[FilterForDescribeWorkspacesInput]',
         'limit': 'int',
+        'next_token': 'str',
         'offset': 'int',
         'project_name': 'str',
         'search': 'str',
@@ -46,6 +47,7 @@ class DescribeWorkspacesRequest(object):
     attribute_map = {
         'filters': 'Filters',
         'limit': 'Limit',
+        'next_token': 'NextToken',
         'offset': 'Offset',
         'project_name': 'ProjectName',
         'search': 'Search',
@@ -54,7 +56,7 @@ class DescribeWorkspacesRequest(object):
         'workspace_tags': 'WorkspaceTags'
     }
 
-    def __init__(self, filters=None, limit=None, offset=None, project_name=None, search=None, sort_by=None, sort_order=None, workspace_tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, filters=None, limit=None, next_token=None, offset=None, project_name=None, search=None, sort_by=None, sort_order=None, workspace_tags=None, _configuration=None):  # noqa: E501
         """DescribeWorkspacesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DescribeWorkspacesRequest(object):
 
         self._filters = None
         self._limit = None
+        self._next_token = None
         self._offset = None
         self._project_name = None
         self._search = None
@@ -74,6 +77,8 @@ class DescribeWorkspacesRequest(object):
             self.filters = filters
         if limit is not None:
             self.limit = limit
+        if next_token is not None:
+            self.next_token = next_token
         if offset is not None:
             self.offset = offset
         if project_name is not None:
@@ -128,6 +133,27 @@ class DescribeWorkspacesRequest(object):
         """
 
         self._limit = limit
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this DescribeWorkspacesRequest.  # noqa: E501
+
+
+        :return: The next_token of this DescribeWorkspacesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this DescribeWorkspacesRequest.
+
+
+        :param next_token: The next_token of this DescribeWorkspacesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def offset(self):

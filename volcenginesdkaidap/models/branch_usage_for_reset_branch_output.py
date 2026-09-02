@@ -42,6 +42,9 @@ class BranchUsageForResetBranchOutput(object):
         'service_time_seconds': 'int',
         'stat_time': 'str',
         'storage_size_used_bytes': 'int',
+        'vector_read_vcu': 'float',
+        'vector_storage_size_used_bytes': 'int',
+        'vector_write_vcu': 'float',
         'workspace_id': 'str'
     }
 
@@ -55,10 +58,13 @@ class BranchUsageForResetBranchOutput(object):
         'service_time_seconds': 'ServiceTimeSeconds',
         'stat_time': 'StatTime',
         'storage_size_used_bytes': 'StorageSizeUsedBytes',
+        'vector_read_vcu': 'VectorReadVCU',
+        'vector_storage_size_used_bytes': 'VectorStorageSizeUsedBytes',
+        'vector_write_vcu': 'VectorWriteVCU',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, branch_id=None, compute_time_seconds=None, data_size_total_bytes=None, data_size_used_bytes=None, function_call_num=None, last_running_time=None, service_time_seconds=None, stat_time=None, storage_size_used_bytes=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, branch_id=None, compute_time_seconds=None, data_size_total_bytes=None, data_size_used_bytes=None, function_call_num=None, last_running_time=None, service_time_seconds=None, stat_time=None, storage_size_used_bytes=None, vector_read_vcu=None, vector_storage_size_used_bytes=None, vector_write_vcu=None, workspace_id=None, _configuration=None):  # noqa: E501
         """BranchUsageForResetBranchOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +79,9 @@ class BranchUsageForResetBranchOutput(object):
         self._service_time_seconds = None
         self._stat_time = None
         self._storage_size_used_bytes = None
+        self._vector_read_vcu = None
+        self._vector_storage_size_used_bytes = None
+        self._vector_write_vcu = None
         self._workspace_id = None
         self.discriminator = None
 
@@ -94,6 +103,12 @@ class BranchUsageForResetBranchOutput(object):
             self.stat_time = stat_time
         if storage_size_used_bytes is not None:
             self.storage_size_used_bytes = storage_size_used_bytes
+        if vector_read_vcu is not None:
+            self.vector_read_vcu = vector_read_vcu
+        if vector_storage_size_used_bytes is not None:
+            self.vector_storage_size_used_bytes = vector_storage_size_used_bytes
+        if vector_write_vcu is not None:
+            self.vector_write_vcu = vector_write_vcu
         if workspace_id is not None:
             self.workspace_id = workspace_id
 
@@ -285,6 +300,69 @@ class BranchUsageForResetBranchOutput(object):
         """
 
         self._storage_size_used_bytes = storage_size_used_bytes
+
+    @property
+    def vector_read_vcu(self):
+        """Gets the vector_read_vcu of this BranchUsageForResetBranchOutput.  # noqa: E501
+
+
+        :return: The vector_read_vcu of this BranchUsageForResetBranchOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._vector_read_vcu
+
+    @vector_read_vcu.setter
+    def vector_read_vcu(self, vector_read_vcu):
+        """Sets the vector_read_vcu of this BranchUsageForResetBranchOutput.
+
+
+        :param vector_read_vcu: The vector_read_vcu of this BranchUsageForResetBranchOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._vector_read_vcu = vector_read_vcu
+
+    @property
+    def vector_storage_size_used_bytes(self):
+        """Gets the vector_storage_size_used_bytes of this BranchUsageForResetBranchOutput.  # noqa: E501
+
+
+        :return: The vector_storage_size_used_bytes of this BranchUsageForResetBranchOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._vector_storage_size_used_bytes
+
+    @vector_storage_size_used_bytes.setter
+    def vector_storage_size_used_bytes(self, vector_storage_size_used_bytes):
+        """Sets the vector_storage_size_used_bytes of this BranchUsageForResetBranchOutput.
+
+
+        :param vector_storage_size_used_bytes: The vector_storage_size_used_bytes of this BranchUsageForResetBranchOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._vector_storage_size_used_bytes = vector_storage_size_used_bytes
+
+    @property
+    def vector_write_vcu(self):
+        """Gets the vector_write_vcu of this BranchUsageForResetBranchOutput.  # noqa: E501
+
+
+        :return: The vector_write_vcu of this BranchUsageForResetBranchOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._vector_write_vcu
+
+    @vector_write_vcu.setter
+    def vector_write_vcu(self, vector_write_vcu):
+        """Sets the vector_write_vcu of this BranchUsageForResetBranchOutput.
+
+
+        :param vector_write_vcu: The vector_write_vcu of this BranchUsageForResetBranchOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._vector_write_vcu = vector_write_vcu
 
     @property
     def workspace_id(self):

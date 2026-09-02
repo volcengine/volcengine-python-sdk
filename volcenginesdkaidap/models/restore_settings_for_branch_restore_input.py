@@ -33,29 +33,55 @@ class RestoreSettingsForBranchRestoreInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'skip_db_roles_and_credentials_rollback': 'bool',
         'source_branch_id': 'str',
         'time': 'str'
     }
 
     attribute_map = {
+        'skip_db_roles_and_credentials_rollback': 'SkipDBRolesAndCredentialsRollback',
         'source_branch_id': 'SourceBranchId',
         'time': 'Time'
     }
 
-    def __init__(self, source_branch_id=None, time=None, _configuration=None):  # noqa: E501
+    def __init__(self, skip_db_roles_and_credentials_rollback=None, source_branch_id=None, time=None, _configuration=None):  # noqa: E501
         """RestoreSettingsForBranchRestoreInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._skip_db_roles_and_credentials_rollback = None
         self._source_branch_id = None
         self._time = None
         self.discriminator = None
 
+        if skip_db_roles_and_credentials_rollback is not None:
+            self.skip_db_roles_and_credentials_rollback = skip_db_roles_and_credentials_rollback
         if source_branch_id is not None:
             self.source_branch_id = source_branch_id
         if time is not None:
             self.time = time
+
+    @property
+    def skip_db_roles_and_credentials_rollback(self):
+        """Gets the skip_db_roles_and_credentials_rollback of this RestoreSettingsForBranchRestoreInput.  # noqa: E501
+
+
+        :return: The skip_db_roles_and_credentials_rollback of this RestoreSettingsForBranchRestoreInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_db_roles_and_credentials_rollback
+
+    @skip_db_roles_and_credentials_rollback.setter
+    def skip_db_roles_and_credentials_rollback(self, skip_db_roles_and_credentials_rollback):
+        """Sets the skip_db_roles_and_credentials_rollback of this RestoreSettingsForBranchRestoreInput.
+
+
+        :param skip_db_roles_and_credentials_rollback: The skip_db_roles_and_credentials_rollback of this RestoreSettingsForBranchRestoreInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._skip_db_roles_and_credentials_rollback = skip_db_roles_and_credentials_rollback
 
     @property
     def source_branch_id(self):
