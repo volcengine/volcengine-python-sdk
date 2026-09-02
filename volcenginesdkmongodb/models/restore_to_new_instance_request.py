@@ -49,6 +49,7 @@ class RestoreToNewInstanceRequest(object):
         'node_spec': 'str',
         'period': 'int',
         'period_unit': 'str',
+        'port': 'str',
         'project_name': 'str',
         'restore_time': 'str',
         'shard_number': 'int',
@@ -79,6 +80,7 @@ class RestoreToNewInstanceRequest(object):
         'node_spec': 'NodeSpec',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'port': 'Port',
         'project_name': 'ProjectName',
         'restore_time': 'RestoreTime',
         'shard_number': 'ShardNumber',
@@ -92,7 +94,7 @@ class RestoreToNewInstanceRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, backup_id=None, charge_type=None, config_server_node_spec=None, config_server_storage_space_gb=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_availability_zone=None, node_number=None, node_spec=None, period=None, period_unit=None, project_name=None, restore_time=None, shard_number=None, src_db_instance_id=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, backup_id=None, charge_type=None, config_server_node_spec=None, config_server_storage_space_gb=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_availability_zone=None, node_number=None, node_spec=None, period=None, period_unit=None, port=None, project_name=None, restore_time=None, shard_number=None, src_db_instance_id=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """RestoreToNewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -114,6 +116,7 @@ class RestoreToNewInstanceRequest(object):
         self._node_spec = None
         self._period = None
         self._period_unit = None
+        self._port = None
         self._project_name = None
         self._restore_time = None
         self._shard_number = None
@@ -158,6 +161,8 @@ class RestoreToNewInstanceRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if port is not None:
+            self.port = port
         if project_name is not None:
             self.project_name = project_name
         if restore_time is not None:
@@ -334,7 +339,7 @@ class RestoreToNewInstanceRequest(object):
         :param db_engine_version: The db_engine_version of this RestoreToNewInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0", "MongoDB_Inner_4_0"]  # noqa: E501
+        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0", "MongoDB_Inner_4_0", "MongoDB_7_0", "MongoDB_8_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -548,6 +553,27 @@ class RestoreToNewInstanceRequest(object):
             )
 
         self._period_unit = period_unit
+
+    @property
+    def port(self):
+        """Gets the port of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The port of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this RestoreToNewInstanceRequest.
+
+
+        :param port: The port of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._port = port
 
     @property
     def project_name(self):

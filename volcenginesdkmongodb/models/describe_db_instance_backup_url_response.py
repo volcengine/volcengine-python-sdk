@@ -37,7 +37,8 @@ class DescribeDBInstanceBackupURLResponse(object):
         'backup_id': 'str',
         'download_progress': 'int',
         'instance_id': 'str',
-        'link_expired_time': 'str'
+        'link_expired_time': 'str',
+        'private_download_link': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class DescribeDBInstanceBackupURLResponse(object):
         'backup_id': 'BackupId',
         'download_progress': 'DownloadProgress',
         'instance_id': 'InstanceId',
-        'link_expired_time': 'LinkExpiredTime'
+        'link_expired_time': 'LinkExpiredTime',
+        'private_download_link': 'PrivateDownloadLink'
     }
 
-    def __init__(self, backup_download_link=None, backup_id=None, download_progress=None, instance_id=None, link_expired_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_download_link=None, backup_id=None, download_progress=None, instance_id=None, link_expired_time=None, private_download_link=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceBackupURLResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DescribeDBInstanceBackupURLResponse(object):
         self._download_progress = None
         self._instance_id = None
         self._link_expired_time = None
+        self._private_download_link = None
         self.discriminator = None
 
         if backup_download_link is not None:
@@ -71,6 +74,8 @@ class DescribeDBInstanceBackupURLResponse(object):
             self.instance_id = instance_id
         if link_expired_time is not None:
             self.link_expired_time = link_expired_time
+        if private_download_link is not None:
+            self.private_download_link = private_download_link
 
     @property
     def backup_download_link(self):
@@ -176,6 +181,27 @@ class DescribeDBInstanceBackupURLResponse(object):
         """
 
         self._link_expired_time = link_expired_time
+
+    @property
+    def private_download_link(self):
+        """Gets the private_download_link of this DescribeDBInstanceBackupURLResponse.  # noqa: E501
+
+
+        :return: The private_download_link of this DescribeDBInstanceBackupURLResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_download_link
+
+    @private_download_link.setter
+    def private_download_link(self, private_download_link):
+        """Sets the private_download_link of this DescribeDBInstanceBackupURLResponse.
+
+
+        :param private_download_link: The private_download_link of this DescribeDBInstanceBackupURLResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._private_download_link = private_download_link
 
     def to_dict(self):
         """Returns the model properties as a dict"""

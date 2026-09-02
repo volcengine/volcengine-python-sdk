@@ -38,7 +38,8 @@ class DBAddressForDescribeDBEndpointOutput(object):
         'address_port': 'str',
         'address_type': 'str',
         'eip_id': 'str',
-        'node_id': 'str'
+        'node_id': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class DBAddressForDescribeDBEndpointOutput(object):
         'address_port': 'AddressPort',
         'address_type': 'AddressType',
         'eip_id': 'EipId',
-        'node_id': 'NodeId'
+        'node_id': 'NodeId',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, address_domain=None, address_ip=None, address_port=None, address_type=None, eip_id=None, node_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_domain=None, address_ip=None, address_port=None, address_type=None, eip_id=None, node_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DBAddressForDescribeDBEndpointOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DBAddressForDescribeDBEndpointOutput(object):
         self._address_type = None
         self._eip_id = None
         self._node_id = None
+        self._zone_id = None
         self.discriminator = None
 
         if address_domain is not None:
@@ -76,6 +79,8 @@ class DBAddressForDescribeDBEndpointOutput(object):
             self.eip_id = eip_id
         if node_id is not None:
             self.node_id = node_id
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def address_domain(self):
@@ -202,6 +207,27 @@ class DBAddressForDescribeDBEndpointOutput(object):
         """
 
         self._node_id = node_id
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this DBAddressForDescribeDBEndpointOutput.  # noqa: E501
+
+
+        :return: The zone_id of this DBAddressForDescribeDBEndpointOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this DBAddressForDescribeDBEndpointOutput.
+
+
+        :param zone_id: The zone_id of this DBAddressForDescribeDBEndpointOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

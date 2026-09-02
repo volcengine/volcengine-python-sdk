@@ -36,17 +36,19 @@ class DescribeDBInstanceBackupPolicyResponse(object):
         'auto_backup': 'str',
         'data_backup_retention_day': 'int',
         'data_full_backup_periods': 'list[str]',
-        'data_full_backup_time': 'str'
+        'data_full_backup_time': 'str',
+        'enable_backup_encrypt': 'bool'
     }
 
     attribute_map = {
         'auto_backup': 'AutoBackup',
         'data_backup_retention_day': 'DataBackupRetentionDay',
         'data_full_backup_periods': 'DataFullBackupPeriods',
-        'data_full_backup_time': 'DataFullBackupTime'
+        'data_full_backup_time': 'DataFullBackupTime',
+        'enable_backup_encrypt': 'EnableBackupEncrypt'
     }
 
-    def __init__(self, auto_backup=None, data_backup_retention_day=None, data_full_backup_periods=None, data_full_backup_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_backup=None, data_backup_retention_day=None, data_full_backup_periods=None, data_full_backup_time=None, enable_backup_encrypt=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceBackupPolicyResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DescribeDBInstanceBackupPolicyResponse(object):
         self._data_backup_retention_day = None
         self._data_full_backup_periods = None
         self._data_full_backup_time = None
+        self._enable_backup_encrypt = None
         self.discriminator = None
 
         if auto_backup is not None:
@@ -66,6 +69,8 @@ class DescribeDBInstanceBackupPolicyResponse(object):
             self.data_full_backup_periods = data_full_backup_periods
         if data_full_backup_time is not None:
             self.data_full_backup_time = data_full_backup_time
+        if enable_backup_encrypt is not None:
+            self.enable_backup_encrypt = enable_backup_encrypt
 
     @property
     def auto_backup(self):
@@ -150,6 +155,27 @@ class DescribeDBInstanceBackupPolicyResponse(object):
         """
 
         self._data_full_backup_time = data_full_backup_time
+
+    @property
+    def enable_backup_encrypt(self):
+        """Gets the enable_backup_encrypt of this DescribeDBInstanceBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The enable_backup_encrypt of this DescribeDBInstanceBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_backup_encrypt
+
+    @enable_backup_encrypt.setter
+    def enable_backup_encrypt(self, enable_backup_encrypt):
+        """Sets the enable_backup_encrypt of this DescribeDBInstanceBackupPolicyResponse.
+
+
+        :param enable_backup_encrypt: The enable_backup_encrypt of this DescribeDBInstanceBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_backup_encrypt = enable_backup_encrypt
 
     def to_dict(self):
         """Returns the model properties as a dict"""
