@@ -1,8 +1,0 @@
-{
-  "actions": [
-    "CreateProject"
-  ],
-  "description": "IAM: 修改 CreateProject",
-  "modules": "service/iam",
-  "type": "breaking-change"
-}

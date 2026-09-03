@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "DescInstance",
-    "DescInstanceList"
-  ],
-  "description": "ORIGIN_DEFENCE: 新增 DescInstance, DescInstanceList",
-  "modules": "service/origin_defence",
-  "type": "feature"
-}

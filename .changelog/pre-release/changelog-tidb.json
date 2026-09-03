@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "GetPrivateEndpointAllowlistRule",
-    "CreateBranch"
-  ],
-  "description": "TIDB: 新增 GetPrivateEndpointAllowlistRule；修改 CreateBranch",
-  "modules": "service/tidb",
-  "type": "feature"
-}
