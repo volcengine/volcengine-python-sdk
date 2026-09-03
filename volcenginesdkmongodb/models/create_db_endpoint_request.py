@@ -33,34 +33,42 @@ class CreateDBEndpointRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'all_shard': 'bool',
         'eip_ids': 'list[str]',
         'instance_id': 'str',
         'mongos_node_ids': 'list[str]',
         'network_type': 'str',
-        'object_id': 'str'
+        'object_id': 'str',
+        'object_ids': 'list[str]'
     }
 
     attribute_map = {
+        'all_shard': 'AllShard',
         'eip_ids': 'EipIds',
         'instance_id': 'InstanceId',
         'mongos_node_ids': 'MongosNodeIds',
         'network_type': 'NetworkType',
-        'object_id': 'ObjectId'
+        'object_id': 'ObjectId',
+        'object_ids': 'ObjectIds'
     }
 
-    def __init__(self, eip_ids=None, instance_id=None, mongos_node_ids=None, network_type=None, object_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, all_shard=None, eip_ids=None, instance_id=None, mongos_node_ids=None, network_type=None, object_id=None, object_ids=None, _configuration=None):  # noqa: E501
         """CreateDBEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._all_shard = None
         self._eip_ids = None
         self._instance_id = None
         self._mongos_node_ids = None
         self._network_type = None
         self._object_id = None
+        self._object_ids = None
         self.discriminator = None
 
+        if all_shard is not None:
+            self.all_shard = all_shard
         if eip_ids is not None:
             self.eip_ids = eip_ids
         self.instance_id = instance_id
@@ -70,6 +78,29 @@ class CreateDBEndpointRequest(object):
             self.network_type = network_type
         if object_id is not None:
             self.object_id = object_id
+        if object_ids is not None:
+            self.object_ids = object_ids
+
+    @property
+    def all_shard(self):
+        """Gets the all_shard of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The all_shard of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._all_shard
+
+    @all_shard.setter
+    def all_shard(self, all_shard):
+        """Sets the all_shard of this CreateDBEndpointRequest.
+
+
+        :param all_shard: The all_shard of this CreateDBEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._all_shard = all_shard
 
     @property
     def eip_ids(self):
@@ -184,6 +215,27 @@ class CreateDBEndpointRequest(object):
         """
 
         self._object_id = object_id
+
+    @property
+    def object_ids(self):
+        """Gets the object_ids of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The object_ids of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._object_ids
+
+    @object_ids.setter
+    def object_ids(self, object_ids):
+        """Sets the object_ids of this CreateDBEndpointRequest.
+
+
+        :param object_ids: The object_ids of this CreateDBEndpointRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._object_ids = object_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""
