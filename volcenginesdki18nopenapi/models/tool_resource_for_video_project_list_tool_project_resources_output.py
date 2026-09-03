@@ -44,7 +44,7 @@ class ToolResourceForVideoProjectListToolProjectResourcesOutput(object):
     attribute_map = {
         'create_time': 'createTime',
         'name': 'name',
-        'resource_id': 'resourceID',
+        'resource_id': 'resourceId',
         'resource_type': 'resourceType',
         'update_time': 'updateTime',
         'url': 'url'

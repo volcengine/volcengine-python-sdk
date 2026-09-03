@@ -33,11 +33,13 @@ class TaskForVideoProjectTaskListOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'can_expedite': 'bool',
         'comment': 'str',
         'created_at': 'str',
         'creator': 'CreatorForVideoProjectTaskListOutput',
         'deadline': 'str',
         'drama_task_workflow': 'int',
+        'is_expedited': 'bool',
         'name': 'str',
         'project_name': 'str',
         'source_language': 'str',
@@ -48,11 +50,13 @@ class TaskForVideoProjectTaskListOutput(object):
     }
 
     attribute_map = {
+        'can_expedite': 'canExpedite',
         'comment': 'comment',
         'created_at': 'createdAt',
         'creator': 'creator',
         'deadline': 'deadline',
         'drama_task_workflow': 'dramaTaskWorkflow',
+        'is_expedited': 'isExpedited',
         'name': 'name',
         'project_name': 'projectName',
         'source_language': 'sourceLanguage',
@@ -62,17 +66,19 @@ class TaskForVideoProjectTaskListOutput(object):
         'workflow_type': 'workflowType'
     }
 
-    def __init__(self, comment=None, created_at=None, creator=None, deadline=None, drama_task_workflow=None, name=None, project_name=None, source_language=None, status=None, target_languages=None, task_type=None, workflow_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, can_expedite=None, comment=None, created_at=None, creator=None, deadline=None, drama_task_workflow=None, is_expedited=None, name=None, project_name=None, source_language=None, status=None, target_languages=None, task_type=None, workflow_type=None, _configuration=None):  # noqa: E501
         """TaskForVideoProjectTaskListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._can_expedite = None
         self._comment = None
         self._created_at = None
         self._creator = None
         self._deadline = None
         self._drama_task_workflow = None
+        self._is_expedited = None
         self._name = None
         self._project_name = None
         self._source_language = None
@@ -82,6 +88,8 @@ class TaskForVideoProjectTaskListOutput(object):
         self._workflow_type = None
         self.discriminator = None
 
+        if can_expedite is not None:
+            self.can_expedite = can_expedite
         if comment is not None:
             self.comment = comment
         if created_at is not None:
@@ -92,6 +100,8 @@ class TaskForVideoProjectTaskListOutput(object):
             self.deadline = deadline
         if drama_task_workflow is not None:
             self.drama_task_workflow = drama_task_workflow
+        if is_expedited is not None:
+            self.is_expedited = is_expedited
         if name is not None:
             self.name = name
         if project_name is not None:
@@ -106,6 +116,27 @@ class TaskForVideoProjectTaskListOutput(object):
             self.task_type = task_type
         if workflow_type is not None:
             self.workflow_type = workflow_type
+
+    @property
+    def can_expedite(self):
+        """Gets the can_expedite of this TaskForVideoProjectTaskListOutput.  # noqa: E501
+
+
+        :return: The can_expedite of this TaskForVideoProjectTaskListOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._can_expedite
+
+    @can_expedite.setter
+    def can_expedite(self, can_expedite):
+        """Sets the can_expedite of this TaskForVideoProjectTaskListOutput.
+
+
+        :param can_expedite: The can_expedite of this TaskForVideoProjectTaskListOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._can_expedite = can_expedite
 
     @property
     def comment(self):
@@ -211,6 +242,27 @@ class TaskForVideoProjectTaskListOutput(object):
         """
 
         self._drama_task_workflow = drama_task_workflow
+
+    @property
+    def is_expedited(self):
+        """Gets the is_expedited of this TaskForVideoProjectTaskListOutput.  # noqa: E501
+
+
+        :return: The is_expedited of this TaskForVideoProjectTaskListOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_expedited
+
+    @is_expedited.setter
+    def is_expedited(self, is_expedited):
+        """Sets the is_expedited of this TaskForVideoProjectTaskListOutput.
+
+
+        :param is_expedited: The is_expedited of this TaskForVideoProjectTaskListOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_expedited = is_expedited
 
     @property
     def name(self):
