@@ -4,6 +4,8 @@ from ...observability.debugger import sdk_core_logger
 
 class ResolveEndpointInterceptor(RequestInterceptor):
 
+    run_on_retry = False
+
     def name(self):
         return 'volcengine-resolve-endpoint-interceptor'
 

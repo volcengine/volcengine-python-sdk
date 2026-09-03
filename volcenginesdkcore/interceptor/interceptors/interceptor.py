@@ -4,6 +4,8 @@ import abc
 
 class RequestInterceptor(object):
 
+    run_on_retry = True
+
     @abc.abstractmethod
     def name(self):
         raise NotImplementedError()

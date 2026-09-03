@@ -1,3 +1,6 @@
+import uuid
+
+
 class RuntimeOption(object):
     def __init__(self, client_side_validation, ak=None, sk=None, session_token=None, region=None, scheme=None,
                  endpoint_provider=None, connect_timeout=None, read_timeout=None, auto_retry=None, num_max_retries=None,
@@ -58,10 +61,12 @@ class Request(object):
         self.custom_bootstrap_region = configuration.custom_bootstrap_region
         self.use_dual_stack = configuration.use_dual_stack
 
-        # retryer setting, default use global configration if value not set
+        # ApiClient injects its private base retryer before interception.
         self.auto_retry = configuration.auto_retry
-        self.retryer = configuration.retryer
+        self.retryer = None
         self.credential_provider = configuration.credential_provider
+        self.invocation_id = str(uuid.uuid4())
+        self.retry_count = 0
 
         # Presign support
         self.is_presign = False

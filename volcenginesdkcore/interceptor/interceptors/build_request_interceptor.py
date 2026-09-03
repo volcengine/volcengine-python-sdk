@@ -113,6 +113,8 @@ def sanitize_for_serialization(obj):
 
 class BuildRequestInterceptor(RequestInterceptor):
 
+    run_on_retry = False
+
     def name(self):
         return 'volcengine-build-request-interceptor'
 
