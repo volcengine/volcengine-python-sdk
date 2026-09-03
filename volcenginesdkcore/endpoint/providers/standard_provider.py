@@ -184,6 +184,7 @@ ServiceInfos = {
     "volcsms": ServiceInfo("volcsms", True),
     "id": ServiceInfo("id", False),
     "tidb": ServiceInfo("tidb", False),
+    "origin_defence": ServiceInfo("origin_defence", False),
 }
 
 
