@@ -70,8 +70,9 @@ def hash_sha256(content: bytes):
 
 
 # 第二步：签名请求函数
-def request_sign(header, ak, sk, region, url, path, action, body):
-    host = urlparse(url).netloc
+def request_sign(header, ak, sk, region, url, path, action, body, rewrite_url=None):
+    sign_url = rewrite_url or url
+    host = urlparse(sign_url).netloc
     date = utc_now()
     # 第三步：创建身份证明。其中的 Service 和 Region 字段是固定的。ak 和 sk 分别代表
     # AccessKeyID 和 SecretAccessKey。同时需要初始化签名结构体。一些签名计算时需要的属性也在这里处理。
@@ -100,7 +101,6 @@ def request_sign(header, ak, sk, region, url, path, action, body):
     short_x_date = x_date[:8]
     x_content_sha256 = hash_sha256(request_param["body"])
     sign_result = {
-        "Host": request_param["host"],
         "X-Content-Sha256": x_content_sha256,
         "X-Date": x_date,
         "Content-Type": request_param["content_type"],
