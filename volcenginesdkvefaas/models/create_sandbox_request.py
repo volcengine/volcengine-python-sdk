@@ -48,7 +48,6 @@ class CreateSandboxRequest(object):
         'max_concurrency': 'int',
         'memory_mb': 'int',
         'metadata': 'dict(str, str)',
-        'network_rules': 'NetworkRulesForCreateSandboxInput',
         'request_timeout': 'int',
         'role_chain_trn': 'list[str]',
         'role_trn': 'str',
@@ -75,7 +74,6 @@ class CreateSandboxRequest(object):
         'max_concurrency': 'MaxConcurrency',
         'memory_mb': 'MemoryMB',
         'metadata': 'Metadata',
-        'network_rules': 'NetworkRules',
         'request_timeout': 'RequestTimeout',
         'role_chain_trn': 'RoleChainTrn',
         'role_trn': 'RoleTrn',
@@ -86,7 +84,7 @@ class CreateSandboxRequest(object):
         'timeout_unit': 'TimeoutUnit'
     }
 
-    def __init__(self, _async=None, auto_pause_config=None, auto_snapshot_config=None, cpu_milli=None, ebs_volumes=None, empty_dir_volume=None, envs=None, function_id=None, instance_efs_mount_config=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, network_rules=None, request_timeout=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, snapshot_id=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, _async=None, auto_pause_config=None, auto_snapshot_config=None, cpu_milli=None, ebs_volumes=None, empty_dir_volume=None, envs=None, function_id=None, instance_efs_mount_config=None, instance_image_info=None, instance_nas_mount_config=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, snapshot_id=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
         """CreateSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -107,7 +105,6 @@ class CreateSandboxRequest(object):
         self._max_concurrency = None
         self._memory_mb = None
         self._metadata = None
-        self._network_rules = None
         self._request_timeout = None
         self._role_chain_trn = None
         self._role_trn = None
@@ -147,8 +144,6 @@ class CreateSandboxRequest(object):
             self.memory_mb = memory_mb
         if metadata is not None:
             self.metadata = metadata
-        if network_rules is not None:
-            self.network_rules = network_rules
         if request_timeout is not None:
             self.request_timeout = request_timeout
         if role_chain_trn is not None:
@@ -482,27 +477,6 @@ class CreateSandboxRequest(object):
         """
 
         self._metadata = metadata
-
-    @property
-    def network_rules(self):
-        """Gets the network_rules of this CreateSandboxRequest.  # noqa: E501
-
-
-        :return: The network_rules of this CreateSandboxRequest.  # noqa: E501
-        :rtype: NetworkRulesForCreateSandboxInput
-        """
-        return self._network_rules
-
-    @network_rules.setter
-    def network_rules(self, network_rules):
-        """Sets the network_rules of this CreateSandboxRequest.
-
-
-        :param network_rules: The network_rules of this CreateSandboxRequest.  # noqa: E501
-        :type: NetworkRulesForCreateSandboxInput
-        """
-
-        self._network_rules = network_rules
 
     @property
     def request_timeout(self):

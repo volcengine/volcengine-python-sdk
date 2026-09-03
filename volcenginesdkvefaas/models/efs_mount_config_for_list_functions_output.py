@@ -33,7 +33,7 @@ class EfsMountConfigForListFunctionsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'mount_points': 'list[ConvertMountPointForListFunctionsOutput]'
+        'mount_points': 'list[MountPointForListFunctionsOutput]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class EfsMountConfigForListFunctionsOutput(object):
 
 
         :return: The mount_points of this EfsMountConfigForListFunctionsOutput.  # noqa: E501
-        :rtype: list[ConvertMountPointForListFunctionsOutput]
+        :rtype: list[MountPointForListFunctionsOutput]
         """
         return self._mount_points
 
@@ -68,7 +68,7 @@ class EfsMountConfigForListFunctionsOutput(object):
 
 
         :param mount_points: The mount_points of this EfsMountConfigForListFunctionsOutput.  # noqa: E501
-        :type: list[ConvertMountPointForListFunctionsOutput]
+        :type: list[MountPointForListFunctionsOutput]
         """
 
         self._mount_points = mount_points

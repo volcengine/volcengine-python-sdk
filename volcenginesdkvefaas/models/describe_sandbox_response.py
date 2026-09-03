@@ -53,7 +53,6 @@ class DescribeSandboxResponse(object):
         'max_concurrency': 'int',
         'memory_mb': 'int',
         'metadata_list': 'list[MetadataListForDescribeSandboxOutput]',
-        'network_rules': 'NetworkRulesForDescribeSandboxOutput',
         'paused_at': 'str',
         'pending': 'bool',
         'request_timeout': 'int',
@@ -86,7 +85,6 @@ class DescribeSandboxResponse(object):
         'max_concurrency': 'MaxConcurrency',
         'memory_mb': 'MemoryMB',
         'metadata_list': 'MetadataList',
-        'network_rules': 'NetworkRules',
         'paused_at': 'PausedAt',
         'pending': 'Pending',
         'request_timeout': 'RequestTimeout',
@@ -98,7 +96,7 @@ class DescribeSandboxResponse(object):
         'status': 'Status'
     }
 
-    def __init__(self, assign_status=None, auto_pause_config=None, auto_snapshot_config=None, availability_zone=None, cpu_milli=None, created_at=None, envs=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image_info=None, instance_efs_mount_config=None, instance_nas_mount_config=None, instance_tos_mount_config=None, instance_type=None, max_concurrency=None, memory_mb=None, metadata_list=None, network_rules=None, paused_at=None, pending=None, request_timeout=None, revision_number=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, assign_status=None, auto_pause_config=None, auto_snapshot_config=None, availability_zone=None, cpu_milli=None, created_at=None, envs=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image_info=None, instance_efs_mount_config=None, instance_nas_mount_config=None, instance_tos_mount_config=None, instance_type=None, max_concurrency=None, memory_mb=None, metadata_list=None, paused_at=None, pending=None, request_timeout=None, revision_number=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
         """DescribeSandboxResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -124,7 +122,6 @@ class DescribeSandboxResponse(object):
         self._max_concurrency = None
         self._memory_mb = None
         self._metadata_list = None
-        self._network_rules = None
         self._paused_at = None
         self._pending = None
         self._request_timeout = None
@@ -176,8 +173,6 @@ class DescribeSandboxResponse(object):
             self.memory_mb = memory_mb
         if metadata_list is not None:
             self.metadata_list = metadata_list
-        if network_rules is not None:
-            self.network_rules = network_rules
         if paused_at is not None:
             self.paused_at = paused_at
         if pending is not None:
@@ -616,27 +611,6 @@ class DescribeSandboxResponse(object):
         """
 
         self._metadata_list = metadata_list
-
-    @property
-    def network_rules(self):
-        """Gets the network_rules of this DescribeSandboxResponse.  # noqa: E501
-
-
-        :return: The network_rules of this DescribeSandboxResponse.  # noqa: E501
-        :rtype: NetworkRulesForDescribeSandboxOutput
-        """
-        return self._network_rules
-
-    @network_rules.setter
-    def network_rules(self, network_rules):
-        """Sets the network_rules of this DescribeSandboxResponse.
-
-
-        :param network_rules: The network_rules of this DescribeSandboxResponse.  # noqa: E501
-        :type: NetworkRulesForDescribeSandboxOutput
-        """
-
-        self._network_rules = network_rules
 
     @property
     def paused_at(self):
