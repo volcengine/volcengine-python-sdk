@@ -33,23 +33,49 @@ class StartWorkspaceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'start_as_suspended': 'bool',
         'workspace_id': 'str'
     }
 
     attribute_map = {
+        'start_as_suspended': 'StartAsSuspended',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, start_as_suspended=None, workspace_id=None, _configuration=None):  # noqa: E501
         """StartWorkspaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._start_as_suspended = None
         self._workspace_id = None
         self.discriminator = None
 
+        if start_as_suspended is not None:
+            self.start_as_suspended = start_as_suspended
         self.workspace_id = workspace_id
+
+    @property
+    def start_as_suspended(self):
+        """Gets the start_as_suspended of this StartWorkspaceRequest.  # noqa: E501
+
+
+        :return: The start_as_suspended of this StartWorkspaceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._start_as_suspended
+
+    @start_as_suspended.setter
+    def start_as_suspended(self, start_as_suspended):
+        """Sets the start_as_suspended of this StartWorkspaceRequest.
+
+
+        :param start_as_suspended: The start_as_suspended of this StartWorkspaceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._start_as_suspended = start_as_suspended
 
     @property
     def workspace_id(self):

@@ -50,6 +50,7 @@ class CreateDBInstanceRequest(object):
         'node_spec': 'str',
         'period': 'int',
         'period_unit': 'str',
+        'port': 'str',
         'project_name': 'str',
         'shard_number': 'int',
         'storage_space_gb': 'int',
@@ -79,6 +80,7 @@ class CreateDBInstanceRequest(object):
         'node_spec': 'NodeSpec',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'port': 'Port',
         'project_name': 'ProjectName',
         'shard_number': 'ShardNumber',
         'storage_space_gb': 'StorageSpaceGB',
@@ -90,7 +92,7 @@ class CreateDBInstanceRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_ids=None, auto_renew=None, charge_type=None, config_server_node_spec=None, config_server_storage_space_gb=None, count=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_availability_zone=None, node_number=None, node_spec=None, period=None, period_unit=None, project_name=None, shard_number=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_renew=None, charge_type=None, config_server_node_spec=None, config_server_storage_space_gb=None, count=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_availability_zone=None, node_number=None, node_spec=None, period=None, period_unit=None, port=None, project_name=None, shard_number=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -113,6 +115,7 @@ class CreateDBInstanceRequest(object):
         self._node_spec = None
         self._period = None
         self._period_unit = None
+        self._port = None
         self._project_name = None
         self._shard_number = None
         self._storage_space_gb = None
@@ -157,6 +160,8 @@ class CreateDBInstanceRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if port is not None:
+            self.port = port
         if project_name is not None:
             self.project_name = project_name
         if shard_number is not None:
@@ -351,7 +356,7 @@ class CreateDBInstanceRequest(object):
         :param db_engine_version: The db_engine_version of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0", "MongoDB_Inner_4_0"]  # noqa: E501
+        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0", "MongoDB_Inner_4_0", "MongoDB_7_0", "MongoDB_8_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -565,6 +570,27 @@ class CreateDBInstanceRequest(object):
             )
 
         self._period_unit = period_unit
+
+    @property
+    def port(self):
+        """Gets the port of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The port of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this CreateDBInstanceRequest.
+
+
+        :param port: The port of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._port = port
 
     @property
     def project_name(self):

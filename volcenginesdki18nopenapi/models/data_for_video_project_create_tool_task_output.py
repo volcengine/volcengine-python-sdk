@@ -37,7 +37,7 @@ class DataForVideoProjectCreateToolTaskOutput(object):
     }
 
     attribute_map = {
-        'task_id': 'taskID'
+        'task_id': 'taskId'
     }
 
     def __init__(self, task_id=None, _configuration=None):  # noqa: E501

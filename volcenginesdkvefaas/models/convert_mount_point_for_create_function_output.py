@@ -33,55 +33,133 @@ class ConvertMountPointForCreateFunctionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'backend': 'BackendForCreateFunctionOutput',
+        'bucket_name': 'str',
+        'bucket_path': 'str',
+        'encryption_config': 'EncryptionConfigForCreateFunctionOutput',
+        'endpoint': 'str',
         'local_mount_path': 'str',
         'read_only': 'bool'
     }
 
     attribute_map = {
-        'backend': 'Backend',
+        'bucket_name': 'BucketName',
+        'bucket_path': 'BucketPath',
+        'encryption_config': 'EncryptionConfig',
+        'endpoint': 'Endpoint',
         'local_mount_path': 'LocalMountPath',
         'read_only': 'ReadOnly'
     }
 
-    def __init__(self, backend=None, local_mount_path=None, read_only=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_name=None, bucket_path=None, encryption_config=None, endpoint=None, local_mount_path=None, read_only=None, _configuration=None):  # noqa: E501
         """ConvertMountPointForCreateFunctionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._backend = None
+        self._bucket_name = None
+        self._bucket_path = None
+        self._encryption_config = None
+        self._endpoint = None
         self._local_mount_path = None
         self._read_only = None
         self.discriminator = None
 
-        if backend is not None:
-            self.backend = backend
+        if bucket_name is not None:
+            self.bucket_name = bucket_name
+        if bucket_path is not None:
+            self.bucket_path = bucket_path
+        if encryption_config is not None:
+            self.encryption_config = encryption_config
+        if endpoint is not None:
+            self.endpoint = endpoint
         if local_mount_path is not None:
             self.local_mount_path = local_mount_path
         if read_only is not None:
             self.read_only = read_only
 
     @property
-    def backend(self):
-        """Gets the backend of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+    def bucket_name(self):
+        """Gets the bucket_name of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
 
 
-        :return: The backend of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
-        :rtype: BackendForCreateFunctionOutput
+        :return: The bucket_name of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._backend
+        return self._bucket_name
 
-    @backend.setter
-    def backend(self, backend):
-        """Sets the backend of this ConvertMountPointForCreateFunctionOutput.
+    @bucket_name.setter
+    def bucket_name(self, bucket_name):
+        """Sets the bucket_name of this ConvertMountPointForCreateFunctionOutput.
 
 
-        :param backend: The backend of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
-        :type: BackendForCreateFunctionOutput
+        :param bucket_name: The bucket_name of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+        :type: str
         """
 
-        self._backend = backend
+        self._bucket_name = bucket_name
+
+    @property
+    def bucket_path(self):
+        """Gets the bucket_path of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+
+
+        :return: The bucket_path of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bucket_path
+
+    @bucket_path.setter
+    def bucket_path(self, bucket_path):
+        """Sets the bucket_path of this ConvertMountPointForCreateFunctionOutput.
+
+
+        :param bucket_path: The bucket_path of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bucket_path = bucket_path
+
+    @property
+    def encryption_config(self):
+        """Gets the encryption_config of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+
+
+        :return: The encryption_config of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+        :rtype: EncryptionConfigForCreateFunctionOutput
+        """
+        return self._encryption_config
+
+    @encryption_config.setter
+    def encryption_config(self, encryption_config):
+        """Sets the encryption_config of this ConvertMountPointForCreateFunctionOutput.
+
+
+        :param encryption_config: The encryption_config of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+        :type: EncryptionConfigForCreateFunctionOutput
+        """
+
+        self._encryption_config = encryption_config
+
+    @property
+    def endpoint(self):
+        """Gets the endpoint of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+
+
+        :return: The endpoint of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._endpoint
+
+    @endpoint.setter
+    def endpoint(self, endpoint):
+        """Sets the endpoint of this ConvertMountPointForCreateFunctionOutput.
+
+
+        :param endpoint: The endpoint of this ConvertMountPointForCreateFunctionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._endpoint = endpoint
 
     @property
     def local_mount_path(self):

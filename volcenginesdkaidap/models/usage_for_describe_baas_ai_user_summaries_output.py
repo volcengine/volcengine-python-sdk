@@ -33,29 +33,60 @@ class UsageForDescribeBaasAIUserSummariesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'last_daily_images': 'int',
         'last_daily_tokens': 'int',
+        'total_images': 'int',
         'total_tokens': 'int'
     }
 
     attribute_map = {
+        'last_daily_images': 'LastDailyImages',
         'last_daily_tokens': 'LastDailyTokens',
+        'total_images': 'TotalImages',
         'total_tokens': 'TotalTokens'
     }
 
-    def __init__(self, last_daily_tokens=None, total_tokens=None, _configuration=None):  # noqa: E501
+    def __init__(self, last_daily_images=None, last_daily_tokens=None, total_images=None, total_tokens=None, _configuration=None):  # noqa: E501
         """UsageForDescribeBaasAIUserSummariesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._last_daily_images = None
         self._last_daily_tokens = None
+        self._total_images = None
         self._total_tokens = None
         self.discriminator = None
 
+        if last_daily_images is not None:
+            self.last_daily_images = last_daily_images
         if last_daily_tokens is not None:
             self.last_daily_tokens = last_daily_tokens
+        if total_images is not None:
+            self.total_images = total_images
         if total_tokens is not None:
             self.total_tokens = total_tokens
+
+    @property
+    def last_daily_images(self):
+        """Gets the last_daily_images of this UsageForDescribeBaasAIUserSummariesOutput.  # noqa: E501
+
+
+        :return: The last_daily_images of this UsageForDescribeBaasAIUserSummariesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_daily_images
+
+    @last_daily_images.setter
+    def last_daily_images(self, last_daily_images):
+        """Sets the last_daily_images of this UsageForDescribeBaasAIUserSummariesOutput.
+
+
+        :param last_daily_images: The last_daily_images of this UsageForDescribeBaasAIUserSummariesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._last_daily_images = last_daily_images
 
     @property
     def last_daily_tokens(self):
@@ -77,6 +108,27 @@ class UsageForDescribeBaasAIUserSummariesOutput(object):
         """
 
         self._last_daily_tokens = last_daily_tokens
+
+    @property
+    def total_images(self):
+        """Gets the total_images of this UsageForDescribeBaasAIUserSummariesOutput.  # noqa: E501
+
+
+        :return: The total_images of this UsageForDescribeBaasAIUserSummariesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_images
+
+    @total_images.setter
+    def total_images(self, total_images):
+        """Sets the total_images of this UsageForDescribeBaasAIUserSummariesOutput.
+
+
+        :param total_images: The total_images of this UsageForDescribeBaasAIUserSummariesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._total_images = total_images
 
     @property
     def total_tokens(self):

@@ -40,10 +40,10 @@ class QuotaInfoListForGetPoolQuotaInfoOutput(object):
     }
 
     attribute_map = {
-        'available_amount': 'availableAmount',
-        'configuration_code': 'configurationCode',
-        'package_name': 'packageName',
-        'total_amount': 'totalAmount'
+        'available_amount': 'AvailableAmount',
+        'configuration_code': 'ConfigurationCode',
+        'package_name': 'PackageName',
+        'total_amount': 'TotalAmount'
     }
 
     def __init__(self, available_amount=None, configuration_code=None, package_name=None, total_amount=None, _configuration=None):  # noqa: E501

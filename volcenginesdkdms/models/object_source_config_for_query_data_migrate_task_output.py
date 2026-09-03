@@ -36,6 +36,8 @@ class ObjectSourceConfigForQueryDataMigrateTaskOutput(object):
         'bucket_access_config': 'BucketAccessConfigForQueryDataMigrateTaskOutput',
         'is_excluded': 'bool',
         'key_list_file': 'str',
+        'list_end_time': 'int',
+        'list_start_time': 'int',
         'prefix_list': 'list[str]',
         'prefix_list_file': 'str',
         'scan_with_delimiter': 'bool',
@@ -46,13 +48,15 @@ class ObjectSourceConfigForQueryDataMigrateTaskOutput(object):
         'bucket_access_config': 'BucketAccessConfig',
         'is_excluded': 'IsExcluded',
         'key_list_file': 'KeyListFile',
+        'list_end_time': 'ListEndTime',
+        'list_start_time': 'ListStartTime',
         'prefix_list': 'PrefixList',
         'prefix_list_file': 'PrefixListFile',
         'scan_with_delimiter': 'ScanWithDelimiter',
         'start_time': 'StartTime'
     }
 
-    def __init__(self, bucket_access_config=None, is_excluded=None, key_list_file=None, prefix_list=None, prefix_list_file=None, scan_with_delimiter=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_access_config=None, is_excluded=None, key_list_file=None, list_end_time=None, list_start_time=None, prefix_list=None, prefix_list_file=None, scan_with_delimiter=None, start_time=None, _configuration=None):  # noqa: E501
         """ObjectSourceConfigForQueryDataMigrateTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +65,8 @@ class ObjectSourceConfigForQueryDataMigrateTaskOutput(object):
         self._bucket_access_config = None
         self._is_excluded = None
         self._key_list_file = None
+        self._list_end_time = None
+        self._list_start_time = None
         self._prefix_list = None
         self._prefix_list_file = None
         self._scan_with_delimiter = None
@@ -73,6 +79,10 @@ class ObjectSourceConfigForQueryDataMigrateTaskOutput(object):
             self.is_excluded = is_excluded
         if key_list_file is not None:
             self.key_list_file = key_list_file
+        if list_end_time is not None:
+            self.list_end_time = list_end_time
+        if list_start_time is not None:
+            self.list_start_time = list_start_time
         if prefix_list is not None:
             self.prefix_list = prefix_list
         if prefix_list_file is not None:
@@ -144,6 +154,48 @@ class ObjectSourceConfigForQueryDataMigrateTaskOutput(object):
         """
 
         self._key_list_file = key_list_file
+
+    @property
+    def list_end_time(self):
+        """Gets the list_end_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+
+
+        :return: The list_end_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._list_end_time
+
+    @list_end_time.setter
+    def list_end_time(self, list_end_time):
+        """Sets the list_end_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.
+
+
+        :param list_end_time: The list_end_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._list_end_time = list_end_time
+
+    @property
+    def list_start_time(self):
+        """Gets the list_start_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+
+
+        :return: The list_start_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._list_start_time
+
+    @list_start_time.setter
+    def list_start_time(self, list_start_time):
+        """Sets the list_start_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.
+
+
+        :param list_start_time: The list_start_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._list_start_time = list_start_time
 
     @property
     def prefix_list(self):

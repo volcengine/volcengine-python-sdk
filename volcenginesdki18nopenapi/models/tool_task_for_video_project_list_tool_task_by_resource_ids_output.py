@@ -34,8 +34,6 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput(object):
     """
     swagger_types = {
         'create_time': 'str',
-        'input_vid': 'str',
-        'output_vid': 'str',
         'project_id': 'str',
         'resource_id': 'str',
         'task_id': 'str',
@@ -51,8 +49,6 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput(object):
 
     attribute_map = {
         'create_time': 'createTime',
-        'input_vid': 'inputVid',
-        'output_vid': 'outputVid',
         'project_id': 'projectId',
         'resource_id': 'resourceId',
         'task_id': 'taskId',
@@ -66,15 +62,13 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput(object):
         'user_id': 'userId'
     }
 
-    def __init__(self, create_time=None, input_vid=None, output_vid=None, project_id=None, resource_id=None, task_id=None, task_params=None, task_result=None, task_status=None, task_type=None, tool_resource=None, tool_task_results=None, update_time=None, user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, project_id=None, resource_id=None, task_id=None, task_params=None, task_result=None, task_status=None, task_type=None, tool_resource=None, tool_task_results=None, update_time=None, user_id=None, _configuration=None):  # noqa: E501
         """ToolTaskForVideoProjectListToolTaskByResourceIDsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._create_time = None
-        self._input_vid = None
-        self._output_vid = None
         self._project_id = None
         self._resource_id = None
         self._task_id = None
@@ -90,10 +84,6 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput(object):
 
         if create_time is not None:
             self.create_time = create_time
-        if input_vid is not None:
-            self.input_vid = input_vid
-        if output_vid is not None:
-            self.output_vid = output_vid
         if project_id is not None:
             self.project_id = project_id
         if resource_id is not None:
@@ -137,48 +127,6 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput(object):
         """
 
         self._create_time = create_time
-
-    @property
-    def input_vid(self):
-        """Gets the input_vid of this ToolTaskForVideoProjectListToolTaskByResourceIDsOutput.  # noqa: E501
-
-
-        :return: The input_vid of this ToolTaskForVideoProjectListToolTaskByResourceIDsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._input_vid
-
-    @input_vid.setter
-    def input_vid(self, input_vid):
-        """Sets the input_vid of this ToolTaskForVideoProjectListToolTaskByResourceIDsOutput.
-
-
-        :param input_vid: The input_vid of this ToolTaskForVideoProjectListToolTaskByResourceIDsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._input_vid = input_vid
-
-    @property
-    def output_vid(self):
-        """Gets the output_vid of this ToolTaskForVideoProjectListToolTaskByResourceIDsOutput.  # noqa: E501
-
-
-        :return: The output_vid of this ToolTaskForVideoProjectListToolTaskByResourceIDsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._output_vid
-
-    @output_vid.setter
-    def output_vid(self, output_vid):
-        """Sets the output_vid of this ToolTaskForVideoProjectListToolTaskByResourceIDsOutput.
-
-
-        :param output_vid: The output_vid of this ToolTaskForVideoProjectListToolTaskByResourceIDsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._output_vid = output_vid
 
     @property
     def project_id(self):

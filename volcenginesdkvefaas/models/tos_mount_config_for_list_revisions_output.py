@@ -35,7 +35,7 @@ class TosMountConfigForListRevisionsOutput(object):
     swagger_types = {
         'credentials': 'CredentialsForListRevisionsOutput',
         'enable_tos': 'bool',
-        'mount_points': 'list[MountPointForListRevisionsOutput]'
+        'mount_points': 'list[ConvertMountPointForListRevisionsOutput]'
     }
 
     attribute_map = {
@@ -110,7 +110,7 @@ class TosMountConfigForListRevisionsOutput(object):
 
 
         :return: The mount_points of this TosMountConfigForListRevisionsOutput.  # noqa: E501
-        :rtype: list[MountPointForListRevisionsOutput]
+        :rtype: list[ConvertMountPointForListRevisionsOutput]
         """
         return self._mount_points
 
@@ -120,7 +120,7 @@ class TosMountConfigForListRevisionsOutput(object):
 
 
         :param mount_points: The mount_points of this TosMountConfigForListRevisionsOutput.  # noqa: E501
-        :type: list[MountPointForListRevisionsOutput]
+        :type: list[ConvertMountPointForListRevisionsOutput]
         """
 
         self._mount_points = mount_points

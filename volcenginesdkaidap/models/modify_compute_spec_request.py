@@ -36,6 +36,7 @@ class ModifyComputeSpecRequest(object):
         'auto_scaling_limit_max_cu': 'float',
         'auto_scaling_limit_min_cu': 'float',
         'compute_id': 'str',
+        'effect_type': 'str',
         'workspace_id': 'str'
     }
 
@@ -43,10 +44,11 @@ class ModifyComputeSpecRequest(object):
         'auto_scaling_limit_max_cu': 'AutoScalingLimitMaxCU',
         'auto_scaling_limit_min_cu': 'AutoScalingLimitMinCU',
         'compute_id': 'ComputeId',
+        'effect_type': 'EffectType',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, compute_id=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling_limit_max_cu=None, auto_scaling_limit_min_cu=None, compute_id=None, effect_type=None, workspace_id=None, _configuration=None):  # noqa: E501
         """ModifyComputeSpecRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,12 +57,15 @@ class ModifyComputeSpecRequest(object):
         self._auto_scaling_limit_max_cu = None
         self._auto_scaling_limit_min_cu = None
         self._compute_id = None
+        self._effect_type = None
         self._workspace_id = None
         self.discriminator = None
 
         self.auto_scaling_limit_max_cu = auto_scaling_limit_max_cu
         self.auto_scaling_limit_min_cu = auto_scaling_limit_min_cu
         self.compute_id = compute_id
+        if effect_type is not None:
+            self.effect_type = effect_type
         self.workspace_id = workspace_id
 
     @property
@@ -131,6 +136,34 @@ class ModifyComputeSpecRequest(object):
             raise ValueError("Invalid value for `compute_id`, must not be `None`")  # noqa: E501
 
         self._compute_id = compute_id
+
+    @property
+    def effect_type(self):
+        """Gets the effect_type of this ModifyComputeSpecRequest.  # noqa: E501
+
+
+        :return: The effect_type of this ModifyComputeSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._effect_type
+
+    @effect_type.setter
+    def effect_type(self, effect_type):
+        """Sets the effect_type of this ModifyComputeSpecRequest.
+
+
+        :param effect_type: The effect_type of this ModifyComputeSpecRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Immediate", "NextWakeUp"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                effect_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `effect_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(effect_type, allowed_values)
+            )
+
+        self._effect_type = effect_type
 
     @property
     def workspace_id(self):

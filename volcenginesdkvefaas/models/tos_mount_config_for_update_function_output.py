@@ -36,7 +36,7 @@ class TosMountConfigForUpdateFunctionOutput(object):
         'auth_mode': 'str',
         'credentials': 'CredentialsForUpdateFunctionOutput',
         'enable_tos': 'bool',
-        'mount_points': 'list[MountPointForUpdateFunctionOutput]'
+        'mount_points': 'list[ConvertMountPointForUpdateFunctionOutput]'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class TosMountConfigForUpdateFunctionOutput(object):
 
 
         :return: The mount_points of this TosMountConfigForUpdateFunctionOutput.  # noqa: E501
-        :rtype: list[MountPointForUpdateFunctionOutput]
+        :rtype: list[ConvertMountPointForUpdateFunctionOutput]
         """
         return self._mount_points
 
@@ -146,7 +146,7 @@ class TosMountConfigForUpdateFunctionOutput(object):
 
 
         :param mount_points: The mount_points of this TosMountConfigForUpdateFunctionOutput.  # noqa: E501
-        :type: list[MountPointForUpdateFunctionOutput]
+        :type: list[ConvertMountPointForUpdateFunctionOutput]
         """
 
         self._mount_points = mount_points

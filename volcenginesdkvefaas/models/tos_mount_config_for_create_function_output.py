@@ -36,7 +36,7 @@ class TosMountConfigForCreateFunctionOutput(object):
         'auth_mode': 'str',
         'credentials': 'CredentialsForCreateFunctionOutput',
         'enable_tos': 'bool',
-        'mount_points': 'list[MountPointForCreateFunctionOutput]'
+        'mount_points': 'list[ConvertMountPointForCreateFunctionOutput]'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class TosMountConfigForCreateFunctionOutput(object):
 
 
         :return: The mount_points of this TosMountConfigForCreateFunctionOutput.  # noqa: E501
-        :rtype: list[MountPointForCreateFunctionOutput]
+        :rtype: list[ConvertMountPointForCreateFunctionOutput]
         """
         return self._mount_points
 
@@ -146,7 +146,7 @@ class TosMountConfigForCreateFunctionOutput(object):
 
 
         :param mount_points: The mount_points of this TosMountConfigForCreateFunctionOutput.  # noqa: E501
-        :type: list[MountPointForCreateFunctionOutput]
+        :type: list[ConvertMountPointForCreateFunctionOutput]
         """
 
         self._mount_points = mount_points

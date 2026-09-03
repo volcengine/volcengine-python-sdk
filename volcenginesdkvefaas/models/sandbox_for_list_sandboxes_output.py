@@ -48,7 +48,6 @@ class SandboxForListSandboxesOutput(object):
         'instance_type': 'str',
         'memory_mb': 'int',
         'metadata': 'dict(str, str)',
-        'network_rules': 'NetworkRulesForListSandboxesOutput',
         'paused_at': 'str',
         'pending': 'bool',
         'revision_number': 'int',
@@ -75,7 +74,6 @@ class SandboxForListSandboxesOutput(object):
         'instance_type': 'InstanceType',
         'memory_mb': 'MemoryMB',
         'metadata': 'Metadata',
-        'network_rules': 'NetworkRules',
         'paused_at': 'PausedAt',
         'pending': 'Pending',
         'revision_number': 'RevisionNumber',
@@ -86,7 +84,7 @@ class SandboxForListSandboxesOutput(object):
         'status': 'Status'
     }
 
-    def __init__(self, assign_status=None, availability_zone=None, cpu_milli=None, created_at=None, ebs_volumes=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image=None, instance_efs_mount_config=None, instance_type=None, memory_mb=None, metadata=None, network_rules=None, paused_at=None, pending=None, revision_number=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, assign_status=None, availability_zone=None, cpu_milli=None, created_at=None, ebs_volumes=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image=None, instance_efs_mount_config=None, instance_type=None, memory_mb=None, metadata=None, paused_at=None, pending=None, revision_number=None, role_chain_trn=None, role_trn=None, session_id=None, sidecars=None, status=None, _configuration=None):  # noqa: E501
         """SandboxForListSandboxesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -107,7 +105,6 @@ class SandboxForListSandboxesOutput(object):
         self._instance_type = None
         self._memory_mb = None
         self._metadata = None
-        self._network_rules = None
         self._paused_at = None
         self._pending = None
         self._revision_number = None
@@ -148,8 +145,6 @@ class SandboxForListSandboxesOutput(object):
             self.memory_mb = memory_mb
         if metadata is not None:
             self.metadata = metadata
-        if network_rules is not None:
-            self.network_rules = network_rules
         if paused_at is not None:
             self.paused_at = paused_at
         if pending is not None:
@@ -481,27 +476,6 @@ class SandboxForListSandboxesOutput(object):
         """
 
         self._metadata = metadata
-
-    @property
-    def network_rules(self):
-        """Gets the network_rules of this SandboxForListSandboxesOutput.  # noqa: E501
-
-
-        :return: The network_rules of this SandboxForListSandboxesOutput.  # noqa: E501
-        :rtype: NetworkRulesForListSandboxesOutput
-        """
-        return self._network_rules
-
-    @network_rules.setter
-    def network_rules(self, network_rules):
-        """Sets the network_rules of this SandboxForListSandboxesOutput.
-
-
-        :param network_rules: The network_rules of this SandboxForListSandboxesOutput.  # noqa: E501
-        :type: NetworkRulesForListSandboxesOutput
-        """
-
-        self._network_rules = network_rules
 
     @property
     def paused_at(self):

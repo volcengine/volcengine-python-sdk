@@ -35,6 +35,7 @@ class VideoProjectTaskListRequest(object):
     swagger_types = {
         'drama_id': 'str',
         'end_time': 'int',
+        'is_expedited': 'str',
         'limit': 'int',
         'offset': 'int',
         'project_id': 'str',
@@ -52,6 +53,7 @@ class VideoProjectTaskListRequest(object):
     attribute_map = {
         'drama_id': 'dramaId',
         'end_time': 'endTime',
+        'is_expedited': 'isExpedited',
         'limit': 'limit',
         'offset': 'offset',
         'project_id': 'projectId',
@@ -66,7 +68,7 @@ class VideoProjectTaskListRequest(object):
         'task_types': 'taskTypes'
     }
 
-    def __init__(self, drama_id=None, end_time=None, limit=None, offset=None, project_id=None, source_languages=None, start_time=None, status=None, subtask_id=None, target_languages=None, task_ids=None, task_name=None, task_type=None, task_types=None, _configuration=None):  # noqa: E501
+    def __init__(self, drama_id=None, end_time=None, is_expedited=None, limit=None, offset=None, project_id=None, source_languages=None, start_time=None, status=None, subtask_id=None, target_languages=None, task_ids=None, task_name=None, task_type=None, task_types=None, _configuration=None):  # noqa: E501
         """VideoProjectTaskListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class VideoProjectTaskListRequest(object):
 
         self._drama_id = None
         self._end_time = None
+        self._is_expedited = None
         self._limit = None
         self._offset = None
         self._project_id = None
@@ -92,6 +95,8 @@ class VideoProjectTaskListRequest(object):
             self.drama_id = drama_id
         if end_time is not None:
             self.end_time = end_time
+        if is_expedited is not None:
+            self.is_expedited = is_expedited
         if limit is not None:
             self.limit = limit
         if offset is not None:
@@ -157,6 +162,27 @@ class VideoProjectTaskListRequest(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def is_expedited(self):
+        """Gets the is_expedited of this VideoProjectTaskListRequest.  # noqa: E501
+
+
+        :return: The is_expedited of this VideoProjectTaskListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._is_expedited
+
+    @is_expedited.setter
+    def is_expedited(self, is_expedited):
+        """Sets the is_expedited of this VideoProjectTaskListRequest.
+
+
+        :param is_expedited: The is_expedited of this VideoProjectTaskListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._is_expedited = is_expedited
 
     @property
     def limit(self):

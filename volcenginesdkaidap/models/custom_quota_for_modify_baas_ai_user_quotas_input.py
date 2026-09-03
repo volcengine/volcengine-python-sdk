@@ -33,24 +33,50 @@ class CustomQuotaForModifyBaasAIUserQuotasInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'daily_image_limit': 'int',
         'daily_token_limit': 'int'
     }
 
     attribute_map = {
+        'daily_image_limit': 'DailyImageLimit',
         'daily_token_limit': 'DailyTokenLimit'
     }
 
-    def __init__(self, daily_token_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, daily_image_limit=None, daily_token_limit=None, _configuration=None):  # noqa: E501
         """CustomQuotaForModifyBaasAIUserQuotasInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._daily_image_limit = None
         self._daily_token_limit = None
         self.discriminator = None
 
+        if daily_image_limit is not None:
+            self.daily_image_limit = daily_image_limit
         if daily_token_limit is not None:
             self.daily_token_limit = daily_token_limit
+
+    @property
+    def daily_image_limit(self):
+        """Gets the daily_image_limit of this CustomQuotaForModifyBaasAIUserQuotasInput.  # noqa: E501
+
+
+        :return: The daily_image_limit of this CustomQuotaForModifyBaasAIUserQuotasInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._daily_image_limit
+
+    @daily_image_limit.setter
+    def daily_image_limit(self, daily_image_limit):
+        """Sets the daily_image_limit of this CustomQuotaForModifyBaasAIUserQuotasInput.
+
+
+        :param daily_image_limit: The daily_image_limit of this CustomQuotaForModifyBaasAIUserQuotasInput.  # noqa: E501
+        :type: int
+        """
+
+        self._daily_image_limit = daily_image_limit
 
     @property
     def daily_token_limit(self):

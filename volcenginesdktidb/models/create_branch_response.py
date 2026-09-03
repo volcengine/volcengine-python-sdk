@@ -33,24 +33,29 @@ class CreateBranchResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'branch_id': 'str'
+        'branch_id': 'str',
+        'cluster_id': 'str'
     }
 
     attribute_map = {
-        'branch_id': 'BranchId'
+        'branch_id': 'BranchId',
+        'cluster_id': 'ClusterId'
     }
 
-    def __init__(self, branch_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, branch_id=None, cluster_id=None, _configuration=None):  # noqa: E501
         """CreateBranchResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._branch_id = None
+        self._cluster_id = None
         self.discriminator = None
 
         if branch_id is not None:
             self.branch_id = branch_id
+        if cluster_id is not None:
+            self.cluster_id = cluster_id
 
     @property
     def branch_id(self):
@@ -72,6 +77,27 @@ class CreateBranchResponse(object):
         """
 
         self._branch_id = branch_id
+
+    @property
+    def cluster_id(self):
+        """Gets the cluster_id of this CreateBranchResponse.  # noqa: E501
+
+
+        :return: The cluster_id of this CreateBranchResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._cluster_id
+
+    @cluster_id.setter
+    def cluster_id(self, cluster_id):
+        """Sets the cluster_id of this CreateBranchResponse.
+
+
+        :param cluster_id: The cluster_id of this CreateBranchResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._cluster_id = cluster_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
