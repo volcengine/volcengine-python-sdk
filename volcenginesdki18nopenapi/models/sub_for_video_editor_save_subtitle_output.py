@@ -34,15 +34,11 @@ class SubForVideoEditorSaveSubtitleOutput(object):
     """
     swagger_types = {
         'ai_voice_id': 'str',
-        'assist_text': 'str',
-        'assist_text_type': 'int',
         'create_time': 'str',
         'effect_type': 'int',
         'emotion_tag': 'str',
         'end_time': 'str',
-        'extra': 'str',
         'operator': 'str',
-        'related_segment_id': 'str',
         'segment_id': 'str',
         'source': 'SourceForVideoEditorSaveSubtitleOutput',
         'source_style': 'str',
@@ -57,15 +53,11 @@ class SubForVideoEditorSaveSubtitleOutput(object):
 
     attribute_map = {
         'ai_voice_id': 'aiVoiceId',
-        'assist_text': 'assistText',
-        'assist_text_type': 'assistTextType',
         'create_time': 'createTime',
         'effect_type': 'effectType',
         'emotion_tag': 'emotionTag',
         'end_time': 'endTime',
-        'extra': 'extra',
         'operator': 'operator',
-        'related_segment_id': 'relatedSegmentId',
         'segment_id': 'segmentId',
         'source': 'source',
         'source_style': 'sourceStyle',
@@ -78,22 +70,18 @@ class SubForVideoEditorSaveSubtitleOutput(object):
         'voice_tos_url': 'voiceTosUrl'
     }
 
-    def __init__(self, ai_voice_id=None, assist_text=None, assist_text_type=None, create_time=None, effect_type=None, emotion_tag=None, end_time=None, extra=None, operator=None, related_segment_id=None, segment_id=None, source=None, source_style=None, speaker_id=None, start_time=None, status=None, target=None, target_style=None, update_time=None, voice_tos_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_voice_id=None, create_time=None, effect_type=None, emotion_tag=None, end_time=None, operator=None, segment_id=None, source=None, source_style=None, speaker_id=None, start_time=None, status=None, target=None, target_style=None, update_time=None, voice_tos_url=None, _configuration=None):  # noqa: E501
         """SubForVideoEditorSaveSubtitleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._ai_voice_id = None
-        self._assist_text = None
-        self._assist_text_type = None
         self._create_time = None
         self._effect_type = None
         self._emotion_tag = None
         self._end_time = None
-        self._extra = None
         self._operator = None
-        self._related_segment_id = None
         self._segment_id = None
         self._source = None
         self._source_style = None
@@ -108,10 +96,6 @@ class SubForVideoEditorSaveSubtitleOutput(object):
 
         if ai_voice_id is not None:
             self.ai_voice_id = ai_voice_id
-        if assist_text is not None:
-            self.assist_text = assist_text
-        if assist_text_type is not None:
-            self.assist_text_type = assist_text_type
         if create_time is not None:
             self.create_time = create_time
         if effect_type is not None:
@@ -120,12 +104,8 @@ class SubForVideoEditorSaveSubtitleOutput(object):
             self.emotion_tag = emotion_tag
         if end_time is not None:
             self.end_time = end_time
-        if extra is not None:
-            self.extra = extra
         if operator is not None:
             self.operator = operator
-        if related_segment_id is not None:
-            self.related_segment_id = related_segment_id
         if segment_id is not None:
             self.segment_id = segment_id
         if source is not None:
@@ -167,48 +147,6 @@ class SubForVideoEditorSaveSubtitleOutput(object):
         """
 
         self._ai_voice_id = ai_voice_id
-
-    @property
-    def assist_text(self):
-        """Gets the assist_text of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-
-
-        :return: The assist_text of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._assist_text
-
-    @assist_text.setter
-    def assist_text(self, assist_text):
-        """Sets the assist_text of this SubForVideoEditorSaveSubtitleOutput.
-
-
-        :param assist_text: The assist_text of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._assist_text = assist_text
-
-    @property
-    def assist_text_type(self):
-        """Gets the assist_text_type of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-
-
-        :return: The assist_text_type of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._assist_text_type
-
-    @assist_text_type.setter
-    def assist_text_type(self, assist_text_type):
-        """Sets the assist_text_type of this SubForVideoEditorSaveSubtitleOutput.
-
-
-        :param assist_text_type: The assist_text_type of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._assist_text_type = assist_text_type
 
     @property
     def create_time(self):
@@ -295,27 +233,6 @@ class SubForVideoEditorSaveSubtitleOutput(object):
         self._end_time = end_time
 
     @property
-    def extra(self):
-        """Gets the extra of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-
-
-        :return: The extra of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._extra
-
-    @extra.setter
-    def extra(self, extra):
-        """Sets the extra of this SubForVideoEditorSaveSubtitleOutput.
-
-
-        :param extra: The extra of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._extra = extra
-
-    @property
     def operator(self):
         """Gets the operator of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
 
@@ -335,27 +252,6 @@ class SubForVideoEditorSaveSubtitleOutput(object):
         """
 
         self._operator = operator
-
-    @property
-    def related_segment_id(self):
-        """Gets the related_segment_id of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-
-
-        :return: The related_segment_id of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._related_segment_id
-
-    @related_segment_id.setter
-    def related_segment_id(self, related_segment_id):
-        """Sets the related_segment_id of this SubForVideoEditorSaveSubtitleOutput.
-
-
-        :param related_segment_id: The related_segment_id of this SubForVideoEditorSaveSubtitleOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._related_segment_id = related_segment_id
 
     @property
     def segment_id(self):
