@@ -191,6 +191,16 @@ def reserve(args):
             )
         selected_names = set(args.name)
         names = [name for name in names if name in selected_names]
+    if args.exclude_name:
+        unknown_names = sorted(set(args.exclude_name) - set(names))
+        if unknown_names:
+            raise RuntimeError(
+                "unknown excluded distribution(s): {}".format(
+                    ", ".join(unknown_names)
+                )
+            )
+        excluded_names = set(args.exclude_name)
+        names = [name for name in names if name not in excluded_names]
     session = requests.Session()
     pending = []
     existing = 0
@@ -274,6 +284,11 @@ def parse_args():
         "--name",
         action="append",
         help="reserve only this exact manifest distribution name (repeatable)",
+    )
+    parser.add_argument(
+        "--exclude-name",
+        action="append",
+        help="skip this exact manifest distribution name (repeatable)",
     )
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--output-dir", default="dist/reserve")
