@@ -36,7 +36,10 @@ class KubeletConfigForListNodePoolsOutput(object):
         'cpu_cfs_quota': 'bool',
         'cpu_manager_policy': 'str',
         'eviction_hard': 'list[EvictionHardForListNodePoolsOutput]',
+        'fail_swap_on': 'bool',
         'feature_gates': 'FeatureGatesForListNodePoolsOutput',
+        'image_gc_high_threshold_percent': 'int',
+        'image_gc_low_threshold_percent': 'int',
         'kube_api_burst': 'int',
         'kube_api_qps': 'int',
         'kube_reserved': 'list[KubeReservedForListNodePoolsOutput]',
@@ -53,7 +56,10 @@ class KubeletConfigForListNodePoolsOutput(object):
         'cpu_cfs_quota': 'CpuCfsQuota',
         'cpu_manager_policy': 'CpuManagerPolicy',
         'eviction_hard': 'EvictionHard',
+        'fail_swap_on': 'FailSwapOn',
         'feature_gates': 'FeatureGates',
+        'image_gc_high_threshold_percent': 'ImageGCHighThresholdPercent',
+        'image_gc_low_threshold_percent': 'ImageGCLowThresholdPercent',
         'kube_api_burst': 'KubeApiBurst',
         'kube_api_qps': 'KubeApiQps',
         'kube_reserved': 'KubeReserved',
@@ -66,7 +72,7 @@ class KubeletConfigForListNodePoolsOutput(object):
         'topology_manager_scope': 'TopologyManagerScope'
     }
 
-    def __init__(self, cpu_cfs_quota=None, cpu_manager_policy=None, eviction_hard=None, feature_gates=None, kube_api_burst=None, kube_api_qps=None, kube_reserved=None, max_pods=None, registry_burst=None, registry_pull_qps=None, serialize_image_pulls=None, system_reserved=None, topology_manager_policy=None, topology_manager_scope=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_cfs_quota=None, cpu_manager_policy=None, eviction_hard=None, fail_swap_on=None, feature_gates=None, image_gc_high_threshold_percent=None, image_gc_low_threshold_percent=None, kube_api_burst=None, kube_api_qps=None, kube_reserved=None, max_pods=None, registry_burst=None, registry_pull_qps=None, serialize_image_pulls=None, system_reserved=None, topology_manager_policy=None, topology_manager_scope=None, _configuration=None):  # noqa: E501
         """KubeletConfigForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,7 +81,10 @@ class KubeletConfigForListNodePoolsOutput(object):
         self._cpu_cfs_quota = None
         self._cpu_manager_policy = None
         self._eviction_hard = None
+        self._fail_swap_on = None
         self._feature_gates = None
+        self._image_gc_high_threshold_percent = None
+        self._image_gc_low_threshold_percent = None
         self._kube_api_burst = None
         self._kube_api_qps = None
         self._kube_reserved = None
@@ -94,8 +103,14 @@ class KubeletConfigForListNodePoolsOutput(object):
             self.cpu_manager_policy = cpu_manager_policy
         if eviction_hard is not None:
             self.eviction_hard = eviction_hard
+        if fail_swap_on is not None:
+            self.fail_swap_on = fail_swap_on
         if feature_gates is not None:
             self.feature_gates = feature_gates
+        if image_gc_high_threshold_percent is not None:
+            self.image_gc_high_threshold_percent = image_gc_high_threshold_percent
+        if image_gc_low_threshold_percent is not None:
+            self.image_gc_low_threshold_percent = image_gc_low_threshold_percent
         if kube_api_burst is not None:
             self.kube_api_burst = kube_api_burst
         if kube_api_qps is not None:
@@ -181,6 +196,27 @@ class KubeletConfigForListNodePoolsOutput(object):
         self._eviction_hard = eviction_hard
 
     @property
+    def fail_swap_on(self):
+        """Gets the fail_swap_on of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The fail_swap_on of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fail_swap_on
+
+    @fail_swap_on.setter
+    def fail_swap_on(self, fail_swap_on):
+        """Sets the fail_swap_on of this KubeletConfigForListNodePoolsOutput.
+
+
+        :param fail_swap_on: The fail_swap_on of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._fail_swap_on = fail_swap_on
+
+    @property
     def feature_gates(self):
         """Gets the feature_gates of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
 
@@ -200,6 +236,48 @@ class KubeletConfigForListNodePoolsOutput(object):
         """
 
         self._feature_gates = feature_gates
+
+    @property
+    def image_gc_high_threshold_percent(self):
+        """Gets the image_gc_high_threshold_percent of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The image_gc_high_threshold_percent of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._image_gc_high_threshold_percent
+
+    @image_gc_high_threshold_percent.setter
+    def image_gc_high_threshold_percent(self, image_gc_high_threshold_percent):
+        """Sets the image_gc_high_threshold_percent of this KubeletConfigForListNodePoolsOutput.
+
+
+        :param image_gc_high_threshold_percent: The image_gc_high_threshold_percent of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._image_gc_high_threshold_percent = image_gc_high_threshold_percent
+
+    @property
+    def image_gc_low_threshold_percent(self):
+        """Gets the image_gc_low_threshold_percent of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The image_gc_low_threshold_percent of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._image_gc_low_threshold_percent
+
+    @image_gc_low_threshold_percent.setter
+    def image_gc_low_threshold_percent(self, image_gc_low_threshold_percent):
+        """Sets the image_gc_low_threshold_percent of this KubeletConfigForListNodePoolsOutput.
+
+
+        :param image_gc_low_threshold_percent: The image_gc_low_threshold_percent of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._image_gc_low_threshold_percent = image_gc_low_threshold_percent
 
     @property
     def kube_api_burst(self):
