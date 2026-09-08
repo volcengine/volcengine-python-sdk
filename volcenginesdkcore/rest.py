@@ -146,6 +146,11 @@ class RESTClientObject(object):
         )
 
         if proxy_url:
+            # urllib3 (v2) does not forward the ``user:password@`` embedded in
+            # the proxy URL as a Proxy-Authorization header, unlike Go's
+            # http.ProxyURL. Extract it explicitly so proxies requiring Basic
+            # auth work the same way across SDKs.
+            proxy_headers = self.__proxy_authorization_headers(proxy_url)
             self.pool_manager = urllib3.ProxyManager(
                 num_pools=pools_size,
                 maxsize=maxsize,
@@ -154,6 +159,7 @@ class RESTClientObject(object):
                 cert_file=configuration.cert_file,
                 key_file=configuration.key_file,
                 proxy_url=proxy_url,
+                proxy_headers=proxy_headers,
                 timeout=timeout,
                 retries=Retry(total=False),
                 **addition_pool_args
@@ -189,6 +195,27 @@ class RESTClientObject(object):
                 elif os.getenv('https_proxy'):
                     proxy_url = os.getenv('https_proxy')
         return proxy_url
+
+    @staticmethod
+    def __proxy_authorization_headers(proxy_url):
+        """Build proxy_headers carrying Proxy-Authorization, or None.
+
+        Returns a dict ``{'Proxy-Authorization': 'Basic ...'}`` when the proxy
+        URL embeds a ``user:password@`` userinfo, otherwise None (so urllib3
+        keeps its default empty proxy headers). Never raises: a malformed proxy
+        URL simply yields no auth header and lets the connection attempt (and
+        its clearer downstream error) proceed.
+        """
+        try:
+            from volcenginesdkcore.auth.sts_http_config import (
+                build_proxy_authorization_header,
+            )
+            value = build_proxy_authorization_header(proxy_url)
+        except Exception:
+            return None
+        if not value:
+            return None
+        return {"Proxy-Authorization": value}
 
     def request(self, method, url, query_params=None, headers=None,
                 body=None, post_params=None, _preload_content=True,

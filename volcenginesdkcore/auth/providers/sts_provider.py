@@ -20,7 +20,8 @@ class AssumeRoleCredentials:
 class StsCredentialProvider(Provider):
     def __init__(self, ak, sk, role_name, account_id, duration_seconds=3600, scheme='https',
                  host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60, policy=None,
-                 max_retries=3, retry_interval=1):
+                 max_retries=3, retry_interval=1,
+                 proxy_url=None, ca_file=None, insecure_skip_verify=False):
         self.ak = ak
         self.sk = sk
         self.role_name = role_name
@@ -36,6 +37,14 @@ class StsCredentialProvider(Provider):
         self.scheme = scheme
         self.policy = policy
         self.expired_time = None
+
+        # Proxy / TLS customization for reaching the STS endpoint. All optional;
+        # empty by default so RESTClientObject keeps its normal behavior
+        # (including HTTP_PROXY / HTTPS_PROXY env-var fallback).
+        self.proxy_url = proxy_url or None
+        self.ca_file = ca_file or None
+        self.insecure_skip_verify = bool(insecure_skip_verify)
+
         if expired_buffer_seconds > 600:
             raise ValueError('expired_buffer_seconds must be less than or equal to 600')
         self.expired_buffer_seconds = expired_buffer_seconds
@@ -75,6 +84,15 @@ class StsCredentialProvider(Provider):
         configuration.region = self.region
         configuration.scheme = self.scheme
         configuration.read_timeout = self.timeout
+
+        # Proxy / TLS customization for reaching the STS endpoint. Only applied
+        # when the caller opted in; otherwise the configuration keeps its
+        # default proxy/TLS settings (including HTTP_PROXY / HTTPS_PROXY
+        # env-var fallback in RESTClientObject).
+        from volcenginesdkcore.auth.sts_http_config import StsHttpConfig
+        StsHttpConfig(
+            self.proxy_url, self.ca_file, self.insecure_skip_verify
+        ).apply_to_configuration(configuration)
 
         # Retry: apply provider-level retry semantics to this STS call only.
         # Provider semantics: max_retries = TOTAL attempts. Configuration

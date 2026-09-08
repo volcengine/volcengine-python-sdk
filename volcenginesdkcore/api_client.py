@@ -417,7 +417,8 @@ class ApiClient(object):
                   host=None, scheme='https', region='cn-beijing',
                   timeout=30, service='sts',
                   max_retries=3, retry_interval=1,
-                  provider_name="ApiClient"):
+                  provider_name="ApiClient",
+                  proxy_url=None, ca_file=None, insecure_skip_verify=False):
         """Invoke an STS federation endpoint (AssumeRoleWithOIDC / AssumeRoleWithSAML / etc.)
         through the SDK's main REST stack while explicitly disabling signing.
 
@@ -482,6 +483,13 @@ class ApiClient(object):
         fresh.backoff_strategy = ExponentialWithRandomJitterBackoffStrategy()
         fresh.min_retry_delay_ms = delay_ms
         fresh.max_retry_delay_ms = delay_ms
+
+        # Proxy / TLS customization for reaching the STS endpoint. Only applied
+        # when the caller opted in (any of the three set); otherwise the fresh
+        # Configuration keeps its inherited proxy/TLS settings (including
+        # HTTP_PROXY / HTTPS_PROXY env-var fallback in RESTClientObject).
+        from volcenginesdkcore.auth.sts_http_config import StsHttpConfig
+        StsHttpConfig(proxy_url, ca_file, insecure_skip_verify).apply_to_configuration(fresh)
 
         # NOTE: NEW ApiClient(fresh), not self — avoids re-entering caller's provider chain.
         client = ApiClient(fresh)

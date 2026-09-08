@@ -153,7 +153,10 @@ if __name__ == '__main__':
         region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-beijing
         timeout=30,  # 非必填，请求超时时间，默认30秒
         expired_buffer_seconds=60, #非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
-        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' # 非必填，授权策略，默认为空
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}', # 非必填，授权策略，默认为空
+        proxy_url="http://user:pass@10.0.0.1:8080",  # 非必填，访问 STS 的正向代理；留空回退 HTTP_PROXY/HTTPS_PROXY 环境变量
+        ca_file="/path/to/ca.pem",                   # 非必填，自定义 CA（PEM）校验 STS 证书；留空用系统根证书
+        insecure_skip_verify=False,                  # 非必填，传 True 才会跳过 STS TLS 校验（默认 False），仅联调，生产禁用
     )
 
     # set default configuration
@@ -234,6 +237,9 @@ if __name__ == '__main__':
         policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}', # 非必填，授权策略，默认为空
         max_retries=3,     # 非必填，HTTP 重试次数（最小 1），默认 3
         retry_interval=1,  # 非必填，重试间隔秒数，默认 1
+        proxy_url="http://user:pass@10.0.0.1:8080",  # 非必填，访问 STS 的正向代理；留空回退 HTTP_PROXY/HTTPS_PROXY 环境变量
+        ca_file="/path/to/ca.pem",                   # 非必填，自定义 CA（PEM）校验 STS 证书；留空用系统根证书
+        insecure_skip_verify=False,                  # 非必填，传 True 才会跳过 STS TLS 校验（默认 False），仅联调，生产禁用
     )
 
     # set default configuration
@@ -254,6 +260,8 @@ if __name__ == '__main__':
         pass
 
 ```
+
+> 代理与 TLS 三参数（`proxy_url` / `ca_file` / `insecure_skip_verify`）的完整说明见 [代理与 TLS 配置](4-Proxy-zh.md)。
 
 **环境变量回退用法示例：**
 
@@ -331,6 +339,9 @@ if __name__ == '__main__':
         policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}', # 非必填，授权策略，默认为空
         max_retries=3,     # 非必填，HTTP 重试次数（最小 1），默认 3
         retry_interval=1,  # 非必填，重试间隔秒数，默认 1
+        proxy_url="http://user:pass@10.0.0.1:8080",  # 非必填，访问 STS 的正向代理；留空回退 HTTP_PROXY/HTTPS_PROXY 环境变量
+        ca_file="/path/to/ca.pem",                   # 非必填，自定义 CA（PEM）校验 STS 证书；留空用系统根证书
+        insecure_skip_verify=False,                  # 非必填，传 True 才会跳过 STS TLS 校验（默认 False），仅联调，生产禁用
     )
 
     # set default configuration
@@ -351,6 +362,8 @@ if __name__ == '__main__':
         pass
 
 ```
+
+> 代理与 TLS 三参数（`proxy_url` / `ca_file` / `insecure_skip_verify`）的完整说明见 [代理与 TLS 配置](4-Proxy-zh.md)。
 
 ### 环境变量凭证 Provider
 
