@@ -33,7 +33,7 @@ class PublicEndpointForGetClusterDetailsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'authorized_networks': 'list[AuthorizedNetworkForGetClusterDetailsOutput]',
+        'authorized_networks': 'list[ConvertAuthorizedNetworkForGetClusterDetailsOutput]',
         'disabled': 'bool',
         'host': 'str',
         'port': 'int'
@@ -73,7 +73,7 @@ class PublicEndpointForGetClusterDetailsOutput(object):
 
 
         :return: The authorized_networks of this PublicEndpointForGetClusterDetailsOutput.  # noqa: E501
-        :rtype: list[AuthorizedNetworkForGetClusterDetailsOutput]
+        :rtype: list[ConvertAuthorizedNetworkForGetClusterDetailsOutput]
         """
         return self._authorized_networks
 
@@ -83,7 +83,7 @@ class PublicEndpointForGetClusterDetailsOutput(object):
 
 
         :param authorized_networks: The authorized_networks of this PublicEndpointForGetClusterDetailsOutput.  # noqa: E501
-        :type: list[AuthorizedNetworkForGetClusterDetailsOutput]
+        :type: list[ConvertAuthorizedNetworkForGetClusterDetailsOutput]
         """
 
         self._authorized_networks = authorized_networks

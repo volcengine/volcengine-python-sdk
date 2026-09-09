@@ -33,7 +33,7 @@ class PublicEndpointForUpdateClusterInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'authorized_networks': 'list[AuthorizedNetworkForUpdateClusterInput]',
+        'authorized_networks': 'list[ConvertAuthorizedNetworkForUpdateClusterInput]',
         'disabled': 'bool',
         'host': 'str',
         'port': 'int'
@@ -73,7 +73,7 @@ class PublicEndpointForUpdateClusterInput(object):
 
 
         :return: The authorized_networks of this PublicEndpointForUpdateClusterInput.  # noqa: E501
-        :rtype: list[AuthorizedNetworkForUpdateClusterInput]
+        :rtype: list[ConvertAuthorizedNetworkForUpdateClusterInput]
         """
         return self._authorized_networks
 
@@ -83,7 +83,7 @@ class PublicEndpointForUpdateClusterInput(object):
 
 
         :param authorized_networks: The authorized_networks of this PublicEndpointForUpdateClusterInput.  # noqa: E501
-        :type: list[AuthorizedNetworkForUpdateClusterInput]
+        :type: list[ConvertAuthorizedNetworkForUpdateClusterInput]
         """
 
         self._authorized_networks = authorized_networks
