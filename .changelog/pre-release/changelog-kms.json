@@ -1,0 +1,8 @@
+{
+  "actions": [
+    "DeriveSharedSecret"
+  ],
+  "description": "KMS: 新增 DeriveSharedSecret",
+  "modules": "service/kms",
+  "type": "feature"
+}
