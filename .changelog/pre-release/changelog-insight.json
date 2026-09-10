@@ -1,0 +1,8 @@
+{
+  "actions": [
+    "PullPost"
+  ],
+  "description": "INSIGHT: 修改 PullPost",
+  "modules": "service/insight",
+  "type": "breaking-change"
+}

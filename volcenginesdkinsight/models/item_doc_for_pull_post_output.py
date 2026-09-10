@@ -37,10 +37,12 @@ class ItemDocForPullPostOutput(object):
         'content': 'str',
         'cover_url': 'str',
         'dedup_id': 'str',
-        'doc_status': 'str',
+        'doc_status': 'int',
         'emotion': 'str',
         'fans_count': 'int',
         'is_follow': 'bool',
+        'keywords': 'list[str]',
+        'level_name': 'str',
         'main_domain': 'str',
         'media_name': 'str',
         'media_uid': 'str',
@@ -53,6 +55,7 @@ class ItemDocForPullPostOutput(object):
         'summary': 'str',
         'title': 'str',
         'url': 'str',
+        'warn_level': 'int',
         'locations': 'list[LocationForPullPostOutput]'
     }
 
@@ -65,6 +68,8 @@ class ItemDocForPullPostOutput(object):
         'emotion': 'Emotion',
         'fans_count': 'FansCount',
         'is_follow': 'IsFollow',
+        'keywords': 'Keywords',
+        'level_name': 'LevelName',
         'main_domain': 'MainDomain',
         'media_name': 'MediaName',
         'media_uid': 'MediaUid',
@@ -77,10 +82,11 @@ class ItemDocForPullPostOutput(object):
         'summary': 'Summary',
         'title': 'Title',
         'url': 'Url',
+        'warn_level': 'WarnLevel',
         'locations': 'locations'
     }
 
-    def __init__(self, asr=None, content=None, cover_url=None, dedup_id=None, doc_status=None, emotion=None, fans_count=None, is_follow=None, main_domain=None, media_name=None, media_uid=None, ocr=None, ocr_high=None, post_id=None, publish_time=None, reason=None, risk_type=None, summary=None, title=None, url=None, locations=None, _configuration=None):  # noqa: E501
+    def __init__(self, asr=None, content=None, cover_url=None, dedup_id=None, doc_status=None, emotion=None, fans_count=None, is_follow=None, keywords=None, level_name=None, main_domain=None, media_name=None, media_uid=None, ocr=None, ocr_high=None, post_id=None, publish_time=None, reason=None, risk_type=None, summary=None, title=None, url=None, warn_level=None, locations=None, _configuration=None):  # noqa: E501
         """ItemDocForPullPostOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,6 +100,8 @@ class ItemDocForPullPostOutput(object):
         self._emotion = None
         self._fans_count = None
         self._is_follow = None
+        self._keywords = None
+        self._level_name = None
         self._main_domain = None
         self._media_name = None
         self._media_uid = None
@@ -106,6 +114,7 @@ class ItemDocForPullPostOutput(object):
         self._summary = None
         self._title = None
         self._url = None
+        self._warn_level = None
         self._locations = None
         self.discriminator = None
 
@@ -125,6 +134,10 @@ class ItemDocForPullPostOutput(object):
             self.fans_count = fans_count
         if is_follow is not None:
             self.is_follow = is_follow
+        if keywords is not None:
+            self.keywords = keywords
+        if level_name is not None:
+            self.level_name = level_name
         if main_domain is not None:
             self.main_domain = main_domain
         if media_name is not None:
@@ -149,6 +162,8 @@ class ItemDocForPullPostOutput(object):
             self.title = title
         if url is not None:
             self.url = url
+        if warn_level is not None:
+            self.warn_level = warn_level
         if locations is not None:
             self.locations = locations
 
@@ -242,7 +257,7 @@ class ItemDocForPullPostOutput(object):
 
 
         :return: The doc_status of this ItemDocForPullPostOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._doc_status
 
@@ -252,7 +267,7 @@ class ItemDocForPullPostOutput(object):
 
 
         :param doc_status: The doc_status of this ItemDocForPullPostOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._doc_status = doc_status
@@ -319,6 +334,48 @@ class ItemDocForPullPostOutput(object):
         """
 
         self._is_follow = is_follow
+
+    @property
+    def keywords(self):
+        """Gets the keywords of this ItemDocForPullPostOutput.  # noqa: E501
+
+
+        :return: The keywords of this ItemDocForPullPostOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._keywords
+
+    @keywords.setter
+    def keywords(self, keywords):
+        """Sets the keywords of this ItemDocForPullPostOutput.
+
+
+        :param keywords: The keywords of this ItemDocForPullPostOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._keywords = keywords
+
+    @property
+    def level_name(self):
+        """Gets the level_name of this ItemDocForPullPostOutput.  # noqa: E501
+
+
+        :return: The level_name of this ItemDocForPullPostOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._level_name
+
+    @level_name.setter
+    def level_name(self, level_name):
+        """Sets the level_name of this ItemDocForPullPostOutput.
+
+
+        :param level_name: The level_name of this ItemDocForPullPostOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._level_name = level_name
 
     @property
     def main_domain(self):
@@ -571,6 +628,27 @@ class ItemDocForPullPostOutput(object):
         """
 
         self._url = url
+
+    @property
+    def warn_level(self):
+        """Gets the warn_level of this ItemDocForPullPostOutput.  # noqa: E501
+
+
+        :return: The warn_level of this ItemDocForPullPostOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._warn_level
+
+    @warn_level.setter
+    def warn_level(self, warn_level):
+        """Sets the warn_level of this ItemDocForPullPostOutput.
+
+
+        :param warn_level: The warn_level of this ItemDocForPullPostOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._warn_level = warn_level
 
     @property
     def locations(self):
