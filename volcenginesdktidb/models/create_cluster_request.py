@@ -40,6 +40,7 @@ class CreateClusterRequest(object):
         'project_name': 'str',
         'region_id': 'str',
         'service_plan': 'str',
+        'tags': 'list[TagForCreateClusterInput]',
         'vpc_id': 'str',
         'zones': 'list[ZoneForCreateClusterInput]'
     }
@@ -52,11 +53,12 @@ class CreateClusterRequest(object):
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'service_plan': 'ServicePlan',
+        'tags': 'Tags',
         'vpc_id': 'VpcId',
         'zones': 'Zones'
     }
 
-    def __init__(self, auto_scaling=None, display_name=None, encryption_config=None, high_availability_type=None, project_name=None, region_id=None, service_plan=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, display_name=None, encryption_config=None, high_availability_type=None, project_name=None, region_id=None, service_plan=None, tags=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
         """CreateClusterRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class CreateClusterRequest(object):
         self._project_name = None
         self._region_id = None
         self._service_plan = None
+        self._tags = None
         self._vpc_id = None
         self._zones = None
         self.discriminator = None
@@ -87,6 +90,8 @@ class CreateClusterRequest(object):
             self.region_id = region_id
         if service_plan is not None:
             self.service_plan = service_plan
+        if tags is not None:
+            self.tags = tags
         self.vpc_id = vpc_id
         if zones is not None:
             self.zones = zones
@@ -251,6 +256,27 @@ class CreateClusterRequest(object):
             )
 
         self._service_plan = service_plan
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateClusterRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateClusterRequest.  # noqa: E501
+        :rtype: list[TagForCreateClusterInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateClusterRequest.
+
+
+        :param tags: The tags of this CreateClusterRequest.  # noqa: E501
+        :type: list[TagForCreateClusterInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):

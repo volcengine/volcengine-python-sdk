@@ -39,7 +39,8 @@ class BackupForListBackupsOutput(object):
         'create_time': 'str',
         'expire_time': 'str',
         'name': 'str',
-        'state': 'str'
+        'state': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class BackupForListBackupsOutput(object):
         'create_time': 'CreateTime',
         'expire_time': 'ExpireTime',
         'name': 'Name',
-        'state': 'State'
+        'state': 'State',
+        'type': 'Type'
     }
 
-    def __init__(self, backup_id=None, backup_time=None, cluster_id=None, create_time=None, expire_time=None, name=None, state=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_id=None, backup_time=None, cluster_id=None, create_time=None, expire_time=None, name=None, state=None, type=None, _configuration=None):  # noqa: E501
         """BackupForListBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class BackupForListBackupsOutput(object):
         self._expire_time = None
         self._name = None
         self._state = None
+        self._type = None
         self.discriminator = None
 
         if backup_id is not None:
@@ -81,6 +84,8 @@ class BackupForListBackupsOutput(object):
             self.name = name
         if state is not None:
             self.state = state
+        if type is not None:
+            self.type = type
 
     @property
     def backup_id(self):
@@ -228,6 +233,27 @@ class BackupForListBackupsOutput(object):
         """
 
         self._state = state
+
+    @property
+    def type(self):
+        """Gets the type of this BackupForListBackupsOutput.  # noqa: E501
+
+
+        :return: The type of this BackupForListBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this BackupForListBackupsOutput.
+
+
+        :param type: The type of this BackupForListBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

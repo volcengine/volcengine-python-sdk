@@ -33,7 +33,7 @@ class ClusterForListClustersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'annotations': 'str',
+        'annotations': 'list[AnnotationForListClustersOutput]',
         'audit_log_config': 'AuditLogConfigForListClustersOutput',
         'auto_scaling': 'AutoScalingForListClustersOutput',
         'automated_backup_policy': 'AutomatedBackupPolicyForListClustersOutput',
@@ -43,13 +43,14 @@ class ClusterForListClustersOutput(object):
         'encryption_config': 'EncryptionConfigForListClustersOutput',
         'endpoints': 'EndpointsForListClustersOutput',
         'high_availability_type': 'str',
-        'labels': 'str',
+        'labels': 'list[LabelForListClustersOutput]',
         'name': 'str',
         'project_name': 'str',
         'region_id': 'str',
         'service_plan': 'str',
         'spending_limit': 'SpendingLimitForListClustersOutput',
         'state': 'str',
+        'tags': 'list[TagForListClustersOutput]',
         'update_time': 'str',
         'user_prefix': 'str',
         'version': 'str',
@@ -75,6 +76,7 @@ class ClusterForListClustersOutput(object):
         'service_plan': 'ServicePlan',
         'spending_limit': 'SpendingLimit',
         'state': 'State',
+        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'user_prefix': 'UserPrefix',
         'version': 'Version',
@@ -82,7 +84,7 @@ class ClusterForListClustersOutput(object):
         'zones': 'Zones'
     }
 
-    def __init__(self, annotations=None, audit_log_config=None, auto_scaling=None, automated_backup_policy=None, cluster_id=None, create_time=None, display_name=None, encryption_config=None, endpoints=None, high_availability_type=None, labels=None, name=None, project_name=None, region_id=None, service_plan=None, spending_limit=None, state=None, update_time=None, user_prefix=None, version=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, annotations=None, audit_log_config=None, auto_scaling=None, automated_backup_policy=None, cluster_id=None, create_time=None, display_name=None, encryption_config=None, endpoints=None, high_availability_type=None, labels=None, name=None, project_name=None, region_id=None, service_plan=None, spending_limit=None, state=None, tags=None, update_time=None, user_prefix=None, version=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
         """ClusterForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -105,6 +107,7 @@ class ClusterForListClustersOutput(object):
         self._service_plan = None
         self._spending_limit = None
         self._state = None
+        self._tags = None
         self._update_time = None
         self._user_prefix = None
         self._version = None
@@ -146,6 +149,8 @@ class ClusterForListClustersOutput(object):
             self.spending_limit = spending_limit
         if state is not None:
             self.state = state
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if user_prefix is not None:
@@ -163,7 +168,7 @@ class ClusterForListClustersOutput(object):
 
 
         :return: The annotations of this ClusterForListClustersOutput.  # noqa: E501
-        :rtype: str
+        :rtype: list[AnnotationForListClustersOutput]
         """
         return self._annotations
 
@@ -173,7 +178,7 @@ class ClusterForListClustersOutput(object):
 
 
         :param annotations: The annotations of this ClusterForListClustersOutput.  # noqa: E501
-        :type: str
+        :type: list[AnnotationForListClustersOutput]
         """
 
         self._annotations = annotations
@@ -373,7 +378,7 @@ class ClusterForListClustersOutput(object):
 
 
         :return: The labels of this ClusterForListClustersOutput.  # noqa: E501
-        :rtype: str
+        :rtype: list[LabelForListClustersOutput]
         """
         return self._labels
 
@@ -383,7 +388,7 @@ class ClusterForListClustersOutput(object):
 
 
         :param labels: The labels of this ClusterForListClustersOutput.  # noqa: E501
-        :type: str
+        :type: list[LabelForListClustersOutput]
         """
 
         self._labels = labels
@@ -513,6 +518,27 @@ class ClusterForListClustersOutput(object):
         """
 
         self._state = state
+
+    @property
+    def tags(self):
+        """Gets the tags of this ClusterForListClustersOutput.  # noqa: E501
+
+
+        :return: The tags of this ClusterForListClustersOutput.  # noqa: E501
+        :rtype: list[TagForListClustersOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ClusterForListClustersOutput.
+
+
+        :param tags: The tags of this ClusterForListClustersOutput.  # noqa: E501
+        :type: list[TagForListClustersOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):
