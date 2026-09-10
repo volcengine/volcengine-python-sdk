@@ -1,0 +1,15 @@
+{
+  "actions": [
+    "ListC2PAInstances",
+    "C2PASign",
+    "C2PAVerify",
+    "DescribeC2PAInstance",
+    "GetC2PAInstance",
+    "CreateLeafInstance",
+    "CreateRootInstance",
+    "CreateSubInstance"
+  ],
+  "description": "PCA: 新增 ListC2PAInstances, C2PASign, C2PAVerify, DescribeC2PAInstance, GetC2PAInstance；修改 CreateLeafInstance, CreateRootInstance, CreateSubInstance",
+  "modules": "service/pca",
+  "type": "breaking-change"
+}
