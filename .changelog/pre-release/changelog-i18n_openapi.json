@@ -1,0 +1,8 @@
+{
+  "actions": [
+    "VideoProjectTaskBatchSetExpedited"
+  ],
+  "description": "I18N_OPENAPI: 修改 VideoProjectTaskBatchSetExpedited",
+  "modules": "service/i18n_openapi",
+  "type": "breaking-change"
+}
