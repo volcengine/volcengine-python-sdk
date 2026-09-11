@@ -54,6 +54,11 @@ class SignRequestInterceptor(RequestInterceptor):
             context.request.credential_provider = provider
 
         if context.request.credential_provider is not None:
+            # When the credential provider (STS/OIDC/SAML) has no explicit
+            # proxy_url, fall back to the business Configuration's proxy so the
+            # credential-fetch request reuses the same proxy as the business
+            # API client. Explicit proxy_url on the provider always wins.
+            self._apply_proxy_fallback(context.request)
             credentials = context.request.credential_provider.get_credentials()
             context.request.ak = credentials.ak
             context.request.sk = credentials.sk
@@ -92,6 +97,50 @@ class SignRequestInterceptor(RequestInterceptor):
             if key.lower() == name.lower() and key != name:
                 del headers[key]
         headers[name] = value
+
+    @staticmethod
+    def _resolve_creds_proxy(request):
+        """Resolve the proxy URL a credential provider should fall back to.
+
+        Mirrors RESTClientObject.__get_proxy so the credential-fetch request
+        shares the same proxy semantics as the business API client:
+          1. request.proxy (Configuration.proxy)
+          2. scheme=http  -> http_proxy  -> env HTTP_PROXY  -> http_proxy
+             scheme=https -> https_proxy -> env HTTPS_PROXY -> https_proxy
+        Returns None when nothing is configured (the provider then keeps its
+        own env-var fallback inside RESTClientObject).
+        """
+        import os
+
+        proxy_url = getattr(request, 'proxy', None)
+        if proxy_url:
+            return proxy_url
+        scheme = getattr(request, 'scheme', None)
+        if scheme == 'http':
+            return getattr(request, 'http_proxy', None) \
+                or os.getenv('HTTP_PROXY') or os.getenv('http_proxy')
+        if scheme == 'https':
+            return getattr(request, 'https_proxy', None) \
+                or os.getenv('HTTPS_PROXY') or os.getenv('https_proxy')
+        return None
+
+    @staticmethod
+    def _apply_proxy_fallback(request):
+        """Inject the resolved proxy into STS/OIDC/SAML providers lacking one.
+
+        Only fills the gap: a provider that already has an explicit proxy_url
+        is left untouched, and a None resolution never overwrites an existing
+        value (so a shared provider is not clobbered).
+        """
+        provider = request.credential_provider
+        # Only the three STS-backed providers expose a proxy_url knob.
+        if not hasattr(provider, 'proxy_url'):
+            return
+        if getattr(provider, 'proxy_url', None):
+            return
+        resolved = SignRequestInterceptor._resolve_creds_proxy(request)
+        if resolved:
+            provider.proxy_url = resolved
 
     @staticmethod
     def update_params_for_auth(host, path, method, headers, querys, auth_settings, body, post_params, service, ak,

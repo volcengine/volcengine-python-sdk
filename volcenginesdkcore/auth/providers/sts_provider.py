@@ -77,9 +77,18 @@ class StsCredentialProvider(Provider):
         }
         if self.policy is not None:
             params['Policy'] = self.policy
-        configuration = type.__call__(Configuration)
+        # Configuration() via the TypeWithDefault metaclass returns a shallow
+        # copy of the user's default configuration, so proxy/TLS settings set
+        # through Configuration.set_default(...) propagate to the AssumeRole
+        # call — consistent with the OIDC/SAML paths (ApiClient._sts_call).
+        configuration = Configuration()
+        # Break recursion: this AssumeRole call signs with the explicit ak/sk
+        # below, so it must NOT re-enter a credential provider (which could be
+        # this very provider via the inherited default configuration).
+        configuration.credential_provider = None
         configuration.ak = self.ak
         configuration.sk = self.sk
+        configuration.session_token = ""
         configuration.host = self.host
         configuration.region = self.region
         configuration.scheme = self.scheme

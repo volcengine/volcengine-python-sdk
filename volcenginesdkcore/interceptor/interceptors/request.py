@@ -57,6 +57,13 @@ class Request(object):
         self.session_token = configuration.session_token
         self.region = configuration.region
         self.scheme = configuration.scheme
+        # Proxy configuration carried from the business Configuration so the
+        # SignRequestInterceptor can fall back to it when an STS/OIDC/SAML
+        # credential provider has no explicit proxy_url. Mirrors the Go SDK's
+        # NewSession transferring Config.HTTPProxy/HTTPSProxy to the provider.
+        self.proxy = configuration.proxy
+        self.http_proxy = configuration.http_proxy
+        self.https_proxy = configuration.https_proxy
         self.endpoint_provider = configuration.endpoint_provider
         self.custom_bootstrap_region = configuration.custom_bootstrap_region
         self.use_dual_stack = configuration.use_dual_stack
