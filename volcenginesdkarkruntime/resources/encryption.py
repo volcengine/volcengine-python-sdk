@@ -162,7 +162,7 @@ def _content_encryption(args, kwargs):
             lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
         )
         info = {"ExpireTime": client.get_cert_expiration_time()}
-        if os.environ.get("VOLC_ARK_ENCRYPTION") == "AICC":
+        if os.environ.get("VOLC_ARK_ENCRYPTION") == "AICC" or extra_headers.get("VOLC_ARK_ENCRYPTION", None) == "true":
             ring_id, key_id = client.get_cert_ring_key_id()
             info["Version"] = "AICCv0.1"
             info["KeyID"] = key_id
