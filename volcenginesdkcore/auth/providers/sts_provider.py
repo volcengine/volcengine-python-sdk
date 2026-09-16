@@ -5,7 +5,7 @@ from datetime import datetime
 
 import dateutil.parser, dateutil.tz
 
-from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
+from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient
 from .provider import Provider, CredentialValue
 
 class AssumeRoleCredentials:
@@ -77,11 +77,10 @@ class StsCredentialProvider(Provider):
         }
         if self.policy is not None:
             params['Policy'] = self.policy
-        # Configuration() via the TypeWithDefault metaclass returns a shallow
-        # copy of the user's default configuration, so proxy/TLS settings set
-        # through Configuration.set_default(...) propagate to the AssumeRole
-        # call — consistent with the OIDC/SAML paths (ApiClient._sts_call).
-        configuration = Configuration()
+        # Bound clients retain the default STS transport settings from binding.
+        # Direct provider use still inherits the current default configuration.
+        from volcenginesdkcore.auth.provider_binding import new_sts_configuration
+        configuration = new_sts_configuration(self)
         # Break recursion: this AssumeRole call signs with the explicit ak/sk
         # below, so it must NOT re-enter a credential provider (which could be
         # this very provider via the inherited default configuration).
@@ -100,7 +99,8 @@ class StsCredentialProvider(Provider):
         # env-var fallback in RESTClientObject).
         from volcenginesdkcore.auth.sts_http_config import StsHttpConfig
         StsHttpConfig(
-            self.proxy_url, self.ca_file, self.insecure_skip_verify
+            self.proxy_url or getattr(self, '_proxy_fallback', None),
+            self.ca_file, self.insecure_skip_verify
         ).apply_to_configuration(configuration)
 
         # Retry: apply provider-level retry semantics to this STS call only.

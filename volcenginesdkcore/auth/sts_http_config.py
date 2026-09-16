@@ -14,9 +14,9 @@ Python SDK already routes every request (including STS federation calls)
 through ``RESTClientObject``, which reads these ``Configuration`` fields
 directly. So the only thing this helper needs to do is set the fields.
 
-Proxy priority matches Go: an explicit ``proxy_url`` wins; when it is empty
-the transport falls back to the standard ``HTTP_PROXY`` / ``HTTPS_PROXY`` /
-``NO_PROXY`` environment variables.
+An explicit provider ``proxy_url`` wins over its client-local fallback.
+When both are empty, the transport retains default configuration and
+``HTTP_PROXY`` / ``HTTPS_PROXY`` lookup; it does not implement ``NO_PROXY``.
 
 TLS priority also matches Go's ``tls.Config``: ``insecure_skip_verify``
 takes precedence over ``ca_file`` (when verification is skipped the custom
@@ -32,7 +32,7 @@ class StsHttpConfig(object):
     """Carries proxy / TLS options for a single STS request path.
 
     :param proxy_url: Forward proxy address, ``scheme://[user:password@]host:port``.
-                      Empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY.
+                      Empty preserves default configuration and environment lookup.
     :param ca_file: Path to a custom CA bundle (PEM) used to verify the STS
                     server certificate. Empty uses the default trust store.
     :param insecure_skip_verify: When True, skip TLS certificate/hostname

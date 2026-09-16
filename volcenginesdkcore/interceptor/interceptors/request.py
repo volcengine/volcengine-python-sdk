@@ -57,10 +57,7 @@ class Request(object):
         self.session_token = configuration.session_token
         self.region = configuration.region
         self.scheme = configuration.scheme
-        # Proxy configuration carried from the business Configuration so the
-        # SignRequestInterceptor can fall back to it when an STS/OIDC/SAML
-        # credential provider has no explicit proxy_url. Mirrors the Go SDK's
-        # NewSession transferring Config.HTTPProxy/HTTPSProxy to the provider.
+        # Business proxy snapshot; credential routing belongs to ApiClient's binding.
         self.proxy = configuration.proxy
         self.http_proxy = configuration.http_proxy
         self.https_proxy = configuration.https_proxy
@@ -71,6 +68,7 @@ class Request(object):
         # ApiClient injects its private base retryer before interception.
         self.auto_retry = configuration.auto_retry
         self.retryer = None
+        # ApiClient replaces this with its persistent binding before signing.
         self.credential_provider = configuration.credential_provider
         self.invocation_id = str(uuid.uuid4())
         self.retry_count = 0

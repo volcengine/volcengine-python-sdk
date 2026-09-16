@@ -2,8 +2,10 @@
 
 from __future__ import absolute_import
 
+import copy
 import datetime
 import logging
+import threading
 import time
 from multiprocessing.pool import ThreadPool
 from time import sleep
@@ -60,6 +62,8 @@ class ApiClient(object):
         if configuration is None:
             configuration = Configuration()
         self.configuration = configuration
+        self._credential_binding_lock = threading.Lock()
+        self.rebind_credential_provider()
         # Use the pool property to lazily initialize the ThreadPool.
         self._pool = None
         self._base_auto_retry = configuration.auto_retry
@@ -107,6 +111,24 @@ class ApiClient(object):
     def set_default_header(self, header_name, header_value):
         self.default_headers[header_name] = header_value
 
+    def rebind_credential_provider(self):
+        """Snapshot the current provider/proxy configuration with a fresh STS cache.
+
+        Call after changing configuration or provider settings. Existing requests
+        retain their binding; concurrent mutation of the source is unsupported.
+        Custom providers retain their identity and no-argument retrieval API.
+        """
+        from volcenginesdkcore.auth.provider_binding import bind_credential_provider
+        with self._credential_binding_lock:
+            self._credential_provider = bind_credential_provider(
+                self.configuration.credential_provider, self.configuration)
+
+    def _create_request(self, *args, **kwargs):
+        provider = self._credential_provider
+        request = Request(self.configuration, *args, **kwargs)
+        request.credential_provider = provider
+        return request
+
     def __call_api(
             self, resource_path, method, path_params=None,
             query_params=None, header_params=None, body=None, post_params=None,
@@ -120,8 +142,7 @@ class ApiClient(object):
         if self.cookie:
             header_params['Cookie'] = self.cookie
 
-        request = Request(
-            self.configuration,
+        request = self._create_request(
             resource_path, method, path_params,
             query_params, header_params, body, post_params,
             files, response_type, auth_settings,
@@ -448,10 +469,8 @@ class ApiClient(object):
         Returns the unwrapped `Result` dict from the STS response. Business
         errors bubble up as `rest.ApiException` (matching master behavior).
         """
-        # Configuration() via the TypeWithDefault metaclass returns a shallow
-        # copy of the user's default configuration, so TLS/proxy/timeout
-        # settings propagate to the STS call.
-        fresh = Configuration()
+        # Preserve the initiating provider's bind-time transport snapshot.
+        fresh = copy.copy(self.configuration)
         # Break recursion on three fronts:
         #   1. credential_provider=None so SignRequestInterceptor won't call
         #      back into the provider via get_credentials().

@@ -149,8 +149,9 @@ class StsSamlCredentialProvider(Provider):
         }
         if self.policy is not None:
             params['Policy'] = self.policy
-        from volcenginesdkcore import ApiClient, Configuration
-        resp_result = ApiClient(Configuration())._sts_call(
+        from volcenginesdkcore import ApiClient
+        from volcenginesdkcore.auth.provider_binding import new_sts_configuration
+        resp_result = ApiClient(new_sts_configuration(self))._sts_call(
             action='AssumeRoleWithSAML',
             version='2018-01-01',
             params=params,
@@ -161,7 +162,7 @@ class StsSamlCredentialProvider(Provider):
             max_retries=self.max_retries,
             retry_interval=self.retry_interval,
             provider_name=self.PROVIDER_NAME,
-            proxy_url=self.proxy_url,
+            proxy_url=self.proxy_url or getattr(self, '_proxy_fallback', None),
             ca_file=self.ca_file,
             insecure_skip_verify=self.insecure_skip_verify,
         )
