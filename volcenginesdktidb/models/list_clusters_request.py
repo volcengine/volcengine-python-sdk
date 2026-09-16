@@ -37,7 +37,8 @@ class ListClustersRequest(object):
         'page_size': 'int',
         'page_token': 'str',
         'project_name': 'str',
-        'skip': 'int'
+        'skip': 'int',
+        'tag_filters': 'list[TagFilterForListClustersInput]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ListClustersRequest(object):
         'page_size': 'PageSize',
         'page_token': 'PageToken',
         'project_name': 'ProjectName',
-        'skip': 'Skip'
+        'skip': 'Skip',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, filter=None, page_size=None, page_token=None, project_name=None, skip=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, page_size=None, page_token=None, project_name=None, skip=None, tag_filters=None, _configuration=None):  # noqa: E501
         """ListClustersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ListClustersRequest(object):
         self._page_token = None
         self._project_name = None
         self._skip = None
+        self._tag_filters = None
         self.discriminator = None
 
         if filter is not None:
@@ -71,6 +74,8 @@ class ListClustersRequest(object):
             self.project_name = project_name
         if skip is not None:
             self.skip = skip
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def filter(self):
@@ -176,6 +181,27 @@ class ListClustersRequest(object):
         """
 
         self._skip = skip
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this ListClustersRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this ListClustersRequest.  # noqa: E501
+        :rtype: list[TagFilterForListClustersInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this ListClustersRequest.
+
+
+        :param tag_filters: The tag_filters of this ListClustersRequest.  # noqa: E501
+        :type: list[TagFilterForListClustersInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

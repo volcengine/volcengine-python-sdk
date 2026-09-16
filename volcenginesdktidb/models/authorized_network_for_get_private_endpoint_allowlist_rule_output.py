@@ -35,16 +35,18 @@ class AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput(object):
     swagger_types = {
         'display_name': 'str',
         'security_group_count': 'int',
-        'vpc_endpoint_id': 'str'
+        'vpc_endpoint_id': 'str',
+        'vpc_endpoint_name': 'str'
     }
 
     attribute_map = {
         'display_name': 'DisplayName',
         'security_group_count': 'SecurityGroupCount',
-        'vpc_endpoint_id': 'VpcEndpointId'
+        'vpc_endpoint_id': 'VpcEndpointId',
+        'vpc_endpoint_name': 'VpcEndpointName'
     }
 
-    def __init__(self, display_name=None, security_group_count=None, vpc_endpoint_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, display_name=None, security_group_count=None, vpc_endpoint_id=None, vpc_endpoint_name=None, _configuration=None):  # noqa: E501
         """AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput(object):
         self._display_name = None
         self._security_group_count = None
         self._vpc_endpoint_id = None
+        self._vpc_endpoint_name = None
         self.discriminator = None
 
         if display_name is not None:
@@ -61,6 +64,8 @@ class AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput(object):
             self.security_group_count = security_group_count
         if vpc_endpoint_id is not None:
             self.vpc_endpoint_id = vpc_endpoint_id
+        if vpc_endpoint_name is not None:
+            self.vpc_endpoint_name = vpc_endpoint_name
 
     @property
     def display_name(self):
@@ -124,6 +129,27 @@ class AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput(object):
         """
 
         self._vpc_endpoint_id = vpc_endpoint_id
+
+    @property
+    def vpc_endpoint_name(self):
+        """Gets the vpc_endpoint_name of this AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput.  # noqa: E501
+
+
+        :return: The vpc_endpoint_name of this AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_endpoint_name
+
+    @vpc_endpoint_name.setter
+    def vpc_endpoint_name(self, vpc_endpoint_name):
+        """Sets the vpc_endpoint_name of this AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput.
+
+
+        :param vpc_endpoint_name: The vpc_endpoint_name of this AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_endpoint_name = vpc_endpoint_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
