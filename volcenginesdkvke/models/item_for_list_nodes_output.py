@@ -36,6 +36,7 @@ class ItemForListNodesOutput(object):
         'additional_container_storage_enabled': 'bool',
         'affinity_group_id': 'str',
         'cluster_id': 'str',
+        'container_storage_mount_point': 'str',
         'container_storage_path': 'str',
         'create_client_token': 'str',
         'create_time': 'str',
@@ -60,6 +61,7 @@ class ItemForListNodesOutput(object):
         'additional_container_storage_enabled': 'AdditionalContainerStorageEnabled',
         'affinity_group_id': 'AffinityGroupId',
         'cluster_id': 'ClusterId',
+        'container_storage_mount_point': 'ContainerStorageMountPoint',
         'container_storage_path': 'ContainerStoragePath',
         'create_client_token': 'CreateClientToken',
         'create_time': 'CreateTime',
@@ -80,7 +82,7 @@ class ItemForListNodesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, affinity_group_id=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, gpu_driver_version=None, id=None, image_id=None, initialize_script=None, instance_id=None, is_virtual=None, kubernetes_config=None, metadata_name=None, name=None, node_pool_id=None, pre_script=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, affinity_group_id=None, cluster_id=None, container_storage_mount_point=None, container_storage_path=None, create_client_token=None, create_time=None, gpu_driver_version=None, id=None, image_id=None, initialize_script=None, instance_id=None, is_virtual=None, kubernetes_config=None, metadata_name=None, name=None, node_pool_id=None, pre_script=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
         """ItemForListNodesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +91,7 @@ class ItemForListNodesOutput(object):
         self._additional_container_storage_enabled = None
         self._affinity_group_id = None
         self._cluster_id = None
+        self._container_storage_mount_point = None
         self._container_storage_path = None
         self._create_client_token = None
         self._create_time = None
@@ -115,6 +118,8 @@ class ItemForListNodesOutput(object):
             self.affinity_group_id = affinity_group_id
         if cluster_id is not None:
             self.cluster_id = cluster_id
+        if container_storage_mount_point is not None:
+            self.container_storage_mount_point = container_storage_mount_point
         if container_storage_path is not None:
             self.container_storage_path = container_storage_path
         if create_client_token is not None:
@@ -214,6 +219,27 @@ class ItemForListNodesOutput(object):
         """
 
         self._cluster_id = cluster_id
+
+    @property
+    def container_storage_mount_point(self):
+        """Gets the container_storage_mount_point of this ItemForListNodesOutput.  # noqa: E501
+
+
+        :return: The container_storage_mount_point of this ItemForListNodesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._container_storage_mount_point
+
+    @container_storage_mount_point.setter
+    def container_storage_mount_point(self, container_storage_mount_point):
+        """Sets the container_storage_mount_point of this ItemForListNodesOutput.
+
+
+        :param container_storage_mount_point: The container_storage_mount_point of this ItemForListNodesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._container_storage_mount_point = container_storage_mount_point
 
     @property
     def container_storage_path(self):

@@ -34,9 +34,11 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'created_at': 'str',
         'expired_time': 'str',
         'id': 'str',
         'name': 'str',
+        'project_name': 'str',
         'remaining_size': 'int',
         'size': 'int',
         'status': 'str',
@@ -47,9 +49,11 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
 
     attribute_map = {
         'account_id': 'AccountId',
+        'created_at': 'CreatedAt',
         'expired_time': 'ExpiredTime',
         'id': 'Id',
         'name': 'Name',
+        'project_name': 'ProjectName',
         'remaining_size': 'RemainingSize',
         'size': 'Size',
         'status': 'Status',
@@ -58,16 +62,18 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, expired_time=None, id=None, name=None, remaining_size=None, size=None, status=None, take_effect_time=None, type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, created_at=None, expired_time=None, id=None, name=None, project_name=None, remaining_size=None, size=None, status=None, take_effect_time=None, type=None, zone_id=None, _configuration=None):  # noqa: E501
         """RscInfoForDescribeReservedStorageCapacityOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._created_at = None
         self._expired_time = None
         self._id = None
         self._name = None
+        self._project_name = None
         self._remaining_size = None
         self._size = None
         self._status = None
@@ -78,12 +84,16 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
 
         if account_id is not None:
             self.account_id = account_id
+        if created_at is not None:
+            self.created_at = created_at
         if expired_time is not None:
             self.expired_time = expired_time
         if id is not None:
             self.id = id
         if name is not None:
             self.name = name
+        if project_name is not None:
+            self.project_name = project_name
         if remaining_size is not None:
             self.remaining_size = remaining_size
         if size is not None:
@@ -117,6 +127,27 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def created_at(self):
+        """Gets the created_at of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+
+
+        :return: The created_at of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this RscInfoForDescribeReservedStorageCapacityOutput.
+
+
+        :param created_at: The created_at of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._created_at = created_at
 
     @property
     def expired_time(self):
@@ -180,6 +211,27 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
         """
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+
+
+        :return: The project_name of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this RscInfoForDescribeReservedStorageCapacityOutput.
+
+
+        :param project_name: The project_name of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def remaining_size(self):

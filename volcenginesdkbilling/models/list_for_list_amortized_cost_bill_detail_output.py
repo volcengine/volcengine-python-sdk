@@ -59,7 +59,6 @@ class ListForListAmortizedCostBillDetailOutput(object):
         'daily_amortized_coupon_amount': 'str',
         'daily_amortized_discount_bill_amount': 'str',
         'daily_amortized_original_bill_amount': 'str',
-        'daily_amortized_paid_amount': 'str',
         'daily_amortized_payable_amount': 'str',
         'daily_amortized_point_deduct_amount': 'str',
         'daily_amortized_posttax_amount': 'str',
@@ -102,7 +101,6 @@ class ListForListAmortizedCostBillDetailOutput(object):
         'owner_customer_name': 'str',
         'owner_id': 'str',
         'owner_user_name': 'str',
-        'paid_amount': 'str',
         'payable_amount': 'str',
         'payer_customer_name': 'str',
         'payer_id': 'str',
@@ -180,7 +178,6 @@ class ListForListAmortizedCostBillDetailOutput(object):
         'daily_amortized_coupon_amount': 'DailyAmortizedCouponAmount',
         'daily_amortized_discount_bill_amount': 'DailyAmortizedDiscountBillAmount',
         'daily_amortized_original_bill_amount': 'DailyAmortizedOriginalBillAmount',
-        'daily_amortized_paid_amount': 'DailyAmortizedPaidAmount',
         'daily_amortized_payable_amount': 'DailyAmortizedPayableAmount',
         'daily_amortized_point_deduct_amount': 'DailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount': 'DailyAmortizedPosttaxAmount',
@@ -223,7 +220,6 @@ class ListForListAmortizedCostBillDetailOutput(object):
         'owner_customer_name': 'OwnerCustomerName',
         'owner_id': 'OwnerID',
         'owner_user_name': 'OwnerUserName',
-        'paid_amount': 'PaidAmount',
         'payable_amount': 'PayableAmount',
         'payer_customer_name': 'PayerCustomerName',
         'payer_id': 'PayerID',
@@ -274,7 +270,7 @@ class ListForListAmortizedCostBillDetailOutput(object):
         'zone': 'Zone'
     }
 
-    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, charge_item_code=None, config_name=None, configuration_code=None, cost_id=None, count=None, country_area=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_point_deduct_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, discount_info=None, effective_factor=None, element=None, exchange_rate=None, expand_field=None, expense_begin_time=None, expense_end_time=None, factor=None, instance_name=None, instance_no=None, main_contract_number=None, market_price=None, measure_interval=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, point_deduct_amount=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, project_remark=None, real_value=None, region=None, resource_id=None, round_amount=None, saving_plan_deduction_discount_amount=None, saving_plan_deduction_sp_id=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tag_remark=None, tax=None, tax_amount=None, tax_rate=None, trade_time=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, _configuration=None):  # noqa: E501
+    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, charge_item_code=None, config_name=None, configuration_code=None, cost_id=None, count=None, country_area=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_payable_amount=None, daily_amortized_point_deduct_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, discount_info=None, effective_factor=None, element=None, exchange_rate=None, expand_field=None, expense_begin_time=None, expense_end_time=None, factor=None, instance_name=None, instance_no=None, main_contract_number=None, market_price=None, measure_interval=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, point_deduct_amount=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, project_remark=None, real_value=None, region=None, resource_id=None, round_amount=None, saving_plan_deduction_discount_amount=None, saving_plan_deduction_sp_id=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tag_remark=None, tax=None, tax_amount=None, tax_rate=None, trade_time=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, _configuration=None):  # noqa: E501
         """ListForListAmortizedCostBillDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -306,7 +302,6 @@ class ListForListAmortizedCostBillDetailOutput(object):
         self._daily_amortized_coupon_amount = None
         self._daily_amortized_discount_bill_amount = None
         self._daily_amortized_original_bill_amount = None
-        self._daily_amortized_paid_amount = None
         self._daily_amortized_payable_amount = None
         self._daily_amortized_point_deduct_amount = None
         self._daily_amortized_posttax_amount = None
@@ -349,7 +344,6 @@ class ListForListAmortizedCostBillDetailOutput(object):
         self._owner_customer_name = None
         self._owner_id = None
         self._owner_user_name = None
-        self._paid_amount = None
         self._payable_amount = None
         self._payer_customer_name = None
         self._payer_id = None
@@ -452,8 +446,6 @@ class ListForListAmortizedCostBillDetailOutput(object):
             self.daily_amortized_discount_bill_amount = daily_amortized_discount_bill_amount
         if daily_amortized_original_bill_amount is not None:
             self.daily_amortized_original_bill_amount = daily_amortized_original_bill_amount
-        if daily_amortized_paid_amount is not None:
-            self.daily_amortized_paid_amount = daily_amortized_paid_amount
         if daily_amortized_payable_amount is not None:
             self.daily_amortized_payable_amount = daily_amortized_payable_amount
         if daily_amortized_point_deduct_amount is not None:
@@ -538,8 +530,6 @@ class ListForListAmortizedCostBillDetailOutput(object):
             self.owner_id = owner_id
         if owner_user_name is not None:
             self.owner_user_name = owner_user_name
-        if paid_amount is not None:
-            self.paid_amount = paid_amount
         if payable_amount is not None:
             self.payable_amount = payable_amount
         if payer_customer_name is not None:
@@ -1182,27 +1172,6 @@ class ListForListAmortizedCostBillDetailOutput(object):
         """
 
         self._daily_amortized_original_bill_amount = daily_amortized_original_bill_amount
-
-    @property
-    def daily_amortized_paid_amount(self):
-        """Gets the daily_amortized_paid_amount of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
-
-
-        :return: The daily_amortized_paid_amount of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._daily_amortized_paid_amount
-
-    @daily_amortized_paid_amount.setter
-    def daily_amortized_paid_amount(self, daily_amortized_paid_amount):
-        """Sets the daily_amortized_paid_amount of this ListForListAmortizedCostBillDetailOutput.
-
-
-        :param daily_amortized_paid_amount: The daily_amortized_paid_amount of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._daily_amortized_paid_amount = daily_amortized_paid_amount
 
     @property
     def daily_amortized_payable_amount(self):
@@ -2085,27 +2054,6 @@ class ListForListAmortizedCostBillDetailOutput(object):
         """
 
         self._owner_user_name = owner_user_name
-
-    @property
-    def paid_amount(self):
-        """Gets the paid_amount of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
-
-
-        :return: The paid_amount of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._paid_amount
-
-    @paid_amount.setter
-    def paid_amount(self, paid_amount):
-        """Sets the paid_amount of this ListForListAmortizedCostBillDetailOutput.
-
-
-        :param paid_amount: The paid_amount of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._paid_amount = paid_amount
 
     @property
     def payable_amount(self):

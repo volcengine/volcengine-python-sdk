@@ -35,6 +35,7 @@ class FilterForListRegistriesInput(object):
     swagger_types = {
         'names': 'list[str]',
         'projects': 'list[str]',
+        'proxy_cache_enabled': 'bool',
         'statuses': 'list[StatusForListRegistriesInput]',
         'types': 'list[str]'
     }
@@ -42,11 +43,12 @@ class FilterForListRegistriesInput(object):
     attribute_map = {
         'names': 'Names',
         'projects': 'Projects',
+        'proxy_cache_enabled': 'ProxyCacheEnabled',
         'statuses': 'Statuses',
         'types': 'Types'
     }
 
-    def __init__(self, names=None, projects=None, statuses=None, types=None, _configuration=None):  # noqa: E501
+    def __init__(self, names=None, projects=None, proxy_cache_enabled=None, statuses=None, types=None, _configuration=None):  # noqa: E501
         """FilterForListRegistriesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class FilterForListRegistriesInput(object):
 
         self._names = None
         self._projects = None
+        self._proxy_cache_enabled = None
         self._statuses = None
         self._types = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class FilterForListRegistriesInput(object):
             self.names = names
         if projects is not None:
             self.projects = projects
+        if proxy_cache_enabled is not None:
+            self.proxy_cache_enabled = proxy_cache_enabled
         if statuses is not None:
             self.statuses = statuses
         if types is not None:
@@ -108,6 +113,27 @@ class FilterForListRegistriesInput(object):
         """
 
         self._projects = projects
+
+    @property
+    def proxy_cache_enabled(self):
+        """Gets the proxy_cache_enabled of this FilterForListRegistriesInput.  # noqa: E501
+
+
+        :return: The proxy_cache_enabled of this FilterForListRegistriesInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._proxy_cache_enabled
+
+    @proxy_cache_enabled.setter
+    def proxy_cache_enabled(self, proxy_cache_enabled):
+        """Sets the proxy_cache_enabled of this FilterForListRegistriesInput.
+
+
+        :param proxy_cache_enabled: The proxy_cache_enabled of this FilterForListRegistriesInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._proxy_cache_enabled = proxy_cache_enabled
 
     @property
     def statuses(self):

@@ -48,6 +48,7 @@ class ListBillDetailRequest(object):
         'payer_id': 'list[int]',
         'product': 'list[str]',
         'project': 'list[str]',
+        'sales_channel': 'list[str]',
         'tag_kv': 'list[TagKVForListBillDetailInput]',
         'tag_kv_filter_mode': 'int'
     }
@@ -68,11 +69,12 @@ class ListBillDetailRequest(object):
         'payer_id': 'PayerID',
         'product': 'Product',
         'project': 'Project',
+        'sales_channel': 'SalesChannel',
         'tag_kv': 'TagKV',
         'tag_kv_filter_mode': 'TagKVFilterMode'
     }
 
-    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, group_term=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, tag_kv=None, tag_kv_filter_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, group_term=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, sales_channel=None, tag_kv=None, tag_kv_filter_mode=None, _configuration=None):  # noqa: E501
         """ListBillDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class ListBillDetailRequest(object):
         self._payer_id = None
         self._product = None
         self._project = None
+        self._sales_channel = None
         self._tag_kv = None
         self._tag_kv_filter_mode = None
         self.discriminator = None
@@ -125,6 +128,8 @@ class ListBillDetailRequest(object):
             self.product = product
         if project is not None:
             self.project = project
+        if sales_channel is not None:
+            self.sales_channel = sales_channel
         if tag_kv is not None:
             self.tag_kv = tag_kv
         if tag_kv_filter_mode is not None:
@@ -448,6 +453,27 @@ class ListBillDetailRequest(object):
         """
 
         self._project = project
+
+    @property
+    def sales_channel(self):
+        """Gets the sales_channel of this ListBillDetailRequest.  # noqa: E501
+
+
+        :return: The sales_channel of this ListBillDetailRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._sales_channel
+
+    @sales_channel.setter
+    def sales_channel(self, sales_channel):
+        """Sets the sales_channel of this ListBillDetailRequest.
+
+
+        :param sales_channel: The sales_channel of this ListBillDetailRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._sales_channel = sales_channel
 
     @property
     def tag_kv(self):

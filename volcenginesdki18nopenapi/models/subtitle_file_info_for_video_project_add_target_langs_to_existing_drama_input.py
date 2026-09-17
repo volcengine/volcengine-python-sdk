@@ -33,39 +33,96 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'arrangement': 'int',
+        'effect_type': 'int',
         'file_name': 'str',
         'file_type': 'int',
         'file_url': 'str',
+        'subtitle_id': 'str',
         'subtitle_lang': 'int'
     }
 
     attribute_map = {
+        'arrangement': 'arrangement',
+        'effect_type': 'effectType',
         'file_name': 'fileName',
         'file_type': 'fileType',
         'file_url': 'fileUrl',
+        'subtitle_id': 'subtitleId',
         'subtitle_lang': 'subtitleLang'
     }
 
-    def __init__(self, file_name=None, file_type=None, file_url=None, subtitle_lang=None, _configuration=None):  # noqa: E501
+    def __init__(self, arrangement=None, effect_type=None, file_name=None, file_type=None, file_url=None, subtitle_id=None, subtitle_lang=None, _configuration=None):  # noqa: E501
         """SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._arrangement = None
+        self._effect_type = None
         self._file_name = None
         self._file_type = None
         self._file_url = None
+        self._subtitle_id = None
         self._subtitle_lang = None
         self.discriminator = None
 
+        if arrangement is not None:
+            self.arrangement = arrangement
+        if effect_type is not None:
+            self.effect_type = effect_type
         if file_name is not None:
             self.file_name = file_name
         if file_type is not None:
             self.file_type = file_type
         if file_url is not None:
             self.file_url = file_url
+        if subtitle_id is not None:
+            self.subtitle_id = subtitle_id
         if subtitle_lang is not None:
             self.subtitle_lang = subtitle_lang
+
+    @property
+    def arrangement(self):
+        """Gets the arrangement of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+
+
+        :return: The arrangement of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._arrangement
+
+    @arrangement.setter
+    def arrangement(self, arrangement):
+        """Sets the arrangement of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.
+
+
+        :param arrangement: The arrangement of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+        :type: int
+        """
+
+        self._arrangement = arrangement
+
+    @property
+    def effect_type(self):
+        """Gets the effect_type of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+
+
+        :return: The effect_type of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._effect_type
+
+    @effect_type.setter
+    def effect_type(self, effect_type):
+        """Sets the effect_type of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.
+
+
+        :param effect_type: The effect_type of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+        :type: int
+        """
+
+        self._effect_type = effect_type
 
     @property
     def file_name(self):
@@ -129,6 +186,27 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput(object):
         """
 
         self._file_url = file_url
+
+    @property
+    def subtitle_id(self):
+        """Gets the subtitle_id of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+
+
+        :return: The subtitle_id of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._subtitle_id
+
+    @subtitle_id.setter
+    def subtitle_id(self, subtitle_id):
+        """Sets the subtitle_id of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.
+
+
+        :param subtitle_id: The subtitle_id of this SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+        :type: str
+        """
+
+        self._subtitle_id = subtitle_id
 
     @property
     def subtitle_lang(self):

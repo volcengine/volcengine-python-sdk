@@ -38,6 +38,7 @@ class CreateSnapshotRequest(object):
         'project_name': 'str',
         'retention_days': 'int',
         'snapshot_name': 'str',
+        'source': 'SourceForCreateSnapshotInput',
         'tags': 'list[TagForCreateSnapshotInput]',
         'volume_id': 'str'
     }
@@ -48,11 +49,12 @@ class CreateSnapshotRequest(object):
         'project_name': 'ProjectName',
         'retention_days': 'RetentionDays',
         'snapshot_name': 'SnapshotName',
+        'source': 'Source',
         'tags': 'Tags',
         'volume_id': 'VolumeId'
     }
 
-    def __init__(self, client_token=None, description=None, project_name=None, retention_days=None, snapshot_name=None, tags=None, volume_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, project_name=None, retention_days=None, snapshot_name=None, source=None, tags=None, volume_id=None, _configuration=None):  # noqa: E501
         """CreateSnapshotRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class CreateSnapshotRequest(object):
         self._project_name = None
         self._retention_days = None
         self._snapshot_name = None
+        self._source = None
         self._tags = None
         self._volume_id = None
         self.discriminator = None
@@ -76,6 +79,8 @@ class CreateSnapshotRequest(object):
         if retention_days is not None:
             self.retention_days = retention_days
         self.snapshot_name = snapshot_name
+        if source is not None:
+            self.source = source
         if tags is not None:
             self.tags = tags
         self.volume_id = volume_id
@@ -186,6 +191,27 @@ class CreateSnapshotRequest(object):
             raise ValueError("Invalid value for `snapshot_name`, must not be `None`")  # noqa: E501
 
         self._snapshot_name = snapshot_name
+
+    @property
+    def source(self):
+        """Gets the source of this CreateSnapshotRequest.  # noqa: E501
+
+
+        :return: The source of this CreateSnapshotRequest.  # noqa: E501
+        :rtype: SourceForCreateSnapshotInput
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this CreateSnapshotRequest.
+
+
+        :param source: The source of this CreateSnapshotRequest.  # noqa: E501
+        :type: SourceForCreateSnapshotInput
+        """
+
+        self._source = source
 
     @property
     def tags(self):

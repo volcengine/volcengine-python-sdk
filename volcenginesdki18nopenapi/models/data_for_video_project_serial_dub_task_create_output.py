@@ -35,6 +35,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
     swagger_types = {
         'base_resp': 'BaseRespForVideoProjectSerialDubTaskCreateOutput',
         'dub_task_ids': 'list[str]',
+        'effect_subtitle_file_check_reports': 'list[EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput]',
         'subtitle_file_check_reports': 'list[SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput]',
         'task_ids': 'list[str]'
     }
@@ -42,11 +43,12 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
     attribute_map = {
         'base_resp': 'BaseResp',
         'dub_task_ids': 'DubTaskIDs',
+        'effect_subtitle_file_check_reports': 'EffectSubtitleFileCheckReports',
         'subtitle_file_check_reports': 'SubtitleFileCheckReports',
         'task_ids': 'TaskIDs'
     }
 
-    def __init__(self, base_resp=None, dub_task_ids=None, subtitle_file_check_reports=None, task_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, base_resp=None, dub_task_ids=None, effect_subtitle_file_check_reports=None, subtitle_file_check_reports=None, task_ids=None, _configuration=None):  # noqa: E501
         """DataForVideoProjectSerialDubTaskCreateOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
 
         self._base_resp = None
         self._dub_task_ids = None
+        self._effect_subtitle_file_check_reports = None
         self._subtitle_file_check_reports = None
         self._task_ids = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
             self.base_resp = base_resp
         if dub_task_ids is not None:
             self.dub_task_ids = dub_task_ids
+        if effect_subtitle_file_check_reports is not None:
+            self.effect_subtitle_file_check_reports = effect_subtitle_file_check_reports
         if subtitle_file_check_reports is not None:
             self.subtitle_file_check_reports = subtitle_file_check_reports
         if task_ids is not None:
@@ -108,6 +113,27 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
         """
 
         self._dub_task_ids = dub_task_ids
+
+    @property
+    def effect_subtitle_file_check_reports(self):
+        """Gets the effect_subtitle_file_check_reports of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+
+
+        :return: The effect_subtitle_file_check_reports of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+        :rtype: list[EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput]
+        """
+        return self._effect_subtitle_file_check_reports
+
+    @effect_subtitle_file_check_reports.setter
+    def effect_subtitle_file_check_reports(self, effect_subtitle_file_check_reports):
+        """Sets the effect_subtitle_file_check_reports of this DataForVideoProjectSerialDubTaskCreateOutput.
+
+
+        :param effect_subtitle_file_check_reports: The effect_subtitle_file_check_reports of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+        :type: list[EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput]
+        """
+
+        self._effect_subtitle_file_check_reports = effect_subtitle_file_check_reports
 
     @property
     def subtitle_file_check_reports(self):

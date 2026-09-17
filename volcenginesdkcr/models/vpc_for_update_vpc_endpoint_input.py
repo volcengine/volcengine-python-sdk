@@ -35,6 +35,7 @@ class VpcForUpdateVpcEndpointInput(object):
     swagger_types = {
         'account_id': 'int',
         'description': 'str',
+        'region': 'str',
         'subnet_id': 'str',
         'vpc_id': 'str'
     }
@@ -42,11 +43,12 @@ class VpcForUpdateVpcEndpointInput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'description': 'Description',
+        'region': 'Region',
         'subnet_id': 'SubnetId',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, description=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, description=None, region=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """VpcForUpdateVpcEndpointInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class VpcForUpdateVpcEndpointInput(object):
 
         self._account_id = None
         self._description = None
+        self._region = None
         self._subnet_id = None
         self._vpc_id = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class VpcForUpdateVpcEndpointInput(object):
             self.account_id = account_id
         if description is not None:
             self.description = description
+        if region is not None:
+            self.region = region
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if vpc_id is not None:
@@ -111,6 +116,27 @@ class VpcForUpdateVpcEndpointInput(object):
             raise ValueError("Invalid value for `description`, length must be less than or equal to `50`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def region(self):
+        """Gets the region of this VpcForUpdateVpcEndpointInput.  # noqa: E501
+
+
+        :return: The region of this VpcForUpdateVpcEndpointInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._region
+
+    @region.setter
+    def region(self, region):
+        """Sets the region of this VpcForUpdateVpcEndpointInput.
+
+
+        :param region: The region of this VpcForUpdateVpcEndpointInput.  # noqa: E501
+        :type: str
+        """
+
+        self._region = region
 
     @property
     def subnet_id(self):

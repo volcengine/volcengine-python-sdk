@@ -81,10 +81,8 @@ class ListCostAnalysisOpenApiRequest(object):
         self.end_time_str = end_time_str
         if filters is not None:
             self.filters = filters
-        if limit is not None:
-            self.limit = limit
-        if offset is not None:
-            self.offset = offset
+        self.limit = limit
+        self.offset = offset
         self.time_granularity = time_granularity
 
     @property
@@ -239,6 +237,8 @@ class ListCostAnalysisOpenApiRequest(object):
         :param limit: The limit of this ListCostAnalysisOpenApiRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and limit is None:
+            raise ValueError("Invalid value for `limit`, must not be `None`")  # noqa: E501
 
         self._limit = limit
 
@@ -260,6 +260,8 @@ class ListCostAnalysisOpenApiRequest(object):
         :param offset: The offset of this ListCostAnalysisOpenApiRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and offset is None:
+            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
 
         self._offset = offset
 

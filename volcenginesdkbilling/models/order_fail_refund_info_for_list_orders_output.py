@@ -38,7 +38,12 @@ class OrderFailRefundInfoForListOrdersOutput(object):
         'discount_amount': 'str',
         'original_amount': 'str',
         'paid_amount': 'str',
-        'payable_amount': 'str'
+        'payable_amount': 'str',
+        'point_deduct_amount': 'str',
+        'pre_tax_payable_amount': 'str',
+        'settle_payable_amount': 'str',
+        'settle_tax': 'str',
+        'tax': 'str'
     }
 
     attribute_map = {
@@ -47,10 +52,15 @@ class OrderFailRefundInfoForListOrdersOutput(object):
         'discount_amount': 'DiscountAmount',
         'original_amount': 'OriginalAmount',
         'paid_amount': 'PaidAmount',
-        'payable_amount': 'PayableAmount'
+        'payable_amount': 'PayableAmount',
+        'point_deduct_amount': 'PointDeductAmount',
+        'pre_tax_payable_amount': 'PreTaxPayableAmount',
+        'settle_payable_amount': 'SettlePayableAmount',
+        'settle_tax': 'SettleTax',
+        'tax': 'Tax'
     }
 
-    def __init__(self, coupon_amount=None, deduction_count=None, discount_amount=None, original_amount=None, paid_amount=None, payable_amount=None, _configuration=None):  # noqa: E501
+    def __init__(self, coupon_amount=None, deduction_count=None, discount_amount=None, original_amount=None, paid_amount=None, payable_amount=None, point_deduct_amount=None, pre_tax_payable_amount=None, settle_payable_amount=None, settle_tax=None, tax=None, _configuration=None):  # noqa: E501
         """OrderFailRefundInfoForListOrdersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +72,11 @@ class OrderFailRefundInfoForListOrdersOutput(object):
         self._original_amount = None
         self._paid_amount = None
         self._payable_amount = None
+        self._point_deduct_amount = None
+        self._pre_tax_payable_amount = None
+        self._settle_payable_amount = None
+        self._settle_tax = None
+        self._tax = None
         self.discriminator = None
 
         if coupon_amount is not None:
@@ -76,6 +91,16 @@ class OrderFailRefundInfoForListOrdersOutput(object):
             self.paid_amount = paid_amount
         if payable_amount is not None:
             self.payable_amount = payable_amount
+        if point_deduct_amount is not None:
+            self.point_deduct_amount = point_deduct_amount
+        if pre_tax_payable_amount is not None:
+            self.pre_tax_payable_amount = pre_tax_payable_amount
+        if settle_payable_amount is not None:
+            self.settle_payable_amount = settle_payable_amount
+        if settle_tax is not None:
+            self.settle_tax = settle_tax
+        if tax is not None:
+            self.tax = tax
 
     @property
     def coupon_amount(self):
@@ -202,6 +227,111 @@ class OrderFailRefundInfoForListOrdersOutput(object):
         """
 
         self._payable_amount = payable_amount
+
+    @property
+    def point_deduct_amount(self):
+        """Gets the point_deduct_amount of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+
+
+        :return: The point_deduct_amount of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._point_deduct_amount
+
+    @point_deduct_amount.setter
+    def point_deduct_amount(self, point_deduct_amount):
+        """Sets the point_deduct_amount of this OrderFailRefundInfoForListOrdersOutput.
+
+
+        :param point_deduct_amount: The point_deduct_amount of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._point_deduct_amount = point_deduct_amount
+
+    @property
+    def pre_tax_payable_amount(self):
+        """Gets the pre_tax_payable_amount of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+
+
+        :return: The pre_tax_payable_amount of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pre_tax_payable_amount
+
+    @pre_tax_payable_amount.setter
+    def pre_tax_payable_amount(self, pre_tax_payable_amount):
+        """Sets the pre_tax_payable_amount of this OrderFailRefundInfoForListOrdersOutput.
+
+
+        :param pre_tax_payable_amount: The pre_tax_payable_amount of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pre_tax_payable_amount = pre_tax_payable_amount
+
+    @property
+    def settle_payable_amount(self):
+        """Gets the settle_payable_amount of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+
+
+        :return: The settle_payable_amount of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_payable_amount
+
+    @settle_payable_amount.setter
+    def settle_payable_amount(self, settle_payable_amount):
+        """Sets the settle_payable_amount of this OrderFailRefundInfoForListOrdersOutput.
+
+
+        :param settle_payable_amount: The settle_payable_amount of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_payable_amount = settle_payable_amount
+
+    @property
+    def settle_tax(self):
+        """Gets the settle_tax of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+
+
+        :return: The settle_tax of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_tax
+
+    @settle_tax.setter
+    def settle_tax(self, settle_tax):
+        """Sets the settle_tax of this OrderFailRefundInfoForListOrdersOutput.
+
+
+        :param settle_tax: The settle_tax of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_tax = settle_tax
+
+    @property
+    def tax(self):
+        """Gets the tax of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+
+
+        :return: The tax of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tax
+
+    @tax.setter
+    def tax(self, tax):
+        """Sets the tax of this OrderFailRefundInfoForListOrdersOutput.
+
+
+        :param tax: The tax of this OrderFailRefundInfoForListOrdersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tax = tax
 
     def to_dict(self):
         """Returns the model properties as a dict"""

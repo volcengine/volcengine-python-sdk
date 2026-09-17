@@ -33,81 +33,101 @@ class PrivateEndpointForUpdateBranchInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'alicloud': 'AlicloudForUpdateBranchInput',
-        'aws': 'AwsForUpdateBranchInput',
+        'authorized_networks': 'list[AuthorizedNetworkForUpdateBranchInput]',
+        'disabled': 'bool',
         'host': 'str',
-        'port': 'int'
+        'port': 'int',
+        'security_group_count': 'int',
+        'service_name': 'str',
+        'vpc_endpoint_id': 'str',
+        'vpc_endpoint_name': 'str'
     }
 
     attribute_map = {
-        'alicloud': 'Alicloud',
-        'aws': 'Aws',
+        'authorized_networks': 'AuthorizedNetworks',
+        'disabled': 'Disabled',
         'host': 'Host',
-        'port': 'Port'
+        'port': 'Port',
+        'security_group_count': 'SecurityGroupCount',
+        'service_name': 'ServiceName',
+        'vpc_endpoint_id': 'VpcEndpointId',
+        'vpc_endpoint_name': 'VpcEndpointName'
     }
 
-    def __init__(self, alicloud=None, aws=None, host=None, port=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorized_networks=None, disabled=None, host=None, port=None, security_group_count=None, service_name=None, vpc_endpoint_id=None, vpc_endpoint_name=None, _configuration=None):  # noqa: E501
         """PrivateEndpointForUpdateBranchInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._alicloud = None
-        self._aws = None
+        self._authorized_networks = None
+        self._disabled = None
         self._host = None
         self._port = None
+        self._security_group_count = None
+        self._service_name = None
+        self._vpc_endpoint_id = None
+        self._vpc_endpoint_name = None
         self.discriminator = None
 
-        if alicloud is not None:
-            self.alicloud = alicloud
-        if aws is not None:
-            self.aws = aws
+        if authorized_networks is not None:
+            self.authorized_networks = authorized_networks
+        if disabled is not None:
+            self.disabled = disabled
         if host is not None:
             self.host = host
         if port is not None:
             self.port = port
+        if security_group_count is not None:
+            self.security_group_count = security_group_count
+        if service_name is not None:
+            self.service_name = service_name
+        if vpc_endpoint_id is not None:
+            self.vpc_endpoint_id = vpc_endpoint_id
+        if vpc_endpoint_name is not None:
+            self.vpc_endpoint_name = vpc_endpoint_name
 
     @property
-    def alicloud(self):
-        """Gets the alicloud of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+    def authorized_networks(self):
+        """Gets the authorized_networks of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
 
 
-        :return: The alicloud of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
-        :rtype: AlicloudForUpdateBranchInput
+        :return: The authorized_networks of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :rtype: list[AuthorizedNetworkForUpdateBranchInput]
         """
-        return self._alicloud
+        return self._authorized_networks
 
-    @alicloud.setter
-    def alicloud(self, alicloud):
-        """Sets the alicloud of this PrivateEndpointForUpdateBranchInput.
+    @authorized_networks.setter
+    def authorized_networks(self, authorized_networks):
+        """Sets the authorized_networks of this PrivateEndpointForUpdateBranchInput.
 
 
-        :param alicloud: The alicloud of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
-        :type: AlicloudForUpdateBranchInput
+        :param authorized_networks: The authorized_networks of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :type: list[AuthorizedNetworkForUpdateBranchInput]
         """
 
-        self._alicloud = alicloud
+        self._authorized_networks = authorized_networks
 
     @property
-    def aws(self):
-        """Gets the aws of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+    def disabled(self):
+        """Gets the disabled of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
 
 
-        :return: The aws of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
-        :rtype: AwsForUpdateBranchInput
+        :return: The disabled of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :rtype: bool
         """
-        return self._aws
+        return self._disabled
 
-    @aws.setter
-    def aws(self, aws):
-        """Sets the aws of this PrivateEndpointForUpdateBranchInput.
+    @disabled.setter
+    def disabled(self, disabled):
+        """Sets the disabled of this PrivateEndpointForUpdateBranchInput.
 
 
-        :param aws: The aws of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
-        :type: AwsForUpdateBranchInput
+        :param disabled: The disabled of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :type: bool
         """
 
-        self._aws = aws
+        self._disabled = disabled
 
     @property
     def host(self):
@@ -150,6 +170,90 @@ class PrivateEndpointForUpdateBranchInput(object):
         """
 
         self._port = port
+
+    @property
+    def security_group_count(self):
+        """Gets the security_group_count of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+
+
+        :return: The security_group_count of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._security_group_count
+
+    @security_group_count.setter
+    def security_group_count(self, security_group_count):
+        """Sets the security_group_count of this PrivateEndpointForUpdateBranchInput.
+
+
+        :param security_group_count: The security_group_count of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :type: int
+        """
+
+        self._security_group_count = security_group_count
+
+    @property
+    def service_name(self):
+        """Gets the service_name of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+
+
+        :return: The service_name of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_name
+
+    @service_name.setter
+    def service_name(self, service_name):
+        """Sets the service_name of this PrivateEndpointForUpdateBranchInput.
+
+
+        :param service_name: The service_name of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :type: str
+        """
+
+        self._service_name = service_name
+
+    @property
+    def vpc_endpoint_id(self):
+        """Gets the vpc_endpoint_id of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+
+
+        :return: The vpc_endpoint_id of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_endpoint_id
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, vpc_endpoint_id):
+        """Sets the vpc_endpoint_id of this PrivateEndpointForUpdateBranchInput.
+
+
+        :param vpc_endpoint_id: The vpc_endpoint_id of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_endpoint_id = vpc_endpoint_id
+
+    @property
+    def vpc_endpoint_name(self):
+        """Gets the vpc_endpoint_name of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+
+
+        :return: The vpc_endpoint_name of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_endpoint_name
+
+    @vpc_endpoint_name.setter
+    def vpc_endpoint_name(self, vpc_endpoint_name):
+        """Sets the vpc_endpoint_name of this PrivateEndpointForUpdateBranchInput.
+
+
+        :param vpc_endpoint_name: The vpc_endpoint_name of this PrivateEndpointForUpdateBranchInput.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_endpoint_name = vpc_endpoint_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

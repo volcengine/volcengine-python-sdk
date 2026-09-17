@@ -33,24 +33,29 @@ class CreateVolumeResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'volume_id': 'str'
+        'volume_id': 'str',
+        'volume_ids': 'list[str]'
     }
 
     attribute_map = {
-        'volume_id': 'VolumeId'
+        'volume_id': 'VolumeId',
+        'volume_ids': 'VolumeIds'
     }
 
-    def __init__(self, volume_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, volume_id=None, volume_ids=None, _configuration=None):  # noqa: E501
         """CreateVolumeResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._volume_id = None
+        self._volume_ids = None
         self.discriminator = None
 
         if volume_id is not None:
             self.volume_id = volume_id
+        if volume_ids is not None:
+            self.volume_ids = volume_ids
 
     @property
     def volume_id(self):
@@ -72,6 +77,27 @@ class CreateVolumeResponse(object):
         """
 
         self._volume_id = volume_id
+
+    @property
+    def volume_ids(self):
+        """Gets the volume_ids of this CreateVolumeResponse.  # noqa: E501
+
+
+        :return: The volume_ids of this CreateVolumeResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._volume_ids
+
+    @volume_ids.setter
+    def volume_ids(self, volume_ids):
+        """Sets the volume_ids of this CreateVolumeResponse.
+
+
+        :param volume_ids: The volume_ids of this CreateVolumeResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._volume_ids = volume_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,24 +33,81 @@ class ProxyCacheForListRegistriesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'type': 'str'
+        'endpoint': 'str',
+        'skip_ssl_verify': 'bool',
+        'type': 'str',
+        'username': 'str'
     }
 
     attribute_map = {
-        'type': 'Type'
+        'endpoint': 'Endpoint',
+        'skip_ssl_verify': 'SkipSSLVerify',
+        'type': 'Type',
+        'username': 'Username'
     }
 
-    def __init__(self, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, endpoint=None, skip_ssl_verify=None, type=None, username=None, _configuration=None):  # noqa: E501
         """ProxyCacheForListRegistriesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._endpoint = None
+        self._skip_ssl_verify = None
         self._type = None
+        self._username = None
         self.discriminator = None
 
+        if endpoint is not None:
+            self.endpoint = endpoint
+        if skip_ssl_verify is not None:
+            self.skip_ssl_verify = skip_ssl_verify
         if type is not None:
             self.type = type
+        if username is not None:
+            self.username = username
+
+    @property
+    def endpoint(self):
+        """Gets the endpoint of this ProxyCacheForListRegistriesOutput.  # noqa: E501
+
+
+        :return: The endpoint of this ProxyCacheForListRegistriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._endpoint
+
+    @endpoint.setter
+    def endpoint(self, endpoint):
+        """Sets the endpoint of this ProxyCacheForListRegistriesOutput.
+
+
+        :param endpoint: The endpoint of this ProxyCacheForListRegistriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._endpoint = endpoint
+
+    @property
+    def skip_ssl_verify(self):
+        """Gets the skip_ssl_verify of this ProxyCacheForListRegistriesOutput.  # noqa: E501
+
+
+        :return: The skip_ssl_verify of this ProxyCacheForListRegistriesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_ssl_verify
+
+    @skip_ssl_verify.setter
+    def skip_ssl_verify(self, skip_ssl_verify):
+        """Sets the skip_ssl_verify of this ProxyCacheForListRegistriesOutput.
+
+
+        :param skip_ssl_verify: The skip_ssl_verify of this ProxyCacheForListRegistriesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._skip_ssl_verify = skip_ssl_verify
 
     @property
     def type(self):
@@ -72,6 +129,27 @@ class ProxyCacheForListRegistriesOutput(object):
         """
 
         self._type = type
+
+    @property
+    def username(self):
+        """Gets the username of this ProxyCacheForListRegistriesOutput.  # noqa: E501
+
+
+        :return: The username of this ProxyCacheForListRegistriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._username
+
+    @username.setter
+    def username(self, username):
+        """Sets the username of this ProxyCacheForListRegistriesOutput.
+
+
+        :param username: The username of this ProxyCacheForListRegistriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._username = username
 
     def to_dict(self):
         """Returns the model properties as a dict"""

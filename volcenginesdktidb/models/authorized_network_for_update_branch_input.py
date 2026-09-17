@@ -34,33 +34,38 @@ class AuthorizedNetworkForUpdateBranchInput(object):
     """
     swagger_types = {
         'display_name': 'str',
-        'end_ip_address': 'str',
-        'start_ip_address': 'str'
+        'security_group_count': 'int',
+        'vpc_endpoint_id': 'str',
+        'vpc_endpoint_name': 'str'
     }
 
     attribute_map = {
         'display_name': 'DisplayName',
-        'end_ip_address': 'EndIpAddress',
-        'start_ip_address': 'StartIpAddress'
+        'security_group_count': 'SecurityGroupCount',
+        'vpc_endpoint_id': 'VpcEndpointId',
+        'vpc_endpoint_name': 'VpcEndpointName'
     }
 
-    def __init__(self, display_name=None, end_ip_address=None, start_ip_address=None, _configuration=None):  # noqa: E501
+    def __init__(self, display_name=None, security_group_count=None, vpc_endpoint_id=None, vpc_endpoint_name=None, _configuration=None):  # noqa: E501
         """AuthorizedNetworkForUpdateBranchInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._display_name = None
-        self._end_ip_address = None
-        self._start_ip_address = None
+        self._security_group_count = None
+        self._vpc_endpoint_id = None
+        self._vpc_endpoint_name = None
         self.discriminator = None
 
         if display_name is not None:
             self.display_name = display_name
-        if end_ip_address is not None:
-            self.end_ip_address = end_ip_address
-        if start_ip_address is not None:
-            self.start_ip_address = start_ip_address
+        if security_group_count is not None:
+            self.security_group_count = security_group_count
+        if vpc_endpoint_id is not None:
+            self.vpc_endpoint_id = vpc_endpoint_id
+        if vpc_endpoint_name is not None:
+            self.vpc_endpoint_name = vpc_endpoint_name
 
     @property
     def display_name(self):
@@ -84,46 +89,67 @@ class AuthorizedNetworkForUpdateBranchInput(object):
         self._display_name = display_name
 
     @property
-    def end_ip_address(self):
-        """Gets the end_ip_address of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
+    def security_group_count(self):
+        """Gets the security_group_count of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
 
 
-        :return: The end_ip_address of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
-        :rtype: str
+        :return: The security_group_count of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
+        :rtype: int
         """
-        return self._end_ip_address
+        return self._security_group_count
 
-    @end_ip_address.setter
-    def end_ip_address(self, end_ip_address):
-        """Sets the end_ip_address of this AuthorizedNetworkForUpdateBranchInput.
+    @security_group_count.setter
+    def security_group_count(self, security_group_count):
+        """Sets the security_group_count of this AuthorizedNetworkForUpdateBranchInput.
 
 
-        :param end_ip_address: The end_ip_address of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
-        :type: str
+        :param security_group_count: The security_group_count of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
+        :type: int
         """
 
-        self._end_ip_address = end_ip_address
+        self._security_group_count = security_group_count
 
     @property
-    def start_ip_address(self):
-        """Gets the start_ip_address of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
+    def vpc_endpoint_id(self):
+        """Gets the vpc_endpoint_id of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
 
 
-        :return: The start_ip_address of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
+        :return: The vpc_endpoint_id of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
         :rtype: str
         """
-        return self._start_ip_address
+        return self._vpc_endpoint_id
 
-    @start_ip_address.setter
-    def start_ip_address(self, start_ip_address):
-        """Sets the start_ip_address of this AuthorizedNetworkForUpdateBranchInput.
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, vpc_endpoint_id):
+        """Sets the vpc_endpoint_id of this AuthorizedNetworkForUpdateBranchInput.
 
 
-        :param start_ip_address: The start_ip_address of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
+        :param vpc_endpoint_id: The vpc_endpoint_id of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
         :type: str
         """
 
-        self._start_ip_address = start_ip_address
+        self._vpc_endpoint_id = vpc_endpoint_id
+
+    @property
+    def vpc_endpoint_name(self):
+        """Gets the vpc_endpoint_name of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
+
+
+        :return: The vpc_endpoint_name of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_endpoint_name
+
+    @vpc_endpoint_name.setter
+    def vpc_endpoint_name(self, vpc_endpoint_name):
+        """Sets the vpc_endpoint_name of this AuthorizedNetworkForUpdateBranchInput.
+
+
+        :param vpc_endpoint_name: The vpc_endpoint_name of this AuthorizedNetworkForUpdateBranchInput.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_endpoint_name = vpc_endpoint_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

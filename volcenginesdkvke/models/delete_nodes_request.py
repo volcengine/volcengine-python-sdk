@@ -35,6 +35,7 @@ class DeleteNodesRequest(object):
     swagger_types = {
         'cascading_delete_resources': 'list[str]',
         'cluster_id': 'str',
+        'drain': 'bool',
         'ids': 'list[str]',
         'node_pool_id': 'str',
         'retain_resources': 'list[str]'
@@ -43,12 +44,13 @@ class DeleteNodesRequest(object):
     attribute_map = {
         'cascading_delete_resources': 'CascadingDeleteResources',
         'cluster_id': 'ClusterId',
+        'drain': 'Drain',
         'ids': 'Ids',
         'node_pool_id': 'NodePoolId',
         'retain_resources': 'RetainResources'
     }
 
-    def __init__(self, cascading_delete_resources=None, cluster_id=None, ids=None, node_pool_id=None, retain_resources=None, _configuration=None):  # noqa: E501
+    def __init__(self, cascading_delete_resources=None, cluster_id=None, drain=None, ids=None, node_pool_id=None, retain_resources=None, _configuration=None):  # noqa: E501
         """DeleteNodesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DeleteNodesRequest(object):
 
         self._cascading_delete_resources = None
         self._cluster_id = None
+        self._drain = None
         self._ids = None
         self._node_pool_id = None
         self._retain_resources = None
@@ -64,6 +67,8 @@ class DeleteNodesRequest(object):
         if cascading_delete_resources is not None:
             self.cascading_delete_resources = cascading_delete_resources
         self.cluster_id = cluster_id
+        if drain is not None:
+            self.drain = drain
         if ids is not None:
             self.ids = ids
         if node_pool_id is not None:
@@ -122,6 +127,27 @@ class DeleteNodesRequest(object):
             raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
+
+    @property
+    def drain(self):
+        """Gets the drain of this DeleteNodesRequest.  # noqa: E501
+
+
+        :return: The drain of this DeleteNodesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._drain
+
+    @drain.setter
+    def drain(self, drain):
+        """Sets the drain of this DeleteNodesRequest.
+
+
+        :param drain: The drain of this DeleteNodesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._drain = drain
 
     @property
     def ids(self):

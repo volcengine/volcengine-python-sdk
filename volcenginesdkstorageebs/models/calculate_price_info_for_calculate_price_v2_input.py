@@ -46,7 +46,8 @@ class CalculatePriceInfoForCalculatePriceV2Input(object):
         'times': 'int',
         'volume_id': 'str',
         'volume_kind': 'str',
-        'volume_type': 'str'
+        'volume_type': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
@@ -63,10 +64,11 @@ class CalculatePriceInfoForCalculatePriceV2Input(object):
         'times': 'Times',
         'volume_id': 'VolumeID',
         'volume_kind': 'VolumeKind',
-        'volume_type': 'VolumeType'
+        'volume_type': 'VolumeType',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, action=None, charge_type=None, count=None, end_time=None, extra_performances=None, instance_id=None, period=None, purchase_time=None, region=None, size=None, times=None, volume_id=None, volume_kind=None, volume_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, charge_type=None, count=None, end_time=None, extra_performances=None, instance_id=None, period=None, purchase_time=None, region=None, size=None, times=None, volume_id=None, volume_kind=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """CalculatePriceInfoForCalculatePriceV2Input - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class CalculatePriceInfoForCalculatePriceV2Input(object):
         self._volume_id = None
         self._volume_kind = None
         self._volume_type = None
+        self._zone_id = None
         self.discriminator = None
 
         if action is not None:
@@ -116,6 +119,8 @@ class CalculatePriceInfoForCalculatePriceV2Input(object):
             self.volume_kind = volume_kind
         if volume_type is not None:
             self.volume_type = volume_type
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def action(self):
@@ -410,6 +415,27 @@ class CalculatePriceInfoForCalculatePriceV2Input(object):
         """
 
         self._volume_type = volume_type
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this CalculatePriceInfoForCalculatePriceV2Input.  # noqa: E501
+
+
+        :return: The zone_id of this CalculatePriceInfoForCalculatePriceV2Input.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this CalculatePriceInfoForCalculatePriceV2Input.
+
+
+        :param zone_id: The zone_id of this CalculatePriceInfoForCalculatePriceV2Input.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

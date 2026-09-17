@@ -34,7 +34,7 @@ class VideoProjectTaskBatchSetExpeditedRequest(object):
     """
     swagger_types = {
         'project_id': 'str',
-        'task_ids': 'list[int]'
+        'task_ids': 'list[str]'
     }
 
     attribute_map = {
@@ -85,7 +85,7 @@ class VideoProjectTaskBatchSetExpeditedRequest(object):
 
 
         :return: The task_ids of this VideoProjectTaskBatchSetExpeditedRequest.  # noqa: E501
-        :rtype: list[int]
+        :rtype: list[str]
         """
         return self._task_ids
 
@@ -95,7 +95,7 @@ class VideoProjectTaskBatchSetExpeditedRequest(object):
 
 
         :param task_ids: The task_ids of this VideoProjectTaskBatchSetExpeditedRequest.  # noqa: E501
-        :type: list[int]
+        :type: list[str]
         """
 
         self._task_ids = task_ids

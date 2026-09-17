@@ -37,6 +37,7 @@ class PurchaseReservedStorageCapacityRequest(object):
         'effective_at': 'str',
         'period': 'int',
         'period_unit': 'str',
+        'project_name': 'str',
         'reserved_capacity': 'int',
         'reserved_storage_capacity_name': 'str',
         'volume_type': 'str',
@@ -48,13 +49,14 @@ class PurchaseReservedStorageCapacityRequest(object):
         'effective_at': 'EffectiveAt',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
         'reserved_capacity': 'ReservedCapacity',
         'reserved_storage_capacity_name': 'ReservedStorageCapacityName',
         'volume_type': 'VolumeType',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, effective_at=None, period=None, period_unit=None, reserved_capacity=None, reserved_storage_capacity_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, effective_at=None, period=None, period_unit=None, project_name=None, reserved_capacity=None, reserved_storage_capacity_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """PurchaseReservedStorageCapacityRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class PurchaseReservedStorageCapacityRequest(object):
         self._effective_at = None
         self._period = None
         self._period_unit = None
+        self._project_name = None
         self._reserved_capacity = None
         self._reserved_storage_capacity_name = None
         self._volume_type = None
@@ -78,6 +81,8 @@ class PurchaseReservedStorageCapacityRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
         if reserved_capacity is not None:
             self.reserved_capacity = reserved_capacity
         if reserved_storage_capacity_name is not None:
@@ -170,6 +175,27 @@ class PurchaseReservedStorageCapacityRequest(object):
         """
 
         self._period_unit = period_unit
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this PurchaseReservedStorageCapacityRequest.  # noqa: E501
+
+
+        :return: The project_name of this PurchaseReservedStorageCapacityRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this PurchaseReservedStorageCapacityRequest.
+
+
+        :param project_name: The project_name of this PurchaseReservedStorageCapacityRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def reserved_capacity(self):

@@ -36,10 +36,12 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         'begin_time': 'str',
         'configuration_code': 'str',
         'coupon_amount': 'str',
+        'currency_settlement': 'str',
         'deduction_count': 'str',
         'deduction_count_unit': 'str',
         'discount_amount': 'str',
         'end_time': 'str',
+        'exchange_rate': 'str',
         'instance_id': 'str',
         'order_fail_refund_info': 'OrderFailRefundInfoForListOrderProductDetailsOutput',
         'original_amount': 'str',
@@ -50,8 +52,15 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         'payment_method': 'str',
         'period': 'str',
         'pickup_voucher_id': 'str',
+        'point_deduct_amount': 'str',
+        'points': 'str',
+        'pre_tax_payable_amount': 'str',
         'product': 'str',
+        'settle_payable_amount': 'str',
+        'settle_tax': 'str',
         'status': 'str',
+        'tax': 'str',
+        'tax_rate': 'str',
         'times': 'str'
     }
 
@@ -59,10 +68,12 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         'begin_time': 'BeginTime',
         'configuration_code': 'ConfigurationCode',
         'coupon_amount': 'CouponAmount',
+        'currency_settlement': 'CurrencySettlement',
         'deduction_count': 'DeductionCount',
         'deduction_count_unit': 'DeductionCountUnit',
         'discount_amount': 'DiscountAmount',
         'end_time': 'EndTime',
+        'exchange_rate': 'ExchangeRate',
         'instance_id': 'InstanceID',
         'order_fail_refund_info': 'OrderFailRefundInfo',
         'original_amount': 'OriginalAmount',
@@ -73,12 +84,19 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         'payment_method': 'PaymentMethod',
         'period': 'Period',
         'pickup_voucher_id': 'PickupVoucherID',
+        'point_deduct_amount': 'PointDeductAmount',
+        'points': 'Points',
+        'pre_tax_payable_amount': 'PreTaxPayableAmount',
         'product': 'Product',
+        'settle_payable_amount': 'SettlePayableAmount',
+        'settle_tax': 'SettleTax',
         'status': 'Status',
+        'tax': 'Tax',
+        'tax_rate': 'TaxRate',
         'times': 'Times'
     }
 
-    def __init__(self, begin_time=None, configuration_code=None, coupon_amount=None, deduction_count=None, deduction_count_unit=None, discount_amount=None, end_time=None, instance_id=None, order_fail_refund_info=None, original_amount=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payment_method=None, period=None, pickup_voucher_id=None, product=None, status=None, times=None, _configuration=None):  # noqa: E501
+    def __init__(self, begin_time=None, configuration_code=None, coupon_amount=None, currency_settlement=None, deduction_count=None, deduction_count_unit=None, discount_amount=None, end_time=None, exchange_rate=None, instance_id=None, order_fail_refund_info=None, original_amount=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payment_method=None, period=None, pickup_voucher_id=None, point_deduct_amount=None, points=None, pre_tax_payable_amount=None, product=None, settle_payable_amount=None, settle_tax=None, status=None, tax=None, tax_rate=None, times=None, _configuration=None):  # noqa: E501
         """OrderProductInfoForListOrderProductDetailsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,10 +105,12 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         self._begin_time = None
         self._configuration_code = None
         self._coupon_amount = None
+        self._currency_settlement = None
         self._deduction_count = None
         self._deduction_count_unit = None
         self._discount_amount = None
         self._end_time = None
+        self._exchange_rate = None
         self._instance_id = None
         self._order_fail_refund_info = None
         self._original_amount = None
@@ -101,8 +121,15 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         self._payment_method = None
         self._period = None
         self._pickup_voucher_id = None
+        self._point_deduct_amount = None
+        self._points = None
+        self._pre_tax_payable_amount = None
         self._product = None
+        self._settle_payable_amount = None
+        self._settle_tax = None
         self._status = None
+        self._tax = None
+        self._tax_rate = None
         self._times = None
         self.discriminator = None
 
@@ -112,6 +139,8 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
             self.configuration_code = configuration_code
         if coupon_amount is not None:
             self.coupon_amount = coupon_amount
+        if currency_settlement is not None:
+            self.currency_settlement = currency_settlement
         if deduction_count is not None:
             self.deduction_count = deduction_count
         if deduction_count_unit is not None:
@@ -120,6 +149,8 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
             self.discount_amount = discount_amount
         if end_time is not None:
             self.end_time = end_time
+        if exchange_rate is not None:
+            self.exchange_rate = exchange_rate
         if instance_id is not None:
             self.instance_id = instance_id
         if order_fail_refund_info is not None:
@@ -140,10 +171,24 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
             self.period = period
         if pickup_voucher_id is not None:
             self.pickup_voucher_id = pickup_voucher_id
+        if point_deduct_amount is not None:
+            self.point_deduct_amount = point_deduct_amount
+        if points is not None:
+            self.points = points
+        if pre_tax_payable_amount is not None:
+            self.pre_tax_payable_amount = pre_tax_payable_amount
         if product is not None:
             self.product = product
+        if settle_payable_amount is not None:
+            self.settle_payable_amount = settle_payable_amount
+        if settle_tax is not None:
+            self.settle_tax = settle_tax
         if status is not None:
             self.status = status
+        if tax is not None:
+            self.tax = tax
+        if tax_rate is not None:
+            self.tax_rate = tax_rate
         if times is not None:
             self.times = times
 
@@ -209,6 +254,27 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         """
 
         self._coupon_amount = coupon_amount
+
+    @property
+    def currency_settlement(self):
+        """Gets the currency_settlement of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The currency_settlement of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency_settlement
+
+    @currency_settlement.setter
+    def currency_settlement(self, currency_settlement):
+        """Sets the currency_settlement of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param currency_settlement: The currency_settlement of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._currency_settlement = currency_settlement
 
     @property
     def deduction_count(self):
@@ -293,6 +359,27 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def exchange_rate(self):
+        """Gets the exchange_rate of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The exchange_rate of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._exchange_rate
+
+    @exchange_rate.setter
+    def exchange_rate(self, exchange_rate):
+        """Sets the exchange_rate of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param exchange_rate: The exchange_rate of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._exchange_rate = exchange_rate
 
     @property
     def instance_id(self):
@@ -505,6 +592,69 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         self._pickup_voucher_id = pickup_voucher_id
 
     @property
+    def point_deduct_amount(self):
+        """Gets the point_deduct_amount of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The point_deduct_amount of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._point_deduct_amount
+
+    @point_deduct_amount.setter
+    def point_deduct_amount(self, point_deduct_amount):
+        """Sets the point_deduct_amount of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param point_deduct_amount: The point_deduct_amount of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._point_deduct_amount = point_deduct_amount
+
+    @property
+    def points(self):
+        """Gets the points of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The points of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._points
+
+    @points.setter
+    def points(self, points):
+        """Sets the points of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param points: The points of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._points = points
+
+    @property
+    def pre_tax_payable_amount(self):
+        """Gets the pre_tax_payable_amount of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The pre_tax_payable_amount of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pre_tax_payable_amount
+
+    @pre_tax_payable_amount.setter
+    def pre_tax_payable_amount(self, pre_tax_payable_amount):
+        """Sets the pre_tax_payable_amount of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param pre_tax_payable_amount: The pre_tax_payable_amount of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pre_tax_payable_amount = pre_tax_payable_amount
+
+    @property
     def product(self):
         """Gets the product of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
 
@@ -526,6 +676,48 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         self._product = product
 
     @property
+    def settle_payable_amount(self):
+        """Gets the settle_payable_amount of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The settle_payable_amount of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_payable_amount
+
+    @settle_payable_amount.setter
+    def settle_payable_amount(self, settle_payable_amount):
+        """Sets the settle_payable_amount of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param settle_payable_amount: The settle_payable_amount of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_payable_amount = settle_payable_amount
+
+    @property
+    def settle_tax(self):
+        """Gets the settle_tax of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The settle_tax of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_tax
+
+    @settle_tax.setter
+    def settle_tax(self, settle_tax):
+        """Sets the settle_tax of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param settle_tax: The settle_tax of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_tax = settle_tax
+
+    @property
     def status(self):
         """Gets the status of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
 
@@ -545,6 +737,48 @@ class OrderProductInfoForListOrderProductDetailsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tax(self):
+        """Gets the tax of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The tax of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tax
+
+    @tax.setter
+    def tax(self, tax):
+        """Sets the tax of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param tax: The tax of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tax = tax
+
+    @property
+    def tax_rate(self):
+        """Gets the tax_rate of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+
+
+        :return: The tax_rate of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tax_rate
+
+    @tax_rate.setter
+    def tax_rate(self, tax_rate):
+        """Sets the tax_rate of this OrderProductInfoForListOrderProductDetailsOutput.
+
+
+        :param tax_rate: The tax_rate of this OrderProductInfoForListOrderProductDetailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tax_rate = tax_rate
 
     @property
     def times(self):

@@ -33,7 +33,7 @@ class BranchForCreateBranchInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'annotations': 'str',
+        'annotations': 'list[AnnotationForCreateBranchInput]',
         'branch_id': 'str',
         'cluster_id': 'str',
         'create_time': 'str',
@@ -45,6 +45,7 @@ class BranchForCreateBranchInput(object):
         'parent_display_name': 'str',
         'parent_id': 'str',
         'parent_timestamp': 'str',
+        'project_name': 'str',
         'state': 'str',
         'update_time': 'str',
         'usages': 'UsagesForCreateBranchInput',
@@ -64,13 +65,14 @@ class BranchForCreateBranchInput(object):
         'parent_display_name': 'ParentDisplayName',
         'parent_id': 'ParentId',
         'parent_timestamp': 'ParentTimestamp',
+        'project_name': 'ProjectName',
         'state': 'State',
         'update_time': 'UpdateTime',
         'usages': 'Usages',
         'user_prefix': 'UserPrefix'
     }
 
-    def __init__(self, annotations=None, branch_id=None, cluster_id=None, create_time=None, created_by=None, display_name=None, endpoints=None, has_set_pwd=None, name=None, parent_display_name=None, parent_id=None, parent_timestamp=None, state=None, update_time=None, usages=None, user_prefix=None, _configuration=None):  # noqa: E501
+    def __init__(self, annotations=None, branch_id=None, cluster_id=None, create_time=None, created_by=None, display_name=None, endpoints=None, has_set_pwd=None, name=None, parent_display_name=None, parent_id=None, parent_timestamp=None, project_name=None, state=None, update_time=None, usages=None, user_prefix=None, _configuration=None):  # noqa: E501
         """BranchForCreateBranchInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class BranchForCreateBranchInput(object):
         self._parent_display_name = None
         self._parent_id = None
         self._parent_timestamp = None
+        self._project_name = None
         self._state = None
         self._update_time = None
         self._usages = None
@@ -118,6 +121,8 @@ class BranchForCreateBranchInput(object):
             self.parent_id = parent_id
         if parent_timestamp is not None:
             self.parent_timestamp = parent_timestamp
+        if project_name is not None:
+            self.project_name = project_name
         if state is not None:
             self.state = state
         if update_time is not None:
@@ -133,7 +138,7 @@ class BranchForCreateBranchInput(object):
 
 
         :return: The annotations of this BranchForCreateBranchInput.  # noqa: E501
-        :rtype: str
+        :rtype: list[AnnotationForCreateBranchInput]
         """
         return self._annotations
 
@@ -143,7 +148,7 @@ class BranchForCreateBranchInput(object):
 
 
         :param annotations: The annotations of this BranchForCreateBranchInput.  # noqa: E501
-        :type: str
+        :type: list[AnnotationForCreateBranchInput]
         """
 
         self._annotations = annotations
@@ -378,6 +383,27 @@ class BranchForCreateBranchInput(object):
         """
 
         self._parent_timestamp = parent_timestamp
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this BranchForCreateBranchInput.  # noqa: E501
+
+
+        :return: The project_name of this BranchForCreateBranchInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this BranchForCreateBranchInput.
+
+
+        :param project_name: The project_name of this BranchForCreateBranchInput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def state(self):

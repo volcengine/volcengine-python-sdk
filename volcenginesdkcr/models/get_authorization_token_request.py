@@ -33,23 +33,49 @@ class GetAuthorizationTokenRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'expires_at': 'int',
         'registry': 'str'
     }
 
     attribute_map = {
+        'expires_at': 'ExpiresAt',
         'registry': 'Registry'
     }
 
-    def __init__(self, registry=None, _configuration=None):  # noqa: E501
+    def __init__(self, expires_at=None, registry=None, _configuration=None):  # noqa: E501
         """GetAuthorizationTokenRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._expires_at = None
         self._registry = None
         self.discriminator = None
 
+        if expires_at is not None:
+            self.expires_at = expires_at
         self.registry = registry
+
+    @property
+    def expires_at(self):
+        """Gets the expires_at of this GetAuthorizationTokenRequest.  # noqa: E501
+
+
+        :return: The expires_at of this GetAuthorizationTokenRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._expires_at
+
+    @expires_at.setter
+    def expires_at(self, expires_at):
+        """Sets the expires_at of this GetAuthorizationTokenRequest.
+
+
+        :param expires_at: The expires_at of this GetAuthorizationTokenRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._expires_at = expires_at
 
     @property
     def registry(self):

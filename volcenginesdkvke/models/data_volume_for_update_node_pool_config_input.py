@@ -34,10 +34,12 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
     """
     swagger_types = {
         'burst_enabled': 'bool',
+        'encrypted': 'bool',
         'extra_performance_iops': 'int',
         'extra_performance_throughput_mb': 'int',
         'extra_performance_type_id': 'str',
         'file_system': 'str',
+        'kms_key_id': 'str',
         'mount_point': 'str',
         'placement_group_id': 'str',
         'size': 'int',
@@ -48,10 +50,12 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
 
     attribute_map = {
         'burst_enabled': 'BurstEnabled',
+        'encrypted': 'Encrypted',
         'extra_performance_iops': 'ExtraPerformanceIops',
         'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMb',
         'extra_performance_type_id': 'ExtraPerformanceTypeId',
         'file_system': 'FileSystem',
+        'kms_key_id': 'KmsKeyId',
         'mount_point': 'MountPoint',
         'placement_group_id': 'PlacementGroupId',
         'size': 'Size',
@@ -60,17 +64,19 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
         'type': 'Type'
     }
 
-    def __init__(self, burst_enabled=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, file_system=None, mount_point=None, placement_group_id=None, size=None, snapshot_id=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, burst_enabled=None, encrypted=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, file_system=None, kms_key_id=None, mount_point=None, placement_group_id=None, size=None, snapshot_id=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
         """DataVolumeForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._burst_enabled = None
+        self._encrypted = None
         self._extra_performance_iops = None
         self._extra_performance_throughput_mb = None
         self._extra_performance_type_id = None
         self._file_system = None
+        self._kms_key_id = None
         self._mount_point = None
         self._placement_group_id = None
         self._size = None
@@ -81,6 +87,8 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
 
         if burst_enabled is not None:
             self.burst_enabled = burst_enabled
+        if encrypted is not None:
+            self.encrypted = encrypted
         if extra_performance_iops is not None:
             self.extra_performance_iops = extra_performance_iops
         if extra_performance_throughput_mb is not None:
@@ -89,6 +97,8 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
             self.extra_performance_type_id = extra_performance_type_id
         if file_system is not None:
             self.file_system = file_system
+        if kms_key_id is not None:
+            self.kms_key_id = kms_key_id
         if mount_point is not None:
             self.mount_point = mount_point
         if placement_group_id is not None:
@@ -122,6 +132,27 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
         """
 
         self._burst_enabled = burst_enabled
+
+    @property
+    def encrypted(self):
+        """Gets the encrypted of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The encrypted of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._encrypted
+
+    @encrypted.setter
+    def encrypted(self, encrypted):
+        """Sets the encrypted of this DataVolumeForUpdateNodePoolConfigInput.
+
+
+        :param encrypted: The encrypted of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._encrypted = encrypted
 
     @property
     def extra_performance_iops(self):
@@ -220,6 +251,27 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
             )
 
         self._file_system = file_system
+
+    @property
+    def kms_key_id(self):
+        """Gets the kms_key_id of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The kms_key_id of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._kms_key_id
+
+    @kms_key_id.setter
+    def kms_key_id(self, kms_key_id):
+        """Sets the kms_key_id of this DataVolumeForUpdateNodePoolConfigInput.
+
+
+        :param kms_key_id: The kms_key_id of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._kms_key_id = kms_key_id
 
     @property
     def mount_point(self):

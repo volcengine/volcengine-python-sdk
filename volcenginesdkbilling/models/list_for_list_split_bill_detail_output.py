@@ -49,7 +49,6 @@ class ListForListSplitBillDetailOutput(object):
         'count': 'str',
         'country_region': 'str',
         'coupon_deduction_amount': 'str',
-        'credit_carried_amount': 'str',
         'currency': 'str',
         'currency_settlement': 'str',
         'deduction_count': 'str',
@@ -78,7 +77,6 @@ class ListForListSplitBillDetailOutput(object):
         'owner_customer_name': 'str',
         'owner_id': 'str',
         'owner_user_name': 'str',
-        'paid_amount': 'str',
         'payable_amount': 'str',
         'payer_customer_name': 'str',
         'payer_id': 'str',
@@ -103,7 +101,7 @@ class ListForListSplitBillDetailOutput(object):
         'reservation_instance': 'str',
         'resource_id': 'str',
         'round_amount': 'str',
-        'saving_plan_deduction_discount_amount': 'str',
+        'sales_channel': 'str',
         'saving_plan_deduction_discount_total_amount': 'str',
         'saving_plan_deduction_sp_id': 'str',
         'saving_plan_original_amount': 'str',
@@ -132,7 +130,6 @@ class ListForListSplitBillDetailOutput(object):
         'tax_rate': 'str',
         'trade_time': 'str',
         'unit': 'str',
-        'unpaid_amount': 'str',
         'use_duration': 'str',
         'use_duration_unit': 'str',
         'zone': 'str',
@@ -156,7 +153,6 @@ class ListForListSplitBillDetailOutput(object):
         'count': 'Count',
         'country_region': 'CountryRegion',
         'coupon_deduction_amount': 'CouponDeductionAmount',
-        'credit_carried_amount': 'CreditCarriedAmount',
         'currency': 'Currency',
         'currency_settlement': 'CurrencySettlement',
         'deduction_count': 'DeductionCount',
@@ -185,7 +181,6 @@ class ListForListSplitBillDetailOutput(object):
         'owner_customer_name': 'OwnerCustomerName',
         'owner_id': 'OwnerID',
         'owner_user_name': 'OwnerUserName',
-        'paid_amount': 'PaidAmount',
         'payable_amount': 'PayableAmount',
         'payer_customer_name': 'PayerCustomerName',
         'payer_id': 'PayerID',
@@ -210,7 +205,7 @@ class ListForListSplitBillDetailOutput(object):
         'reservation_instance': 'ReservationInstance',
         'resource_id': 'ResourceID',
         'round_amount': 'RoundAmount',
-        'saving_plan_deduction_discount_amount': 'SavingPlanDeductionDiscountAmount',
+        'sales_channel': 'SalesChannel',
         'saving_plan_deduction_discount_total_amount': 'SavingPlanDeductionDiscountTotalAmount',
         'saving_plan_deduction_sp_id': 'SavingPlanDeductionSpID',
         'saving_plan_original_amount': 'SavingPlanOriginalAmount',
@@ -239,14 +234,13 @@ class ListForListSplitBillDetailOutput(object):
         'tax_rate': 'TaxRate',
         'trade_time': 'TradeTime',
         'unit': 'Unit',
-        'unpaid_amount': 'UnpaidAmount',
         'use_duration': 'UseDuration',
         'use_duration_unit': 'UseDurationUnit',
         'zone': 'Zone',
         'zone_code': 'ZoneCode'
     }
 
-    def __init__(self, bill_category=None, bill_detail_id=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, charge_item_code=None, config_name=None, configuration_code=None, cost_unit=None, count=None, country_region=None, coupon_deduction_amount=None, credit_carried_amount=None, currency=None, currency_settlement=None, deduction_count=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, discount_info=None, effective_factor=None, element=None, element_code=None, exchange_rate=None, expand_field=None, expense_date=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, main_contract_number=None, market_price=None, measure_interval=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, point_deduct_amount=None, posttax_amount=None, pre_tax_payable_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, project_remark=None, real_value=None, region=None, region_code=None, reservation_instance=None, resource_id=None, round_amount=None, saving_plan_deduction_discount_amount=None, saving_plan_deduction_discount_total_amount=None, saving_plan_deduction_sp_id=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, selling_mode=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, solution_zh=None, split_bill_detail_id=None, split_item_amount=None, split_item_id=None, split_item_name=None, split_item_ratio=None, subject_name=None, tag=None, tag_remark=None, tax=None, tax_rate=None, trade_time=None, unit=None, unpaid_amount=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_detail_id=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, charge_item_code=None, config_name=None, configuration_code=None, cost_unit=None, count=None, country_region=None, coupon_deduction_amount=None, currency=None, currency_settlement=None, deduction_count=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, discount_info=None, effective_factor=None, element=None, element_code=None, exchange_rate=None, expand_field=None, expense_date=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, main_contract_number=None, market_price=None, measure_interval=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, point_deduct_amount=None, posttax_amount=None, pre_tax_payable_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, project_remark=None, real_value=None, region=None, region_code=None, reservation_instance=None, resource_id=None, round_amount=None, sales_channel=None, saving_plan_deduction_discount_total_amount=None, saving_plan_deduction_sp_id=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, selling_mode=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, solution_zh=None, split_bill_detail_id=None, split_item_amount=None, split_item_id=None, split_item_name=None, split_item_ratio=None, subject_name=None, tag=None, tag_remark=None, tax=None, tax_rate=None, trade_time=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
         """ListForListSplitBillDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -268,7 +262,6 @@ class ListForListSplitBillDetailOutput(object):
         self._count = None
         self._country_region = None
         self._coupon_deduction_amount = None
-        self._credit_carried_amount = None
         self._currency = None
         self._currency_settlement = None
         self._deduction_count = None
@@ -297,7 +290,6 @@ class ListForListSplitBillDetailOutput(object):
         self._owner_customer_name = None
         self._owner_id = None
         self._owner_user_name = None
-        self._paid_amount = None
         self._payable_amount = None
         self._payer_customer_name = None
         self._payer_id = None
@@ -322,7 +314,7 @@ class ListForListSplitBillDetailOutput(object):
         self._reservation_instance = None
         self._resource_id = None
         self._round_amount = None
-        self._saving_plan_deduction_discount_amount = None
+        self._sales_channel = None
         self._saving_plan_deduction_discount_total_amount = None
         self._saving_plan_deduction_sp_id = None
         self._saving_plan_original_amount = None
@@ -351,7 +343,6 @@ class ListForListSplitBillDetailOutput(object):
         self._tax_rate = None
         self._trade_time = None
         self._unit = None
-        self._unpaid_amount = None
         self._use_duration = None
         self._use_duration_unit = None
         self._zone = None
@@ -390,8 +381,6 @@ class ListForListSplitBillDetailOutput(object):
             self.country_region = country_region
         if coupon_deduction_amount is not None:
             self.coupon_deduction_amount = coupon_deduction_amount
-        if credit_carried_amount is not None:
-            self.credit_carried_amount = credit_carried_amount
         if currency is not None:
             self.currency = currency
         if currency_settlement is not None:
@@ -448,8 +437,6 @@ class ListForListSplitBillDetailOutput(object):
             self.owner_id = owner_id
         if owner_user_name is not None:
             self.owner_user_name = owner_user_name
-        if paid_amount is not None:
-            self.paid_amount = paid_amount
         if payable_amount is not None:
             self.payable_amount = payable_amount
         if payer_customer_name is not None:
@@ -498,8 +485,8 @@ class ListForListSplitBillDetailOutput(object):
             self.resource_id = resource_id
         if round_amount is not None:
             self.round_amount = round_amount
-        if saving_plan_deduction_discount_amount is not None:
-            self.saving_plan_deduction_discount_amount = saving_plan_deduction_discount_amount
+        if sales_channel is not None:
+            self.sales_channel = sales_channel
         if saving_plan_deduction_discount_total_amount is not None:
             self.saving_plan_deduction_discount_total_amount = saving_plan_deduction_discount_total_amount
         if saving_plan_deduction_sp_id is not None:
@@ -556,8 +543,6 @@ class ListForListSplitBillDetailOutput(object):
             self.trade_time = trade_time
         if unit is not None:
             self.unit = unit
-        if unpaid_amount is not None:
-            self.unpaid_amount = unpaid_amount
         if use_duration is not None:
             self.use_duration = use_duration
         if use_duration_unit is not None:
@@ -902,27 +887,6 @@ class ListForListSplitBillDetailOutput(object):
         """
 
         self._coupon_deduction_amount = coupon_deduction_amount
-
-    @property
-    def credit_carried_amount(self):
-        """Gets the credit_carried_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
-
-
-        :return: The credit_carried_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._credit_carried_amount
-
-    @credit_carried_amount.setter
-    def credit_carried_amount(self, credit_carried_amount):
-        """Sets the credit_carried_amount of this ListForListSplitBillDetailOutput.
-
-
-        :param credit_carried_amount: The credit_carried_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._credit_carried_amount = credit_carried_amount
 
     @property
     def currency(self):
@@ -1513,27 +1477,6 @@ class ListForListSplitBillDetailOutput(object):
         self._owner_user_name = owner_user_name
 
     @property
-    def paid_amount(self):
-        """Gets the paid_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
-
-
-        :return: The paid_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._paid_amount
-
-    @paid_amount.setter
-    def paid_amount(self, paid_amount):
-        """Sets the paid_amount of this ListForListSplitBillDetailOutput.
-
-
-        :param paid_amount: The paid_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._paid_amount = paid_amount
-
-    @property
     def payable_amount(self):
         """Gets the payable_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
 
@@ -2038,25 +1981,25 @@ class ListForListSplitBillDetailOutput(object):
         self._round_amount = round_amount
 
     @property
-    def saving_plan_deduction_discount_amount(self):
-        """Gets the saving_plan_deduction_discount_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
+    def sales_channel(self):
+        """Gets the sales_channel of this ListForListSplitBillDetailOutput.  # noqa: E501
 
 
-        :return: The saving_plan_deduction_discount_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
+        :return: The sales_channel of this ListForListSplitBillDetailOutput.  # noqa: E501
         :rtype: str
         """
-        return self._saving_plan_deduction_discount_amount
+        return self._sales_channel
 
-    @saving_plan_deduction_discount_amount.setter
-    def saving_plan_deduction_discount_amount(self, saving_plan_deduction_discount_amount):
-        """Sets the saving_plan_deduction_discount_amount of this ListForListSplitBillDetailOutput.
+    @sales_channel.setter
+    def sales_channel(self, sales_channel):
+        """Sets the sales_channel of this ListForListSplitBillDetailOutput.
 
 
-        :param saving_plan_deduction_discount_amount: The saving_plan_deduction_discount_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
+        :param sales_channel: The sales_channel of this ListForListSplitBillDetailOutput.  # noqa: E501
         :type: str
         """
 
-        self._saving_plan_deduction_discount_amount = saving_plan_deduction_discount_amount
+        self._sales_channel = sales_channel
 
     @property
     def saving_plan_deduction_discount_total_amount(self):
@@ -2645,27 +2588,6 @@ class ListForListSplitBillDetailOutput(object):
         """
 
         self._unit = unit
-
-    @property
-    def unpaid_amount(self):
-        """Gets the unpaid_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
-
-
-        :return: The unpaid_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._unpaid_amount
-
-    @unpaid_amount.setter
-    def unpaid_amount(self, unpaid_amount):
-        """Sets the unpaid_amount of this ListForListSplitBillDetailOutput.
-
-
-        :param unpaid_amount: The unpaid_amount of this ListForListSplitBillDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._unpaid_amount = unpaid_amount
 
     @property
     def use_duration(self):

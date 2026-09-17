@@ -40,6 +40,7 @@ class CreateReqForDescribePriceDetailInput(object):
         'project_name': 'str',
         'region_id': 'str',
         'service_plan': 'str',
+        'tags': 'list[TagForDescribePriceDetailInput]',
         'vpc_id': 'str',
         'zones': 'list[ZoneForDescribePriceDetailInput]'
     }
@@ -52,11 +53,12 @@ class CreateReqForDescribePriceDetailInput(object):
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'service_plan': 'ServicePlan',
+        'tags': 'Tags',
         'vpc_id': 'VpcId',
         'zones': 'Zones'
     }
 
-    def __init__(self, auto_scaling=None, display_name=None, encryption_config=None, high_availability_type=None, project_name=None, region_id=None, service_plan=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, display_name=None, encryption_config=None, high_availability_type=None, project_name=None, region_id=None, service_plan=None, tags=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
         """CreateReqForDescribePriceDetailInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class CreateReqForDescribePriceDetailInput(object):
         self._project_name = None
         self._region_id = None
         self._service_plan = None
+        self._tags = None
         self._vpc_id = None
         self._zones = None
         self.discriminator = None
@@ -87,6 +90,8 @@ class CreateReqForDescribePriceDetailInput(object):
             self.region_id = region_id
         if service_plan is not None:
             self.service_plan = service_plan
+        if tags is not None:
+            self.tags = tags
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zones is not None:
@@ -252,6 +257,27 @@ class CreateReqForDescribePriceDetailInput(object):
             )
 
         self._service_plan = service_plan
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateReqForDescribePriceDetailInput.  # noqa: E501
+
+
+        :return: The tags of this CreateReqForDescribePriceDetailInput.  # noqa: E501
+        :rtype: list[TagForDescribePriceDetailInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateReqForDescribePriceDetailInput.
+
+
+        :param tags: The tags of this CreateReqForDescribePriceDetailInput.  # noqa: E501
+        :type: list[TagForDescribePriceDetailInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):

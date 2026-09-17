@@ -33,50 +33,24 @@ class RemedyStrategyForListRemedyConfigsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'config': 'ConfigForListRemedyConfigsOutput',
         'type': 'str'
     }
 
     attribute_map = {
-        'config': 'Config',
         'type': 'Type'
     }
 
-    def __init__(self, config=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, type=None, _configuration=None):  # noqa: E501
         """RemedyStrategyForListRemedyConfigsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._config = None
         self._type = None
         self.discriminator = None
 
-        if config is not None:
-            self.config = config
         if type is not None:
             self.type = type
-
-    @property
-    def config(self):
-        """Gets the config of this RemedyStrategyForListRemedyConfigsOutput.  # noqa: E501
-
-
-        :return: The config of this RemedyStrategyForListRemedyConfigsOutput.  # noqa: E501
-        :rtype: ConfigForListRemedyConfigsOutput
-        """
-        return self._config
-
-    @config.setter
-    def config(self, config):
-        """Sets the config of this RemedyStrategyForListRemedyConfigsOutput.
-
-
-        :param config: The config of this RemedyStrategyForListRemedyConfigsOutput.  # noqa: E501
-        :type: ConfigForListRemedyConfigsOutput
-        """
-
-        self._config = config
 
     @property
     def type(self):

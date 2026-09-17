@@ -69,6 +69,7 @@ class ListForListBillOutput(object):
         'product_zh': 'str',
         'real_value': 'str',
         'round_bill_amount': 'str',
+        'sales_channel': 'str',
         'saving_plan_original_amount': 'str',
         'seller_customer_name': 'str',
         'seller_id': 'str',
@@ -125,6 +126,7 @@ class ListForListBillOutput(object):
         'product_zh': 'ProductZh',
         'real_value': 'RealValue',
         'round_bill_amount': 'RoundBillAmount',
+        'sales_channel': 'SalesChannel',
         'saving_plan_original_amount': 'SavingPlanOriginalAmount',
         'seller_customer_name': 'SellerCustomerName',
         'seller_id': 'SellerID',
@@ -144,7 +146,7 @@ class ListForListBillOutput(object):
         'unpaid_amount': 'UnpaidAmount'
     }
 
-    def __init__(self, bill_category_parent=None, bill_detail_num=None, bill_id=None, bill_period=None, billing_mode=None, busi_period=None, business_mode=None, country_region=None, coupon_amount=None, credit_carried_amount=None, currency=None, currency_settlement=None, discount_bill_amount=None, exchange_rate=None, expense_begin_time=None, expense_end_time=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, pay_status=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, point_deduct_amount=None, posttax_amount=None, pre_tax_payable_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, product=None, product_zh=None, real_value=None, round_bill_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, subject_name=None, tax=None, tax_rate=None, trade_time=None, unpaid_amount=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category_parent=None, bill_detail_num=None, bill_id=None, bill_period=None, billing_mode=None, busi_period=None, business_mode=None, country_region=None, coupon_amount=None, credit_carried_amount=None, currency=None, currency_settlement=None, discount_bill_amount=None, exchange_rate=None, expense_begin_time=None, expense_end_time=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, pay_status=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, point_deduct_amount=None, posttax_amount=None, pre_tax_payable_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, product=None, product_zh=None, real_value=None, round_bill_amount=None, sales_channel=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, subject_name=None, tax=None, tax_rate=None, trade_time=None, unpaid_amount=None, _configuration=None):  # noqa: E501
         """ListForListBillOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -186,6 +188,7 @@ class ListForListBillOutput(object):
         self._product_zh = None
         self._real_value = None
         self._round_bill_amount = None
+        self._sales_channel = None
         self._saving_plan_original_amount = None
         self._seller_customer_name = None
         self._seller_id = None
@@ -277,6 +280,8 @@ class ListForListBillOutput(object):
             self.real_value = real_value
         if round_bill_amount is not None:
             self.round_bill_amount = round_bill_amount
+        if sales_channel is not None:
+            self.sales_channel = sales_channel
         if saving_plan_original_amount is not None:
             self.saving_plan_original_amount = saving_plan_original_amount
         if seller_customer_name is not None:
@@ -1067,6 +1072,27 @@ class ListForListBillOutput(object):
         """
 
         self._round_bill_amount = round_bill_amount
+
+    @property
+    def sales_channel(self):
+        """Gets the sales_channel of this ListForListBillOutput.  # noqa: E501
+
+
+        :return: The sales_channel of this ListForListBillOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sales_channel
+
+    @sales_channel.setter
+    def sales_channel(self, sales_channel):
+        """Sets the sales_channel of this ListForListBillOutput.
+
+
+        :param sales_channel: The sales_channel of this ListForListBillOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._sales_channel = sales_channel
 
     @property
     def saving_plan_original_amount(self):

@@ -33,37 +33,68 @@ class CreateNamespaceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_create_repository_disabled': 'bool',
         'client_token': 'str',
         'name': 'str',
         'project': 'str',
-        'registry': 'str'
+        'registry': 'str',
+        'repository_default_access_level': 'str'
     }
 
     attribute_map = {
+        'auto_create_repository_disabled': 'AutoCreateRepositoryDisabled',
         'client_token': 'ClientToken',
         'name': 'Name',
         'project': 'Project',
-        'registry': 'Registry'
+        'registry': 'Registry',
+        'repository_default_access_level': 'RepositoryDefaultAccessLevel'
     }
 
-    def __init__(self, client_token=None, name=None, project=None, registry=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_create_repository_disabled=None, client_token=None, name=None, project=None, registry=None, repository_default_access_level=None, _configuration=None):  # noqa: E501
         """CreateNamespaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auto_create_repository_disabled = None
         self._client_token = None
         self._name = None
         self._project = None
         self._registry = None
+        self._repository_default_access_level = None
         self.discriminator = None
 
+        if auto_create_repository_disabled is not None:
+            self.auto_create_repository_disabled = auto_create_repository_disabled
         if client_token is not None:
             self.client_token = client_token
         self.name = name
         if project is not None:
             self.project = project
         self.registry = registry
+        if repository_default_access_level is not None:
+            self.repository_default_access_level = repository_default_access_level
+
+    @property
+    def auto_create_repository_disabled(self):
+        """Gets the auto_create_repository_disabled of this CreateNamespaceRequest.  # noqa: E501
+
+
+        :return: The auto_create_repository_disabled of this CreateNamespaceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_create_repository_disabled
+
+    @auto_create_repository_disabled.setter
+    def auto_create_repository_disabled(self, auto_create_repository_disabled):
+        """Sets the auto_create_repository_disabled of this CreateNamespaceRequest.
+
+
+        :param auto_create_repository_disabled: The auto_create_repository_disabled of this CreateNamespaceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_create_repository_disabled = auto_create_repository_disabled
 
     @property
     def client_token(self):
@@ -158,6 +189,27 @@ class CreateNamespaceRequest(object):
             raise ValueError("Invalid value for `registry`, length must be greater than or equal to `3`")  # noqa: E501
 
         self._registry = registry
+
+    @property
+    def repository_default_access_level(self):
+        """Gets the repository_default_access_level of this CreateNamespaceRequest.  # noqa: E501
+
+
+        :return: The repository_default_access_level of this CreateNamespaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._repository_default_access_level
+
+    @repository_default_access_level.setter
+    def repository_default_access_level(self, repository_default_access_level):
+        """Sets the repository_default_access_level of this CreateNamespaceRequest.
+
+
+        :param repository_default_access_level: The repository_default_access_level of this CreateNamespaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._repository_default_access_level = repository_default_access_level
 
     def to_dict(self):
         """Returns the model properties as a dict"""

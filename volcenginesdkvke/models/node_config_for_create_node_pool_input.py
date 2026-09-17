@@ -58,6 +58,7 @@ class NodeConfigForCreateNodePoolInput(object):
         'public_access_config': 'PublicAccessConfigForCreateNodePoolInput',
         'public_access_enabled': 'bool',
         'security': 'SecurityForCreateNodePoolInput',
+        'spot_price_limits': 'list[SpotPriceLimitForCreateNodePoolInput]',
         'spot_strategy': 'str',
         'subnet_ids': 'list[str]',
         'system_volume': 'SystemVolumeForCreateNodePoolInput',
@@ -90,13 +91,14 @@ class NodeConfigForCreateNodePoolInput(object):
         'public_access_config': 'PublicAccessConfig',
         'public_access_enabled': 'PublicAccessEnabled',
         'security': 'Security',
+        'spot_price_limits': 'SpotPriceLimits',
         'spot_strategy': 'SpotStrategy',
         'subnet_ids': 'SubnetIds',
         'system_volume': 'SystemVolume',
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, affinity_group_config=None, auto_renew=None, auto_renew_period=None, data_volumes=None, deployment_set_group_number=None, deployment_set_id=None, gpu_driver_config=None, gpu_driver_version=None, hostname=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_name=None, instance_type_ids=None, instances_distribution=None, name_prefix=None, network_traffic_mode=None, period=None, pre_script=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, spot_strategy=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, affinity_group_config=None, auto_renew=None, auto_renew_period=None, data_volumes=None, deployment_set_group_number=None, deployment_set_id=None, gpu_driver_config=None, gpu_driver_version=None, hostname=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_name=None, instance_type_ids=None, instances_distribution=None, name_prefix=None, network_traffic_mode=None, period=None, pre_script=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, spot_price_limits=None, spot_strategy=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForCreateNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -127,6 +129,7 @@ class NodeConfigForCreateNodePoolInput(object):
         self._public_access_config = None
         self._public_access_enabled = None
         self._security = None
+        self._spot_price_limits = None
         self._spot_strategy = None
         self._subnet_ids = None
         self._system_volume = None
@@ -183,6 +186,8 @@ class NodeConfigForCreateNodePoolInput(object):
             self.public_access_enabled = public_access_enabled
         if security is not None:
             self.security = security
+        if spot_price_limits is not None:
+            self.spot_price_limits = spot_price_limits
         if spot_strategy is not None:
             self.spot_strategy = spot_strategy
         if subnet_ids is not None:
@@ -725,6 +730,27 @@ class NodeConfigForCreateNodePoolInput(object):
         self._security = security
 
     @property
+    def spot_price_limits(self):
+        """Gets the spot_price_limits of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The spot_price_limits of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: list[SpotPriceLimitForCreateNodePoolInput]
+        """
+        return self._spot_price_limits
+
+    @spot_price_limits.setter
+    def spot_price_limits(self, spot_price_limits):
+        """Sets the spot_price_limits of this NodeConfigForCreateNodePoolInput.
+
+
+        :param spot_price_limits: The spot_price_limits of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :type: list[SpotPriceLimitForCreateNodePoolInput]
+        """
+
+        self._spot_price_limits = spot_price_limits
+
+    @property
     def spot_strategy(self):
         """Gets the spot_strategy of this NodeConfigForCreateNodePoolInput.  # noqa: E501
 
@@ -742,7 +768,7 @@ class NodeConfigForCreateNodePoolInput(object):
         :param spot_strategy: The spot_strategy of this NodeConfigForCreateNodePoolInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["NoSpot", "SpotAsPriceGo"]  # noqa: E501
+        allowed_values = ["NoSpot", "SpotAsPriceGo", "SpotWithPriceLimit"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 spot_strategy not in allowed_values):
             raise ValueError(

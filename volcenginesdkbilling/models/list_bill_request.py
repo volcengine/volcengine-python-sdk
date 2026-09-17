@@ -43,7 +43,8 @@ class ListBillRequest(object):
         'owner_id': 'list[int]',
         'pay_status': 'str',
         'payer_id': 'list[int]',
-        'product': 'list[str]'
+        'product': 'list[str]',
+        'sales_channel': 'list[str]'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class ListBillRequest(object):
         'owner_id': 'OwnerID',
         'pay_status': 'PayStatus',
         'payer_id': 'PayerID',
-        'product': 'Product'
+        'product': 'Product',
+        'sales_channel': 'SalesChannel'
     }
 
-    def __init__(self, bill_category_parent=None, bill_period=None, billing_mode=None, ignore_zero=None, limit=None, need_record_num=None, offset=None, owner_id=None, pay_status=None, payer_id=None, product=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category_parent=None, bill_period=None, billing_mode=None, ignore_zero=None, limit=None, need_record_num=None, offset=None, owner_id=None, pay_status=None, payer_id=None, product=None, sales_channel=None, _configuration=None):  # noqa: E501
         """ListBillRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class ListBillRequest(object):
         self._pay_status = None
         self._payer_id = None
         self._product = None
+        self._sales_channel = None
         self.discriminator = None
 
         if bill_category_parent is not None:
@@ -99,6 +102,8 @@ class ListBillRequest(object):
             self.payer_id = payer_id
         if product is not None:
             self.product = product
+        if sales_channel is not None:
+            self.sales_channel = sales_channel
 
     @property
     def bill_category_parent(self):
@@ -334,6 +339,27 @@ class ListBillRequest(object):
         """
 
         self._product = product
+
+    @property
+    def sales_channel(self):
+        """Gets the sales_channel of this ListBillRequest.  # noqa: E501
+
+
+        :return: The sales_channel of this ListBillRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._sales_channel
+
+    @sales_channel.setter
+    def sales_channel(self, sales_channel):
+        """Sets the sales_channel of this ListBillRequest.
+
+
+        :param sales_channel: The sales_channel of this ListBillRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._sales_channel = sales_channel
 
     def to_dict(self):
         """Returns the model properties as a dict"""

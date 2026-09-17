@@ -36,6 +36,7 @@ class CreateNodesRequest(object):
         'additional_container_storage_enabled': 'bool',
         'client_token': 'str',
         'cluster_id': 'str',
+        'container_storage_mount_point': 'str',
         'container_storage_path': 'str',
         'gpu_driver_config': 'GpuDriverConfigForCreateNodesInput',
         'gpu_driver_version': 'str',
@@ -53,6 +54,7 @@ class CreateNodesRequest(object):
         'additional_container_storage_enabled': 'AdditionalContainerStorageEnabled',
         'client_token': 'ClientToken',
         'cluster_id': 'ClusterId',
+        'container_storage_mount_point': 'ContainerStorageMountPoint',
         'container_storage_path': 'ContainerStoragePath',
         'gpu_driver_config': 'GpuDriverConfig',
         'gpu_driver_version': 'GpuDriverVersion',
@@ -66,7 +68,7 @@ class CreateNodesRequest(object):
         'skip_replace_system': 'SkipReplaceSystem'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, client_token=None, cluster_id=None, container_storage_path=None, gpu_driver_config=None, gpu_driver_version=None, image_id=None, initialize_script=None, instance_ids=None, keep_instance_name=None, kubernetes_config=None, node_pool_id=None, pre_script=None, skip_replace_system=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, client_token=None, cluster_id=None, container_storage_mount_point=None, container_storage_path=None, gpu_driver_config=None, gpu_driver_version=None, image_id=None, initialize_script=None, instance_ids=None, keep_instance_name=None, kubernetes_config=None, node_pool_id=None, pre_script=None, skip_replace_system=None, _configuration=None):  # noqa: E501
         """CreateNodesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class CreateNodesRequest(object):
         self._additional_container_storage_enabled = None
         self._client_token = None
         self._cluster_id = None
+        self._container_storage_mount_point = None
         self._container_storage_path = None
         self._gpu_driver_config = None
         self._gpu_driver_version = None
@@ -93,6 +96,8 @@ class CreateNodesRequest(object):
         if client_token is not None:
             self.client_token = client_token
         self.cluster_id = cluster_id
+        if container_storage_mount_point is not None:
+            self.container_storage_mount_point = container_storage_mount_point
         if container_storage_path is not None:
             self.container_storage_path = container_storage_path
         if gpu_driver_config is not None:
@@ -180,6 +185,27 @@ class CreateNodesRequest(object):
             raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
+
+    @property
+    def container_storage_mount_point(self):
+        """Gets the container_storage_mount_point of this CreateNodesRequest.  # noqa: E501
+
+
+        :return: The container_storage_mount_point of this CreateNodesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._container_storage_mount_point
+
+    @container_storage_mount_point.setter
+    def container_storage_mount_point(self, container_storage_mount_point):
+        """Sets the container_storage_mount_point of this CreateNodesRequest.
+
+
+        :param container_storage_mount_point: The container_storage_mount_point of this CreateNodesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._container_storage_mount_point = container_storage_mount_point
 
     @property
     def container_storage_path(self):

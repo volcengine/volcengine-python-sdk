@@ -38,6 +38,7 @@ class QueryBalanceAcctResponse(object):
         'available_balance': 'str',
         'cash_balance': 'str',
         'credit_limit': 'str',
+        'currency': 'str',
         'freeze_amount': 'str'
     }
 
@@ -47,10 +48,11 @@ class QueryBalanceAcctResponse(object):
         'available_balance': 'AvailableBalance',
         'cash_balance': 'CashBalance',
         'credit_limit': 'CreditLimit',
+        'currency': 'Currency',
         'freeze_amount': 'FreezeAmount'
     }
 
-    def __init__(self, account_id=None, arrears_balance=None, available_balance=None, cash_balance=None, credit_limit=None, freeze_amount=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, arrears_balance=None, available_balance=None, cash_balance=None, credit_limit=None, currency=None, freeze_amount=None, _configuration=None):  # noqa: E501
         """QueryBalanceAcctResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class QueryBalanceAcctResponse(object):
         self._available_balance = None
         self._cash_balance = None
         self._credit_limit = None
+        self._currency = None
         self._freeze_amount = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class QueryBalanceAcctResponse(object):
             self.cash_balance = cash_balance
         if credit_limit is not None:
             self.credit_limit = credit_limit
+        if currency is not None:
+            self.currency = currency
         if freeze_amount is not None:
             self.freeze_amount = freeze_amount
 
@@ -181,6 +186,27 @@ class QueryBalanceAcctResponse(object):
         """
 
         self._credit_limit = credit_limit
+
+    @property
+    def currency(self):
+        """Gets the currency of this QueryBalanceAcctResponse.  # noqa: E501
+
+
+        :return: The currency of this QueryBalanceAcctResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency
+
+    @currency.setter
+    def currency(self, currency):
+        """Sets the currency of this QueryBalanceAcctResponse.
+
+
+        :param currency: The currency of this QueryBalanceAcctResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._currency = currency
 
     @property
     def freeze_amount(self):

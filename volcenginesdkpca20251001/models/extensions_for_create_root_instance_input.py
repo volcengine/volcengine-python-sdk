@@ -33,7 +33,7 @@ class ExtensionsForCreateRootInstanceInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'custom_extensions': 'CustomExtensionsForCreateRootInstanceInput',
+        'custom_extensions': 'list[CustomExtensionForCreateRootInstanceInput]',
         'extended_key_usages': 'ExtendedKeyUsagesForCreateRootInstanceInput',
         'key_usages': 'KeyUsagesForCreateRootInstanceInput'
     }
@@ -68,7 +68,7 @@ class ExtensionsForCreateRootInstanceInput(object):
 
 
         :return: The custom_extensions of this ExtensionsForCreateRootInstanceInput.  # noqa: E501
-        :rtype: CustomExtensionsForCreateRootInstanceInput
+        :rtype: list[CustomExtensionForCreateRootInstanceInput]
         """
         return self._custom_extensions
 
@@ -78,7 +78,7 @@ class ExtensionsForCreateRootInstanceInput(object):
 
 
         :param custom_extensions: The custom_extensions of this ExtensionsForCreateRootInstanceInput.  # noqa: E501
-        :type: CustomExtensionsForCreateRootInstanceInput
+        :type: list[CustomExtensionForCreateRootInstanceInput]
         """
 
         self._custom_extensions = custom_extensions
