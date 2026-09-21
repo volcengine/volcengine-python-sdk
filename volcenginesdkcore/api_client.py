@@ -495,6 +495,7 @@ class ApiClient(object):
         # Caller semantics: max_retries = TOTAL attempts (legacy from
         # _do_http_request's for-loop). Configuration semantics:
         # num_max_retries = retries AFTER the initial attempt. Convert.
+        fresh.auto_retry = True
         fresh.num_max_retries = max(max_retries - 1, 0)
         # retry_interval is seconds; Configuration uses ms.
         # Collapse the exponential-backoff range to a fixed delay.

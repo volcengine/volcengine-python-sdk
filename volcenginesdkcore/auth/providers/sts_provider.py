@@ -106,6 +106,7 @@ class StsCredentialProvider(Provider):
         # Retry: apply provider-level retry semantics to this STS call only.
         # Provider semantics: max_retries = TOTAL attempts. Configuration
         # semantics: num_max_retries = retries AFTER the initial attempt.
+        configuration.auto_retry = True
         configuration.num_max_retries = max(self.max_retries - 1, 0)
         # Provider retry_interval is seconds; Configuration uses ms.
         # Collapse the exponential-backoff range to a fixed delay.

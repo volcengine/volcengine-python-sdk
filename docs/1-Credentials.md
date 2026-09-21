@@ -140,9 +140,9 @@ if __name__ == '__main__':
         timeout=30,
         expired_buffer_seconds=60,
         policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}',
-        proxy_url="http://user:pass@10.0.0.1:8080",  # optional: forward proxy for reaching STS; empty falls back to HTTP_PROXY/HTTPS_PROXY
-        ca_file="/path/to/ca.pem",                   # optional: custom CA (PEM) to verify the STS cert; empty uses the default trust store
-        insecure_skip_verify=False,                  # optional: skip STS TLS verification; True for debugging only, never in production
+        proxy_url="http://user:pass@10.0.0.1:8080",  # empty: client fallback, then STS defaults/environment
+        ca_file="/path/to/ca.pem",                   # empty: inherited ssl_ca_cert, otherwise certifi
+        insecure_skip_verify=False,                  # explicit CA enables verification; True skips it (debugging only)
     )
 
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -208,9 +208,9 @@ if __name__ == '__main__':
         policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}',
         max_retries=3,     # optional, HTTP retry attempts (min 1), defaults to 3
         retry_interval=1,  # optional, seconds between retries, defaults to 1
-        proxy_url="http://user:pass@10.0.0.1:8080",  # optional: forward proxy for reaching STS; empty falls back to HTTP_PROXY/HTTPS_PROXY
-        ca_file="/path/to/ca.pem",                   # optional: custom CA (PEM) to verify the STS cert; empty uses the default trust store
-        insecure_skip_verify=False,                  # optional: skip STS TLS verification; True for debugging only, never in production
+        proxy_url="http://user:pass@10.0.0.1:8080",  # empty: client fallback, then STS defaults/environment
+        ca_file="/path/to/ca.pem",                   # empty: inherited ssl_ca_cert, otherwise certifi
+        insecure_skip_verify=False,                  # explicit CA enables verification; True skips it (debugging only)
     )
 
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -290,9 +290,9 @@ if __name__ == '__main__':
         policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}',
         max_retries=3,     # optional, HTTP retry attempts (min 1), defaults to 3
         retry_interval=1,  # optional, seconds between retries, defaults to 1
-        proxy_url="http://user:pass@10.0.0.1:8080",  # optional: forward proxy for reaching STS; empty falls back to HTTP_PROXY/HTTPS_PROXY
-        ca_file="/path/to/ca.pem",                   # optional: custom CA (PEM) to verify the STS cert; empty uses the default trust store
-        insecure_skip_verify=False,                  # optional: skip STS TLS verification; True for debugging only, never in production
+        proxy_url="http://user:pass@10.0.0.1:8080",  # empty: client fallback, then STS defaults/environment
+        ca_file="/path/to/ca.pem",                   # empty: inherited ssl_ca_cert, otherwise certifi
+        insecure_skip_verify=False,                  # explicit CA enables verification; True skips it (debugging only)
     )
 
     volcenginesdkcore.Configuration.set_default(configuration)

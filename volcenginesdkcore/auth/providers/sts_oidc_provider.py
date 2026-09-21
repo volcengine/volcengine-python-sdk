@@ -202,7 +202,15 @@ class StsOidcCredentialProvider(Provider):
         # indirectly by volcenginesdkcore/__init__.py).
         from volcenginesdkcore import ApiClient
         from volcenginesdkcore.auth.provider_binding import new_sts_configuration
-        resp_result = ApiClient(new_sts_configuration(self))._sts_call(
+        from volcenginesdkcore.auth.sts_http_config import StsHttpConfig
+        configuration = new_sts_configuration(self)
+        configuration.scheme = self.scheme
+        # Apply overrides before ApiClient constructs its REST transport.
+        StsHttpConfig(
+            self.proxy_url or getattr(self, '_proxy_fallback', None),
+            self.ca_file, self.insecure_skip_verify
+        ).apply_to_configuration(configuration)
+        resp_result = ApiClient(configuration)._sts_call(
             action='AssumeRoleWithOIDC',
             version='2018-01-01',
             params=params,
