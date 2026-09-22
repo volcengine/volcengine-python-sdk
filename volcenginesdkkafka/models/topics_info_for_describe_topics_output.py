@@ -33,14 +33,14 @@ class TopicsInfoForDescribeTopicsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cleanup_policy': 'str',
+        'cleanup_policy': 'list[str]',
         'create_time': 'str',
         'description': 'str',
         'log_retention_hours': 'int',
         'partition_number': 'int',
         'replica_number': 'int',
         'status': 'str',
-        'tags': 'TagsForDescribeTopicsOutput',
+        'tags': 'list[TagForDescribeTopicsOutput]',
         'topic_name': 'str',
         'used_storage_percentage_in_instance': 'float',
         'used_storage_space_in_bytes': 'int'
@@ -108,7 +108,7 @@ class TopicsInfoForDescribeTopicsOutput(object):
 
 
         :return: The cleanup_policy of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._cleanup_policy
 
@@ -118,7 +118,7 @@ class TopicsInfoForDescribeTopicsOutput(object):
 
 
         :param cleanup_policy: The cleanup_policy of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._cleanup_policy = cleanup_policy
@@ -255,7 +255,7 @@ class TopicsInfoForDescribeTopicsOutput(object):
 
 
         :return: The tags of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
-        :rtype: TagsForDescribeTopicsOutput
+        :rtype: list[TagForDescribeTopicsOutput]
         """
         return self._tags
 
@@ -265,7 +265,7 @@ class TopicsInfoForDescribeTopicsOutput(object):
 
 
         :param tags: The tags of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
-        :type: TagsForDescribeTopicsOutput
+        :type: list[TagForDescribeTopicsOutput]
         """
 
         self._tags = tags
