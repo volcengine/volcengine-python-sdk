@@ -34,7 +34,6 @@ class ListClustersAndVarmorAppsRequest(object):
     """
     swagger_types = {
         'cluster_id': 'str',
-        'cluster_ids': 'str',
         'cluster_name': 'str',
         'page_number': 'int',
         'page_size': 'int',
@@ -42,15 +41,12 @@ class ListClustersAndVarmorAppsRequest(object):
         'sort_by': 'str',
         'sort_order': 'str',
         'varmor_install_status': 'list[str]',
-        'varmor_installed': 'list[str]',
-        'varmor_status': 'list[str]',
         'varmor_version': 'str',
         'varmor_version_status': 'list[str]'
     }
 
     attribute_map = {
         'cluster_id': 'ClusterID',
-        'cluster_ids': 'ClusterIDs',
         'cluster_name': 'ClusterName',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -58,20 +54,17 @@ class ListClustersAndVarmorAppsRequest(object):
         'sort_by': 'SortBy',
         'sort_order': 'SortOrder',
         'varmor_install_status': 'VarmorInstallStatus',
-        'varmor_installed': 'VarmorInstalled',
-        'varmor_status': 'VarmorStatus',
         'varmor_version': 'VarmorVersion',
         'varmor_version_status': 'VarmorVersionStatus'
     }
 
-    def __init__(self, cluster_id=None, cluster_ids=None, cluster_name=None, page_number=None, page_size=None, region=None, sort_by=None, sort_order=None, varmor_install_status=None, varmor_installed=None, varmor_status=None, varmor_version=None, varmor_version_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, cluster_name=None, page_number=None, page_size=None, region=None, sort_by=None, sort_order=None, varmor_install_status=None, varmor_version=None, varmor_version_status=None, _configuration=None):  # noqa: E501
         """ListClustersAndVarmorAppsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cluster_id = None
-        self._cluster_ids = None
         self._cluster_name = None
         self._page_number = None
         self._page_size = None
@@ -79,16 +72,12 @@ class ListClustersAndVarmorAppsRequest(object):
         self._sort_by = None
         self._sort_order = None
         self._varmor_install_status = None
-        self._varmor_installed = None
-        self._varmor_status = None
         self._varmor_version = None
         self._varmor_version_status = None
         self.discriminator = None
 
         if cluster_id is not None:
             self.cluster_id = cluster_id
-        if cluster_ids is not None:
-            self.cluster_ids = cluster_ids
         if cluster_name is not None:
             self.cluster_name = cluster_name
         self.page_number = page_number
@@ -101,10 +90,6 @@ class ListClustersAndVarmorAppsRequest(object):
             self.sort_order = sort_order
         if varmor_install_status is not None:
             self.varmor_install_status = varmor_install_status
-        if varmor_installed is not None:
-            self.varmor_installed = varmor_installed
-        if varmor_status is not None:
-            self.varmor_status = varmor_status
         if varmor_version is not None:
             self.varmor_version = varmor_version
         if varmor_version_status is not None:
@@ -130,27 +115,6 @@ class ListClustersAndVarmorAppsRequest(object):
         """
 
         self._cluster_id = cluster_id
-
-    @property
-    def cluster_ids(self):
-        """Gets the cluster_ids of this ListClustersAndVarmorAppsRequest.  # noqa: E501
-
-
-        :return: The cluster_ids of this ListClustersAndVarmorAppsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_ids
-
-    @cluster_ids.setter
-    def cluster_ids(self, cluster_ids):
-        """Sets the cluster_ids of this ListClustersAndVarmorAppsRequest.
-
-
-        :param cluster_ids: The cluster_ids of this ListClustersAndVarmorAppsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_ids = cluster_ids
 
     @property
     def cluster_name(self):
@@ -302,48 +266,6 @@ class ListClustersAndVarmorAppsRequest(object):
         """
 
         self._varmor_install_status = varmor_install_status
-
-    @property
-    def varmor_installed(self):
-        """Gets the varmor_installed of this ListClustersAndVarmorAppsRequest.  # noqa: E501
-
-
-        :return: The varmor_installed of this ListClustersAndVarmorAppsRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._varmor_installed
-
-    @varmor_installed.setter
-    def varmor_installed(self, varmor_installed):
-        """Sets the varmor_installed of this ListClustersAndVarmorAppsRequest.
-
-
-        :param varmor_installed: The varmor_installed of this ListClustersAndVarmorAppsRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._varmor_installed = varmor_installed
-
-    @property
-    def varmor_status(self):
-        """Gets the varmor_status of this ListClustersAndVarmorAppsRequest.  # noqa: E501
-
-
-        :return: The varmor_status of this ListClustersAndVarmorAppsRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._varmor_status
-
-    @varmor_status.setter
-    def varmor_status(self, varmor_status):
-        """Sets the varmor_status of this ListClustersAndVarmorAppsRequest.
-
-
-        :param varmor_status: The varmor_status of this ListClustersAndVarmorAppsRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._varmor_status = varmor_status
 
     @property
     def varmor_version(self):

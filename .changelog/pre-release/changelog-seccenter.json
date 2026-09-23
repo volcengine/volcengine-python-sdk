@@ -1,0 +1,11 @@
+{
+  "actions": [
+    "ListManagedAccounts",
+    "GetCntrQuota",
+    "GetTenantStatus",
+    "ListClustersAndVarmorApps"
+  ],
+  "description": "SECCENTER: 新增 ListManagedAccounts, GetCntrQuota, GetTenantStatus；修改 ListClustersAndVarmorApps",
+  "modules": "service/seccenter",
+  "type": "breaking-change"
+}
