@@ -235,7 +235,7 @@ if __name__ == '__main__':
         timeout=30,  # 非必填，请求超时时间，默认30秒
         expired_buffer_seconds=60,  # 非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
         policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}', # 非必填，授权策略，默认为空
-        max_retries=3,     # 非必填，HTTP 重试次数（最小 1），默认 3
+        max_retries=3,     # 非必填，HTTP 总尝试次数（含首次，最小 1），默认 3（首次请求加最多两次重试）
         retry_interval=1,  # 非必填，重试间隔秒数，默认 1
         proxy_url="http://user:pass@10.0.0.1:8080",  # 留空：客户端回退，再取 STS 默认配置/环境变量
         ca_file="/path/to/ca.pem",                   # 留空：继承 ssl_ca_cert，未配置则用 certifi
@@ -337,7 +337,7 @@ if __name__ == '__main__':
         timeout=30,  # 非必填，请求超时时间，默认30秒
         expired_buffer_seconds=60,  # 非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
         policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}', # 非必填，授权策略，默认为空
-        max_retries=3,     # 非必填，HTTP 重试次数（最小 1），默认 3
+        max_retries=3,     # 非必填，HTTP 总尝试次数（含首次，最小 1），默认 3（首次请求加最多两次重试）
         retry_interval=1,  # 非必填，重试间隔秒数，默认 1
         proxy_url="http://user:pass@10.0.0.1:8080",  # 留空：客户端回退，再取 STS 默认配置/环境变量
         ca_file="/path/to/ca.pem",                   # 留空：继承 ssl_ca_cert，未配置则用 certifi

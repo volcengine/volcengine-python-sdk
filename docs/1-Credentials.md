@@ -206,7 +206,7 @@ if __name__ == '__main__':
         timeout=30,
         expired_buffer_seconds=60,
         policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}',
-        max_retries=3,     # optional, HTTP retry attempts (min 1), defaults to 3
+        max_retries=3,     # optional, total HTTP attempts (including the first; min 1), defaults to 3 (initial request plus up to two retries)
         retry_interval=1,  # optional, seconds between retries, defaults to 1
         proxy_url="http://user:pass@10.0.0.1:8080",  # empty: client fallback, then STS defaults/environment
         ca_file="/path/to/ca.pem",                   # empty: inherited ssl_ca_cert, otherwise certifi
@@ -288,7 +288,7 @@ if __name__ == '__main__':
         timeout=30,
         expired_buffer_seconds=60,
         policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}',
-        max_retries=3,     # optional, HTTP retry attempts (min 1), defaults to 3
+        max_retries=3,     # optional, total HTTP attempts (including the first; min 1), defaults to 3 (initial request plus up to two retries)
         retry_interval=1,  # optional, seconds between retries, defaults to 1
         proxy_url="http://user:pass@10.0.0.1:8080",  # empty: client fallback, then STS defaults/environment
         ca_file="/path/to/ca.pem",                   # empty: inherited ssl_ca_cert, otherwise certifi
