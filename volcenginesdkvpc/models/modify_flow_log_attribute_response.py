@@ -34,15 +34,17 @@ class ModifyFlowLogAttributeResponse(object):
     """
     swagger_types = {
         'async_task_id': 'str',
-        'request_id': 'str'
+        'request_id': 'str',
+        'version': 'int'
     }
 
     attribute_map = {
         'async_task_id': 'AsyncTaskId',
-        'request_id': 'RequestId'
+        'request_id': 'RequestId',
+        'version': 'Version'
     }
 
-    def __init__(self, async_task_id=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_id=None, request_id=None, version=None, _configuration=None):  # noqa: E501
         """ModifyFlowLogAttributeResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class ModifyFlowLogAttributeResponse(object):
 
         self._async_task_id = None
         self._request_id = None
+        self._version = None
         self.discriminator = None
 
         if async_task_id is not None:
             self.async_task_id = async_task_id
         if request_id is not None:
             self.request_id = request_id
+        if version is not None:
+            self.version = version
 
     @property
     def async_task_id(self):
@@ -98,6 +103,27 @@ class ModifyFlowLogAttributeResponse(object):
         """
 
         self._request_id = request_id
+
+    @property
+    def version(self):
+        """Gets the version of this ModifyFlowLogAttributeResponse.  # noqa: E501
+
+
+        :return: The version of this ModifyFlowLogAttributeResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this ModifyFlowLogAttributeResponse.
+
+
+        :param version: The version of this ModifyFlowLogAttributeResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

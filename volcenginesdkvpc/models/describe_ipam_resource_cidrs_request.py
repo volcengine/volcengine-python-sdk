@@ -39,6 +39,7 @@ class DescribeIpamResourceCidrsRequest(object):
         'next_token': 'str',
         'resource_id': 'str',
         'resource_name': 'str',
+        'resource_region_id': 'str',
         'resource_type': 'str',
         'vpc_id': 'str'
     }
@@ -50,11 +51,12 @@ class DescribeIpamResourceCidrsRequest(object):
         'next_token': 'NextToken',
         'resource_id': 'ResourceId',
         'resource_name': 'ResourceName',
+        'resource_region_id': 'ResourceRegionId',
         'resource_type': 'ResourceType',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, ipam_pool_id=None, ipam_scope_id=None, max_results=None, next_token=None, resource_id=None, resource_name=None, resource_type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipam_pool_id=None, ipam_scope_id=None, max_results=None, next_token=None, resource_id=None, resource_name=None, resource_region_id=None, resource_type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeIpamResourceCidrsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class DescribeIpamResourceCidrsRequest(object):
         self._next_token = None
         self._resource_id = None
         self._resource_name = None
+        self._resource_region_id = None
         self._resource_type = None
         self._vpc_id = None
         self.discriminator = None
@@ -81,6 +84,8 @@ class DescribeIpamResourceCidrsRequest(object):
             self.resource_id = resource_id
         if resource_name is not None:
             self.resource_name = resource_name
+        if resource_region_id is not None:
+            self.resource_region_id = resource_region_id
         if resource_type is not None:
             self.resource_type = resource_type
         self.vpc_id = vpc_id
@@ -212,6 +217,27 @@ class DescribeIpamResourceCidrsRequest(object):
         """
 
         self._resource_name = resource_name
+
+    @property
+    def resource_region_id(self):
+        """Gets the resource_region_id of this DescribeIpamResourceCidrsRequest.  # noqa: E501
+
+
+        :return: The resource_region_id of this DescribeIpamResourceCidrsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_region_id
+
+    @resource_region_id.setter
+    def resource_region_id(self, resource_region_id):
+        """Sets the resource_region_id of this DescribeIpamResourceCidrsRequest.
+
+
+        :param resource_region_id: The resource_region_id of this DescribeIpamResourceCidrsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_region_id = resource_region_id
 
     @property
     def resource_type(self):

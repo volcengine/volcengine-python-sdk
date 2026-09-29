@@ -38,7 +38,10 @@ class ModifyNetworkInterfaceAttributesRequest(object):
         'network_interface_id': 'str',
         'network_interface_name': 'str',
         'port_security_enabled': 'bool',
-        'security_group_ids': 'list[str]'
+        'security_group_ids': 'list[str]',
+        'tcp_closed_and_time_wait_timeout': 'int',
+        'tcp_established_timeout': 'int',
+        'udp_timeout': 'int'
     }
 
     attribute_map = {
@@ -47,10 +50,13 @@ class ModifyNetworkInterfaceAttributesRequest(object):
         'network_interface_id': 'NetworkInterfaceId',
         'network_interface_name': 'NetworkInterfaceName',
         'port_security_enabled': 'PortSecurityEnabled',
-        'security_group_ids': 'SecurityGroupIds'
+        'security_group_ids': 'SecurityGroupIds',
+        'tcp_closed_and_time_wait_timeout': 'TcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout': 'TcpEstablishedTimeout',
+        'udp_timeout': 'UdpTimeout'
     }
 
-    def __init__(self, delete_on_termination=None, description=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, security_group_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_on_termination=None, description=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, security_group_ids=None, tcp_closed_and_time_wait_timeout=None, tcp_established_timeout=None, udp_timeout=None, _configuration=None):  # noqa: E501
         """ModifyNetworkInterfaceAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +68,9 @@ class ModifyNetworkInterfaceAttributesRequest(object):
         self._network_interface_name = None
         self._port_security_enabled = None
         self._security_group_ids = None
+        self._tcp_closed_and_time_wait_timeout = None
+        self._tcp_established_timeout = None
+        self._udp_timeout = None
         self.discriminator = None
 
         if delete_on_termination is not None:
@@ -75,6 +84,12 @@ class ModifyNetworkInterfaceAttributesRequest(object):
             self.port_security_enabled = port_security_enabled
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
+        if tcp_closed_and_time_wait_timeout is not None:
+            self.tcp_closed_and_time_wait_timeout = tcp_closed_and_time_wait_timeout
+        if tcp_established_timeout is not None:
+            self.tcp_established_timeout = tcp_established_timeout
+        if udp_timeout is not None:
+            self.udp_timeout = udp_timeout
 
     @property
     def delete_on_termination(self):
@@ -215,6 +230,69 @@ class ModifyNetworkInterfaceAttributesRequest(object):
         """
 
         self._security_group_ids = security_group_ids
+
+    @property
+    def tcp_closed_and_time_wait_timeout(self):
+        """Gets the tcp_closed_and_time_wait_timeout of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The tcp_closed_and_time_wait_timeout of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._tcp_closed_and_time_wait_timeout
+
+    @tcp_closed_and_time_wait_timeout.setter
+    def tcp_closed_and_time_wait_timeout(self, tcp_closed_and_time_wait_timeout):
+        """Sets the tcp_closed_and_time_wait_timeout of this ModifyNetworkInterfaceAttributesRequest.
+
+
+        :param tcp_closed_and_time_wait_timeout: The tcp_closed_and_time_wait_timeout of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._tcp_closed_and_time_wait_timeout = tcp_closed_and_time_wait_timeout
+
+    @property
+    def tcp_established_timeout(self):
+        """Gets the tcp_established_timeout of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The tcp_established_timeout of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._tcp_established_timeout
+
+    @tcp_established_timeout.setter
+    def tcp_established_timeout(self, tcp_established_timeout):
+        """Sets the tcp_established_timeout of this ModifyNetworkInterfaceAttributesRequest.
+
+
+        :param tcp_established_timeout: The tcp_established_timeout of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._tcp_established_timeout = tcp_established_timeout
+
+    @property
+    def udp_timeout(self):
+        """Gets the udp_timeout of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The udp_timeout of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._udp_timeout
+
+    @udp_timeout.setter
+    def udp_timeout(self, udp_timeout):
+        """Sets the udp_timeout of this ModifyNetworkInterfaceAttributesRequest.
+
+
+        :param udp_timeout: The udp_timeout of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._udp_timeout = udp_timeout
 
     def to_dict(self):
         """Returns the model properties as a dict"""
