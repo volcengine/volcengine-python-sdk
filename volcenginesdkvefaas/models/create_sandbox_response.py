@@ -35,16 +35,18 @@ class CreateSandboxResponse(object):
     swagger_types = {
         'assign_missed_reason': 'str',
         'assign_status': 'str',
+        'latency_ms': 'int',
         'sandbox_id': 'str'
     }
 
     attribute_map = {
         'assign_missed_reason': 'AssignMissedReason',
         'assign_status': 'AssignStatus',
+        'latency_ms': 'LatencyMs',
         'sandbox_id': 'SandboxId'
     }
 
-    def __init__(self, assign_missed_reason=None, assign_status=None, sandbox_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, assign_missed_reason=None, assign_status=None, latency_ms=None, sandbox_id=None, _configuration=None):  # noqa: E501
         """CreateSandboxResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class CreateSandboxResponse(object):
 
         self._assign_missed_reason = None
         self._assign_status = None
+        self._latency_ms = None
         self._sandbox_id = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class CreateSandboxResponse(object):
             self.assign_missed_reason = assign_missed_reason
         if assign_status is not None:
             self.assign_status = assign_status
+        if latency_ms is not None:
+            self.latency_ms = latency_ms
         if sandbox_id is not None:
             self.sandbox_id = sandbox_id
 
@@ -103,6 +108,27 @@ class CreateSandboxResponse(object):
         """
 
         self._assign_status = assign_status
+
+    @property
+    def latency_ms(self):
+        """Gets the latency_ms of this CreateSandboxResponse.  # noqa: E501
+
+
+        :return: The latency_ms of this CreateSandboxResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._latency_ms
+
+    @latency_ms.setter
+    def latency_ms(self, latency_ms):
+        """Sets the latency_ms of this CreateSandboxResponse.
+
+
+        :param latency_ms: The latency_ms of this CreateSandboxResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._latency_ms = latency_ms
 
     @property
     def sandbox_id(self):
