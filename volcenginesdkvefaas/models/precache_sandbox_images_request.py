@@ -33,29 +33,65 @@ class PrecacheSandboxImagesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'image_urls': 'list[str]',
-        'registry_id': 'str'
+        'network_config': 'NetworkConfigForPrecacheSandboxImagesInput',
+        'registry_auth_config': 'RegistryAuthConfigForPrecacheSandboxImagesInput',
+        'registry_type': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'image_urls': 'ImageUrls',
-        'registry_id': 'RegistryId'
+        'network_config': 'NetworkConfig',
+        'registry_auth_config': 'RegistryAuthConfig',
+        'registry_type': 'RegistryType'
     }
 
-    def __init__(self, image_urls=None, registry_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, image_urls=None, network_config=None, registry_auth_config=None, registry_type=None, _configuration=None):  # noqa: E501
         """PrecacheSandboxImagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._image_urls = None
-        self._registry_id = None
+        self._network_config = None
+        self._registry_auth_config = None
+        self._registry_type = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if image_urls is not None:
             self.image_urls = image_urls
-        if registry_id is not None:
-            self.registry_id = registry_id
+        if network_config is not None:
+            self.network_config = network_config
+        if registry_auth_config is not None:
+            self.registry_auth_config = registry_auth_config
+        if registry_type is not None:
+            self.registry_type = registry_type
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this PrecacheSandboxImagesRequest.  # noqa: E501
+
+
+        :return: The client_token of this PrecacheSandboxImagesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this PrecacheSandboxImagesRequest.
+
+
+        :param client_token: The client_token of this PrecacheSandboxImagesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def image_urls(self):
@@ -79,25 +115,67 @@ class PrecacheSandboxImagesRequest(object):
         self._image_urls = image_urls
 
     @property
-    def registry_id(self):
-        """Gets the registry_id of this PrecacheSandboxImagesRequest.  # noqa: E501
+    def network_config(self):
+        """Gets the network_config of this PrecacheSandboxImagesRequest.  # noqa: E501
 
 
-        :return: The registry_id of this PrecacheSandboxImagesRequest.  # noqa: E501
+        :return: The network_config of this PrecacheSandboxImagesRequest.  # noqa: E501
+        :rtype: NetworkConfigForPrecacheSandboxImagesInput
+        """
+        return self._network_config
+
+    @network_config.setter
+    def network_config(self, network_config):
+        """Sets the network_config of this PrecacheSandboxImagesRequest.
+
+
+        :param network_config: The network_config of this PrecacheSandboxImagesRequest.  # noqa: E501
+        :type: NetworkConfigForPrecacheSandboxImagesInput
+        """
+
+        self._network_config = network_config
+
+    @property
+    def registry_auth_config(self):
+        """Gets the registry_auth_config of this PrecacheSandboxImagesRequest.  # noqa: E501
+
+
+        :return: The registry_auth_config of this PrecacheSandboxImagesRequest.  # noqa: E501
+        :rtype: RegistryAuthConfigForPrecacheSandboxImagesInput
+        """
+        return self._registry_auth_config
+
+    @registry_auth_config.setter
+    def registry_auth_config(self, registry_auth_config):
+        """Sets the registry_auth_config of this PrecacheSandboxImagesRequest.
+
+
+        :param registry_auth_config: The registry_auth_config of this PrecacheSandboxImagesRequest.  # noqa: E501
+        :type: RegistryAuthConfigForPrecacheSandboxImagesInput
+        """
+
+        self._registry_auth_config = registry_auth_config
+
+    @property
+    def registry_type(self):
+        """Gets the registry_type of this PrecacheSandboxImagesRequest.  # noqa: E501
+
+
+        :return: The registry_type of this PrecacheSandboxImagesRequest.  # noqa: E501
         :rtype: str
         """
-        return self._registry_id
+        return self._registry_type
 
-    @registry_id.setter
-    def registry_id(self, registry_id):
-        """Sets the registry_id of this PrecacheSandboxImagesRequest.
+    @registry_type.setter
+    def registry_type(self, registry_type):
+        """Sets the registry_type of this PrecacheSandboxImagesRequest.
 
 
-        :param registry_id: The registry_id of this PrecacheSandboxImagesRequest.  # noqa: E501
+        :param registry_type: The registry_type of this PrecacheSandboxImagesRequest.  # noqa: E501
         :type: str
         """
 
-        self._registry_id = registry_id
+        self._registry_type = registry_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
