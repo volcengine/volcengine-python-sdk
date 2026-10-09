@@ -33,24 +33,50 @@ class EfsMountConfigForUpdateFunctionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auth': 'AuthForUpdateFunctionOutput',
         'mount_points': 'list[MountPointForUpdateFunctionOutput]'
     }
 
     attribute_map = {
+        'auth': 'Auth',
         'mount_points': 'MountPoints'
     }
 
-    def __init__(self, mount_points=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth=None, mount_points=None, _configuration=None):  # noqa: E501
         """EfsMountConfigForUpdateFunctionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auth = None
         self._mount_points = None
         self.discriminator = None
 
+        if auth is not None:
+            self.auth = auth
         if mount_points is not None:
             self.mount_points = mount_points
+
+    @property
+    def auth(self):
+        """Gets the auth of this EfsMountConfigForUpdateFunctionOutput.  # noqa: E501
+
+
+        :return: The auth of this EfsMountConfigForUpdateFunctionOutput.  # noqa: E501
+        :rtype: AuthForUpdateFunctionOutput
+        """
+        return self._auth
+
+    @auth.setter
+    def auth(self, auth):
+        """Sets the auth of this EfsMountConfigForUpdateFunctionOutput.
+
+
+        :param auth: The auth of this EfsMountConfigForUpdateFunctionOutput.  # noqa: E501
+        :type: AuthForUpdateFunctionOutput
+        """
+
+        self._auth = auth
 
     @property
     def mount_points(self):

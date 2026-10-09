@@ -1,0 +1,17 @@
+{
+  "actions": [
+    "PrecacheSandboxImages",
+    "UpdateNetworkRules",
+    "CreateFunction",
+    "CreateSandbox",
+    "UpdateFunction",
+    "DescribeSandbox",
+    "GetFunction",
+    "GetRevision",
+    "ListFunctions",
+    "ListRevisions"
+  ],
+  "description": "VEFAAS: 新增 UpdateNetworkRules；修改 PrecacheSandboxImages, CreateFunction, CreateSandbox, UpdateFunction, DescribeSandbox, GetFunction, GetRevision, ListFunctions, ListRevisions",
+  "modules": "service/vefaas",
+  "type": "breaking-change"
+}
