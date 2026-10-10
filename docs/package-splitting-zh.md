@@ -31,19 +31,18 @@
 - `volcenginesdkcore` 映射为 `volcenginesdk-core`。
 - 其他 `volcenginesdk<product>` 映射为 `volcenginesdk-<product>`。
 - `volcenginesdkexamples` 仅作为源码示例，不进入运行时发行包。
+- `volcenginesdkarkruntime` 的发行名在 PyPI 上与一个已删除项目的 ultranormalized 名冲突（见 pypi/support#12626），暂不发布；方舟运行时请使用官方独立包 `arkruntime`。
 - TOS SDK 已由独立的 `tos` 项目发布，不纳入本仓库分包。
 
 内部依赖由构建脚本从绝对 import 中提取并精确锁定到同一 SDK 版本。当前只有以下非
 标准依赖链：
 
-- `volcenginesdk-arkruntime` 依赖 `volcenginesdk-ark` 和 Core。
 - `volcenginesdk-llmshield` 依赖 `volcenginesdk-sts` 和 Core。
 - `volcenginesdk-wafruntime` 依赖 `volcenginesdk-waf`，后者依赖 Core。
 
 产品包直接安装时可以独立升级；全量元包使用精确版本形成一次发布的 BOM，避免从不同
 SDK 版本拼出未经验证的全量环境。精确锁定是迁移期的保守选择，放宽路径见下文
-「演进：core 兼容承诺与部分发布」一节。Ark Runtime 现有代码使用 Python 3.10 语法，因此只在
-Python 3.10 及以上安装；LLM Shield 只在 Python 3.8 及以上安装。其他包维持现有
+「演进：core 兼容承诺与部分发布」一节。LLM Shield 只在 Python 3.8 及以上安装。其他包维持现有
 `Python >= 2.7` 元数据。
 
 ## 构建和校验

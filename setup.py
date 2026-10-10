@@ -72,9 +72,4 @@ setup(
     url="https://github.com/volcengine/volcengine-python-sdk",
     python_requires=MANIFEST["default_python_requires"],
     options={"bdist_wheel": {"universal": True}},
-    extras_require={
-        "ark": [
-            "volcenginesdk-arkruntime=={}; python_version >= '3.10'".format(VERSION)
-        ]
-    },
 )
