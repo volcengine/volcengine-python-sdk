@@ -44,6 +44,7 @@ class PermissionForDescribeSecurityGroupAttributesOutput(object):
         'prefix_list_id': 'str',
         'priority': 'int',
         'protocol': 'str',
+        'security_group_rule_id': 'str',
         'source_group_id': 'str',
         'update_time': 'str'
     }
@@ -60,11 +61,12 @@ class PermissionForDescribeSecurityGroupAttributesOutput(object):
         'prefix_list_id': 'PrefixListId',
         'priority': 'Priority',
         'protocol': 'Protocol',
+        'security_group_rule_id': 'SecurityGroupRuleId',
         'source_group_id': 'SourceGroupId',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, cidr_ip=None, creation_time=None, description=None, direction=None, policy=None, port_end=None, port_start=None, prefix_list_cidrs=None, prefix_list_id=None, priority=None, protocol=None, source_group_id=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_ip=None, creation_time=None, description=None, direction=None, policy=None, port_end=None, port_start=None, prefix_list_cidrs=None, prefix_list_id=None, priority=None, protocol=None, security_group_rule_id=None, source_group_id=None, update_time=None, _configuration=None):  # noqa: E501
         """PermissionForDescribeSecurityGroupAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class PermissionForDescribeSecurityGroupAttributesOutput(object):
         self._prefix_list_id = None
         self._priority = None
         self._protocol = None
+        self._security_group_rule_id = None
         self._source_group_id = None
         self._update_time = None
         self.discriminator = None
@@ -107,6 +110,8 @@ class PermissionForDescribeSecurityGroupAttributesOutput(object):
             self.priority = priority
         if protocol is not None:
             self.protocol = protocol
+        if security_group_rule_id is not None:
+            self.security_group_rule_id = security_group_rule_id
         if source_group_id is not None:
             self.source_group_id = source_group_id
         if update_time is not None:
@@ -342,6 +347,27 @@ class PermissionForDescribeSecurityGroupAttributesOutput(object):
         """
 
         self._protocol = protocol
+
+    @property
+    def security_group_rule_id(self):
+        """Gets the security_group_rule_id of this PermissionForDescribeSecurityGroupAttributesOutput.  # noqa: E501
+
+
+        :return: The security_group_rule_id of this PermissionForDescribeSecurityGroupAttributesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_group_rule_id
+
+    @security_group_rule_id.setter
+    def security_group_rule_id(self, security_group_rule_id):
+        """Sets the security_group_rule_id of this PermissionForDescribeSecurityGroupAttributesOutput.
+
+
+        :param security_group_rule_id: The security_group_rule_id of this PermissionForDescribeSecurityGroupAttributesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_group_rule_id = security_group_rule_id
 
     @property
     def source_group_id(self):

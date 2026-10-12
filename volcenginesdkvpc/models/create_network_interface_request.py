@@ -45,7 +45,10 @@ class CreateNetworkInterfaceRequest(object):
         'secondary_private_ip_address_count': 'int',
         'security_group_ids': 'list[str]',
         'subnet_id': 'str',
-        'tags': 'list[TagForCreateNetworkInterfaceInput]'
+        'tags': 'list[TagForCreateNetworkInterfaceInput]',
+        'tcp_closed_and_time_wait_timeout': 'int',
+        'tcp_established_timeout': 'int',
+        'udp_timeout': 'int'
     }
 
     attribute_map = {
@@ -61,10 +64,13 @@ class CreateNetworkInterfaceRequest(object):
         'secondary_private_ip_address_count': 'SecondaryPrivateIpAddressCount',
         'security_group_ids': 'SecurityGroupIds',
         'subnet_id': 'SubnetId',
-        'tags': 'Tags'
+        'tags': 'Tags',
+        'tcp_closed_and_time_wait_timeout': 'TcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout': 'TcpEstablishedTimeout',
+        'udp_timeout': 'UdpTimeout'
     }
 
-    def __init__(self, client_token=None, description=None, ipv6_address=None, ipv6_address_count=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_address=None, project_name=None, secondary_private_ip_address_count=None, security_group_ids=None, subnet_id=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, ipv6_address=None, ipv6_address_count=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_address=None, project_name=None, secondary_private_ip_address_count=None, security_group_ids=None, subnet_id=None, tags=None, tcp_closed_and_time_wait_timeout=None, tcp_established_timeout=None, udp_timeout=None, _configuration=None):  # noqa: E501
         """CreateNetworkInterfaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +89,9 @@ class CreateNetworkInterfaceRequest(object):
         self._security_group_ids = None
         self._subnet_id = None
         self._tags = None
+        self._tcp_closed_and_time_wait_timeout = None
+        self._tcp_established_timeout = None
+        self._udp_timeout = None
         self.discriminator = None
 
         if client_token is not None:
@@ -110,6 +119,12 @@ class CreateNetworkInterfaceRequest(object):
         self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
+        if tcp_closed_and_time_wait_timeout is not None:
+            self.tcp_closed_and_time_wait_timeout = tcp_closed_and_time_wait_timeout
+        if tcp_established_timeout is not None:
+            self.tcp_established_timeout = tcp_established_timeout
+        if udp_timeout is not None:
+            self.udp_timeout = udp_timeout
 
     @property
     def client_token(self):
@@ -397,6 +412,69 @@ class CreateNetworkInterfaceRequest(object):
         """
 
         self._tags = tags
+
+    @property
+    def tcp_closed_and_time_wait_timeout(self):
+        """Gets the tcp_closed_and_time_wait_timeout of this CreateNetworkInterfaceRequest.  # noqa: E501
+
+
+        :return: The tcp_closed_and_time_wait_timeout of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._tcp_closed_and_time_wait_timeout
+
+    @tcp_closed_and_time_wait_timeout.setter
+    def tcp_closed_and_time_wait_timeout(self, tcp_closed_and_time_wait_timeout):
+        """Sets the tcp_closed_and_time_wait_timeout of this CreateNetworkInterfaceRequest.
+
+
+        :param tcp_closed_and_time_wait_timeout: The tcp_closed_and_time_wait_timeout of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._tcp_closed_and_time_wait_timeout = tcp_closed_and_time_wait_timeout
+
+    @property
+    def tcp_established_timeout(self):
+        """Gets the tcp_established_timeout of this CreateNetworkInterfaceRequest.  # noqa: E501
+
+
+        :return: The tcp_established_timeout of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._tcp_established_timeout
+
+    @tcp_established_timeout.setter
+    def tcp_established_timeout(self, tcp_established_timeout):
+        """Sets the tcp_established_timeout of this CreateNetworkInterfaceRequest.
+
+
+        :param tcp_established_timeout: The tcp_established_timeout of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._tcp_established_timeout = tcp_established_timeout
+
+    @property
+    def udp_timeout(self):
+        """Gets the udp_timeout of this CreateNetworkInterfaceRequest.  # noqa: E501
+
+
+        :return: The udp_timeout of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._udp_timeout
+
+    @udp_timeout.setter
+    def udp_timeout(self, udp_timeout):
+        """Sets the udp_timeout of this CreateNetworkInterfaceRequest.
+
+
+        :param udp_timeout: The udp_timeout of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._udp_timeout = udp_timeout
 
     def to_dict(self):
         """Returns the model properties as a dict"""

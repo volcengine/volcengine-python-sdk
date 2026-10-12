@@ -40,10 +40,12 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput(object):
         'ipam_pool_id': 'str',
         'ipam_scope_id': 'str',
         'management_status': 'str',
+        'overlap_details': 'list[OverlapDetailForDescribeIpamResourceCidrsOutput]',
         'overlap_status': 'str',
         'resource_cidr': 'str',
         'resource_id': 'str',
         'resource_name': 'str',
+        'resource_region_id': 'str',
         'resource_type': 'str',
         'vpc_id': 'str'
     }
@@ -56,15 +58,17 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput(object):
         'ipam_pool_id': 'IpamPoolId',
         'ipam_scope_id': 'IpamScopeId',
         'management_status': 'ManagementStatus',
+        'overlap_details': 'OverlapDetails',
         'overlap_status': 'OverlapStatus',
         'resource_cidr': 'ResourceCidr',
         'resource_id': 'ResourceId',
         'resource_name': 'ResourceName',
+        'resource_region_id': 'ResourceRegionId',
         'resource_type': 'ResourceType',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, compliance_status=None, ip_usage=None, ipam_id=None, ipam_pool_allocation_id=None, ipam_pool_id=None, ipam_scope_id=None, management_status=None, overlap_status=None, resource_cidr=None, resource_id=None, resource_name=None, resource_type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, compliance_status=None, ip_usage=None, ipam_id=None, ipam_pool_allocation_id=None, ipam_pool_id=None, ipam_scope_id=None, management_status=None, overlap_details=None, overlap_status=None, resource_cidr=None, resource_id=None, resource_name=None, resource_region_id=None, resource_type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """IpamResourceCidrForDescribeIpamResourceCidrsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,10 +81,12 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput(object):
         self._ipam_pool_id = None
         self._ipam_scope_id = None
         self._management_status = None
+        self._overlap_details = None
         self._overlap_status = None
         self._resource_cidr = None
         self._resource_id = None
         self._resource_name = None
+        self._resource_region_id = None
         self._resource_type = None
         self._vpc_id = None
         self.discriminator = None
@@ -99,6 +105,8 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput(object):
             self.ipam_scope_id = ipam_scope_id
         if management_status is not None:
             self.management_status = management_status
+        if overlap_details is not None:
+            self.overlap_details = overlap_details
         if overlap_status is not None:
             self.overlap_status = overlap_status
         if resource_cidr is not None:
@@ -107,6 +115,8 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput(object):
             self.resource_id = resource_id
         if resource_name is not None:
             self.resource_name = resource_name
+        if resource_region_id is not None:
+            self.resource_region_id = resource_region_id
         if resource_type is not None:
             self.resource_type = resource_type
         if vpc_id is not None:
@@ -260,6 +270,27 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput(object):
         self._management_status = management_status
 
     @property
+    def overlap_details(self):
+        """Gets the overlap_details of this IpamResourceCidrForDescribeIpamResourceCidrsOutput.  # noqa: E501
+
+
+        :return: The overlap_details of this IpamResourceCidrForDescribeIpamResourceCidrsOutput.  # noqa: E501
+        :rtype: list[OverlapDetailForDescribeIpamResourceCidrsOutput]
+        """
+        return self._overlap_details
+
+    @overlap_details.setter
+    def overlap_details(self, overlap_details):
+        """Sets the overlap_details of this IpamResourceCidrForDescribeIpamResourceCidrsOutput.
+
+
+        :param overlap_details: The overlap_details of this IpamResourceCidrForDescribeIpamResourceCidrsOutput.  # noqa: E501
+        :type: list[OverlapDetailForDescribeIpamResourceCidrsOutput]
+        """
+
+        self._overlap_details = overlap_details
+
+    @property
     def overlap_status(self):
         """Gets the overlap_status of this IpamResourceCidrForDescribeIpamResourceCidrsOutput.  # noqa: E501
 
@@ -342,6 +373,27 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput(object):
         """
 
         self._resource_name = resource_name
+
+    @property
+    def resource_region_id(self):
+        """Gets the resource_region_id of this IpamResourceCidrForDescribeIpamResourceCidrsOutput.  # noqa: E501
+
+
+        :return: The resource_region_id of this IpamResourceCidrForDescribeIpamResourceCidrsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_region_id
+
+    @resource_region_id.setter
+    def resource_region_id(self, resource_region_id):
+        """Sets the resource_region_id of this IpamResourceCidrForDescribeIpamResourceCidrsOutput.
+
+
+        :param resource_region_id: The resource_region_id of this IpamResourceCidrForDescribeIpamResourceCidrsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_region_id = resource_region_id
 
     @property
     def resource_type(self):
