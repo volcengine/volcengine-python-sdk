@@ -6,6 +6,7 @@ This module provides utilities for generating authentication tokens for RDS MySQ
 """
 
 from volcenginesdkcore.endpoint.providers.standard_provider import StandardEndpointResolver
+from volcenginesdkcore.endpoint.validation import validate_service_and_region
 from volcenginesdkcore.interceptor import InterceptorChain, InterceptorContext, \
     ResolveEndpointInterceptor
 
@@ -25,6 +26,8 @@ def build_auth_token(api_client, db_user, instance_id, expires=None):
     :param expires: Token expiration time in seconds (default: 900, i.e., 15 minutes)
     :return: Presigned URL string for database authentication
     :raises ValueError: If required parameters are missing or invalid
+    :raises EndpointValidationError: (a ValueError) with code InvalidRegion or
+        InvalidService if the endpoint host would be built from an invalid value
     """
     # Validate api_client
     if api_client is None:
@@ -42,6 +45,11 @@ def build_auth_token(api_client, db_user, instance_id, expires=None):
 
     if not instance_id:
         raise ValueError("instance_id must not be empty")
+
+    # Without an explicit host the region is concatenated into the endpoint
+    # host, make sure no token is built for an injected host (SSRF).
+    if not configuration.host:
+        validate_service_and_region(DEFAULT_SERVICE, region)
 
     # Set default expiration time
     if expires is None or expires <= 0:

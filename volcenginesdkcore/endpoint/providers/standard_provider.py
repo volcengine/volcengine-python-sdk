@@ -2,6 +2,7 @@
 from __future__ import unicode_literals, print_function
 import re
 from volcenginesdkcore.endpoint.endpoint_provider import EndpointProvider, ResolvedEndpoint
+from volcenginesdkcore.endpoint.validation import validate_service_and_region
 
 
 # -----------------------------
@@ -287,6 +288,7 @@ class StandardEndpointResolver(EndpointProvider):
         self.custom_services = custom_services or {}
 
     def endpoint_for(self, service, region, custom_bootstrap_region=None, use_dual_stack=None, **kwargs):
+        validate_service_and_region(service, region)
         # 1) Region 校验
         if not region_matcher.validate(region):
             raise StandProviderError(

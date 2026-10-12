@@ -921,6 +921,8 @@ class SsoCredentialProvider(Provider):
         Operates on self._cache so that any rotated refresh_token is preserved
         across subsequent expiry cycles (in-memory refresh, never writes disk).
         """
+        from volcenginesdkcore.endpoint.validation import validate_region
+        validate_region(self._region)
         token_cache = self._cache
         _raw_sso_rt = token_cache.get("refresh_token")
         refresh_token = _raw_sso_rt.strip() if isinstance(_raw_sso_rt, six.string_types) else ""
@@ -1057,6 +1059,8 @@ class SsoCredentialProvider(Provider):
 
     def _fetch_role_credentials(self, access_token):
         """Exchange an SSO access token for temporary role credentials."""
+        from volcenginesdkcore.endpoint.validation import validate_region
+        validate_region(self._region)
         try:
             from urllib.parse import urlencode
         except ImportError:
