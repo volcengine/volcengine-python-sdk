@@ -34,35 +34,41 @@ class UpdatePrivateEndpointAllowlistRuleRequest(object):
     """
     swagger_types = {
         'cluster_id': 'str',
+        'current_vpc_endpoint_id': 'str',
         'display_name': 'str',
-        'project_name': 'str',
-        'vpc_endpoint_id': 'str'
+        'new_vpc_endpoint_id': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'cluster_id': 'ClusterId',
+        'current_vpc_endpoint_id': 'CurrentVpcEndpointId',
         'display_name': 'DisplayName',
-        'project_name': 'ProjectName',
-        'vpc_endpoint_id': 'VpcEndpointId'
+        'new_vpc_endpoint_id': 'NewVpcEndpointId',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, cluster_id=None, display_name=None, project_name=None, vpc_endpoint_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, current_vpc_endpoint_id=None, display_name=None, new_vpc_endpoint_id=None, project_name=None, _configuration=None):  # noqa: E501
         """UpdatePrivateEndpointAllowlistRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cluster_id = None
+        self._current_vpc_endpoint_id = None
         self._display_name = None
+        self._new_vpc_endpoint_id = None
         self._project_name = None
-        self._vpc_endpoint_id = None
         self.discriminator = None
 
         self.cluster_id = cluster_id
-        self.display_name = display_name
+        self.current_vpc_endpoint_id = current_vpc_endpoint_id
+        if display_name is not None:
+            self.display_name = display_name
+        if new_vpc_endpoint_id is not None:
+            self.new_vpc_endpoint_id = new_vpc_endpoint_id
         if project_name is not None:
             self.project_name = project_name
-        self.vpc_endpoint_id = vpc_endpoint_id
 
     @property
     def cluster_id(self):
@@ -88,6 +94,29 @@ class UpdatePrivateEndpointAllowlistRuleRequest(object):
         self._cluster_id = cluster_id
 
     @property
+    def current_vpc_endpoint_id(self):
+        """Gets the current_vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+
+
+        :return: The current_vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_vpc_endpoint_id
+
+    @current_vpc_endpoint_id.setter
+    def current_vpc_endpoint_id(self, current_vpc_endpoint_id):
+        """Sets the current_vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.
+
+
+        :param current_vpc_endpoint_id: The current_vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and current_vpc_endpoint_id is None:
+            raise ValueError("Invalid value for `current_vpc_endpoint_id`, must not be `None`")  # noqa: E501
+
+        self._current_vpc_endpoint_id = current_vpc_endpoint_id
+
+    @property
     def display_name(self):
         """Gets the display_name of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
 
@@ -105,10 +134,29 @@ class UpdatePrivateEndpointAllowlistRuleRequest(object):
         :param display_name: The display_name of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and display_name is None:
-            raise ValueError("Invalid value for `display_name`, must not be `None`")  # noqa: E501
 
         self._display_name = display_name
+
+    @property
+    def new_vpc_endpoint_id(self):
+        """Gets the new_vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+
+
+        :return: The new_vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._new_vpc_endpoint_id
+
+    @new_vpc_endpoint_id.setter
+    def new_vpc_endpoint_id(self, new_vpc_endpoint_id):
+        """Sets the new_vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.
+
+
+        :param new_vpc_endpoint_id: The new_vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._new_vpc_endpoint_id = new_vpc_endpoint_id
 
     @property
     def project_name(self):
@@ -130,29 +178,6 @@ class UpdatePrivateEndpointAllowlistRuleRequest(object):
         """
 
         self._project_name = project_name
-
-    @property
-    def vpc_endpoint_id(self):
-        """Gets the vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
-
-
-        :return: The vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._vpc_endpoint_id
-
-    @vpc_endpoint_id.setter
-    def vpc_endpoint_id(self, vpc_endpoint_id):
-        """Sets the vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.
-
-
-        :param vpc_endpoint_id: The vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and vpc_endpoint_id is None:
-            raise ValueError("Invalid value for `vpc_endpoint_id`, must not be `None`")  # noqa: E501
-
-        self._vpc_endpoint_id = vpc_endpoint_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

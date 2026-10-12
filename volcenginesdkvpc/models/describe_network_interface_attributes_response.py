@@ -53,7 +53,10 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         'status': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForDescribeNetworkInterfaceAttributesOutput]',
+        'tcp_closed_and_time_wait_timeout': 'int',
+        'tcp_established_timeout': 'int',
         'type': 'str',
+        'udp_timeout': 'int',
         'updated_at': 'str',
         'vpc_id': 'str',
         'vpc_name': 'str',
@@ -81,14 +84,17 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
+        'tcp_closed_and_time_wait_timeout': 'TcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout': 'TcpEstablishedTimeout',
         'type': 'Type',
+        'udp_timeout': 'UdpTimeout',
         'updated_at': 'UpdatedAt',
         'vpc_id': 'VpcId',
         'vpc_name': 'VpcName',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, associated_elastic_ip=None, attachment=None, created_at=None, description=None, device_id=None, i_pv6_sets=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, project_name=None, request_id=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, tags=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associated_elastic_ip=None, attachment=None, created_at=None, description=None, device_id=None, i_pv6_sets=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, project_name=None, request_id=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, tags=None, tcp_closed_and_time_wait_timeout=None, tcp_established_timeout=None, type=None, udp_timeout=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeNetworkInterfaceAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -114,7 +120,10 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         self._status = None
         self._subnet_id = None
         self._tags = None
+        self._tcp_closed_and_time_wait_timeout = None
+        self._tcp_established_timeout = None
         self._type = None
+        self._udp_timeout = None
         self._updated_at = None
         self._vpc_id = None
         self._vpc_name = None
@@ -161,8 +170,14 @@ class DescribeNetworkInterfaceAttributesResponse(object):
             self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
+        if tcp_closed_and_time_wait_timeout is not None:
+            self.tcp_closed_and_time_wait_timeout = tcp_closed_and_time_wait_timeout
+        if tcp_established_timeout is not None:
+            self.tcp_established_timeout = tcp_established_timeout
         if type is not None:
             self.type = type
+        if udp_timeout is not None:
+            self.udp_timeout = udp_timeout
         if updated_at is not None:
             self.updated_at = updated_at
         if vpc_id is not None:
@@ -593,6 +608,48 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         self._tags = tags
 
     @property
+    def tcp_closed_and_time_wait_timeout(self):
+        """Gets the tcp_closed_and_time_wait_timeout of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+
+
+        :return: The tcp_closed_and_time_wait_timeout of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._tcp_closed_and_time_wait_timeout
+
+    @tcp_closed_and_time_wait_timeout.setter
+    def tcp_closed_and_time_wait_timeout(self, tcp_closed_and_time_wait_timeout):
+        """Sets the tcp_closed_and_time_wait_timeout of this DescribeNetworkInterfaceAttributesResponse.
+
+
+        :param tcp_closed_and_time_wait_timeout: The tcp_closed_and_time_wait_timeout of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._tcp_closed_and_time_wait_timeout = tcp_closed_and_time_wait_timeout
+
+    @property
+    def tcp_established_timeout(self):
+        """Gets the tcp_established_timeout of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+
+
+        :return: The tcp_established_timeout of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._tcp_established_timeout
+
+    @tcp_established_timeout.setter
+    def tcp_established_timeout(self, tcp_established_timeout):
+        """Sets the tcp_established_timeout of this DescribeNetworkInterfaceAttributesResponse.
+
+
+        :param tcp_established_timeout: The tcp_established_timeout of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._tcp_established_timeout = tcp_established_timeout
+
+    @property
     def type(self):
         """Gets the type of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
 
@@ -612,6 +669,27 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         """
 
         self._type = type
+
+    @property
+    def udp_timeout(self):
+        """Gets the udp_timeout of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+
+
+        :return: The udp_timeout of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._udp_timeout
+
+    @udp_timeout.setter
+    def udp_timeout(self, udp_timeout):
+        """Sets the udp_timeout of this DescribeNetworkInterfaceAttributesResponse.
+
+
+        :param udp_timeout: The udp_timeout of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._udp_timeout = udp_timeout
 
     @property
     def updated_at(self):

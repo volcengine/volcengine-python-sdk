@@ -38,7 +38,7 @@ class GroupsInfoForDescribeGroupsOutput(object):
         'group_id': 'str',
         'protocol_type': 'str',
         'state': 'str',
-        'tags': 'TagsForDescribeGroupsOutput'
+        'tags': 'list[TagForDescribeGroupsOutput]'
     }
 
     attribute_map = {
@@ -188,7 +188,7 @@ class GroupsInfoForDescribeGroupsOutput(object):
 
 
         :return: The tags of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
-        :rtype: TagsForDescribeGroupsOutput
+        :rtype: list[TagForDescribeGroupsOutput]
         """
         return self._tags
 
@@ -198,7 +198,7 @@ class GroupsInfoForDescribeGroupsOutput(object):
 
 
         :param tags: The tags of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
-        :type: TagsForDescribeGroupsOutput
+        :type: list[TagForDescribeGroupsOutput]
         """
 
         self._tags = tags

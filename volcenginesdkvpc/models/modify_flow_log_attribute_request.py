@@ -38,6 +38,7 @@ class ModifyFlowLogAttributeRequest(object):
         'description': 'str',
         'flow_log_id': 'str',
         'flow_log_name': 'str',
+        'flow_log_version': 'int',
         'traffic_path': 'list[str]'
     }
 
@@ -47,10 +48,11 @@ class ModifyFlowLogAttributeRequest(object):
         'description': 'Description',
         'flow_log_id': 'FlowLogId',
         'flow_log_name': 'FlowLogName',
+        'flow_log_version': 'FlowLogVersion',
         'traffic_path': 'TrafficPath'
     }
 
-    def __init__(self, aggregation_interval=None, client_token=None, description=None, flow_log_id=None, flow_log_name=None, traffic_path=None, _configuration=None):  # noqa: E501
+    def __init__(self, aggregation_interval=None, client_token=None, description=None, flow_log_id=None, flow_log_name=None, flow_log_version=None, traffic_path=None, _configuration=None):  # noqa: E501
         """ModifyFlowLogAttributeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class ModifyFlowLogAttributeRequest(object):
         self._description = None
         self._flow_log_id = None
         self._flow_log_name = None
+        self._flow_log_version = None
         self._traffic_path = None
         self.discriminator = None
 
@@ -73,6 +76,8 @@ class ModifyFlowLogAttributeRequest(object):
         self.flow_log_id = flow_log_id
         if flow_log_name is not None:
             self.flow_log_name = flow_log_name
+        if flow_log_version is not None:
+            self.flow_log_version = flow_log_version
         if traffic_path is not None:
             self.traffic_path = traffic_path
 
@@ -191,6 +196,27 @@ class ModifyFlowLogAttributeRequest(object):
             raise ValueError("Invalid value for `flow_log_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._flow_log_name = flow_log_name
+
+    @property
+    def flow_log_version(self):
+        """Gets the flow_log_version of this ModifyFlowLogAttributeRequest.  # noqa: E501
+
+
+        :return: The flow_log_version of this ModifyFlowLogAttributeRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._flow_log_version
+
+    @flow_log_version.setter
+    def flow_log_version(self, flow_log_version):
+        """Sets the flow_log_version of this ModifyFlowLogAttributeRequest.
+
+
+        :param flow_log_version: The flow_log_version of this ModifyFlowLogAttributeRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._flow_log_version = flow_log_version
 
     @property
     def traffic_path(self):

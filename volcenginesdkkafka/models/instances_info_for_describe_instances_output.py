@@ -34,103 +34,164 @@ class InstancesInfoForDescribeInstancesOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'auto_use_group': 'bool',
+        'auto_use_topic': 'bool',
         'charge_detail': 'ChargeDetailForDescribeInstancesOutput',
         'compute_spec': 'str',
         'create_time': 'str',
+        'default_partition_number': 'int',
+        'default_replica_factor': 'int',
+        'disk_encrypted': 'bool',
+        'dynamic_modify_auto_topic_parameter': 'bool',
+        'dynamic_plain_user': 'bool',
         'eip_id': 'str',
+        'high_read': 'bool',
         'instance_description': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
+        'is_new_service': 'bool',
+        'minor_version': 'int',
         'private_domain_on_public': 'bool',
         'project_name': 'str',
+        'read_bandwidth': 'int',
+        'read_write_ratio': 'int',
         'region_id': 'str',
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
+        'tag_infos': 'list[TagInfoForDescribeInstancesOutput]',
         'tags': 'dict(str, str)',
         'usable_group_number': 'int',
         'usable_partition_number': 'int',
+        'usable_topic_number': 'int',
         'used_group_number': 'int',
         'used_partition_number': 'int',
         'used_storage_space': 'int',
         'used_topic_number': 'int',
         'version': 'str',
         'vpc_id': 'str',
+        'write_bandwidth': 'int',
         'zone_id': 'str'
     }
 
     attribute_map = {
         'account_id': 'AccountId',
+        'auto_use_group': 'AutoUseGroup',
+        'auto_use_topic': 'AutoUseTopic',
         'charge_detail': 'ChargeDetail',
         'compute_spec': 'ComputeSpec',
         'create_time': 'CreateTime',
+        'default_partition_number': 'DefaultPartitionNumber',
+        'default_replica_factor': 'DefaultReplicaFactor',
+        'disk_encrypted': 'DiskEncrypted',
+        'dynamic_modify_auto_topic_parameter': 'DynamicModifyAutoTopicParameter',
+        'dynamic_plain_user': 'DynamicPlainUser',
         'eip_id': 'EipId',
+        'high_read': 'HighRead',
         'instance_description': 'InstanceDescription',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
+        'is_new_service': 'IsNewService',
+        'minor_version': 'MinorVersion',
         'private_domain_on_public': 'PrivateDomainOnPublic',
         'project_name': 'ProjectName',
+        'read_bandwidth': 'ReadBandwidth',
+        'read_write_ratio': 'ReadWriteRatio',
         'region_id': 'RegionId',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
+        'tag_infos': 'TagInfos',
         'tags': 'Tags',
         'usable_group_number': 'UsableGroupNumber',
         'usable_partition_number': 'UsablePartitionNumber',
+        'usable_topic_number': 'UsableTopicNumber',
         'used_group_number': 'UsedGroupNumber',
         'used_partition_number': 'UsedPartitionNumber',
         'used_storage_space': 'UsedStorageSpace',
         'used_topic_number': 'UsedTopicNumber',
         'version': 'Version',
         'vpc_id': 'VpcId',
+        'write_bandwidth': 'WriteBandwidth',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, charge_detail=None, compute_spec=None, create_time=None, eip_id=None, instance_description=None, instance_id=None, instance_name=None, instance_status=None, private_domain_on_public=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, usable_group_number=None, usable_partition_number=None, used_group_number=None, used_partition_number=None, used_storage_space=None, used_topic_number=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, auto_use_group=None, auto_use_topic=None, charge_detail=None, compute_spec=None, create_time=None, default_partition_number=None, default_replica_factor=None, disk_encrypted=None, dynamic_modify_auto_topic_parameter=None, dynamic_plain_user=None, eip_id=None, high_read=None, instance_description=None, instance_id=None, instance_name=None, instance_status=None, is_new_service=None, minor_version=None, private_domain_on_public=None, project_name=None, read_bandwidth=None, read_write_ratio=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tag_infos=None, tags=None, usable_group_number=None, usable_partition_number=None, usable_topic_number=None, used_group_number=None, used_partition_number=None, used_storage_space=None, used_topic_number=None, version=None, vpc_id=None, write_bandwidth=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstancesInfoForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._auto_use_group = None
+        self._auto_use_topic = None
         self._charge_detail = None
         self._compute_spec = None
         self._create_time = None
+        self._default_partition_number = None
+        self._default_replica_factor = None
+        self._disk_encrypted = None
+        self._dynamic_modify_auto_topic_parameter = None
+        self._dynamic_plain_user = None
         self._eip_id = None
+        self._high_read = None
         self._instance_description = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
+        self._is_new_service = None
+        self._minor_version = None
         self._private_domain_on_public = None
         self._project_name = None
+        self._read_bandwidth = None
+        self._read_write_ratio = None
         self._region_id = None
         self._storage_space = None
         self._storage_type = None
         self._subnet_id = None
+        self._tag_infos = None
         self._tags = None
         self._usable_group_number = None
         self._usable_partition_number = None
+        self._usable_topic_number = None
         self._used_group_number = None
         self._used_partition_number = None
         self._used_storage_space = None
         self._used_topic_number = None
         self._version = None
         self._vpc_id = None
+        self._write_bandwidth = None
         self._zone_id = None
         self.discriminator = None
 
         if account_id is not None:
             self.account_id = account_id
+        if auto_use_group is not None:
+            self.auto_use_group = auto_use_group
+        if auto_use_topic is not None:
+            self.auto_use_topic = auto_use_topic
         if charge_detail is not None:
             self.charge_detail = charge_detail
         if compute_spec is not None:
             self.compute_spec = compute_spec
         if create_time is not None:
             self.create_time = create_time
+        if default_partition_number is not None:
+            self.default_partition_number = default_partition_number
+        if default_replica_factor is not None:
+            self.default_replica_factor = default_replica_factor
+        if disk_encrypted is not None:
+            self.disk_encrypted = disk_encrypted
+        if dynamic_modify_auto_topic_parameter is not None:
+            self.dynamic_modify_auto_topic_parameter = dynamic_modify_auto_topic_parameter
+        if dynamic_plain_user is not None:
+            self.dynamic_plain_user = dynamic_plain_user
         if eip_id is not None:
             self.eip_id = eip_id
+        if high_read is not None:
+            self.high_read = high_read
         if instance_description is not None:
             self.instance_description = instance_description
         if instance_id is not None:
@@ -139,10 +200,18 @@ class InstancesInfoForDescribeInstancesOutput(object):
             self.instance_name = instance_name
         if instance_status is not None:
             self.instance_status = instance_status
+        if is_new_service is not None:
+            self.is_new_service = is_new_service
+        if minor_version is not None:
+            self.minor_version = minor_version
         if private_domain_on_public is not None:
             self.private_domain_on_public = private_domain_on_public
         if project_name is not None:
             self.project_name = project_name
+        if read_bandwidth is not None:
+            self.read_bandwidth = read_bandwidth
+        if read_write_ratio is not None:
+            self.read_write_ratio = read_write_ratio
         if region_id is not None:
             self.region_id = region_id
         if storage_space is not None:
@@ -151,12 +220,16 @@ class InstancesInfoForDescribeInstancesOutput(object):
             self.storage_type = storage_type
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tag_infos is not None:
+            self.tag_infos = tag_infos
         if tags is not None:
             self.tags = tags
         if usable_group_number is not None:
             self.usable_group_number = usable_group_number
         if usable_partition_number is not None:
             self.usable_partition_number = usable_partition_number
+        if usable_topic_number is not None:
+            self.usable_topic_number = usable_topic_number
         if used_group_number is not None:
             self.used_group_number = used_group_number
         if used_partition_number is not None:
@@ -169,6 +242,8 @@ class InstancesInfoForDescribeInstancesOutput(object):
             self.version = version
         if vpc_id is not None:
             self.vpc_id = vpc_id
+        if write_bandwidth is not None:
+            self.write_bandwidth = write_bandwidth
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -192,6 +267,48 @@ class InstancesInfoForDescribeInstancesOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def auto_use_group(self):
+        """Gets the auto_use_group of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The auto_use_group of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_use_group
+
+    @auto_use_group.setter
+    def auto_use_group(self, auto_use_group):
+        """Sets the auto_use_group of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param auto_use_group: The auto_use_group of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_use_group = auto_use_group
+
+    @property
+    def auto_use_topic(self):
+        """Gets the auto_use_topic of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The auto_use_topic of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_use_topic
+
+    @auto_use_topic.setter
+    def auto_use_topic(self, auto_use_topic):
+        """Sets the auto_use_topic of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param auto_use_topic: The auto_use_topic of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_use_topic = auto_use_topic
 
     @property
     def charge_detail(self):
@@ -257,6 +374,111 @@ class InstancesInfoForDescribeInstancesOutput(object):
         self._create_time = create_time
 
     @property
+    def default_partition_number(self):
+        """Gets the default_partition_number of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The default_partition_number of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._default_partition_number
+
+    @default_partition_number.setter
+    def default_partition_number(self, default_partition_number):
+        """Sets the default_partition_number of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param default_partition_number: The default_partition_number of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._default_partition_number = default_partition_number
+
+    @property
+    def default_replica_factor(self):
+        """Gets the default_replica_factor of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The default_replica_factor of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._default_replica_factor
+
+    @default_replica_factor.setter
+    def default_replica_factor(self, default_replica_factor):
+        """Sets the default_replica_factor of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param default_replica_factor: The default_replica_factor of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._default_replica_factor = default_replica_factor
+
+    @property
+    def disk_encrypted(self):
+        """Gets the disk_encrypted of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The disk_encrypted of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disk_encrypted
+
+    @disk_encrypted.setter
+    def disk_encrypted(self, disk_encrypted):
+        """Sets the disk_encrypted of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param disk_encrypted: The disk_encrypted of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._disk_encrypted = disk_encrypted
+
+    @property
+    def dynamic_modify_auto_topic_parameter(self):
+        """Gets the dynamic_modify_auto_topic_parameter of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The dynamic_modify_auto_topic_parameter of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dynamic_modify_auto_topic_parameter
+
+    @dynamic_modify_auto_topic_parameter.setter
+    def dynamic_modify_auto_topic_parameter(self, dynamic_modify_auto_topic_parameter):
+        """Sets the dynamic_modify_auto_topic_parameter of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param dynamic_modify_auto_topic_parameter: The dynamic_modify_auto_topic_parameter of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._dynamic_modify_auto_topic_parameter = dynamic_modify_auto_topic_parameter
+
+    @property
+    def dynamic_plain_user(self):
+        """Gets the dynamic_plain_user of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The dynamic_plain_user of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dynamic_plain_user
+
+    @dynamic_plain_user.setter
+    def dynamic_plain_user(self, dynamic_plain_user):
+        """Sets the dynamic_plain_user of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param dynamic_plain_user: The dynamic_plain_user of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._dynamic_plain_user = dynamic_plain_user
+
+    @property
     def eip_id(self):
         """Gets the eip_id of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
 
@@ -276,6 +498,27 @@ class InstancesInfoForDescribeInstancesOutput(object):
         """
 
         self._eip_id = eip_id
+
+    @property
+    def high_read(self):
+        """Gets the high_read of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The high_read of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._high_read
+
+    @high_read.setter
+    def high_read(self, high_read):
+        """Sets the high_read of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param high_read: The high_read of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._high_read = high_read
 
     @property
     def instance_description(self):
@@ -362,6 +605,48 @@ class InstancesInfoForDescribeInstancesOutput(object):
         self._instance_status = instance_status
 
     @property
+    def is_new_service(self):
+        """Gets the is_new_service of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The is_new_service of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_new_service
+
+    @is_new_service.setter
+    def is_new_service(self, is_new_service):
+        """Sets the is_new_service of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param is_new_service: The is_new_service of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_new_service = is_new_service
+
+    @property
+    def minor_version(self):
+        """Gets the minor_version of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The minor_version of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._minor_version
+
+    @minor_version.setter
+    def minor_version(self, minor_version):
+        """Sets the minor_version of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param minor_version: The minor_version of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._minor_version = minor_version
+
+    @property
     def private_domain_on_public(self):
         """Gets the private_domain_on_public of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
 
@@ -402,6 +687,48 @@ class InstancesInfoForDescribeInstancesOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def read_bandwidth(self):
+        """Gets the read_bandwidth of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The read_bandwidth of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_bandwidth
+
+    @read_bandwidth.setter
+    def read_bandwidth(self, read_bandwidth):
+        """Sets the read_bandwidth of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param read_bandwidth: The read_bandwidth of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._read_bandwidth = read_bandwidth
+
+    @property
+    def read_write_ratio(self):
+        """Gets the read_write_ratio of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The read_write_ratio of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_write_ratio
+
+    @read_write_ratio.setter
+    def read_write_ratio(self, read_write_ratio):
+        """Sets the read_write_ratio of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param read_write_ratio: The read_write_ratio of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._read_write_ratio = read_write_ratio
 
     @property
     def region_id(self):
@@ -488,6 +815,27 @@ class InstancesInfoForDescribeInstancesOutput(object):
         self._subnet_id = subnet_id
 
     @property
+    def tag_infos(self):
+        """Gets the tag_infos of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The tag_infos of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: list[TagInfoForDescribeInstancesOutput]
+        """
+        return self._tag_infos
+
+    @tag_infos.setter
+    def tag_infos(self, tag_infos):
+        """Sets the tag_infos of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param tag_infos: The tag_infos of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: list[TagInfoForDescribeInstancesOutput]
+        """
+
+        self._tag_infos = tag_infos
+
+    @property
     def tags(self):
         """Gets the tags of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
 
@@ -549,6 +897,27 @@ class InstancesInfoForDescribeInstancesOutput(object):
         """
 
         self._usable_partition_number = usable_partition_number
+
+    @property
+    def usable_topic_number(self):
+        """Gets the usable_topic_number of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The usable_topic_number of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._usable_topic_number
+
+    @usable_topic_number.setter
+    def usable_topic_number(self, usable_topic_number):
+        """Sets the usable_topic_number of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param usable_topic_number: The usable_topic_number of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._usable_topic_number = usable_topic_number
 
     @property
     def used_group_number(self):
@@ -675,6 +1044,27 @@ class InstancesInfoForDescribeInstancesOutput(object):
         """
 
         self._vpc_id = vpc_id
+
+    @property
+    def write_bandwidth(self):
+        """Gets the write_bandwidth of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The write_bandwidth of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._write_bandwidth
+
+    @write_bandwidth.setter
+    def write_bandwidth(self, write_bandwidth):
+        """Sets the write_bandwidth of this InstancesInfoForDescribeInstancesOutput.
+
+
+        :param write_bandwidth: The write_bandwidth of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._write_bandwidth = write_bandwidth
 
     @property
     def zone_id(self):

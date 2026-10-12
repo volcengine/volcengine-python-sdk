@@ -37,6 +37,8 @@ class DescribeConsumedTopicsRequest(object):
         'instance_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'sort_by': 'str',
+        'sort_order': 'str',
         'topic_name': 'str'
     }
 
@@ -45,10 +47,12 @@ class DescribeConsumedTopicsRequest(object):
         'instance_id': 'InstanceId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'sort_by': 'SortBy',
+        'sort_order': 'SortOrder',
         'topic_name': 'TopicName'
     }
 
-    def __init__(self, group_id=None, instance_id=None, page_number=None, page_size=None, topic_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, group_id=None, instance_id=None, page_number=None, page_size=None, sort_by=None, sort_order=None, topic_name=None, _configuration=None):  # noqa: E501
         """DescribeConsumedTopicsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +62,8 @@ class DescribeConsumedTopicsRequest(object):
         self._instance_id = None
         self._page_number = None
         self._page_size = None
+        self._sort_by = None
+        self._sort_order = None
         self._topic_name = None
         self.discriminator = None
 
@@ -65,6 +71,10 @@ class DescribeConsumedTopicsRequest(object):
         self.instance_id = instance_id
         self.page_number = page_number
         self.page_size = page_size
+        if sort_by is not None:
+            self.sort_by = sort_by
+        if sort_order is not None:
+            self.sort_order = sort_order
         if topic_name is not None:
             self.topic_name = topic_name
 
@@ -159,6 +169,48 @@ class DescribeConsumedTopicsRequest(object):
             raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def sort_by(self):
+        """Gets the sort_by of this DescribeConsumedTopicsRequest.  # noqa: E501
+
+
+        :return: The sort_by of this DescribeConsumedTopicsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_by
+
+    @sort_by.setter
+    def sort_by(self, sort_by):
+        """Sets the sort_by of this DescribeConsumedTopicsRequest.
+
+
+        :param sort_by: The sort_by of this DescribeConsumedTopicsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_by = sort_by
+
+    @property
+    def sort_order(self):
+        """Gets the sort_order of this DescribeConsumedTopicsRequest.  # noqa: E501
+
+
+        :return: The sort_order of this DescribeConsumedTopicsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_order
+
+    @sort_order.setter
+    def sort_order(self, sort_order):
+        """Sets the sort_order of this DescribeConsumedTopicsRequest.
+
+
+        :param sort_order: The sort_order of this DescribeConsumedTopicsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_order = sort_order
 
     @property
     def topic_name(self):

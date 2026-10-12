@@ -38,6 +38,7 @@ class CreateFlowLogRequest(object):
         'description': 'str',
         'enable_index': 'bool',
         'flow_log_name': 'str',
+        'flow_log_version': 'int',
         'log_project_name': 'str',
         'log_topic_name': 'str',
         'project_name': 'str',
@@ -54,6 +55,7 @@ class CreateFlowLogRequest(object):
         'description': 'Description',
         'enable_index': 'EnableIndex',
         'flow_log_name': 'FlowLogName',
+        'flow_log_version': 'FlowLogVersion',
         'log_project_name': 'LogProjectName',
         'log_topic_name': 'LogTopicName',
         'project_name': 'ProjectName',
@@ -64,7 +66,7 @@ class CreateFlowLogRequest(object):
         'traffic_type': 'TrafficType'
     }
 
-    def __init__(self, aggregation_interval=None, client_token=None, description=None, enable_index=None, flow_log_name=None, log_project_name=None, log_topic_name=None, project_name=None, resource_id=None, resource_type=None, tags=None, traffic_path=None, traffic_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, aggregation_interval=None, client_token=None, description=None, enable_index=None, flow_log_name=None, flow_log_version=None, log_project_name=None, log_topic_name=None, project_name=None, resource_id=None, resource_type=None, tags=None, traffic_path=None, traffic_type=None, _configuration=None):  # noqa: E501
         """CreateFlowLogRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class CreateFlowLogRequest(object):
         self._description = None
         self._enable_index = None
         self._flow_log_name = None
+        self._flow_log_version = None
         self._log_project_name = None
         self._log_topic_name = None
         self._project_name = None
@@ -93,6 +96,8 @@ class CreateFlowLogRequest(object):
         if enable_index is not None:
             self.enable_index = enable_index
         self.flow_log_name = flow_log_name
+        if flow_log_version is not None:
+            self.flow_log_version = flow_log_version
         self.log_project_name = log_project_name
         self.log_topic_name = log_topic_name
         if project_name is not None:
@@ -222,6 +227,27 @@ class CreateFlowLogRequest(object):
             raise ValueError("Invalid value for `flow_log_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._flow_log_name = flow_log_name
+
+    @property
+    def flow_log_version(self):
+        """Gets the flow_log_version of this CreateFlowLogRequest.  # noqa: E501
+
+
+        :return: The flow_log_version of this CreateFlowLogRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._flow_log_version
+
+    @flow_log_version.setter
+    def flow_log_version(self, flow_log_version):
+        """Sets the flow_log_version of this CreateFlowLogRequest.
+
+
+        :param flow_log_version: The flow_log_version of this CreateFlowLogRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._flow_log_version = flow_log_version
 
     @property
     def log_project_name(self):

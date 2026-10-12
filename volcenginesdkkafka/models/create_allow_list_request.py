@@ -35,16 +35,18 @@ class CreateAllowListRequest(object):
     swagger_types = {
         'allow_list': 'str',
         'allow_list_desc': 'str',
-        'allow_list_name': 'str'
+        'allow_list_name': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'allow_list': 'AllowList',
         'allow_list_desc': 'AllowListDesc',
-        'allow_list_name': 'AllowListName'
+        'allow_list_name': 'AllowListName',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_name=None, project_name=None, _configuration=None):  # noqa: E501
         """CreateAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,12 +55,15 @@ class CreateAllowListRequest(object):
         self._allow_list = None
         self._allow_list_desc = None
         self._allow_list_name = None
+        self._project_name = None
         self.discriminator = None
 
         self.allow_list = allow_list
         if allow_list_desc is not None:
             self.allow_list_desc = allow_list_desc
         self.allow_list_name = allow_list_name
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def allow_list(self):
@@ -126,6 +131,27 @@ class CreateAllowListRequest(object):
             raise ValueError("Invalid value for `allow_list_name`, must not be `None`")  # noqa: E501
 
         self._allow_list_name = allow_list_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateAllowListRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateAllowListRequest.
+
+
+        :param project_name: The project_name of this CreateAllowListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -39,6 +39,7 @@ class DescribeInstancesRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'project': 'str',
+        'tag_filters': 'list[TagFilterForDescribeInstancesInput]',
         'tags': 'dict(str, list[str])',
         'zone_id': 'str'
     }
@@ -50,11 +51,12 @@ class DescribeInstancesRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project': 'Project',
+        'tag_filters': 'TagFilters',
         'tags': 'Tags',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, project=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, project=None, tag_filters=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class DescribeInstancesRequest(object):
         self._page_number = None
         self._page_size = None
         self._project = None
+        self._tag_filters = None
         self._tags = None
         self._zone_id = None
         self.discriminator = None
@@ -80,6 +83,8 @@ class DescribeInstancesRequest(object):
         self.page_size = page_size
         if project is not None:
             self.project = project
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if tags is not None:
             self.tags = tags
         if zone_id is not None:
@@ -214,6 +219,27 @@ class DescribeInstancesRequest(object):
         """
 
         self._project = project
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeInstancesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeInstancesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeInstancesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeInstancesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def tags(self):

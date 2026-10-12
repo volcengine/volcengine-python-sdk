@@ -34,6 +34,7 @@ class TaskProcessInfoForGetVikingdbTaskOutput(object):
     """
     swagger_types = {
         'error_message': 'str',
+        'estimated_remaining_time': 'str',
         'sample_data': 'list[object]',
         'sample_timestamp': 'int',
         'scan_data_count': 'int',
@@ -44,6 +45,7 @@ class TaskProcessInfoForGetVikingdbTaskOutput(object):
 
     attribute_map = {
         'error_message': 'ErrorMessage',
+        'estimated_remaining_time': 'EstimatedRemainingTime',
         'sample_data': 'SampleData',
         'sample_timestamp': 'SampleTimestamp',
         'scan_data_count': 'ScanDataCount',
@@ -52,13 +54,14 @@ class TaskProcessInfoForGetVikingdbTaskOutput(object):
         'total_filter_count': 'TotalFilterCount'
     }
 
-    def __init__(self, error_message=None, sample_data=None, sample_timestamp=None, scan_data_count=None, task_progress=None, total_data_count=None, total_filter_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, error_message=None, estimated_remaining_time=None, sample_data=None, sample_timestamp=None, scan_data_count=None, task_progress=None, total_data_count=None, total_filter_count=None, _configuration=None):  # noqa: E501
         """TaskProcessInfoForGetVikingdbTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._error_message = None
+        self._estimated_remaining_time = None
         self._sample_data = None
         self._sample_timestamp = None
         self._scan_data_count = None
@@ -69,6 +72,8 @@ class TaskProcessInfoForGetVikingdbTaskOutput(object):
 
         if error_message is not None:
             self.error_message = error_message
+        if estimated_remaining_time is not None:
+            self.estimated_remaining_time = estimated_remaining_time
         if sample_data is not None:
             self.sample_data = sample_data
         if sample_timestamp is not None:
@@ -102,6 +107,27 @@ class TaskProcessInfoForGetVikingdbTaskOutput(object):
         """
 
         self._error_message = error_message
+
+    @property
+    def estimated_remaining_time(self):
+        """Gets the estimated_remaining_time of this TaskProcessInfoForGetVikingdbTaskOutput.  # noqa: E501
+
+
+        :return: The estimated_remaining_time of this TaskProcessInfoForGetVikingdbTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._estimated_remaining_time
+
+    @estimated_remaining_time.setter
+    def estimated_remaining_time(self, estimated_remaining_time):
+        """Sets the estimated_remaining_time of this TaskProcessInfoForGetVikingdbTaskOutput.
+
+
+        :param estimated_remaining_time: The estimated_remaining_time of this TaskProcessInfoForGetVikingdbTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._estimated_remaining_time = estimated_remaining_time
 
     @property
     def sample_data(self):

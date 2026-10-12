@@ -35,16 +35,18 @@ class AnalyzerForUpdateVikingdbCollectionInput(object):
     swagger_types = {
         'character_converters': 'list[str]',
         'stop_words_filters': 'list[str]',
-        'tokenizer': 'str'
+        'tokenizer': 'str',
+        'tokenizers': 'list[str]'
     }
 
     attribute_map = {
         'character_converters': 'CharacterConverters',
         'stop_words_filters': 'StopWordsFilters',
-        'tokenizer': 'Tokenizer'
+        'tokenizer': 'Tokenizer',
+        'tokenizers': 'Tokenizers'
     }
 
-    def __init__(self, character_converters=None, stop_words_filters=None, tokenizer=None, _configuration=None):  # noqa: E501
+    def __init__(self, character_converters=None, stop_words_filters=None, tokenizer=None, tokenizers=None, _configuration=None):  # noqa: E501
         """AnalyzerForUpdateVikingdbCollectionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class AnalyzerForUpdateVikingdbCollectionInput(object):
         self._character_converters = None
         self._stop_words_filters = None
         self._tokenizer = None
+        self._tokenizers = None
         self.discriminator = None
 
         if character_converters is not None:
@@ -61,6 +64,8 @@ class AnalyzerForUpdateVikingdbCollectionInput(object):
             self.stop_words_filters = stop_words_filters
         if tokenizer is not None:
             self.tokenizer = tokenizer
+        if tokenizers is not None:
+            self.tokenizers = tokenizers
 
     @property
     def character_converters(self):
@@ -124,6 +129,27 @@ class AnalyzerForUpdateVikingdbCollectionInput(object):
         """
 
         self._tokenizer = tokenizer
+
+    @property
+    def tokenizers(self):
+        """Gets the tokenizers of this AnalyzerForUpdateVikingdbCollectionInput.  # noqa: E501
+
+
+        :return: The tokenizers of this AnalyzerForUpdateVikingdbCollectionInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tokenizers
+
+    @tokenizers.setter
+    def tokenizers(self, tokenizers):
+        """Sets the tokenizers of this AnalyzerForUpdateVikingdbCollectionInput.
+
+
+        :param tokenizers: The tokenizers of this AnalyzerForUpdateVikingdbCollectionInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tokenizers = tokenizers
 
     def to_dict(self):
         """Returns the model properties as a dict"""
