@@ -6,9 +6,8 @@ This module provides utilities for generating authentication tokens for RDS MySQ
 """
 
 from volcenginesdkcore.endpoint.providers.standard_provider import StandardEndpointResolver
-from volcenginesdkcore.interceptor import InterceptorChain, InterceptorContext, SignRequestInterceptor, \
+from volcenginesdkcore.interceptor import InterceptorChain, InterceptorContext, \
     ResolveEndpointInterceptor
-from volcenginesdkcore.interceptor import Request
 
 DEFAULT_SERVICE = 'rds_mysql'
 DEFAULT_API_VERSION = '2022-01-01'
@@ -58,11 +57,10 @@ def build_auth_token(api_client, db_user, instance_id, expires=None):
     }
 
     # Create Request with presign mode
-    request = Request(configuration,
-                      resource_path='/{}/{}/{}/get/text_plain/'.format(DEFAULT_API, DEFAULT_API_VERSION,
-                                                                       DEFAULT_SERVICE),
-                      method='GET',
-                      query_params=query)
+    request = api_client._create_request(
+        resource_path='/{}/{}/{}/get/text_plain/'.format(
+            DEFAULT_API, DEFAULT_API_VERSION, DEFAULT_SERVICE),
+        method='GET', query_params=query)
     request.endpoint_provider = StandardEndpointResolver()
     request.service = DEFAULT_SERVICE
     request.is_presign = True
@@ -82,7 +80,7 @@ def build_auth_token(api_client, db_user, instance_id, expires=None):
 
     # Step 3: Sign request (host is None, won't be included in signature)
     sign_chain = InterceptorChain()
-    sign_chain.append_request_interceptor(SignRequestInterceptor())
+    sign_chain.append_request_interceptor(api_client.sign_request_interceptor)
     context = sign_chain.execute_request(context)
 
     return context.request.signed_query
