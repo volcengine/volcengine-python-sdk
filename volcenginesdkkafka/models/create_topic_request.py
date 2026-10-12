@@ -88,8 +88,7 @@ class CreateTopicRequest(object):
         if parameters is not None:
             self.parameters = parameters
         self.partition_number = partition_number
-        if replica_number is not None:
-            self.replica_number = replica_number
+        self.replica_number = replica_number
         if tags is not None:
             self.tags = tags
         self.topic_name = topic_name
@@ -154,14 +153,6 @@ class CreateTopicRequest(object):
         :param cleanup_policy: The cleanup_policy of this CreateTopicRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["delete", "compact"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(cleanup_policy).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `cleanup_policy` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(cleanup_policy) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._cleanup_policy = cleanup_policy
 
@@ -271,6 +262,8 @@ class CreateTopicRequest(object):
         :param replica_number: The replica_number of this CreateTopicRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and replica_number is None:
+            raise ValueError("Invalid value for `replica_number`, must not be `None`")  # noqa: E501
 
         self._replica_number = replica_number
 

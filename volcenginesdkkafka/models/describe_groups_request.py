@@ -37,7 +37,11 @@ class DescribeGroupsRequest(object):
         'instance_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'tag_filters': 'list[TagFilterForDescribeGroupsInput]'
+        'sort_by': 'str',
+        'sort_order': 'str',
+        'state': 'str',
+        'tag_filters': 'list[TagFilterForDescribeGroupsInput]',
+        'topic': 'str'
     }
 
     attribute_map = {
@@ -45,10 +49,14 @@ class DescribeGroupsRequest(object):
         'instance_id': 'InstanceId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'tag_filters': 'TagFilters'
+        'sort_by': 'SortBy',
+        'sort_order': 'SortOrder',
+        'state': 'State',
+        'tag_filters': 'TagFilters',
+        'topic': 'Topic'
     }
 
-    def __init__(self, group_id=None, instance_id=None, page_number=None, page_size=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, group_id=None, instance_id=None, page_number=None, page_size=None, sort_by=None, sort_order=None, state=None, tag_filters=None, topic=None, _configuration=None):  # noqa: E501
         """DescribeGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,7 +66,11 @@ class DescribeGroupsRequest(object):
         self._instance_id = None
         self._page_number = None
         self._page_size = None
+        self._sort_by = None
+        self._sort_order = None
+        self._state = None
         self._tag_filters = None
+        self._topic = None
         self.discriminator = None
 
         if group_id is not None:
@@ -66,8 +78,16 @@ class DescribeGroupsRequest(object):
         self.instance_id = instance_id
         self.page_number = page_number
         self.page_size = page_size
+        if sort_by is not None:
+            self.sort_by = sort_by
+        if sort_order is not None:
+            self.sort_order = sort_order
+        if state is not None:
+            self.state = state
         if tag_filters is not None:
             self.tag_filters = tag_filters
+        if topic is not None:
+            self.topic = topic
 
     @property
     def group_id(self):
@@ -160,6 +180,69 @@ class DescribeGroupsRequest(object):
         self._page_size = page_size
 
     @property
+    def sort_by(self):
+        """Gets the sort_by of this DescribeGroupsRequest.  # noqa: E501
+
+
+        :return: The sort_by of this DescribeGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_by
+
+    @sort_by.setter
+    def sort_by(self, sort_by):
+        """Sets the sort_by of this DescribeGroupsRequest.
+
+
+        :param sort_by: The sort_by of this DescribeGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_by = sort_by
+
+    @property
+    def sort_order(self):
+        """Gets the sort_order of this DescribeGroupsRequest.  # noqa: E501
+
+
+        :return: The sort_order of this DescribeGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_order
+
+    @sort_order.setter
+    def sort_order(self, sort_order):
+        """Sets the sort_order of this DescribeGroupsRequest.
+
+
+        :param sort_order: The sort_order of this DescribeGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_order = sort_order
+
+    @property
+    def state(self):
+        """Gets the state of this DescribeGroupsRequest.  # noqa: E501
+
+
+        :return: The state of this DescribeGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """Sets the state of this DescribeGroupsRequest.
+
+
+        :param state: The state of this DescribeGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._state = state
+
+    @property
     def tag_filters(self):
         """Gets the tag_filters of this DescribeGroupsRequest.  # noqa: E501
 
@@ -179,6 +262,27 @@ class DescribeGroupsRequest(object):
         """
 
         self._tag_filters = tag_filters
+
+    @property
+    def topic(self):
+        """Gets the topic of this DescribeGroupsRequest.  # noqa: E501
+
+
+        :return: The topic of this DescribeGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._topic
+
+    @topic.setter
+    def topic(self, topic):
+        """Sets the topic of this DescribeGroupsRequest.
+
+
+        :param topic: The topic of this DescribeGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._topic = topic
 
     def to_dict(self):
         """Returns the model properties as a dict"""

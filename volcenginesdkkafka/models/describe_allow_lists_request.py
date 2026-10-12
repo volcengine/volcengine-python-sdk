@@ -34,26 +34,31 @@ class DescribeAllowListsRequest(object):
     """
     swagger_types = {
         'instance_id': 'str',
+        'project_name': 'str',
         'region_id': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
+        'project_name': 'ProjectName',
         'region_id': 'RegionId'
     }
 
-    def __init__(self, instance_id=None, region_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, project_name=None, region_id=None, _configuration=None):  # noqa: E501
         """DescribeAllowListsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
+        self._project_name = None
         self._region_id = None
         self.discriminator = None
 
         if instance_id is not None:
             self.instance_id = instance_id
+        if project_name is not None:
+            self.project_name = project_name
         self.region_id = region_id
 
     @property
@@ -76,6 +81,27 @@ class DescribeAllowListsRequest(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeAllowListsRequest.
+
+
+        :param project_name: The project_name of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def region_id(self):
