@@ -40,6 +40,7 @@ class DataForListClustersAndVarmorAppsOutput(object):
         'error_message': 'str',
         'latest_version': 'str',
         'node_count': 'int',
+        'phase': 'str',
         'region': 'str',
         'upgradable_version_list': 'list[str]',
         'varmor_config': 'VarmorConfigForListClustersAndVarmorAppsOutput',
@@ -57,6 +58,7 @@ class DataForListClustersAndVarmorAppsOutput(object):
         'error_message': 'ErrorMessage',
         'latest_version': 'LatestVersion',
         'node_count': 'NodeCount',
+        'phase': 'Phase',
         'region': 'Region',
         'upgradable_version_list': 'UpgradableVersionList',
         'varmor_config': 'VarmorConfig',
@@ -66,7 +68,7 @@ class DataForListClustersAndVarmorAppsOutput(object):
         'varmor_version_status': 'VarmorVersionStatus'
     }
 
-    def __init__(self, cluster_id=None, cluster_name=None, cluster_type=None, enhanced_node_count=None, error_message=None, latest_version=None, node_count=None, region=None, upgradable_version_list=None, varmor_config=None, varmor_install_status=None, varmor_namespace=None, varmor_version=None, varmor_version_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, cluster_name=None, cluster_type=None, enhanced_node_count=None, error_message=None, latest_version=None, node_count=None, phase=None, region=None, upgradable_version_list=None, varmor_config=None, varmor_install_status=None, varmor_namespace=None, varmor_version=None, varmor_version_status=None, _configuration=None):  # noqa: E501
         """DataForListClustersAndVarmorAppsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class DataForListClustersAndVarmorAppsOutput(object):
         self._error_message = None
         self._latest_version = None
         self._node_count = None
+        self._phase = None
         self._region = None
         self._upgradable_version_list = None
         self._varmor_config = None
@@ -102,6 +105,8 @@ class DataForListClustersAndVarmorAppsOutput(object):
             self.latest_version = latest_version
         if node_count is not None:
             self.node_count = node_count
+        if phase is not None:
+            self.phase = phase
         if region is not None:
             self.region = region
         if upgradable_version_list is not None:
@@ -263,6 +268,27 @@ class DataForListClustersAndVarmorAppsOutput(object):
         """
 
         self._node_count = node_count
+
+    @property
+    def phase(self):
+        """Gets the phase of this DataForListClustersAndVarmorAppsOutput.  # noqa: E501
+
+
+        :return: The phase of this DataForListClustersAndVarmorAppsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._phase
+
+    @phase.setter
+    def phase(self, phase):
+        """Sets the phase of this DataForListClustersAndVarmorAppsOutput.
+
+
+        :param phase: The phase of this DataForListClustersAndVarmorAppsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._phase = phase
 
     @property
     def region(self):
