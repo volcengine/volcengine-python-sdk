@@ -33,71 +33,123 @@ class ContainerdConfigForCreateNodePoolInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'insecure_registries': 'list[str]',
-        'registry_proxy_configs': 'list[RegistryProxyConfigForCreateNodePoolInput]'
+        'concurrent_layer_fetch_buffer': 'int',
+        'max_concurrent_downloads': 'int',
+        'max_concurrent_unpacks': 'int',
+        'use_local_image_pull': 'bool'
     }
 
     attribute_map = {
-        'insecure_registries': 'InsecureRegistries',
-        'registry_proxy_configs': 'RegistryProxyConfigs'
+        'concurrent_layer_fetch_buffer': 'ConcurrentLayerFetchBuffer',
+        'max_concurrent_downloads': 'MaxConcurrentDownloads',
+        'max_concurrent_unpacks': 'MaxConcurrentUnpacks',
+        'use_local_image_pull': 'UseLocalImagePull'
     }
 
-    def __init__(self, insecure_registries=None, registry_proxy_configs=None, _configuration=None):  # noqa: E501
+    def __init__(self, concurrent_layer_fetch_buffer=None, max_concurrent_downloads=None, max_concurrent_unpacks=None, use_local_image_pull=None, _configuration=None):  # noqa: E501
         """ContainerdConfigForCreateNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._insecure_registries = None
-        self._registry_proxy_configs = None
+        self._concurrent_layer_fetch_buffer = None
+        self._max_concurrent_downloads = None
+        self._max_concurrent_unpacks = None
+        self._use_local_image_pull = None
         self.discriminator = None
 
-        if insecure_registries is not None:
-            self.insecure_registries = insecure_registries
-        if registry_proxy_configs is not None:
-            self.registry_proxy_configs = registry_proxy_configs
+        if concurrent_layer_fetch_buffer is not None:
+            self.concurrent_layer_fetch_buffer = concurrent_layer_fetch_buffer
+        if max_concurrent_downloads is not None:
+            self.max_concurrent_downloads = max_concurrent_downloads
+        if max_concurrent_unpacks is not None:
+            self.max_concurrent_unpacks = max_concurrent_unpacks
+        if use_local_image_pull is not None:
+            self.use_local_image_pull = use_local_image_pull
 
     @property
-    def insecure_registries(self):
-        """Gets the insecure_registries of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+    def concurrent_layer_fetch_buffer(self):
+        """Gets the concurrent_layer_fetch_buffer of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
 
 
-        :return: The insecure_registries of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
-        :rtype: list[str]
+        :return: The concurrent_layer_fetch_buffer of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: int
         """
-        return self._insecure_registries
+        return self._concurrent_layer_fetch_buffer
 
-    @insecure_registries.setter
-    def insecure_registries(self, insecure_registries):
-        """Sets the insecure_registries of this ContainerdConfigForCreateNodePoolInput.
+    @concurrent_layer_fetch_buffer.setter
+    def concurrent_layer_fetch_buffer(self, concurrent_layer_fetch_buffer):
+        """Sets the concurrent_layer_fetch_buffer of this ContainerdConfigForCreateNodePoolInput.
 
 
-        :param insecure_registries: The insecure_registries of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
-        :type: list[str]
+        :param concurrent_layer_fetch_buffer: The concurrent_layer_fetch_buffer of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+        :type: int
         """
 
-        self._insecure_registries = insecure_registries
+        self._concurrent_layer_fetch_buffer = concurrent_layer_fetch_buffer
 
     @property
-    def registry_proxy_configs(self):
-        """Gets the registry_proxy_configs of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+    def max_concurrent_downloads(self):
+        """Gets the max_concurrent_downloads of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
 
 
-        :return: The registry_proxy_configs of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
-        :rtype: list[RegistryProxyConfigForCreateNodePoolInput]
+        :return: The max_concurrent_downloads of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: int
         """
-        return self._registry_proxy_configs
+        return self._max_concurrent_downloads
 
-    @registry_proxy_configs.setter
-    def registry_proxy_configs(self, registry_proxy_configs):
-        """Sets the registry_proxy_configs of this ContainerdConfigForCreateNodePoolInput.
+    @max_concurrent_downloads.setter
+    def max_concurrent_downloads(self, max_concurrent_downloads):
+        """Sets the max_concurrent_downloads of this ContainerdConfigForCreateNodePoolInput.
 
 
-        :param registry_proxy_configs: The registry_proxy_configs of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
-        :type: list[RegistryProxyConfigForCreateNodePoolInput]
+        :param max_concurrent_downloads: The max_concurrent_downloads of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+        :type: int
         """
 
-        self._registry_proxy_configs = registry_proxy_configs
+        self._max_concurrent_downloads = max_concurrent_downloads
+
+    @property
+    def max_concurrent_unpacks(self):
+        """Gets the max_concurrent_unpacks of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The max_concurrent_unpacks of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_concurrent_unpacks
+
+    @max_concurrent_unpacks.setter
+    def max_concurrent_unpacks(self, max_concurrent_unpacks):
+        """Sets the max_concurrent_unpacks of this ContainerdConfigForCreateNodePoolInput.
+
+
+        :param max_concurrent_unpacks: The max_concurrent_unpacks of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+        :type: int
+        """
+
+        self._max_concurrent_unpacks = max_concurrent_unpacks
+
+    @property
+    def use_local_image_pull(self):
+        """Gets the use_local_image_pull of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The use_local_image_pull of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_local_image_pull
+
+    @use_local_image_pull.setter
+    def use_local_image_pull(self, use_local_image_pull):
+        """Sets the use_local_image_pull of this ContainerdConfigForCreateNodePoolInput.
+
+
+        :param use_local_image_pull: The use_local_image_pull of this ContainerdConfigForCreateNodePoolInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_local_image_pull = use_local_image_pull
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -142,7 +142,7 @@ class FilterForListPermissionsInput(object):
         :param grantee_type: The grantee_type of this FilterForListPermissionsInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["User", "Role", "Account"]  # noqa: E501
+        allowed_values = ["User", "Role", "All"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 grantee_type not in allowed_values):
             raise ValueError(
