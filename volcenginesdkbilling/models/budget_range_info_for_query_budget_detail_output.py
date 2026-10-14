@@ -34,11 +34,14 @@ class BudgetRangeInfoForQueryBudgetDetailOutput(object):
     """
     swagger_types = {
         'budget_range_billing_mode': 'list[BudgetRangeBillingModeForQueryBudgetDetailOutput]',
+        'budget_range_configuration_code': 'list[BudgetRangeConfigurationCodeForQueryBudgetDetailOutput]',
         'budget_range_owner': 'list[BudgetRangeOwnerForQueryBudgetDetailOutput]',
         'budget_range_payer': 'list[BudgetRangePayerForQueryBudgetDetailOutput]',
         'budget_range_product': 'list[BudgetRangeProductForQueryBudgetDetailOutput]',
         'budget_range_project': 'list[str]',
         'budget_range_region': 'list[BudgetRangeRegionForQueryBudgetDetailOutput]',
+        'budget_range_split_item_id': 'list[str]',
+        'budget_range_split_item_name': 'list[str]',
         'budget_range_subject': 'list[BudgetRangeSubjectForQueryBudgetDetailOutput]',
         'budget_range_tag': 'list[str]',
         'budget_range_zone': 'list[BudgetRangeZoneForQueryBudgetDetailOutput]'
@@ -46,28 +49,34 @@ class BudgetRangeInfoForQueryBudgetDetailOutput(object):
 
     attribute_map = {
         'budget_range_billing_mode': 'BudgetRangeBillingMode',
+        'budget_range_configuration_code': 'BudgetRangeConfigurationCode',
         'budget_range_owner': 'BudgetRangeOwner',
         'budget_range_payer': 'BudgetRangePayer',
         'budget_range_product': 'BudgetRangeProduct',
         'budget_range_project': 'BudgetRangeProject',
         'budget_range_region': 'BudgetRangeRegion',
+        'budget_range_split_item_id': 'BudgetRangeSplitItemID',
+        'budget_range_split_item_name': 'BudgetRangeSplitItemName',
         'budget_range_subject': 'BudgetRangeSubject',
         'budget_range_tag': 'BudgetRangeTag',
         'budget_range_zone': 'BudgetRangeZone'
     }
 
-    def __init__(self, budget_range_billing_mode=None, budget_range_owner=None, budget_range_payer=None, budget_range_product=None, budget_range_project=None, budget_range_region=None, budget_range_subject=None, budget_range_tag=None, budget_range_zone=None, _configuration=None):  # noqa: E501
+    def __init__(self, budget_range_billing_mode=None, budget_range_configuration_code=None, budget_range_owner=None, budget_range_payer=None, budget_range_product=None, budget_range_project=None, budget_range_region=None, budget_range_split_item_id=None, budget_range_split_item_name=None, budget_range_subject=None, budget_range_tag=None, budget_range_zone=None, _configuration=None):  # noqa: E501
         """BudgetRangeInfoForQueryBudgetDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._budget_range_billing_mode = None
+        self._budget_range_configuration_code = None
         self._budget_range_owner = None
         self._budget_range_payer = None
         self._budget_range_product = None
         self._budget_range_project = None
         self._budget_range_region = None
+        self._budget_range_split_item_id = None
+        self._budget_range_split_item_name = None
         self._budget_range_subject = None
         self._budget_range_tag = None
         self._budget_range_zone = None
@@ -75,6 +84,8 @@ class BudgetRangeInfoForQueryBudgetDetailOutput(object):
 
         if budget_range_billing_mode is not None:
             self.budget_range_billing_mode = budget_range_billing_mode
+        if budget_range_configuration_code is not None:
+            self.budget_range_configuration_code = budget_range_configuration_code
         if budget_range_owner is not None:
             self.budget_range_owner = budget_range_owner
         if budget_range_payer is not None:
@@ -85,6 +96,10 @@ class BudgetRangeInfoForQueryBudgetDetailOutput(object):
             self.budget_range_project = budget_range_project
         if budget_range_region is not None:
             self.budget_range_region = budget_range_region
+        if budget_range_split_item_id is not None:
+            self.budget_range_split_item_id = budget_range_split_item_id
+        if budget_range_split_item_name is not None:
+            self.budget_range_split_item_name = budget_range_split_item_name
         if budget_range_subject is not None:
             self.budget_range_subject = budget_range_subject
         if budget_range_tag is not None:
@@ -112,6 +127,27 @@ class BudgetRangeInfoForQueryBudgetDetailOutput(object):
         """
 
         self._budget_range_billing_mode = budget_range_billing_mode
+
+    @property
+    def budget_range_configuration_code(self):
+        """Gets the budget_range_configuration_code of this BudgetRangeInfoForQueryBudgetDetailOutput.  # noqa: E501
+
+
+        :return: The budget_range_configuration_code of this BudgetRangeInfoForQueryBudgetDetailOutput.  # noqa: E501
+        :rtype: list[BudgetRangeConfigurationCodeForQueryBudgetDetailOutput]
+        """
+        return self._budget_range_configuration_code
+
+    @budget_range_configuration_code.setter
+    def budget_range_configuration_code(self, budget_range_configuration_code):
+        """Sets the budget_range_configuration_code of this BudgetRangeInfoForQueryBudgetDetailOutput.
+
+
+        :param budget_range_configuration_code: The budget_range_configuration_code of this BudgetRangeInfoForQueryBudgetDetailOutput.  # noqa: E501
+        :type: list[BudgetRangeConfigurationCodeForQueryBudgetDetailOutput]
+        """
+
+        self._budget_range_configuration_code = budget_range_configuration_code
 
     @property
     def budget_range_owner(self):
@@ -217,6 +253,48 @@ class BudgetRangeInfoForQueryBudgetDetailOutput(object):
         """
 
         self._budget_range_region = budget_range_region
+
+    @property
+    def budget_range_split_item_id(self):
+        """Gets the budget_range_split_item_id of this BudgetRangeInfoForQueryBudgetDetailOutput.  # noqa: E501
+
+
+        :return: The budget_range_split_item_id of this BudgetRangeInfoForQueryBudgetDetailOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._budget_range_split_item_id
+
+    @budget_range_split_item_id.setter
+    def budget_range_split_item_id(self, budget_range_split_item_id):
+        """Sets the budget_range_split_item_id of this BudgetRangeInfoForQueryBudgetDetailOutput.
+
+
+        :param budget_range_split_item_id: The budget_range_split_item_id of this BudgetRangeInfoForQueryBudgetDetailOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._budget_range_split_item_id = budget_range_split_item_id
+
+    @property
+    def budget_range_split_item_name(self):
+        """Gets the budget_range_split_item_name of this BudgetRangeInfoForQueryBudgetDetailOutput.  # noqa: E501
+
+
+        :return: The budget_range_split_item_name of this BudgetRangeInfoForQueryBudgetDetailOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._budget_range_split_item_name
+
+    @budget_range_split_item_name.setter
+    def budget_range_split_item_name(self, budget_range_split_item_name):
+        """Sets the budget_range_split_item_name of this BudgetRangeInfoForQueryBudgetDetailOutput.
+
+
+        :param budget_range_split_item_name: The budget_range_split_item_name of this BudgetRangeInfoForQueryBudgetDetailOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._budget_range_split_item_name = budget_range_split_item_name
 
     @property
     def budget_range_subject(self):

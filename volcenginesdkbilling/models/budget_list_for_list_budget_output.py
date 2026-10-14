@@ -34,12 +34,14 @@ class BudgetListForListBudgetOutput(object):
     """
     swagger_types = {
         'actual_amount': 'str',
+        'amount_type': 'str',
         'budget_amount': 'str',
         'budget_end_time': 'str',
         'budget_id': 'str',
         'budget_name': 'str',
         'budget_start_time': 'str',
         'budget_type': 'str',
+        'currency_settlement': 'str',
         'period': 'str',
         'ratio': 'str',
         'status': 'int'
@@ -47,30 +49,34 @@ class BudgetListForListBudgetOutput(object):
 
     attribute_map = {
         'actual_amount': 'ActualAmount',
+        'amount_type': 'AmountType',
         'budget_amount': 'BudgetAmount',
         'budget_end_time': 'BudgetEndTime',
         'budget_id': 'BudgetID',
         'budget_name': 'BudgetName',
         'budget_start_time': 'BudgetStartTime',
         'budget_type': 'BudgetType',
+        'currency_settlement': 'CurrencySettlement',
         'period': 'Period',
         'ratio': 'Ratio',
         'status': 'Status'
     }
 
-    def __init__(self, actual_amount=None, budget_amount=None, budget_end_time=None, budget_id=None, budget_name=None, budget_start_time=None, budget_type=None, period=None, ratio=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, actual_amount=None, amount_type=None, budget_amount=None, budget_end_time=None, budget_id=None, budget_name=None, budget_start_time=None, budget_type=None, currency_settlement=None, period=None, ratio=None, status=None, _configuration=None):  # noqa: E501
         """BudgetListForListBudgetOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._actual_amount = None
+        self._amount_type = None
         self._budget_amount = None
         self._budget_end_time = None
         self._budget_id = None
         self._budget_name = None
         self._budget_start_time = None
         self._budget_type = None
+        self._currency_settlement = None
         self._period = None
         self._ratio = None
         self._status = None
@@ -78,6 +84,8 @@ class BudgetListForListBudgetOutput(object):
 
         if actual_amount is not None:
             self.actual_amount = actual_amount
+        if amount_type is not None:
+            self.amount_type = amount_type
         if budget_amount is not None:
             self.budget_amount = budget_amount
         if budget_end_time is not None:
@@ -90,6 +98,8 @@ class BudgetListForListBudgetOutput(object):
             self.budget_start_time = budget_start_time
         if budget_type is not None:
             self.budget_type = budget_type
+        if currency_settlement is not None:
+            self.currency_settlement = currency_settlement
         if period is not None:
             self.period = period
         if ratio is not None:
@@ -117,6 +127,27 @@ class BudgetListForListBudgetOutput(object):
         """
 
         self._actual_amount = actual_amount
+
+    @property
+    def amount_type(self):
+        """Gets the amount_type of this BudgetListForListBudgetOutput.  # noqa: E501
+
+
+        :return: The amount_type of this BudgetListForListBudgetOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._amount_type
+
+    @amount_type.setter
+    def amount_type(self, amount_type):
+        """Sets the amount_type of this BudgetListForListBudgetOutput.
+
+
+        :param amount_type: The amount_type of this BudgetListForListBudgetOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._amount_type = amount_type
 
     @property
     def budget_amount(self):
@@ -243,6 +274,27 @@ class BudgetListForListBudgetOutput(object):
         """
 
         self._budget_type = budget_type
+
+    @property
+    def currency_settlement(self):
+        """Gets the currency_settlement of this BudgetListForListBudgetOutput.  # noqa: E501
+
+
+        :return: The currency_settlement of this BudgetListForListBudgetOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency_settlement
+
+    @currency_settlement.setter
+    def currency_settlement(self, currency_settlement):
+        """Sets the currency_settlement of this BudgetListForListBudgetOutput.
+
+
+        :param currency_settlement: The currency_settlement of this BudgetListForListBudgetOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._currency_settlement = currency_settlement
 
     @property
     def period(self):
