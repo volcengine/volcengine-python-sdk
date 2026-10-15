@@ -33,33 +33,33 @@ class AuthorizedNetworkForListPrivateEndpointAllowlistOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'display_name': 'str',
+        'authorized_network_name': 'str',
         'security_group_count': 'int',
         'vpc_endpoint_id': 'str',
         'vpc_endpoint_name': 'str'
     }
 
     attribute_map = {
-        'display_name': 'DisplayName',
+        'authorized_network_name': 'AuthorizedNetworkName',
         'security_group_count': 'SecurityGroupCount',
         'vpc_endpoint_id': 'VpcEndpointId',
         'vpc_endpoint_name': 'VpcEndpointName'
     }
 
-    def __init__(self, display_name=None, security_group_count=None, vpc_endpoint_id=None, vpc_endpoint_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorized_network_name=None, security_group_count=None, vpc_endpoint_id=None, vpc_endpoint_name=None, _configuration=None):  # noqa: E501
         """AuthorizedNetworkForListPrivateEndpointAllowlistOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._display_name = None
+        self._authorized_network_name = None
         self._security_group_count = None
         self._vpc_endpoint_id = None
         self._vpc_endpoint_name = None
         self.discriminator = None
 
-        if display_name is not None:
-            self.display_name = display_name
+        if authorized_network_name is not None:
+            self.authorized_network_name = authorized_network_name
         if security_group_count is not None:
             self.security_group_count = security_group_count
         if vpc_endpoint_id is not None:
@@ -68,25 +68,25 @@ class AuthorizedNetworkForListPrivateEndpointAllowlistOutput(object):
             self.vpc_endpoint_name = vpc_endpoint_name
 
     @property
-    def display_name(self):
-        """Gets the display_name of this AuthorizedNetworkForListPrivateEndpointAllowlistOutput.  # noqa: E501
+    def authorized_network_name(self):
+        """Gets the authorized_network_name of this AuthorizedNetworkForListPrivateEndpointAllowlistOutput.  # noqa: E501
 
 
-        :return: The display_name of this AuthorizedNetworkForListPrivateEndpointAllowlistOutput.  # noqa: E501
+        :return: The authorized_network_name of this AuthorizedNetworkForListPrivateEndpointAllowlistOutput.  # noqa: E501
         :rtype: str
         """
-        return self._display_name
+        return self._authorized_network_name
 
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this AuthorizedNetworkForListPrivateEndpointAllowlistOutput.
+    @authorized_network_name.setter
+    def authorized_network_name(self, authorized_network_name):
+        """Sets the authorized_network_name of this AuthorizedNetworkForListPrivateEndpointAllowlistOutput.
 
 
-        :param display_name: The display_name of this AuthorizedNetworkForListPrivateEndpointAllowlistOutput.  # noqa: E501
+        :param authorized_network_name: The authorized_network_name of this AuthorizedNetworkForListPrivateEndpointAllowlistOutput.  # noqa: E501
         :type: str
         """
 
-        self._display_name = display_name
+        self._authorized_network_name = authorized_network_name
 
     @property
     def security_group_count(self):

@@ -33,54 +33,65 @@ class CreateBranchRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'branch': 'BranchForCreateBranchInput',
+        'branch_name': 'str',
         'cluster_id': 'str',
+        'parent_id': 'str',
+        'parent_timestamp': 'str',
         'project_name': 'str'
     }
 
     attribute_map = {
-        'branch': 'Branch',
+        'branch_name': 'BranchName',
         'cluster_id': 'ClusterId',
+        'parent_id': 'ParentId',
+        'parent_timestamp': 'ParentTimestamp',
         'project_name': 'ProjectName'
     }
 
-    def __init__(self, branch=None, cluster_id=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, branch_name=None, cluster_id=None, parent_id=None, parent_timestamp=None, project_name=None, _configuration=None):  # noqa: E501
         """CreateBranchRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._branch = None
+        self._branch_name = None
         self._cluster_id = None
+        self._parent_id = None
+        self._parent_timestamp = None
         self._project_name = None
         self.discriminator = None
 
-        if branch is not None:
-            self.branch = branch
+        self.branch_name = branch_name
         self.cluster_id = cluster_id
+        if parent_id is not None:
+            self.parent_id = parent_id
+        if parent_timestamp is not None:
+            self.parent_timestamp = parent_timestamp
         if project_name is not None:
             self.project_name = project_name
 
     @property
-    def branch(self):
-        """Gets the branch of this CreateBranchRequest.  # noqa: E501
+    def branch_name(self):
+        """Gets the branch_name of this CreateBranchRequest.  # noqa: E501
 
 
-        :return: The branch of this CreateBranchRequest.  # noqa: E501
-        :rtype: BranchForCreateBranchInput
+        :return: The branch_name of this CreateBranchRequest.  # noqa: E501
+        :rtype: str
         """
-        return self._branch
+        return self._branch_name
 
-    @branch.setter
-    def branch(self, branch):
-        """Sets the branch of this CreateBranchRequest.
+    @branch_name.setter
+    def branch_name(self, branch_name):
+        """Sets the branch_name of this CreateBranchRequest.
 
 
-        :param branch: The branch of this CreateBranchRequest.  # noqa: E501
-        :type: BranchForCreateBranchInput
+        :param branch_name: The branch_name of this CreateBranchRequest.  # noqa: E501
+        :type: str
         """
+        if self._configuration.client_side_validation and branch_name is None:
+            raise ValueError("Invalid value for `branch_name`, must not be `None`")  # noqa: E501
 
-        self._branch = branch
+        self._branch_name = branch_name
 
     @property
     def cluster_id(self):
@@ -104,6 +115,48 @@ class CreateBranchRequest(object):
             raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
+
+    @property
+    def parent_id(self):
+        """Gets the parent_id of this CreateBranchRequest.  # noqa: E501
+
+
+        :return: The parent_id of this CreateBranchRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._parent_id
+
+    @parent_id.setter
+    def parent_id(self, parent_id):
+        """Sets the parent_id of this CreateBranchRequest.
+
+
+        :param parent_id: The parent_id of this CreateBranchRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._parent_id = parent_id
+
+    @property
+    def parent_timestamp(self):
+        """Gets the parent_timestamp of this CreateBranchRequest.  # noqa: E501
+
+
+        :return: The parent_timestamp of this CreateBranchRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._parent_timestamp
+
+    @parent_timestamp.setter
+    def parent_timestamp(self, parent_timestamp):
+        """Sets the parent_timestamp of this CreateBranchRequest.
+
+
+        :param parent_timestamp: The parent_timestamp of this CreateBranchRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._parent_timestamp = parent_timestamp
 
     @property
     def project_name(self):

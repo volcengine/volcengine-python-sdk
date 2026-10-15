@@ -33,18 +33,18 @@ class ClusterForDeleteClusterOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_id': 'str',
         'annotations': 'list[AnnotationForDeleteClusterOutput]',
         'audit_log_config': 'AuditLogConfigForDeleteClusterOutput',
         'auto_scaling': 'AutoScalingForDeleteClusterOutput',
         'automated_backup_policy': 'AutomatedBackupPolicyForDeleteClusterOutput',
         'cluster_id': 'str',
+        'cluster_name': 'str',
         'create_time': 'str',
-        'display_name': 'str',
         'encryption_config': 'EncryptionConfigForDeleteClusterOutput',
         'endpoints': 'EndpointsForDeleteClusterOutput',
         'high_availability_type': 'str',
         'labels': 'list[LabelForDeleteClusterOutput]',
-        'name': 'str',
         'project_name': 'str',
         'region_id': 'str',
         'service_plan': 'str',
@@ -59,18 +59,18 @@ class ClusterForDeleteClusterOutput(object):
     }
 
     attribute_map = {
+        'account_id': 'AccountId',
         'annotations': 'Annotations',
         'audit_log_config': 'AuditLogConfig',
         'auto_scaling': 'AutoScaling',
         'automated_backup_policy': 'AutomatedBackupPolicy',
         'cluster_id': 'ClusterId',
+        'cluster_name': 'ClusterName',
         'create_time': 'CreateTime',
-        'display_name': 'DisplayName',
         'encryption_config': 'EncryptionConfig',
         'endpoints': 'Endpoints',
         'high_availability_type': 'HighAvailabilityType',
         'labels': 'Labels',
-        'name': 'Name',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'service_plan': 'ServicePlan',
@@ -84,24 +84,24 @@ class ClusterForDeleteClusterOutput(object):
         'zones': 'Zones'
     }
 
-    def __init__(self, annotations=None, audit_log_config=None, auto_scaling=None, automated_backup_policy=None, cluster_id=None, create_time=None, display_name=None, encryption_config=None, endpoints=None, high_availability_type=None, labels=None, name=None, project_name=None, region_id=None, service_plan=None, spending_limit=None, state=None, tags=None, update_time=None, user_prefix=None, version=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, annotations=None, audit_log_config=None, auto_scaling=None, automated_backup_policy=None, cluster_id=None, cluster_name=None, create_time=None, encryption_config=None, endpoints=None, high_availability_type=None, labels=None, project_name=None, region_id=None, service_plan=None, spending_limit=None, state=None, tags=None, update_time=None, user_prefix=None, version=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
         """ClusterForDeleteClusterOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_id = None
         self._annotations = None
         self._audit_log_config = None
         self._auto_scaling = None
         self._automated_backup_policy = None
         self._cluster_id = None
+        self._cluster_name = None
         self._create_time = None
-        self._display_name = None
         self._encryption_config = None
         self._endpoints = None
         self._high_availability_type = None
         self._labels = None
-        self._name = None
         self._project_name = None
         self._region_id = None
         self._service_plan = None
@@ -115,6 +115,8 @@ class ClusterForDeleteClusterOutput(object):
         self._zones = None
         self.discriminator = None
 
+        if account_id is not None:
+            self.account_id = account_id
         if annotations is not None:
             self.annotations = annotations
         if audit_log_config is not None:
@@ -125,10 +127,10 @@ class ClusterForDeleteClusterOutput(object):
             self.automated_backup_policy = automated_backup_policy
         if cluster_id is not None:
             self.cluster_id = cluster_id
+        if cluster_name is not None:
+            self.cluster_name = cluster_name
         if create_time is not None:
             self.create_time = create_time
-        if display_name is not None:
-            self.display_name = display_name
         if encryption_config is not None:
             self.encryption_config = encryption_config
         if endpoints is not None:
@@ -137,8 +139,6 @@ class ClusterForDeleteClusterOutput(object):
             self.high_availability_type = high_availability_type
         if labels is not None:
             self.labels = labels
-        if name is not None:
-            self.name = name
         if project_name is not None:
             self.project_name = project_name
         if region_id is not None:
@@ -161,6 +161,27 @@ class ClusterForDeleteClusterOutput(object):
             self.vpc_id = vpc_id
         if zones is not None:
             self.zones = zones
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this ClusterForDeleteClusterOutput.  # noqa: E501
+
+
+        :return: The account_id of this ClusterForDeleteClusterOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this ClusterForDeleteClusterOutput.
+
+
+        :param account_id: The account_id of this ClusterForDeleteClusterOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
 
     @property
     def annotations(self):
@@ -268,6 +289,27 @@ class ClusterForDeleteClusterOutput(object):
         self._cluster_id = cluster_id
 
     @property
+    def cluster_name(self):
+        """Gets the cluster_name of this ClusterForDeleteClusterOutput.  # noqa: E501
+
+
+        :return: The cluster_name of this ClusterForDeleteClusterOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cluster_name
+
+    @cluster_name.setter
+    def cluster_name(self, cluster_name):
+        """Sets the cluster_name of this ClusterForDeleteClusterOutput.
+
+
+        :param cluster_name: The cluster_name of this ClusterForDeleteClusterOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cluster_name = cluster_name
+
+    @property
     def create_time(self):
         """Gets the create_time of this ClusterForDeleteClusterOutput.  # noqa: E501
 
@@ -287,27 +329,6 @@ class ClusterForDeleteClusterOutput(object):
         """
 
         self._create_time = create_time
-
-    @property
-    def display_name(self):
-        """Gets the display_name of this ClusterForDeleteClusterOutput.  # noqa: E501
-
-
-        :return: The display_name of this ClusterForDeleteClusterOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._display_name
-
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this ClusterForDeleteClusterOutput.
-
-
-        :param display_name: The display_name of this ClusterForDeleteClusterOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._display_name = display_name
 
     @property
     def encryption_config(self):
@@ -392,27 +413,6 @@ class ClusterForDeleteClusterOutput(object):
         """
 
         self._labels = labels
-
-    @property
-    def name(self):
-        """Gets the name of this ClusterForDeleteClusterOutput.  # noqa: E501
-
-
-        :return: The name of this ClusterForDeleteClusterOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this ClusterForDeleteClusterOutput.
-
-
-        :param name: The name of this ClusterForDeleteClusterOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._name = name
 
     @property
     def project_name(self):

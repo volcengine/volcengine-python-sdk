@@ -41,7 +41,6 @@ class BranchForListBranchesOutput(object):
         'display_name': 'str',
         'endpoints': 'EndpointsForListBranchesOutput',
         'has_set_pwd': 'bool',
-        'name': 'str',
         'parent_display_name': 'str',
         'parent_id': 'str',
         'parent_timestamp': 'str',
@@ -61,7 +60,6 @@ class BranchForListBranchesOutput(object):
         'display_name': 'DisplayName',
         'endpoints': 'Endpoints',
         'has_set_pwd': 'HasSetPwd',
-        'name': 'Name',
         'parent_display_name': 'ParentDisplayName',
         'parent_id': 'ParentId',
         'parent_timestamp': 'ParentTimestamp',
@@ -72,7 +70,7 @@ class BranchForListBranchesOutput(object):
         'user_prefix': 'UserPrefix'
     }
 
-    def __init__(self, annotations=None, branch_id=None, cluster_id=None, create_time=None, created_by=None, display_name=None, endpoints=None, has_set_pwd=None, name=None, parent_display_name=None, parent_id=None, parent_timestamp=None, project_name=None, state=None, update_time=None, usages=None, user_prefix=None, _configuration=None):  # noqa: E501
+    def __init__(self, annotations=None, branch_id=None, cluster_id=None, create_time=None, created_by=None, display_name=None, endpoints=None, has_set_pwd=None, parent_display_name=None, parent_id=None, parent_timestamp=None, project_name=None, state=None, update_time=None, usages=None, user_prefix=None, _configuration=None):  # noqa: E501
         """BranchForListBranchesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,7 +84,6 @@ class BranchForListBranchesOutput(object):
         self._display_name = None
         self._endpoints = None
         self._has_set_pwd = None
-        self._name = None
         self._parent_display_name = None
         self._parent_id = None
         self._parent_timestamp = None
@@ -113,8 +110,6 @@ class BranchForListBranchesOutput(object):
             self.endpoints = endpoints
         if has_set_pwd is not None:
             self.has_set_pwd = has_set_pwd
-        if name is not None:
-            self.name = name
         if parent_display_name is not None:
             self.parent_display_name = parent_display_name
         if parent_id is not None:
@@ -299,27 +294,6 @@ class BranchForListBranchesOutput(object):
         """
 
         self._has_set_pwd = has_set_pwd
-
-    @property
-    def name(self):
-        """Gets the name of this BranchForListBranchesOutput.  # noqa: E501
-
-
-        :return: The name of this BranchForListBranchesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this BranchForListBranchesOutput.
-
-
-        :param name: The name of this BranchForListBranchesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._name = name
 
     @property
     def parent_display_name(self):

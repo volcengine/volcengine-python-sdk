@@ -33,29 +33,24 @@ class EndpointsForListBranchesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'private_endpoint': 'PrivateEndpointForListBranchesOutput',
-        'public_endpoint': 'PublicEndpointForListBranchesOutput'
+        'private_endpoint': 'PrivateEndpointForListBranchesOutput'
     }
 
     attribute_map = {
-        'private_endpoint': 'PrivateEndpoint',
-        'public_endpoint': 'PublicEndpoint'
+        'private_endpoint': 'PrivateEndpoint'
     }
 
-    def __init__(self, private_endpoint=None, public_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, private_endpoint=None, _configuration=None):  # noqa: E501
         """EndpointsForListBranchesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._private_endpoint = None
-        self._public_endpoint = None
         self.discriminator = None
 
         if private_endpoint is not None:
             self.private_endpoint = private_endpoint
-        if public_endpoint is not None:
-            self.public_endpoint = public_endpoint
 
     @property
     def private_endpoint(self):
@@ -77,27 +72,6 @@ class EndpointsForListBranchesOutput(object):
         """
 
         self._private_endpoint = private_endpoint
-
-    @property
-    def public_endpoint(self):
-        """Gets the public_endpoint of this EndpointsForListBranchesOutput.  # noqa: E501
-
-
-        :return: The public_endpoint of this EndpointsForListBranchesOutput.  # noqa: E501
-        :rtype: PublicEndpointForListBranchesOutput
-        """
-        return self._public_endpoint
-
-    @public_endpoint.setter
-    def public_endpoint(self, public_endpoint):
-        """Sets the public_endpoint of this EndpointsForListBranchesOutput.
-
-
-        :param public_endpoint: The public_endpoint of this EndpointsForListBranchesOutput.  # noqa: E501
-        :type: PublicEndpointForListBranchesOutput
-        """
-
-        self._public_endpoint = public_endpoint
 
     def to_dict(self):
         """Returns the model properties as a dict"""

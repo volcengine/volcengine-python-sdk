@@ -34,7 +34,7 @@ class CreateAuditLogFilterRuleRequest(object):
     """
     swagger_types = {
         'cluster_id': 'str',
-        'display_name': 'str',
+        'filter_rule_name': 'str',
         'filters': 'list[FilterForCreateAuditLogFilterRuleInput]',
         'project_name': 'str',
         'users': 'list[str]'
@@ -42,27 +42,27 @@ class CreateAuditLogFilterRuleRequest(object):
 
     attribute_map = {
         'cluster_id': 'ClusterId',
-        'display_name': 'DisplayName',
+        'filter_rule_name': 'FilterRuleName',
         'filters': 'Filters',
         'project_name': 'ProjectName',
         'users': 'Users'
     }
 
-    def __init__(self, cluster_id=None, display_name=None, filters=None, project_name=None, users=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, filter_rule_name=None, filters=None, project_name=None, users=None, _configuration=None):  # noqa: E501
         """CreateAuditLogFilterRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cluster_id = None
-        self._display_name = None
+        self._filter_rule_name = None
         self._filters = None
         self._project_name = None
         self._users = None
         self.discriminator = None
 
         self.cluster_id = cluster_id
-        self.display_name = display_name
+        self.filter_rule_name = filter_rule_name
         if filters is not None:
             self.filters = filters
         if project_name is not None:
@@ -94,27 +94,27 @@ class CreateAuditLogFilterRuleRequest(object):
         self._cluster_id = cluster_id
 
     @property
-    def display_name(self):
-        """Gets the display_name of this CreateAuditLogFilterRuleRequest.  # noqa: E501
+    def filter_rule_name(self):
+        """Gets the filter_rule_name of this CreateAuditLogFilterRuleRequest.  # noqa: E501
 
 
-        :return: The display_name of this CreateAuditLogFilterRuleRequest.  # noqa: E501
+        :return: The filter_rule_name of this CreateAuditLogFilterRuleRequest.  # noqa: E501
         :rtype: str
         """
-        return self._display_name
+        return self._filter_rule_name
 
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this CreateAuditLogFilterRuleRequest.
+    @filter_rule_name.setter
+    def filter_rule_name(self, filter_rule_name):
+        """Sets the filter_rule_name of this CreateAuditLogFilterRuleRequest.
 
 
-        :param display_name: The display_name of this CreateAuditLogFilterRuleRequest.  # noqa: E501
+        :param filter_rule_name: The filter_rule_name of this CreateAuditLogFilterRuleRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and display_name is None:
-            raise ValueError("Invalid value for `display_name`, must not be `None`")  # noqa: E501
+        if self._configuration.client_side_validation and filter_rule_name is None:
+            raise ValueError("Invalid value for `filter_rule_name`, must not be `None`")  # noqa: E501
 
-        self._display_name = display_name
+        self._filter_rule_name = filter_rule_name
 
     @property
     def filters(self):

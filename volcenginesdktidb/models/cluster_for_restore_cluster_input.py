@@ -34,34 +34,34 @@ class ClusterForRestoreClusterInput(object):
     """
     swagger_types = {
         'auto_scaling': 'AutoScalingForRestoreClusterInput',
-        'display_name': 'str',
+        'cluster_name': 'str',
         'high_availability_type': 'str',
         'spending_limit': 'SpendingLimitForRestoreClusterInput'
     }
 
     attribute_map = {
         'auto_scaling': 'AutoScaling',
-        'display_name': 'DisplayName',
+        'cluster_name': 'ClusterName',
         'high_availability_type': 'HighAvailabilityType',
         'spending_limit': 'SpendingLimit'
     }
 
-    def __init__(self, auto_scaling=None, display_name=None, high_availability_type=None, spending_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, cluster_name=None, high_availability_type=None, spending_limit=None, _configuration=None):  # noqa: E501
         """ClusterForRestoreClusterInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_scaling = None
-        self._display_name = None
+        self._cluster_name = None
         self._high_availability_type = None
         self._spending_limit = None
         self.discriminator = None
 
         if auto_scaling is not None:
             self.auto_scaling = auto_scaling
-        if display_name is not None:
-            self.display_name = display_name
+        if cluster_name is not None:
+            self.cluster_name = cluster_name
         if high_availability_type is not None:
             self.high_availability_type = high_availability_type
         if spending_limit is not None:
@@ -89,25 +89,25 @@ class ClusterForRestoreClusterInput(object):
         self._auto_scaling = auto_scaling
 
     @property
-    def display_name(self):
-        """Gets the display_name of this ClusterForRestoreClusterInput.  # noqa: E501
+    def cluster_name(self):
+        """Gets the cluster_name of this ClusterForRestoreClusterInput.  # noqa: E501
 
 
-        :return: The display_name of this ClusterForRestoreClusterInput.  # noqa: E501
+        :return: The cluster_name of this ClusterForRestoreClusterInput.  # noqa: E501
         :rtype: str
         """
-        return self._display_name
+        return self._cluster_name
 
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this ClusterForRestoreClusterInput.
+    @cluster_name.setter
+    def cluster_name(self, cluster_name):
+        """Sets the cluster_name of this ClusterForRestoreClusterInput.
 
 
-        :param display_name: The display_name of this ClusterForRestoreClusterInput.  # noqa: E501
+        :param cluster_name: The cluster_name of this ClusterForRestoreClusterInput.  # noqa: E501
         :type: str
         """
 
-        self._display_name = display_name
+        self._cluster_name = cluster_name
 
     @property
     def high_availability_type(self):
