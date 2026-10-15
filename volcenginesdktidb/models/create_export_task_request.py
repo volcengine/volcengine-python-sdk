@@ -34,38 +34,38 @@ class CreateExportTaskRequest(object):
     """
     swagger_types = {
         'cluster_id': 'str',
-        'display_name': 'str',
         'export_options': 'ExportOptionsForCreateExportTaskInput',
+        'export_task_name': 'str',
         'project_name': 'str',
         'target': 'TargetForCreateExportTaskInput'
     }
 
     attribute_map = {
         'cluster_id': 'ClusterId',
-        'display_name': 'DisplayName',
         'export_options': 'ExportOptions',
+        'export_task_name': 'ExportTaskName',
         'project_name': 'ProjectName',
         'target': 'Target'
     }
 
-    def __init__(self, cluster_id=None, display_name=None, export_options=None, project_name=None, target=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, export_options=None, export_task_name=None, project_name=None, target=None, _configuration=None):  # noqa: E501
         """CreateExportTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cluster_id = None
-        self._display_name = None
         self._export_options = None
+        self._export_task_name = None
         self._project_name = None
         self._target = None
         self.discriminator = None
 
         self.cluster_id = cluster_id
-        if display_name is not None:
-            self.display_name = display_name
         if export_options is not None:
             self.export_options = export_options
+        if export_task_name is not None:
+            self.export_task_name = export_task_name
         if project_name is not None:
             self.project_name = project_name
         if target is not None:
@@ -95,27 +95,6 @@ class CreateExportTaskRequest(object):
         self._cluster_id = cluster_id
 
     @property
-    def display_name(self):
-        """Gets the display_name of this CreateExportTaskRequest.  # noqa: E501
-
-
-        :return: The display_name of this CreateExportTaskRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._display_name
-
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this CreateExportTaskRequest.
-
-
-        :param display_name: The display_name of this CreateExportTaskRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._display_name = display_name
-
-    @property
     def export_options(self):
         """Gets the export_options of this CreateExportTaskRequest.  # noqa: E501
 
@@ -135,6 +114,27 @@ class CreateExportTaskRequest(object):
         """
 
         self._export_options = export_options
+
+    @property
+    def export_task_name(self):
+        """Gets the export_task_name of this CreateExportTaskRequest.  # noqa: E501
+
+
+        :return: The export_task_name of this CreateExportTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._export_task_name
+
+    @export_task_name.setter
+    def export_task_name(self, export_task_name):
+        """Sets the export_task_name of this CreateExportTaskRequest.
+
+
+        :param export_task_name: The export_task_name of this CreateExportTaskRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._export_task_name = export_task_name
 
     @property
     def project_name(self):

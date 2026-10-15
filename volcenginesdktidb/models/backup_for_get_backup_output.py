@@ -38,7 +38,6 @@ class BackupForGetBackupOutput(object):
         'cluster_id': 'str',
         'create_time': 'str',
         'expire_time': 'str',
-        'name': 'str',
         'state': 'str',
         'type': 'str'
     }
@@ -49,12 +48,11 @@ class BackupForGetBackupOutput(object):
         'cluster_id': 'ClusterId',
         'create_time': 'CreateTime',
         'expire_time': 'ExpireTime',
-        'name': 'Name',
         'state': 'State',
         'type': 'Type'
     }
 
-    def __init__(self, backup_id=None, backup_time=None, cluster_id=None, create_time=None, expire_time=None, name=None, state=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_id=None, backup_time=None, cluster_id=None, create_time=None, expire_time=None, state=None, type=None, _configuration=None):  # noqa: E501
         """BackupForGetBackupOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,7 +63,6 @@ class BackupForGetBackupOutput(object):
         self._cluster_id = None
         self._create_time = None
         self._expire_time = None
-        self._name = None
         self._state = None
         self._type = None
         self.discriminator = None
@@ -80,8 +77,6 @@ class BackupForGetBackupOutput(object):
             self.create_time = create_time
         if expire_time is not None:
             self.expire_time = expire_time
-        if name is not None:
-            self.name = name
         if state is not None:
             self.state = state
         if type is not None:
@@ -191,27 +186,6 @@ class BackupForGetBackupOutput(object):
         """
 
         self._expire_time = expire_time
-
-    @property
-    def name(self):
-        """Gets the name of this BackupForGetBackupOutput.  # noqa: E501
-
-
-        :return: The name of this BackupForGetBackupOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this BackupForGetBackupOutput.
-
-
-        :param name: The name of this BackupForGetBackupOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._name = name
 
     @property
     def state(self):

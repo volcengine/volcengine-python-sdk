@@ -34,7 +34,7 @@ class CreateReqForDescribePriceDetailInput(object):
     """
     swagger_types = {
         'auto_scaling': 'AutoScalingForDescribePriceDetailInput',
-        'display_name': 'str',
+        'cluster_name': 'str',
         'encryption_config': 'EncryptionConfigForDescribePriceDetailInput',
         'high_availability_type': 'str',
         'project_name': 'str',
@@ -47,7 +47,7 @@ class CreateReqForDescribePriceDetailInput(object):
 
     attribute_map = {
         'auto_scaling': 'AutoScaling',
-        'display_name': 'DisplayName',
+        'cluster_name': 'ClusterName',
         'encryption_config': 'EncryptionConfig',
         'high_availability_type': 'HighAvailabilityType',
         'project_name': 'ProjectName',
@@ -58,14 +58,14 @@ class CreateReqForDescribePriceDetailInput(object):
         'zones': 'Zones'
     }
 
-    def __init__(self, auto_scaling=None, display_name=None, encryption_config=None, high_availability_type=None, project_name=None, region_id=None, service_plan=None, tags=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, cluster_name=None, encryption_config=None, high_availability_type=None, project_name=None, region_id=None, service_plan=None, tags=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
         """CreateReqForDescribePriceDetailInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_scaling = None
-        self._display_name = None
+        self._cluster_name = None
         self._encryption_config = None
         self._high_availability_type = None
         self._project_name = None
@@ -78,8 +78,8 @@ class CreateReqForDescribePriceDetailInput(object):
 
         if auto_scaling is not None:
             self.auto_scaling = auto_scaling
-        if display_name is not None:
-            self.display_name = display_name
+        if cluster_name is not None:
+            self.cluster_name = cluster_name
         if encryption_config is not None:
             self.encryption_config = encryption_config
         if high_availability_type is not None:
@@ -119,25 +119,25 @@ class CreateReqForDescribePriceDetailInput(object):
         self._auto_scaling = auto_scaling
 
     @property
-    def display_name(self):
-        """Gets the display_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
+    def cluster_name(self):
+        """Gets the cluster_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
 
 
-        :return: The display_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
+        :return: The cluster_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
         :rtype: str
         """
-        return self._display_name
+        return self._cluster_name
 
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this CreateReqForDescribePriceDetailInput.
+    @cluster_name.setter
+    def cluster_name(self, cluster_name):
+        """Sets the cluster_name of this CreateReqForDescribePriceDetailInput.
 
 
-        :param display_name: The display_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
+        :param cluster_name: The cluster_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
         :type: str
         """
 
-        self._display_name = display_name
+        self._cluster_name = cluster_name
 
     @property
     def encryption_config(self):

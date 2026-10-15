@@ -33,37 +33,58 @@ class CreatePrivateEndpointAllowlistRuleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'authorized_network_name': 'str',
         'cluster_id': 'str',
-        'display_name': 'str',
         'project_name': 'str',
         'vpc_endpoint_id': 'str'
     }
 
     attribute_map = {
+        'authorized_network_name': 'AuthorizedNetworkName',
         'cluster_id': 'ClusterId',
-        'display_name': 'DisplayName',
         'project_name': 'ProjectName',
         'vpc_endpoint_id': 'VpcEndpointId'
     }
 
-    def __init__(self, cluster_id=None, display_name=None, project_name=None, vpc_endpoint_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorized_network_name=None, cluster_id=None, project_name=None, vpc_endpoint_id=None, _configuration=None):  # noqa: E501
         """CreatePrivateEndpointAllowlistRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._authorized_network_name = None
         self._cluster_id = None
-        self._display_name = None
         self._project_name = None
         self._vpc_endpoint_id = None
         self.discriminator = None
 
+        if authorized_network_name is not None:
+            self.authorized_network_name = authorized_network_name
         self.cluster_id = cluster_id
-        if display_name is not None:
-            self.display_name = display_name
         if project_name is not None:
             self.project_name = project_name
         self.vpc_endpoint_id = vpc_endpoint_id
+
+    @property
+    def authorized_network_name(self):
+        """Gets the authorized_network_name of this CreatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+
+
+        :return: The authorized_network_name of this CreatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._authorized_network_name
+
+    @authorized_network_name.setter
+    def authorized_network_name(self, authorized_network_name):
+        """Sets the authorized_network_name of this CreatePrivateEndpointAllowlistRuleRequest.
+
+
+        :param authorized_network_name: The authorized_network_name of this CreatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._authorized_network_name = authorized_network_name
 
     @property
     def cluster_id(self):
@@ -87,27 +108,6 @@ class CreatePrivateEndpointAllowlistRuleRequest(object):
             raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
-
-    @property
-    def display_name(self):
-        """Gets the display_name of this CreatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
-
-
-        :return: The display_name of this CreatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._display_name
-
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this CreatePrivateEndpointAllowlistRuleRequest.
-
-
-        :param display_name: The display_name of this CreatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._display_name = display_name
 
     @property
     def project_name(self):
