@@ -1,0 +1,15 @@
+{
+  "actions": [
+    "UpdateNodePoolConfig",
+    "ListKubernetesObservability",
+    "CreateKubernetesObservability",
+    "GrantPermission",
+    "ListPermissions",
+    "CreateDefaultNodePool",
+    "CreateNodePool",
+    "ListNodePools"
+  ],
+  "description": "VKE: 新增 ListKubernetesObservability, CreateKubernetesObservability；修改 GrantPermission, ListPermissions, CreateDefaultNodePool, CreateNodePool, ListNodePools, UpdateNodePoolConfig",
+  "modules": "service/vke",
+  "type": "breaking-change"
+}
