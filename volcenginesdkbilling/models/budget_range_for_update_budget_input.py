@@ -34,11 +34,14 @@ class BudgetRangeForUpdateBudgetInput(object):
     """
     swagger_types = {
         'billing_mode': 'list[str]',
+        'configuration_code': 'list[ConfigurationCodeForUpdateBudgetInput]',
         'owner_id': 'list[int]',
         'payer_id': 'list[int]',
         'product': 'list[str]',
         'project': 'list[str]',
         'region': 'list[str]',
+        'split_item_id': 'list[str]',
+        'split_item_name': 'list[str]',
         'subject_no': 'list[str]',
         'tag': 'list[str]',
         'zone': 'list[str]'
@@ -46,28 +49,34 @@ class BudgetRangeForUpdateBudgetInput(object):
 
     attribute_map = {
         'billing_mode': 'BillingMode',
+        'configuration_code': 'ConfigurationCode',
         'owner_id': 'OwnerID',
         'payer_id': 'PayerID',
         'product': 'Product',
         'project': 'Project',
         'region': 'Region',
+        'split_item_id': 'SplitItemID',
+        'split_item_name': 'SplitItemName',
         'subject_no': 'SubjectNo',
         'tag': 'Tag',
         'zone': 'Zone'
     }
 
-    def __init__(self, billing_mode=None, owner_id=None, payer_id=None, product=None, project=None, region=None, subject_no=None, tag=None, zone=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_mode=None, configuration_code=None, owner_id=None, payer_id=None, product=None, project=None, region=None, split_item_id=None, split_item_name=None, subject_no=None, tag=None, zone=None, _configuration=None):  # noqa: E501
         """BudgetRangeForUpdateBudgetInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._billing_mode = None
+        self._configuration_code = None
         self._owner_id = None
         self._payer_id = None
         self._product = None
         self._project = None
         self._region = None
+        self._split_item_id = None
+        self._split_item_name = None
         self._subject_no = None
         self._tag = None
         self._zone = None
@@ -75,6 +84,8 @@ class BudgetRangeForUpdateBudgetInput(object):
 
         if billing_mode is not None:
             self.billing_mode = billing_mode
+        if configuration_code is not None:
+            self.configuration_code = configuration_code
         if owner_id is not None:
             self.owner_id = owner_id
         if payer_id is not None:
@@ -85,6 +96,10 @@ class BudgetRangeForUpdateBudgetInput(object):
             self.project = project
         if region is not None:
             self.region = region
+        if split_item_id is not None:
+            self.split_item_id = split_item_id
+        if split_item_name is not None:
+            self.split_item_name = split_item_name
         if subject_no is not None:
             self.subject_no = subject_no
         if tag is not None:
@@ -112,6 +127,27 @@ class BudgetRangeForUpdateBudgetInput(object):
         """
 
         self._billing_mode = billing_mode
+
+    @property
+    def configuration_code(self):
+        """Gets the configuration_code of this BudgetRangeForUpdateBudgetInput.  # noqa: E501
+
+
+        :return: The configuration_code of this BudgetRangeForUpdateBudgetInput.  # noqa: E501
+        :rtype: list[ConfigurationCodeForUpdateBudgetInput]
+        """
+        return self._configuration_code
+
+    @configuration_code.setter
+    def configuration_code(self, configuration_code):
+        """Sets the configuration_code of this BudgetRangeForUpdateBudgetInput.
+
+
+        :param configuration_code: The configuration_code of this BudgetRangeForUpdateBudgetInput.  # noqa: E501
+        :type: list[ConfigurationCodeForUpdateBudgetInput]
+        """
+
+        self._configuration_code = configuration_code
 
     @property
     def owner_id(self):
@@ -217,6 +253,48 @@ class BudgetRangeForUpdateBudgetInput(object):
         """
 
         self._region = region
+
+    @property
+    def split_item_id(self):
+        """Gets the split_item_id of this BudgetRangeForUpdateBudgetInput.  # noqa: E501
+
+
+        :return: The split_item_id of this BudgetRangeForUpdateBudgetInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._split_item_id
+
+    @split_item_id.setter
+    def split_item_id(self, split_item_id):
+        """Sets the split_item_id of this BudgetRangeForUpdateBudgetInput.
+
+
+        :param split_item_id: The split_item_id of this BudgetRangeForUpdateBudgetInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._split_item_id = split_item_id
+
+    @property
+    def split_item_name(self):
+        """Gets the split_item_name of this BudgetRangeForUpdateBudgetInput.  # noqa: E501
+
+
+        :return: The split_item_name of this BudgetRangeForUpdateBudgetInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._split_item_name
+
+    @split_item_name.setter
+    def split_item_name(self, split_item_name):
+        """Sets the split_item_name of this BudgetRangeForUpdateBudgetInput.
+
+
+        :param split_item_name: The split_item_name of this BudgetRangeForUpdateBudgetInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._split_item_name = split_item_name
 
     @property
     def subject_no(self):

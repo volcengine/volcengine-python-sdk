@@ -33,37 +33,45 @@ class BudgetForUpdateBudgetInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'amount_type': 'str',
         'budget_end_time': 'str',
         'budget_name': 'str',
         'budget_plan_type': 'str',
         'budget_start_time': 'str',
         'budget_type': 'str',
+        'currency_settlement': 'str',
         'period': 'str'
     }
 
     attribute_map = {
+        'amount_type': 'AmountType',
         'budget_end_time': 'BudgetEndTime',
         'budget_name': 'BudgetName',
         'budget_plan_type': 'BudgetPlanType',
         'budget_start_time': 'BudgetStartTime',
         'budget_type': 'BudgetType',
+        'currency_settlement': 'CurrencySettlement',
         'period': 'Period'
     }
 
-    def __init__(self, budget_end_time=None, budget_name=None, budget_plan_type=None, budget_start_time=None, budget_type=None, period=None, _configuration=None):  # noqa: E501
+    def __init__(self, amount_type=None, budget_end_time=None, budget_name=None, budget_plan_type=None, budget_start_time=None, budget_type=None, currency_settlement=None, period=None, _configuration=None):  # noqa: E501
         """BudgetForUpdateBudgetInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._amount_type = None
         self._budget_end_time = None
         self._budget_name = None
         self._budget_plan_type = None
         self._budget_start_time = None
         self._budget_type = None
+        self._currency_settlement = None
         self._period = None
         self.discriminator = None
 
+        if amount_type is not None:
+            self.amount_type = amount_type
         if budget_end_time is not None:
             self.budget_end_time = budget_end_time
         if budget_name is not None:
@@ -74,8 +82,38 @@ class BudgetForUpdateBudgetInput(object):
             self.budget_start_time = budget_start_time
         if budget_type is not None:
             self.budget_type = budget_type
+        if currency_settlement is not None:
+            self.currency_settlement = currency_settlement
         if period is not None:
             self.period = period
+
+    @property
+    def amount_type(self):
+        """Gets the amount_type of this BudgetForUpdateBudgetInput.  # noqa: E501
+
+
+        :return: The amount_type of this BudgetForUpdateBudgetInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._amount_type
+
+    @amount_type.setter
+    def amount_type(self, amount_type):
+        """Sets the amount_type of this BudgetForUpdateBudgetInput.
+
+
+        :param amount_type: The amount_type of this BudgetForUpdateBudgetInput.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["pre_tax_payable", "post_tax_payable"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                amount_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `amount_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(amount_type, allowed_values)
+            )
+
+        self._amount_type = amount_type
 
     @property
     def budget_end_time(self):
@@ -195,6 +233,27 @@ class BudgetForUpdateBudgetInput(object):
             )
 
         self._budget_type = budget_type
+
+    @property
+    def currency_settlement(self):
+        """Gets the currency_settlement of this BudgetForUpdateBudgetInput.  # noqa: E501
+
+
+        :return: The currency_settlement of this BudgetForUpdateBudgetInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency_settlement
+
+    @currency_settlement.setter
+    def currency_settlement(self, currency_settlement):
+        """Sets the currency_settlement of this BudgetForUpdateBudgetInput.
+
+
+        :param currency_settlement: The currency_settlement of this BudgetForUpdateBudgetInput.  # noqa: E501
+        :type: str
+        """
+
+        self._currency_settlement = currency_settlement
 
     @property
     def period(self):

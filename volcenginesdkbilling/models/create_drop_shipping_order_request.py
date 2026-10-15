@@ -35,6 +35,7 @@ class CreateDropShippingOrderRequest(object):
     swagger_types = {
         'account_id': 'int',
         'biz_no': 'str',
+        'biz_order_begin_time': 'str',
         'config_items': 'list[ConfigItemForCreateDropShippingOrderInput]',
         'security_tel': 'str',
         'source': 'str'
@@ -43,12 +44,13 @@ class CreateDropShippingOrderRequest(object):
     attribute_map = {
         'account_id': 'AccountID',
         'biz_no': 'BizNo',
+        'biz_order_begin_time': 'BizOrderBeginTime',
         'config_items': 'ConfigItems',
         'security_tel': 'SecurityTel',
         'source': 'Source'
     }
 
-    def __init__(self, account_id=None, biz_no=None, config_items=None, security_tel=None, source=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, biz_no=None, biz_order_begin_time=None, config_items=None, security_tel=None, source=None, _configuration=None):  # noqa: E501
         """CreateDropShippingOrderRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CreateDropShippingOrderRequest(object):
 
         self._account_id = None
         self._biz_no = None
+        self._biz_order_begin_time = None
         self._config_items = None
         self._security_tel = None
         self._source = None
@@ -65,6 +68,8 @@ class CreateDropShippingOrderRequest(object):
             self.account_id = account_id
         if biz_no is not None:
             self.biz_no = biz_no
+        if biz_order_begin_time is not None:
+            self.biz_order_begin_time = biz_order_begin_time
         if config_items is not None:
             self.config_items = config_items
         if security_tel is not None:
@@ -113,6 +118,27 @@ class CreateDropShippingOrderRequest(object):
         """
 
         self._biz_no = biz_no
+
+    @property
+    def biz_order_begin_time(self):
+        """Gets the biz_order_begin_time of this CreateDropShippingOrderRequest.  # noqa: E501
+
+
+        :return: The biz_order_begin_time of this CreateDropShippingOrderRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._biz_order_begin_time
+
+    @biz_order_begin_time.setter
+    def biz_order_begin_time(self, biz_order_begin_time):
+        """Sets the biz_order_begin_time of this CreateDropShippingOrderRequest.
+
+
+        :param biz_order_begin_time: The biz_order_begin_time of this CreateDropShippingOrderRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._biz_order_begin_time = biz_order_begin_time
 
     @property
     def config_items(self):
