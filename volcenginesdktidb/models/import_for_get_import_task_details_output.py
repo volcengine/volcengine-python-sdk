@@ -43,7 +43,6 @@ class ImportForGetImportTaskDetailsOutput(object):
         'id': 'str',
         'import_id': 'str',
         'message': 'str',
-        'name': 'str',
         'post_import_completed_percent': 'int',
         'start_time': 'str',
         'state': 'str',
@@ -62,7 +61,6 @@ class ImportForGetImportTaskDetailsOutput(object):
         'id': 'Id',
         'import_id': 'ImportId',
         'message': 'Message',
-        'name': 'Name',
         'post_import_completed_percent': 'PostImportCompletedPercent',
         'start_time': 'StartTime',
         'state': 'State',
@@ -70,7 +68,7 @@ class ImportForGetImportTaskDetailsOutput(object):
         'total_tables_count': 'TotalTablesCount'
     }
 
-    def __init__(self, all_completed_tables=None, cluster_id=None, compatible_id=None, complete_percent=None, complete_time=None, create_time=None, creation_details=None, id=None, import_id=None, message=None, name=None, post_import_completed_percent=None, start_time=None, state=None, total_size=None, total_tables_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, all_completed_tables=None, cluster_id=None, compatible_id=None, complete_percent=None, complete_time=None, create_time=None, creation_details=None, id=None, import_id=None, message=None, post_import_completed_percent=None, start_time=None, state=None, total_size=None, total_tables_count=None, _configuration=None):  # noqa: E501
         """ImportForGetImportTaskDetailsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,7 +84,6 @@ class ImportForGetImportTaskDetailsOutput(object):
         self._id = None
         self._import_id = None
         self._message = None
-        self._name = None
         self._post_import_completed_percent = None
         self._start_time = None
         self._state = None
@@ -114,8 +111,6 @@ class ImportForGetImportTaskDetailsOutput(object):
             self.import_id = import_id
         if message is not None:
             self.message = message
-        if name is not None:
-            self.name = name
         if post_import_completed_percent is not None:
             self.post_import_completed_percent = post_import_completed_percent
         if start_time is not None:
@@ -336,27 +331,6 @@ class ImportForGetImportTaskDetailsOutput(object):
         """
 
         self._message = message
-
-    @property
-    def name(self):
-        """Gets the name of this ImportForGetImportTaskDetailsOutput.  # noqa: E501
-
-
-        :return: The name of this ImportForGetImportTaskDetailsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this ImportForGetImportTaskDetailsOutput.
-
-
-        :param name: The name of this ImportForGetImportTaskDetailsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._name = name
 
     @property
     def post_import_completed_percent(self):

@@ -33,58 +33,36 @@ class UpdateBranchRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'branch': 'BranchForUpdateBranchInput',
         'branch_id': 'str',
+        'branch_name': 'str',
         'cluster_id': 'str',
         'project_name': 'str'
     }
 
     attribute_map = {
-        'branch': 'Branch',
         'branch_id': 'BranchId',
+        'branch_name': 'BranchName',
         'cluster_id': 'ClusterId',
         'project_name': 'ProjectName'
     }
 
-    def __init__(self, branch=None, branch_id=None, cluster_id=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, branch_id=None, branch_name=None, cluster_id=None, project_name=None, _configuration=None):  # noqa: E501
         """UpdateBranchRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._branch = None
         self._branch_id = None
+        self._branch_name = None
         self._cluster_id = None
         self._project_name = None
         self.discriminator = None
 
-        if branch is not None:
-            self.branch = branch
         self.branch_id = branch_id
+        self.branch_name = branch_name
         self.cluster_id = cluster_id
         if project_name is not None:
             self.project_name = project_name
-
-    @property
-    def branch(self):
-        """Gets the branch of this UpdateBranchRequest.  # noqa: E501
-
-
-        :return: The branch of this UpdateBranchRequest.  # noqa: E501
-        :rtype: BranchForUpdateBranchInput
-        """
-        return self._branch
-
-    @branch.setter
-    def branch(self, branch):
-        """Sets the branch of this UpdateBranchRequest.
-
-
-        :param branch: The branch of this UpdateBranchRequest.  # noqa: E501
-        :type: BranchForUpdateBranchInput
-        """
-
-        self._branch = branch
 
     @property
     def branch_id(self):
@@ -108,6 +86,29 @@ class UpdateBranchRequest(object):
             raise ValueError("Invalid value for `branch_id`, must not be `None`")  # noqa: E501
 
         self._branch_id = branch_id
+
+    @property
+    def branch_name(self):
+        """Gets the branch_name of this UpdateBranchRequest.  # noqa: E501
+
+
+        :return: The branch_name of this UpdateBranchRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._branch_name
+
+    @branch_name.setter
+    def branch_name(self, branch_name):
+        """Sets the branch_name of this UpdateBranchRequest.
+
+
+        :param branch_name: The branch_name of this UpdateBranchRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and branch_name is None:
+            raise ValueError("Invalid value for `branch_name`, must not be `None`")  # noqa: E501
+
+        self._branch_name = branch_name
 
     @property
     def cluster_id(self):

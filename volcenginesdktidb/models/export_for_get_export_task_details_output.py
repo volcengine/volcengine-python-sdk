@@ -36,11 +36,10 @@ class ExportForGetExportTaskDetailsOutput(object):
         'cluster_id': 'str',
         'complete_time': 'str',
         'create_time': 'str',
-        'display_name': 'str',
         'expire_time': 'str',
         'export_id': 'str',
         'export_options': 'ExportOptionsForGetExportTaskDetailsOutput',
-        'name': 'str',
+        'export_task_name': 'str',
         'reason': 'str',
         'snapshot_time': 'str',
         'state': 'str',
@@ -52,11 +51,10 @@ class ExportForGetExportTaskDetailsOutput(object):
         'cluster_id': 'ClusterId',
         'complete_time': 'CompleteTime',
         'create_time': 'CreateTime',
-        'display_name': 'DisplayName',
         'expire_time': 'ExpireTime',
         'export_id': 'ExportId',
         'export_options': 'ExportOptions',
-        'name': 'Name',
+        'export_task_name': 'ExportTaskName',
         'reason': 'Reason',
         'snapshot_time': 'SnapshotTime',
         'state': 'State',
@@ -64,7 +62,7 @@ class ExportForGetExportTaskDetailsOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, cluster_id=None, complete_time=None, create_time=None, display_name=None, expire_time=None, export_id=None, export_options=None, name=None, reason=None, snapshot_time=None, state=None, target=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, complete_time=None, create_time=None, expire_time=None, export_id=None, export_options=None, export_task_name=None, reason=None, snapshot_time=None, state=None, target=None, update_time=None, _configuration=None):  # noqa: E501
         """ExportForGetExportTaskDetailsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,11 +71,10 @@ class ExportForGetExportTaskDetailsOutput(object):
         self._cluster_id = None
         self._complete_time = None
         self._create_time = None
-        self._display_name = None
         self._expire_time = None
         self._export_id = None
         self._export_options = None
-        self._name = None
+        self._export_task_name = None
         self._reason = None
         self._snapshot_time = None
         self._state = None
@@ -91,16 +88,14 @@ class ExportForGetExportTaskDetailsOutput(object):
             self.complete_time = complete_time
         if create_time is not None:
             self.create_time = create_time
-        if display_name is not None:
-            self.display_name = display_name
         if expire_time is not None:
             self.expire_time = expire_time
         if export_id is not None:
             self.export_id = export_id
         if export_options is not None:
             self.export_options = export_options
-        if name is not None:
-            self.name = name
+        if export_task_name is not None:
+            self.export_task_name = export_task_name
         if reason is not None:
             self.reason = reason
         if snapshot_time is not None:
@@ -176,27 +171,6 @@ class ExportForGetExportTaskDetailsOutput(object):
         self._create_time = create_time
 
     @property
-    def display_name(self):
-        """Gets the display_name of this ExportForGetExportTaskDetailsOutput.  # noqa: E501
-
-
-        :return: The display_name of this ExportForGetExportTaskDetailsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._display_name
-
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this ExportForGetExportTaskDetailsOutput.
-
-
-        :param display_name: The display_name of this ExportForGetExportTaskDetailsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._display_name = display_name
-
-    @property
     def expire_time(self):
         """Gets the expire_time of this ExportForGetExportTaskDetailsOutput.  # noqa: E501
 
@@ -260,25 +234,25 @@ class ExportForGetExportTaskDetailsOutput(object):
         self._export_options = export_options
 
     @property
-    def name(self):
-        """Gets the name of this ExportForGetExportTaskDetailsOutput.  # noqa: E501
+    def export_task_name(self):
+        """Gets the export_task_name of this ExportForGetExportTaskDetailsOutput.  # noqa: E501
 
 
-        :return: The name of this ExportForGetExportTaskDetailsOutput.  # noqa: E501
+        :return: The export_task_name of this ExportForGetExportTaskDetailsOutput.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._export_task_name
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this ExportForGetExportTaskDetailsOutput.
+    @export_task_name.setter
+    def export_task_name(self, export_task_name):
+        """Sets the export_task_name of this ExportForGetExportTaskDetailsOutput.
 
 
-        :param name: The name of this ExportForGetExportTaskDetailsOutput.  # noqa: E501
+        :param export_task_name: The export_task_name of this ExportForGetExportTaskDetailsOutput.  # noqa: E501
         :type: str
         """
 
-        self._name = name
+        self._export_task_name = export_task_name
 
     @property
     def reason(self):

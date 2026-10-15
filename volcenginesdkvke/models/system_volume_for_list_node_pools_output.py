@@ -34,6 +34,9 @@ class SystemVolumeForListNodePoolsOutput(object):
     """
     swagger_types = {
         'burst_enabled': 'bool',
+        'extra_performance_iops': 'int',
+        'extra_performance_throughput_mb': 'int',
+        'extra_performance_type_id': 'str',
         'placement_group_id': 'str',
         'size': 'int',
         'subgroup_number': 'int',
@@ -42,19 +45,25 @@ class SystemVolumeForListNodePoolsOutput(object):
 
     attribute_map = {
         'burst_enabled': 'BurstEnabled',
+        'extra_performance_iops': 'ExtraPerformanceIops',
+        'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMb',
+        'extra_performance_type_id': 'ExtraPerformanceTypeId',
         'placement_group_id': 'PlacementGroupId',
         'size': 'Size',
         'subgroup_number': 'SubgroupNumber',
         'type': 'Type'
     }
 
-    def __init__(self, burst_enabled=None, placement_group_id=None, size=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, burst_enabled=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, placement_group_id=None, size=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
         """SystemVolumeForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._burst_enabled = None
+        self._extra_performance_iops = None
+        self._extra_performance_throughput_mb = None
+        self._extra_performance_type_id = None
         self._placement_group_id = None
         self._size = None
         self._subgroup_number = None
@@ -63,6 +72,12 @@ class SystemVolumeForListNodePoolsOutput(object):
 
         if burst_enabled is not None:
             self.burst_enabled = burst_enabled
+        if extra_performance_iops is not None:
+            self.extra_performance_iops = extra_performance_iops
+        if extra_performance_throughput_mb is not None:
+            self.extra_performance_throughput_mb = extra_performance_throughput_mb
+        if extra_performance_type_id is not None:
+            self.extra_performance_type_id = extra_performance_type_id
         if placement_group_id is not None:
             self.placement_group_id = placement_group_id
         if size is not None:
@@ -92,6 +107,69 @@ class SystemVolumeForListNodePoolsOutput(object):
         """
 
         self._burst_enabled = burst_enabled
+
+    @property
+    def extra_performance_iops(self):
+        """Gets the extra_performance_iops of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The extra_performance_iops of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_iops
+
+    @extra_performance_iops.setter
+    def extra_performance_iops(self, extra_performance_iops):
+        """Sets the extra_performance_iops of this SystemVolumeForListNodePoolsOutput.
+
+
+        :param extra_performance_iops: The extra_performance_iops of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_iops = extra_performance_iops
+
+    @property
+    def extra_performance_throughput_mb(self):
+        """Gets the extra_performance_throughput_mb of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The extra_performance_throughput_mb of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_throughput_mb
+
+    @extra_performance_throughput_mb.setter
+    def extra_performance_throughput_mb(self, extra_performance_throughput_mb):
+        """Sets the extra_performance_throughput_mb of this SystemVolumeForListNodePoolsOutput.
+
+
+        :param extra_performance_throughput_mb: The extra_performance_throughput_mb of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_throughput_mb = extra_performance_throughput_mb
+
+    @property
+    def extra_performance_type_id(self):
+        """Gets the extra_performance_type_id of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The extra_performance_type_id of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._extra_performance_type_id
+
+    @extra_performance_type_id.setter
+    def extra_performance_type_id(self, extra_performance_type_id):
+        """Sets the extra_performance_type_id of this SystemVolumeForListNodePoolsOutput.
+
+
+        :param extra_performance_type_id: The extra_performance_type_id of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._extra_performance_type_id = extra_performance_type_id
 
     @property
     def placement_group_id(self):

@@ -33,86 +33,39 @@ class RegionForListRegionsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'display_name': 'str',
-        'name': 'str',
         'region_id': 'str',
+        'region_name': 'str',
         'service_plans': 'list[str]',
         'zone_id': 'list[str]'
     }
 
     attribute_map = {
-        'display_name': 'DisplayName',
-        'name': 'Name',
         'region_id': 'RegionId',
+        'region_name': 'RegionName',
         'service_plans': 'ServicePlans',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, display_name=None, name=None, region_id=None, service_plans=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, region_id=None, region_name=None, service_plans=None, zone_id=None, _configuration=None):  # noqa: E501
         """RegionForListRegionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._display_name = None
-        self._name = None
         self._region_id = None
+        self._region_name = None
         self._service_plans = None
         self._zone_id = None
         self.discriminator = None
 
-        if display_name is not None:
-            self.display_name = display_name
-        if name is not None:
-            self.name = name
         if region_id is not None:
             self.region_id = region_id
+        if region_name is not None:
+            self.region_name = region_name
         if service_plans is not None:
             self.service_plans = service_plans
         if zone_id is not None:
             self.zone_id = zone_id
-
-    @property
-    def display_name(self):
-        """Gets the display_name of this RegionForListRegionsOutput.  # noqa: E501
-
-
-        :return: The display_name of this RegionForListRegionsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._display_name
-
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this RegionForListRegionsOutput.
-
-
-        :param display_name: The display_name of this RegionForListRegionsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._display_name = display_name
-
-    @property
-    def name(self):
-        """Gets the name of this RegionForListRegionsOutput.  # noqa: E501
-
-
-        :return: The name of this RegionForListRegionsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this RegionForListRegionsOutput.
-
-
-        :param name: The name of this RegionForListRegionsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._name = name
 
     @property
     def region_id(self):
@@ -134,6 +87,27 @@ class RegionForListRegionsOutput(object):
         """
 
         self._region_id = region_id
+
+    @property
+    def region_name(self):
+        """Gets the region_name of this RegionForListRegionsOutput.  # noqa: E501
+
+
+        :return: The region_name of this RegionForListRegionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._region_name
+
+    @region_name.setter
+    def region_name(self, region_name):
+        """Sets the region_name of this RegionForListRegionsOutput.
+
+
+        :param region_name: The region_name of this RegionForListRegionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._region_name = region_name
 
     @property
     def service_plans(self):

@@ -33,55 +33,55 @@ class ConvertAuthorizedNetworkForListClustersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'display_name': 'str',
+        'authorized_network_name': 'str',
         'end_ip_address': 'str',
         'start_ip_address': 'str'
     }
 
     attribute_map = {
-        'display_name': 'DisplayName',
+        'authorized_network_name': 'AuthorizedNetworkName',
         'end_ip_address': 'EndIpAddress',
         'start_ip_address': 'StartIpAddress'
     }
 
-    def __init__(self, display_name=None, end_ip_address=None, start_ip_address=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorized_network_name=None, end_ip_address=None, start_ip_address=None, _configuration=None):  # noqa: E501
         """ConvertAuthorizedNetworkForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._display_name = None
+        self._authorized_network_name = None
         self._end_ip_address = None
         self._start_ip_address = None
         self.discriminator = None
 
-        if display_name is not None:
-            self.display_name = display_name
+        if authorized_network_name is not None:
+            self.authorized_network_name = authorized_network_name
         if end_ip_address is not None:
             self.end_ip_address = end_ip_address
         if start_ip_address is not None:
             self.start_ip_address = start_ip_address
 
     @property
-    def display_name(self):
-        """Gets the display_name of this ConvertAuthorizedNetworkForListClustersOutput.  # noqa: E501
+    def authorized_network_name(self):
+        """Gets the authorized_network_name of this ConvertAuthorizedNetworkForListClustersOutput.  # noqa: E501
 
 
-        :return: The display_name of this ConvertAuthorizedNetworkForListClustersOutput.  # noqa: E501
+        :return: The authorized_network_name of this ConvertAuthorizedNetworkForListClustersOutput.  # noqa: E501
         :rtype: str
         """
-        return self._display_name
+        return self._authorized_network_name
 
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this ConvertAuthorizedNetworkForListClustersOutput.
+    @authorized_network_name.setter
+    def authorized_network_name(self, authorized_network_name):
+        """Sets the authorized_network_name of this ConvertAuthorizedNetworkForListClustersOutput.
 
 
-        :param display_name: The display_name of this ConvertAuthorizedNetworkForListClustersOutput.  # noqa: E501
+        :param authorized_network_name: The authorized_network_name of this ConvertAuthorizedNetworkForListClustersOutput.  # noqa: E501
         :type: str
         """
 
-        self._display_name = display_name
+        self._authorized_network_name = authorized_network_name
 
     @property
     def end_ip_address(self):
