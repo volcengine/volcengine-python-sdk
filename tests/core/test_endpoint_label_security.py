@@ -132,6 +132,23 @@ class EndpointLabelSecurityTest(EndpointSecurityTestCase):
         self.assertEqual("must not end with '-' or '_'", validation._validate_endpoint_label(u'a-'))
         self.assertEqual('', validation._validate_endpoint_label(u'a1'))
 
+    def test_check_order_charset_then_first_then_last(self):
+        # 同时违反多条规则时，报告顺序固定为：字符集 > 首字母 > 末尾字符。
+        cases = [
+            (u'a@-', 'illegal character at index 1'),   # 字符集 + 末尾
+            (u'a@_', 'illegal character at index 1'),
+            (u'1@-', 'illegal character at index 1'),   # 字符集 + 首字母 + 末尾
+            (u'1cn@x', 'illegal character at index 3'),  # 字符集 + 首字母
+            (u'-cn-', 'must start with a letter'),       # 首字母 + 末尾
+            (u'1a_', 'must start with a letter'),
+        ]
+        for value, reason in cases:
+            self.assertEqual(reason, validation._validate_endpoint_label(value), repr(value))
+            for name, code, validator in VALIDATORS:
+                quoted = u'"%s"' % value
+                error = self.assert_rejected(code, validator, value)
+                self.assertEqual(expected_message(name, quoted, reason), error.message)
+
 
 def _invalid_test(code, validator, value):
     def test(self):

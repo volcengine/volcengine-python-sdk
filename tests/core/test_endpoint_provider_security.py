@@ -113,12 +113,14 @@ class EndpointProviderSecurityTest(EndpointSecurityTestCase):
     def test_environment_bootstrap_file(self):
         provider = DefaultEndpointProvider()
         bad = 'cn-beijing@127.0.0.1/'
-        with tempfile.NamedTemporaryFile(mode='w') as config:
+        # 先关闭文件再交给被测代码读取：Windows 上已打开的 NamedTemporaryFile 不能被再次打开。
+        fd, path = tempfile.mkstemp(suffix='.conf')
+        self.addCleanup(os.remove, path)
+        with os.fdopen(fd, 'w') as config:
             config.write('cn-beijing\n' + bad + '\n')
-            config.flush()
-            os.environ['VOLC_BOOTSTRAP_REGION_LIST_CONF'] = config.name
-            self.assertEqual('ecs.cn-beijing.volcengineapi.com', provider.endpoint_for('ecs', 'cn-beijing').host)
-            self.assert_rejected('InvalidRegion', provider.endpoint_for, 'ecs', bad)
+        os.environ['VOLC_BOOTSTRAP_REGION_LIST_CONF'] = path
+        self.assertEqual('ecs.cn-beijing.volcengineapi.com', provider.endpoint_for('ecs', 'cn-beijing').host)
+        self.assert_rejected('InvalidRegion', provider.endpoint_for, 'ecs', bad)
 
     def test_service_info_all_compatible_branches(self):
         info = ServiceEndpointInfo('Cloud_Detect', False, '', {'cn-beijing': 'private.internal'})

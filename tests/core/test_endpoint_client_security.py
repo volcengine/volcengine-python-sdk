@@ -306,6 +306,40 @@ class EndpointClientSecurityTest(EndpointSecurityTestCase):
             self.assert_rejected('InvalidService', self.call, self.client(conf), u'evil.com#')
         self.assert_no_side_effect()
 
+    def test_interceptor_rejects_invalid_service_before_resolver_and_signing(self):
+        # 绕开通用客户端的前置校验，直接验证 ResolveEndpointInterceptor 自身的 service 校验：
+        # 自定义解析器不做任何校验，一旦被调用测试即失败。
+        class FailingResolver(object):
+            def endpoint_for(inner, service, region, **kwargs):
+                self.fail('自定义解析器不应收到非法 service: %r' % (service,))
+
+        checked = 0
+        for _, value in INVALID_LABELS:
+            if u'/' in value:
+                continue  # 斜杠会改变 resource_path 的分段，无法作为单个 service 段构造
+            conf = self.configuration()
+            conf.endpoint_provider = FailingResolver()
+            path = u'/DescribeInstances/2020-04-01/%s/get/text_plain/' % value
+            request, error = self.run_pipeline(self.client(conf), path)
+            self.assertEqual('InvalidService', getattr(error, 'code', None), repr(value))
+            self.assertEqual(value, request.service)
+            for header in SIGNATURE_HEADERS:
+                self.assertNotIn(header, request.header_params)
+            self.assertEqual('', request.url)
+            checked += 1
+        self.assertGreater(checked, 20)
+        self.assert_no_side_effect()
+
+        # 合法 service 对照：解析器被调用，请求被签名。
+        conf = self.configuration()
+        resolver = CountingResolver()
+        conf.endpoint_provider = resolver
+        request, error = self.run_pipeline(self.client(conf),
+                                           u'/DescribeInstances/2020-04-01/Rds_mysql-2/get/text_plain/')
+        self.assertIsNone(error)
+        self.assertEqual([('Rds_mysql-2', 'cn-beijing')], resolver.calls)
+        self.assertIn('Authorization', request.header_params)
+
     def test_host_provider_subclass_cannot_bypass_validation(self):
         class DynamicHostProvider(HostEndpointProvider):
             def endpoint_for(inner, service, region, **kwargs):
