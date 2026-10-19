@@ -39,6 +39,7 @@ class DescribeServerGroupsRequest(object):
         'server_group_ids': 'list[str]',
         'server_group_names': 'list[str]',
         'server_group_type': 'str',
+        'space_network_id': 'str',
         'tag_filters': 'list[TagFilterForDescribeServerGroupsInput]',
         'vpc_id': 'str'
     }
@@ -50,11 +51,12 @@ class DescribeServerGroupsRequest(object):
         'server_group_ids': 'ServerGroupIds',
         'server_group_names': 'ServerGroupNames',
         'server_group_type': 'ServerGroupType',
+        'space_network_id': 'SpaceNetworkId',
         'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, page_number=None, page_size=None, project_name=None, server_group_ids=None, server_group_names=None, server_group_type=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, project_name=None, server_group_ids=None, server_group_names=None, server_group_type=None, space_network_id=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class DescribeServerGroupsRequest(object):
         self._server_group_ids = None
         self._server_group_names = None
         self._server_group_type = None
+        self._space_network_id = None
         self._tag_filters = None
         self._vpc_id = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class DescribeServerGroupsRequest(object):
             self.server_group_names = server_group_names
         if server_group_type is not None:
             self.server_group_type = server_group_type
+        if space_network_id is not None:
+            self.space_network_id = space_network_id
         if tag_filters is not None:
             self.tag_filters = tag_filters
         if vpc_id is not None:
@@ -212,6 +217,27 @@ class DescribeServerGroupsRequest(object):
         """
 
         self._server_group_type = server_group_type
+
+    @property
+    def space_network_id(self):
+        """Gets the space_network_id of this DescribeServerGroupsRequest.  # noqa: E501
+
+
+        :return: The space_network_id of this DescribeServerGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._space_network_id
+
+    @space_network_id.setter
+    def space_network_id(self, space_network_id):
+        """Sets the space_network_id of this DescribeServerGroupsRequest.
+
+
+        :param space_network_id: The space_network_id of this DescribeServerGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._space_network_id = space_network_id
 
     @property
     def tag_filters(self):

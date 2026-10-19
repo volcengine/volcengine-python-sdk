@@ -36,6 +36,7 @@ class RuleActionForDescribeRulesOutput(object):
         'cors_config': 'CorsConfigForDescribeRulesOutput',
         'fixed_response_config': 'FixedResponseConfigForDescribeRulesOutput',
         'forward_group_config': 'ConvertForwardGroupConfigForDescribeRulesOutput',
+        'insert_header_config': 'InsertHeaderConfigForDescribeRulesOutput',
         'redirect_config': 'ConvertRedirectConfigForDescribeRulesOutput',
         'rewrite_config': 'ConvertRewriteConfigForDescribeRulesOutput',
         'traffic_limit_config': 'TrafficLimitConfigForDescribeRulesOutput',
@@ -46,13 +47,14 @@ class RuleActionForDescribeRulesOutput(object):
         'cors_config': 'CorsConfig',
         'fixed_response_config': 'FixedResponseConfig',
         'forward_group_config': 'ForwardGroupConfig',
+        'insert_header_config': 'InsertHeaderConfig',
         'redirect_config': 'RedirectConfig',
         'rewrite_config': 'RewriteConfig',
         'traffic_limit_config': 'TrafficLimitConfig',
         'type': 'Type'
     }
 
-    def __init__(self, cors_config=None, fixed_response_config=None, forward_group_config=None, redirect_config=None, rewrite_config=None, traffic_limit_config=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, cors_config=None, fixed_response_config=None, forward_group_config=None, insert_header_config=None, redirect_config=None, rewrite_config=None, traffic_limit_config=None, type=None, _configuration=None):  # noqa: E501
         """RuleActionForDescribeRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class RuleActionForDescribeRulesOutput(object):
         self._cors_config = None
         self._fixed_response_config = None
         self._forward_group_config = None
+        self._insert_header_config = None
         self._redirect_config = None
         self._rewrite_config = None
         self._traffic_limit_config = None
@@ -73,6 +76,8 @@ class RuleActionForDescribeRulesOutput(object):
             self.fixed_response_config = fixed_response_config
         if forward_group_config is not None:
             self.forward_group_config = forward_group_config
+        if insert_header_config is not None:
+            self.insert_header_config = insert_header_config
         if redirect_config is not None:
             self.redirect_config = redirect_config
         if rewrite_config is not None:
@@ -144,6 +149,27 @@ class RuleActionForDescribeRulesOutput(object):
         """
 
         self._forward_group_config = forward_group_config
+
+    @property
+    def insert_header_config(self):
+        """Gets the insert_header_config of this RuleActionForDescribeRulesOutput.  # noqa: E501
+
+
+        :return: The insert_header_config of this RuleActionForDescribeRulesOutput.  # noqa: E501
+        :rtype: InsertHeaderConfigForDescribeRulesOutput
+        """
+        return self._insert_header_config
+
+    @insert_header_config.setter
+    def insert_header_config(self, insert_header_config):
+        """Sets the insert_header_config of this RuleActionForDescribeRulesOutput.
+
+
+        :param insert_header_config: The insert_header_config of this RuleActionForDescribeRulesOutput.  # noqa: E501
+        :type: InsertHeaderConfigForDescribeRulesOutput
+        """
+
+        self._insert_header_config = insert_header_config
 
     @property
     def redirect_config(self):

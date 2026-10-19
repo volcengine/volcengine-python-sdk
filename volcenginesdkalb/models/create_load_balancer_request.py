@@ -34,6 +34,7 @@ class CreateLoadBalancerRequest(object):
     """
     swagger_types = {
         'address_ip_version': 'str',
+        'ark_claw_enabled': 'str',
         'bandwidth_package_id': 'str',
         'client_token': 'str',
         'delete_protection': 'str',
@@ -48,6 +49,7 @@ class CreateLoadBalancerRequest(object):
         'modification_protection_status': 'str',
         'project_name': 'str',
         'region_id': 'str',
+        'space_network_id': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForCreateLoadBalancerInput]',
         'type': 'str',
@@ -57,6 +59,7 @@ class CreateLoadBalancerRequest(object):
 
     attribute_map = {
         'address_ip_version': 'AddressIpVersion',
+        'ark_claw_enabled': 'ArkClawEnabled',
         'bandwidth_package_id': 'BandwidthPackageId',
         'client_token': 'ClientToken',
         'delete_protection': 'DeleteProtection',
@@ -71,6 +74,7 @@ class CreateLoadBalancerRequest(object):
         'modification_protection_status': 'ModificationProtectionStatus',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
+        'space_network_id': 'SpaceNetworkId',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
         'type': 'Type',
@@ -78,13 +82,14 @@ class CreateLoadBalancerRequest(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, address_ip_version=None, bandwidth_package_id=None, client_token=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_bandwidth_package_id=None, ipv6_eip_billing_config=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_name=None, modification_protection_reason=None, modification_protection_status=None, project_name=None, region_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, ark_claw_enabled=None, bandwidth_package_id=None, client_token=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_bandwidth_package_id=None, ipv6_eip_billing_config=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_name=None, modification_protection_reason=None, modification_protection_status=None, project_name=None, region_id=None, space_network_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """CreateLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._address_ip_version = None
+        self._ark_claw_enabled = None
         self._bandwidth_package_id = None
         self._client_token = None
         self._delete_protection = None
@@ -99,6 +104,7 @@ class CreateLoadBalancerRequest(object):
         self._modification_protection_status = None
         self._project_name = None
         self._region_id = None
+        self._space_network_id = None
         self._subnet_id = None
         self._tags = None
         self._type = None
@@ -108,6 +114,8 @@ class CreateLoadBalancerRequest(object):
 
         if address_ip_version is not None:
             self.address_ip_version = address_ip_version
+        if ark_claw_enabled is not None:
+            self.ark_claw_enabled = ark_claw_enabled
         if bandwidth_package_id is not None:
             self.bandwidth_package_id = bandwidth_package_id
         if client_token is not None:
@@ -135,6 +143,8 @@ class CreateLoadBalancerRequest(object):
         if project_name is not None:
             self.project_name = project_name
         self.region_id = region_id
+        if space_network_id is not None:
+            self.space_network_id = space_network_id
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if tags is not None:
@@ -165,6 +175,27 @@ class CreateLoadBalancerRequest(object):
         """
 
         self._address_ip_version = address_ip_version
+
+    @property
+    def ark_claw_enabled(self):
+        """Gets the ark_claw_enabled of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The ark_claw_enabled of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ark_claw_enabled
+
+    @ark_claw_enabled.setter
+    def ark_claw_enabled(self, ark_claw_enabled):
+        """Sets the ark_claw_enabled of this CreateLoadBalancerRequest.
+
+
+        :param ark_claw_enabled: The ark_claw_enabled of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ark_claw_enabled = ark_claw_enabled
 
     @property
     def bandwidth_package_id(self):
@@ -461,6 +492,27 @@ class CreateLoadBalancerRequest(object):
             raise ValueError("Invalid value for `region_id`, must not be `None`")  # noqa: E501
 
         self._region_id = region_id
+
+    @property
+    def space_network_id(self):
+        """Gets the space_network_id of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The space_network_id of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._space_network_id
+
+    @space_network_id.setter
+    def space_network_id(self, space_network_id):
+        """Sets the space_network_id of this CreateLoadBalancerRequest.
+
+
+        :param space_network_id: The space_network_id of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._space_network_id = space_network_id
 
     @property
     def subnet_id(self):

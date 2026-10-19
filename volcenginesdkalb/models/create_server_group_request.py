@@ -42,6 +42,8 @@ class CreateServerGroupRequest(object):
         'scheduler': 'str',
         'server_group_name': 'str',
         'server_group_type': 'str',
+        'slow_start_config': 'SlowStartConfigForCreateServerGroupInput',
+        'space_network_id': 'str',
         'sticky_session_config': 'StickySessionConfigForCreateServerGroupInput',
         'tags': 'list[TagForCreateServerGroupInput]',
         'vpc_id': 'str'
@@ -57,12 +59,14 @@ class CreateServerGroupRequest(object):
         'scheduler': 'Scheduler',
         'server_group_name': 'ServerGroupName',
         'server_group_type': 'ServerGroupType',
+        'slow_start_config': 'SlowStartConfig',
+        'space_network_id': 'SpaceNetworkId',
         'sticky_session_config': 'StickySessionConfig',
         'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, cross_zone_enabled=None, description=None, health_check=None, ip_address_type=None, project_name=None, protocol=None, scheduler=None, server_group_name=None, server_group_type=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cross_zone_enabled=None, description=None, health_check=None, ip_address_type=None, project_name=None, protocol=None, scheduler=None, server_group_name=None, server_group_type=None, slow_start_config=None, space_network_id=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateServerGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +81,8 @@ class CreateServerGroupRequest(object):
         self._scheduler = None
         self._server_group_name = None
         self._server_group_type = None
+        self._slow_start_config = None
+        self._space_network_id = None
         self._sticky_session_config = None
         self._tags = None
         self._vpc_id = None
@@ -100,11 +106,16 @@ class CreateServerGroupRequest(object):
             self.server_group_name = server_group_name
         if server_group_type is not None:
             self.server_group_type = server_group_type
+        if slow_start_config is not None:
+            self.slow_start_config = slow_start_config
+        if space_network_id is not None:
+            self.space_network_id = space_network_id
         if sticky_session_config is not None:
             self.sticky_session_config = sticky_session_config
         if tags is not None:
             self.tags = tags
-        self.vpc_id = vpc_id
+        if vpc_id is not None:
+            self.vpc_id = vpc_id
 
     @property
     def cross_zone_enabled(self):
@@ -302,6 +313,48 @@ class CreateServerGroupRequest(object):
         self._server_group_type = server_group_type
 
     @property
+    def slow_start_config(self):
+        """Gets the slow_start_config of this CreateServerGroupRequest.  # noqa: E501
+
+
+        :return: The slow_start_config of this CreateServerGroupRequest.  # noqa: E501
+        :rtype: SlowStartConfigForCreateServerGroupInput
+        """
+        return self._slow_start_config
+
+    @slow_start_config.setter
+    def slow_start_config(self, slow_start_config):
+        """Sets the slow_start_config of this CreateServerGroupRequest.
+
+
+        :param slow_start_config: The slow_start_config of this CreateServerGroupRequest.  # noqa: E501
+        :type: SlowStartConfigForCreateServerGroupInput
+        """
+
+        self._slow_start_config = slow_start_config
+
+    @property
+    def space_network_id(self):
+        """Gets the space_network_id of this CreateServerGroupRequest.  # noqa: E501
+
+
+        :return: The space_network_id of this CreateServerGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._space_network_id
+
+    @space_network_id.setter
+    def space_network_id(self, space_network_id):
+        """Sets the space_network_id of this CreateServerGroupRequest.
+
+
+        :param space_network_id: The space_network_id of this CreateServerGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._space_network_id = space_network_id
+
+    @property
     def sticky_session_config(self):
         """Gets the sticky_session_config of this CreateServerGroupRequest.  # noqa: E501
 
@@ -361,8 +414,6 @@ class CreateServerGroupRequest(object):
         :param vpc_id: The vpc_id of this CreateServerGroupRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and vpc_id is None:
-            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 
