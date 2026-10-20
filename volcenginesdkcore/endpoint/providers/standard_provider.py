@@ -186,6 +186,7 @@ ServiceInfos = {
     "tidb": ServiceInfo("tidb", False),
     "origin_defence": ServiceInfo("origin_defence", False),
     "pca": ServiceInfo("pca", True),
+    "inframanager": ServiceInfo("inframanager", False),
 }
 
 
