@@ -33,24 +33,29 @@ class ExecuteSQLQueryResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'next_token': 'str'
+        'next_token': 'str',
+        'rows': 'list[object]'
     }
 
     attribute_map = {
-        'next_token': 'NextToken'
+        'next_token': 'NextToken',
+        'rows': 'Rows'
     }
 
-    def __init__(self, next_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, next_token=None, rows=None, _configuration=None):  # noqa: E501
         """ExecuteSQLQueryResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._next_token = None
+        self._rows = None
         self.discriminator = None
 
         if next_token is not None:
             self.next_token = next_token
+        if rows is not None:
+            self.rows = rows
 
     @property
     def next_token(self):
@@ -72,6 +77,27 @@ class ExecuteSQLQueryResponse(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def rows(self):
+        """Gets the rows of this ExecuteSQLQueryResponse.  # noqa: E501
+
+
+        :return: The rows of this ExecuteSQLQueryResponse.  # noqa: E501
+        :rtype: list[object]
+        """
+        return self._rows
+
+    @rows.setter
+    def rows(self, rows):
+        """Sets the rows of this ExecuteSQLQueryResponse.
+
+
+        :param rows: The rows of this ExecuteSQLQueryResponse.  # noqa: E501
+        :type: list[object]
+        """
+
+        self._rows = rows
 
     def to_dict(self):
         """Returns the model properties as a dict"""

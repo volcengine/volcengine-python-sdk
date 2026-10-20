@@ -80,6 +80,9 @@ class ExecuteSQLQueryRequest(object):
         """
         if self._configuration.client_side_validation and expression is None:
             raise ValueError("Invalid value for `expression`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                expression is not None and len(expression) > 2048):
+            raise ValueError("Invalid value for `expression`, length must be less than or equal to `2048`")  # noqa: E501
 
         self._expression = expression
 
@@ -103,6 +106,12 @@ class ExecuteSQLQueryRequest(object):
         """
         if self._configuration.client_side_validation and max_results is None:
             raise ValueError("Invalid value for `max_results`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results > 500):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value less than or equal to `500`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results < 1):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._max_results = max_results
 
