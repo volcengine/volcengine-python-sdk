@@ -1,0 +1,8 @@
+{
+  "actions": [
+    "ListTrustedServiceAdministrators"
+  ],
+  "description": "ORGANIZATION: 新增 ListTrustedServiceAdministrators",
+  "modules": "service/organization",
+  "type": "feature"
+}
