@@ -34,19 +34,15 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput(object):
     """
     swagger_types = {
         'episode_num': 'int',
-        'target_lang2_subtitle': 'list[TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput]',
-        'video_id': 'str',
-        'video_name': 'str'
+        'target_lang2_subtitle': 'list[TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput]'
     }
 
     attribute_map = {
         'episode_num': 'episodeNum',
-        'target_lang2_subtitle': 'targetLang2Subtitle',
-        'video_id': 'videoId',
-        'video_name': 'videoName'
+        'target_lang2_subtitle': 'targetLang2Subtitle'
     }
 
-    def __init__(self, episode_num=None, target_lang2_subtitle=None, video_id=None, video_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, episode_num=None, target_lang2_subtitle=None, _configuration=None):  # noqa: E501
         """VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,18 +50,12 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput(object):
 
         self._episode_num = None
         self._target_lang2_subtitle = None
-        self._video_id = None
-        self._video_name = None
         self.discriminator = None
 
         if episode_num is not None:
             self.episode_num = episode_num
         if target_lang2_subtitle is not None:
             self.target_lang2_subtitle = target_lang2_subtitle
-        if video_id is not None:
-            self.video_id = video_id
-        if video_name is not None:
-            self.video_name = video_name
 
     @property
     def episode_num(self):
@@ -108,48 +98,6 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput(object):
         """
 
         self._target_lang2_subtitle = target_lang2_subtitle
-
-    @property
-    def video_id(self):
-        """Gets the video_id of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
-
-
-        :return: The video_id of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._video_id
-
-    @video_id.setter
-    def video_id(self, video_id):
-        """Sets the video_id of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.
-
-
-        :param video_id: The video_id of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
-        :type: str
-        """
-
-        self._video_id = video_id
-
-    @property
-    def video_name(self):
-        """Gets the video_name of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
-
-
-        :return: The video_name of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._video_name
-
-    @video_name.setter
-    def video_name(self, video_name):
-        """Sets the video_name of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.
-
-
-        :param video_name: The video_name of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
-        :type: str
-        """
-
-        self._video_name = video_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

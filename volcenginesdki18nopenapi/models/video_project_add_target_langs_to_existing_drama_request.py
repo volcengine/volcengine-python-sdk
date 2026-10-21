@@ -41,6 +41,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         'is_dub': 'bool',
         'need_term_validation': 'bool',
         'project_id': 'str',
+        'source_style_map': 'SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput',
         'target_languages': 'list[str]',
         'target_style_map': 'TargetStyleMapForVideoProjectAddTargetLangsToExistingDramaInput',
         'video_identifiers': 'list[VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput]',
@@ -56,13 +57,14 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         'is_dub': 'isDub',
         'need_term_validation': 'needTermValidation',
         'project_id': 'projectId',
+        'source_style_map': 'sourceStyleMap',
         'target_languages': 'targetLanguages',
         'target_style_map': 'targetStyleMap',
         'video_identifiers': 'videoIdentifiers',
         'video_speed_policy': 'videoSpeedPolicy'
     }
 
-    def __init__(self, bgm_policy=None, deadline=None, drama_id=None, dub_voice_mode=None, from_task_type=None, is_dub=None, need_term_validation=None, project_id=None, target_languages=None, target_style_map=None, video_identifiers=None, video_speed_policy=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgm_policy=None, deadline=None, drama_id=None, dub_voice_mode=None, from_task_type=None, is_dub=None, need_term_validation=None, project_id=None, source_style_map=None, target_languages=None, target_style_map=None, video_identifiers=None, video_speed_policy=None, _configuration=None):  # noqa: E501
         """VideoProjectAddTargetLangsToExistingDramaRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         self._is_dub = None
         self._need_term_validation = None
         self._project_id = None
+        self._source_style_map = None
         self._target_languages = None
         self._target_style_map = None
         self._video_identifiers = None
@@ -95,6 +98,8 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         if need_term_validation is not None:
             self.need_term_validation = need_term_validation
         self.project_id = project_id
+        if source_style_map is not None:
+            self.source_style_map = source_style_map
         if target_languages is not None:
             self.target_languages = target_languages
         if target_style_map is not None:
@@ -277,6 +282,27 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
             raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
 
         self._project_id = project_id
+
+    @property
+    def source_style_map(self):
+        """Gets the source_style_map of this VideoProjectAddTargetLangsToExistingDramaRequest.  # noqa: E501
+
+
+        :return: The source_style_map of this VideoProjectAddTargetLangsToExistingDramaRequest.  # noqa: E501
+        :rtype: SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput
+        """
+        return self._source_style_map
+
+    @source_style_map.setter
+    def source_style_map(self, source_style_map):
+        """Sets the source_style_map of this VideoProjectAddTargetLangsToExistingDramaRequest.
+
+
+        :param source_style_map: The source_style_map of this VideoProjectAddTargetLangsToExistingDramaRequest.  # noqa: E501
+        :type: SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput
+        """
+
+        self._source_style_map = source_style_map
 
     @property
     def target_languages(self):
