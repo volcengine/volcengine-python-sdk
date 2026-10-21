@@ -41,6 +41,7 @@ class GetDropShippingOrderResponse(object):
         'drop_shipping_order_status': 'int',
         'error_code': 'str',
         'error_message': 'str',
+        'order_id_list': 'list[str]',
         'result': 'bool'
     }
 
@@ -53,10 +54,11 @@ class GetDropShippingOrderResponse(object):
         'drop_shipping_order_status': 'DropShippingOrderStatus',
         'error_code': 'ErrorCode',
         'error_message': 'ErrorMessage',
+        'order_id_list': 'OrderIDList',
         'result': 'Result'
     }
 
-    def __init__(self, account_id=None, biz_no=None, config_items=None, drop_shipping_order_fail_reason=None, drop_shipping_order_id=None, drop_shipping_order_status=None, error_code=None, error_message=None, result=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, biz_no=None, config_items=None, drop_shipping_order_fail_reason=None, drop_shipping_order_id=None, drop_shipping_order_status=None, error_code=None, error_message=None, order_id_list=None, result=None, _configuration=None):  # noqa: E501
         """GetDropShippingOrderResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class GetDropShippingOrderResponse(object):
         self._drop_shipping_order_status = None
         self._error_code = None
         self._error_message = None
+        self._order_id_list = None
         self._result = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class GetDropShippingOrderResponse(object):
             self.error_code = error_code
         if error_message is not None:
             self.error_message = error_message
+        if order_id_list is not None:
+            self.order_id_list = order_id_list
         if result is not None:
             self.result = result
 
@@ -259,6 +264,27 @@ class GetDropShippingOrderResponse(object):
         """
 
         self._error_message = error_message
+
+    @property
+    def order_id_list(self):
+        """Gets the order_id_list of this GetDropShippingOrderResponse.  # noqa: E501
+
+
+        :return: The order_id_list of this GetDropShippingOrderResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._order_id_list
+
+    @order_id_list.setter
+    def order_id_list(self, order_id_list):
+        """Sets the order_id_list of this GetDropShippingOrderResponse.
+
+
+        :param order_id_list: The order_id_list of this GetDropShippingOrderResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._order_id_list = order_id_list
 
     @property
     def result(self):
