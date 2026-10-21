@@ -15,31 +15,47 @@ VERSION = os.environ.get("VOLCENGINE_SDK_BUILD_VERSION", MANIFEST["version"])
 PREFIX = "volcenginesdk"
 
 
-def discover_modules():
-    """模块清单：优先读构建方写入的 split-modules.json（stage 目录无源码目录），
+def _load_modules_state():
+    """模块清单：优先读构建方写入的 split-modules.json（stage 目录无源码目录，
+    也读不到各服务 split-package.json，故 python_requires 一并由该文件携带）；
     否则扫描仓内 volcenginesdk* 目录（不含 excluded_modules）。"""
     modules_file = os.path.join(ROOT, "split-modules.json")
     if os.path.isfile(modules_file):
         with open(modules_file) as f:
-            return json.load(f)["modules"]
+            state = json.load(f)
+        return state["modules"], state.get("python_requires", {})
     excluded = set(MANIFEST.get("excluded_modules", {}))
-    return sorted(
+    modules = sorted(
         name
         for name in os.listdir(ROOT)
         if os.path.isdir(os.path.join(ROOT, name))
         and name.startswith(PREFIX)
         and name not in excluded
     )
+    return modules, {}
+
+
+MODULES, STAGED_PYTHON_REQUIRES = _load_modules_state()
+
+
+def discover_modules():
+    return MODULES
 
 
 def distribution_name(module):
     if module == "volcenginesdkcore":
         return "volcenginesdk-core"
+    overrides = MANIFEST.get("distribution_name_overrides", {})
+    if module in overrides:
+        return overrides[module]
     return MANIFEST["distribution_prefix"] + module[len(PREFIX):]
 
 
 def service_python_requires(module):
-    """读取服务自带的 split-package.json 声明的 python_requires；缺失回退默认值。"""
+    """构建 stage 中已由 split-modules.json 携带的，直接用；否则读取服务自带的
+    split-package.json 声明的 python_requires；缺失回退默认值。"""
+    if module in STAGED_PYTHON_REQUIRES:
+        return STAGED_PYTHON_REQUIRES[module]
     service_meta_path = os.path.join(ROOT, module, "split-package.json")
     if os.path.isfile(service_meta_path):
         with open(service_meta_path) as service_meta_file:

@@ -3,8 +3,10 @@
   "version": "5.0.51",
   "distribution_prefix": "volcenginesdk-",
   "excluded_modules": {
-    "volcenginesdkexamples": "Examples are source documentation, not an installable runtime package.",
-    "volcenginesdkarkruntime": "Distribution name blocked on PyPI by a tombstoned project ultranormalization collision (pypi/support#12626); the standalone official 'arkruntime' package is used instead."
+    "volcenginesdkexamples": "Examples are source documentation, not an installable runtime package."
+  },
+  "distribution_name_overrides": {
+    "volcenginesdkarkruntime": "volcengine-ark-runtime"
   },
   "default_internal_dependencies": [
     "volcenginesdkcore"

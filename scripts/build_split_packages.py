@@ -67,6 +67,9 @@ def load_service_metadata(module, manifest):
 def distribution_name(module, manifest):
     if module == "volcenginesdkcore":
         return "volcenginesdk-core"
+    overrides = manifest.get("distribution_name_overrides", {})
+    if module in overrides:
+        return overrides[module]
     return manifest["distribution_prefix"] + module[len(MODULE_PREFIX):]
 
 
@@ -323,9 +326,17 @@ def stage_meta(stage_dir, modules, manifest):
     ):
         shutil.copy2(ROOT / filename, stage_dir / filename)
     # 元包 install_requires 需要完整模块清单；stage 目录不含各服务源码目录，
-    # 由构建方把扫描出的模块清单写入 stage，setup.py 优先读取。
+    # 由构建方把扫描出的模块清单及各服务 python_requires 写入 stage，供 setup.py 使用。
     with (stage_dir / "split-modules.json").open("w", encoding="utf-8") as modules_file:
-        json.dump({"modules": modules}, modules_file)
+        json.dump(
+            {
+                "modules": modules,
+                "python_requires": {
+                    module: python_requires_for(module, manifest) for module in modules
+                },
+            },
+            modules_file,
+        )
 
 
 def build_staged_package(

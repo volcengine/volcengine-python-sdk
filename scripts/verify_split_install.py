@@ -20,6 +20,9 @@ META_DISTRIBUTION = "volcengine-python-sdk"
 def distribution_name(module, manifest):
     if module == "volcenginesdkcore":
         return "volcenginesdk-core"
+    overrides = manifest.get("distribution_name_overrides", {})
+    if module in overrides:
+        return overrides[module]
     return manifest["distribution_prefix"] + module[len(MODULE_PREFIX):]
 
 

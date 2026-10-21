@@ -12,7 +12,7 @@
 ### Requirements ###
 
 * Python 版本需要不低于2.7。
-* 如使用方舟服务（`arkruntime`），Python 版本需要不低于 3.10。
+* 如使用方舟服务（`arkruntime`），Python 版本需要不低于 3.7。
 
 ### Install ###
 
@@ -35,7 +35,7 @@ pip install volcenginesdk-ecs
 如需使用方舟，请安装官方 Ark Runtime 包：
 
 ```sh
-pip install arkruntime
+pip install volcengine-ark-runtime
 ```
 
 ### Usage ###

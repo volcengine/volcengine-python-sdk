@@ -12,7 +12,7 @@ English | [中文](README.md)
 ### Requirements
 
 * Python version **>= 2.7**.
-* If you use Ark Runtime (`arkruntime`), Python version **>= 3.10** is required.
+* If you use Ark Runtime (`arkruntime`), Python **>= 3.7** is required.
 
 ### Install
 
@@ -37,7 +37,7 @@ for the complete mapping and release process.
 To use Ark Runtime, install the official package:
 
 ```sh
-pip install arkruntime
+pip install volcengine-ark-runtime
 ```
 
 ### Usage
