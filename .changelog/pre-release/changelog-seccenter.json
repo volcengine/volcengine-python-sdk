@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "GetBaselineCheckConfig",
-    "AddBaselineCheckConfig"
-  ],
-  "description": "SECCENTER: 新增 GetBaselineCheckConfig；修改 AddBaselineCheckConfig",
-  "modules": "service/seccenter",
-  "type": "feature"
-}

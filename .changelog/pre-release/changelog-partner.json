@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "ListChannelBillDetailByCursor",
-    "ListChildChannelBillDetailByCursor"
-  ],
-  "description": "PARTNER: 新增 ListChannelBillDetailByCursor, ListChildChannelBillDetailByCursor",
-  "modules": "service/partner",
-  "type": "feature"
-}
