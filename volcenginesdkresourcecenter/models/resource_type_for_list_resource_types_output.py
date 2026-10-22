@@ -33,31 +33,39 @@ class ResourceTypeForListResourceTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'related_type_names': 'list[RelatedTypeNameForListResourceTypesOutput]',
         'resource_type': 'str',
         'resource_type_name': 'str',
         'service': 'str',
-        'service_name': 'str'
+        'service_name': 'str',
+        'type_name': 'str'
     }
 
     attribute_map = {
+        'related_type_names': 'RelatedTypeNames',
         'resource_type': 'ResourceType',
         'resource_type_name': 'ResourceTypeName',
         'service': 'Service',
-        'service_name': 'ServiceName'
+        'service_name': 'ServiceName',
+        'type_name': 'TypeName'
     }
 
-    def __init__(self, resource_type=None, resource_type_name=None, service=None, service_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, related_type_names=None, resource_type=None, resource_type_name=None, service=None, service_name=None, type_name=None, _configuration=None):  # noqa: E501
         """ResourceTypeForListResourceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._related_type_names = None
         self._resource_type = None
         self._resource_type_name = None
         self._service = None
         self._service_name = None
+        self._type_name = None
         self.discriminator = None
 
+        if related_type_names is not None:
+            self.related_type_names = related_type_names
         if resource_type is not None:
             self.resource_type = resource_type
         if resource_type_name is not None:
@@ -66,6 +74,29 @@ class ResourceTypeForListResourceTypesOutput(object):
             self.service = service
         if service_name is not None:
             self.service_name = service_name
+        if type_name is not None:
+            self.type_name = type_name
+
+    @property
+    def related_type_names(self):
+        """Gets the related_type_names of this ResourceTypeForListResourceTypesOutput.  # noqa: E501
+
+
+        :return: The related_type_names of this ResourceTypeForListResourceTypesOutput.  # noqa: E501
+        :rtype: list[RelatedTypeNameForListResourceTypesOutput]
+        """
+        return self._related_type_names
+
+    @related_type_names.setter
+    def related_type_names(self, related_type_names):
+        """Sets the related_type_names of this ResourceTypeForListResourceTypesOutput.
+
+
+        :param related_type_names: The related_type_names of this ResourceTypeForListResourceTypesOutput.  # noqa: E501
+        :type: list[RelatedTypeNameForListResourceTypesOutput]
+        """
+
+        self._related_type_names = related_type_names
 
     @property
     def resource_type(self):
@@ -150,6 +181,27 @@ class ResourceTypeForListResourceTypesOutput(object):
         """
 
         self._service_name = service_name
+
+    @property
+    def type_name(self):
+        """Gets the type_name of this ResourceTypeForListResourceTypesOutput.  # noqa: E501
+
+
+        :return: The type_name of this ResourceTypeForListResourceTypesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type_name
+
+    @type_name.setter
+    def type_name(self, type_name):
+        """Sets the type_name of this ResourceTypeForListResourceTypesOutput.
+
+
+        :param type_name: The type_name of this ResourceTypeForListResourceTypesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._type_name = type_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

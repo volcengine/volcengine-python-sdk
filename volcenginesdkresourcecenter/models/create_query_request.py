@@ -55,7 +55,8 @@ class CreateQueryRequest(object):
         self._query_name = None
         self.discriminator = None
 
-        self.description = description
+        if description is not None:
+            self.description = description
         self.expression = expression
         self.query_name = query_name
 
@@ -77,8 +78,9 @@ class CreateQueryRequest(object):
         :param description: The description of this CreateQueryRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) > 128):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `128`")  # noqa: E501
 
         self._description = description
 
@@ -102,6 +104,9 @@ class CreateQueryRequest(object):
         """
         if self._configuration.client_side_validation and expression is None:
             raise ValueError("Invalid value for `expression`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                expression is not None and len(expression) > 2048):
+            raise ValueError("Invalid value for `expression`, length must be less than or equal to `2048`")  # noqa: E501
 
         self._expression = expression
 
@@ -125,6 +130,9 @@ class CreateQueryRequest(object):
         """
         if self._configuration.client_side_validation and query_name is None:
             raise ValueError("Invalid value for `query_name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                query_name is not None and len(query_name) > 64):
+            raise ValueError("Invalid value for `query_name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._query_name = query_name
 

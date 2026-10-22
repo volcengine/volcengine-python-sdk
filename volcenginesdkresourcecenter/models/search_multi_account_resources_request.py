@@ -116,6 +116,12 @@ class SearchMultiAccountResourcesRequest(object):
         :param max_results: The max_results of this SearchMultiAccountResourcesRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results > 100):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value less than or equal to `100`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results < 1):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._max_results = max_results
 
@@ -179,6 +185,13 @@ class SearchMultiAccountResourcesRequest(object):
         :param sort_by: The sort_by of this SearchMultiAccountResourcesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["CreateTime"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                sort_by not in allowed_values):
+            raise ValueError(
+                "Invalid value for `sort_by` ({0}), must be one of {1}"  # noqa: E501
+                .format(sort_by, allowed_values)
+            )
 
         self._sort_by = sort_by
 
@@ -200,6 +213,13 @@ class SearchMultiAccountResourcesRequest(object):
         :param sort_order: The sort_order of this SearchMultiAccountResourcesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Asc", "Desc"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                sort_order not in allowed_values):
+            raise ValueError(
+                "Invalid value for `sort_order` ({0}), must be one of {1}"  # noqa: E501
+                .format(sort_order, allowed_values)
+            )
 
         self._sort_order = sort_order
 

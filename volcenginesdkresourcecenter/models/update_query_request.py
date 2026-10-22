@@ -84,6 +84,9 @@ class UpdateQueryRequest(object):
         :param description: The description of this UpdateQueryRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) > 256):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `256`")  # noqa: E501
 
         self._description = description
 
@@ -105,6 +108,9 @@ class UpdateQueryRequest(object):
         :param expression: The expression of this UpdateQueryRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                expression is not None and len(expression) > 2048):
+            raise ValueError("Invalid value for `expression`, length must be less than or equal to `2048`")  # noqa: E501
 
         self._expression = expression
 
@@ -149,6 +155,9 @@ class UpdateQueryRequest(object):
         :param query_name: The query_name of this UpdateQueryRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                query_name is not None and len(query_name) > 64):
+            raise ValueError("Invalid value for `query_name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._query_name = query_name
 
