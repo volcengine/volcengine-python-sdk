@@ -34,6 +34,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
     """
     swagger_types = {
         'address_ip_version': 'str',
+        'ark_claw_enabled': 'str',
         'business_status': 'str',
         'create_time': 'str',
         'dns_name': 'str',
@@ -57,6 +58,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'proxy_protocol_enabled': 'str',
         'security_group_ids': 'list[str]',
         'sni_auto_match': 'str',
+        'space_network_id': 'str',
         'status': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForDescribeLoadBalancersOutput]',
@@ -70,6 +72,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
 
     attribute_map = {
         'address_ip_version': 'AddressIpVersion',
+        'ark_claw_enabled': 'ArkClawEnabled',
         'business_status': 'BusinessStatus',
         'create_time': 'CreateTime',
         'dns_name': 'DNSName',
@@ -93,6 +96,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'proxy_protocol_enabled': 'ProxyProtocolEnabled',
         'security_group_ids': 'SecurityGroupIds',
         'sni_auto_match': 'SniAutoMatch',
+        'space_network_id': 'SpaceNetworkId',
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
@@ -104,13 +108,14 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, proxy_protocol_enabled=None, security_group_ids=None, sni_auto_match=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, waf_instance_id=None, waf_protection_enabled=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, ark_claw_enabled=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, proxy_protocol_enabled=None, security_group_ids=None, sni_auto_match=None, space_network_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, waf_instance_id=None, waf_protection_enabled=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """LoadBalancerForDescribeLoadBalancersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._address_ip_version = None
+        self._ark_claw_enabled = None
         self._business_status = None
         self._create_time = None
         self._dns_name = None
@@ -134,6 +139,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._proxy_protocol_enabled = None
         self._security_group_ids = None
         self._sni_auto_match = None
+        self._space_network_id = None
         self._status = None
         self._subnet_id = None
         self._tags = None
@@ -147,6 +153,8 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
 
         if address_ip_version is not None:
             self.address_ip_version = address_ip_version
+        if ark_claw_enabled is not None:
+            self.ark_claw_enabled = ark_claw_enabled
         if business_status is not None:
             self.business_status = business_status
         if create_time is not None:
@@ -193,6 +201,8 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
             self.security_group_ids = security_group_ids
         if sni_auto_match is not None:
             self.sni_auto_match = sni_auto_match
+        if space_network_id is not None:
+            self.space_network_id = space_network_id
         if status is not None:
             self.status = status
         if subnet_id is not None:
@@ -232,6 +242,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         """
 
         self._address_ip_version = address_ip_version
+
+    @property
+    def ark_claw_enabled(self):
+        """Gets the ark_claw_enabled of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The ark_claw_enabled of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ark_claw_enabled
+
+    @ark_claw_enabled.setter
+    def ark_claw_enabled(self, ark_claw_enabled):
+        """Sets the ark_claw_enabled of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param ark_claw_enabled: The ark_claw_enabled of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ark_claw_enabled = ark_claw_enabled
 
     @property
     def business_status(self):
@@ -715,6 +746,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         """
 
         self._sni_auto_match = sni_auto_match
+
+    @property
+    def space_network_id(self):
+        """Gets the space_network_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The space_network_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._space_network_id
+
+    @space_network_id.setter
+    def space_network_id(self, space_network_id):
+        """Sets the space_network_id of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param space_network_id: The space_network_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._space_network_id = space_network_id
 
     @property
     def status(self):

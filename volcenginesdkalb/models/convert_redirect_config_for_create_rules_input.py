@@ -37,7 +37,8 @@ class ConvertRedirectConfigForCreateRulesInput(object):
         'http_code': 'str',
         'path': 'str',
         'port': 'str',
-        'protocol': 'str'
+        'protocol': 'str',
+        'query': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ConvertRedirectConfigForCreateRulesInput(object):
         'http_code': 'HttpCode',
         'path': 'Path',
         'port': 'Port',
-        'protocol': 'Protocol'
+        'protocol': 'Protocol',
+        'query': 'Query'
     }
 
-    def __init__(self, host=None, http_code=None, path=None, port=None, protocol=None, _configuration=None):  # noqa: E501
+    def __init__(self, host=None, http_code=None, path=None, port=None, protocol=None, query=None, _configuration=None):  # noqa: E501
         """ConvertRedirectConfigForCreateRulesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ConvertRedirectConfigForCreateRulesInput(object):
         self._path = None
         self._port = None
         self._protocol = None
+        self._query = None
         self.discriminator = None
 
         if host is not None:
@@ -71,6 +74,8 @@ class ConvertRedirectConfigForCreateRulesInput(object):
             self.port = port
         if protocol is not None:
             self.protocol = protocol
+        if query is not None:
+            self.query = query
 
     @property
     def host(self):
@@ -176,6 +181,27 @@ class ConvertRedirectConfigForCreateRulesInput(object):
         """
 
         self._protocol = protocol
+
+    @property
+    def query(self):
+        """Gets the query of this ConvertRedirectConfigForCreateRulesInput.  # noqa: E501
+
+
+        :return: The query of this ConvertRedirectConfigForCreateRulesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._query
+
+    @query.setter
+    def query(self, query):
+        """Sets the query of this ConvertRedirectConfigForCreateRulesInput.
+
+
+        :param query: The query of this ConvertRedirectConfigForCreateRulesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._query = query
 
     def to_dict(self):
         """Returns the model properties as a dict"""

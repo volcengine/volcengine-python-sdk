@@ -46,6 +46,8 @@ class DescribeServerGroupAttributesResponse(object):
         'server_group_name': 'str',
         'server_group_type': 'str',
         'servers': 'list[ServerForDescribeServerGroupAttributesOutput]',
+        'slow_start_config': 'SlowStartConfigForDescribeServerGroupAttributesOutput',
+        'space_network_id': 'str',
         'status': 'str',
         'sticky_session_config': 'StickySessionConfigForDescribeServerGroupAttributesOutput',
         'tags': 'list[TagForDescribeServerGroupAttributesOutput]',
@@ -66,13 +68,15 @@ class DescribeServerGroupAttributesResponse(object):
         'server_group_name': 'ServerGroupName',
         'server_group_type': 'ServerGroupType',
         'servers': 'Servers',
+        'slow_start_config': 'SlowStartConfig',
+        'space_network_id': 'SpaceNetworkId',
         'status': 'Status',
         'sticky_session_config': 'StickySessionConfig',
         'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, cross_zone_enabled=None, description=None, health_check=None, ip_address_type=None, listeners=None, project_name=None, protocol=None, request_id=None, scheduler=None, server_group_id=None, server_group_name=None, server_group_type=None, servers=None, status=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cross_zone_enabled=None, description=None, health_check=None, ip_address_type=None, listeners=None, project_name=None, protocol=None, request_id=None, scheduler=None, server_group_id=None, server_group_name=None, server_group_type=None, servers=None, slow_start_config=None, space_network_id=None, status=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,6 +95,8 @@ class DescribeServerGroupAttributesResponse(object):
         self._server_group_name = None
         self._server_group_type = None
         self._servers = None
+        self._slow_start_config = None
+        self._space_network_id = None
         self._status = None
         self._sticky_session_config = None
         self._tags = None
@@ -123,6 +129,10 @@ class DescribeServerGroupAttributesResponse(object):
             self.server_group_type = server_group_type
         if servers is not None:
             self.servers = servers
+        if slow_start_config is not None:
+            self.slow_start_config = slow_start_config
+        if space_network_id is not None:
+            self.space_network_id = space_network_id
         if status is not None:
             self.status = status
         if sticky_session_config is not None:
@@ -404,6 +414,48 @@ class DescribeServerGroupAttributesResponse(object):
         """
 
         self._servers = servers
+
+    @property
+    def slow_start_config(self):
+        """Gets the slow_start_config of this DescribeServerGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The slow_start_config of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :rtype: SlowStartConfigForDescribeServerGroupAttributesOutput
+        """
+        return self._slow_start_config
+
+    @slow_start_config.setter
+    def slow_start_config(self, slow_start_config):
+        """Sets the slow_start_config of this DescribeServerGroupAttributesResponse.
+
+
+        :param slow_start_config: The slow_start_config of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :type: SlowStartConfigForDescribeServerGroupAttributesOutput
+        """
+
+        self._slow_start_config = slow_start_config
+
+    @property
+    def space_network_id(self):
+        """Gets the space_network_id of this DescribeServerGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The space_network_id of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._space_network_id
+
+    @space_network_id.setter
+    def space_network_id(self, space_network_id):
+        """Sets the space_network_id of this DescribeServerGroupAttributesResponse.
+
+
+        :param space_network_id: The space_network_id of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._space_network_id = space_network_id
 
     @property
     def status(self):
