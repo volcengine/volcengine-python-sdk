@@ -33,54 +33,27 @@ class ServiceStatusRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'blueprint_id': 'int',
         'project_name': 'str',
         'resource_id': 'str'
     }
 
     attribute_map = {
-        'blueprint_id': 'BlueprintID',
         'project_name': 'ProjectName',
         'resource_id': 'ResourceID'
     }
 
-    def __init__(self, blueprint_id=None, project_name=None, resource_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, project_name=None, resource_id=None, _configuration=None):  # noqa: E501
         """ServiceStatusRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._blueprint_id = None
         self._project_name = None
         self._resource_id = None
         self.discriminator = None
 
-        self.blueprint_id = blueprint_id
         self.project_name = project_name
         self.resource_id = resource_id
-
-    @property
-    def blueprint_id(self):
-        """Gets the blueprint_id of this ServiceStatusRequest.  # noqa: E501
-
-
-        :return: The blueprint_id of this ServiceStatusRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._blueprint_id
-
-    @blueprint_id.setter
-    def blueprint_id(self, blueprint_id):
-        """Sets the blueprint_id of this ServiceStatusRequest.
-
-
-        :param blueprint_id: The blueprint_id of this ServiceStatusRequest.  # noqa: E501
-        :type: int
-        """
-        if self._configuration.client_side_validation and blueprint_id is None:
-            raise ValueError("Invalid value for `blueprint_id`, must not be `None`")  # noqa: E501
-
-        self._blueprint_id = blueprint_id
 
     @property
     def project_name(self):
