@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "version": "5.0.54",
+  "distribution_prefix": "volcenginesdk-",
+  "excluded_modules": {
+    "volcenginesdkexamples": "Examples are source documentation, not an installable runtime package."
+  },
+  "distribution_name_overrides": {
+    "volcenginesdkarkruntime": "volcengine-ark-runtime"
+  },
+  "default_internal_dependencies": [
+    "volcenginesdkcore"
+  ],
+  "default_product_dependencies": [
+    "six>=1.16"
+  ],
+  "default_python_requires": ">=2.7"
+}

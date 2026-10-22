@@ -12,7 +12,7 @@
 ### Requirements ###
 
 * Python 版本需要不低于2.7。
-* 如使用方舟服务（`arkruntime`），Python 版本需要不低于 3.6。
+* 如使用方舟服务（`arkruntime`），Python 版本需要不低于 3.7。
 
 ### Install ###
 
@@ -22,10 +22,19 @@ Install via pip
 pip install volcengine-python-sdk
 ```
 
-如需使用方舟，请安装 Ark 可选依赖：
+`volcengine-python-sdk` 是安装全部服务的兼容元包。仅使用单个产品时可按需安装，
+例如 ECS：
 
 ```sh
-pip install "volcengine-python-sdk[ark]"
+pip install volcenginesdk-ecs
+```
+
+分包不会改变 Python 导入路径，已有的 `import volcenginesdkecs` 无需修改。
+
+如需使用方舟，请安装 Ark Runtime 分包：
+
+```sh
+pip install volcengine-ark-runtime
 ```
 
 ### Usage ###

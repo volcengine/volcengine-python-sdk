@@ -1,0 +1,11 @@
+{
+  "internal_dependencies": [
+    "volcenginesdkcore",
+    "volcenginesdksts"
+  ],
+  "external_dependencies": [
+    "pydantic>=2,<3",
+    "requests>=2,<3"
+  ],
+  "python_requires": ">=3.8"
+}

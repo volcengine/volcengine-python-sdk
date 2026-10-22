@@ -1,12 +1,31 @@
-# .github/workflows/main.yml (Python)
-name: Release Python SDK
+name: Split Release
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master
     paths:
       - '.changelog/v*.md'
   workflow_dispatch:
+    inputs:
+      version:
+        description: "Version for every distribution (PEP 440, e.g. 5.0.45.post1)"
+        required: true
+      packages:
+        description: "Modules/distributions to build, comma-separated; empty = all 137"
+        required: false
+        default: ""
+      target:
+        description: "Upload target"
+        type: choice
+        options:
+          - testpypi
+          - pypi
+        default: testpypi
+      create_release:
+        description: "Create Git tag and GitHub release"
+        type: boolean
+        default: true
 
 jobs:
   release:
@@ -24,53 +43,156 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Extract Version
-        id: version
+      - name: Install build tools
+        run: python -m pip install --upgrade pip build twine requests packaging
+
+      - name: Resolve inputs
+        id: resolve
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+          INPUT_PACKAGES: ${{ inputs.packages }}
+          INPUT_TARGET: ${{ inputs.target }}
+          INPUT_CREATE_RELEASE: ${{ inputs.create_release }}
+          REPO_TARGET: ${{ vars.PYPI_TARGET }}
         run: |
-          VERSION=$(grep -oP "version\s*=\s*['\"]?\K[^'\"]+" pyproject.toml 2>/dev/null)
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+          version="$INPUT_VERSION"
+          packages="$INPUT_PACKAGES"
+          target="$INPUT_TARGET"
+          create_release="$INPUT_CREATE_RELEASE"
+          if [ -z "$version" ]; then
+            # push 触发：从本次提交携带的 .changelog/v<ver>.md 文件名取版本
+            changed=$(git diff --name-only HEAD^ HEAD -- '.changelog/v*.md' | head -1)
+            if [ -n "$changed" ]; then
+              version=$(basename "$changed" .md | sed 's/^v//')
+            fi
+          fi
+          if [ -z "$version" ]; then
+            # 兜底：meta.json.lasted（codegen autoUpdateVersion 维护）
+            version=$(python3 -c 'import json; print(json.load(open("meta.json"))["lasted"])')
+          fi
+          # 发布目标优先级：手动输入 > 仓库变量 PYPI_TARGET > 正式 PyPI。
+          if [ -z "$target" ]; then target="$REPO_TARGET"; fi
+          if [ -z "$target" ]; then target=pypi; fi
+          case "$target" in
+            pypi|testpypi) ;;
+            *) echo "invalid publish target: $target" >&2; exit 1 ;;
+          esac
+          if [ -z "$create_release" ]; then create_release=true; fi
+          case "$create_release" in
+            true|false) ;;
+            *) echo "invalid create_release: $create_release" >&2; exit 1 ;;
+          esac
+          echo "resolved version=$version, packages=$packages, target=$target, create_release=$create_release"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=v$version" >> "$GITHUB_OUTPUT"
+          echo "packages=$packages" >> "$GITHUB_OUTPUT"
+          echo "target=$target" >> "$GITHUB_OUTPUT"
+          echo "create_release=$create_release" >> "$GITHUB_OUTPUT"
 
-      - name: Install Dependencies
+      - name: Validate manifest
+        run: python3 scripts/build_split_packages.py validate
+
+      - name: Build distributions
+        env:
+          PACKAGES: ${{ steps.resolve.outputs.packages }}
         run: |
-          python -m pip install --upgrade pip
-          pip install build twine
+          args=()
+          if [ -n "$PACKAGES" ]; then
+            IFS=',' read -ra pkgs <<< "$PACKAGES"
+            for p in "${pkgs[@]}"; do args+=(--package "$p"); done
+          fi
+          python3 scripts/build_split_packages.py build \
+            --version "${{ steps.resolve.outputs.version }}" \
+            --output-dir dist/split \
+            "${args[@]}"
 
-      - name: Build Package
-        run: python -m build
+      - name: Twine check
+        run: python3 -m twine check dist/split/*
+
+      - name: Install and import check
+        env:
+          PACKAGES: ${{ steps.resolve.outputs.packages }}
+        run: |
+          python -m venv /tmp/venv
+          if [ -z "$PACKAGES" ]; then
+            # 全量构建：元包 + 全部产品包都在本地，直接整目录安装
+            /tmp/venv/bin/pip install dist/split/*.whl
+            /tmp/venv/bin/python scripts/verify_split_install.py \
+              --manifest split-packages.json \
+              --version "${{ steps.resolve.outputs.version }}" \
+              --expect-meta
+          else
+            # 子集构建：元包 install_requires 锁定全部产品包，
+            # 本地只有子集时不能安装元包，只装 core + 产品包（volcenginesdk_* 前缀）
+            /tmp/venv/bin/pip install dist/split/volcenginesdk_*.whl
+            IFS=',' read -ra pkgs <<< "$PACKAGES"
+            args=()
+            for p in "${pkgs[@]}"; do
+              [ "$p" = "volcengine-python-sdk" ] && continue
+              args+=(--package "$p")
+            done
+            /tmp/venv/bin/python scripts/verify_split_install.py \
+              --manifest split-packages.json \
+              --version "${{ steps.resolve.outputs.version }}" \
+              "${args[@]}"
+          fi
 
       - name: Create Tag
+        if: steps.resolve.outputs.create_release == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag -a ${{ steps.version.outputs.tag }} -m "Release ${{ steps.version.outputs.tag }}"
-          git push origin ${{ steps.version.outputs.tag }}
+          tag="${{ steps.resolve.outputs.tag }}"
+          current_commit=$(git rev-parse HEAD)
+          if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+            tagged_commit=$(git rev-list -n 1 "$tag")
+            if [ "$tagged_commit" != "$current_commit" ]; then
+              echo "tag $tag already points to $tagged_commit, expected $current_commit" >&2
+              exit 1
+            fi
+            echo "tag $tag already exists on current commit"
+          else
+            git tag -a "$tag" -m "Release $tag"
+            git push origin "$tag"
+          fi
 
       - name: Read Changelog
+        if: steps.resolve.outputs.create_release == 'true'
         id: changelog
         run: |
-          CHANGELOG_FILE=".changelog/${{ steps.version.outputs.tag }}.md"
+          CHANGELOG_FILE=".changelog/${{ steps.resolve.outputs.tag }}.md"
           if [ -f "$CHANGELOG_FILE" ]; then
             delimiter="$(openssl rand -hex 8)"
-            echo "content<<$delimiter" >> $GITHUB_OUTPUT
-            cat "$CHANGELOG_FILE" >> $GITHUB_OUTPUT
-            echo "" >> $GITHUB_OUTPUT
-            echo "$delimiter" >> $GITHUB_OUTPUT
+            echo "content<<$delimiter" >> "$GITHUB_OUTPUT"
+            cat "$CHANGELOG_FILE" >> "$GITHUB_OUTPUT"
+            echo "" >> "$GITHUB_OUTPUT"
+            echo "$delimiter" >> "$GITHUB_OUTPUT"
           else
-            echo "content=Release ${{ steps.version.outputs.tag }}" >> $GITHUB_OUTPUT
+            echo "content=Release ${{ steps.resolve.outputs.tag }}" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Create Release
+        if: steps.resolve.outputs.create_release == 'true'
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
         with:
-          tag_name: ${{ steps.version.outputs.tag }}
-          name: Release ${{ steps.version.outputs.tag }}
+          tag_name: ${{ steps.resolve.outputs.tag }}
+          name: Release ${{ steps.resolve.outputs.tag }}
           body: ${{ steps.changelog.outputs.content }}
 
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
-
+      - name: Upload
+        env:
+          TWINE_USERNAME: __token__
+          # pypi 目标用正式 token，testpypi 目标用 TestPyPI token；
+          # PYPI_API_TOKEN 未配置时表达式回退 TestPyPI token，避免空值
+          TWINE_PASSWORD: ${{ (steps.resolve.outputs.target == 'pypi' && secrets.PYPI_API_TOKEN) || secrets.TEST_PYPI_API_TOKEN }}
+          TARGET: ${{ steps.resolve.outputs.target }}
+        run: |
+          case "$TARGET" in
+            testpypi) idx=https://test.pypi.org ;;
+            pypi) idx=https://pypi.org ;;
+          esac
+          python3 scripts/upload_split_packages.py dist/split \
+            --repository "$TARGET" \
+            --index-url "$idx"

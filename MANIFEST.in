@@ -1,0 +1,4 @@
+include LICENSE.txt
+include NOTICE.md
+include README.md
+include split-packages.json
