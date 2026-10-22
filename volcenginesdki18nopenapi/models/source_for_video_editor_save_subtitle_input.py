@@ -33,24 +33,50 @@ class SourceForVideoEditorSaveSubtitleInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'style': 'str',
         'text': 'str'
     }
 
     attribute_map = {
+        'style': 'style',
         'text': 'text'
     }
 
-    def __init__(self, text=None, _configuration=None):  # noqa: E501
+    def __init__(self, style=None, text=None, _configuration=None):  # noqa: E501
         """SourceForVideoEditorSaveSubtitleInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._style = None
         self._text = None
         self.discriminator = None
 
+        if style is not None:
+            self.style = style
         if text is not None:
             self.text = text
+
+    @property
+    def style(self):
+        """Gets the style of this SourceForVideoEditorSaveSubtitleInput.  # noqa: E501
+
+
+        :return: The style of this SourceForVideoEditorSaveSubtitleInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._style
+
+    @style.setter
+    def style(self, style):
+        """Sets the style of this SourceForVideoEditorSaveSubtitleInput.
+
+
+        :param style: The style of this SourceForVideoEditorSaveSubtitleInput.  # noqa: E501
+        :type: str
+        """
+
+        self._style = style
 
     @property
     def text(self):

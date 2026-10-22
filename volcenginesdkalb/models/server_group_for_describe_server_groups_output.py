@@ -46,6 +46,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'server_group_id': 'str',
         'server_group_name': 'str',
         'server_group_type': 'str',
+        'slow_start_config': 'SlowStartConfigForDescribeServerGroupsOutput',
         'status': 'str',
         'sticky_session_config': 'StickySessionConfigForDescribeServerGroupsOutput',
         'tags': 'list[TagForDescribeServerGroupsOutput]',
@@ -67,6 +68,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'server_group_id': 'ServerGroupId',
         'server_group_name': 'ServerGroupName',
         'server_group_type': 'ServerGroupType',
+        'slow_start_config': 'SlowStartConfig',
         'status': 'Status',
         'sticky_session_config': 'StickySessionConfig',
         'tags': 'Tags',
@@ -74,7 +76,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, create_time=None, cross_zone_enabled=None, description=None, health_check=None, ip_address_type=None, listeners=None, project_name=None, protocol=None, scheduler=None, server_count=None, server_group_id=None, server_group_name=None, server_group_type=None, status=None, sticky_session_config=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, cross_zone_enabled=None, description=None, health_check=None, ip_address_type=None, listeners=None, project_name=None, protocol=None, scheduler=None, server_count=None, server_group_id=None, server_group_name=None, server_group_type=None, slow_start_config=None, status=None, sticky_session_config=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ServerGroupForDescribeServerGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         self._server_group_id = None
         self._server_group_name = None
         self._server_group_type = None
+        self._slow_start_config = None
         self._status = None
         self._sticky_session_config = None
         self._tags = None
@@ -126,6 +129,8 @@ class ServerGroupForDescribeServerGroupsOutput(object):
             self.server_group_name = server_group_name
         if server_group_type is not None:
             self.server_group_type = server_group_type
+        if slow_start_config is not None:
+            self.slow_start_config = slow_start_config
         if status is not None:
             self.status = status
         if sticky_session_config is not None:
@@ -409,6 +414,27 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         """
 
         self._server_group_type = server_group_type
+
+    @property
+    def slow_start_config(self):
+        """Gets the slow_start_config of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+
+
+        :return: The slow_start_config of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :rtype: SlowStartConfigForDescribeServerGroupsOutput
+        """
+        return self._slow_start_config
+
+    @slow_start_config.setter
+    def slow_start_config(self, slow_start_config):
+        """Sets the slow_start_config of this ServerGroupForDescribeServerGroupsOutput.
+
+
+        :param slow_start_config: The slow_start_config of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :type: SlowStartConfigForDescribeServerGroupsOutput
+        """
+
+        self._slow_start_config = slow_start_config
 
     @property
     def status(self):

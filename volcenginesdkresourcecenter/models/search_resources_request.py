@@ -111,6 +111,12 @@ class SearchResourcesRequest(object):
         :param max_results: The max_results of this SearchResourcesRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results > 100):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value less than or equal to `100`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results < 1):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._max_results = max_results
 

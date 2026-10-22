@@ -33,24 +33,50 @@ class AddBaselineCheckConfigResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'config_id': 'str',
         'status': 'str'
     }
 
     attribute_map = {
+        'config_id': 'ConfigID',
         'status': 'Status'
     }
 
-    def __init__(self, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, config_id=None, status=None, _configuration=None):  # noqa: E501
         """AddBaselineCheckConfigResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._config_id = None
         self._status = None
         self.discriminator = None
 
+        if config_id is not None:
+            self.config_id = config_id
         if status is not None:
             self.status = status
+
+    @property
+    def config_id(self):
+        """Gets the config_id of this AddBaselineCheckConfigResponse.  # noqa: E501
+
+
+        :return: The config_id of this AddBaselineCheckConfigResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._config_id
+
+    @config_id.setter
+    def config_id(self, config_id):
+        """Sets the config_id of this AddBaselineCheckConfigResponse.
+
+
+        :param config_id: The config_id of this AddBaselineCheckConfigResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._config_id = config_id
 
     @property
     def status(self):

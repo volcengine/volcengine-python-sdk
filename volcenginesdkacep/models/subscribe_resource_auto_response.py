@@ -33,17 +33,71 @@ class SubscribeResourceAutoResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'host_id_list': 'list[str]',
+        'order_id': 'str'
     }
 
     attribute_map = {
+        'host_id_list': 'HostIdList',
+        'order_id': 'OrderId'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, host_id_list=None, order_id=None, _configuration=None):  # noqa: E501
         """SubscribeResourceAutoResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._host_id_list = None
+        self._order_id = None
         self.discriminator = None
+
+        if host_id_list is not None:
+            self.host_id_list = host_id_list
+        if order_id is not None:
+            self.order_id = order_id
+
+    @property
+    def host_id_list(self):
+        """Gets the host_id_list of this SubscribeResourceAutoResponse.  # noqa: E501
+
+
+        :return: The host_id_list of this SubscribeResourceAutoResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._host_id_list
+
+    @host_id_list.setter
+    def host_id_list(self, host_id_list):
+        """Sets the host_id_list of this SubscribeResourceAutoResponse.
+
+
+        :param host_id_list: The host_id_list of this SubscribeResourceAutoResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._host_id_list = host_id_list
+
+    @property
+    def order_id(self):
+        """Gets the order_id of this SubscribeResourceAutoResponse.  # noqa: E501
+
+
+        :return: The order_id of this SubscribeResourceAutoResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_id
+
+    @order_id.setter
+    def order_id(self, order_id):
+        """Sets the order_id of this SubscribeResourceAutoResponse.
+
+
+        :param order_id: The order_id of this SubscribeResourceAutoResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._order_id = order_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

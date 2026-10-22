@@ -39,6 +39,7 @@ class ModifyServerGroupAttributesRequest(object):
         'scheduler': 'str',
         'server_group_id': 'str',
         'server_group_name': 'str',
+        'slow_start_config': 'SlowStartConfigForModifyServerGroupAttributesInput',
         'sticky_session_config': 'StickySessionConfigForModifyServerGroupAttributesInput'
     }
 
@@ -49,10 +50,11 @@ class ModifyServerGroupAttributesRequest(object):
         'scheduler': 'Scheduler',
         'server_group_id': 'ServerGroupId',
         'server_group_name': 'ServerGroupName',
+        'slow_start_config': 'SlowStartConfig',
         'sticky_session_config': 'StickySessionConfig'
     }
 
-    def __init__(self, cross_zone_enabled=None, description=None, health_check=None, scheduler=None, server_group_id=None, server_group_name=None, sticky_session_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, cross_zone_enabled=None, description=None, health_check=None, scheduler=None, server_group_id=None, server_group_name=None, slow_start_config=None, sticky_session_config=None, _configuration=None):  # noqa: E501
         """ModifyServerGroupAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class ModifyServerGroupAttributesRequest(object):
         self._scheduler = None
         self._server_group_id = None
         self._server_group_name = None
+        self._slow_start_config = None
         self._sticky_session_config = None
         self.discriminator = None
 
@@ -78,6 +81,8 @@ class ModifyServerGroupAttributesRequest(object):
         self.server_group_id = server_group_id
         if server_group_name is not None:
             self.server_group_name = server_group_name
+        if slow_start_config is not None:
+            self.slow_start_config = slow_start_config
         if sticky_session_config is not None:
             self.sticky_session_config = sticky_session_config
 
@@ -208,6 +213,27 @@ class ModifyServerGroupAttributesRequest(object):
         """
 
         self._server_group_name = server_group_name
+
+    @property
+    def slow_start_config(self):
+        """Gets the slow_start_config of this ModifyServerGroupAttributesRequest.  # noqa: E501
+
+
+        :return: The slow_start_config of this ModifyServerGroupAttributesRequest.  # noqa: E501
+        :rtype: SlowStartConfigForModifyServerGroupAttributesInput
+        """
+        return self._slow_start_config
+
+    @slow_start_config.setter
+    def slow_start_config(self, slow_start_config):
+        """Sets the slow_start_config of this ModifyServerGroupAttributesRequest.
+
+
+        :param slow_start_config: The slow_start_config of this ModifyServerGroupAttributesRequest.  # noqa: E501
+        :type: SlowStartConfigForModifyServerGroupAttributesInput
+        """
+
+        self._slow_start_config = slow_start_config
 
     @property
     def sticky_session_config(self):

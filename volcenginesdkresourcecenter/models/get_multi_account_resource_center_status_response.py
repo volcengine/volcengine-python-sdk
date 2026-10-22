@@ -33,50 +33,50 @@ class GetMultiAccountResourceCenterStatusResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'initial_status': 'str',
+        'init_status': 'str',
         'service_status': 'str'
     }
 
     attribute_map = {
-        'initial_status': 'InitialStatus',
+        'init_status': 'InitStatus',
         'service_status': 'ServiceStatus'
     }
 
-    def __init__(self, initial_status=None, service_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, init_status=None, service_status=None, _configuration=None):  # noqa: E501
         """GetMultiAccountResourceCenterStatusResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._initial_status = None
+        self._init_status = None
         self._service_status = None
         self.discriminator = None
 
-        if initial_status is not None:
-            self.initial_status = initial_status
+        if init_status is not None:
+            self.init_status = init_status
         if service_status is not None:
             self.service_status = service_status
 
     @property
-    def initial_status(self):
-        """Gets the initial_status of this GetMultiAccountResourceCenterStatusResponse.  # noqa: E501
+    def init_status(self):
+        """Gets the init_status of this GetMultiAccountResourceCenterStatusResponse.  # noqa: E501
 
 
-        :return: The initial_status of this GetMultiAccountResourceCenterStatusResponse.  # noqa: E501
+        :return: The init_status of this GetMultiAccountResourceCenterStatusResponse.  # noqa: E501
         :rtype: str
         """
-        return self._initial_status
+        return self._init_status
 
-    @initial_status.setter
-    def initial_status(self, initial_status):
-        """Sets the initial_status of this GetMultiAccountResourceCenterStatusResponse.
+    @init_status.setter
+    def init_status(self, init_status):
+        """Sets the init_status of this GetMultiAccountResourceCenterStatusResponse.
 
 
-        :param initial_status: The initial_status of this GetMultiAccountResourceCenterStatusResponse.  # noqa: E501
+        :param init_status: The init_status of this GetMultiAccountResourceCenterStatusResponse.  # noqa: E501
         :type: str
         """
 
-        self._initial_status = initial_status
+        self._init_status = init_status
 
     @property
     def service_status(self):

@@ -40,6 +40,7 @@ class DescribeLoadBalancersRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'space_network_id': 'str',
         'tag_filters': 'list[TagFilterForDescribeLoadBalancersInput]',
         'type': 'str',
         'vpc_id': 'str'
@@ -53,12 +54,13 @@ class DescribeLoadBalancersRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'space_network_id': 'SpaceNetworkId',
         'tag_filters': 'TagFilters',
         'type': 'Type',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, eip_address=None, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_address=None, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, space_network_id=None, tag_filters=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DescribeLoadBalancersRequest(object):
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._space_network_id = None
         self._tag_filters = None
         self._type = None
         self._vpc_id = None
@@ -90,6 +93,8 @@ class DescribeLoadBalancersRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if space_network_id is not None:
+            self.space_network_id = space_network_id
         if tag_filters is not None:
             self.tag_filters = tag_filters
         if type is not None:
@@ -243,6 +248,27 @@ class DescribeLoadBalancersRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def space_network_id(self):
+        """Gets the space_network_id of this DescribeLoadBalancersRequest.  # noqa: E501
+
+
+        :return: The space_network_id of this DescribeLoadBalancersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._space_network_id
+
+    @space_network_id.setter
+    def space_network_id(self, space_network_id):
+        """Sets the space_network_id of this DescribeLoadBalancersRequest.
+
+
+        :param space_network_id: The space_network_id of this DescribeLoadBalancersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._space_network_id = space_network_id
 
     @property
     def tag_filters(self):
