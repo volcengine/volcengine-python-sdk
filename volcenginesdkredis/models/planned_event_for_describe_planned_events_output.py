@@ -38,6 +38,9 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         'can_cancel': 'bool',
         'can_modify_time': 'bool',
         'event_id': 'str',
+        'exe_end_time': 'str',
+        'exe_start_time': 'str',
+        'impact_summary': 'ImpactSummaryForDescribePlannedEventsOutput',
         'instance_id': 'str',
         'instance_name': 'str',
         'max_end_time': 'str',
@@ -53,6 +56,9 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         'can_cancel': 'CanCancel',
         'can_modify_time': 'CanModifyTime',
         'event_id': 'EventId',
+        'exe_end_time': 'ExeEndTime',
+        'exe_start_time': 'ExeStartTime',
+        'impact_summary': 'ImpactSummary',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'max_end_time': 'MaxEndTime',
@@ -62,7 +68,7 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         'type': 'Type'
     }
 
-    def __init__(self, action=None, action_name=None, can_cancel=None, can_modify_time=None, event_id=None, instance_id=None, instance_name=None, max_end_time=None, plan_end_time=None, plan_start_time=None, status=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, action_name=None, can_cancel=None, can_modify_time=None, event_id=None, exe_end_time=None, exe_start_time=None, impact_summary=None, instance_id=None, instance_name=None, max_end_time=None, plan_end_time=None, plan_start_time=None, status=None, type=None, _configuration=None):  # noqa: E501
         """PlannedEventForDescribePlannedEventsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +79,9 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         self._can_cancel = None
         self._can_modify_time = None
         self._event_id = None
+        self._exe_end_time = None
+        self._exe_start_time = None
+        self._impact_summary = None
         self._instance_id = None
         self._instance_name = None
         self._max_end_time = None
@@ -92,6 +101,12 @@ class PlannedEventForDescribePlannedEventsOutput(object):
             self.can_modify_time = can_modify_time
         if event_id is not None:
             self.event_id = event_id
+        if exe_end_time is not None:
+            self.exe_end_time = exe_end_time
+        if exe_start_time is not None:
+            self.exe_start_time = exe_start_time
+        if impact_summary is not None:
+            self.impact_summary = impact_summary
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -211,6 +226,69 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         """
 
         self._event_id = event_id
+
+    @property
+    def exe_end_time(self):
+        """Gets the exe_end_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+
+
+        :return: The exe_end_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._exe_end_time
+
+    @exe_end_time.setter
+    def exe_end_time(self, exe_end_time):
+        """Sets the exe_end_time of this PlannedEventForDescribePlannedEventsOutput.
+
+
+        :param exe_end_time: The exe_end_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._exe_end_time = exe_end_time
+
+    @property
+    def exe_start_time(self):
+        """Gets the exe_start_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+
+
+        :return: The exe_start_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._exe_start_time
+
+    @exe_start_time.setter
+    def exe_start_time(self, exe_start_time):
+        """Sets the exe_start_time of this PlannedEventForDescribePlannedEventsOutput.
+
+
+        :param exe_start_time: The exe_start_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._exe_start_time = exe_start_time
+
+    @property
+    def impact_summary(self):
+        """Gets the impact_summary of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+
+
+        :return: The impact_summary of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :rtype: ImpactSummaryForDescribePlannedEventsOutput
+        """
+        return self._impact_summary
+
+    @impact_summary.setter
+    def impact_summary(self, impact_summary):
+        """Sets the impact_summary of this PlannedEventForDescribePlannedEventsOutput.
+
+
+        :param impact_summary: The impact_summary of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :type: ImpactSummaryForDescribePlannedEventsOutput
+        """
+
+        self._impact_summary = impact_summary
 
     @property
     def instance_id(self):

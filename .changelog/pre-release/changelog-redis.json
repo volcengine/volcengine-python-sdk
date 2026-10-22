@@ -1,0 +1,19 @@
+{
+  "actions": [
+    "DescribePlannedEventImpactDetail",
+    "SyncAllowList",
+    "DescribeAllowListDetail",
+    "DescribePlannedEvents",
+    "DescribeDBInstances",
+    "DescribeParameterGroupDetail",
+    "DescribeTasks",
+    "DescribeAllowLists",
+    "DescribeBackups",
+    "DescribeParameterGroups",
+    "DescribeBlueGreenDeployments",
+    "DescribeCrossRegionBackups"
+  ],
+  "description": "REDIS: 新增 DescribePlannedEventImpactDetail；删除 CreateEnterpriseDBInstance；修改 DescribeTasks, SyncAllowList, DescribeAllowListDetail, DescribeAllowLists, DescribeBackups, DescribePlannedEvents, DescribeParameterGroups, DescribeBlueGreenDeployments, DescribeCrossRegionBackups, DescribeDBInstances, DescribeParameterGroupDetail",
+  "modules": "service/Redis",
+  "type": "breaking-change"
+}
