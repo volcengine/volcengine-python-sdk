@@ -61,7 +61,9 @@ class RowForListBackupDataOutput(object):
         'status': 'str',
         'storage_resource': 'str',
         'storage_type': 'str',
-        'updated_time': 'int'
+        'updated_time': 'int',
+        'volc_region': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
@@ -93,10 +95,12 @@ class RowForListBackupDataOutput(object):
         'status': 'Status',
         'storage_resource': 'StorageResource',
         'storage_type': 'StorageType',
-        'updated_time': 'UpdatedTime'
+        'updated_time': 'UpdatedTime',
+        'volc_region': 'VolcRegion',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, aosp_version=None, account_id=None, backup_data_id=None, backup_data_name=None, backup_job_id=None, backup_size=None, backup_task_id=None, backup_type=None, completed_time=None, compression_type=None, created_time=None, data_size=None, description=None, detail=None, exclude_path_list=None, expire_time=None, finished_time=None, in_use_count=None, include_path_list=None, md5_sum=None, product_id=None, restore_count=None, size=None, source_pod_id=None, started_time=None, status=None, storage_resource=None, storage_type=None, updated_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, aosp_version=None, account_id=None, backup_data_id=None, backup_data_name=None, backup_job_id=None, backup_size=None, backup_task_id=None, backup_type=None, completed_time=None, compression_type=None, created_time=None, data_size=None, description=None, detail=None, exclude_path_list=None, expire_time=None, finished_time=None, in_use_count=None, include_path_list=None, md5_sum=None, product_id=None, restore_count=None, size=None, source_pod_id=None, started_time=None, status=None, storage_resource=None, storage_type=None, updated_time=None, volc_region=None, zone_id=None, _configuration=None):  # noqa: E501
         """RowForListBackupDataOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -131,6 +135,8 @@ class RowForListBackupDataOutput(object):
         self._storage_resource = None
         self._storage_type = None
         self._updated_time = None
+        self._volc_region = None
+        self._zone_id = None
         self.discriminator = None
 
         if aosp_version is not None:
@@ -191,6 +197,10 @@ class RowForListBackupDataOutput(object):
             self.storage_type = storage_type
         if updated_time is not None:
             self.updated_time = updated_time
+        if volc_region is not None:
+            self.volc_region = volc_region
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def aosp_version(self):
@@ -800,6 +810,48 @@ class RowForListBackupDataOutput(object):
         """
 
         self._updated_time = updated_time
+
+    @property
+    def volc_region(self):
+        """Gets the volc_region of this RowForListBackupDataOutput.  # noqa: E501
+
+
+        :return: The volc_region of this RowForListBackupDataOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._volc_region
+
+    @volc_region.setter
+    def volc_region(self, volc_region):
+        """Sets the volc_region of this RowForListBackupDataOutput.
+
+
+        :param volc_region: The volc_region of this RowForListBackupDataOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._volc_region = volc_region
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this RowForListBackupDataOutput.  # noqa: E501
+
+
+        :return: The zone_id of this RowForListBackupDataOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this RowForListBackupDataOutput.
+
+
+        :param zone_id: The zone_id of this RowForListBackupDataOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

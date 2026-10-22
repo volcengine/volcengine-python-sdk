@@ -1,0 +1,11 @@
+{
+  "actions": [
+    "BatchScreenShot",
+    "ListBackupData",
+    "ListHost",
+    "SubscribeResourceAuto"
+  ],
+  "description": "ACEP: 修改 BatchScreenShot, ListBackupData, ListHost, SubscribeResourceAuto",
+  "modules": "service/ACEP",
+  "type": "feature"
+}

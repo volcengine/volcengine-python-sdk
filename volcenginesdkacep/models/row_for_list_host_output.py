@@ -43,6 +43,7 @@ class RowForListHostOutput(object):
         'dc': 'str',
         'expire_at': 'int',
         'host_id': 'str',
+        'init_auto_create_pod': 'bool',
         'last_reboot_time': 'str',
         'pod_id_list': 'list[str]',
         'pod_num_available': 'int',
@@ -68,6 +69,7 @@ class RowForListHostOutput(object):
         'dc': 'Dc',
         'expire_at': 'ExpireAt',
         'host_id': 'HostId',
+        'init_auto_create_pod': 'InitAutoCreatePod',
         'last_reboot_time': 'LastRebootTime',
         'pod_id_list': 'PodIdList',
         'pod_num_available': 'PodNumAvailable',
@@ -82,7 +84,7 @@ class RowForListHostOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, authority_expire_time=None, authority_status=None, charge_type=None, configuration_code=None, configuration_name=None, create_at=None, dc=None, expire_at=None, host_id=None, last_reboot_time=None, pod_id_list=None, pod_num_available=None, pod_num_on_host=None, product_id=None, region=None, renew_type=None, resource_set_id=None, server_type_code=None, status=None, volc_region=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, authority_expire_time=None, authority_status=None, charge_type=None, configuration_code=None, configuration_name=None, create_at=None, dc=None, expire_at=None, host_id=None, init_auto_create_pod=None, last_reboot_time=None, pod_id_list=None, pod_num_available=None, pod_num_on_host=None, product_id=None, region=None, renew_type=None, resource_set_id=None, server_type_code=None, status=None, volc_region=None, zone_id=None, _configuration=None):  # noqa: E501
         """RowForListHostOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,6 +100,7 @@ class RowForListHostOutput(object):
         self._dc = None
         self._expire_at = None
         self._host_id = None
+        self._init_auto_create_pod = None
         self._last_reboot_time = None
         self._pod_id_list = None
         self._pod_num_available = None
@@ -132,6 +135,8 @@ class RowForListHostOutput(object):
             self.expire_at = expire_at
         if host_id is not None:
             self.host_id = host_id
+        if init_auto_create_pod is not None:
+            self.init_auto_create_pod = init_auto_create_pod
         if last_reboot_time is not None:
             self.last_reboot_time = last_reboot_time
         if pod_id_list is not None:
@@ -366,6 +371,27 @@ class RowForListHostOutput(object):
         """
 
         self._host_id = host_id
+
+    @property
+    def init_auto_create_pod(self):
+        """Gets the init_auto_create_pod of this RowForListHostOutput.  # noqa: E501
+
+
+        :return: The init_auto_create_pod of this RowForListHostOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._init_auto_create_pod
+
+    @init_auto_create_pod.setter
+    def init_auto_create_pod(self, init_auto_create_pod):
+        """Sets the init_auto_create_pod of this RowForListHostOutput.
+
+
+        :param init_auto_create_pod: The init_auto_create_pod of this RowForListHostOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._init_auto_create_pod = init_auto_create_pod
 
     @property
     def last_reboot_time(self):
