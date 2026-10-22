@@ -31,10 +31,9 @@ pip install volcenginesdk-ecs
 ```
 
 The Python import paths do not change, so existing `import volcenginesdkecs`
-statements remain valid. See the [package splitting design](./docs/package-splitting-zh.md)
-for the complete mapping and release process.
+statements remain valid.
 
-To use Ark Runtime, install the official package:
+To use Ark Runtime, install the split distribution:
 
 ```sh
 pip install volcengine-ark-runtime

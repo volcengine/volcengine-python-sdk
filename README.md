@@ -30,9 +30,8 @@ pip install volcenginesdk-ecs
 ```
 
 分包不会改变 Python 导入路径，已有的 `import volcenginesdkecs` 无需修改。
-完整设计、包名映射和发布流程见[分包设计](./docs/package-splitting-zh.md)。
 
-如需使用方舟，请安装官方 Ark Runtime 包：
+如需使用方舟，请安装 Ark Runtime 分包：
 
 ```sh
 pip install volcengine-ark-runtime
