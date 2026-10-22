@@ -648,6 +648,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'inframanager': ServiceEndpointInfo(
+        service='inframanager',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {
