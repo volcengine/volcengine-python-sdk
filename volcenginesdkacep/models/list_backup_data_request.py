@@ -38,7 +38,8 @@ class ListBackupDataRequest(object):
         'next_token': 'str',
         'product_id': 'str',
         'source_pod_id': 'str',
-        'status': 'str'
+        'status': 'str',
+        'volc_region': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class ListBackupDataRequest(object):
         'next_token': 'NextToken',
         'product_id': 'ProductId',
         'source_pod_id': 'SourcePodId',
-        'status': 'Status'
+        'status': 'Status',
+        'volc_region': 'VolcRegion'
     }
 
-    def __init__(self, backup_data_id_list=None, max_results=None, next_token=None, product_id=None, source_pod_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_data_id_list=None, max_results=None, next_token=None, product_id=None, source_pod_id=None, status=None, volc_region=None, _configuration=None):  # noqa: E501
         """ListBackupDataRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class ListBackupDataRequest(object):
         self._product_id = None
         self._source_pod_id = None
         self._status = None
+        self._volc_region = None
         self.discriminator = None
 
         if backup_data_id_list is not None:
@@ -75,6 +78,8 @@ class ListBackupDataRequest(object):
             self.source_pod_id = source_pod_id
         if status is not None:
             self.status = status
+        if volc_region is not None:
+            self.volc_region = volc_region
 
     @property
     def backup_data_id_list(self):
@@ -203,6 +208,27 @@ class ListBackupDataRequest(object):
         """
 
         self._status = status
+
+    @property
+    def volc_region(self):
+        """Gets the volc_region of this ListBackupDataRequest.  # noqa: E501
+
+
+        :return: The volc_region of this ListBackupDataRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._volc_region
+
+    @volc_region.setter
+    def volc_region(self, volc_region):
+        """Sets the volc_region of this ListBackupDataRequest.
+
+
+        :param volc_region: The volc_region of this ListBackupDataRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._volc_region = volc_region
 
     def to_dict(self):
         """Returns the model properties as a dict"""

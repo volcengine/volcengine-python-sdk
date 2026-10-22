@@ -36,17 +36,19 @@ class DetailForBatchScreenShotOutput(object):
         'download_url': 'str',
         'error_code': 'int',
         'error_msg': 'str',
-        'pod_id': 'str'
+        'pod_id': 'str',
+        'tos_info': 'TosInfoForBatchScreenShotOutput'
     }
 
     attribute_map = {
         'download_url': 'DownloadUrl',
         'error_code': 'ErrorCode',
         'error_msg': 'ErrorMsg',
-        'pod_id': 'PodId'
+        'pod_id': 'PodId',
+        'tos_info': 'TosInfo'
     }
 
-    def __init__(self, download_url=None, error_code=None, error_msg=None, pod_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, download_url=None, error_code=None, error_msg=None, pod_id=None, tos_info=None, _configuration=None):  # noqa: E501
         """DetailForBatchScreenShotOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DetailForBatchScreenShotOutput(object):
         self._error_code = None
         self._error_msg = None
         self._pod_id = None
+        self._tos_info = None
         self.discriminator = None
 
         if download_url is not None:
@@ -66,6 +69,8 @@ class DetailForBatchScreenShotOutput(object):
             self.error_msg = error_msg
         if pod_id is not None:
             self.pod_id = pod_id
+        if tos_info is not None:
+            self.tos_info = tos_info
 
     @property
     def download_url(self):
@@ -150,6 +155,27 @@ class DetailForBatchScreenShotOutput(object):
         """
 
         self._pod_id = pod_id
+
+    @property
+    def tos_info(self):
+        """Gets the tos_info of this DetailForBatchScreenShotOutput.  # noqa: E501
+
+
+        :return: The tos_info of this DetailForBatchScreenShotOutput.  # noqa: E501
+        :rtype: TosInfoForBatchScreenShotOutput
+        """
+        return self._tos_info
+
+    @tos_info.setter
+    def tos_info(self, tos_info):
+        """Sets the tos_info of this DetailForBatchScreenShotOutput.
+
+
+        :param tos_info: The tos_info of this DetailForBatchScreenShotOutput.  # noqa: E501
+        :type: TosInfoForBatchScreenShotOutput
+        """
+
+        self._tos_info = tos_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""
