@@ -35,7 +35,7 @@ class PeriodExportForCreateDataFlowPolicyInput(object):
     swagger_types = {
         'data_type': 'str',
         'exclude_paths': 'list[str]',
-        'export_interval': 'LastAccessTimeIntervalForCreateDataFlowPolicyInput',
+        'export_interval': 'ExportIntervalForCreateDataFlowPolicyInput',
         'include_paths': 'list[str]',
         'start_time': 'str'
     }
@@ -127,7 +127,7 @@ class PeriodExportForCreateDataFlowPolicyInput(object):
 
 
         :return: The export_interval of this PeriodExportForCreateDataFlowPolicyInput.  # noqa: E501
-        :rtype: LastAccessTimeIntervalForCreateDataFlowPolicyInput
+        :rtype: ExportIntervalForCreateDataFlowPolicyInput
         """
         return self._export_interval
 
@@ -137,7 +137,7 @@ class PeriodExportForCreateDataFlowPolicyInput(object):
 
 
         :param export_interval: The export_interval of this PeriodExportForCreateDataFlowPolicyInput.  # noqa: E501
-        :type: LastAccessTimeIntervalForCreateDataFlowPolicyInput
+        :type: ExportIntervalForCreateDataFlowPolicyInput
         """
 
         self._export_interval = export_interval
