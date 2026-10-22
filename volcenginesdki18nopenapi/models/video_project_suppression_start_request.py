@@ -40,6 +40,7 @@ class VideoProjectSuppressionStartRequest(object):
         'lang': 'int',
         'manual_style': 'str',
         'project_id': 'str',
+        'source_manual_style': 'str',
         'start_time': 'int',
         'subtask_ids': 'list[str]'
     }
@@ -52,11 +53,12 @@ class VideoProjectSuppressionStartRequest(object):
         'lang': 'lang',
         'manual_style': 'manualStyle',
         'project_id': 'projectId',
+        'source_manual_style': 'sourceManualStyle',
         'start_time': 'startTime',
         'subtask_ids': 'subtaskIds'
     }
 
-    def __init__(self, arrange_ment=None, encode=None, end_time=None, format=None, lang=None, manual_style=None, project_id=None, start_time=None, subtask_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, arrange_ment=None, encode=None, end_time=None, format=None, lang=None, manual_style=None, project_id=None, source_manual_style=None, start_time=None, subtask_ids=None, _configuration=None):  # noqa: E501
         """VideoProjectSuppressionStartRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class VideoProjectSuppressionStartRequest(object):
         self._lang = None
         self._manual_style = None
         self._project_id = None
+        self._source_manual_style = None
         self._start_time = None
         self._subtask_ids = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class VideoProjectSuppressionStartRequest(object):
         if manual_style is not None:
             self.manual_style = manual_style
         self.project_id = project_id
+        if source_manual_style is not None:
+            self.source_manual_style = source_manual_style
         if start_time is not None:
             self.start_time = start_time
         if subtask_ids is not None:
@@ -243,6 +248,27 @@ class VideoProjectSuppressionStartRequest(object):
             raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
 
         self._project_id = project_id
+
+    @property
+    def source_manual_style(self):
+        """Gets the source_manual_style of this VideoProjectSuppressionStartRequest.  # noqa: E501
+
+
+        :return: The source_manual_style of this VideoProjectSuppressionStartRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_manual_style
+
+    @source_manual_style.setter
+    def source_manual_style(self, source_manual_style):
+        """Sets the source_manual_style of this VideoProjectSuppressionStartRequest.
+
+
+        :param source_manual_style: The source_manual_style of this VideoProjectSuppressionStartRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._source_manual_style = source_manual_style
 
     @property
     def start_time(self):
