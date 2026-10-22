@@ -220,9 +220,36 @@ def upload_all(args, wheels, session):
             if index < len(missing):
                 time.sleep(args.pace)
 
-    # 终态复核，给索引最后一点刷新时间。
-    time.sleep(args.visibility_delay)
-    classify()
+    # 终态复核：有限指数退避多次只读核对，避免索引/CDN 慢刷新导致假 missing。
+    # 以 visibility_delay 为基数（下限 5s、上限 60s），按 1/2/4/… 倍退避，共 5 次。
+    backoff = []
+    wait = args.visibility_delay
+    for _ in range(5):
+        backoff.append(min(max(wait, 5.0), 60.0))
+        wait *= 2
+    for index, delay in enumerate(backoff, 1):
+        time.sleep(delay)
+        absent = 0
+        unknown = 0
+        for name, version, path in wheels:
+            if name in present or name in fatal:
+                continue
+            state = visibility_state(
+                session, args.index_url, name, version, path.name
+            )
+            if state == "present":
+                present.add(name)
+            elif state == "unknown":
+                unknown += 1
+            else:
+                absent += 1
+        log(
+            "finalize round {}/{} after {}s: {} absent, {} unknown".format(
+                index, len(backoff), int(delay), absent, unknown
+            )
+        )
+        if absent == 0 and unknown == 0:
+            break
     return present, fatal
 
 
@@ -248,7 +275,7 @@ def parse_args():
         "--visibility-delay",
         type=float,
         default=10.0,
-        help="seconds to wait for index propagation before each verify round",
+        help="base seconds between verify rounds and the finalize backoff",
     )
     return parser.parse_args()
 
