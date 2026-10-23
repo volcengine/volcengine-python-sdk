@@ -26,6 +26,9 @@ class RDSMYSQLApi(object):
 
     Do not edit the class manually.
     Ref: https://github.com/swagger-api/swagger-codegen
+
+    Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+    Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
     """
 
     def __init__(self, api_client=None):
@@ -35,6 +38,9 @@ class RDSMYSQLApi(object):
 
     def associate_allow_list(self, body, **kwargs):  # noqa: E501
         """associate_allow_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -56,6 +62,9 @@ class RDSMYSQLApi(object):
 
     def associate_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
         """associate_allow_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -132,6 +141,9 @@ class RDSMYSQLApi(object):
 
     def copy_parameter_template(self, body, **kwargs):  # noqa: E501
         """copy_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -153,6 +165,9 @@ class RDSMYSQLApi(object):
 
     def copy_parameter_template_with_http_info(self, body, **kwargs):  # noqa: E501
         """copy_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -229,6 +244,9 @@ class RDSMYSQLApi(object):
 
     def create_account(self, body, **kwargs):  # noqa: E501
         """create_account  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -250,6 +268,9 @@ class RDSMYSQLApi(object):
 
     def create_account_with_http_info(self, body, **kwargs):  # noqa: E501
         """create_account  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -326,6 +347,9 @@ class RDSMYSQLApi(object):
 
     def create_allow_list(self, body, **kwargs):  # noqa: E501
         """create_allow_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -347,6 +371,9 @@ class RDSMYSQLApi(object):
 
     def create_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
         """create_allow_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -423,6 +450,9 @@ class RDSMYSQLApi(object):
 
     def create_backup(self, body, **kwargs):  # noqa: E501
         """create_backup  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -444,6 +474,9 @@ class RDSMYSQLApi(object):
 
     def create_backup_with_http_info(self, body, **kwargs):  # noqa: E501
         """create_backup  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -520,6 +553,9 @@ class RDSMYSQLApi(object):
 
     def create_database(self, body, **kwargs):  # noqa: E501
         """create_database  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -541,6 +577,9 @@ class RDSMYSQLApi(object):
 
     def create_database_with_http_info(self, body, **kwargs):  # noqa: E501
         """create_database  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -617,6 +656,9 @@ class RDSMYSQLApi(object):
 
     def create_db_instance(self, body, **kwargs):  # noqa: E501
         """create_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -638,6 +680,9 @@ class RDSMYSQLApi(object):
 
     def create_db_instance_with_http_info(self, body, **kwargs):  # noqa: E501
         """create_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -714,6 +759,9 @@ class RDSMYSQLApi(object):
 
     def create_db_instance_ip_list(self, body, **kwargs):  # noqa: E501
         """create_db_instance_ip_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -735,6 +783,9 @@ class RDSMYSQLApi(object):
 
     def create_db_instance_ip_list_with_http_info(self, body, **kwargs):  # noqa: E501
         """create_db_instance_ip_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -811,6 +862,9 @@ class RDSMYSQLApi(object):
 
     def create_parameter_template(self, body, **kwargs):  # noqa: E501
         """create_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -832,6 +886,9 @@ class RDSMYSQLApi(object):
 
     def create_parameter_template_with_http_info(self, body, **kwargs):  # noqa: E501
         """create_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -908,6 +965,9 @@ class RDSMYSQLApi(object):
 
     def delete_account(self, body, **kwargs):  # noqa: E501
         """delete_account  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -929,6 +989,9 @@ class RDSMYSQLApi(object):
 
     def delete_account_with_http_info(self, body, **kwargs):  # noqa: E501
         """delete_account  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1005,6 +1068,9 @@ class RDSMYSQLApi(object):
 
     def delete_allow_list(self, body, **kwargs):  # noqa: E501
         """delete_allow_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1026,6 +1092,9 @@ class RDSMYSQLApi(object):
 
     def delete_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
         """delete_allow_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1102,6 +1171,9 @@ class RDSMYSQLApi(object):
 
     def delete_database(self, body, **kwargs):  # noqa: E501
         """delete_database  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1123,6 +1195,9 @@ class RDSMYSQLApi(object):
 
     def delete_database_with_http_info(self, body, **kwargs):  # noqa: E501
         """delete_database  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1199,6 +1274,9 @@ class RDSMYSQLApi(object):
 
     def delete_db_instance(self, body, **kwargs):  # noqa: E501
         """delete_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1220,6 +1298,9 @@ class RDSMYSQLApi(object):
 
     def delete_db_instance_with_http_info(self, body, **kwargs):  # noqa: E501
         """delete_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1296,6 +1377,9 @@ class RDSMYSQLApi(object):
 
     def delete_db_instance_ip_list(self, body, **kwargs):  # noqa: E501
         """delete_db_instance_ip_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1317,6 +1401,9 @@ class RDSMYSQLApi(object):
 
     def delete_db_instance_ip_list_with_http_info(self, body, **kwargs):  # noqa: E501
         """delete_db_instance_ip_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1393,6 +1480,9 @@ class RDSMYSQLApi(object):
 
     def delete_parameter_template(self, body, **kwargs):  # noqa: E501
         """delete_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1414,6 +1504,9 @@ class RDSMYSQLApi(object):
 
     def delete_parameter_template_with_http_info(self, body, **kwargs):  # noqa: E501
         """delete_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1490,6 +1583,9 @@ class RDSMYSQLApi(object):
 
     def describe_allow_list_detail(self, body, **kwargs):  # noqa: E501
         """describe_allow_list_detail  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1511,6 +1607,9 @@ class RDSMYSQLApi(object):
 
     def describe_allow_list_detail_with_http_info(self, body, **kwargs):  # noqa: E501
         """describe_allow_list_detail  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1587,6 +1686,9 @@ class RDSMYSQLApi(object):
 
     def describe_allow_lists(self, body, **kwargs):  # noqa: E501
         """describe_allow_lists  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1608,6 +1710,9 @@ class RDSMYSQLApi(object):
 
     def describe_allow_lists_with_http_info(self, body, **kwargs):  # noqa: E501
         """describe_allow_lists  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1684,6 +1789,9 @@ class RDSMYSQLApi(object):
 
     def describe_apply_parameter_template(self, body, **kwargs):  # noqa: E501
         """describe_apply_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1705,6 +1813,9 @@ class RDSMYSQLApi(object):
 
     def describe_apply_parameter_template_with_http_info(self, body, **kwargs):  # noqa: E501
         """describe_apply_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1781,6 +1892,9 @@ class RDSMYSQLApi(object):
 
     def describe_db_instance(self, body, **kwargs):  # noqa: E501
         """describe_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1802,6 +1916,9 @@ class RDSMYSQLApi(object):
 
     def describe_db_instance_with_http_info(self, body, **kwargs):  # noqa: E501
         """describe_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1878,6 +1995,9 @@ class RDSMYSQLApi(object):
 
     def describe_db_instance_connection(self, body, **kwargs):  # noqa: E501
         """describe_db_instance_connection  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1899,6 +2019,9 @@ class RDSMYSQLApi(object):
 
     def describe_db_instance_connection_with_http_info(self, body, **kwargs):  # noqa: E501
         """describe_db_instance_connection  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1975,6 +2098,9 @@ class RDSMYSQLApi(object):
 
     def describe_parameter_template(self, body, **kwargs):  # noqa: E501
         """describe_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1996,6 +2122,9 @@ class RDSMYSQLApi(object):
 
     def describe_parameter_template_with_http_info(self, body, **kwargs):  # noqa: E501
         """describe_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2072,6 +2201,9 @@ class RDSMYSQLApi(object):
 
     def describe_recoverable_time(self, body, **kwargs):  # noqa: E501
         """describe_recoverable_time  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2093,6 +2225,9 @@ class RDSMYSQLApi(object):
 
     def describe_recoverable_time_with_http_info(self, body, **kwargs):  # noqa: E501
         """describe_recoverable_time  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2169,6 +2304,9 @@ class RDSMYSQLApi(object):
 
     def disassociate_allow_list(self, body, **kwargs):  # noqa: E501
         """disassociate_allow_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2190,6 +2328,9 @@ class RDSMYSQLApi(object):
 
     def disassociate_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
         """disassociate_allow_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2266,6 +2407,9 @@ class RDSMYSQLApi(object):
 
     def grant_account_privilege(self, body, **kwargs):  # noqa: E501
         """grant_account_privilege  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2287,6 +2431,9 @@ class RDSMYSQLApi(object):
 
     def grant_account_privilege_with_http_info(self, body, **kwargs):  # noqa: E501
         """grant_account_privilege  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2363,6 +2510,9 @@ class RDSMYSQLApi(object):
 
     def list_accounts(self, body, **kwargs):  # noqa: E501
         """list_accounts  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2384,6 +2534,9 @@ class RDSMYSQLApi(object):
 
     def list_accounts_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_accounts  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2460,6 +2613,9 @@ class RDSMYSQLApi(object):
 
     def list_backups(self, body, **kwargs):  # noqa: E501
         """list_backups  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2481,6 +2637,9 @@ class RDSMYSQLApi(object):
 
     def list_backups_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_backups  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2557,6 +2716,9 @@ class RDSMYSQLApi(object):
 
     def list_databases(self, body, **kwargs):  # noqa: E501
         """list_databases  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2578,6 +2740,9 @@ class RDSMYSQLApi(object):
 
     def list_databases_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_databases  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2654,6 +2819,9 @@ class RDSMYSQLApi(object):
 
     def list_db_instance_ip_lists(self, body, **kwargs):  # noqa: E501
         """list_db_instance_ip_lists  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2675,6 +2843,9 @@ class RDSMYSQLApi(object):
 
     def list_db_instance_ip_lists_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_db_instance_ip_lists  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2751,6 +2922,9 @@ class RDSMYSQLApi(object):
 
     def list_db_instances(self, body, **kwargs):  # noqa: E501
         """list_db_instances  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2772,6 +2946,9 @@ class RDSMYSQLApi(object):
 
     def list_db_instances_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_db_instances  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2848,6 +3025,9 @@ class RDSMYSQLApi(object):
 
     def list_instance_params(self, body, **kwargs):  # noqa: E501
         """list_instance_params  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2869,6 +3049,9 @@ class RDSMYSQLApi(object):
 
     def list_instance_params_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_instance_params  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2945,6 +3128,9 @@ class RDSMYSQLApi(object):
 
     def list_instance_params_history(self, body, **kwargs):  # noqa: E501
         """list_instance_params_history  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2966,6 +3152,9 @@ class RDSMYSQLApi(object):
 
     def list_instance_params_history_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_instance_params_history  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3042,6 +3231,9 @@ class RDSMYSQLApi(object):
 
     def list_parameter_templates(self, body, **kwargs):  # noqa: E501
         """list_parameter_templates  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3063,6 +3255,9 @@ class RDSMYSQLApi(object):
 
     def list_parameter_templates_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_parameter_templates  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3139,6 +3334,9 @@ class RDSMYSQLApi(object):
 
     def list_regions(self, body, **kwargs):  # noqa: E501
         """list_regions  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3160,6 +3358,9 @@ class RDSMYSQLApi(object):
 
     def list_regions_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_regions  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3236,6 +3437,9 @@ class RDSMYSQLApi(object):
 
     def list_vpcs(self, body, **kwargs):  # noqa: E501
         """list_vpcs  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3257,6 +3461,9 @@ class RDSMYSQLApi(object):
 
     def list_vpcs_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_vpcs  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3333,6 +3540,9 @@ class RDSMYSQLApi(object):
 
     def list_zones(self, body, **kwargs):  # noqa: E501
         """list_zones  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3354,6 +3564,9 @@ class RDSMYSQLApi(object):
 
     def list_zones_with_http_info(self, body, **kwargs):  # noqa: E501
         """list_zones  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3430,6 +3643,9 @@ class RDSMYSQLApi(object):
 
     def modify_allow_list(self, body, **kwargs):  # noqa: E501
         """modify_allow_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3451,6 +3667,9 @@ class RDSMYSQLApi(object):
 
     def modify_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
         """modify_allow_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3527,6 +3746,9 @@ class RDSMYSQLApi(object):
 
     def modify_db_instance(self, body, **kwargs):  # noqa: E501
         """modify_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3548,6 +3770,9 @@ class RDSMYSQLApi(object):
 
     def modify_db_instance_with_http_info(self, body, **kwargs):  # noqa: E501
         """modify_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3624,6 +3849,9 @@ class RDSMYSQLApi(object):
 
     def modify_db_instance_ip_list(self, body, **kwargs):  # noqa: E501
         """modify_db_instance_ip_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3645,6 +3873,9 @@ class RDSMYSQLApi(object):
 
     def modify_db_instance_ip_list_with_http_info(self, body, **kwargs):  # noqa: E501
         """modify_db_instance_ip_list  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3721,6 +3952,9 @@ class RDSMYSQLApi(object):
 
     def modify_instance_params(self, body, **kwargs):  # noqa: E501
         """modify_instance_params  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3742,6 +3976,9 @@ class RDSMYSQLApi(object):
 
     def modify_instance_params_with_http_info(self, body, **kwargs):  # noqa: E501
         """modify_instance_params  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3818,6 +4055,9 @@ class RDSMYSQLApi(object):
 
     def modify_parameter_template(self, body, **kwargs):  # noqa: E501
         """modify_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3839,6 +4079,9 @@ class RDSMYSQLApi(object):
 
     def modify_parameter_template_with_http_info(self, body, **kwargs):  # noqa: E501
         """modify_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3915,6 +4158,9 @@ class RDSMYSQLApi(object):
 
     def recovery_db_instance(self, body, **kwargs):  # noqa: E501
         """recovery_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3936,6 +4182,9 @@ class RDSMYSQLApi(object):
 
     def recovery_db_instance_with_http_info(self, body, **kwargs):  # noqa: E501
         """recovery_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4012,6 +4261,9 @@ class RDSMYSQLApi(object):
 
     def reset_account_password(self, body, **kwargs):  # noqa: E501
         """reset_account_password  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4033,6 +4285,9 @@ class RDSMYSQLApi(object):
 
     def reset_account_password_with_http_info(self, body, **kwargs):  # noqa: E501
         """reset_account_password  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4109,6 +4364,9 @@ class RDSMYSQLApi(object):
 
     def restart_db_instance(self, body, **kwargs):  # noqa: E501
         """restart_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4130,6 +4388,9 @@ class RDSMYSQLApi(object):
 
     def restart_db_instance_with_http_info(self, body, **kwargs):  # noqa: E501
         """restart_db_instance  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4206,6 +4467,9 @@ class RDSMYSQLApi(object):
 
     def save_as_parameter_template(self, body, **kwargs):  # noqa: E501
         """save_as_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4227,6 +4491,9 @@ class RDSMYSQLApi(object):
 
     def save_as_parameter_template_with_http_info(self, body, **kwargs):  # noqa: E501
         """save_as_parameter_template  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4303,6 +4570,9 @@ class RDSMYSQLApi(object):
 
     def upgrade_allow_list_version(self, body, **kwargs):  # noqa: E501
         """upgrade_allow_list_version  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4324,6 +4594,9 @@ class RDSMYSQLApi(object):
 
     def upgrade_allow_list_version_with_http_info(self, body, **kwargs):  # noqa: E501
         """upgrade_allow_list_version  # noqa: E501
+        
+        Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+        Use volcenginesdkrdsmysqlv2 with API version 2022-01-01 instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
