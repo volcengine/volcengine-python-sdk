@@ -654,6 +654,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'dbw': ServiceEndpointInfo(
+        service='dbw',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {
