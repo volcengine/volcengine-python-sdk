@@ -34,26 +34,32 @@ class DescribeBranchDetailRequest(object):
     """
     swagger_types = {
         'branch_id': 'str',
+        'project_name': 'str',
         'workspace_id': 'str'
     }
 
     attribute_map = {
         'branch_id': 'BranchId',
+        'project_name': 'ProjectName',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, branch_id=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, branch_id=None, project_name=None, workspace_id=None, _configuration=None):  # noqa: E501
         """DescribeBranchDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._branch_id = None
+        self._project_name = None
         self._workspace_id = None
         self.discriminator = None
 
         self.branch_id = branch_id
-        self.workspace_id = workspace_id
+        if project_name is not None:
+            self.project_name = project_name
+        if workspace_id is not None:
+            self.workspace_id = workspace_id
 
     @property
     def branch_id(self):
@@ -79,6 +85,27 @@ class DescribeBranchDetailRequest(object):
         self._branch_id = branch_id
 
     @property
+    def project_name(self):
+        """Gets the project_name of this DescribeBranchDetailRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeBranchDetailRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeBranchDetailRequest.
+
+
+        :param project_name: The project_name of this DescribeBranchDetailRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def workspace_id(self):
         """Gets the workspace_id of this DescribeBranchDetailRequest.  # noqa: E501
 
@@ -96,8 +123,6 @@ class DescribeBranchDetailRequest(object):
         :param workspace_id: The workspace_id of this DescribeBranchDetailRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and workspace_id is None:
-            raise ValueError("Invalid value for `workspace_id`, must not be `None`")  # noqa: E501
 
         self._workspace_id = workspace_id
 
