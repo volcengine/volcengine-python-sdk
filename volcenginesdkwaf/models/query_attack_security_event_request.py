@@ -46,7 +46,8 @@ class QueryAttackSecurityEventRequest(object):
         'project_name': 'str',
         'security_level': 'str',
         'sort_flag': 'str',
-        'start_time': 'int'
+        'start_time': 'int',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -63,10 +64,11 @@ class QueryAttackSecurityEventRequest(object):
         'project_name': 'ProjectName',
         'security_level': 'SecurityLevel',
         'sort_flag': 'SortFlag',
-        'start_time': 'StartTime'
+        'start_time': 'StartTime',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, all_host=None, all_host_details=None, end_time=None, event_type=None, filter_all=None, host=None, ip=None, page=None, page_size=None, path=None, project_name=None, security_level=None, sort_flag=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, all_host=None, all_host_details=None, end_time=None, event_type=None, filter_all=None, host=None, ip=None, page=None, page_size=None, path=None, project_name=None, security_level=None, sort_flag=None, start_time=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """QueryAttackSecurityEventRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class QueryAttackSecurityEventRequest(object):
         self._security_level = None
         self._sort_flag = None
         self._start_time = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if all_host is not None:
@@ -112,6 +115,8 @@ class QueryAttackSecurityEventRequest(object):
         if sort_flag is not None:
             self.sort_flag = sort_flag
         self.start_time = start_time
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def all_host(self):
@@ -414,6 +419,27 @@ class QueryAttackSecurityEventRequest(object):
             raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this QueryAttackSecurityEventRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this QueryAttackSecurityEventRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this QueryAttackSecurityEventRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this QueryAttackSecurityEventRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

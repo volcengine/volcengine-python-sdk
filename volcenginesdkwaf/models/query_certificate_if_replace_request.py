@@ -36,17 +36,19 @@ class QueryCertificateIfReplaceRequest(object):
         'certificate_id': 'int',
         'domain': 'str',
         'project_name': 'str',
-        'public_real_server': 'int'
+        'public_real_server': 'int',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
         'certificate_id': 'CertificateID',
         'domain': 'Domain',
         'project_name': 'ProjectName',
-        'public_real_server': 'PublicRealServer'
+        'public_real_server': 'PublicRealServer',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, certificate_id=None, domain=None, project_name=None, public_real_server=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificate_id=None, domain=None, project_name=None, public_real_server=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """QueryCertificateIfReplaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class QueryCertificateIfReplaceRequest(object):
         self._domain = None
         self._project_name = None
         self._public_real_server = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         self.certificate_id = certificate_id
@@ -64,6 +67,8 @@ class QueryCertificateIfReplaceRequest(object):
             self.project_name = project_name
         if public_real_server is not None:
             self.public_real_server = public_real_server
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def certificate_id(self):
@@ -152,6 +157,27 @@ class QueryCertificateIfReplaceRequest(object):
         """
 
         self._public_real_server = public_real_server
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this QueryCertificateIfReplaceRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this QueryCertificateIfReplaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this QueryCertificateIfReplaceRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this QueryCertificateIfReplaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,7 +33,7 @@ class DataForListCustomBotConfigOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'accurate': 'list[AccurateForListCustomBotConfigOutput]',
+        'accurate': 'AccurateForListCustomBotConfigOutput',
         'action': 'str',
         'advanced': 'int',
         'bot_type': 'str',
@@ -41,7 +41,8 @@ class DataForListCustomBotConfigOutput(object):
         'enable': 'int',
         'id': 'int',
         'rule_tag': 'str',
-        'update_time': 'str'
+        'update_time': 'str',
+        'verification_exemption_time': 'int'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class DataForListCustomBotConfigOutput(object):
         'enable': 'Enable',
         'id': 'Id',
         'rule_tag': 'RuleTag',
-        'update_time': 'UpdateTime'
+        'update_time': 'UpdateTime',
+        'verification_exemption_time': 'VerificationExemptionTime'
     }
 
-    def __init__(self, accurate=None, action=None, advanced=None, bot_type=None, description=None, enable=None, id=None, rule_tag=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate=None, action=None, advanced=None, bot_type=None, description=None, enable=None, id=None, rule_tag=None, update_time=None, verification_exemption_time=None, _configuration=None):  # noqa: E501
         """DataForListCustomBotConfigOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DataForListCustomBotConfigOutput(object):
         self._id = None
         self._rule_tag = None
         self._update_time = None
+        self._verification_exemption_time = None
         self.discriminator = None
 
         if accurate is not None:
@@ -91,6 +94,8 @@ class DataForListCustomBotConfigOutput(object):
             self.rule_tag = rule_tag
         if update_time is not None:
             self.update_time = update_time
+        if verification_exemption_time is not None:
+            self.verification_exemption_time = verification_exemption_time
 
     @property
     def accurate(self):
@@ -98,7 +103,7 @@ class DataForListCustomBotConfigOutput(object):
 
 
         :return: The accurate of this DataForListCustomBotConfigOutput.  # noqa: E501
-        :rtype: list[AccurateForListCustomBotConfigOutput]
+        :rtype: AccurateForListCustomBotConfigOutput
         """
         return self._accurate
 
@@ -108,7 +113,7 @@ class DataForListCustomBotConfigOutput(object):
 
 
         :param accurate: The accurate of this DataForListCustomBotConfigOutput.  # noqa: E501
-        :type: list[AccurateForListCustomBotConfigOutput]
+        :type: AccurateForListCustomBotConfigOutput
         """
 
         self._accurate = accurate
@@ -280,6 +285,27 @@ class DataForListCustomBotConfigOutput(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def verification_exemption_time(self):
+        """Gets the verification_exemption_time of this DataForListCustomBotConfigOutput.  # noqa: E501
+
+
+        :return: The verification_exemption_time of this DataForListCustomBotConfigOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._verification_exemption_time
+
+    @verification_exemption_time.setter
+    def verification_exemption_time(self, verification_exemption_time):
+        """Sets the verification_exemption_time of this DataForListCustomBotConfigOutput.
+
+
+        :param verification_exemption_time: The verification_exemption_time of this DataForListCustomBotConfigOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._verification_exemption_time = verification_exemption_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

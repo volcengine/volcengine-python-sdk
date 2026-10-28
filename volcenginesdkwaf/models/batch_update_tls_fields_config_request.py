@@ -36,17 +36,19 @@ class BatchUpdateTLSFieldsConfigRequest(object):
         'domain_list': 'list[str]',
         'project_name': 'str',
         'region': 'str',
-        'tls_fields_config': 'TLSFieldsConfigForBatchUpdateTLSFieldsConfigInput'
+        'tls_fields_config': 'TLSFieldsConfigForBatchUpdateTLSFieldsConfigInput',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
         'domain_list': 'DomainList',
         'project_name': 'ProjectName',
         'region': 'Region',
-        'tls_fields_config': 'TLSFieldsConfig'
+        'tls_fields_config': 'TLSFieldsConfig',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, domain_list=None, project_name=None, region=None, tls_fields_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain_list=None, project_name=None, region=None, tls_fields_config=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """BatchUpdateTLSFieldsConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class BatchUpdateTLSFieldsConfigRequest(object):
         self._project_name = None
         self._region = None
         self._tls_fields_config = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if domain_list is not None:
@@ -65,6 +68,8 @@ class BatchUpdateTLSFieldsConfigRequest(object):
         self.region = region
         if tls_fields_config is not None:
             self.tls_fields_config = tls_fields_config
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def domain_list(self):
@@ -151,6 +156,27 @@ class BatchUpdateTLSFieldsConfigRequest(object):
         """
 
         self._tls_fields_config = tls_fields_config
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this BatchUpdateTLSFieldsConfigRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this BatchUpdateTLSFieldsConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this BatchUpdateTLSFieldsConfigRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this BatchUpdateTLSFieldsConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

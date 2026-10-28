@@ -50,7 +50,8 @@ class UpdateCustomPageRequest(object):
         'prefix_switch': 'int',
         'project_name': 'str',
         'redirect_url': 'str',
-        'url': 'str'
+        'url': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -71,10 +72,11 @@ class UpdateCustomPageRequest(object):
         'prefix_switch': 'PrefixSwitch',
         'project_name': 'ProjectName',
         'redirect_url': 'RedirectUrl',
-        'url': 'Url'
+        'url': 'Url',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, accurate=None, advanced=None, body=None, client_ip=None, code=None, content_type=None, description=None, enable=None, group_id=None, host=None, id=None, name=None, page_mode=None, policy=None, prefix_switch=None, project_name=None, redirect_url=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate=None, advanced=None, body=None, client_ip=None, code=None, content_type=None, description=None, enable=None, group_id=None, host=None, id=None, name=None, page_mode=None, policy=None, prefix_switch=None, project_name=None, redirect_url=None, url=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """UpdateCustomPageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,6 +100,7 @@ class UpdateCustomPageRequest(object):
         self._project_name = None
         self._redirect_url = None
         self._url = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if accurate is not None:
@@ -128,6 +131,8 @@ class UpdateCustomPageRequest(object):
         if redirect_url is not None:
             self.redirect_url = redirect_url
         self.url = url
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def accurate(self):
@@ -522,6 +527,27 @@ class UpdateCustomPageRequest(object):
             raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateCustomPageRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateCustomPageRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateCustomPageRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateCustomPageRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

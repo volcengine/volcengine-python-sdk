@@ -40,7 +40,9 @@ class UpdateCustomBotConfigRequest(object):
         'enable': 'int',
         'host': 'str',
         'id': 'int',
-        'project_name': 'str'
+        'project_name': 'str',
+        'verification_exemption_time': 'int',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -51,10 +53,12 @@ class UpdateCustomBotConfigRequest(object):
         'enable': 'Enable',
         'host': 'Host',
         'id': 'Id',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'verification_exemption_time': 'VerificationExemptionTime',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, accurate=None, action=None, bot_type=None, description=None, enable=None, host=None, id=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate=None, action=None, bot_type=None, description=None, enable=None, host=None, id=None, project_name=None, verification_exemption_time=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """UpdateCustomBotConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +72,8 @@ class UpdateCustomBotConfigRequest(object):
         self._host = None
         self._id = None
         self._project_name = None
+        self._verification_exemption_time = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if accurate is not None:
@@ -81,6 +87,10 @@ class UpdateCustomBotConfigRequest(object):
         self.id = id
         if project_name is not None:
             self.project_name = project_name
+        if verification_exemption_time is not None:
+            self.verification_exemption_time = verification_exemption_time
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def accurate(self):
@@ -259,6 +269,48 @@ class UpdateCustomBotConfigRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def verification_exemption_time(self):
+        """Gets the verification_exemption_time of this UpdateCustomBotConfigRequest.  # noqa: E501
+
+
+        :return: The verification_exemption_time of this UpdateCustomBotConfigRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._verification_exemption_time
+
+    @verification_exemption_time.setter
+    def verification_exemption_time(self, verification_exemption_time):
+        """Sets the verification_exemption_time of this UpdateCustomBotConfigRequest.
+
+
+        :param verification_exemption_time: The verification_exemption_time of this UpdateCustomBotConfigRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._verification_exemption_time = verification_exemption_time
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateCustomBotConfigRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateCustomBotConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateCustomBotConfigRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateCustomBotConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

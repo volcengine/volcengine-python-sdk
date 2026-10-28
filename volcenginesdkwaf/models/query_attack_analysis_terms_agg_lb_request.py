@@ -38,7 +38,8 @@ class QueryAttackAnalysisTermsAggLbRequest(object):
         'host': 'str',
         'plugins': 'list[str]',
         'project_name': 'str',
-        'start_time': 'int'
+        'start_time': 'int',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class QueryAttackAnalysisTermsAggLbRequest(object):
         'host': 'Host',
         'plugins': 'Plugins',
         'project_name': 'ProjectName',
-        'start_time': 'StartTime'
+        'start_time': 'StartTime',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, analysis_key=None, end_time=None, host=None, plugins=None, project_name=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, analysis_key=None, end_time=None, host=None, plugins=None, project_name=None, start_time=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """QueryAttackAnalysisTermsAggLbRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class QueryAttackAnalysisTermsAggLbRequest(object):
         self._plugins = None
         self._project_name = None
         self._start_time = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         self.analysis_key = analysis_key
@@ -73,6 +76,8 @@ class QueryAttackAnalysisTermsAggLbRequest(object):
         if project_name is not None:
             self.project_name = project_name
         self.start_time = start_time
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def analysis_key(self):
@@ -205,6 +210,27 @@ class QueryAttackAnalysisTermsAggLbRequest(object):
             raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this QueryAttackAnalysisTermsAggLbRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this QueryAttackAnalysisTermsAggLbRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this QueryAttackAnalysisTermsAggLbRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this QueryAttackAnalysisTermsAggLbRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

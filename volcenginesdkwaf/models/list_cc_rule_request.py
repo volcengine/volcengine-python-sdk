@@ -41,7 +41,8 @@ class ListCCRuleRequest(object):
         'project_name': 'str',
         'rule_name': 'str',
         'rule_tag': 'str',
-        'url': 'str'
+        'url': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class ListCCRuleRequest(object):
         'project_name': 'ProjectName',
         'rule_name': 'RuleName',
         'rule_tag': 'RuleTag',
-        'url': 'Url'
+        'url': 'Url',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, cc_type=None, host=None, page=None, page_size=None, path_order_by=None, project_name=None, rule_name=None, rule_tag=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, cc_type=None, host=None, page=None, page_size=None, path_order_by=None, project_name=None, rule_name=None, rule_tag=None, url=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListCCRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class ListCCRuleRequest(object):
         self._rule_name = None
         self._rule_tag = None
         self._url = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if cc_type is not None:
@@ -90,6 +93,8 @@ class ListCCRuleRequest(object):
             self.rule_tag = rule_tag
         if url is not None:
             self.url = url
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def cc_type(self):
@@ -288,6 +293,27 @@ class ListCCRuleRequest(object):
         """
 
         self._url = url
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListCCRuleRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListCCRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListCCRuleRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListCCRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

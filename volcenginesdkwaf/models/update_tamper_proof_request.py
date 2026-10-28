@@ -40,7 +40,8 @@ class UpdateTamperProofRequest(object):
         'id': 'int',
         'name': 'str',
         'project_name': 'str',
-        'url': 'str'
+        'url': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class UpdateTamperProofRequest(object):
         'id': 'Id',
         'name': 'Name',
         'project_name': 'ProjectName',
-        'url': 'Url'
+        'url': 'Url',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, client_ip=None, description=None, enable=None, host=None, id=None, name=None, project_name=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_ip=None, description=None, enable=None, host=None, id=None, name=None, project_name=None, url=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """UpdateTamperProofRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class UpdateTamperProofRequest(object):
         self._name = None
         self._project_name = None
         self._url = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if client_ip is not None:
@@ -82,6 +85,8 @@ class UpdateTamperProofRequest(object):
         if project_name is not None:
             self.project_name = project_name
         self.url = url
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def client_ip(self):
@@ -258,6 +263,27 @@ class UpdateTamperProofRequest(object):
             raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateTamperProofRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateTamperProofRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateTamperProofRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateTamperProofRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

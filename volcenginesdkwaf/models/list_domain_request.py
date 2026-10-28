@@ -54,7 +54,8 @@ class ListDomainRequest(object):
         'vpc_id': 'str',
         'vpc_name': 'str',
         'vpc_owner_id': 'str',
-        'vpc_owner_name': 'str'
+        'vpc_owner_name': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -79,10 +80,11 @@ class ListDomainRequest(object):
         'vpc_id': 'VpcId',
         'vpc_name': 'VpcName',
         'vpc_owner_id': 'VpcOwnerId',
-        'vpc_owner_name': 'VpcOwnerName'
+        'vpc_owner_name': 'VpcOwnerName',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, access_mode=None, accurate_query=None, attack_status=None, client_ip=None, defence_mode=None, domain=None, domain_or_path=None, lb_info=None, page=None, page_size=None, project_name=None, public_real_server=None, region=None, sort_by_create_time=None, sort_by_domain_name=None, sort_by_update_time=None, status=None, tls_enable=None, vpc_id=None, vpc_name=None, vpc_owner_id=None, vpc_owner_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, accurate_query=None, attack_status=None, client_ip=None, defence_mode=None, domain=None, domain_or_path=None, lb_info=None, page=None, page_size=None, project_name=None, public_real_server=None, region=None, sort_by_create_time=None, sort_by_domain_name=None, sort_by_update_time=None, status=None, tls_enable=None, vpc_id=None, vpc_name=None, vpc_owner_id=None, vpc_owner_name=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListDomainRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -110,6 +112,7 @@ class ListDomainRequest(object):
         self._vpc_name = None
         self._vpc_owner_id = None
         self._vpc_owner_name = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if access_mode is not None:
@@ -153,6 +156,8 @@ class ListDomainRequest(object):
             self.vpc_owner_id = vpc_owner_id
         if vpc_owner_name is not None:
             self.vpc_owner_name = vpc_owner_name
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def access_mode(self):
@@ -621,6 +626,27 @@ class ListDomainRequest(object):
         """
 
         self._vpc_owner_name = vpc_owner_name
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListDomainRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

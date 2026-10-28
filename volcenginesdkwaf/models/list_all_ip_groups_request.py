@@ -40,7 +40,8 @@ class ListAllIpGroupsRequest(object):
         'page_size': 'int',
         'project_name': 'str',
         'rule_tag': 'str',
-        'time_order_by': 'str'
+        'time_order_by': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class ListAllIpGroupsRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'rule_tag': 'RuleTag',
-        'time_order_by': 'TimeOrderBy'
+        'time_order_by': 'TimeOrderBy',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, ip=None, ip_group_id=None, ip_group_ids=None, page=None, page_size=None, project_name=None, rule_tag=None, time_order_by=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip=None, ip_group_id=None, ip_group_ids=None, page=None, page_size=None, project_name=None, rule_tag=None, time_order_by=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListAllIpGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class ListAllIpGroupsRequest(object):
         self._project_name = None
         self._rule_tag = None
         self._time_order_by = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if ip is not None:
@@ -85,6 +88,8 @@ class ListAllIpGroupsRequest(object):
         if rule_tag is not None:
             self.rule_tag = rule_tag
         self.time_order_by = time_order_by
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def ip(self):
@@ -255,6 +260,27 @@ class ListAllIpGroupsRequest(object):
             raise ValueError("Invalid value for `time_order_by`, must not be `None`")  # noqa: E501
 
         self._time_order_by = time_order_by
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListAllIpGroupsRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListAllIpGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListAllIpGroupsRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListAllIpGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

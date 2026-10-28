@@ -38,7 +38,8 @@ class UpdateSystemBotConfigRequest(object):
         'host': 'str',
         'project_name': 'str',
         'rule_tag_list': 'list[str]',
-        'verification_exemption_time': 'int'
+        'verification_exemption_time': 'int',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class UpdateSystemBotConfigRequest(object):
         'host': 'Host',
         'project_name': 'ProjectName',
         'rule_tag_list': 'RuleTagList',
-        'verification_exemption_time': 'VerificationExemptionTime'
+        'verification_exemption_time': 'VerificationExemptionTime',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, action=None, enable=None, host=None, project_name=None, rule_tag_list=None, verification_exemption_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, enable=None, host=None, project_name=None, rule_tag_list=None, verification_exemption_time=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """UpdateSystemBotConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class UpdateSystemBotConfigRequest(object):
         self._project_name = None
         self._rule_tag_list = None
         self._verification_exemption_time = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if action is not None:
@@ -75,6 +78,8 @@ class UpdateSystemBotConfigRequest(object):
             self.rule_tag_list = rule_tag_list
         if verification_exemption_time is not None:
             self.verification_exemption_time = verification_exemption_time
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def action(self):
@@ -210,6 +215,27 @@ class UpdateSystemBotConfigRequest(object):
         """
 
         self._verification_exemption_time = verification_exemption_time
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateSystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateSystemBotConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateSystemBotConfigRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateSystemBotConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
