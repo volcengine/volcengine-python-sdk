@@ -33,6 +33,7 @@ class DescribeTopicAuditInfoRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'aggregate_by_source_ip': 'bool',
         'instance_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
@@ -44,6 +45,7 @@ class DescribeTopicAuditInfoRequest(object):
     }
 
     attribute_map = {
+        'aggregate_by_source_ip': 'AggregateBySourceIp',
         'instance_id': 'InstanceId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -54,12 +56,13 @@ class DescribeTopicAuditInfoRequest(object):
         'type': 'Type'
     }
 
-    def __init__(self, instance_id=None, page_number=None, page_size=None, sort_order=None, source_ip=None, source_port=None, topic=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, aggregate_by_source_ip=None, instance_id=None, page_number=None, page_size=None, sort_order=None, source_ip=None, source_port=None, topic=None, type=None, _configuration=None):  # noqa: E501
         """DescribeTopicAuditInfoRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._aggregate_by_source_ip = None
         self._instance_id = None
         self._page_number = None
         self._page_size = None
@@ -70,6 +73,8 @@ class DescribeTopicAuditInfoRequest(object):
         self._type = None
         self.discriminator = None
 
+        if aggregate_by_source_ip is not None:
+            self.aggregate_by_source_ip = aggregate_by_source_ip
         self.instance_id = instance_id
         self.page_number = page_number
         self.page_size = page_size
@@ -81,6 +86,27 @@ class DescribeTopicAuditInfoRequest(object):
             self.source_port = source_port
         self.topic = topic
         self.type = type
+
+    @property
+    def aggregate_by_source_ip(self):
+        """Gets the aggregate_by_source_ip of this DescribeTopicAuditInfoRequest.  # noqa: E501
+
+
+        :return: The aggregate_by_source_ip of this DescribeTopicAuditInfoRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._aggregate_by_source_ip
+
+    @aggregate_by_source_ip.setter
+    def aggregate_by_source_ip(self, aggregate_by_source_ip):
+        """Sets the aggregate_by_source_ip of this DescribeTopicAuditInfoRequest.
+
+
+        :param aggregate_by_source_ip: The aggregate_by_source_ip of this DescribeTopicAuditInfoRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._aggregate_by_source_ip = aggregate_by_source_ip
 
     @property
     def instance_id(self):
