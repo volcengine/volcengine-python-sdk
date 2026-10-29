@@ -47,7 +47,7 @@ class SandboxForListSandboxesOutput(object):
         'instance_efs_mount_config': 'InstanceEfsMountConfigForListSandboxesOutput',
         'instance_type': 'str',
         'memory_mb': 'int',
-        'metadata': 'dict(str, str)',
+        'metadata': 'MetadataForListSandboxesOutput',
         'paused_at': 'str',
         'pending': 'bool',
         'revision_number': 'int',
@@ -462,7 +462,7 @@ class SandboxForListSandboxesOutput(object):
 
 
         :return: The metadata of this SandboxForListSandboxesOutput.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: MetadataForListSandboxesOutput
         """
         return self._metadata
 
@@ -472,7 +472,7 @@ class SandboxForListSandboxesOutput(object):
 
 
         :param metadata: The metadata of this SandboxForListSandboxesOutput.  # noqa: E501
-        :type: dict(str, str)
+        :type: MetadataForListSandboxesOutput
         """
 
         self._metadata = metadata
