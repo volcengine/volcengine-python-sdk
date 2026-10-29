@@ -41,6 +41,7 @@ class ModifyTLSConfigRequest(object):
         'field_select_all': 'bool',
         'project_name': 'str',
         'tls_storage_time': 'int',
+        'waf_instance_id': 'str',
         'waf_action_list': 'WafActionListForModifyTLSConfigInput',
         'waf_action_select_all': 'bool'
     }
@@ -54,11 +55,12 @@ class ModifyTLSConfigRequest(object):
         'field_select_all': 'FieldSelectAll',
         'project_name': 'ProjectName',
         'tls_storage_time': 'TLSStorageTime',
+        'waf_instance_id': 'WAFInstanceID',
         'waf_action_list': 'WafActionList',
         'waf_action_select_all': 'WafActionSelectAll'
     }
 
-    def __init__(self, alarm_threshold=None, capacity_alert=None, capacity_alert_interval=None, domain_list=None, field_list=None, field_select_all=None, project_name=None, tls_storage_time=None, waf_action_list=None, waf_action_select_all=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_threshold=None, capacity_alert=None, capacity_alert_interval=None, domain_list=None, field_list=None, field_select_all=None, project_name=None, tls_storage_time=None, waf_instance_id=None, waf_action_list=None, waf_action_select_all=None, _configuration=None):  # noqa: E501
         """ModifyTLSConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class ModifyTLSConfigRequest(object):
         self._field_select_all = None
         self._project_name = None
         self._tls_storage_time = None
+        self._waf_instance_id = None
         self._waf_action_list = None
         self._waf_action_select_all = None
         self.discriminator = None
@@ -92,6 +95,8 @@ class ModifyTLSConfigRequest(object):
             self.project_name = project_name
         if tls_storage_time is not None:
             self.tls_storage_time = tls_storage_time
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
         if waf_action_list is not None:
             self.waf_action_list = waf_action_list
         if waf_action_select_all is not None:
@@ -264,6 +269,27 @@ class ModifyTLSConfigRequest(object):
         """
 
         self._tls_storage_time = tls_storage_time
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ModifyTLSConfigRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ModifyTLSConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ModifyTLSConfigRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ModifyTLSConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     @property
     def waf_action_list(self):

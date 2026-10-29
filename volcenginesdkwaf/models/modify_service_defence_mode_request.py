@@ -36,17 +36,19 @@ class ModifyServiceDefenceModeRequest(object):
         'defence_mode': 'int',
         'extra_defence_mode_lb_instance': 'list[ExtraDefenceModeLBInstanceForModifyServiceDefenceModeInput]',
         'host': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
         'defence_mode': 'DefenceMode',
         'extra_defence_mode_lb_instance': 'ExtraDefenceModeLBInstance',
         'host': 'Host',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, defence_mode=None, extra_defence_mode_lb_instance=None, host=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, defence_mode=None, extra_defence_mode_lb_instance=None, host=None, project_name=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ModifyServiceDefenceModeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ModifyServiceDefenceModeRequest(object):
         self._extra_defence_mode_lb_instance = None
         self._host = None
         self._project_name = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         self.defence_mode = defence_mode
@@ -64,6 +67,8 @@ class ModifyServiceDefenceModeRequest(object):
         self.host = host
         if project_name is not None:
             self.project_name = project_name
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def defence_mode(self):
@@ -152,6 +157,27 @@ class ModifyServiceDefenceModeRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ModifyServiceDefenceModeRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ModifyServiceDefenceModeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ModifyServiceDefenceModeRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ModifyServiceDefenceModeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

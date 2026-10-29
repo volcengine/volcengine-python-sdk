@@ -51,7 +51,8 @@ class CreateBotAnalyseProtectRuleRequest(object):
         'single_proportion': 'float',
         'single_threshold': 'int',
         'statistical_duration': 'int',
-        'statistical_type': 'int'
+        'statistical_type': 'int',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -73,10 +74,11 @@ class CreateBotAnalyseProtectRuleRequest(object):
         'single_proportion': 'SingleProportion',
         'single_threshold': 'SingleThreshold',
         'statistical_duration': 'StatisticalDuration',
-        'statistical_type': 'StatisticalType'
+        'statistical_type': 'StatisticalType',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, accurate_group=None, accurate_group_priority=None, action_type=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, name=None, path=None, path_threshold=None, project_name=None, rule_priority=None, single_proportion=None, single_threshold=None, statistical_duration=None, statistical_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, accurate_group_priority=None, action_type=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, name=None, path=None, path_threshold=None, project_name=None, rule_priority=None, single_proportion=None, single_threshold=None, statistical_duration=None, statistical_type=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """CreateBotAnalyseProtectRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -101,6 +103,7 @@ class CreateBotAnalyseProtectRuleRequest(object):
         self._single_threshold = None
         self._statistical_duration = None
         self._statistical_type = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if accurate_group is not None:
@@ -132,6 +135,8 @@ class CreateBotAnalyseProtectRuleRequest(object):
             self.single_threshold = single_threshold
         self.statistical_duration = statistical_duration
         self.statistical_type = statistical_type
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def accurate_group(self):
@@ -549,6 +554,27 @@ class CreateBotAnalyseProtectRuleRequest(object):
             raise ValueError("Invalid value for `statistical_type`, must not be `None`")  # noqa: E501
 
         self._statistical_type = statistical_type
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this CreateBotAnalyseProtectRuleRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this CreateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this CreateBotAnalyseProtectRuleRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this CreateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

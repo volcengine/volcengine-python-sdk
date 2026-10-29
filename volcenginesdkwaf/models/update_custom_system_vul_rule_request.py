@@ -37,7 +37,8 @@ class UpdateCustomSystemVulRuleRequest(object):
         'host_add_type': 'int',
         'host_list': 'list[str]',
         'project_name': 'str',
-        'system_rule_switch': 'list[SystemRuleSwitchForUpdateCustomSystemVulRuleInput]'
+        'system_rule_switch': 'list[SystemRuleSwitchForUpdateCustomSystemVulRuleInput]',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class UpdateCustomSystemVulRuleRequest(object):
         'host_add_type': 'HostAddType',
         'host_list': 'HostList',
         'project_name': 'ProjectName',
-        'system_rule_switch': 'SystemRuleSwitch'
+        'system_rule_switch': 'SystemRuleSwitch',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, host=None, host_add_type=None, host_list=None, project_name=None, system_rule_switch=None, _configuration=None):  # noqa: E501
+    def __init__(self, host=None, host_add_type=None, host_list=None, project_name=None, system_rule_switch=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """UpdateCustomSystemVulRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class UpdateCustomSystemVulRuleRequest(object):
         self._host_list = None
         self._project_name = None
         self._system_rule_switch = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if host is not None:
@@ -71,6 +74,8 @@ class UpdateCustomSystemVulRuleRequest(object):
             self.project_name = project_name
         if system_rule_switch is not None:
             self.system_rule_switch = system_rule_switch
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def host(self):
@@ -176,6 +181,27 @@ class UpdateCustomSystemVulRuleRequest(object):
         """
 
         self._system_rule_switch = system_rule_switch
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateCustomSystemVulRuleRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

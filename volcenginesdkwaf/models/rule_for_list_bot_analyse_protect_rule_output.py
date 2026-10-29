@@ -37,6 +37,8 @@ class RuleForListBotAnalyseProtectRuleOutput(object):
         'accurate_group_priority': 'int',
         'action_after_verification': 'int',
         'action_type': 'int',
+        'cron_confs': 'list[CronConfForListBotAnalyseProtectRuleOutput]',
+        'cron_enable': 'int',
         'effect_time': 'int',
         'enable': 'int',
         'exemption_time': 'int',
@@ -61,6 +63,8 @@ class RuleForListBotAnalyseProtectRuleOutput(object):
         'accurate_group_priority': 'AccurateGroupPriority',
         'action_after_verification': 'ActionAfterVerification',
         'action_type': 'ActionType',
+        'cron_confs': 'CronConfs',
+        'cron_enable': 'CronEnable',
         'effect_time': 'EffectTime',
         'enable': 'Enable',
         'exemption_time': 'ExemptionTime',
@@ -80,7 +84,7 @@ class RuleForListBotAnalyseProtectRuleOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, accurate_group=None, accurate_group_priority=None, action_after_verification=None, action_type=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, id=None, name=None, pass_ratio=None, path=None, path_threshold=None, rule_priority=None, rule_tag=None, single_proportion=None, single_threshold=None, statistical_duration=None, statistical_type=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, accurate_group_priority=None, action_after_verification=None, action_type=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, id=None, name=None, pass_ratio=None, path=None, path_threshold=None, rule_priority=None, rule_tag=None, single_proportion=None, single_threshold=None, statistical_duration=None, statistical_type=None, update_time=None, _configuration=None):  # noqa: E501
         """RuleForListBotAnalyseProtectRuleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,6 +94,8 @@ class RuleForListBotAnalyseProtectRuleOutput(object):
         self._accurate_group_priority = None
         self._action_after_verification = None
         self._action_type = None
+        self._cron_confs = None
+        self._cron_enable = None
         self._effect_time = None
         self._enable = None
         self._exemption_time = None
@@ -117,6 +123,10 @@ class RuleForListBotAnalyseProtectRuleOutput(object):
             self.action_after_verification = action_after_verification
         if action_type is not None:
             self.action_type = action_type
+        if cron_confs is not None:
+            self.cron_confs = cron_confs
+        if cron_enable is not None:
+            self.cron_enable = cron_enable
         if effect_time is not None:
             self.effect_time = effect_time
         if enable is not None:
@@ -235,6 +245,48 @@ class RuleForListBotAnalyseProtectRuleOutput(object):
         """
 
         self._action_type = action_type
+
+    @property
+    def cron_confs(self):
+        """Gets the cron_confs of this RuleForListBotAnalyseProtectRuleOutput.  # noqa: E501
+
+
+        :return: The cron_confs of this RuleForListBotAnalyseProtectRuleOutput.  # noqa: E501
+        :rtype: list[CronConfForListBotAnalyseProtectRuleOutput]
+        """
+        return self._cron_confs
+
+    @cron_confs.setter
+    def cron_confs(self, cron_confs):
+        """Sets the cron_confs of this RuleForListBotAnalyseProtectRuleOutput.
+
+
+        :param cron_confs: The cron_confs of this RuleForListBotAnalyseProtectRuleOutput.  # noqa: E501
+        :type: list[CronConfForListBotAnalyseProtectRuleOutput]
+        """
+
+        self._cron_confs = cron_confs
+
+    @property
+    def cron_enable(self):
+        """Gets the cron_enable of this RuleForListBotAnalyseProtectRuleOutput.  # noqa: E501
+
+
+        :return: The cron_enable of this RuleForListBotAnalyseProtectRuleOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._cron_enable
+
+    @cron_enable.setter
+    def cron_enable(self, cron_enable):
+        """Sets the cron_enable of this RuleForListBotAnalyseProtectRuleOutput.
+
+
+        :param cron_enable: The cron_enable of this RuleForListBotAnalyseProtectRuleOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._cron_enable = cron_enable
 
     @property
     def effect_time(self):

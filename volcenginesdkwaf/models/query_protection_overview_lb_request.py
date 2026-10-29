@@ -35,16 +35,18 @@ class QueryProtectionOverviewLbRequest(object):
     swagger_types = {
         'end_time': 'int',
         'host': 'str',
-        'start_time': 'int'
+        'start_time': 'int',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
         'end_time': 'EndTime',
         'host': 'Host',
-        'start_time': 'StartTime'
+        'start_time': 'StartTime',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, end_time=None, host=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, end_time=None, host=None, start_time=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """QueryProtectionOverviewLbRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,12 +55,15 @@ class QueryProtectionOverviewLbRequest(object):
         self._end_time = None
         self._host = None
         self._start_time = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         self.end_time = end_time
         if host is not None:
             self.host = host
         self.start_time = start_time
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def end_time(self):
@@ -126,6 +131,27 @@ class QueryProtectionOverviewLbRequest(object):
             raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this QueryProtectionOverviewLbRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this QueryProtectionOverviewLbRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this QueryProtectionOverviewLbRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this QueryProtectionOverviewLbRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

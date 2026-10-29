@@ -69,7 +69,8 @@ class UpdateDomainRequest(object):
         'tls_enable': 'int',
         'tls_fields_config': 'TLSFieldsConfigForUpdateDomainInput',
         'volc_certificate_id': 'str',
-        'vpc_id': 'str'
+        'vpc_id': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -109,10 +110,11 @@ class UpdateDomainRequest(object):
         'tls_enable': 'TLSEnable',
         'tls_fields_config': 'TLSFieldsConfig',
         'volc_certificate_id': 'VolcCertificateID',
-        'vpc_id': 'VpcID'
+        'vpc_id': 'VpcID',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, access_mode=None, backend_groups=None, certificate_id=None, certificate_platform=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, custom_header=None, custom_sni=None, domain=None, enable_custom_redirect=None, enable_http2=None, enable_i_pv6=None, enable_sni=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, project_name=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, ssl_ciphers=None, ssl_protocols=None, tls_enable=None, tls_fields_config=None, volc_certificate_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, backend_groups=None, certificate_id=None, certificate_platform=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, custom_header=None, custom_sni=None, domain=None, enable_custom_redirect=None, enable_http2=None, enable_i_pv6=None, enable_sni=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, project_name=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, ssl_ciphers=None, ssl_protocols=None, tls_enable=None, tls_fields_config=None, volc_certificate_id=None, vpc_id=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """UpdateDomainRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -155,6 +157,7 @@ class UpdateDomainRequest(object):
         self._tls_fields_config = None
         self._volc_certificate_id = None
         self._vpc_id = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         self.access_mode = access_mode
@@ -228,6 +231,8 @@ class UpdateDomainRequest(object):
             self.volc_certificate_id = volc_certificate_id
         if vpc_id is not None:
             self.vpc_id = vpc_id
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def access_mode(self):
@@ -1011,6 +1016,27 @@ class UpdateDomainRequest(object):
         """
 
         self._vpc_id = vpc_id
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateDomainRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateDomainRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

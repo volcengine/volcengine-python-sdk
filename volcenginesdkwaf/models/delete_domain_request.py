@@ -35,16 +35,18 @@ class DeleteDomainRequest(object):
     swagger_types = {
         'domain': 'str',
         'project_name': 'str',
-        'region': 'str'
+        'region': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
         'domain': 'Domain',
         'project_name': 'ProjectName',
-        'region': 'Region'
+        'region': 'Region',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, domain=None, project_name=None, region=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, project_name=None, region=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """DeleteDomainRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,12 +55,15 @@ class DeleteDomainRequest(object):
         self._domain = None
         self._project_name = None
         self._region = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         self.domain = domain
         if project_name is not None:
             self.project_name = project_name
         self.region = region
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def domain(self):
@@ -126,6 +131,27 @@ class DeleteDomainRequest(object):
             raise ValueError("Invalid value for `region`, must not be `None`")  # noqa: E501
 
         self._region = region
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this DeleteDomainRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this DeleteDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this DeleteDomainRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this DeleteDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -44,7 +44,8 @@ class ListProhibitionRequest(object):
         'reason': 'list[str]',
         'start_time': 'int',
         'status': 'list[int]',
-        'time_order_by': 'str'
+        'time_order_by': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -59,10 +60,11 @@ class ListProhibitionRequest(object):
         'reason': 'Reason',
         'start_time': 'StartTime',
         'status': 'Status',
-        'time_order_by': 'TimeOrderBy'
+        'time_order_by': 'TimeOrderBy',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, end_time=None, host=None, ip=None, letter_order_by=None, page=None, page_size=None, path_order_by=None, project_name=None, reason=None, start_time=None, status=None, time_order_by=None, _configuration=None):  # noqa: E501
+    def __init__(self, end_time=None, host=None, ip=None, letter_order_by=None, page=None, page_size=None, path_order_by=None, project_name=None, reason=None, start_time=None, status=None, time_order_by=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListProhibitionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +82,7 @@ class ListProhibitionRequest(object):
         self._start_time = None
         self._status = None
         self._time_order_by = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         self.end_time = end_time
@@ -103,6 +106,8 @@ class ListProhibitionRequest(object):
             self.status = status
         if time_order_by is not None:
             self.time_order_by = time_order_by
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def end_time(self):
@@ -361,6 +366,27 @@ class ListProhibitionRequest(object):
         """
 
         self._time_order_by = time_order_by
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListProhibitionRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListProhibitionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListProhibitionRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListProhibitionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

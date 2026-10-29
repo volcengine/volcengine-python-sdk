@@ -51,7 +51,8 @@ class UpdateAclRuleRequest(object):
         'name': 'str',
         'permit_feature': 'list[str]',
         'project_name': 'str',
-        'url': 'str'
+        'url': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -73,10 +74,11 @@ class UpdateAclRuleRequest(object):
         'name': 'Name',
         'permit_feature': 'PermitFeature',
         'project_name': 'ProjectName',
-        'url': 'Url'
+        'url': 'Url',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, accurate_group=None, acl_type=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, permit_feature=None, project_name=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, acl_type=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, permit_feature=None, project_name=None, url=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """UpdateAclRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -101,6 +103,7 @@ class UpdateAclRuleRequest(object):
         self._permit_feature = None
         self._project_name = None
         self._url = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if accurate_group is not None:
@@ -134,6 +137,8 @@ class UpdateAclRuleRequest(object):
         if project_name is not None:
             self.project_name = project_name
         self.url = url
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def accurate_group(self):
@@ -569,6 +574,27 @@ class UpdateAclRuleRequest(object):
             raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateAclRuleRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateAclRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateAclRuleRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateAclRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

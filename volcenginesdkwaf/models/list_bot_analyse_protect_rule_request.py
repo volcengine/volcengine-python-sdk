@@ -42,7 +42,8 @@ class ListBotAnalyseProtectRuleRequest(object):
         'path': 'str',
         'project_name': 'str',
         'region': 'str',
-        'rule_tag': 'str'
+        'rule_tag': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class ListBotAnalyseProtectRuleRequest(object):
         'path': 'Path',
         'project_name': 'ProjectName',
         'region': 'Region',
-        'rule_tag': 'RuleTag'
+        'rule_tag': 'RuleTag',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, action_type_key=None, bot_space=None, host=None, name=None, page=None, page_size=None, path=None, project_name=None, region=None, rule_tag=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_type_key=None, bot_space=None, host=None, name=None, page=None, page_size=None, path=None, project_name=None, region=None, rule_tag=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListBotAnalyseProtectRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class ListBotAnalyseProtectRuleRequest(object):
         self._project_name = None
         self._region = None
         self._rule_tag = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if action_type_key is not None:
@@ -94,6 +97,8 @@ class ListBotAnalyseProtectRuleRequest(object):
         self.region = region
         if rule_tag is not None:
             self.rule_tag = rule_tag
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def action_type_key(self):
@@ -315,6 +320,27 @@ class ListBotAnalyseProtectRuleRequest(object):
         """
 
         self._rule_tag = rule_tag
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListBotAnalyseProtectRuleRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListBotAnalyseProtectRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListBotAnalyseProtectRuleRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListBotAnalyseProtectRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,17 +36,19 @@ class UpdateInstanceCtlRequest(object):
         'allow_enable': 'int',
         'block_enable': 'int',
         'project_name': 'str',
-        'region': 'str'
+        'region': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
         'allow_enable': 'AllowEnable',
         'block_enable': 'BlockEnable',
         'project_name': 'ProjectName',
-        'region': 'Region'
+        'region': 'Region',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, allow_enable=None, block_enable=None, project_name=None, region=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_enable=None, block_enable=None, project_name=None, region=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """UpdateInstanceCtlRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class UpdateInstanceCtlRequest(object):
         self._block_enable = None
         self._project_name = None
         self._region = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if allow_enable is not None:
@@ -65,6 +68,8 @@ class UpdateInstanceCtlRequest(object):
         if project_name is not None:
             self.project_name = project_name
         self.region = region
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def allow_enable(self):
@@ -151,6 +156,27 @@ class UpdateInstanceCtlRequest(object):
             raise ValueError("Invalid value for `region`, must not be `None`")  # noqa: E501
 
         self._region = region
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateInstanceCtlRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateInstanceCtlRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateInstanceCtlRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateInstanceCtlRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

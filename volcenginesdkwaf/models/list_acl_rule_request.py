@@ -42,7 +42,8 @@ class ListAclRuleRequest(object):
         'project_name': 'str',
         'rule_name': 'str',
         'rule_tag': 'str',
-        'time_order_by': 'str'
+        'time_order_by': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class ListAclRuleRequest(object):
         'project_name': 'ProjectName',
         'rule_name': 'RuleName',
         'rule_tag': 'RuleTag',
-        'time_order_by': 'TimeOrderBy'
+        'time_order_by': 'TimeOrderBy',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, acl_type=None, action=None, defence_host=None, enable=None, page=None, page_size=None, project_name=None, rule_name=None, rule_tag=None, time_order_by=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_type=None, action=None, defence_host=None, enable=None, page=None, page_size=None, project_name=None, rule_name=None, rule_tag=None, time_order_by=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListAclRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class ListAclRuleRequest(object):
         self._rule_name = None
         self._rule_tag = None
         self._time_order_by = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         self.acl_type = acl_type
@@ -95,6 +98,8 @@ class ListAclRuleRequest(object):
             self.rule_tag = rule_tag
         if time_order_by is not None:
             self.time_order_by = time_order_by
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def acl_type(self):
@@ -329,6 +334,27 @@ class ListAclRuleRequest(object):
             )
 
         self._time_order_by = time_order_by
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListAclRuleRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListAclRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListAclRuleRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListAclRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

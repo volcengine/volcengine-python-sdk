@@ -53,7 +53,8 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         'single_threshold': 'int',
         'statistical_duration': 'int',
         'statistical_type': 'int',
-        'update_time': 'str'
+        'update_time': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -77,10 +78,11 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         'single_threshold': 'SingleThreshold',
         'statistical_duration': 'StatisticalDuration',
         'statistical_type': 'StatisticalType',
-        'update_time': 'UpdateTime'
+        'update_time': 'UpdateTime',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, accurate_group=None, accurate_group_priority=None, action_type=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, id=None, name=None, path=None, path_threshold=None, project_name=None, rule_priority=None, single_proportion=None, single_threshold=None, statistical_duration=None, statistical_type=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, accurate_group_priority=None, action_type=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, id=None, name=None, path=None, path_threshold=None, project_name=None, rule_priority=None, single_proportion=None, single_threshold=None, statistical_duration=None, statistical_type=None, update_time=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """UpdateBotAnalyseProtectRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -107,6 +109,7 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         self._statistical_duration = None
         self._statistical_type = None
         self._update_time = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if accurate_group is not None:
@@ -141,6 +144,8 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         self.statistical_type = statistical_type
         if update_time is not None:
             self.update_time = update_time
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def accurate_group(self):
@@ -602,6 +607,27 @@ class UpdateBotAnalyseProtectRuleRequest(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateBotAnalyseProtectRuleRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

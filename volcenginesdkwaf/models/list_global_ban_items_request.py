@@ -42,7 +42,8 @@ class ListGlobalBanItemsRequest(object):
         'source_module': 'list[str]',
         'source_value_like': 'str',
         'start_time_ms': 'int',
-        'status': 'str'
+        'status': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class ListGlobalBanItemsRequest(object):
         'source_module': 'SourceModule',
         'source_value_like': 'SourceValueLike',
         'start_time_ms': 'StartTimeMs',
-        'status': 'Status'
+        'status': 'Status',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, end_time_ms=None, order_by=None, page=None, page_size=None, project_name=None, rule_tag=None, source_module=None, source_value_like=None, start_time_ms=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, end_time_ms=None, order_by=None, page=None, page_size=None, project_name=None, rule_tag=None, source_module=None, source_value_like=None, start_time_ms=None, status=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListGlobalBanItemsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class ListGlobalBanItemsRequest(object):
         self._source_value_like = None
         self._start_time_ms = None
         self._status = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if end_time_ms is not None:
@@ -96,6 +99,8 @@ class ListGlobalBanItemsRequest(object):
             self.start_time_ms = start_time_ms
         if status is not None:
             self.status = status
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def end_time_ms(self):
@@ -306,6 +311,27 @@ class ListGlobalBanItemsRequest(object):
         """
 
         self._status = status
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListGlobalBanItemsRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListGlobalBanItemsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListGlobalBanItemsRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListGlobalBanItemsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

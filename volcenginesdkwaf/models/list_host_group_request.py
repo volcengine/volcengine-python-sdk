@@ -41,7 +41,8 @@ class ListHostGroupRequest(object):
         'page_size': 'int',
         'project_name': 'str',
         'rule_tag': 'str',
-        'time_order_by': 'str'
+        'time_order_by': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class ListHostGroupRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'rule_tag': 'RuleTag',
-        'time_order_by': 'TimeOrderBy'
+        'time_order_by': 'TimeOrderBy',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, host_fix=None, host_group_id=None, list_all=None, name_fix=None, page=None, page_size=None, project_name=None, rule_tag=None, time_order_by=None, _configuration=None):  # noqa: E501
+    def __init__(self, host_fix=None, host_group_id=None, list_all=None, name_fix=None, page=None, page_size=None, project_name=None, rule_tag=None, time_order_by=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListHostGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class ListHostGroupRequest(object):
         self._project_name = None
         self._rule_tag = None
         self._time_order_by = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if host_fix is not None:
@@ -90,6 +93,8 @@ class ListHostGroupRequest(object):
         if rule_tag is not None:
             self.rule_tag = rule_tag
         self.time_order_by = time_order_by
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def host_fix(self):
@@ -281,6 +286,27 @@ class ListHostGroupRequest(object):
             raise ValueError("Invalid value for `time_order_by`, must not be `None`")  # noqa: E501
 
         self._time_order_by = time_order_by
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListHostGroupRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListHostGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListHostGroupRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListHostGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
