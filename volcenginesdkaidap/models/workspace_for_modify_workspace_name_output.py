@@ -41,6 +41,8 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         'create_time': 'str',
         'creation_source': 'str',
         'dns_visibility': 'bool',
+        'delayed_delete_expired_at': 'str',
+        'delayed_delete_started_at': 'str',
         'deletion_protection_status': 'str',
         'engine_type': 'str',
         'engine_version': 'str',
@@ -71,6 +73,8 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         'create_time': 'CreateTime',
         'creation_source': 'CreationSource',
         'dns_visibility': 'DNSVisibility',
+        'delayed_delete_expired_at': 'DelayedDeleteExpiredAt',
+        'delayed_delete_started_at': 'DelayedDeleteStartedAt',
         'deletion_protection_status': 'DeletionProtectionStatus',
         'engine_type': 'EngineType',
         'engine_version': 'EngineVersion',
@@ -92,7 +96,7 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         'workspace_usage': 'WorkspaceUsage'
     }
 
-    def __init__(self, account_id=None, agent_plan_info=None, agent_plan_seat_id=None, baas_compute_settings=None, compute_settings=None, create_time=None, creation_source=None, dns_visibility=None, deletion_protection_status=None, engine_type=None, engine_version=None, internet_protocol=None, is_agent_plan=None, is_agent_plan_instance=None, project_name=None, region_id=None, shared_private_network=None, status_changed_time=None, subnet_id=None, update_time=None, vpc_id=None, workspace_id=None, workspace_name=None, workspace_setting=None, workspace_status=None, workspace_tags=None, workspace_usage=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, agent_plan_info=None, agent_plan_seat_id=None, baas_compute_settings=None, compute_settings=None, create_time=None, creation_source=None, dns_visibility=None, delayed_delete_expired_at=None, delayed_delete_started_at=None, deletion_protection_status=None, engine_type=None, engine_version=None, internet_protocol=None, is_agent_plan=None, is_agent_plan_instance=None, project_name=None, region_id=None, shared_private_network=None, status_changed_time=None, subnet_id=None, update_time=None, vpc_id=None, workspace_id=None, workspace_name=None, workspace_setting=None, workspace_status=None, workspace_tags=None, workspace_usage=None, _configuration=None):  # noqa: E501
         """WorkspaceForModifyWorkspaceNameOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,6 +110,8 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         self._create_time = None
         self._creation_source = None
         self._dns_visibility = None
+        self._delayed_delete_expired_at = None
+        self._delayed_delete_started_at = None
         self._deletion_protection_status = None
         self._engine_type = None
         self._engine_version = None
@@ -143,6 +149,10 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
             self.creation_source = creation_source
         if dns_visibility is not None:
             self.dns_visibility = dns_visibility
+        if delayed_delete_expired_at is not None:
+            self.delayed_delete_expired_at = delayed_delete_expired_at
+        if delayed_delete_started_at is not None:
+            self.delayed_delete_started_at = delayed_delete_started_at
         if deletion_protection_status is not None:
             self.deletion_protection_status = deletion_protection_status
         if engine_type is not None:
@@ -349,6 +359,48 @@ class WorkspaceForModifyWorkspaceNameOutput(object):
         """
 
         self._dns_visibility = dns_visibility
+
+    @property
+    def delayed_delete_expired_at(self):
+        """Gets the delayed_delete_expired_at of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+
+
+        :return: The delayed_delete_expired_at of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._delayed_delete_expired_at
+
+    @delayed_delete_expired_at.setter
+    def delayed_delete_expired_at(self, delayed_delete_expired_at):
+        """Sets the delayed_delete_expired_at of this WorkspaceForModifyWorkspaceNameOutput.
+
+
+        :param delayed_delete_expired_at: The delayed_delete_expired_at of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._delayed_delete_expired_at = delayed_delete_expired_at
+
+    @property
+    def delayed_delete_started_at(self):
+        """Gets the delayed_delete_started_at of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+
+
+        :return: The delayed_delete_started_at of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._delayed_delete_started_at
+
+    @delayed_delete_started_at.setter
+    def delayed_delete_started_at(self, delayed_delete_started_at):
+        """Sets the delayed_delete_started_at of this WorkspaceForModifyWorkspaceNameOutput.
+
+
+        :param delayed_delete_started_at: The delayed_delete_started_at of this WorkspaceForModifyWorkspaceNameOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._delayed_delete_started_at = delayed_delete_started_at
 
     @property
     def deletion_protection_status(self):
