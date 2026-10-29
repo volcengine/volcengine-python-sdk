@@ -1,0 +1,10 @@
+{
+  "actions": [
+    "SlowQueryAdviceTaskHistoryApi",
+    "DescribeAggregateSlowLogs",
+    "ListSlowQueryAdviceApi"
+  ],
+  "description": "DBW: 新增 DescribeAggregateSlowLogs；修改 ListSlowQueryAdviceApi, SlowQueryAdviceTaskHistoryApi",
+  "modules": "service/dbw",
+  "type": "breaking-change"
+}
