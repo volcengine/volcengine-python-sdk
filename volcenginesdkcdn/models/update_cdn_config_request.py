@@ -39,6 +39,7 @@ class UpdateCdnConfigRequest(object):
         'cache': 'list[CacheForUpdateCdnConfigInput]',
         'cache_host': 'CacheHostForUpdateCdnConfigInput',
         'cache_key': 'list[CacheKeyForUpdateCdnConfigInput]',
+        'cdn_image_studio': 'CdnImageStudioForUpdateCdnConfigInput',
         'compression': 'CompressionForUpdateCdnConfigInput',
         'conditional_origin': 'ConditionalOriginForUpdateCdnConfigInput',
         'custom_error_page': 'CustomErrorPageForUpdateCdnConfigInput',
@@ -46,6 +47,7 @@ class UpdateCdnConfigRequest(object):
         'domain': 'str',
         'download_speed_limit': 'DownloadSpeedLimitForUpdateCdnConfigInput',
         'follow_redirect': 'bool',
+        'htmlto_markdown': 'HTMLToMarkdownForUpdateCdnConfigInput',
         'https': 'HTTPSForUpdateCdnConfigInput',
         'http_forced_redirect': 'HttpForcedRedirectForUpdateCdnConfigInput',
         'ipv6': 'IPv6ForUpdateCdnConfigInput',
@@ -63,11 +65,13 @@ class UpdateCdnConfigRequest(object):
         'origin_ipv6': 'str',
         'origin_protocol': 'str',
         'origin_range': 'bool',
+        'origin_response_header': 'list[OriginResponseHeaderForUpdateCdnConfigInput]',
         'origin_retry': 'OriginRetryForUpdateCdnConfigInput',
         'origin_rewrite': 'OriginRewriteForUpdateCdnConfigInput',
         'origin_sni': 'OriginSniForUpdateCdnConfigInput',
         'page_optimization': 'PageOptimizationForUpdateCdnConfigInput',
         'quic': 'QuicForUpdateCdnConfigInput',
+        'range': 'RangeForUpdateCdnConfigInput',
         'redirection_rewrite': 'RedirectionRewriteForUpdateCdnConfigInput',
         'referer_access_rule': 'RefererAccessRuleForUpdateCdnConfigInput',
         'remote_auth': 'RemoteAuthForUpdateCdnConfigInput',
@@ -91,6 +95,7 @@ class UpdateCdnConfigRequest(object):
         'cache': 'Cache',
         'cache_host': 'CacheHost',
         'cache_key': 'CacheKey',
+        'cdn_image_studio': 'CdnImageStudio',
         'compression': 'Compression',
         'conditional_origin': 'ConditionalOrigin',
         'custom_error_page': 'CustomErrorPage',
@@ -98,6 +103,7 @@ class UpdateCdnConfigRequest(object):
         'domain': 'Domain',
         'download_speed_limit': 'DownloadSpeedLimit',
         'follow_redirect': 'FollowRedirect',
+        'htmlto_markdown': 'HTMLToMarkdown',
         'https': 'HTTPS',
         'http_forced_redirect': 'HttpForcedRedirect',
         'ipv6': 'IPv6',
@@ -115,11 +121,13 @@ class UpdateCdnConfigRequest(object):
         'origin_ipv6': 'OriginIPv6',
         'origin_protocol': 'OriginProtocol',
         'origin_range': 'OriginRange',
+        'origin_response_header': 'OriginResponseHeader',
         'origin_retry': 'OriginRetry',
         'origin_rewrite': 'OriginRewrite',
         'origin_sni': 'OriginSni',
         'page_optimization': 'PageOptimization',
         'quic': 'Quic',
+        'range': 'Range',
         'redirection_rewrite': 'RedirectionRewrite',
         'referer_access_rule': 'RefererAccessRule',
         'remote_auth': 'RemoteAuth',
@@ -136,7 +144,7 @@ class UpdateCdnConfigRequest(object):
         'video_drag': 'VideoDrag'
     }
 
-    def __init__(self, area_access_rule=None, bandwidth_limit=None, browser_cache=None, cache=None, cache_host=None, cache_key=None, compression=None, conditional_origin=None, custom_error_page=None, customize_access_rule=None, domain=None, download_speed_limit=None, follow_redirect=None, https=None, http_forced_redirect=None, ipv6=None, ip_access_rule=None, ip_freq_limit=None, method_denied_rule=None, multi_range=None, negative_cache=None, offline_cache=None, origin=None, origin_access_rule=None, origin_arg=None, origin_cert_check=None, origin_host=None, origin_ipv6=None, origin_protocol=None, origin_range=None, origin_retry=None, origin_rewrite=None, origin_sni=None, page_optimization=None, quic=None, redirection_rewrite=None, referer_access_rule=None, remote_auth=None, request_block_rule=None, request_header=None, response_header=None, rewrite_hls=None, rule_engine=None, service_region=None, signed_url_auth=None, timeout=None, ua_access_rule=None, url_normalize=None, video_drag=None, _configuration=None):  # noqa: E501
+    def __init__(self, area_access_rule=None, bandwidth_limit=None, browser_cache=None, cache=None, cache_host=None, cache_key=None, cdn_image_studio=None, compression=None, conditional_origin=None, custom_error_page=None, customize_access_rule=None, domain=None, download_speed_limit=None, follow_redirect=None, htmlto_markdown=None, https=None, http_forced_redirect=None, ipv6=None, ip_access_rule=None, ip_freq_limit=None, method_denied_rule=None, multi_range=None, negative_cache=None, offline_cache=None, origin=None, origin_access_rule=None, origin_arg=None, origin_cert_check=None, origin_host=None, origin_ipv6=None, origin_protocol=None, origin_range=None, origin_response_header=None, origin_retry=None, origin_rewrite=None, origin_sni=None, page_optimization=None, quic=None, range=None, redirection_rewrite=None, referer_access_rule=None, remote_auth=None, request_block_rule=None, request_header=None, response_header=None, rewrite_hls=None, rule_engine=None, service_region=None, signed_url_auth=None, timeout=None, ua_access_rule=None, url_normalize=None, video_drag=None, _configuration=None):  # noqa: E501
         """UpdateCdnConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -148,6 +156,7 @@ class UpdateCdnConfigRequest(object):
         self._cache = None
         self._cache_host = None
         self._cache_key = None
+        self._cdn_image_studio = None
         self._compression = None
         self._conditional_origin = None
         self._custom_error_page = None
@@ -155,6 +164,7 @@ class UpdateCdnConfigRequest(object):
         self._domain = None
         self._download_speed_limit = None
         self._follow_redirect = None
+        self._htmlto_markdown = None
         self._https = None
         self._http_forced_redirect = None
         self._ipv6 = None
@@ -172,11 +182,13 @@ class UpdateCdnConfigRequest(object):
         self._origin_ipv6 = None
         self._origin_protocol = None
         self._origin_range = None
+        self._origin_response_header = None
         self._origin_retry = None
         self._origin_rewrite = None
         self._origin_sni = None
         self._page_optimization = None
         self._quic = None
+        self._range = None
         self._redirection_rewrite = None
         self._referer_access_rule = None
         self._remote_auth = None
@@ -205,6 +217,8 @@ class UpdateCdnConfigRequest(object):
             self.cache_host = cache_host
         if cache_key is not None:
             self.cache_key = cache_key
+        if cdn_image_studio is not None:
+            self.cdn_image_studio = cdn_image_studio
         if compression is not None:
             self.compression = compression
         if conditional_origin is not None:
@@ -218,6 +232,8 @@ class UpdateCdnConfigRequest(object):
             self.download_speed_limit = download_speed_limit
         if follow_redirect is not None:
             self.follow_redirect = follow_redirect
+        if htmlto_markdown is not None:
+            self.htmlto_markdown = htmlto_markdown
         if https is not None:
             self.https = https
         if http_forced_redirect is not None:
@@ -252,6 +268,8 @@ class UpdateCdnConfigRequest(object):
             self.origin_protocol = origin_protocol
         if origin_range is not None:
             self.origin_range = origin_range
+        if origin_response_header is not None:
+            self.origin_response_header = origin_response_header
         if origin_retry is not None:
             self.origin_retry = origin_retry
         if origin_rewrite is not None:
@@ -262,6 +280,8 @@ class UpdateCdnConfigRequest(object):
             self.page_optimization = page_optimization
         if quic is not None:
             self.quic = quic
+        if range is not None:
+            self.range = range
         if redirection_rewrite is not None:
             self.redirection_rewrite = redirection_rewrite
         if referer_access_rule is not None:
@@ -418,6 +438,27 @@ class UpdateCdnConfigRequest(object):
         self._cache_key = cache_key
 
     @property
+    def cdn_image_studio(self):
+        """Gets the cdn_image_studio of this UpdateCdnConfigRequest.  # noqa: E501
+
+
+        :return: The cdn_image_studio of this UpdateCdnConfigRequest.  # noqa: E501
+        :rtype: CdnImageStudioForUpdateCdnConfigInput
+        """
+        return self._cdn_image_studio
+
+    @cdn_image_studio.setter
+    def cdn_image_studio(self, cdn_image_studio):
+        """Sets the cdn_image_studio of this UpdateCdnConfigRequest.
+
+
+        :param cdn_image_studio: The cdn_image_studio of this UpdateCdnConfigRequest.  # noqa: E501
+        :type: CdnImageStudioForUpdateCdnConfigInput
+        """
+
+        self._cdn_image_studio = cdn_image_studio
+
+    @property
     def compression(self):
         """Gets the compression of this UpdateCdnConfigRequest.  # noqa: E501
 
@@ -565,6 +606,27 @@ class UpdateCdnConfigRequest(object):
         """
 
         self._follow_redirect = follow_redirect
+
+    @property
+    def htmlto_markdown(self):
+        """Gets the htmlto_markdown of this UpdateCdnConfigRequest.  # noqa: E501
+
+
+        :return: The htmlto_markdown of this UpdateCdnConfigRequest.  # noqa: E501
+        :rtype: HTMLToMarkdownForUpdateCdnConfigInput
+        """
+        return self._htmlto_markdown
+
+    @htmlto_markdown.setter
+    def htmlto_markdown(self, htmlto_markdown):
+        """Sets the htmlto_markdown of this UpdateCdnConfigRequest.
+
+
+        :param htmlto_markdown: The htmlto_markdown of this UpdateCdnConfigRequest.  # noqa: E501
+        :type: HTMLToMarkdownForUpdateCdnConfigInput
+        """
+
+        self._htmlto_markdown = htmlto_markdown
 
     @property
     def https(self):
@@ -924,6 +986,27 @@ class UpdateCdnConfigRequest(object):
         self._origin_range = origin_range
 
     @property
+    def origin_response_header(self):
+        """Gets the origin_response_header of this UpdateCdnConfigRequest.  # noqa: E501
+
+
+        :return: The origin_response_header of this UpdateCdnConfigRequest.  # noqa: E501
+        :rtype: list[OriginResponseHeaderForUpdateCdnConfigInput]
+        """
+        return self._origin_response_header
+
+    @origin_response_header.setter
+    def origin_response_header(self, origin_response_header):
+        """Sets the origin_response_header of this UpdateCdnConfigRequest.
+
+
+        :param origin_response_header: The origin_response_header of this UpdateCdnConfigRequest.  # noqa: E501
+        :type: list[OriginResponseHeaderForUpdateCdnConfigInput]
+        """
+
+        self._origin_response_header = origin_response_header
+
+    @property
     def origin_retry(self):
         """Gets the origin_retry of this UpdateCdnConfigRequest.  # noqa: E501
 
@@ -1027,6 +1110,27 @@ class UpdateCdnConfigRequest(object):
         """
 
         self._quic = quic
+
+    @property
+    def range(self):
+        """Gets the range of this UpdateCdnConfigRequest.  # noqa: E501
+
+
+        :return: The range of this UpdateCdnConfigRequest.  # noqa: E501
+        :rtype: RangeForUpdateCdnConfigInput
+        """
+        return self._range
+
+    @range.setter
+    def range(self, range):
+        """Sets the range of this UpdateCdnConfigRequest.
+
+
+        :param range: The range of this UpdateCdnConfigRequest.  # noqa: E501
+        :type: RangeForUpdateCdnConfigInput
+        """
+
+        self._range = range
 
     @property
     def redirection_rewrite(self):
