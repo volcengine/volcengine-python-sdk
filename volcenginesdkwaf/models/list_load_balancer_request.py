@@ -35,16 +35,18 @@ class ListLoadBalancerRequest(object):
     swagger_types = {
         'host': 'str',
         'project_name': 'str',
-        'type': 'str'
+        'type': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
         'host': 'Host',
         'project_name': 'ProjectName',
-        'type': 'Type'
+        'type': 'Type',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, host=None, project_name=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, host=None, project_name=None, type=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ListLoadBalancerRequest(object):
         self._host = None
         self._project_name = None
         self._type = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if host is not None:
@@ -61,6 +64,8 @@ class ListLoadBalancerRequest(object):
             self.project_name = project_name
         if type is not None:
             self.type = type
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def host(self):
@@ -124,6 +129,27 @@ class ListLoadBalancerRequest(object):
         """
 
         self._type = type
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListLoadBalancerRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -51,6 +51,7 @@ class UpdateWafServiceControlRequest(object):
         'system_bot_enable': 'int',
         'tls_enable': 'int',
         'tamper_proof_enable': 'int',
+        'waf_instance_id': 'str',
         'waf_enable': 'int',
         'waf_white_req_enable': 'int',
         'white_enable': 'int',
@@ -76,13 +77,14 @@ class UpdateWafServiceControlRequest(object):
         'system_bot_enable': 'SystemBotEnable',
         'tls_enable': 'TLSEnable',
         'tamper_proof_enable': 'TamperProofEnable',
+        'waf_instance_id': 'WAFInstanceID',
         'waf_enable': 'WafEnable',
         'waf_white_req_enable': 'WafWhiteReqEnable',
         'white_enable': 'WhiteEnable',
         'white_field_enable': 'WhiteFieldEnable'
     }
 
-    def __init__(self, api_enable=None, auto_cc_enable=None, black_ip_enable=None, black_lct_enable=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, cc_enable=None, custom_bot_enable=None, custom_rsp_enable=None, dlp_enable=None, host=None, project_name=None, system_bot_enable=None, tls_enable=None, tamper_proof_enable=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_enable=None, auto_cc_enable=None, black_ip_enable=None, black_lct_enable=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, cc_enable=None, custom_bot_enable=None, custom_rsp_enable=None, dlp_enable=None, host=None, project_name=None, system_bot_enable=None, tls_enable=None, tamper_proof_enable=None, waf_instance_id=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
         """UpdateWafServiceControlRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,6 +108,7 @@ class UpdateWafServiceControlRequest(object):
         self._system_bot_enable = None
         self._tls_enable = None
         self._tamper_proof_enable = None
+        self._waf_instance_id = None
         self._waf_enable = None
         self._waf_white_req_enable = None
         self._white_enable = None
@@ -147,6 +150,8 @@ class UpdateWafServiceControlRequest(object):
             self.tls_enable = tls_enable
         if tamper_proof_enable is not None:
             self.tamper_proof_enable = tamper_proof_enable
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
         if waf_enable is not None:
             self.waf_enable = waf_enable
         if waf_white_req_enable is not None:
@@ -535,6 +540,27 @@ class UpdateWafServiceControlRequest(object):
         """
 
         self._tamper_proof_enable = tamper_proof_enable
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateWafServiceControlRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateWafServiceControlRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateWafServiceControlRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateWafServiceControlRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     @property
     def waf_enable(self):

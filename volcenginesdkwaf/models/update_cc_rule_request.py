@@ -54,6 +54,7 @@ class UpdateCCRuleRequest(object):
         'single_threshold': 'int',
         'update_time': 'str',
         'url': 'str',
+        'waf_instance_id': 'str',
         'ws_cdn_byte_threshold': 'int',
         'ws_cdn_enable': 'int',
         'ws_cdn_frame_threshold': 'int',
@@ -82,13 +83,14 @@ class UpdateCCRuleRequest(object):
         'single_threshold': 'SingleThreshold',
         'update_time': 'UpdateTime',
         'url': 'Url',
+        'waf_instance_id': 'WAFInstanceID',
         'ws_cdn_byte_threshold': 'WSCdnByteThreshold',
         'ws_cdn_enable': 'WSCdnEnable',
         'ws_cdn_frame_threshold': 'WSCdnFrameThreshold',
         'ws_cdn_unit': 'WSCdnUnit'
     }
 
-    def __init__(self, accurate_group=None, accurate_group_priority=None, cc_type=None, count_time=None, cron_confs=None, cron_enable=None, custom_response_page_id=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, id=None, name=None, path_threshold=None, project_name=None, rule_priority=None, rule_tag=None, single_threshold=None, update_time=None, url=None, ws_cdn_byte_threshold=None, ws_cdn_enable=None, ws_cdn_frame_threshold=None, ws_cdn_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, accurate_group_priority=None, cc_type=None, count_time=None, cron_confs=None, cron_enable=None, custom_response_page_id=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, id=None, name=None, path_threshold=None, project_name=None, rule_priority=None, rule_tag=None, single_threshold=None, update_time=None, url=None, waf_instance_id=None, ws_cdn_byte_threshold=None, ws_cdn_enable=None, ws_cdn_frame_threshold=None, ws_cdn_unit=None, _configuration=None):  # noqa: E501
         """UpdateCCRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -115,6 +117,7 @@ class UpdateCCRuleRequest(object):
         self._single_threshold = None
         self._update_time = None
         self._url = None
+        self._waf_instance_id = None
         self._ws_cdn_byte_threshold = None
         self._ws_cdn_enable = None
         self._ws_cdn_frame_threshold = None
@@ -155,6 +158,8 @@ class UpdateCCRuleRequest(object):
         if update_time is not None:
             self.update_time = update_time
         self.url = url
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
         if ws_cdn_byte_threshold is not None:
             self.ws_cdn_byte_threshold = ws_cdn_byte_threshold
         if ws_cdn_enable is not None:
@@ -620,6 +625,27 @@ class UpdateCCRuleRequest(object):
             raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UpdateCCRuleRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UpdateCCRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UpdateCCRuleRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UpdateCCRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     @property
     def ws_cdn_byte_threshold(self):

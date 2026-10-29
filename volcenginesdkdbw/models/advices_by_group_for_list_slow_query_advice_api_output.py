@@ -34,12 +34,12 @@ class AdvicesByGroupForListSlowQueryAdviceApiOutput(object):
     """
     swagger_types = {
         'advice': 'str',
-        'advices': 'list[ConvertadviceForListSlowQueryAdviceApiOutput]'
+        'advices': 'list[AdviceForListSlowQueryAdviceApiOutput]'
     }
 
     attribute_map = {
         'advice': 'Advice',
-        'advices': 'advices'
+        'advices': 'Advices'
     }
 
     def __init__(self, advice=None, advices=None, _configuration=None):  # noqa: E501
@@ -84,7 +84,7 @@ class AdvicesByGroupForListSlowQueryAdviceApiOutput(object):
 
 
         :return: The advices of this AdvicesByGroupForListSlowQueryAdviceApiOutput.  # noqa: E501
-        :rtype: list[ConvertadviceForListSlowQueryAdviceApiOutput]
+        :rtype: list[AdviceForListSlowQueryAdviceApiOutput]
         """
         return self._advices
 
@@ -94,7 +94,7 @@ class AdvicesByGroupForListSlowQueryAdviceApiOutput(object):
 
 
         :param advices: The advices of this AdvicesByGroupForListSlowQueryAdviceApiOutput.  # noqa: E501
-        :type: list[ConvertadviceForListSlowQueryAdviceApiOutput]
+        :type: list[AdviceForListSlowQueryAdviceApiOutput]
         """
 
         self._advices = advices

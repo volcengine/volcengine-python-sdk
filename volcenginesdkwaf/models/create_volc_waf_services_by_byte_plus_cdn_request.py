@@ -37,7 +37,8 @@ class CreateVolcWafServicesByBytePlusCDNRequest(object):
         'project_follow': 'int',
         'project_name': 'str',
         'tls_enable': 'int',
-        'tls_field_config': 'TLSFieldConfigForCreateVolcWafServicesByBytePlusCDNInput'
+        'tls_field_config': 'TLSFieldConfigForCreateVolcWafServicesByBytePlusCDNInput',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class CreateVolcWafServicesByBytePlusCDNRequest(object):
         'project_follow': 'ProjectFollow',
         'project_name': 'ProjectName',
         'tls_enable': 'TLSEnable',
-        'tls_field_config': 'TLSFieldConfig'
+        'tls_field_config': 'TLSFieldConfig',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, domains=None, project_follow=None, project_name=None, tls_enable=None, tls_field_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, domains=None, project_follow=None, project_name=None, tls_enable=None, tls_field_config=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """CreateVolcWafServicesByBytePlusCDNRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CreateVolcWafServicesByBytePlusCDNRequest(object):
         self._project_name = None
         self._tls_enable = None
         self._tls_field_config = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if domains is not None:
@@ -71,6 +74,8 @@ class CreateVolcWafServicesByBytePlusCDNRequest(object):
             self.tls_enable = tls_enable
         if tls_field_config is not None:
             self.tls_field_config = tls_field_config
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def domains(self):
@@ -176,6 +181,27 @@ class CreateVolcWafServicesByBytePlusCDNRequest(object):
         """
 
         self._tls_field_config = tls_field_config
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this CreateVolcWafServicesByBytePlusCDNRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this CreateVolcWafServicesByBytePlusCDNRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this CreateVolcWafServicesByBytePlusCDNRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this CreateVolcWafServicesByBytePlusCDNRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

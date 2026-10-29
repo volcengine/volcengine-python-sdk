@@ -33,23 +33,49 @@ class DeleteWorkspaceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'delayed_delete': 'bool',
         'workspace_id': 'str'
     }
 
     attribute_map = {
+        'delayed_delete': 'DelayedDelete',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, delayed_delete=None, workspace_id=None, _configuration=None):  # noqa: E501
         """DeleteWorkspaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._delayed_delete = None
         self._workspace_id = None
         self.discriminator = None
 
+        if delayed_delete is not None:
+            self.delayed_delete = delayed_delete
         self.workspace_id = workspace_id
+
+    @property
+    def delayed_delete(self):
+        """Gets the delayed_delete of this DeleteWorkspaceRequest.  # noqa: E501
+
+
+        :return: The delayed_delete of this DeleteWorkspaceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delayed_delete
+
+    @delayed_delete.setter
+    def delayed_delete(self, delayed_delete):
+        """Sets the delayed_delete of this DeleteWorkspaceRequest.
+
+
+        :param delayed_delete: The delayed_delete of this DeleteWorkspaceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._delayed_delete = delayed_delete
 
     @property
     def workspace_id(self):

@@ -39,7 +39,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         'page': 'int',
         'page_size': 'int',
         'path': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         'page': 'Page',
         'page_size': 'PageSize',
         'path': 'Path',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, accurate_group=None, bot_space=None, host=None, page=None, page_size=None, path=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, bot_space=None, host=None, page=None, page_size=None, path=None, project_name=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListBotAnalyseProtectRulePriorityAvailableRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         self._page_size = None
         self._path = None
         self._project_name = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if accurate_group is not None:
@@ -78,6 +81,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         self.path = path
         if project_name is not None:
             self.project_name = project_name
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def accurate_group(self):
@@ -238,6 +243,27 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListBotAnalyseProtectRulePriorityAvailableRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListBotAnalyseProtectRulePriorityAvailableRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListBotAnalyseProtectRulePriorityAvailableRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListBotAnalyseProtectRulePriorityAvailableRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

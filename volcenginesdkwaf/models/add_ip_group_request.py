@@ -36,17 +36,19 @@ class AddIpGroupRequest(object):
         'add_type': 'str',
         'ip_list': 'list[str]',
         'name': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
         'add_type': 'AddType',
         'ip_list': 'IpList',
         'name': 'Name',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, add_type=None, ip_list=None, name=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, add_type=None, ip_list=None, name=None, project_name=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """AddIpGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class AddIpGroupRequest(object):
         self._ip_list = None
         self._name = None
         self._project_name = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         self.add_type = add_type
@@ -64,6 +67,8 @@ class AddIpGroupRequest(object):
         self.name = name
         if project_name is not None:
             self.project_name = project_name
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def add_type(self):
@@ -152,6 +157,27 @@ class AddIpGroupRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this AddIpGroupRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this AddIpGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this AddIpGroupRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this AddIpGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,17 +36,19 @@ class BatchCopySystemBotConfigRequest(object):
         'dst_host': 'DstHostForBatchCopySystemBotConfigInput',
         'project_name': 'str',
         'rule_tag_list': 'list[str]',
-        'src_host': 'str'
+        'src_host': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
         'dst_host': 'DstHost',
         'project_name': 'ProjectName',
         'rule_tag_list': 'RuleTagList',
-        'src_host': 'SrcHost'
+        'src_host': 'SrcHost',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, dst_host=None, project_name=None, rule_tag_list=None, src_host=None, _configuration=None):  # noqa: E501
+    def __init__(self, dst_host=None, project_name=None, rule_tag_list=None, src_host=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """BatchCopySystemBotConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class BatchCopySystemBotConfigRequest(object):
         self._project_name = None
         self._rule_tag_list = None
         self._src_host = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if dst_host is not None:
@@ -65,6 +68,8 @@ class BatchCopySystemBotConfigRequest(object):
         if rule_tag_list is not None:
             self.rule_tag_list = rule_tag_list
         self.src_host = src_host
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def dst_host(self):
@@ -151,6 +156,27 @@ class BatchCopySystemBotConfigRequest(object):
             raise ValueError("Invalid value for `src_host`, must not be `None`")  # noqa: E501
 
         self._src_host = src_host
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this BatchCopySystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this BatchCopySystemBotConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this BatchCopySystemBotConfigRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this BatchCopySystemBotConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

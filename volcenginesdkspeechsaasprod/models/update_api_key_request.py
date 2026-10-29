@@ -33,7 +33,7 @@ class UpdateAPIKeyRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'disable': 'str',
+        'disable': 'bool',
         'id': 'int',
         'name': 'str',
         'project_name': 'str'
@@ -71,7 +71,7 @@ class UpdateAPIKeyRequest(object):
 
 
         :return: The disable of this UpdateAPIKeyRequest.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._disable
 
@@ -81,7 +81,7 @@ class UpdateAPIKeyRequest(object):
 
 
         :param disable: The disable of this UpdateAPIKeyRequest.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._disable = disable

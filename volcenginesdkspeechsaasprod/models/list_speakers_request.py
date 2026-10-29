@@ -33,7 +33,7 @@ class ListSpeakersRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'limit': 'str',
+        'limit': 'int',
         'page': 'int',
         'resource_ids': 'list[str]',
         'voice_types': 'list[str]'
@@ -73,7 +73,7 @@ class ListSpeakersRequest(object):
 
 
         :return: The limit of this ListSpeakersRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._limit
 
@@ -83,7 +83,7 @@ class ListSpeakersRequest(object):
 
 
         :param limit: The limit of this ListSpeakersRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._limit = limit

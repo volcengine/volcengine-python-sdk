@@ -37,7 +37,8 @@ class ListCustomPageRequest(object):
         'page': 'int',
         'page_size': 'int',
         'project_name': 'str',
-        'rule_tag': 'str'
+        'rule_tag': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ListCustomPageRequest(object):
         'page': 'Page',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
-        'rule_tag': 'RuleTag'
+        'rule_tag': 'RuleTag',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, host=None, page=None, page_size=None, project_name=None, rule_tag=None, _configuration=None):  # noqa: E501
+    def __init__(self, host=None, page=None, page_size=None, project_name=None, rule_tag=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """ListCustomPageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ListCustomPageRequest(object):
         self._page_size = None
         self._project_name = None
         self._rule_tag = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         if host is not None:
@@ -71,6 +74,8 @@ class ListCustomPageRequest(object):
             self.project_name = project_name
         if rule_tag is not None:
             self.rule_tag = rule_tag
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def host(self):
@@ -176,6 +181,27 @@ class ListCustomPageRequest(object):
         """
 
         self._rule_tag = rule_tag
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ListCustomPageRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ListCustomPageRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ListCustomPageRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ListCustomPageRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

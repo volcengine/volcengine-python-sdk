@@ -37,7 +37,8 @@ class UploadWafServiceCertificateRequest(object):
         'name': 'str',
         'private_key': 'str',
         'project_name': 'str',
-        'public_key': 'str'
+        'public_key': 'str',
+        'waf_instance_id': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class UploadWafServiceCertificateRequest(object):
         'name': 'Name',
         'private_key': 'PrivateKey',
         'project_name': 'ProjectName',
-        'public_key': 'PublicKey'
+        'public_key': 'PublicKey',
+        'waf_instance_id': 'WAFInstanceID'
     }
 
-    def __init__(self, description=None, name=None, private_key=None, project_name=None, public_key=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, name=None, private_key=None, project_name=None, public_key=None, waf_instance_id=None, _configuration=None):  # noqa: E501
         """UploadWafServiceCertificateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class UploadWafServiceCertificateRequest(object):
         self._private_key = None
         self._project_name = None
         self._public_key = None
+        self._waf_instance_id = None
         self.discriminator = None
 
         self.description = description
@@ -67,6 +70,8 @@ class UploadWafServiceCertificateRequest(object):
         if project_name is not None:
             self.project_name = project_name
         self.public_key = public_key
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
 
     @property
     def description(self):
@@ -180,6 +185,27 @@ class UploadWafServiceCertificateRequest(object):
             raise ValueError("Invalid value for `public_key`, must not be `None`")  # noqa: E501
 
         self._public_key = public_key
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this UploadWafServiceCertificateRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this UploadWafServiceCertificateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this UploadWafServiceCertificateRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this UploadWafServiceCertificateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
