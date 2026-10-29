@@ -1,0 +1,10 @@
+{
+  "actions": [
+    "UpdateAPIKey",
+    "ServiceStatus",
+    "ListSpeakers"
+  ],
+  "description": "SPEECH_SAAS_PROD: 修改 UpdateAPIKey, ServiceStatus, ListSpeakers",
+  "modules": "service/speech_saas_prod",
+  "type": "breaking-change"
+}
