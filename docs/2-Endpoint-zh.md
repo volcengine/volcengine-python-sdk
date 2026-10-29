@@ -110,7 +110,7 @@ region 和 service 会被拼接进 Endpoint 域名（如 `{service}.{region}.vol
 - 必须以字母开头；
 - 不能以 `-` 或 `_` 结尾。
 
-规则等价于正则 `^[A-Za-z]([A-Za-z0-9_-]*[A-Za-z0-9])?$`。空字符串 `''` 和 `None` 不会在这里报错，交由调用方原有的空值处理；非字符串值（如 `42`、`b'cn-beijing'`）一律视为非法。service 先于 region 校验。
+规则等价于对**整个字符串**做匹配的正则 `^[A-Za-z]([A-Za-z0-9_-]*[A-Za-z0-9])?$`（使用 `re.fullmatch` 或 `\A...\Z`；注意 `re.match` 加 `$` 会错误放行末尾换行，如 `"cn-beijing\n"`，而 SDK 会拒绝它）。空字符串 `''` 和 `None` 不会在这里报错，交由调用方原有的空值处理；非字符串值（如 `42`、`b'cn-beijing'`）一律视为非法。service 先于 region 校验。
 
 **校验入口：**
 
@@ -122,7 +122,7 @@ region 和 service 会被拼接进 Endpoint 域名（如 `{service}.{region}.vol
 
 **跳过校验：** 普通 API 调用和通用调用在以下情况不校验：
 
-- 设置了 `configuration.host`（请求级 `RuntimeOption.endpoint_provider` 会清空 host，此时仍会校验）；
+- 设置了 `configuration.host`。对常规 API 调用，请求级 `RuntimeOption.endpoint_provider` 会清空 host，此时仍会校验；Universal 调用不支持 `RuntimeOption`（`UniversalApi.do_call` 的请求体必须是普通 `dict`），是否跳过校验只取决于配置；
 - endpoint provider 的类型**恰好是** `HostEndpointProvider`。代码使用 `type(provider) is not HostEndpointProvider` 判断，因此 `HostEndpointProvider` 的**子类不会跳过**，仍会校验。
 
 **错误类型：**
@@ -152,7 +152,7 @@ except ApiException as e:
 
 **与旧版本不同：**
 
-- 带首尾空白的 region（如 `"cn-beijing "`、`"cn-beijing\n"`）不再被接受，直接抛出 `InvalidRegion`。此前 SDK 不拒绝这类值，但签名使用的是原值，请求本就会被服务端以 `InvalidAuthorization` 拒绝。请在设置 `configuration.region` 或 `RuntimeOption.region` 之前自行 `strip()`。CLI 配置文件中的 region（RamRoleArn / OIDC profile 的 `region`、`sso-session` 的 `region`）在使用前已做 `strip()`，不受影响。
+- 带首尾空白的 region（如 `"cn-beijing "`、`"cn-beijing\n"`）不再被接受，直接抛出 `InvalidRegion`。此前 SDK 不拒绝这类值，但签名使用的是原值，请求本就无法成功：带尾部空格的值会被服务端以 `InvalidAuthorization` 拒绝，而包含换行的值（如 `"cn-beijing\n"`）根本发不出去，HTTP 客户端会在本地因请求头非法（`Invalid header value`）而报错。请在设置 `configuration.region` 或 `RuntimeOption.region` 之前自行 `strip()`。CLI 配置文件中的 region（RamRoleArn / OIDC profile 的 `region`、`sso-session` 的 `region`）在使用前已做 `strip()`，不受影响。
 - `HostEndpointProvider` 的子类也会被校验（见上）。
 - `StandardEndpointResolver` 收到非法标签（如 `"cn beijing"`）时，抛出 `EndpointValidationError`，不再是 `StandProviderError`；标签合法但不在支持范围内的 region 仍抛出 `StandProviderError`（`InvalidRegion`）。
 - 新增公开校验函数 `validate_region`、`validate_service`、`validate_service_and_region`，导入路径为 `volcenginesdkcore.endpoint.validation`。校验通过时无返回值，失败时抛出 `EndpointValidationError`，空值（`''`、`None`）视为通过。

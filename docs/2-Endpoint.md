@@ -110,7 +110,7 @@ The region and service are concatenated into the endpoint host name (e.g., `{ser
 - starts with a letter;
 - does not end with `-` or `_`.
 
-The rule is equivalent to the regular expression `^[A-Za-z]([A-Za-z0-9_-]*[A-Za-z0-9])?$`. An empty string `''` or `None` is not rejected here and is left to the caller's existing handling of missing values; a non-string value (e.g., `42`, `b'cn-beijing'`) is always invalid. The service is validated before the region.
+The rule is equivalent to the regular expression `^[A-Za-z]([A-Za-z0-9_-]*[A-Za-z0-9])?$` matched against the **whole** string (`re.fullmatch`, or `\A...\Z`; note that `re.match` with `$` would wrongly accept a trailing newline such as `"cn-beijing\n"`, the SDK rejects it). An empty string `''` or `None` is not rejected here and is left to the caller's existing handling of missing values; a non-string value (e.g., `42`, `b'cn-beijing'`) is always invalid. The service is validated before the region.
 
 **Where it is checked:**
 
@@ -122,7 +122,7 @@ The rule is equivalent to the regular expression `^[A-Za-z]([A-Za-z0-9_-]*[A-Za-
 
 **When it is skipped:** regular API calls and universal calls skip the check when:
 
-- `configuration.host` is set (a request-level `RuntimeOption.endpoint_provider` clears the host, so the check still runs in that case);
+- `configuration.host` is set. For regular API calls, a request-level `RuntimeOption.endpoint_provider` clears the host, so the check still runs in that case. Universal calls do not support `RuntimeOption` (the request body of `UniversalApi.do_call` must be a plain `dict`), so only the configuration decides whether the check is skipped;
 - the endpoint provider's type is **exactly** `HostEndpointProvider`. The code checks `type(provider) is not HostEndpointProvider`, so **subclasses of `HostEndpointProvider` are not skipped** and are still validated.
 
 **Error type:**
@@ -152,7 +152,7 @@ except ApiException as e:
 
 **Behavior change:**
 
-- A region with leading or trailing whitespace (e.g., `"cn-beijing "`, `"cn-beijing\n"`) is no longer accepted and raises `InvalidRegion`. The SDK did not reject such values before, but the signature used the raw value, so the request was already rejected by the server with `InvalidAuthorization`. Call `strip()` yourself before setting `configuration.region` or `RuntimeOption.region`. Regions read from the CLI config file (`region` of a RamRoleArn / OIDC profile, `region` of an `sso-session`) are already `strip()`ped before use and are not affected.
+- A region with leading or trailing whitespace (e.g., `"cn-beijing "`, `"cn-beijing\n"`) is no longer accepted and raises `InvalidRegion`. The SDK did not reject such values before, but the signature used the raw value, so the request was already rejected: a value with a trailing space is rejected by the server with `InvalidAuthorization`, while a value containing a newline (such as `"cn-beijing\n"`) never leaves the process, because the HTTP client refuses the resulting invalid header value (`Invalid header value`). Call `strip()` yourself before setting `configuration.region` or `RuntimeOption.region`. Regions read from the CLI config file (`region` of a RamRoleArn / OIDC profile, `region` of an `sso-session`) are already `strip()`ped before use and are not affected.
 - Subclasses of `HostEndpointProvider` are validated too (see above).
 - `StandardEndpointResolver` raises `EndpointValidationError` instead of `StandProviderError` for an invalid label (e.g., `"cn beijing"`); a valid label that is not a supported region still raises `StandProviderError` (`InvalidRegion`).
 - New public validation functions `validate_region`, `validate_service` and `validate_service_and_region`, importable from `volcenginesdkcore.endpoint.validation`. They return nothing on success, raise `EndpointValidationError` on failure, and accept empty values (`''`, `None`).
