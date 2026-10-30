@@ -33,9 +33,7 @@ class NetworkRulesForCreateSandboxInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'allow_egress': 'list[AllowEgressForCreateSandboxInput]',
         'allow_egress_access': 'bool',
-        'deny_egress': 'list[DenyEgressForCreateSandboxInput]',
         'egress_domain_rules': 'EgressDomainRulesForCreateSandboxInput',
         'egress_ip_rules': 'EgressIPRulesForCreateSandboxInput',
         'http_proxy': 'HttpProxyForCreateSandboxInput',
@@ -43,36 +41,28 @@ class NetworkRulesForCreateSandboxInput(object):
     }
 
     attribute_map = {
-        'allow_egress': 'AllowEgress',
         'allow_egress_access': 'AllowEgressAccess',
-        'deny_egress': 'DenyEgress',
         'egress_domain_rules': 'EgressDomainRules',
         'egress_ip_rules': 'EgressIPRules',
         'http_proxy': 'HttpProxy',
         'max_egress_cps': 'MaxEgressCps'
     }
 
-    def __init__(self, allow_egress=None, allow_egress_access=None, deny_egress=None, egress_domain_rules=None, egress_ip_rules=None, http_proxy=None, max_egress_cps=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_egress_access=None, egress_domain_rules=None, egress_ip_rules=None, http_proxy=None, max_egress_cps=None, _configuration=None):  # noqa: E501
         """NetworkRulesForCreateSandboxInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._allow_egress = None
         self._allow_egress_access = None
-        self._deny_egress = None
         self._egress_domain_rules = None
         self._egress_ip_rules = None
         self._http_proxy = None
         self._max_egress_cps = None
         self.discriminator = None
 
-        if allow_egress is not None:
-            self.allow_egress = allow_egress
         if allow_egress_access is not None:
             self.allow_egress_access = allow_egress_access
-        if deny_egress is not None:
-            self.deny_egress = deny_egress
         if egress_domain_rules is not None:
             self.egress_domain_rules = egress_domain_rules
         if egress_ip_rules is not None:
@@ -81,27 +71,6 @@ class NetworkRulesForCreateSandboxInput(object):
             self.http_proxy = http_proxy
         if max_egress_cps is not None:
             self.max_egress_cps = max_egress_cps
-
-    @property
-    def allow_egress(self):
-        """Gets the allow_egress of this NetworkRulesForCreateSandboxInput.  # noqa: E501
-
-
-        :return: The allow_egress of this NetworkRulesForCreateSandboxInput.  # noqa: E501
-        :rtype: list[AllowEgressForCreateSandboxInput]
-        """
-        return self._allow_egress
-
-    @allow_egress.setter
-    def allow_egress(self, allow_egress):
-        """Sets the allow_egress of this NetworkRulesForCreateSandboxInput.
-
-
-        :param allow_egress: The allow_egress of this NetworkRulesForCreateSandboxInput.  # noqa: E501
-        :type: list[AllowEgressForCreateSandboxInput]
-        """
-
-        self._allow_egress = allow_egress
 
     @property
     def allow_egress_access(self):
@@ -123,27 +92,6 @@ class NetworkRulesForCreateSandboxInput(object):
         """
 
         self._allow_egress_access = allow_egress_access
-
-    @property
-    def deny_egress(self):
-        """Gets the deny_egress of this NetworkRulesForCreateSandboxInput.  # noqa: E501
-
-
-        :return: The deny_egress of this NetworkRulesForCreateSandboxInput.  # noqa: E501
-        :rtype: list[DenyEgressForCreateSandboxInput]
-        """
-        return self._deny_egress
-
-    @deny_egress.setter
-    def deny_egress(self, deny_egress):
-        """Sets the deny_egress of this NetworkRulesForCreateSandboxInput.
-
-
-        :param deny_egress: The deny_egress of this NetworkRulesForCreateSandboxInput.  # noqa: E501
-        :type: list[DenyEgressForCreateSandboxInput]
-        """
-
-        self._deny_egress = deny_egress
 
     @property
     def egress_domain_rules(self):
