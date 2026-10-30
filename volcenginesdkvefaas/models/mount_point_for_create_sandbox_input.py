@@ -34,29 +34,34 @@ class MountPointForCreateSandboxInput(object):
     """
     swagger_types = {
         'backend': 'BackendForCreateSandboxInput',
+        'encryption_config': 'ConvertEncryptionConfigForCreateSandboxInput',
         'local_mount_path': 'str',
         'read_only': 'bool'
     }
 
     attribute_map = {
         'backend': 'Backend',
+        'encryption_config': 'EncryptionConfig',
         'local_mount_path': 'LocalMountPath',
         'read_only': 'ReadOnly'
     }
 
-    def __init__(self, backend=None, local_mount_path=None, read_only=None, _configuration=None):  # noqa: E501
+    def __init__(self, backend=None, encryption_config=None, local_mount_path=None, read_only=None, _configuration=None):  # noqa: E501
         """MountPointForCreateSandboxInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._backend = None
+        self._encryption_config = None
         self._local_mount_path = None
         self._read_only = None
         self.discriminator = None
 
         if backend is not None:
             self.backend = backend
+        if encryption_config is not None:
+            self.encryption_config = encryption_config
         if local_mount_path is not None:
             self.local_mount_path = local_mount_path
         if read_only is not None:
@@ -82,6 +87,27 @@ class MountPointForCreateSandboxInput(object):
         """
 
         self._backend = backend
+
+    @property
+    def encryption_config(self):
+        """Gets the encryption_config of this MountPointForCreateSandboxInput.  # noqa: E501
+
+
+        :return: The encryption_config of this MountPointForCreateSandboxInput.  # noqa: E501
+        :rtype: ConvertEncryptionConfigForCreateSandboxInput
+        """
+        return self._encryption_config
+
+    @encryption_config.setter
+    def encryption_config(self, encryption_config):
+        """Sets the encryption_config of this MountPointForCreateSandboxInput.
+
+
+        :param encryption_config: The encryption_config of this MountPointForCreateSandboxInput.  # noqa: E501
+        :type: ConvertEncryptionConfigForCreateSandboxInput
+        """
+
+        self._encryption_config = encryption_config
 
     @property
     def local_mount_path(self):
