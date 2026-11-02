@@ -14,11 +14,29 @@
 from __future__ import absolute_import
 
 import re  # noqa: F401
+import sys
 
 # python 2 and python 3 compatibility library
 import six
 
 import volcenginesdkcore
+
+# 下线过渡期：同一进程内最多提示一次。仅写入 stderr，不改变任何请求行为。
+_deprecation_notice_emitted = False
+
+
+def _emit_deprecation_notice():
+    global _deprecation_notice_emitted
+    if _deprecation_notice_emitted:
+        return
+    _deprecation_notice_emitted = True
+    sys.stderr.write(
+        "Warning: RDS MySQL API 2018-01-01 is deprecated and will be removed "
+        "in a future release.\n"
+        "Please migrate to volcenginesdkrdsmysqlv2 with API version "
+        "2022-01-01.\n"
+        "The current request continues unchanged using API 2018-01-01.\n"
+    )
 
 
 class RDSMYSQLApi(object):
@@ -32,6 +50,7 @@ class RDSMYSQLApi(object):
     """
 
     def __init__(self, api_client=None):
+        _emit_deprecation_notice()
         if api_client is None:
             api_client = volcenginesdkcore.ApiClient()
         self.api_client = api_client
