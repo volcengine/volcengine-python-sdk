@@ -34,8 +34,8 @@ class AuditLogConfigForUpdateAuditLogConfigOutput(object):
     """
     swagger_types = {
         'cloud_storage': 'CloudStorageForUpdateAuditLogConfigOutput',
-        'cluster_id': 'str',
         'enabled': 'bool',
+        'instance_id': 'str',
         'rotation_interval_minutes': 'int',
         'rotation_size_mi_b': 'int',
         'unredacted': 'bool'
@@ -43,22 +43,22 @@ class AuditLogConfigForUpdateAuditLogConfigOutput(object):
 
     attribute_map = {
         'cloud_storage': 'CloudStorage',
-        'cluster_id': 'ClusterId',
         'enabled': 'Enabled',
+        'instance_id': 'InstanceId',
         'rotation_interval_minutes': 'RotationIntervalMinutes',
         'rotation_size_mi_b': 'RotationSizeMiB',
         'unredacted': 'Unredacted'
     }
 
-    def __init__(self, cloud_storage=None, cluster_id=None, enabled=None, rotation_interval_minutes=None, rotation_size_mi_b=None, unredacted=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_storage=None, enabled=None, instance_id=None, rotation_interval_minutes=None, rotation_size_mi_b=None, unredacted=None, _configuration=None):  # noqa: E501
         """AuditLogConfigForUpdateAuditLogConfigOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cloud_storage = None
-        self._cluster_id = None
         self._enabled = None
+        self._instance_id = None
         self._rotation_interval_minutes = None
         self._rotation_size_mi_b = None
         self._unredacted = None
@@ -66,10 +66,10 @@ class AuditLogConfigForUpdateAuditLogConfigOutput(object):
 
         if cloud_storage is not None:
             self.cloud_storage = cloud_storage
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if enabled is not None:
             self.enabled = enabled
+        if instance_id is not None:
+            self.instance_id = instance_id
         if rotation_interval_minutes is not None:
             self.rotation_interval_minutes = rotation_interval_minutes
         if rotation_size_mi_b is not None:
@@ -99,27 +99,6 @@ class AuditLogConfigForUpdateAuditLogConfigOutput(object):
         self._cloud_storage = cloud_storage
 
     @property
-    def cluster_id(self):
-        """Gets the cluster_id of this AuditLogConfigForUpdateAuditLogConfigOutput.  # noqa: E501
-
-
-        :return: The cluster_id of this AuditLogConfigForUpdateAuditLogConfigOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this AuditLogConfigForUpdateAuditLogConfigOutput.
-
-
-        :param cluster_id: The cluster_id of this AuditLogConfigForUpdateAuditLogConfigOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
-
-    @property
     def enabled(self):
         """Gets the enabled of this AuditLogConfigForUpdateAuditLogConfigOutput.  # noqa: E501
 
@@ -139,6 +118,27 @@ class AuditLogConfigForUpdateAuditLogConfigOutput(object):
         """
 
         self._enabled = enabled
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this AuditLogConfigForUpdateAuditLogConfigOutput.  # noqa: E501
+
+
+        :return: The instance_id of this AuditLogConfigForUpdateAuditLogConfigOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this AuditLogConfigForUpdateAuditLogConfigOutput.
+
+
+        :param instance_id: The instance_id of this AuditLogConfigForUpdateAuditLogConfigOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def rotation_interval_minutes(self):

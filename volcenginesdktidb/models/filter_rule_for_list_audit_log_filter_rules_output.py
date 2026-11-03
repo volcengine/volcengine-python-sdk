@@ -33,80 +33,59 @@ class FilterRuleForListAuditLogFilterRulesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cluster_id': 'str',
         'create_time': 'str',
         'disabled': 'bool',
-        'display_name': 'str',
         'filter_rule_id': 'str',
+        'filter_rule_name': 'str',
         'filters': 'list[FilterForListAuditLogFilterRulesOutput]',
+        'instance_id': 'str',
         'update_time': 'str',
         'users': 'list[str]'
     }
 
     attribute_map = {
-        'cluster_id': 'ClusterId',
         'create_time': 'CreateTime',
         'disabled': 'Disabled',
-        'display_name': 'DisplayName',
         'filter_rule_id': 'FilterRuleId',
+        'filter_rule_name': 'FilterRuleName',
         'filters': 'Filters',
+        'instance_id': 'InstanceId',
         'update_time': 'UpdateTime',
         'users': 'Users'
     }
 
-    def __init__(self, cluster_id=None, create_time=None, disabled=None, display_name=None, filter_rule_id=None, filters=None, update_time=None, users=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, disabled=None, filter_rule_id=None, filter_rule_name=None, filters=None, instance_id=None, update_time=None, users=None, _configuration=None):  # noqa: E501
         """FilterRuleForListAuditLogFilterRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cluster_id = None
         self._create_time = None
         self._disabled = None
-        self._display_name = None
         self._filter_rule_id = None
+        self._filter_rule_name = None
         self._filters = None
+        self._instance_id = None
         self._update_time = None
         self._users = None
         self.discriminator = None
 
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if create_time is not None:
             self.create_time = create_time
         if disabled is not None:
             self.disabled = disabled
-        if display_name is not None:
-            self.display_name = display_name
         if filter_rule_id is not None:
             self.filter_rule_id = filter_rule_id
+        if filter_rule_name is not None:
+            self.filter_rule_name = filter_rule_name
         if filters is not None:
             self.filters = filters
+        if instance_id is not None:
+            self.instance_id = instance_id
         if update_time is not None:
             self.update_time = update_time
         if users is not None:
             self.users = users
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
-
-
-        :return: The cluster_id of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this FilterRuleForListAuditLogFilterRulesOutput.
-
-
-        :param cluster_id: The cluster_id of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
 
     @property
     def create_time(self):
@@ -151,27 +130,6 @@ class FilterRuleForListAuditLogFilterRulesOutput(object):
         self._disabled = disabled
 
     @property
-    def display_name(self):
-        """Gets the display_name of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
-
-
-        :return: The display_name of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._display_name
-
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this FilterRuleForListAuditLogFilterRulesOutput.
-
-
-        :param display_name: The display_name of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._display_name = display_name
-
-    @property
     def filter_rule_id(self):
         """Gets the filter_rule_id of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
 
@@ -193,6 +151,27 @@ class FilterRuleForListAuditLogFilterRulesOutput(object):
         self._filter_rule_id = filter_rule_id
 
     @property
+    def filter_rule_name(self):
+        """Gets the filter_rule_name of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
+
+
+        :return: The filter_rule_name of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._filter_rule_name
+
+    @filter_rule_name.setter
+    def filter_rule_name(self, filter_rule_name):
+        """Sets the filter_rule_name of this FilterRuleForListAuditLogFilterRulesOutput.
+
+
+        :param filter_rule_name: The filter_rule_name of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._filter_rule_name = filter_rule_name
+
+    @property
     def filters(self):
         """Gets the filters of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
 
@@ -212,6 +191,27 @@ class FilterRuleForListAuditLogFilterRulesOutput(object):
         """
 
         self._filters = filters
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
+
+
+        :return: The instance_id of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this FilterRuleForListAuditLogFilterRulesOutput.
+
+
+        :param instance_id: The instance_id of this FilterRuleForListAuditLogFilterRulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def update_time(self):

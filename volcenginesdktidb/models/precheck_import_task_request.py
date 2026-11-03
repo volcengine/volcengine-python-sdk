@@ -33,61 +33,43 @@ class PrecheckImportTaskRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cluster_id': 'str',
         'import_options': 'ImportOptionsForPrecheckImportTaskInput',
+        'instance_id': 'str',
         'project_name': 'str',
-        'source': 'SourceForPrecheckImportTaskInput'
+        'source': 'SourceForPrecheckImportTaskInput',
+        'table_metas': 'list[TableMetaForPrecheckImportTaskInput]'
     }
 
     attribute_map = {
-        'cluster_id': 'ClusterId',
         'import_options': 'ImportOptions',
+        'instance_id': 'InstanceId',
         'project_name': 'ProjectName',
-        'source': 'Source'
+        'source': 'Source',
+        'table_metas': 'TableMetas'
     }
 
-    def __init__(self, cluster_id=None, import_options=None, project_name=None, source=None, _configuration=None):  # noqa: E501
+    def __init__(self, import_options=None, instance_id=None, project_name=None, source=None, table_metas=None, _configuration=None):  # noqa: E501
         """PrecheckImportTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cluster_id = None
         self._import_options = None
+        self._instance_id = None
         self._project_name = None
         self._source = None
+        self._table_metas = None
         self.discriminator = None
 
-        self.cluster_id = cluster_id
         if import_options is not None:
             self.import_options = import_options
+        self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
         if source is not None:
             self.source = source
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this PrecheckImportTaskRequest.  # noqa: E501
-
-
-        :return: The cluster_id of this PrecheckImportTaskRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this PrecheckImportTaskRequest.
-
-
-        :param cluster_id: The cluster_id of this PrecheckImportTaskRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
-
-        self._cluster_id = cluster_id
+        if table_metas is not None:
+            self.table_metas = table_metas
 
     @property
     def import_options(self):
@@ -109,6 +91,29 @@ class PrecheckImportTaskRequest(object):
         """
 
         self._import_options = import_options
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this PrecheckImportTaskRequest.  # noqa: E501
+
+
+        :return: The instance_id of this PrecheckImportTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this PrecheckImportTaskRequest.
+
+
+        :param instance_id: The instance_id of this PrecheckImportTaskRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def project_name(self):
@@ -151,6 +156,27 @@ class PrecheckImportTaskRequest(object):
         """
 
         self._source = source
+
+    @property
+    def table_metas(self):
+        """Gets the table_metas of this PrecheckImportTaskRequest.  # noqa: E501
+
+
+        :return: The table_metas of this PrecheckImportTaskRequest.  # noqa: E501
+        :rtype: list[TableMetaForPrecheckImportTaskInput]
+        """
+        return self._table_metas
+
+    @table_metas.setter
+    def table_metas(self, table_metas):
+        """Sets the table_metas of this PrecheckImportTaskRequest.
+
+
+        :param table_metas: The table_metas of this PrecheckImportTaskRequest.  # noqa: E501
+        :type: list[TableMetaForPrecheckImportTaskInput]
+        """
+
+        self._table_metas = table_metas
 
     def to_dict(self):
         """Returns the model properties as a dict"""

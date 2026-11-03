@@ -33,60 +33,39 @@ class DescribeSchemaTableResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cluster_id': 'str',
         'gc_safe_point': 'str',
         'handle_key_tables': 'list[str]',
+        'instance_id': 'str',
         'non_handle_key_tables': 'list[str]'
     }
 
     attribute_map = {
-        'cluster_id': 'ClusterId',
         'gc_safe_point': 'GcSafePoint',
         'handle_key_tables': 'HandleKeyTables',
+        'instance_id': 'InstanceId',
         'non_handle_key_tables': 'NonHandleKeyTables'
     }
 
-    def __init__(self, cluster_id=None, gc_safe_point=None, handle_key_tables=None, non_handle_key_tables=None, _configuration=None):  # noqa: E501
+    def __init__(self, gc_safe_point=None, handle_key_tables=None, instance_id=None, non_handle_key_tables=None, _configuration=None):  # noqa: E501
         """DescribeSchemaTableResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cluster_id = None
         self._gc_safe_point = None
         self._handle_key_tables = None
+        self._instance_id = None
         self._non_handle_key_tables = None
         self.discriminator = None
 
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if gc_safe_point is not None:
             self.gc_safe_point = gc_safe_point
         if handle_key_tables is not None:
             self.handle_key_tables = handle_key_tables
+        if instance_id is not None:
+            self.instance_id = instance_id
         if non_handle_key_tables is not None:
             self.non_handle_key_tables = non_handle_key_tables
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this DescribeSchemaTableResponse.  # noqa: E501
-
-
-        :return: The cluster_id of this DescribeSchemaTableResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this DescribeSchemaTableResponse.
-
-
-        :param cluster_id: The cluster_id of this DescribeSchemaTableResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
 
     @property
     def gc_safe_point(self):
@@ -129,6 +108,27 @@ class DescribeSchemaTableResponse(object):
         """
 
         self._handle_key_tables = handle_key_tables
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this DescribeSchemaTableResponse.  # noqa: E501
+
+
+        :return: The instance_id of this DescribeSchemaTableResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this DescribeSchemaTableResponse.
+
+
+        :param instance_id: The instance_id of this DescribeSchemaTableResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def non_handle_key_tables(self):

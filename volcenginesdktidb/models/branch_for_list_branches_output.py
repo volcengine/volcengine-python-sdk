@@ -35,13 +35,13 @@ class BranchForListBranchesOutput(object):
     swagger_types = {
         'annotations': 'list[AnnotationForListBranchesOutput]',
         'branch_id': 'str',
-        'cluster_id': 'str',
+        'branch_name': 'str',
         'create_time': 'str',
         'created_by': 'str',
-        'display_name': 'str',
         'endpoints': 'EndpointsForListBranchesOutput',
         'has_set_pwd': 'bool',
-        'parent_display_name': 'str',
+        'instance_id': 'str',
+        'parent_branch_name': 'str',
         'parent_id': 'str',
         'parent_timestamp': 'str',
         'project_name': 'str',
@@ -54,13 +54,13 @@ class BranchForListBranchesOutput(object):
     attribute_map = {
         'annotations': 'Annotations',
         'branch_id': 'BranchId',
-        'cluster_id': 'ClusterId',
+        'branch_name': 'BranchName',
         'create_time': 'CreateTime',
         'created_by': 'CreatedBy',
-        'display_name': 'DisplayName',
         'endpoints': 'Endpoints',
         'has_set_pwd': 'HasSetPwd',
-        'parent_display_name': 'ParentDisplayName',
+        'instance_id': 'InstanceId',
+        'parent_branch_name': 'ParentBranchName',
         'parent_id': 'ParentId',
         'parent_timestamp': 'ParentTimestamp',
         'project_name': 'ProjectName',
@@ -70,7 +70,7 @@ class BranchForListBranchesOutput(object):
         'user_prefix': 'UserPrefix'
     }
 
-    def __init__(self, annotations=None, branch_id=None, cluster_id=None, create_time=None, created_by=None, display_name=None, endpoints=None, has_set_pwd=None, parent_display_name=None, parent_id=None, parent_timestamp=None, project_name=None, state=None, update_time=None, usages=None, user_prefix=None, _configuration=None):  # noqa: E501
+    def __init__(self, annotations=None, branch_id=None, branch_name=None, create_time=None, created_by=None, endpoints=None, has_set_pwd=None, instance_id=None, parent_branch_name=None, parent_id=None, parent_timestamp=None, project_name=None, state=None, update_time=None, usages=None, user_prefix=None, _configuration=None):  # noqa: E501
         """BranchForListBranchesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,13 +78,13 @@ class BranchForListBranchesOutput(object):
 
         self._annotations = None
         self._branch_id = None
-        self._cluster_id = None
+        self._branch_name = None
         self._create_time = None
         self._created_by = None
-        self._display_name = None
         self._endpoints = None
         self._has_set_pwd = None
-        self._parent_display_name = None
+        self._instance_id = None
+        self._parent_branch_name = None
         self._parent_id = None
         self._parent_timestamp = None
         self._project_name = None
@@ -98,20 +98,20 @@ class BranchForListBranchesOutput(object):
             self.annotations = annotations
         if branch_id is not None:
             self.branch_id = branch_id
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
+        if branch_name is not None:
+            self.branch_name = branch_name
         if create_time is not None:
             self.create_time = create_time
         if created_by is not None:
             self.created_by = created_by
-        if display_name is not None:
-            self.display_name = display_name
         if endpoints is not None:
             self.endpoints = endpoints
         if has_set_pwd is not None:
             self.has_set_pwd = has_set_pwd
-        if parent_display_name is not None:
-            self.parent_display_name = parent_display_name
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if parent_branch_name is not None:
+            self.parent_branch_name = parent_branch_name
         if parent_id is not None:
             self.parent_id = parent_id
         if parent_timestamp is not None:
@@ -170,25 +170,25 @@ class BranchForListBranchesOutput(object):
         self._branch_id = branch_id
 
     @property
-    def cluster_id(self):
-        """Gets the cluster_id of this BranchForListBranchesOutput.  # noqa: E501
+    def branch_name(self):
+        """Gets the branch_name of this BranchForListBranchesOutput.  # noqa: E501
 
 
-        :return: The cluster_id of this BranchForListBranchesOutput.  # noqa: E501
+        :return: The branch_name of this BranchForListBranchesOutput.  # noqa: E501
         :rtype: str
         """
-        return self._cluster_id
+        return self._branch_name
 
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this BranchForListBranchesOutput.
+    @branch_name.setter
+    def branch_name(self, branch_name):
+        """Sets the branch_name of this BranchForListBranchesOutput.
 
 
-        :param cluster_id: The cluster_id of this BranchForListBranchesOutput.  # noqa: E501
+        :param branch_name: The branch_name of this BranchForListBranchesOutput.  # noqa: E501
         :type: str
         """
 
-        self._cluster_id = cluster_id
+        self._branch_name = branch_name
 
     @property
     def create_time(self):
@@ -233,27 +233,6 @@ class BranchForListBranchesOutput(object):
         self._created_by = created_by
 
     @property
-    def display_name(self):
-        """Gets the display_name of this BranchForListBranchesOutput.  # noqa: E501
-
-
-        :return: The display_name of this BranchForListBranchesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._display_name
-
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this BranchForListBranchesOutput.
-
-
-        :param display_name: The display_name of this BranchForListBranchesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._display_name = display_name
-
-    @property
     def endpoints(self):
         """Gets the endpoints of this BranchForListBranchesOutput.  # noqa: E501
 
@@ -296,25 +275,46 @@ class BranchForListBranchesOutput(object):
         self._has_set_pwd = has_set_pwd
 
     @property
-    def parent_display_name(self):
-        """Gets the parent_display_name of this BranchForListBranchesOutput.  # noqa: E501
+    def instance_id(self):
+        """Gets the instance_id of this BranchForListBranchesOutput.  # noqa: E501
 
 
-        :return: The parent_display_name of this BranchForListBranchesOutput.  # noqa: E501
+        :return: The instance_id of this BranchForListBranchesOutput.  # noqa: E501
         :rtype: str
         """
-        return self._parent_display_name
+        return self._instance_id
 
-    @parent_display_name.setter
-    def parent_display_name(self, parent_display_name):
-        """Sets the parent_display_name of this BranchForListBranchesOutput.
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this BranchForListBranchesOutput.
 
 
-        :param parent_display_name: The parent_display_name of this BranchForListBranchesOutput.  # noqa: E501
+        :param instance_id: The instance_id of this BranchForListBranchesOutput.  # noqa: E501
         :type: str
         """
 
-        self._parent_display_name = parent_display_name
+        self._instance_id = instance_id
+
+    @property
+    def parent_branch_name(self):
+        """Gets the parent_branch_name of this BranchForListBranchesOutput.  # noqa: E501
+
+
+        :return: The parent_branch_name of this BranchForListBranchesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._parent_branch_name
+
+    @parent_branch_name.setter
+    def parent_branch_name(self, parent_branch_name):
+        """Sets the parent_branch_name of this BranchForListBranchesOutput.
+
+
+        :param parent_branch_name: The parent_branch_name of this BranchForListBranchesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._parent_branch_name = parent_branch_name
 
     @property
     def parent_id(self):
