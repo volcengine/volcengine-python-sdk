@@ -42,6 +42,7 @@ class CreateNatGatewayRequest(object):
         'period': 'int',
         'period_unit': 'str',
         'project_name': 'str',
+        'renew_type': 'int',
         'spec': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForCreateNatGatewayInput]',
@@ -58,13 +59,14 @@ class CreateNatGatewayRequest(object):
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
+        'renew_type': 'RenewType',
         'spec': 'Spec',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, billing_type=None, client_token=None, description=None, direct_mode=None, nat_gateway_name=None, network_type=None, period=None, period_unit=None, project_name=None, spec=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, client_token=None, description=None, direct_mode=None, nat_gateway_name=None, network_type=None, period=None, period_unit=None, project_name=None, renew_type=None, spec=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateNatGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class CreateNatGatewayRequest(object):
         self._period = None
         self._period_unit = None
         self._project_name = None
+        self._renew_type = None
         self._spec = None
         self._subnet_id = None
         self._tags = None
@@ -103,6 +106,8 @@ class CreateNatGatewayRequest(object):
             self.period_unit = period_unit
         if project_name is not None:
             self.project_name = project_name
+        if renew_type is not None:
+            self.renew_type = renew_type
         if spec is not None:
             self.spec = spec
         if subnet_id is not None:
@@ -317,6 +322,27 @@ class CreateNatGatewayRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def renew_type(self):
+        """Gets the renew_type of this CreateNatGatewayRequest.  # noqa: E501
+
+
+        :return: The renew_type of this CreateNatGatewayRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._renew_type
+
+    @renew_type.setter
+    def renew_type(self, renew_type):
+        """Sets the renew_type of this CreateNatGatewayRequest.
+
+
+        :param renew_type: The renew_type of this CreateNatGatewayRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._renew_type = renew_type
 
     @property
     def spec(self):

@@ -33,35 +33,95 @@ class CreateNatIpLimitRuleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'connection_limit': 'int',
+        'cps_limit': 'int',
         'inbound_mbps_limit': 'int',
         'internal_ip': 'str',
+        'is_default': 'bool',
         'nat_gateway_id': 'str',
         'outbound_mbps_limit': 'int'
     }
 
     attribute_map = {
+        'connection_limit': 'ConnectionLimit',
+        'cps_limit': 'CpsLimit',
         'inbound_mbps_limit': 'InboundMbpsLimit',
         'internal_ip': 'InternalIp',
+        'is_default': 'IsDefault',
         'nat_gateway_id': 'NatGatewayId',
         'outbound_mbps_limit': 'OutboundMbpsLimit'
     }
 
-    def __init__(self, inbound_mbps_limit=None, internal_ip=None, nat_gateway_id=None, outbound_mbps_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection_limit=None, cps_limit=None, inbound_mbps_limit=None, internal_ip=None, is_default=None, nat_gateway_id=None, outbound_mbps_limit=None, _configuration=None):  # noqa: E501
         """CreateNatIpLimitRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._connection_limit = None
+        self._cps_limit = None
         self._inbound_mbps_limit = None
         self._internal_ip = None
+        self._is_default = None
         self._nat_gateway_id = None
         self._outbound_mbps_limit = None
         self.discriminator = None
 
-        self.inbound_mbps_limit = inbound_mbps_limit
-        self.internal_ip = internal_ip
+        if connection_limit is not None:
+            self.connection_limit = connection_limit
+        if cps_limit is not None:
+            self.cps_limit = cps_limit
+        if inbound_mbps_limit is not None:
+            self.inbound_mbps_limit = inbound_mbps_limit
+        if internal_ip is not None:
+            self.internal_ip = internal_ip
+        if is_default is not None:
+            self.is_default = is_default
         self.nat_gateway_id = nat_gateway_id
-        self.outbound_mbps_limit = outbound_mbps_limit
+        if outbound_mbps_limit is not None:
+            self.outbound_mbps_limit = outbound_mbps_limit
+
+    @property
+    def connection_limit(self):
+        """Gets the connection_limit of this CreateNatIpLimitRuleRequest.  # noqa: E501
+
+
+        :return: The connection_limit of this CreateNatIpLimitRuleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._connection_limit
+
+    @connection_limit.setter
+    def connection_limit(self, connection_limit):
+        """Sets the connection_limit of this CreateNatIpLimitRuleRequest.
+
+
+        :param connection_limit: The connection_limit of this CreateNatIpLimitRuleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._connection_limit = connection_limit
+
+    @property
+    def cps_limit(self):
+        """Gets the cps_limit of this CreateNatIpLimitRuleRequest.  # noqa: E501
+
+
+        :return: The cps_limit of this CreateNatIpLimitRuleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._cps_limit
+
+    @cps_limit.setter
+    def cps_limit(self, cps_limit):
+        """Sets the cps_limit of this CreateNatIpLimitRuleRequest.
+
+
+        :param cps_limit: The cps_limit of this CreateNatIpLimitRuleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._cps_limit = cps_limit
 
     @property
     def inbound_mbps_limit(self):
@@ -81,8 +141,6 @@ class CreateNatIpLimitRuleRequest(object):
         :param inbound_mbps_limit: The inbound_mbps_limit of this CreateNatIpLimitRuleRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and inbound_mbps_limit is None:
-            raise ValueError("Invalid value for `inbound_mbps_limit`, must not be `None`")  # noqa: E501
 
         self._inbound_mbps_limit = inbound_mbps_limit
 
@@ -104,10 +162,29 @@ class CreateNatIpLimitRuleRequest(object):
         :param internal_ip: The internal_ip of this CreateNatIpLimitRuleRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and internal_ip is None:
-            raise ValueError("Invalid value for `internal_ip`, must not be `None`")  # noqa: E501
 
         self._internal_ip = internal_ip
+
+    @property
+    def is_default(self):
+        """Gets the is_default of this CreateNatIpLimitRuleRequest.  # noqa: E501
+
+
+        :return: The is_default of this CreateNatIpLimitRuleRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_default
+
+    @is_default.setter
+    def is_default(self, is_default):
+        """Sets the is_default of this CreateNatIpLimitRuleRequest.
+
+
+        :param is_default: The is_default of this CreateNatIpLimitRuleRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_default = is_default
 
     @property
     def nat_gateway_id(self):
@@ -150,8 +227,6 @@ class CreateNatIpLimitRuleRequest(object):
         :param outbound_mbps_limit: The outbound_mbps_limit of this CreateNatIpLimitRuleRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and outbound_mbps_limit is None:
-            raise ValueError("Invalid value for `outbound_mbps_limit`, must not be `None`")  # noqa: E501
 
         self._outbound_mbps_limit = outbound_mbps_limit
 
