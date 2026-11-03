@@ -35,6 +35,7 @@ class StartRecordingRequest(object):
     swagger_types = {
         'duration_limit': 'int',
         'is_saved_on_pod': 'bool',
+        'object_key_prefix': 'str',
         'pod_id': 'str',
         'product_id': 'str',
         'round_id': 'str'
@@ -43,12 +44,13 @@ class StartRecordingRequest(object):
     attribute_map = {
         'duration_limit': 'DurationLimit',
         'is_saved_on_pod': 'IsSavedOnPod',
+        'object_key_prefix': 'ObjectKeyPrefix',
         'pod_id': 'PodId',
         'product_id': 'ProductId',
         'round_id': 'RoundId'
     }
 
-    def __init__(self, duration_limit=None, is_saved_on_pod=None, pod_id=None, product_id=None, round_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, duration_limit=None, is_saved_on_pod=None, object_key_prefix=None, pod_id=None, product_id=None, round_id=None, _configuration=None):  # noqa: E501
         """StartRecordingRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class StartRecordingRequest(object):
 
         self._duration_limit = None
         self._is_saved_on_pod = None
+        self._object_key_prefix = None
         self._pod_id = None
         self._product_id = None
         self._round_id = None
@@ -64,6 +67,8 @@ class StartRecordingRequest(object):
         self.duration_limit = duration_limit
         if is_saved_on_pod is not None:
             self.is_saved_on_pod = is_saved_on_pod
+        if object_key_prefix is not None:
+            self.object_key_prefix = object_key_prefix
         self.pod_id = pod_id
         self.product_id = product_id
         self.round_id = round_id
@@ -111,6 +116,27 @@ class StartRecordingRequest(object):
         """
 
         self._is_saved_on_pod = is_saved_on_pod
+
+    @property
+    def object_key_prefix(self):
+        """Gets the object_key_prefix of this StartRecordingRequest.  # noqa: E501
+
+
+        :return: The object_key_prefix of this StartRecordingRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._object_key_prefix
+
+    @object_key_prefix.setter
+    def object_key_prefix(self, object_key_prefix):
+        """Sets the object_key_prefix of this StartRecordingRequest.
+
+
+        :param object_key_prefix: The object_key_prefix of this StartRecordingRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._object_key_prefix = object_key_prefix
 
     @property
     def pod_id(self):
