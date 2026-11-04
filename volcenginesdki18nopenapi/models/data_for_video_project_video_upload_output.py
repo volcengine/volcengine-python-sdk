@@ -33,24 +33,34 @@ class DataForVideoProjectVideoUploadOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'batch_id': 'str'
+        'batch_id': 'str',
+        'has_material_issues': 'bool',
+        'material_issues': 'list[MaterialIssueForVideoProjectVideoUploadOutput]'
     }
 
     attribute_map = {
-        'batch_id': 'batchId'
+        'batch_id': 'batchId',
+        'has_material_issues': 'hasMaterialIssues',
+        'material_issues': 'materialIssues'
     }
 
-    def __init__(self, batch_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, batch_id=None, has_material_issues=None, material_issues=None, _configuration=None):  # noqa: E501
         """DataForVideoProjectVideoUploadOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._batch_id = None
+        self._has_material_issues = None
+        self._material_issues = None
         self.discriminator = None
 
         if batch_id is not None:
             self.batch_id = batch_id
+        if has_material_issues is not None:
+            self.has_material_issues = has_material_issues
+        if material_issues is not None:
+            self.material_issues = material_issues
 
     @property
     def batch_id(self):
@@ -72,6 +82,48 @@ class DataForVideoProjectVideoUploadOutput(object):
         """
 
         self._batch_id = batch_id
+
+    @property
+    def has_material_issues(self):
+        """Gets the has_material_issues of this DataForVideoProjectVideoUploadOutput.  # noqa: E501
+
+
+        :return: The has_material_issues of this DataForVideoProjectVideoUploadOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_material_issues
+
+    @has_material_issues.setter
+    def has_material_issues(self, has_material_issues):
+        """Sets the has_material_issues of this DataForVideoProjectVideoUploadOutput.
+
+
+        :param has_material_issues: The has_material_issues of this DataForVideoProjectVideoUploadOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_material_issues = has_material_issues
+
+    @property
+    def material_issues(self):
+        """Gets the material_issues of this DataForVideoProjectVideoUploadOutput.  # noqa: E501
+
+
+        :return: The material_issues of this DataForVideoProjectVideoUploadOutput.  # noqa: E501
+        :rtype: list[MaterialIssueForVideoProjectVideoUploadOutput]
+        """
+        return self._material_issues
+
+    @material_issues.setter
+    def material_issues(self, material_issues):
+        """Sets the material_issues of this DataForVideoProjectVideoUploadOutput.
+
+
+        :param material_issues: The material_issues of this DataForVideoProjectVideoUploadOutput.  # noqa: E501
+        :type: list[MaterialIssueForVideoProjectVideoUploadOutput]
+        """
+
+        self._material_issues = material_issues
 
     def to_dict(self):
         """Returns the model properties as a dict"""

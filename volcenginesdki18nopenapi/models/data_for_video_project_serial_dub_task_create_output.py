@@ -36,7 +36,11 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
         'base_resp': 'BaseRespForVideoProjectSerialDubTaskCreateOutput',
         'dub_task_ids': 'list[str]',
         'effect_subtitle_file_check_reports': 'list[EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput]',
+        'failed_target_languages': 'list[str]',
+        'has_material_issues': 'bool',
+        'material_issues': 'list[MaterialIssueForVideoProjectSerialDubTaskCreateOutput]',
         'subtitle_file_check_reports': 'list[SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput]',
+        'successful_target_languages': 'list[str]',
         'task_ids': 'list[str]'
     }
 
@@ -44,11 +48,15 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
         'base_resp': 'BaseResp',
         'dub_task_ids': 'DubTaskIDs',
         'effect_subtitle_file_check_reports': 'EffectSubtitleFileCheckReports',
+        'failed_target_languages': 'FailedTargetLanguages',
+        'has_material_issues': 'HasMaterialIssues',
+        'material_issues': 'MaterialIssues',
         'subtitle_file_check_reports': 'SubtitleFileCheckReports',
+        'successful_target_languages': 'SuccessfulTargetLanguages',
         'task_ids': 'TaskIDs'
     }
 
-    def __init__(self, base_resp=None, dub_task_ids=None, effect_subtitle_file_check_reports=None, subtitle_file_check_reports=None, task_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, base_resp=None, dub_task_ids=None, effect_subtitle_file_check_reports=None, failed_target_languages=None, has_material_issues=None, material_issues=None, subtitle_file_check_reports=None, successful_target_languages=None, task_ids=None, _configuration=None):  # noqa: E501
         """DataForVideoProjectSerialDubTaskCreateOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,7 +65,11 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
         self._base_resp = None
         self._dub_task_ids = None
         self._effect_subtitle_file_check_reports = None
+        self._failed_target_languages = None
+        self._has_material_issues = None
+        self._material_issues = None
         self._subtitle_file_check_reports = None
+        self._successful_target_languages = None
         self._task_ids = None
         self.discriminator = None
 
@@ -67,8 +79,16 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
             self.dub_task_ids = dub_task_ids
         if effect_subtitle_file_check_reports is not None:
             self.effect_subtitle_file_check_reports = effect_subtitle_file_check_reports
+        if failed_target_languages is not None:
+            self.failed_target_languages = failed_target_languages
+        if has_material_issues is not None:
+            self.has_material_issues = has_material_issues
+        if material_issues is not None:
+            self.material_issues = material_issues
         if subtitle_file_check_reports is not None:
             self.subtitle_file_check_reports = subtitle_file_check_reports
+        if successful_target_languages is not None:
+            self.successful_target_languages = successful_target_languages
         if task_ids is not None:
             self.task_ids = task_ids
 
@@ -136,6 +156,69 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
         self._effect_subtitle_file_check_reports = effect_subtitle_file_check_reports
 
     @property
+    def failed_target_languages(self):
+        """Gets the failed_target_languages of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+
+
+        :return: The failed_target_languages of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._failed_target_languages
+
+    @failed_target_languages.setter
+    def failed_target_languages(self, failed_target_languages):
+        """Sets the failed_target_languages of this DataForVideoProjectSerialDubTaskCreateOutput.
+
+
+        :param failed_target_languages: The failed_target_languages of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._failed_target_languages = failed_target_languages
+
+    @property
+    def has_material_issues(self):
+        """Gets the has_material_issues of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+
+
+        :return: The has_material_issues of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_material_issues
+
+    @has_material_issues.setter
+    def has_material_issues(self, has_material_issues):
+        """Sets the has_material_issues of this DataForVideoProjectSerialDubTaskCreateOutput.
+
+
+        :param has_material_issues: The has_material_issues of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_material_issues = has_material_issues
+
+    @property
+    def material_issues(self):
+        """Gets the material_issues of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+
+
+        :return: The material_issues of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+        :rtype: list[MaterialIssueForVideoProjectSerialDubTaskCreateOutput]
+        """
+        return self._material_issues
+
+    @material_issues.setter
+    def material_issues(self, material_issues):
+        """Sets the material_issues of this DataForVideoProjectSerialDubTaskCreateOutput.
+
+
+        :param material_issues: The material_issues of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+        :type: list[MaterialIssueForVideoProjectSerialDubTaskCreateOutput]
+        """
+
+        self._material_issues = material_issues
+
+    @property
     def subtitle_file_check_reports(self):
         """Gets the subtitle_file_check_reports of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
 
@@ -155,6 +238,27 @@ class DataForVideoProjectSerialDubTaskCreateOutput(object):
         """
 
         self._subtitle_file_check_reports = subtitle_file_check_reports
+
+    @property
+    def successful_target_languages(self):
+        """Gets the successful_target_languages of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+
+
+        :return: The successful_target_languages of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._successful_target_languages
+
+    @successful_target_languages.setter
+    def successful_target_languages(self, successful_target_languages):
+        """Sets the successful_target_languages of this DataForVideoProjectSerialDubTaskCreateOutput.
+
+
+        :param successful_target_languages: The successful_target_languages of this DataForVideoProjectSerialDubTaskCreateOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._successful_target_languages = successful_target_languages
 
     @property
     def task_ids(self):
