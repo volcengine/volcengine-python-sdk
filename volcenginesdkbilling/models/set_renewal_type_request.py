@@ -35,6 +35,7 @@ class SetRenewalTypeRequest(object):
     swagger_types = {
         'client_token': 'str',
         'instance_id': 'str',
+        'instance_ids': 'list[str]',
         'product': 'str',
         'renew_type': 'str',
         'renewal_duration': 'int',
@@ -46,6 +47,7 @@ class SetRenewalTypeRequest(object):
     attribute_map = {
         'client_token': 'ClientToken',
         'instance_id': 'InstanceID',
+        'instance_ids': 'InstanceIDs',
         'product': 'Product',
         'renew_type': 'RenewType',
         'renewal_duration': 'RenewalDuration',
@@ -54,7 +56,7 @@ class SetRenewalTypeRequest(object):
         'set_renewal_related_instance': 'SetRenewalRelatedInstance'
     }
 
-    def __init__(self, client_token=None, instance_id=None, product=None, renew_type=None, renewal_duration=None, renewal_duration_unit=None, renewal_times=None, set_renewal_related_instance=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, instance_id=None, instance_ids=None, product=None, renew_type=None, renewal_duration=None, renewal_duration_unit=None, renewal_times=None, set_renewal_related_instance=None, _configuration=None):  # noqa: E501
         """SetRenewalTypeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class SetRenewalTypeRequest(object):
 
         self._client_token = None
         self._instance_id = None
+        self._instance_ids = None
         self._product = None
         self._renew_type = None
         self._renewal_duration = None
@@ -72,7 +75,10 @@ class SetRenewalTypeRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        self.instance_id = instance_id
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if instance_ids is not None:
+            self.instance_ids = instance_ids
         self.product = product
         self.renew_type = renew_type
         if renewal_duration is not None:
@@ -123,10 +129,29 @@ class SetRenewalTypeRequest(object):
         :param instance_id: The instance_id of this SetRenewalTypeRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and instance_id is None:
-            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def instance_ids(self):
+        """Gets the instance_ids of this SetRenewalTypeRequest.  # noqa: E501
+
+
+        :return: The instance_ids of this SetRenewalTypeRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._instance_ids
+
+    @instance_ids.setter
+    def instance_ids(self, instance_ids):
+        """Sets the instance_ids of this SetRenewalTypeRequest.
+
+
+        :param instance_ids: The instance_ids of this SetRenewalTypeRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._instance_ids = instance_ids
 
     @property
     def product(self):

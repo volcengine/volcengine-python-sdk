@@ -36,6 +36,7 @@ class ListCostAnalysisOpenApiRequest(object):
         'begin_time_str': 'str',
         'classify_dimension': 'int',
         'classify_dimension_value': 'str',
+        'classify_dimensions': 'list[ClassifyDimensionForListCostAnalysisOpenApiInput]',
         'cost_type': 'int',
         'end_time_str': 'str',
         'filters': 'list[FilterForListCostAnalysisOpenApiInput]',
@@ -48,6 +49,7 @@ class ListCostAnalysisOpenApiRequest(object):
         'begin_time_str': 'BeginTimeStr',
         'classify_dimension': 'ClassifyDimension',
         'classify_dimension_value': 'ClassifyDimensionValue',
+        'classify_dimensions': 'ClassifyDimensions',
         'cost_type': 'CostType',
         'end_time_str': 'EndTimeStr',
         'filters': 'Filters',
@@ -56,7 +58,7 @@ class ListCostAnalysisOpenApiRequest(object):
         'time_granularity': 'TimeGranularity'
     }
 
-    def __init__(self, begin_time_str=None, classify_dimension=None, classify_dimension_value=None, cost_type=None, end_time_str=None, filters=None, limit=None, offset=None, time_granularity=None, _configuration=None):  # noqa: E501
+    def __init__(self, begin_time_str=None, classify_dimension=None, classify_dimension_value=None, classify_dimensions=None, cost_type=None, end_time_str=None, filters=None, limit=None, offset=None, time_granularity=None, _configuration=None):  # noqa: E501
         """ListCostAnalysisOpenApiRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class ListCostAnalysisOpenApiRequest(object):
         self._begin_time_str = None
         self._classify_dimension = None
         self._classify_dimension_value = None
+        self._classify_dimensions = None
         self._cost_type = None
         self._end_time_str = None
         self._filters = None
@@ -74,9 +77,12 @@ class ListCostAnalysisOpenApiRequest(object):
         self.discriminator = None
 
         self.begin_time_str = begin_time_str
-        self.classify_dimension = classify_dimension
+        if classify_dimension is not None:
+            self.classify_dimension = classify_dimension
         if classify_dimension_value is not None:
             self.classify_dimension_value = classify_dimension_value
+        if classify_dimensions is not None:
+            self.classify_dimensions = classify_dimensions
         self.cost_type = cost_type
         self.end_time_str = end_time_str
         if filters is not None:
@@ -126,8 +132,6 @@ class ListCostAnalysisOpenApiRequest(object):
         :param classify_dimension: The classify_dimension of this ListCostAnalysisOpenApiRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and classify_dimension is None:
-            raise ValueError("Invalid value for `classify_dimension`, must not be `None`")  # noqa: E501
 
         self._classify_dimension = classify_dimension
 
@@ -151,6 +155,27 @@ class ListCostAnalysisOpenApiRequest(object):
         """
 
         self._classify_dimension_value = classify_dimension_value
+
+    @property
+    def classify_dimensions(self):
+        """Gets the classify_dimensions of this ListCostAnalysisOpenApiRequest.  # noqa: E501
+
+
+        :return: The classify_dimensions of this ListCostAnalysisOpenApiRequest.  # noqa: E501
+        :rtype: list[ClassifyDimensionForListCostAnalysisOpenApiInput]
+        """
+        return self._classify_dimensions
+
+    @classify_dimensions.setter
+    def classify_dimensions(self, classify_dimensions):
+        """Sets the classify_dimensions of this ListCostAnalysisOpenApiRequest.
+
+
+        :param classify_dimensions: The classify_dimensions of this ListCostAnalysisOpenApiRequest.  # noqa: E501
+        :type: list[ClassifyDimensionForListCostAnalysisOpenApiInput]
+        """
+
+        self._classify_dimensions = classify_dimensions
 
     @property
     def cost_type(self):
