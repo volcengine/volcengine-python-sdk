@@ -35,8 +35,8 @@ class ListEventsRequest(object):
     swagger_types = {
         'action_name': 'str',
         'action_status': 'str',
-        'cluster_id': 'str',
         'end_time': 'str',
+        'instance_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -46,15 +46,15 @@ class ListEventsRequest(object):
     attribute_map = {
         'action_name': 'ActionName',
         'action_status': 'ActionStatus',
-        'cluster_id': 'ClusterId',
         'end_time': 'EndTime',
+        'instance_id': 'InstanceId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'start_time': 'StartTime'
     }
 
-    def __init__(self, action_name=None, action_status=None, cluster_id=None, end_time=None, page_number=None, page_size=None, project_name=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_name=None, action_status=None, end_time=None, instance_id=None, page_number=None, page_size=None, project_name=None, start_time=None, _configuration=None):  # noqa: E501
         """ListEventsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,8 +62,8 @@ class ListEventsRequest(object):
 
         self._action_name = None
         self._action_status = None
-        self._cluster_id = None
         self._end_time = None
+        self._instance_id = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
@@ -74,10 +74,10 @@ class ListEventsRequest(object):
             self.action_name = action_name
         if action_status is not None:
             self.action_status = action_status
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if end_time is not None:
             self.end_time = end_time
+        if instance_id is not None:
+            self.instance_id = instance_id
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -137,27 +137,6 @@ class ListEventsRequest(object):
         self._action_status = action_status
 
     @property
-    def cluster_id(self):
-        """Gets the cluster_id of this ListEventsRequest.  # noqa: E501
-
-
-        :return: The cluster_id of this ListEventsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this ListEventsRequest.
-
-
-        :param cluster_id: The cluster_id of this ListEventsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
-
-    @property
     def end_time(self):
         """Gets the end_time of this ListEventsRequest.  # noqa: E501
 
@@ -177,6 +156,27 @@ class ListEventsRequest(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this ListEventsRequest.  # noqa: E501
+
+
+        :return: The instance_id of this ListEventsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this ListEventsRequest.
+
+
+        :param instance_id: The instance_id of this ListEventsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def page_number(self):

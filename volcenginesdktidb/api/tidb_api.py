@@ -712,103 +712,6 @@ class TIDBApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_cluster(self, body, **kwargs):  # noqa: E501
-        """create_cluster  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_cluster(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CreateClusterRequest body: (required)
-        :return: CreateClusterResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_cluster_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_cluster_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def create_cluster_with_http_info(self, body, **kwargs):  # noqa: E501
-        """create_cluster  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_cluster_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CreateClusterRequest body: (required)
-        :return: CreateClusterResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_cluster" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `create_cluster`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/CreateCluster/2026-06-30/tidb/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CreateClusterResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def create_export_task(self, body, **kwargs):  # noqa: E501
         """create_export_task  # noqa: E501
 
@@ -1093,6 +996,103 @@ class TIDBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CreateImportUploadUrlResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_instance(self, body, **kwargs):  # noqa: E501
+        """create_instance  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_instance(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateInstanceRequest body: (required)
+        :return: CreateInstanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_instance_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_instance_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_instance_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_instance  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_instance_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateInstanceRequest body: (required)
+        :return: CreateInstanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_instance" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_instance`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateInstance/2026-06-30/tidb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateInstanceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1585,103 +1585,6 @@ class TIDBApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_cluster(self, body, **kwargs):  # noqa: E501
-        """delete_cluster  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_cluster(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteClusterRequest body: (required)
-        :return: DeleteClusterResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_cluster_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_cluster_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def delete_cluster_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete_cluster  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_cluster_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteClusterRequest body: (required)
-        :return: DeleteClusterResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_cluster" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete_cluster`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DeleteCluster/2026-06-30/tidb/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DeleteClusterResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def delete_export_task(self, body, **kwargs):  # noqa: E501
         """delete_export_task  # noqa: E501
 
@@ -1772,6 +1675,103 @@ class TIDBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DeleteExportTaskResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_instance(self, body, **kwargs):  # noqa: E501
+        """delete_instance  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_instance(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteInstanceRequest body: (required)
+        :return: DeleteInstanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_instance_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_instance_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_instance_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_instance  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_instance_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteInstanceRequest body: (required)
+        :return: DeleteInstanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_instance" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_instance`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteInstance/2026-06-30/tidb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteInstanceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3137,103 +3137,6 @@ class TIDBApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_cluster_details(self, body, **kwargs):  # noqa: E501
-        """get_cluster_details  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_cluster_details(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetClusterDetailsRequest body: (required)
-        :return: GetClusterDetailsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_cluster_details_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_cluster_details_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def get_cluster_details_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_cluster_details  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_cluster_details_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetClusterDetailsRequest body: (required)
-        :return: GetClusterDetailsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_cluster_details" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_cluster_details`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/GetClusterDetails/2026-06-30/tidb/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GetClusterDetailsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_export_task_details(self, body, **kwargs):  # noqa: E501
         """get_export_task_details  # noqa: E501
 
@@ -3518,6 +3421,103 @@ class TIDBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='GetImportTaskDetailsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_instance_details(self, body, **kwargs):  # noqa: E501
+        """get_instance_details  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_instance_details(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetInstanceDetailsRequest body: (required)
+        :return: GetInstanceDetailsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_instance_details_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_instance_details_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def get_instance_details_with_http_info(self, body, **kwargs):  # noqa: E501
+        """get_instance_details  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_instance_details_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetInstanceDetailsRequest body: (required)
+        :return: GetInstanceDetailsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_instance_details" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `get_instance_details`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/GetInstanceDetails/2026-06-30/tidb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetInstanceDetailsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4980,200 +4980,6 @@ class TIDBApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_cluster_databases(self, body, **kwargs):  # noqa: E501
-        """list_cluster_databases  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_cluster_databases(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListClusterDatabasesRequest body: (required)
-        :return: ListClusterDatabasesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_cluster_databases_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_cluster_databases_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_cluster_databases_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_cluster_databases  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_cluster_databases_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListClusterDatabasesRequest body: (required)
-        :return: ListClusterDatabasesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_cluster_databases" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_cluster_databases`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ListClusterDatabases/2026-06-30/tidb/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListClusterDatabasesResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_clusters(self, body, **kwargs):  # noqa: E501
-        """list_clusters  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_clusters(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListClustersRequest body: (required)
-        :return: ListClustersResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_clusters_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_clusters_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_clusters_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_clusters  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_clusters_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListClustersRequest body: (required)
-        :return: ListClustersResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_clusters" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_clusters`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ListClusters/2026-06-30/tidb/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListClustersResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def list_events(self, body, **kwargs):  # noqa: E501
         """list_events  # noqa: E501
 
@@ -5652,6 +5458,200 @@ class TIDBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ListImportTasksResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_instance_databases(self, body, **kwargs):  # noqa: E501
+        """list_instance_databases  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_instance_databases(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ListInstanceDatabasesRequest body: (required)
+        :return: ListInstanceDatabasesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.list_instance_databases_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.list_instance_databases_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def list_instance_databases_with_http_info(self, body, **kwargs):  # noqa: E501
+        """list_instance_databases  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_instance_databases_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ListInstanceDatabasesRequest body: (required)
+        :return: ListInstanceDatabasesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_instance_databases" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `list_instance_databases`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ListInstanceDatabases/2026-06-30/tidb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ListInstanceDatabasesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_instances(self, body, **kwargs):  # noqa: E501
+        """list_instances  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_instances(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ListInstancesRequest body: (required)
+        :return: ListInstancesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.list_instances_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.list_instances_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def list_instances_with_http_info(self, body, **kwargs):  # noqa: E501
+        """list_instances  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_instances_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ListInstancesRequest body: (required)
+        :return: ListInstancesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_instances" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `list_instances`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ListInstances/2026-06-30/tidb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ListInstancesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -6823,38 +6823,38 @@ class TIDBApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def ops_list_clusters(self, body, **kwargs):  # noqa: E501
-        """ops_list_clusters  # noqa: E501
+    def ops_list_instances(self, body, **kwargs):  # noqa: E501
+        """ops_list_instances  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.ops_list_clusters(body, async_req=True)
+        >>> thread = api.ops_list_instances(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param OpsListClustersRequest body: (required)
-        :return: OpsListClustersResponse
+        :param OpsListInstancesRequest body: (required)
+        :return: OpsListInstancesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.ops_list_clusters_with_http_info(body, **kwargs)  # noqa: E501
+            return self.ops_list_instances_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.ops_list_clusters_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.ops_list_instances_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def ops_list_clusters_with_http_info(self, body, **kwargs):  # noqa: E501
-        """ops_list_clusters  # noqa: E501
+    def ops_list_instances_with_http_info(self, body, **kwargs):  # noqa: E501
+        """ops_list_instances  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.ops_list_clusters_with_http_info(body, async_req=True)
+        >>> thread = api.ops_list_instances_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param OpsListClustersRequest body: (required)
-        :return: OpsListClustersResponse
+        :param OpsListInstancesRequest body: (required)
+        :return: OpsListInstancesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6870,14 +6870,14 @@ class TIDBApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method ops_list_clusters" % key
+                    " to method ops_list_instances" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `ops_list_clusters`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `ops_list_instances`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6905,14 +6905,14 @@ class TIDBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/OpsListClusters/2026-06-30/tidb/post/application_json/', 'POST',
+            '/OpsListInstances/2026-06-30/tidb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OpsListClustersResponse',  # noqa: E501
+            response_type='OpsListInstancesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7211,38 +7211,38 @@ class TIDBApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def reset_cluster_password(self, body, **kwargs):  # noqa: E501
-        """reset_cluster_password  # noqa: E501
+    def reset_instance_password(self, body, **kwargs):  # noqa: E501
+        """reset_instance_password  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reset_cluster_password(body, async_req=True)
+        >>> thread = api.reset_instance_password(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ResetClusterPasswordRequest body: (required)
-        :return: ResetClusterPasswordResponse
+        :param ResetInstancePasswordRequest body: (required)
+        :return: ResetInstancePasswordResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.reset_cluster_password_with_http_info(body, **kwargs)  # noqa: E501
+            return self.reset_instance_password_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.reset_cluster_password_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.reset_instance_password_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def reset_cluster_password_with_http_info(self, body, **kwargs):  # noqa: E501
-        """reset_cluster_password  # noqa: E501
+    def reset_instance_password_with_http_info(self, body, **kwargs):  # noqa: E501
+        """reset_instance_password  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reset_cluster_password_with_http_info(body, async_req=True)
+        >>> thread = api.reset_instance_password_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ResetClusterPasswordRequest body: (required)
-        :return: ResetClusterPasswordResponse
+        :param ResetInstancePasswordRequest body: (required)
+        :return: ResetInstancePasswordResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7258,14 +7258,14 @@ class TIDBApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method reset_cluster_password" % key
+                    " to method reset_instance_password" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `reset_cluster_password`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `reset_instance_password`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7293,14 +7293,14 @@ class TIDBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ResetClusterPassword/2026-06-30/tidb/post/application_json/', 'POST',
+            '/ResetInstancePassword/2026-06-30/tidb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResetClusterPasswordResponse',  # noqa: E501
+            response_type='ResetInstancePasswordResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7308,38 +7308,38 @@ class TIDBApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def restore_cluster(self, body, **kwargs):  # noqa: E501
-        """restore_cluster  # noqa: E501
+    def restore_instance(self, body, **kwargs):  # noqa: E501
+        """restore_instance  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.restore_cluster(body, async_req=True)
+        >>> thread = api.restore_instance(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param RestoreClusterRequest body: (required)
-        :return: RestoreClusterResponse
+        :param RestoreInstanceRequest body: (required)
+        :return: RestoreInstanceResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.restore_cluster_with_http_info(body, **kwargs)  # noqa: E501
+            return self.restore_instance_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.restore_cluster_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.restore_instance_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def restore_cluster_with_http_info(self, body, **kwargs):  # noqa: E501
-        """restore_cluster  # noqa: E501
+    def restore_instance_with_http_info(self, body, **kwargs):  # noqa: E501
+        """restore_instance  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.restore_cluster_with_http_info(body, async_req=True)
+        >>> thread = api.restore_instance_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param RestoreClusterRequest body: (required)
-        :return: RestoreClusterResponse
+        :param RestoreInstanceRequest body: (required)
+        :return: RestoreInstanceResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7355,14 +7355,14 @@ class TIDBApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method restore_cluster" % key
+                    " to method restore_instance" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `restore_cluster`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `restore_instance`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7390,14 +7390,14 @@ class TIDBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RestoreCluster/2026-06-30/tidb/post/application_json/', 'POST',
+            '/RestoreInstance/2026-06-30/tidb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RestoreClusterResponse',  # noqa: E501
+            response_type='RestoreInstanceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8278,38 +8278,38 @@ class TIDBApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_cluster(self, body, **kwargs):  # noqa: E501
-        """update_cluster  # noqa: E501
+    def update_instance(self, body, **kwargs):  # noqa: E501
+        """update_instance  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_cluster(body, async_req=True)
+        >>> thread = api.update_instance(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateClusterRequest body: (required)
-        :return: UpdateClusterResponse
+        :param UpdateInstanceRequest body: (required)
+        :return: UpdateInstanceResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_cluster_with_http_info(body, **kwargs)  # noqa: E501
+            return self.update_instance_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_cluster_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.update_instance_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def update_cluster_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_cluster  # noqa: E501
+    def update_instance_with_http_info(self, body, **kwargs):  # noqa: E501
+        """update_instance  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_cluster_with_http_info(body, async_req=True)
+        >>> thread = api.update_instance_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateClusterRequest body: (required)
-        :return: UpdateClusterResponse
+        :param UpdateInstanceRequest body: (required)
+        :return: UpdateInstanceResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8325,14 +8325,14 @@ class TIDBApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_cluster" % key
+                    " to method update_instance" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_cluster`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_instance`")  # noqa: E501
 
         collection_formats = {}
 
@@ -8360,14 +8360,14 @@ class TIDBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateCluster/2026-06-30/tidb/post/application_json/', 'POST',
+            '/UpdateInstance/2026-06-30/tidb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpdateClusterResponse',  # noqa: E501
+            response_type='UpdateInstanceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

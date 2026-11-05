@@ -33,17 +33,52 @@ class ListRegionsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'service_plan': 'str'
     }
 
     attribute_map = {
+        'service_plan': 'ServicePlan'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, service_plan=None, _configuration=None):  # noqa: E501
         """ListRegionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._service_plan = None
         self.discriminator = None
+
+        if service_plan is not None:
+            self.service_plan = service_plan
+
+    @property
+    def service_plan(self):
+        """Gets the service_plan of this ListRegionsRequest.  # noqa: E501
+
+
+        :return: The service_plan of this ListRegionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_plan
+
+    @service_plan.setter
+    def service_plan(self, service_plan):
+        """Sets the service_plan of this ListRegionsRequest.
+
+
+        :param service_plan: The service_plan of this ListRegionsRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Essential", "Premium"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                service_plan not in allowed_values):
+            raise ValueError(
+                "Invalid value for `service_plan` ({0}), must be one of {1}"  # noqa: E501
+                .format(service_plan, allowed_values)
+            )
+
+        self._service_plan = service_plan
 
     def to_dict(self):
         """Returns the model properties as a dict"""

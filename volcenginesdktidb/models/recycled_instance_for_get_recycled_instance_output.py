@@ -34,10 +34,11 @@ class RecycledInstanceForGetRecycledInstanceOutput(object):
     """
     swagger_types = {
         'auto_scaling': 'AutoScalingForGetRecycledInstanceOutput',
-        'cluster_id': 'str',
         'delete_time': 'str',
         'display_name': 'str',
         'enhanced_encryption_enabled': 'bool',
+        'instance_id': 'str',
+        'instance_name': 'str',
         'region_id': 'str',
         'tags': 'list[TagForGetRecycledInstanceOutput]',
         'vpc_id': 'str',
@@ -47,10 +48,11 @@ class RecycledInstanceForGetRecycledInstanceOutput(object):
 
     attribute_map = {
         'auto_scaling': 'AutoScaling',
-        'cluster_id': 'ClusterId',
         'delete_time': 'DeleteTime',
         'display_name': 'DisplayName',
         'enhanced_encryption_enabled': 'EnhancedEncryptionEnabled',
+        'instance_id': 'InstanceId',
+        'instance_name': 'InstanceName',
         'region_id': 'RegionId',
         'tags': 'Tags',
         'vpc_id': 'VpcId',
@@ -58,17 +60,18 @@ class RecycledInstanceForGetRecycledInstanceOutput(object):
         'zones': 'Zones'
     }
 
-    def __init__(self, auto_scaling=None, cluster_id=None, delete_time=None, display_name=None, enhanced_encryption_enabled=None, region_id=None, tags=None, vpc_id=None, zone_redundant_enabled=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, delete_time=None, display_name=None, enhanced_encryption_enabled=None, instance_id=None, instance_name=None, region_id=None, tags=None, vpc_id=None, zone_redundant_enabled=None, zones=None, _configuration=None):  # noqa: E501
         """RecycledInstanceForGetRecycledInstanceOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_scaling = None
-        self._cluster_id = None
         self._delete_time = None
         self._display_name = None
         self._enhanced_encryption_enabled = None
+        self._instance_id = None
+        self._instance_name = None
         self._region_id = None
         self._tags = None
         self._vpc_id = None
@@ -78,14 +81,16 @@ class RecycledInstanceForGetRecycledInstanceOutput(object):
 
         if auto_scaling is not None:
             self.auto_scaling = auto_scaling
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if delete_time is not None:
             self.delete_time = delete_time
         if display_name is not None:
             self.display_name = display_name
         if enhanced_encryption_enabled is not None:
             self.enhanced_encryption_enabled = enhanced_encryption_enabled
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if instance_name is not None:
+            self.instance_name = instance_name
         if region_id is not None:
             self.region_id = region_id
         if tags is not None:
@@ -117,27 +122,6 @@ class RecycledInstanceForGetRecycledInstanceOutput(object):
         """
 
         self._auto_scaling = auto_scaling
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this RecycledInstanceForGetRecycledInstanceOutput.  # noqa: E501
-
-
-        :return: The cluster_id of this RecycledInstanceForGetRecycledInstanceOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this RecycledInstanceForGetRecycledInstanceOutput.
-
-
-        :param cluster_id: The cluster_id of this RecycledInstanceForGetRecycledInstanceOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
 
     @property
     def delete_time(self):
@@ -201,6 +185,48 @@ class RecycledInstanceForGetRecycledInstanceOutput(object):
         """
 
         self._enhanced_encryption_enabled = enhanced_encryption_enabled
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this RecycledInstanceForGetRecycledInstanceOutput.  # noqa: E501
+
+
+        :return: The instance_id of this RecycledInstanceForGetRecycledInstanceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this RecycledInstanceForGetRecycledInstanceOutput.
+
+
+        :param instance_id: The instance_id of this RecycledInstanceForGetRecycledInstanceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
+
+    @property
+    def instance_name(self):
+        """Gets the instance_name of this RecycledInstanceForGetRecycledInstanceOutput.  # noqa: E501
+
+
+        :return: The instance_name of this RecycledInstanceForGetRecycledInstanceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_name
+
+    @instance_name.setter
+    def instance_name(self, instance_name):
+        """Sets the instance_name of this RecycledInstanceForGetRecycledInstanceOutput.
+
+
+        :param instance_name: The instance_name of this RecycledInstanceForGetRecycledInstanceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_name = instance_name
 
     @property
     def region_id(self):

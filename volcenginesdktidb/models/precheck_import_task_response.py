@@ -35,20 +35,26 @@ class PrecheckImportTaskResponse(object):
     swagger_types = {
         'error_message': 'str',
         'status': 'str',
+        'success': 'bool',
+        'table_metas': 'list[TableMetaForPrecheckImportTaskOutput]',
         'target_tables': 'list[ConvertTargetTableForPrecheckImportTaskOutput]',
         'total_data_files_count': 'str',
+        'total_scanned_objects': 'int',
         'total_tables_count': 'str'
     }
 
     attribute_map = {
         'error_message': 'ErrorMessage',
         'status': 'Status',
+        'success': 'Success',
+        'table_metas': 'TableMetas',
         'target_tables': 'TargetTables',
         'total_data_files_count': 'TotalDataFilesCount',
+        'total_scanned_objects': 'TotalScannedObjects',
         'total_tables_count': 'TotalTablesCount'
     }
 
-    def __init__(self, error_message=None, status=None, target_tables=None, total_data_files_count=None, total_tables_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, error_message=None, status=None, success=None, table_metas=None, target_tables=None, total_data_files_count=None, total_scanned_objects=None, total_tables_count=None, _configuration=None):  # noqa: E501
         """PrecheckImportTaskResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,8 +62,11 @@ class PrecheckImportTaskResponse(object):
 
         self._error_message = None
         self._status = None
+        self._success = None
+        self._table_metas = None
         self._target_tables = None
         self._total_data_files_count = None
+        self._total_scanned_objects = None
         self._total_tables_count = None
         self.discriminator = None
 
@@ -65,10 +74,16 @@ class PrecheckImportTaskResponse(object):
             self.error_message = error_message
         if status is not None:
             self.status = status
+        if success is not None:
+            self.success = success
+        if table_metas is not None:
+            self.table_metas = table_metas
         if target_tables is not None:
             self.target_tables = target_tables
         if total_data_files_count is not None:
             self.total_data_files_count = total_data_files_count
+        if total_scanned_objects is not None:
+            self.total_scanned_objects = total_scanned_objects
         if total_tables_count is not None:
             self.total_tables_count = total_tables_count
 
@@ -115,6 +130,48 @@ class PrecheckImportTaskResponse(object):
         self._status = status
 
     @property
+    def success(self):
+        """Gets the success of this PrecheckImportTaskResponse.  # noqa: E501
+
+
+        :return: The success of this PrecheckImportTaskResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._success
+
+    @success.setter
+    def success(self, success):
+        """Sets the success of this PrecheckImportTaskResponse.
+
+
+        :param success: The success of this PrecheckImportTaskResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._success = success
+
+    @property
+    def table_metas(self):
+        """Gets the table_metas of this PrecheckImportTaskResponse.  # noqa: E501
+
+
+        :return: The table_metas of this PrecheckImportTaskResponse.  # noqa: E501
+        :rtype: list[TableMetaForPrecheckImportTaskOutput]
+        """
+        return self._table_metas
+
+    @table_metas.setter
+    def table_metas(self, table_metas):
+        """Sets the table_metas of this PrecheckImportTaskResponse.
+
+
+        :param table_metas: The table_metas of this PrecheckImportTaskResponse.  # noqa: E501
+        :type: list[TableMetaForPrecheckImportTaskOutput]
+        """
+
+        self._table_metas = table_metas
+
+    @property
     def target_tables(self):
         """Gets the target_tables of this PrecheckImportTaskResponse.  # noqa: E501
 
@@ -155,6 +212,27 @@ class PrecheckImportTaskResponse(object):
         """
 
         self._total_data_files_count = total_data_files_count
+
+    @property
+    def total_scanned_objects(self):
+        """Gets the total_scanned_objects of this PrecheckImportTaskResponse.  # noqa: E501
+
+
+        :return: The total_scanned_objects of this PrecheckImportTaskResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_scanned_objects
+
+    @total_scanned_objects.setter
+    def total_scanned_objects(self, total_scanned_objects):
+        """Sets the total_scanned_objects of this PrecheckImportTaskResponse.
+
+
+        :param total_scanned_objects: The total_scanned_objects of this PrecheckImportTaskResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total_scanned_objects = total_scanned_objects
 
     @property
     def total_tables_count(self):

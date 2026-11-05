@@ -33,32 +33,32 @@ class ValidateImportTaskRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cluster_id': 'str',
+        'instance_id': 'str',
         'project_name': 'str',
         'source': 'SourceForValidateImportTaskInput',
         'validation_type': 'str'
     }
 
     attribute_map = {
-        'cluster_id': 'ClusterId',
+        'instance_id': 'InstanceId',
         'project_name': 'ProjectName',
         'source': 'Source',
         'validation_type': 'ValidationType'
     }
 
-    def __init__(self, cluster_id=None, project_name=None, source=None, validation_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, project_name=None, source=None, validation_type=None, _configuration=None):  # noqa: E501
         """ValidateImportTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cluster_id = None
+        self._instance_id = None
         self._project_name = None
         self._source = None
         self._validation_type = None
         self.discriminator = None
 
-        self.cluster_id = cluster_id
+        self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
         if source is not None:
@@ -66,27 +66,27 @@ class ValidateImportTaskRequest(object):
         self.validation_type = validation_type
 
     @property
-    def cluster_id(self):
-        """Gets the cluster_id of this ValidateImportTaskRequest.  # noqa: E501
+    def instance_id(self):
+        """Gets the instance_id of this ValidateImportTaskRequest.  # noqa: E501
 
 
-        :return: The cluster_id of this ValidateImportTaskRequest.  # noqa: E501
+        :return: The instance_id of this ValidateImportTaskRequest.  # noqa: E501
         :rtype: str
         """
-        return self._cluster_id
+        return self._instance_id
 
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this ValidateImportTaskRequest.
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this ValidateImportTaskRequest.
 
 
-        :param cluster_id: The cluster_id of this ValidateImportTaskRequest.  # noqa: E501
+        :param instance_id: The instance_id of this ValidateImportTaskRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
-        self._cluster_id = cluster_id
+        self._instance_id = instance_id
 
     @property
     def project_name(self):

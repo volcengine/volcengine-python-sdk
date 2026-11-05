@@ -33,8 +33,8 @@ class RecordForDescribeTopicAuditInfoOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'close_time': 'str',
         'create_time': 'str',
-        'delete_time': 'str',
         'last_update_time': 'str',
         'source_ip': 'str',
         'source_port': 'int',
@@ -42,32 +42,32 @@ class RecordForDescribeTopicAuditInfoOutput(object):
     }
 
     attribute_map = {
+        'close_time': 'CloseTime',
         'create_time': 'CreateTime',
-        'delete_time': 'DeleteTime',
         'last_update_time': 'LastUpdateTime',
         'source_ip': 'SourceIp',
         'source_port': 'SourcePort',
         'topic': 'Topic'
     }
 
-    def __init__(self, create_time=None, delete_time=None, last_update_time=None, source_ip=None, source_port=None, topic=None, _configuration=None):  # noqa: E501
+    def __init__(self, close_time=None, create_time=None, last_update_time=None, source_ip=None, source_port=None, topic=None, _configuration=None):  # noqa: E501
         """RecordForDescribeTopicAuditInfoOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._close_time = None
         self._create_time = None
-        self._delete_time = None
         self._last_update_time = None
         self._source_ip = None
         self._source_port = None
         self._topic = None
         self.discriminator = None
 
+        if close_time is not None:
+            self.close_time = close_time
         if create_time is not None:
             self.create_time = create_time
-        if delete_time is not None:
-            self.delete_time = delete_time
         if last_update_time is not None:
             self.last_update_time = last_update_time
         if source_ip is not None:
@@ -76,6 +76,27 @@ class RecordForDescribeTopicAuditInfoOutput(object):
             self.source_port = source_port
         if topic is not None:
             self.topic = topic
+
+    @property
+    def close_time(self):
+        """Gets the close_time of this RecordForDescribeTopicAuditInfoOutput.  # noqa: E501
+
+
+        :return: The close_time of this RecordForDescribeTopicAuditInfoOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._close_time
+
+    @close_time.setter
+    def close_time(self, close_time):
+        """Sets the close_time of this RecordForDescribeTopicAuditInfoOutput.
+
+
+        :param close_time: The close_time of this RecordForDescribeTopicAuditInfoOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._close_time = close_time
 
     @property
     def create_time(self):
@@ -97,27 +118,6 @@ class RecordForDescribeTopicAuditInfoOutput(object):
         """
 
         self._create_time = create_time
-
-    @property
-    def delete_time(self):
-        """Gets the delete_time of this RecordForDescribeTopicAuditInfoOutput.  # noqa: E501
-
-
-        :return: The delete_time of this RecordForDescribeTopicAuditInfoOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._delete_time
-
-    @delete_time.setter
-    def delete_time(self, delete_time):
-        """Sets the delete_time of this RecordForDescribeTopicAuditInfoOutput.
-
-
-        :param delete_time: The delete_time of this RecordForDescribeTopicAuditInfoOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._delete_time = delete_time
 
     @property
     def last_update_time(self):

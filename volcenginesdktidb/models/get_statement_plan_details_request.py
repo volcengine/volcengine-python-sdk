@@ -34,9 +34,9 @@ class GetStatementPlanDetailsRequest(object):
     """
     swagger_types = {
         'begin_time': 'str',
-        'cluster_id': 'str',
         'digest': 'str',
         'end_time': 'str',
+        'instance_id': 'str',
         'plans': 'list[str]',
         'project_name': 'str',
         'schema_name': 'str'
@@ -44,24 +44,24 @@ class GetStatementPlanDetailsRequest(object):
 
     attribute_map = {
         'begin_time': 'BeginTime',
-        'cluster_id': 'ClusterId',
         'digest': 'Digest',
         'end_time': 'EndTime',
+        'instance_id': 'InstanceId',
         'plans': 'Plans',
         'project_name': 'ProjectName',
         'schema_name': 'SchemaName'
     }
 
-    def __init__(self, begin_time=None, cluster_id=None, digest=None, end_time=None, plans=None, project_name=None, schema_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, begin_time=None, digest=None, end_time=None, instance_id=None, plans=None, project_name=None, schema_name=None, _configuration=None):  # noqa: E501
         """GetStatementPlanDetailsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._begin_time = None
-        self._cluster_id = None
         self._digest = None
         self._end_time = None
+        self._instance_id = None
         self._plans = None
         self._project_name = None
         self._schema_name = None
@@ -69,11 +69,11 @@ class GetStatementPlanDetailsRequest(object):
 
         if begin_time is not None:
             self.begin_time = begin_time
-        self.cluster_id = cluster_id
         if digest is not None:
             self.digest = digest
         if end_time is not None:
             self.end_time = end_time
+        self.instance_id = instance_id
         if plans is not None:
             self.plans = plans
         if project_name is not None:
@@ -101,29 +101,6 @@ class GetStatementPlanDetailsRequest(object):
         """
 
         self._begin_time = begin_time
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this GetStatementPlanDetailsRequest.  # noqa: E501
-
-
-        :return: The cluster_id of this GetStatementPlanDetailsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this GetStatementPlanDetailsRequest.
-
-
-        :param cluster_id: The cluster_id of this GetStatementPlanDetailsRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
-
-        self._cluster_id = cluster_id
 
     @property
     def digest(self):
@@ -166,6 +143,29 @@ class GetStatementPlanDetailsRequest(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this GetStatementPlanDetailsRequest.  # noqa: E501
+
+
+        :return: The instance_id of this GetStatementPlanDetailsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this GetStatementPlanDetailsRequest.
+
+
+        :param instance_id: The instance_id of this GetStatementPlanDetailsRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def plans(self):

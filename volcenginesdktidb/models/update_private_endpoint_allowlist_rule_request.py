@@ -34,37 +34,37 @@ class UpdatePrivateEndpointAllowlistRuleRequest(object):
     """
     swagger_types = {
         'authorized_network_name': 'str',
-        'cluster_id': 'str',
         'current_vpc_endpoint_id': 'str',
+        'instance_id': 'str',
         'new_vpc_endpoint_id': 'str',
         'project_name': 'str'
     }
 
     attribute_map = {
         'authorized_network_name': 'AuthorizedNetworkName',
-        'cluster_id': 'ClusterId',
         'current_vpc_endpoint_id': 'CurrentVpcEndpointId',
+        'instance_id': 'InstanceId',
         'new_vpc_endpoint_id': 'NewVpcEndpointId',
         'project_name': 'ProjectName'
     }
 
-    def __init__(self, authorized_network_name=None, cluster_id=None, current_vpc_endpoint_id=None, new_vpc_endpoint_id=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorized_network_name=None, current_vpc_endpoint_id=None, instance_id=None, new_vpc_endpoint_id=None, project_name=None, _configuration=None):  # noqa: E501
         """UpdatePrivateEndpointAllowlistRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._authorized_network_name = None
-        self._cluster_id = None
         self._current_vpc_endpoint_id = None
+        self._instance_id = None
         self._new_vpc_endpoint_id = None
         self._project_name = None
         self.discriminator = None
 
         if authorized_network_name is not None:
             self.authorized_network_name = authorized_network_name
-        self.cluster_id = cluster_id
         self.current_vpc_endpoint_id = current_vpc_endpoint_id
+        self.instance_id = instance_id
         if new_vpc_endpoint_id is not None:
             self.new_vpc_endpoint_id = new_vpc_endpoint_id
         if project_name is not None:
@@ -92,29 +92,6 @@ class UpdatePrivateEndpointAllowlistRuleRequest(object):
         self._authorized_network_name = authorized_network_name
 
     @property
-    def cluster_id(self):
-        """Gets the cluster_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
-
-
-        :return: The cluster_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this UpdatePrivateEndpointAllowlistRuleRequest.
-
-
-        :param cluster_id: The cluster_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
-
-        self._cluster_id = cluster_id
-
-    @property
     def current_vpc_endpoint_id(self):
         """Gets the current_vpc_endpoint_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
 
@@ -136,6 +113,29 @@ class UpdatePrivateEndpointAllowlistRuleRequest(object):
             raise ValueError("Invalid value for `current_vpc_endpoint_id`, must not be `None`")  # noqa: E501
 
         self._current_vpc_endpoint_id = current_vpc_endpoint_id
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+
+
+        :return: The instance_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this UpdatePrivateEndpointAllowlistRuleRequest.
+
+
+        :param instance_id: The instance_id of this UpdatePrivateEndpointAllowlistRuleRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def new_vpc_endpoint_id(self):

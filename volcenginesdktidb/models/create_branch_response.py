@@ -34,28 +34,28 @@ class CreateBranchResponse(object):
     """
     swagger_types = {
         'branch_id': 'str',
-        'cluster_id': 'str'
+        'instance_id': 'str'
     }
 
     attribute_map = {
         'branch_id': 'BranchId',
-        'cluster_id': 'ClusterId'
+        'instance_id': 'InstanceId'
     }
 
-    def __init__(self, branch_id=None, cluster_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, branch_id=None, instance_id=None, _configuration=None):  # noqa: E501
         """CreateBranchResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._branch_id = None
-        self._cluster_id = None
+        self._instance_id = None
         self.discriminator = None
 
         if branch_id is not None:
             self.branch_id = branch_id
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
+        if instance_id is not None:
+            self.instance_id = instance_id
 
     @property
     def branch_id(self):
@@ -79,25 +79,25 @@ class CreateBranchResponse(object):
         self._branch_id = branch_id
 
     @property
-    def cluster_id(self):
-        """Gets the cluster_id of this CreateBranchResponse.  # noqa: E501
+    def instance_id(self):
+        """Gets the instance_id of this CreateBranchResponse.  # noqa: E501
 
 
-        :return: The cluster_id of this CreateBranchResponse.  # noqa: E501
+        :return: The instance_id of this CreateBranchResponse.  # noqa: E501
         :rtype: str
         """
-        return self._cluster_id
+        return self._instance_id
 
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this CreateBranchResponse.
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this CreateBranchResponse.
 
 
-        :param cluster_id: The cluster_id of this CreateBranchResponse.  # noqa: E501
+        :param instance_id: The instance_id of this CreateBranchResponse.  # noqa: E501
         :type: str
         """
 
-        self._cluster_id = cluster_id
+        self._instance_id = instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

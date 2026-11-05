@@ -34,51 +34,66 @@ class BackupForGetBackupOutput(object):
     """
     swagger_types = {
         'backup_id': 'str',
+        'backup_name': 'str',
         'backup_time': 'str',
-        'cluster_id': 'str',
         'create_time': 'str',
         'expire_time': 'str',
+        'instance_id': 'str',
+        'size_bytes': 'int',
         'state': 'str',
+        'trigger_type': 'str',
         'type': 'str'
     }
 
     attribute_map = {
         'backup_id': 'BackupId',
+        'backup_name': 'BackupName',
         'backup_time': 'BackupTime',
-        'cluster_id': 'ClusterId',
         'create_time': 'CreateTime',
         'expire_time': 'ExpireTime',
+        'instance_id': 'InstanceId',
+        'size_bytes': 'SizeBytes',
         'state': 'State',
+        'trigger_type': 'TriggerType',
         'type': 'Type'
     }
 
-    def __init__(self, backup_id=None, backup_time=None, cluster_id=None, create_time=None, expire_time=None, state=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_id=None, backup_name=None, backup_time=None, create_time=None, expire_time=None, instance_id=None, size_bytes=None, state=None, trigger_type=None, type=None, _configuration=None):  # noqa: E501
         """BackupForGetBackupOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._backup_id = None
+        self._backup_name = None
         self._backup_time = None
-        self._cluster_id = None
         self._create_time = None
         self._expire_time = None
+        self._instance_id = None
+        self._size_bytes = None
         self._state = None
+        self._trigger_type = None
         self._type = None
         self.discriminator = None
 
         if backup_id is not None:
             self.backup_id = backup_id
+        if backup_name is not None:
+            self.backup_name = backup_name
         if backup_time is not None:
             self.backup_time = backup_time
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if create_time is not None:
             self.create_time = create_time
         if expire_time is not None:
             self.expire_time = expire_time
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if size_bytes is not None:
+            self.size_bytes = size_bytes
         if state is not None:
             self.state = state
+        if trigger_type is not None:
+            self.trigger_type = trigger_type
         if type is not None:
             self.type = type
 
@@ -104,6 +119,27 @@ class BackupForGetBackupOutput(object):
         self._backup_id = backup_id
 
     @property
+    def backup_name(self):
+        """Gets the backup_name of this BackupForGetBackupOutput.  # noqa: E501
+
+
+        :return: The backup_name of this BackupForGetBackupOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_name
+
+    @backup_name.setter
+    def backup_name(self, backup_name):
+        """Sets the backup_name of this BackupForGetBackupOutput.
+
+
+        :param backup_name: The backup_name of this BackupForGetBackupOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_name = backup_name
+
+    @property
     def backup_time(self):
         """Gets the backup_time of this BackupForGetBackupOutput.  # noqa: E501
 
@@ -123,27 +159,6 @@ class BackupForGetBackupOutput(object):
         """
 
         self._backup_time = backup_time
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this BackupForGetBackupOutput.  # noqa: E501
-
-
-        :return: The cluster_id of this BackupForGetBackupOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this BackupForGetBackupOutput.
-
-
-        :param cluster_id: The cluster_id of this BackupForGetBackupOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
 
     @property
     def create_time(self):
@@ -188,6 +203,48 @@ class BackupForGetBackupOutput(object):
         self._expire_time = expire_time
 
     @property
+    def instance_id(self):
+        """Gets the instance_id of this BackupForGetBackupOutput.  # noqa: E501
+
+
+        :return: The instance_id of this BackupForGetBackupOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this BackupForGetBackupOutput.
+
+
+        :param instance_id: The instance_id of this BackupForGetBackupOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
+
+    @property
+    def size_bytes(self):
+        """Gets the size_bytes of this BackupForGetBackupOutput.  # noqa: E501
+
+
+        :return: The size_bytes of this BackupForGetBackupOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._size_bytes
+
+    @size_bytes.setter
+    def size_bytes(self, size_bytes):
+        """Sets the size_bytes of this BackupForGetBackupOutput.
+
+
+        :param size_bytes: The size_bytes of this BackupForGetBackupOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._size_bytes = size_bytes
+
+    @property
     def state(self):
         """Gets the state of this BackupForGetBackupOutput.  # noqa: E501
 
@@ -207,6 +264,27 @@ class BackupForGetBackupOutput(object):
         """
 
         self._state = state
+
+    @property
+    def trigger_type(self):
+        """Gets the trigger_type of this BackupForGetBackupOutput.  # noqa: E501
+
+
+        :return: The trigger_type of this BackupForGetBackupOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._trigger_type
+
+    @trigger_type.setter
+    def trigger_type(self, trigger_type):
+        """Sets the trigger_type of this BackupForGetBackupOutput.
+
+
+        :param trigger_type: The trigger_type of this BackupForGetBackupOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._trigger_type = trigger_type
 
     @property
     def type(self):

@@ -34,36 +34,36 @@ class ImportOptionsForCreateImportTaskInput(object):
     """
     swagger_types = {
         'csv_format': 'CsvFormatForCreateImportTaskInput',
-        'display_name': 'str',
         'file_type': 'str',
+        'import_task_name': 'str',
         'need_drop_table': 'bool'
     }
 
     attribute_map = {
         'csv_format': 'CsvFormat',
-        'display_name': 'DisplayName',
         'file_type': 'FileType',
+        'import_task_name': 'ImportTaskName',
         'need_drop_table': 'NeedDropTable'
     }
 
-    def __init__(self, csv_format=None, display_name=None, file_type=None, need_drop_table=None, _configuration=None):  # noqa: E501
+    def __init__(self, csv_format=None, file_type=None, import_task_name=None, need_drop_table=None, _configuration=None):  # noqa: E501
         """ImportOptionsForCreateImportTaskInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._csv_format = None
-        self._display_name = None
         self._file_type = None
+        self._import_task_name = None
         self._need_drop_table = None
         self.discriminator = None
 
         if csv_format is not None:
             self.csv_format = csv_format
-        if display_name is not None:
-            self.display_name = display_name
         if file_type is not None:
             self.file_type = file_type
+        if import_task_name is not None:
+            self.import_task_name = import_task_name
         if need_drop_table is not None:
             self.need_drop_table = need_drop_table
 
@@ -87,27 +87,6 @@ class ImportOptionsForCreateImportTaskInput(object):
         """
 
         self._csv_format = csv_format
-
-    @property
-    def display_name(self):
-        """Gets the display_name of this ImportOptionsForCreateImportTaskInput.  # noqa: E501
-
-
-        :return: The display_name of this ImportOptionsForCreateImportTaskInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._display_name
-
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this ImportOptionsForCreateImportTaskInput.
-
-
-        :param display_name: The display_name of this ImportOptionsForCreateImportTaskInput.  # noqa: E501
-        :type: str
-        """
-
-        self._display_name = display_name
 
     @property
     def file_type(self):
@@ -136,6 +115,27 @@ class ImportOptionsForCreateImportTaskInput(object):
             )
 
         self._file_type = file_type
+
+    @property
+    def import_task_name(self):
+        """Gets the import_task_name of this ImportOptionsForCreateImportTaskInput.  # noqa: E501
+
+
+        :return: The import_task_name of this ImportOptionsForCreateImportTaskInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._import_task_name
+
+    @import_task_name.setter
+    def import_task_name(self, import_task_name):
+        """Sets the import_task_name of this ImportOptionsForCreateImportTaskInput.
+
+
+        :param import_task_name: The import_task_name of this ImportOptionsForCreateImportTaskInput.  # noqa: E501
+        :type: str
+        """
+
+        self._import_task_name = import_task_name
 
     @property
     def need_drop_table(self):

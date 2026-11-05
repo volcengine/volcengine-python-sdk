@@ -34,9 +34,9 @@ class PrivateLinkConnectionForListPrivateLinkConnectionsOutput(object):
     """
     swagger_types = {
         'attached_domains': 'list[AttachedDomainForListPrivateLinkConnectionsOutput]',
-        'cluster_id': 'str',
         'create_time': 'str',
         'created_by': 'str',
+        'instance_id': 'str',
         'message': 'str',
         'private_link_connection_id': 'str',
         'private_link_connection_name': 'str',
@@ -48,9 +48,9 @@ class PrivateLinkConnectionForListPrivateLinkConnectionsOutput(object):
 
     attribute_map = {
         'attached_domains': 'AttachedDomains',
-        'cluster_id': 'ClusterId',
         'create_time': 'CreateTime',
         'created_by': 'CreatedBy',
+        'instance_id': 'InstanceId',
         'message': 'Message',
         'private_link_connection_id': 'PrivateLinkConnectionId',
         'private_link_connection_name': 'PrivateLinkConnectionName',
@@ -60,16 +60,16 @@ class PrivateLinkConnectionForListPrivateLinkConnectionsOutput(object):
         'volcengine_endpoint_service': 'VolcengineEndpointService'
     }
 
-    def __init__(self, attached_domains=None, cluster_id=None, create_time=None, created_by=None, message=None, private_link_connection_id=None, private_link_connection_name=None, state=None, type=None, update_time=None, volcengine_endpoint_service=None, _configuration=None):  # noqa: E501
+    def __init__(self, attached_domains=None, create_time=None, created_by=None, instance_id=None, message=None, private_link_connection_id=None, private_link_connection_name=None, state=None, type=None, update_time=None, volcengine_endpoint_service=None, _configuration=None):  # noqa: E501
         """PrivateLinkConnectionForListPrivateLinkConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._attached_domains = None
-        self._cluster_id = None
         self._create_time = None
         self._created_by = None
+        self._instance_id = None
         self._message = None
         self._private_link_connection_id = None
         self._private_link_connection_name = None
@@ -81,12 +81,12 @@ class PrivateLinkConnectionForListPrivateLinkConnectionsOutput(object):
 
         if attached_domains is not None:
             self.attached_domains = attached_domains
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if create_time is not None:
             self.create_time = create_time
         if created_by is not None:
             self.created_by = created_by
+        if instance_id is not None:
+            self.instance_id = instance_id
         if message is not None:
             self.message = message
         if private_link_connection_id is not None:
@@ -122,27 +122,6 @@ class PrivateLinkConnectionForListPrivateLinkConnectionsOutput(object):
         """
 
         self._attached_domains = attached_domains
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this PrivateLinkConnectionForListPrivateLinkConnectionsOutput.  # noqa: E501
-
-
-        :return: The cluster_id of this PrivateLinkConnectionForListPrivateLinkConnectionsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this PrivateLinkConnectionForListPrivateLinkConnectionsOutput.
-
-
-        :param cluster_id: The cluster_id of this PrivateLinkConnectionForListPrivateLinkConnectionsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
 
     @property
     def create_time(self):
@@ -185,6 +164,27 @@ class PrivateLinkConnectionForListPrivateLinkConnectionsOutput(object):
         """
 
         self._created_by = created_by
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this PrivateLinkConnectionForListPrivateLinkConnectionsOutput.  # noqa: E501
+
+
+        :return: The instance_id of this PrivateLinkConnectionForListPrivateLinkConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this PrivateLinkConnectionForListPrivateLinkConnectionsOutput.
+
+
+        :param instance_id: The instance_id of this PrivateLinkConnectionForListPrivateLinkConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def message(self):

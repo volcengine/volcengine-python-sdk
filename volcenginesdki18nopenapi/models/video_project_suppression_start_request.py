@@ -76,7 +76,8 @@ class VideoProjectSuppressionStartRequest(object):
         self._subtask_ids = None
         self.discriminator = None
 
-        self.arrange_ment = arrange_ment
+        if arrange_ment is not None:
+            self.arrange_ment = arrange_ment
         self.encode = encode
         if end_time is not None:
             self.end_time = end_time
@@ -110,8 +111,6 @@ class VideoProjectSuppressionStartRequest(object):
         :param arrange_ment: The arrange_ment of this VideoProjectSuppressionStartRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and arrange_ment is None:
-            raise ValueError("Invalid value for `arrange_ment`, must not be `None`")  # noqa: E501
 
         self._arrange_ment = arrange_ment
 

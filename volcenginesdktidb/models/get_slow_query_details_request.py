@@ -34,10 +34,10 @@ class GetSlowQueryDetailsRequest(object):
     """
     swagger_types = {
         'begin_time': 'str',
-        'cluster_id': 'str',
         'connection_id': 'str',
         'digest': 'str',
         'end_time': 'str',
+        'instance_id': 'str',
         'project_name': 'str',
         'query': 'str',
         'timestamp': 'str'
@@ -45,26 +45,26 @@ class GetSlowQueryDetailsRequest(object):
 
     attribute_map = {
         'begin_time': 'BeginTime',
-        'cluster_id': 'ClusterId',
         'connection_id': 'ConnectionId',
         'digest': 'Digest',
         'end_time': 'EndTime',
+        'instance_id': 'InstanceId',
         'project_name': 'ProjectName',
         'query': 'Query',
         'timestamp': 'Timestamp'
     }
 
-    def __init__(self, begin_time=None, cluster_id=None, connection_id=None, digest=None, end_time=None, project_name=None, query=None, timestamp=None, _configuration=None):  # noqa: E501
+    def __init__(self, begin_time=None, connection_id=None, digest=None, end_time=None, instance_id=None, project_name=None, query=None, timestamp=None, _configuration=None):  # noqa: E501
         """GetSlowQueryDetailsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._begin_time = None
-        self._cluster_id = None
         self._connection_id = None
         self._digest = None
         self._end_time = None
+        self._instance_id = None
         self._project_name = None
         self._query = None
         self._timestamp = None
@@ -72,13 +72,13 @@ class GetSlowQueryDetailsRequest(object):
 
         if begin_time is not None:
             self.begin_time = begin_time
-        self.cluster_id = cluster_id
         if connection_id is not None:
             self.connection_id = connection_id
         if digest is not None:
             self.digest = digest
         if end_time is not None:
             self.end_time = end_time
+        self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
         if query is not None:
@@ -106,29 +106,6 @@ class GetSlowQueryDetailsRequest(object):
         """
 
         self._begin_time = begin_time
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this GetSlowQueryDetailsRequest.  # noqa: E501
-
-
-        :return: The cluster_id of this GetSlowQueryDetailsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this GetSlowQueryDetailsRequest.
-
-
-        :param cluster_id: The cluster_id of this GetSlowQueryDetailsRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
-
-        self._cluster_id = cluster_id
 
     @property
     def connection_id(self):
@@ -192,6 +169,29 @@ class GetSlowQueryDetailsRequest(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this GetSlowQueryDetailsRequest.  # noqa: E501
+
+
+        :return: The instance_id of this GetSlowQueryDetailsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this GetSlowQueryDetailsRequest.
+
+
+        :param instance_id: The instance_id of this GetSlowQueryDetailsRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def project_name(self):
