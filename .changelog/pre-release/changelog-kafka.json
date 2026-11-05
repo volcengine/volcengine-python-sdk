@@ -1,0 +1,9 @@
+{
+  "actions": [
+    "DescribeTopicAuditInfo",
+    "DescribeOffsetCommitAuditInfo"
+  ],
+  "description": "KAFKA: 新增 DescribeOffsetCommitAuditInfo；删除 VerifyMigrateSubTasks；修改 DescribeTopicAuditInfo",
+  "modules": "service/Kafka",
+  "type": "breaking-change"
+}
