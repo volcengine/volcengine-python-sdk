@@ -1,0 +1,8 @@
+{
+  "actions": [
+    "CreateClaw"
+  ],
+  "description": "CLAWSENTRY: 修改 CreateClaw",
+  "modules": "service/clawsentry",
+  "type": "feature"
+}
