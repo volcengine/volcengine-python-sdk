@@ -33,78 +33,78 @@ class CancelImportTaskRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cluster_id': 'str',
-        'id': 'str',
+        'import_id': 'str',
+        'instance_id': 'str',
         'project_name': 'str'
     }
 
     attribute_map = {
-        'cluster_id': 'ClusterId',
-        'id': 'Id',
+        'import_id': 'ImportId',
+        'instance_id': 'InstanceId',
         'project_name': 'ProjectName'
     }
 
-    def __init__(self, cluster_id=None, id=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, import_id=None, instance_id=None, project_name=None, _configuration=None):  # noqa: E501
         """CancelImportTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cluster_id = None
-        self._id = None
+        self._import_id = None
+        self._instance_id = None
         self._project_name = None
         self.discriminator = None
 
-        self.cluster_id = cluster_id
-        self.id = id
+        self.import_id = import_id
+        self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
 
     @property
-    def cluster_id(self):
-        """Gets the cluster_id of this CancelImportTaskRequest.  # noqa: E501
+    def import_id(self):
+        """Gets the import_id of this CancelImportTaskRequest.  # noqa: E501
 
 
-        :return: The cluster_id of this CancelImportTaskRequest.  # noqa: E501
+        :return: The import_id of this CancelImportTaskRequest.  # noqa: E501
         :rtype: str
         """
-        return self._cluster_id
+        return self._import_id
 
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this CancelImportTaskRequest.
+    @import_id.setter
+    def import_id(self, import_id):
+        """Sets the import_id of this CancelImportTaskRequest.
 
 
-        :param cluster_id: The cluster_id of this CancelImportTaskRequest.  # noqa: E501
+        :param import_id: The import_id of this CancelImportTaskRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
+        if self._configuration.client_side_validation and import_id is None:
+            raise ValueError("Invalid value for `import_id`, must not be `None`")  # noqa: E501
 
-        self._cluster_id = cluster_id
+        self._import_id = import_id
 
     @property
-    def id(self):
-        """Gets the id of this CancelImportTaskRequest.  # noqa: E501
+    def instance_id(self):
+        """Gets the instance_id of this CancelImportTaskRequest.  # noqa: E501
 
 
-        :return: The id of this CancelImportTaskRequest.  # noqa: E501
+        :return: The instance_id of this CancelImportTaskRequest.  # noqa: E501
         :rtype: str
         """
-        return self._id
+        return self._instance_id
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this CancelImportTaskRequest.
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this CancelImportTaskRequest.
 
 
-        :param id: The id of this CancelImportTaskRequest.  # noqa: E501
+        :param instance_id: The instance_id of this CancelImportTaskRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
-        self._id = id
+        self._instance_id = instance_id
 
     @property
     def project_name(self):

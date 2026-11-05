@@ -34,9 +34,9 @@ class CreateReqForDescribePriceDetailInput(object):
     """
     swagger_types = {
         'auto_scaling': 'AutoScalingForDescribePriceDetailInput',
-        'cluster_name': 'str',
         'encryption_config': 'EncryptionConfigForDescribePriceDetailInput',
         'high_availability_type': 'str',
+        'instance_name': 'str',
         'project_name': 'str',
         'region_id': 'str',
         'service_plan': 'str',
@@ -47,9 +47,9 @@ class CreateReqForDescribePriceDetailInput(object):
 
     attribute_map = {
         'auto_scaling': 'AutoScaling',
-        'cluster_name': 'ClusterName',
         'encryption_config': 'EncryptionConfig',
         'high_availability_type': 'HighAvailabilityType',
+        'instance_name': 'InstanceName',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'service_plan': 'ServicePlan',
@@ -58,16 +58,16 @@ class CreateReqForDescribePriceDetailInput(object):
         'zones': 'Zones'
     }
 
-    def __init__(self, auto_scaling=None, cluster_name=None, encryption_config=None, high_availability_type=None, project_name=None, region_id=None, service_plan=None, tags=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, encryption_config=None, high_availability_type=None, instance_name=None, project_name=None, region_id=None, service_plan=None, tags=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
         """CreateReqForDescribePriceDetailInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_scaling = None
-        self._cluster_name = None
         self._encryption_config = None
         self._high_availability_type = None
+        self._instance_name = None
         self._project_name = None
         self._region_id = None
         self._service_plan = None
@@ -78,12 +78,12 @@ class CreateReqForDescribePriceDetailInput(object):
 
         if auto_scaling is not None:
             self.auto_scaling = auto_scaling
-        if cluster_name is not None:
-            self.cluster_name = cluster_name
         if encryption_config is not None:
             self.encryption_config = encryption_config
         if high_availability_type is not None:
             self.high_availability_type = high_availability_type
+        if instance_name is not None:
+            self.instance_name = instance_name
         if project_name is not None:
             self.project_name = project_name
         if region_id is not None:
@@ -117,27 +117,6 @@ class CreateReqForDescribePriceDetailInput(object):
         """
 
         self._auto_scaling = auto_scaling
-
-    @property
-    def cluster_name(self):
-        """Gets the cluster_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
-
-
-        :return: The cluster_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_name
-
-    @cluster_name.setter
-    def cluster_name(self, cluster_name):
-        """Sets the cluster_name of this CreateReqForDescribePriceDetailInput.
-
-
-        :param cluster_name: The cluster_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_name = cluster_name
 
     @property
     def encryption_config(self):
@@ -187,6 +166,27 @@ class CreateReqForDescribePriceDetailInput(object):
             )
 
         self._high_availability_type = high_availability_type
+
+    @property
+    def instance_name(self):
+        """Gets the instance_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
+
+
+        :return: The instance_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_name
+
+    @instance_name.setter
+    def instance_name(self, instance_name):
+        """Sets the instance_name of this CreateReqForDescribePriceDetailInput.
+
+
+        :param instance_name: The instance_name of this CreateReqForDescribePriceDetailInput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_name = instance_name
 
     @property
     def project_name(self):

@@ -37,10 +37,10 @@ class ChangefeedForListChangefeedsOutput(object):
         'changefeed_id': 'str',
         'changefeed_name': 'str',
         'checkpoint': 'CheckpointForListChangefeedsOutput',
-        'cluster_id': 'str',
         'create_time': 'str',
         'error': 'str',
         'filter': 'FilterForListChangefeedsOutput',
+        'instance_id': 'str',
         'rcu': 'int',
         'sink': 'SinkForListChangefeedsOutput',
         'start_position': 'StartPositionForListChangefeedsOutput',
@@ -53,10 +53,10 @@ class ChangefeedForListChangefeedsOutput(object):
         'changefeed_id': 'ChangefeedId',
         'changefeed_name': 'ChangefeedName',
         'checkpoint': 'Checkpoint',
-        'cluster_id': 'ClusterId',
         'create_time': 'CreateTime',
         'error': 'Error',
         'filter': 'Filter',
+        'instance_id': 'InstanceId',
         'rcu': 'Rcu',
         'sink': 'Sink',
         'start_position': 'StartPosition',
@@ -64,7 +64,7 @@ class ChangefeedForListChangefeedsOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, arch=None, changefeed_id=None, changefeed_name=None, checkpoint=None, cluster_id=None, create_time=None, error=None, filter=None, rcu=None, sink=None, start_position=None, state=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, arch=None, changefeed_id=None, changefeed_name=None, checkpoint=None, create_time=None, error=None, filter=None, instance_id=None, rcu=None, sink=None, start_position=None, state=None, update_time=None, _configuration=None):  # noqa: E501
         """ChangefeedForListChangefeedsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,10 +74,10 @@ class ChangefeedForListChangefeedsOutput(object):
         self._changefeed_id = None
         self._changefeed_name = None
         self._checkpoint = None
-        self._cluster_id = None
         self._create_time = None
         self._error = None
         self._filter = None
+        self._instance_id = None
         self._rcu = None
         self._sink = None
         self._start_position = None
@@ -93,14 +93,14 @@ class ChangefeedForListChangefeedsOutput(object):
             self.changefeed_name = changefeed_name
         if checkpoint is not None:
             self.checkpoint = checkpoint
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if create_time is not None:
             self.create_time = create_time
         if error is not None:
             self.error = error
         if filter is not None:
             self.filter = filter
+        if instance_id is not None:
+            self.instance_id = instance_id
         if rcu is not None:
             self.rcu = rcu
         if sink is not None:
@@ -197,27 +197,6 @@ class ChangefeedForListChangefeedsOutput(object):
         self._checkpoint = checkpoint
 
     @property
-    def cluster_id(self):
-        """Gets the cluster_id of this ChangefeedForListChangefeedsOutput.  # noqa: E501
-
-
-        :return: The cluster_id of this ChangefeedForListChangefeedsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this ChangefeedForListChangefeedsOutput.
-
-
-        :param cluster_id: The cluster_id of this ChangefeedForListChangefeedsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
-
-    @property
     def create_time(self):
         """Gets the create_time of this ChangefeedForListChangefeedsOutput.  # noqa: E501
 
@@ -279,6 +258,27 @@ class ChangefeedForListChangefeedsOutput(object):
         """
 
         self._filter = filter
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this ChangefeedForListChangefeedsOutput.  # noqa: E501
+
+
+        :return: The instance_id of this ChangefeedForListChangefeedsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this ChangefeedForListChangefeedsOutput.
+
+
+        :param instance_id: The instance_id of this ChangefeedForListChangefeedsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def rcu(self):

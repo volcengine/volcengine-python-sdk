@@ -34,10 +34,10 @@ class AttachedDomainForListPrivateLinkConnectionsOutput(object):
     """
     swagger_types = {
         'attach_domain_id': 'str',
-        'cluster_id': 'str',
         'create_time': 'str',
         'created_by': 'str',
         'domains': 'list[DomainForListPrivateLinkConnectionsOutput]',
+        'instance_id': 'str',
         'private_link_connection_id': 'str',
         'type': 'str',
         'unique_name': 'str'
@@ -45,26 +45,26 @@ class AttachedDomainForListPrivateLinkConnectionsOutput(object):
 
     attribute_map = {
         'attach_domain_id': 'AttachDomainId',
-        'cluster_id': 'ClusterId',
         'create_time': 'CreateTime',
         'created_by': 'CreatedBy',
         'domains': 'Domains',
+        'instance_id': 'InstanceId',
         'private_link_connection_id': 'PrivateLinkConnectionId',
         'type': 'Type',
         'unique_name': 'UniqueName'
     }
 
-    def __init__(self, attach_domain_id=None, cluster_id=None, create_time=None, created_by=None, domains=None, private_link_connection_id=None, type=None, unique_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, attach_domain_id=None, create_time=None, created_by=None, domains=None, instance_id=None, private_link_connection_id=None, type=None, unique_name=None, _configuration=None):  # noqa: E501
         """AttachedDomainForListPrivateLinkConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._attach_domain_id = None
-        self._cluster_id = None
         self._create_time = None
         self._created_by = None
         self._domains = None
+        self._instance_id = None
         self._private_link_connection_id = None
         self._type = None
         self._unique_name = None
@@ -72,14 +72,14 @@ class AttachedDomainForListPrivateLinkConnectionsOutput(object):
 
         if attach_domain_id is not None:
             self.attach_domain_id = attach_domain_id
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if create_time is not None:
             self.create_time = create_time
         if created_by is not None:
             self.created_by = created_by
         if domains is not None:
             self.domains = domains
+        if instance_id is not None:
+            self.instance_id = instance_id
         if private_link_connection_id is not None:
             self.private_link_connection_id = private_link_connection_id
         if type is not None:
@@ -107,27 +107,6 @@ class AttachedDomainForListPrivateLinkConnectionsOutput(object):
         """
 
         self._attach_domain_id = attach_domain_id
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this AttachedDomainForListPrivateLinkConnectionsOutput.  # noqa: E501
-
-
-        :return: The cluster_id of this AttachedDomainForListPrivateLinkConnectionsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this AttachedDomainForListPrivateLinkConnectionsOutput.
-
-
-        :param cluster_id: The cluster_id of this AttachedDomainForListPrivateLinkConnectionsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
 
     @property
     def create_time(self):
@@ -191,6 +170,27 @@ class AttachedDomainForListPrivateLinkConnectionsOutput(object):
         """
 
         self._domains = domains
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this AttachedDomainForListPrivateLinkConnectionsOutput.  # noqa: E501
+
+
+        :return: The instance_id of this AttachedDomainForListPrivateLinkConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this AttachedDomainForListPrivateLinkConnectionsOutput.
+
+
+        :param instance_id: The instance_id of this AttachedDomainForListPrivateLinkConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def private_link_connection_id(self):

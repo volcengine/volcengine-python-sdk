@@ -33,64 +33,41 @@ class PreviewLocalImportRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cluster_id': 'str',
         'csv_format': 'CsvFormatForPreviewLocalImportInput',
         'file_type': 'str',
+        'instance_id': 'str',
         'project_name': 'str',
         'upload_id': 'str'
     }
 
     attribute_map = {
-        'cluster_id': 'ClusterId',
         'csv_format': 'CsvFormat',
         'file_type': 'FileType',
+        'instance_id': 'InstanceId',
         'project_name': 'ProjectName',
         'upload_id': 'UploadId'
     }
 
-    def __init__(self, cluster_id=None, csv_format=None, file_type=None, project_name=None, upload_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, csv_format=None, file_type=None, instance_id=None, project_name=None, upload_id=None, _configuration=None):  # noqa: E501
         """PreviewLocalImportRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cluster_id = None
         self._csv_format = None
         self._file_type = None
+        self._instance_id = None
         self._project_name = None
         self._upload_id = None
         self.discriminator = None
 
-        self.cluster_id = cluster_id
         if csv_format is not None:
             self.csv_format = csv_format
         self.file_type = file_type
+        self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
         self.upload_id = upload_id
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this PreviewLocalImportRequest.  # noqa: E501
-
-
-        :return: The cluster_id of this PreviewLocalImportRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this PreviewLocalImportRequest.
-
-
-        :param cluster_id: The cluster_id of this PreviewLocalImportRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
-
-        self._cluster_id = cluster_id
 
     @property
     def csv_format(self):
@@ -142,6 +119,29 @@ class PreviewLocalImportRequest(object):
             )
 
         self._file_type = file_type
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this PreviewLocalImportRequest.  # noqa: E501
+
+
+        :return: The instance_id of this PreviewLocalImportRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this PreviewLocalImportRequest.
+
+
+        :param instance_id: The instance_id of this PreviewLocalImportRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def project_name(self):

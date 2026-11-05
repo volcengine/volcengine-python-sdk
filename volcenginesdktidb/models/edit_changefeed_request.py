@@ -35,8 +35,8 @@ class EditChangefeedRequest(object):
     swagger_types = {
         'changefeed_id': 'str',
         'changefeed_name': 'str',
-        'cluster_id': 'str',
         'filter': 'FilterForEditChangefeedInput',
+        'instance_id': 'str',
         'project_name': 'str',
         'sink': 'SinkForEditChangefeedInput'
     }
@@ -44,13 +44,13 @@ class EditChangefeedRequest(object):
     attribute_map = {
         'changefeed_id': 'ChangefeedId',
         'changefeed_name': 'ChangefeedName',
-        'cluster_id': 'ClusterId',
         'filter': 'Filter',
+        'instance_id': 'InstanceId',
         'project_name': 'ProjectName',
         'sink': 'Sink'
     }
 
-    def __init__(self, changefeed_id=None, changefeed_name=None, cluster_id=None, filter=None, project_name=None, sink=None, _configuration=None):  # noqa: E501
+    def __init__(self, changefeed_id=None, changefeed_name=None, filter=None, instance_id=None, project_name=None, sink=None, _configuration=None):  # noqa: E501
         """EditChangefeedRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,8 +58,8 @@ class EditChangefeedRequest(object):
 
         self._changefeed_id = None
         self._changefeed_name = None
-        self._cluster_id = None
         self._filter = None
+        self._instance_id = None
         self._project_name = None
         self._sink = None
         self.discriminator = None
@@ -67,9 +67,9 @@ class EditChangefeedRequest(object):
         self.changefeed_id = changefeed_id
         if changefeed_name is not None:
             self.changefeed_name = changefeed_name
-        self.cluster_id = cluster_id
         if filter is not None:
             self.filter = filter
+        self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
         if sink is not None:
@@ -120,29 +120,6 @@ class EditChangefeedRequest(object):
         self._changefeed_name = changefeed_name
 
     @property
-    def cluster_id(self):
-        """Gets the cluster_id of this EditChangefeedRequest.  # noqa: E501
-
-
-        :return: The cluster_id of this EditChangefeedRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this EditChangefeedRequest.
-
-
-        :param cluster_id: The cluster_id of this EditChangefeedRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
-
-        self._cluster_id = cluster_id
-
-    @property
     def filter(self):
         """Gets the filter of this EditChangefeedRequest.  # noqa: E501
 
@@ -162,6 +139,29 @@ class EditChangefeedRequest(object):
         """
 
         self._filter = filter
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this EditChangefeedRequest.  # noqa: E501
+
+
+        :return: The instance_id of this EditChangefeedRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this EditChangefeedRequest.
+
+
+        :param instance_id: The instance_id of this EditChangefeedRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def project_name(self):

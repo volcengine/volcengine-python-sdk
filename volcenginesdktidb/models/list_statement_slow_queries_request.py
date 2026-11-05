@@ -34,11 +34,11 @@ class ListStatementSlowQueriesRequest(object):
     """
     swagger_types = {
         'begin_time': 'str',
-        'cluster_id': 'str',
         'desc': 'bool',
         'digest': 'str',
         'end_time': 'str',
         'fields': 'list[str]',
+        'instance_id': 'str',
         'limit': 'int',
         'order_by': 'str',
         'plans': 'list[str]',
@@ -47,29 +47,29 @@ class ListStatementSlowQueriesRequest(object):
 
     attribute_map = {
         'begin_time': 'BeginTime',
-        'cluster_id': 'ClusterId',
         'desc': 'Desc',
         'digest': 'Digest',
         'end_time': 'EndTime',
         'fields': 'Fields',
+        'instance_id': 'InstanceId',
         'limit': 'Limit',
         'order_by': 'OrderBy',
         'plans': 'Plans',
         'project_name': 'ProjectName'
     }
 
-    def __init__(self, begin_time=None, cluster_id=None, desc=None, digest=None, end_time=None, fields=None, limit=None, order_by=None, plans=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, begin_time=None, desc=None, digest=None, end_time=None, fields=None, instance_id=None, limit=None, order_by=None, plans=None, project_name=None, _configuration=None):  # noqa: E501
         """ListStatementSlowQueriesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._begin_time = None
-        self._cluster_id = None
         self._desc = None
         self._digest = None
         self._end_time = None
         self._fields = None
+        self._instance_id = None
         self._limit = None
         self._order_by = None
         self._plans = None
@@ -78,7 +78,6 @@ class ListStatementSlowQueriesRequest(object):
 
         if begin_time is not None:
             self.begin_time = begin_time
-        self.cluster_id = cluster_id
         if desc is not None:
             self.desc = desc
         if digest is not None:
@@ -87,6 +86,7 @@ class ListStatementSlowQueriesRequest(object):
             self.end_time = end_time
         if fields is not None:
             self.fields = fields
+        self.instance_id = instance_id
         if limit is not None:
             self.limit = limit
         if order_by is not None:
@@ -116,29 +116,6 @@ class ListStatementSlowQueriesRequest(object):
         """
 
         self._begin_time = begin_time
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this ListStatementSlowQueriesRequest.  # noqa: E501
-
-
-        :return: The cluster_id of this ListStatementSlowQueriesRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this ListStatementSlowQueriesRequest.
-
-
-        :param cluster_id: The cluster_id of this ListStatementSlowQueriesRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
-
-        self._cluster_id = cluster_id
 
     @property
     def desc(self):
@@ -223,6 +200,29 @@ class ListStatementSlowQueriesRequest(object):
         """
 
         self._fields = fields
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this ListStatementSlowQueriesRequest.  # noqa: E501
+
+
+        :return: The instance_id of this ListStatementSlowQueriesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this ListStatementSlowQueriesRequest.
+
+
+        :param instance_id: The instance_id of this ListStatementSlowQueriesRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def limit(self):

@@ -33,65 +33,42 @@ class CreateAuditLogFilterRuleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cluster_id': 'str',
         'filter_rule_name': 'str',
         'filters': 'list[FilterForCreateAuditLogFilterRuleInput]',
+        'instance_id': 'str',
         'project_name': 'str',
         'users': 'list[str]'
     }
 
     attribute_map = {
-        'cluster_id': 'ClusterId',
         'filter_rule_name': 'FilterRuleName',
         'filters': 'Filters',
+        'instance_id': 'InstanceId',
         'project_name': 'ProjectName',
         'users': 'Users'
     }
 
-    def __init__(self, cluster_id=None, filter_rule_name=None, filters=None, project_name=None, users=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter_rule_name=None, filters=None, instance_id=None, project_name=None, users=None, _configuration=None):  # noqa: E501
         """CreateAuditLogFilterRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cluster_id = None
         self._filter_rule_name = None
         self._filters = None
+        self._instance_id = None
         self._project_name = None
         self._users = None
         self.discriminator = None
 
-        self.cluster_id = cluster_id
         self.filter_rule_name = filter_rule_name
         if filters is not None:
             self.filters = filters
+        self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
         if users is not None:
             self.users = users
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this CreateAuditLogFilterRuleRequest.  # noqa: E501
-
-
-        :return: The cluster_id of this CreateAuditLogFilterRuleRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this CreateAuditLogFilterRuleRequest.
-
-
-        :param cluster_id: The cluster_id of this CreateAuditLogFilterRuleRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
-
-        self._cluster_id = cluster_id
 
     @property
     def filter_rule_name(self):
@@ -136,6 +113,29 @@ class CreateAuditLogFilterRuleRequest(object):
         """
 
         self._filters = filters
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this CreateAuditLogFilterRuleRequest.  # noqa: E501
+
+
+        :return: The instance_id of this CreateAuditLogFilterRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this CreateAuditLogFilterRuleRequest.
+
+
+        :param instance_id: The instance_id of this CreateAuditLogFilterRuleRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def project_name(self):

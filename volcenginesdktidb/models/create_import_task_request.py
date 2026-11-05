@@ -33,61 +33,69 @@ class CreateImportTaskRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cluster_id': 'str',
+        'database_credential': 'DatabaseCredentialForCreateImportTaskInput',
         'import_options': 'ImportOptionsForCreateImportTaskInput',
+        'instance_id': 'str',
         'project_name': 'str',
-        'source': 'SourceForCreateImportTaskInput'
+        'source': 'SourceForCreateImportTaskInput',
+        'table_metas': 'list[TableMetaForCreateImportTaskInput]'
     }
 
     attribute_map = {
-        'cluster_id': 'ClusterId',
+        'database_credential': 'DatabaseCredential',
         'import_options': 'ImportOptions',
+        'instance_id': 'InstanceId',
         'project_name': 'ProjectName',
-        'source': 'Source'
+        'source': 'Source',
+        'table_metas': 'TableMetas'
     }
 
-    def __init__(self, cluster_id=None, import_options=None, project_name=None, source=None, _configuration=None):  # noqa: E501
+    def __init__(self, database_credential=None, import_options=None, instance_id=None, project_name=None, source=None, table_metas=None, _configuration=None):  # noqa: E501
         """CreateImportTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cluster_id = None
+        self._database_credential = None
         self._import_options = None
+        self._instance_id = None
         self._project_name = None
         self._source = None
+        self._table_metas = None
         self.discriminator = None
 
-        self.cluster_id = cluster_id
+        if database_credential is not None:
+            self.database_credential = database_credential
         if import_options is not None:
             self.import_options = import_options
+        self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
         if source is not None:
             self.source = source
+        if table_metas is not None:
+            self.table_metas = table_metas
 
     @property
-    def cluster_id(self):
-        """Gets the cluster_id of this CreateImportTaskRequest.  # noqa: E501
+    def database_credential(self):
+        """Gets the database_credential of this CreateImportTaskRequest.  # noqa: E501
 
 
-        :return: The cluster_id of this CreateImportTaskRequest.  # noqa: E501
-        :rtype: str
+        :return: The database_credential of this CreateImportTaskRequest.  # noqa: E501
+        :rtype: DatabaseCredentialForCreateImportTaskInput
         """
-        return self._cluster_id
+        return self._database_credential
 
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this CreateImportTaskRequest.
+    @database_credential.setter
+    def database_credential(self, database_credential):
+        """Sets the database_credential of this CreateImportTaskRequest.
 
 
-        :param cluster_id: The cluster_id of this CreateImportTaskRequest.  # noqa: E501
-        :type: str
+        :param database_credential: The database_credential of this CreateImportTaskRequest.  # noqa: E501
+        :type: DatabaseCredentialForCreateImportTaskInput
         """
-        if self._configuration.client_side_validation and cluster_id is None:
-            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
-        self._cluster_id = cluster_id
+        self._database_credential = database_credential
 
     @property
     def import_options(self):
@@ -109,6 +117,29 @@ class CreateImportTaskRequest(object):
         """
 
         self._import_options = import_options
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this CreateImportTaskRequest.  # noqa: E501
+
+
+        :return: The instance_id of this CreateImportTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this CreateImportTaskRequest.
+
+
+        :param instance_id: The instance_id of this CreateImportTaskRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def project_name(self):
@@ -151,6 +182,27 @@ class CreateImportTaskRequest(object):
         """
 
         self._source = source
+
+    @property
+    def table_metas(self):
+        """Gets the table_metas of this CreateImportTaskRequest.  # noqa: E501
+
+
+        :return: The table_metas of this CreateImportTaskRequest.  # noqa: E501
+        :rtype: list[TableMetaForCreateImportTaskInput]
+        """
+        return self._table_metas
+
+    @table_metas.setter
+    def table_metas(self, table_metas):
+        """Sets the table_metas of this CreateImportTaskRequest.
+
+
+        :param table_metas: The table_metas of this CreateImportTaskRequest.  # noqa: E501
+        :type: list[TableMetaForCreateImportTaskInput]
+        """
+
+        self._table_metas = table_metas
 
     def to_dict(self):
         """Returns the model properties as a dict"""

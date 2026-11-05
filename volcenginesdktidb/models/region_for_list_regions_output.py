@@ -35,18 +35,16 @@ class RegionForListRegionsOutput(object):
     swagger_types = {
         'region_id': 'str',
         'region_name': 'str',
-        'service_plans': 'list[str]',
-        'zone_id': 'list[str]'
+        'service_plans': 'list[str]'
     }
 
     attribute_map = {
         'region_id': 'RegionId',
         'region_name': 'RegionName',
-        'service_plans': 'ServicePlans',
-        'zone_id': 'ZoneId'
+        'service_plans': 'ServicePlans'
     }
 
-    def __init__(self, region_id=None, region_name=None, service_plans=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, region_id=None, region_name=None, service_plans=None, _configuration=None):  # noqa: E501
         """RegionForListRegionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,7 +53,6 @@ class RegionForListRegionsOutput(object):
         self._region_id = None
         self._region_name = None
         self._service_plans = None
-        self._zone_id = None
         self.discriminator = None
 
         if region_id is not None:
@@ -64,8 +61,6 @@ class RegionForListRegionsOutput(object):
             self.region_name = region_name
         if service_plans is not None:
             self.service_plans = service_plans
-        if zone_id is not None:
-            self.zone_id = zone_id
 
     @property
     def region_id(self):
@@ -129,27 +124,6 @@ class RegionForListRegionsOutput(object):
         """
 
         self._service_plans = service_plans
-
-    @property
-    def zone_id(self):
-        """Gets the zone_id of this RegionForListRegionsOutput.  # noqa: E501
-
-
-        :return: The zone_id of this RegionForListRegionsOutput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._zone_id
-
-    @zone_id.setter
-    def zone_id(self, zone_id):
-        """Sets the zone_id of this RegionForListRegionsOutput.
-
-
-        :param zone_id: The zone_id of this RegionForListRegionsOutput.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

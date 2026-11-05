@@ -33,13 +33,13 @@ class ExportForCreateExportTaskOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cluster_id': 'str',
         'complete_time': 'str',
         'create_time': 'str',
         'expire_time': 'str',
         'export_id': 'str',
         'export_options': 'ExportOptionsForCreateExportTaskOutput',
         'export_task_name': 'str',
+        'instance_id': 'str',
         'reason': 'str',
         'snapshot_time': 'str',
         'state': 'str',
@@ -48,13 +48,13 @@ class ExportForCreateExportTaskOutput(object):
     }
 
     attribute_map = {
-        'cluster_id': 'ClusterId',
         'complete_time': 'CompleteTime',
         'create_time': 'CreateTime',
         'expire_time': 'ExpireTime',
         'export_id': 'ExportId',
         'export_options': 'ExportOptions',
         'export_task_name': 'ExportTaskName',
+        'instance_id': 'InstanceId',
         'reason': 'Reason',
         'snapshot_time': 'SnapshotTime',
         'state': 'State',
@@ -62,19 +62,19 @@ class ExportForCreateExportTaskOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, cluster_id=None, complete_time=None, create_time=None, expire_time=None, export_id=None, export_options=None, export_task_name=None, reason=None, snapshot_time=None, state=None, target=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, complete_time=None, create_time=None, expire_time=None, export_id=None, export_options=None, export_task_name=None, instance_id=None, reason=None, snapshot_time=None, state=None, target=None, update_time=None, _configuration=None):  # noqa: E501
         """ExportForCreateExportTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._cluster_id = None
         self._complete_time = None
         self._create_time = None
         self._expire_time = None
         self._export_id = None
         self._export_options = None
         self._export_task_name = None
+        self._instance_id = None
         self._reason = None
         self._snapshot_time = None
         self._state = None
@@ -82,8 +82,6 @@ class ExportForCreateExportTaskOutput(object):
         self._update_time = None
         self.discriminator = None
 
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if complete_time is not None:
             self.complete_time = complete_time
         if create_time is not None:
@@ -96,6 +94,8 @@ class ExportForCreateExportTaskOutput(object):
             self.export_options = export_options
         if export_task_name is not None:
             self.export_task_name = export_task_name
+        if instance_id is not None:
+            self.instance_id = instance_id
         if reason is not None:
             self.reason = reason
         if snapshot_time is not None:
@@ -106,27 +106,6 @@ class ExportForCreateExportTaskOutput(object):
             self.target = target
         if update_time is not None:
             self.update_time = update_time
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this ExportForCreateExportTaskOutput.  # noqa: E501
-
-
-        :return: The cluster_id of this ExportForCreateExportTaskOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this ExportForCreateExportTaskOutput.
-
-
-        :param cluster_id: The cluster_id of this ExportForCreateExportTaskOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
 
     @property
     def complete_time(self):
@@ -253,6 +232,27 @@ class ExportForCreateExportTaskOutput(object):
         """
 
         self._export_task_name = export_task_name
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this ExportForCreateExportTaskOutput.  # noqa: E501
+
+
+        :return: The instance_id of this ExportForCreateExportTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this ExportForCreateExportTaskOutput.
+
+
+        :param instance_id: The instance_id of this ExportForCreateExportTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def reason(self):

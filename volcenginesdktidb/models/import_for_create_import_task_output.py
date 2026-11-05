@@ -34,67 +34,68 @@ class ImportForCreateImportTaskOutput(object):
     """
     swagger_types = {
         'all_completed_tables': 'list[AllCompletedTableForCreateImportTaskOutput]',
-        'cluster_id': 'str',
         'compatible_id': 'str',
         'complete_percent': 'int',
         'complete_time': 'str',
         'create_time': 'str',
         'creation_details': 'CreationDetailsForCreateImportTaskOutput',
-        'id': 'str',
         'import_id': 'str',
+        'import_task_name': 'str',
+        'instance_id': 'str',
         'message': 'str',
         'post_import_completed_percent': 'int',
         'start_time': 'str',
         'state': 'str',
+        'subtasks': 'list[SubtaskForCreateImportTaskOutput]',
         'total_size': 'str',
         'total_tables_count': 'int'
     }
 
     attribute_map = {
         'all_completed_tables': 'AllCompletedTables',
-        'cluster_id': 'ClusterId',
         'compatible_id': 'CompatibleId',
         'complete_percent': 'CompletePercent',
         'complete_time': 'CompleteTime',
         'create_time': 'CreateTime',
         'creation_details': 'CreationDetails',
-        'id': 'Id',
         'import_id': 'ImportId',
+        'import_task_name': 'ImportTaskName',
+        'instance_id': 'InstanceId',
         'message': 'Message',
         'post_import_completed_percent': 'PostImportCompletedPercent',
         'start_time': 'StartTime',
         'state': 'State',
+        'subtasks': 'Subtasks',
         'total_size': 'TotalSize',
         'total_tables_count': 'TotalTablesCount'
     }
 
-    def __init__(self, all_completed_tables=None, cluster_id=None, compatible_id=None, complete_percent=None, complete_time=None, create_time=None, creation_details=None, id=None, import_id=None, message=None, post_import_completed_percent=None, start_time=None, state=None, total_size=None, total_tables_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, all_completed_tables=None, compatible_id=None, complete_percent=None, complete_time=None, create_time=None, creation_details=None, import_id=None, import_task_name=None, instance_id=None, message=None, post_import_completed_percent=None, start_time=None, state=None, subtasks=None, total_size=None, total_tables_count=None, _configuration=None):  # noqa: E501
         """ImportForCreateImportTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._all_completed_tables = None
-        self._cluster_id = None
         self._compatible_id = None
         self._complete_percent = None
         self._complete_time = None
         self._create_time = None
         self._creation_details = None
-        self._id = None
         self._import_id = None
+        self._import_task_name = None
+        self._instance_id = None
         self._message = None
         self._post_import_completed_percent = None
         self._start_time = None
         self._state = None
+        self._subtasks = None
         self._total_size = None
         self._total_tables_count = None
         self.discriminator = None
 
         if all_completed_tables is not None:
             self.all_completed_tables = all_completed_tables
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
         if compatible_id is not None:
             self.compatible_id = compatible_id
         if complete_percent is not None:
@@ -105,10 +106,12 @@ class ImportForCreateImportTaskOutput(object):
             self.create_time = create_time
         if creation_details is not None:
             self.creation_details = creation_details
-        if id is not None:
-            self.id = id
         if import_id is not None:
             self.import_id = import_id
+        if import_task_name is not None:
+            self.import_task_name = import_task_name
+        if instance_id is not None:
+            self.instance_id = instance_id
         if message is not None:
             self.message = message
         if post_import_completed_percent is not None:
@@ -117,6 +120,8 @@ class ImportForCreateImportTaskOutput(object):
             self.start_time = start_time
         if state is not None:
             self.state = state
+        if subtasks is not None:
+            self.subtasks = subtasks
         if total_size is not None:
             self.total_size = total_size
         if total_tables_count is not None:
@@ -142,27 +147,6 @@ class ImportForCreateImportTaskOutput(object):
         """
 
         self._all_completed_tables = all_completed_tables
-
-    @property
-    def cluster_id(self):
-        """Gets the cluster_id of this ImportForCreateImportTaskOutput.  # noqa: E501
-
-
-        :return: The cluster_id of this ImportForCreateImportTaskOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_id
-
-    @cluster_id.setter
-    def cluster_id(self, cluster_id):
-        """Sets the cluster_id of this ImportForCreateImportTaskOutput.
-
-
-        :param cluster_id: The cluster_id of this ImportForCreateImportTaskOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_id = cluster_id
 
     @property
     def compatible_id(self):
@@ -270,27 +254,6 @@ class ImportForCreateImportTaskOutput(object):
         self._creation_details = creation_details
 
     @property
-    def id(self):
-        """Gets the id of this ImportForCreateImportTaskOutput.  # noqa: E501
-
-
-        :return: The id of this ImportForCreateImportTaskOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this ImportForCreateImportTaskOutput.
-
-
-        :param id: The id of this ImportForCreateImportTaskOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def import_id(self):
         """Gets the import_id of this ImportForCreateImportTaskOutput.  # noqa: E501
 
@@ -310,6 +273,48 @@ class ImportForCreateImportTaskOutput(object):
         """
 
         self._import_id = import_id
+
+    @property
+    def import_task_name(self):
+        """Gets the import_task_name of this ImportForCreateImportTaskOutput.  # noqa: E501
+
+
+        :return: The import_task_name of this ImportForCreateImportTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._import_task_name
+
+    @import_task_name.setter
+    def import_task_name(self, import_task_name):
+        """Sets the import_task_name of this ImportForCreateImportTaskOutput.
+
+
+        :param import_task_name: The import_task_name of this ImportForCreateImportTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._import_task_name = import_task_name
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this ImportForCreateImportTaskOutput.  # noqa: E501
+
+
+        :return: The instance_id of this ImportForCreateImportTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this ImportForCreateImportTaskOutput.
+
+
+        :param instance_id: The instance_id of this ImportForCreateImportTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def message(self):
@@ -394,6 +399,27 @@ class ImportForCreateImportTaskOutput(object):
         """
 
         self._state = state
+
+    @property
+    def subtasks(self):
+        """Gets the subtasks of this ImportForCreateImportTaskOutput.  # noqa: E501
+
+
+        :return: The subtasks of this ImportForCreateImportTaskOutput.  # noqa: E501
+        :rtype: list[SubtaskForCreateImportTaskOutput]
+        """
+        return self._subtasks
+
+    @subtasks.setter
+    def subtasks(self, subtasks):
+        """Sets the subtasks of this ImportForCreateImportTaskOutput.
+
+
+        :param subtasks: The subtasks of this ImportForCreateImportTaskOutput.  # noqa: E501
+        :type: list[SubtaskForCreateImportTaskOutput]
+        """
+
+        self._subtasks = subtasks
 
     @property
     def total_size(self):
