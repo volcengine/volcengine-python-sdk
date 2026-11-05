@@ -34,26 +34,31 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput(object):
     """
     swagger_types = {
         'episode_num': 'int',
+        'target_lang2_effect_subtitle': 'list[TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput]',
         'target_lang2_subtitle': 'list[TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput]'
     }
 
     attribute_map = {
         'episode_num': 'episodeNum',
+        'target_lang2_effect_subtitle': 'targetLang2EffectSubtitle',
         'target_lang2_subtitle': 'targetLang2Subtitle'
     }
 
-    def __init__(self, episode_num=None, target_lang2_subtitle=None, _configuration=None):  # noqa: E501
+    def __init__(self, episode_num=None, target_lang2_effect_subtitle=None, target_lang2_subtitle=None, _configuration=None):  # noqa: E501
         """VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._episode_num = None
+        self._target_lang2_effect_subtitle = None
         self._target_lang2_subtitle = None
         self.discriminator = None
 
         if episode_num is not None:
             self.episode_num = episode_num
+        if target_lang2_effect_subtitle is not None:
+            self.target_lang2_effect_subtitle = target_lang2_effect_subtitle
         if target_lang2_subtitle is not None:
             self.target_lang2_subtitle = target_lang2_subtitle
 
@@ -77,6 +82,27 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput(object):
         """
 
         self._episode_num = episode_num
+
+    @property
+    def target_lang2_effect_subtitle(self):
+        """Gets the target_lang2_effect_subtitle of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+
+
+        :return: The target_lang2_effect_subtitle of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+        :rtype: list[TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput]
+        """
+        return self._target_lang2_effect_subtitle
+
+    @target_lang2_effect_subtitle.setter
+    def target_lang2_effect_subtitle(self, target_lang2_effect_subtitle):
+        """Sets the target_lang2_effect_subtitle of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.
+
+
+        :param target_lang2_effect_subtitle: The target_lang2_effect_subtitle of this VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.  # noqa: E501
+        :type: list[TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput]
+        """
+
+        self._target_lang2_effect_subtitle = target_lang2_effect_subtitle
 
     @property
     def target_lang2_subtitle(self):
