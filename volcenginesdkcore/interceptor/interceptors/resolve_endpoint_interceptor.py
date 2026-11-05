@@ -1,4 +1,7 @@
+# coding: utf-8
 from .interceptor import RequestInterceptor
+from ...endpoint.providers.default_provider import HostEndpointProvider
+from ...endpoint.validation import validate_service_and_region
 from ...observability.debugger import sdk_core_logger
 
 
@@ -14,6 +17,9 @@ class ResolveEndpointInterceptor(RequestInterceptor):
         scheme = context.request.scheme
         if not host:
             service = context.request.resource_path.split('/')[3]
+            # 显式固定 Host 不依赖输入；其他解析器必须在收到输入前完成校验。
+            if type(context.request.endpoint_provider) is not HostEndpointProvider:
+                validate_service_and_region(service, context.request.region)
             endpoint_resolver = context.request.endpoint_provider.endpoint_for(
                 service, context.request.region,
                 custom_bootstrap_region=context.request.custom_bootstrap_region,

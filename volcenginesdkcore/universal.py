@@ -3,6 +3,8 @@
 import six
 
 from volcenginesdkcore import ApiClient
+from volcenginesdkcore.endpoint.providers.default_provider import HostEndpointProvider
+from volcenginesdkcore.endpoint.validation import validate_service
 
 
 class UniversalInfo(object):
@@ -83,6 +85,10 @@ class UniversalApi(object):
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
+        # 在编码到内部路径前校验，避免斜杠被后续 split 截断后绕过校验。
+        configuration = self.api_client.configuration
+        if not configuration.host and type(configuration.endpoint_provider) is not HostEndpointProvider:
+            validate_service(info.service)
         path = '/' + info.action + '/' + info.version + '/' + info.service + '/' + info.method.lower() + '/'
         return self.api_client.call_api(
             path, info.method.upper(),

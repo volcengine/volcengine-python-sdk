@@ -3,6 +3,7 @@ import os
 import warnings
 
 from volcenginesdkcore.endpoint.endpoint_provider import EndpointProvider, ResolvedEndpoint
+from volcenginesdkcore.endpoint.validation import validate_service_and_region
 from volcenginesdkcore.observability.debugger import sdk_core_logger
 
 open_prefix = 'open'
@@ -30,6 +31,7 @@ class ServiceEndpointInfo:
         return self.service.lower().replace('_', '-')
 
     def get_endpoint_for(self, region, suffix=endpoint_suffix):
+        validate_service_and_region(self.service, region)
         sdk_core_logger.debug_endpoint(
             "get_endpoint_for start: service=%s, region=%s, suffix=%s",
             self.service, region, suffix
@@ -683,6 +685,7 @@ class DefaultEndpointProvider(EndpointProvider):
         self.custom_endpoints = custom_endpoints or {}
 
     def get_default_endpoint(self, service, region, suffix=endpoint_suffix):
+        validate_service_and_region(service, region)
         sdk_core_logger.debug_endpoint(
             "get_default_endpoint: service=%s, region=%s, suffix=%s",
             service, region, suffix
@@ -737,6 +740,7 @@ class DefaultEndpointProvider(EndpointProvider):
         return use_dual_stack
 
     def endpoint_for(self, service, region, custom_bootstrap_region=None, use_dual_stack=None, **kwargs):
+        validate_service_and_region(service, region)
         sdk_core_logger.debug_endpoint(
             "endpoint_for called: service=%s, region=%s, custom_bootstrap_region=%s, use_dual_stack=%s",
             service, region, custom_bootstrap_region, use_dual_stack
