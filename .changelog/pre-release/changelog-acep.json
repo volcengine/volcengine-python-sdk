@@ -1,8 +1,0 @@
-{
-  "actions": [
-    "StartRecording"
-  ],
-  "description": "ACEP: 修改 StartRecording",
-  "modules": "service/ACEP",
-  "type": "feature"
-}

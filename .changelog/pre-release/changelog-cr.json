@@ -1,8 +1,0 @@
-{
-  "actions": [
-    "CreateTag"
-  ],
-  "description": "CR: 新增 CreateTag",
-  "modules": "service/cr",
-  "type": "feature"
-}

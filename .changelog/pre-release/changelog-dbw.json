@@ -1,8 +1,0 @@
-{
-  "actions": [
-    "DescribeInstances"
-  ],
-  "description": "DBW: 新增 DescribeInstances",
-  "modules": "service/dbw",
-  "type": "feature"
-}
