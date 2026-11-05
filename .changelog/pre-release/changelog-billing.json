@@ -1,0 +1,14 @@
+{
+  "actions": [
+    "GetPaymentQualification",
+    "ListElement",
+    "ListProduct",
+    "ListProductStructure",
+    "ListCostAnalysisOpenApi",
+    "SetRenewalType",
+    "QueryBalanceAcct"
+  ],
+  "description": "BILLING: 新增 GetPaymentQualification, ListElement, ListProduct, ListProductStructure；修改 ListCostAnalysisOpenApi, SetRenewalType, QueryBalanceAcct",
+  "modules": "service/billing",
+  "type": "breaking-change"
+}

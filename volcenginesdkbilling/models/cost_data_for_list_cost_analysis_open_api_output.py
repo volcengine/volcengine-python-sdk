@@ -35,16 +35,18 @@ class CostDataForListCostAnalysisOpenApiOutput(object):
     swagger_types = {
         'classify_dimension': 'int',
         'classify_item': 'str',
-        'costs': 'list[CostForListCostAnalysisOpenApiOutput]'
+        'costs': 'list[CostForListCostAnalysisOpenApiOutput]',
+        'dimensions': 'list[DimensionForListCostAnalysisOpenApiOutput]'
     }
 
     attribute_map = {
         'classify_dimension': 'ClassifyDimension',
         'classify_item': 'ClassifyItem',
-        'costs': 'Costs'
+        'costs': 'Costs',
+        'dimensions': 'Dimensions'
     }
 
-    def __init__(self, classify_dimension=None, classify_item=None, costs=None, _configuration=None):  # noqa: E501
+    def __init__(self, classify_dimension=None, classify_item=None, costs=None, dimensions=None, _configuration=None):  # noqa: E501
         """CostDataForListCostAnalysisOpenApiOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class CostDataForListCostAnalysisOpenApiOutput(object):
         self._classify_dimension = None
         self._classify_item = None
         self._costs = None
+        self._dimensions = None
         self.discriminator = None
 
         if classify_dimension is not None:
@@ -61,6 +64,8 @@ class CostDataForListCostAnalysisOpenApiOutput(object):
             self.classify_item = classify_item
         if costs is not None:
             self.costs = costs
+        if dimensions is not None:
+            self.dimensions = dimensions
 
     @property
     def classify_dimension(self):
@@ -124,6 +129,27 @@ class CostDataForListCostAnalysisOpenApiOutput(object):
         """
 
         self._costs = costs
+
+    @property
+    def dimensions(self):
+        """Gets the dimensions of this CostDataForListCostAnalysisOpenApiOutput.  # noqa: E501
+
+
+        :return: The dimensions of this CostDataForListCostAnalysisOpenApiOutput.  # noqa: E501
+        :rtype: list[DimensionForListCostAnalysisOpenApiOutput]
+        """
+        return self._dimensions
+
+    @dimensions.setter
+    def dimensions(self, dimensions):
+        """Sets the dimensions of this CostDataForListCostAnalysisOpenApiOutput.
+
+
+        :param dimensions: The dimensions of this CostDataForListCostAnalysisOpenApiOutput.  # noqa: E501
+        :type: list[DimensionForListCostAnalysisOpenApiOutput]
+        """
+
+        self._dimensions = dimensions
 
     def to_dict(self):
         """Returns the model properties as a dict"""
