@@ -37,6 +37,7 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest(object):
         'audit_fail_policy': 'int',
         'bgm_policy': 'int',
         'dub_voice_mode': 'int',
+        'enable_lip_sync': 'bool',
         'max_target_subtitle_lines': 'int',
         'need_video_speed': 'bool',
         'project_id': 'str',
@@ -52,6 +53,7 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest(object):
         'audit_fail_policy': 'auditFailPolicy',
         'bgm_policy': 'bgmPolicy',
         'dub_voice_mode': 'dubVoiceMode',
+        'enable_lip_sync': 'enableLipSync',
         'max_target_subtitle_lines': 'maxTargetSubtitleLines',
         'need_video_speed': 'needVideoSpeed',
         'project_id': 'projectId',
@@ -62,7 +64,7 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest(object):
         'task_name': 'taskName'
     }
 
-    def __init__(self, ai_remove_type=None, audit_fail_policy=None, bgm_policy=None, dub_voice_mode=None, max_target_subtitle_lines=None, need_video_speed=None, project_id=None, source_style_map=None, suppression_params=None, target_style_map=None, task_ids=None, task_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_remove_type=None, audit_fail_policy=None, bgm_policy=None, dub_voice_mode=None, enable_lip_sync=None, max_target_subtitle_lines=None, need_video_speed=None, project_id=None, source_style_map=None, suppression_params=None, target_style_map=None, task_ids=None, task_name=None, _configuration=None):  # noqa: E501
         """VideoProjectSerialDubTaskCreateFromTranslationRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest(object):
         self._audit_fail_policy = None
         self._bgm_policy = None
         self._dub_voice_mode = None
+        self._enable_lip_sync = None
         self._max_target_subtitle_lines = None
         self._need_video_speed = None
         self._project_id = None
@@ -90,6 +93,8 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest(object):
             self.bgm_policy = bgm_policy
         if dub_voice_mode is not None:
             self.dub_voice_mode = dub_voice_mode
+        if enable_lip_sync is not None:
+            self.enable_lip_sync = enable_lip_sync
         if max_target_subtitle_lines is not None:
             self.max_target_subtitle_lines = max_target_subtitle_lines
         if need_video_speed is not None:
@@ -189,6 +194,27 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest(object):
         """
 
         self._dub_voice_mode = dub_voice_mode
+
+    @property
+    def enable_lip_sync(self):
+        """Gets the enable_lip_sync of this VideoProjectSerialDubTaskCreateFromTranslationRequest.  # noqa: E501
+
+
+        :return: The enable_lip_sync of this VideoProjectSerialDubTaskCreateFromTranslationRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_lip_sync
+
+    @enable_lip_sync.setter
+    def enable_lip_sync(self, enable_lip_sync):
+        """Sets the enable_lip_sync of this VideoProjectSerialDubTaskCreateFromTranslationRequest.
+
+
+        :param enable_lip_sync: The enable_lip_sync of this VideoProjectSerialDubTaskCreateFromTranslationRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_lip_sync = enable_lip_sync
 
     @property
     def max_target_subtitle_lines(self):
