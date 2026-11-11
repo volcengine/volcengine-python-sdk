@@ -36,12 +36,15 @@ class ListSplitBillDetailRequest(object):
         'bill_category': 'list[str]',
         'bill_period': 'str',
         'billing_mode': 'list[str]',
+        'cost_unit': 'list[str]',
         'expense_date': 'str',
         'group_period': 'int',
         'ignore_zero': 'int',
         'instance_no': 'str',
         'limit': 'int',
+        'max_results': 'int',
         'need_record_num': 'int',
+        'next_token': 'str',
         'offset': 'int',
         'owner_id': 'list[int]',
         'payer_id': 'list[int]',
@@ -58,12 +61,15 @@ class ListSplitBillDetailRequest(object):
         'bill_category': 'BillCategory',
         'bill_period': 'BillPeriod',
         'billing_mode': 'BillingMode',
+        'cost_unit': 'CostUnit',
         'expense_date': 'ExpenseDate',
         'group_period': 'GroupPeriod',
         'ignore_zero': 'IgnoreZero',
         'instance_no': 'InstanceNo',
         'limit': 'Limit',
+        'max_results': 'MaxResults',
         'need_record_num': 'NeedRecordNum',
+        'next_token': 'NextToken',
         'offset': 'Offset',
         'owner_id': 'OwnerID',
         'payer_id': 'PayerID',
@@ -76,7 +82,7 @@ class ListSplitBillDetailRequest(object):
         'tag_kv_filter_mode': 'TagKVFilterMode'
     }
 
-    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, sales_channel=None, split_dimension=None, split_item_id=None, tag_kv=None, tag_kv_filter_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, cost_unit=None, expense_date=None, group_period=None, ignore_zero=None, instance_no=None, limit=None, max_results=None, need_record_num=None, next_token=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, sales_channel=None, split_dimension=None, split_item_id=None, tag_kv=None, tag_kv_filter_mode=None, _configuration=None):  # noqa: E501
         """ListSplitBillDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,12 +91,15 @@ class ListSplitBillDetailRequest(object):
         self._bill_category = None
         self._bill_period = None
         self._billing_mode = None
+        self._cost_unit = None
         self._expense_date = None
         self._group_period = None
         self._ignore_zero = None
         self._instance_no = None
         self._limit = None
+        self._max_results = None
         self._need_record_num = None
+        self._next_token = None
         self._offset = None
         self._owner_id = None
         self._payer_id = None
@@ -108,6 +117,8 @@ class ListSplitBillDetailRequest(object):
         self.bill_period = bill_period
         if billing_mode is not None:
             self.billing_mode = billing_mode
+        if cost_unit is not None:
+            self.cost_unit = cost_unit
         if expense_date is not None:
             self.expense_date = expense_date
         if group_period is not None:
@@ -117,8 +128,12 @@ class ListSplitBillDetailRequest(object):
         if instance_no is not None:
             self.instance_no = instance_no
         self.limit = limit
+        if max_results is not None:
+            self.max_results = max_results
         if need_record_num is not None:
             self.need_record_num = need_record_num
+        if next_token is not None:
+            self.next_token = next_token
         if offset is not None:
             self.offset = offset
         if owner_id is not None:
@@ -204,6 +219,27 @@ class ListSplitBillDetailRequest(object):
         """
 
         self._billing_mode = billing_mode
+
+    @property
+    def cost_unit(self):
+        """Gets the cost_unit of this ListSplitBillDetailRequest.  # noqa: E501
+
+
+        :return: The cost_unit of this ListSplitBillDetailRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._cost_unit
+
+    @cost_unit.setter
+    def cost_unit(self, cost_unit):
+        """Sets the cost_unit of this ListSplitBillDetailRequest.
+
+
+        :param cost_unit: The cost_unit of this ListSplitBillDetailRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._cost_unit = cost_unit
 
     @property
     def expense_date(self):
@@ -313,6 +349,27 @@ class ListSplitBillDetailRequest(object):
         self._limit = limit
 
     @property
+    def max_results(self):
+        """Gets the max_results of this ListSplitBillDetailRequest.  # noqa: E501
+
+
+        :return: The max_results of this ListSplitBillDetailRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_results
+
+    @max_results.setter
+    def max_results(self, max_results):
+        """Sets the max_results of this ListSplitBillDetailRequest.
+
+
+        :param max_results: The max_results of this ListSplitBillDetailRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._max_results = max_results
+
+    @property
     def need_record_num(self):
         """Gets the need_record_num of this ListSplitBillDetailRequest.  # noqa: E501
 
@@ -332,6 +389,27 @@ class ListSplitBillDetailRequest(object):
         """
 
         self._need_record_num = need_record_num
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this ListSplitBillDetailRequest.  # noqa: E501
+
+
+        :return: The next_token of this ListSplitBillDetailRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this ListSplitBillDetailRequest.
+
+
+        :param next_token: The next_token of this ListSplitBillDetailRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def offset(self):
