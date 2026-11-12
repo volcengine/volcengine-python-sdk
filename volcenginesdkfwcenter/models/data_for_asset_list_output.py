@@ -35,6 +35,8 @@ class DataForAssetListOutput(object):
     swagger_types = {
         'account_id': 'str',
         'instance_id': 'str',
+        'member_account_id': 'str',
+        'member_account_name': 'str',
         'eip_id': 'str',
         'enable': 'bool',
         'instance_type': 'str',
@@ -50,6 +52,8 @@ class DataForAssetListOutput(object):
     attribute_map = {
         'account_id': 'AccountID',
         'instance_id': 'InstanceID',
+        'member_account_id': 'MemberAccountID',
+        'member_account_name': 'MemberAccountName',
         'eip_id': 'eip_id',
         'enable': 'enable',
         'instance_type': 'instance_type',
@@ -62,7 +66,7 @@ class DataForAssetListOutput(object):
         'type': 'type'
     }
 
-    def __init__(self, account_id=None, instance_id=None, eip_id=None, enable=None, instance_type=None, ip=None, ip_type=None, latest_7_days_peak_traffic=None, name=None, region=None, region_n=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, instance_id=None, member_account_id=None, member_account_name=None, eip_id=None, enable=None, instance_type=None, ip=None, ip_type=None, latest_7_days_peak_traffic=None, name=None, region=None, region_n=None, type=None, _configuration=None):  # noqa: E501
         """DataForAssetListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +74,8 @@ class DataForAssetListOutput(object):
 
         self._account_id = None
         self._instance_id = None
+        self._member_account_id = None
+        self._member_account_name = None
         self._eip_id = None
         self._enable = None
         self._instance_type = None
@@ -86,6 +92,10 @@ class DataForAssetListOutput(object):
             self.account_id = account_id
         if instance_id is not None:
             self.instance_id = instance_id
+        if member_account_id is not None:
+            self.member_account_id = member_account_id
+        if member_account_name is not None:
+            self.member_account_name = member_account_name
         if eip_id is not None:
             self.eip_id = eip_id
         if enable is not None:
@@ -148,6 +158,48 @@ class DataForAssetListOutput(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def member_account_id(self):
+        """Gets the member_account_id of this DataForAssetListOutput.  # noqa: E501
+
+
+        :return: The member_account_id of this DataForAssetListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._member_account_id
+
+    @member_account_id.setter
+    def member_account_id(self, member_account_id):
+        """Sets the member_account_id of this DataForAssetListOutput.
+
+
+        :param member_account_id: The member_account_id of this DataForAssetListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._member_account_id = member_account_id
+
+    @property
+    def member_account_name(self):
+        """Gets the member_account_name of this DataForAssetListOutput.  # noqa: E501
+
+
+        :return: The member_account_name of this DataForAssetListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._member_account_name
+
+    @member_account_name.setter
+    def member_account_name(self, member_account_name):
+        """Sets the member_account_name of this DataForAssetListOutput.
+
+
+        :param member_account_name: The member_account_name of this DataForAssetListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._member_account_name = member_account_name
 
     @property
     def eip_id(self):

@@ -42,7 +42,9 @@ class ListAmortizedCostBillDetailRequest(object):
         'ignore_zero': 'int',
         'instance_no': 'str',
         'limit': 'int',
+        'max_results': 'int',
         'need_record_num': 'int',
+        'next_token': 'str',
         'offset': 'int',
         'owner_id': 'list[int]',
         'payer_id': 'list[int]',
@@ -62,7 +64,9 @@ class ListAmortizedCostBillDetailRequest(object):
         'ignore_zero': 'IgnoreZero',
         'instance_no': 'InstanceNo',
         'limit': 'Limit',
+        'max_results': 'MaxResults',
         'need_record_num': 'NeedRecordNum',
+        'next_token': 'NextToken',
         'offset': 'Offset',
         'owner_id': 'OwnerID',
         'payer_id': 'PayerID',
@@ -72,7 +76,7 @@ class ListAmortizedCostBillDetailRequest(object):
         'tag_kv_filter_mode': 'TagKVFilterMode'
     }
 
-    def __init__(self, amortized_day=None, amortized_month=None, amortized_type=None, bill_category=None, bill_period=None, billing_mode=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, tag_kv=None, tag_kv_filter_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, amortized_day=None, amortized_month=None, amortized_type=None, bill_category=None, bill_period=None, billing_mode=None, ignore_zero=None, instance_no=None, limit=None, max_results=None, need_record_num=None, next_token=None, offset=None, owner_id=None, payer_id=None, product=None, project=None, tag_kv=None, tag_kv_filter_mode=None, _configuration=None):  # noqa: E501
         """ListAmortizedCostBillDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,7 +91,9 @@ class ListAmortizedCostBillDetailRequest(object):
         self._ignore_zero = None
         self._instance_no = None
         self._limit = None
+        self._max_results = None
         self._need_record_num = None
+        self._next_token = None
         self._offset = None
         self._owner_id = None
         self._payer_id = None
@@ -113,8 +119,12 @@ class ListAmortizedCostBillDetailRequest(object):
         if instance_no is not None:
             self.instance_no = instance_no
         self.limit = limit
+        if max_results is not None:
+            self.max_results = max_results
         if need_record_num is not None:
             self.need_record_num = need_record_num
+        if next_token is not None:
+            self.next_token = next_token
         if offset is not None:
             self.offset = offset
         if owner_id is not None:
@@ -324,6 +334,27 @@ class ListAmortizedCostBillDetailRequest(object):
         self._limit = limit
 
     @property
+    def max_results(self):
+        """Gets the max_results of this ListAmortizedCostBillDetailRequest.  # noqa: E501
+
+
+        :return: The max_results of this ListAmortizedCostBillDetailRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_results
+
+    @max_results.setter
+    def max_results(self, max_results):
+        """Sets the max_results of this ListAmortizedCostBillDetailRequest.
+
+
+        :param max_results: The max_results of this ListAmortizedCostBillDetailRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._max_results = max_results
+
+    @property
     def need_record_num(self):
         """Gets the need_record_num of this ListAmortizedCostBillDetailRequest.  # noqa: E501
 
@@ -343,6 +374,27 @@ class ListAmortizedCostBillDetailRequest(object):
         """
 
         self._need_record_num = need_record_num
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this ListAmortizedCostBillDetailRequest.  # noqa: E501
+
+
+        :return: The next_token of this ListAmortizedCostBillDetailRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this ListAmortizedCostBillDetailRequest.
+
+
+        :param next_token: The next_token of this ListAmortizedCostBillDetailRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def offset(self):

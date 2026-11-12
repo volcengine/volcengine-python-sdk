@@ -38,7 +38,9 @@ class ListBillOverviewByProdRequest(object):
         'billing_mode': 'list[str]',
         'ignore_zero': 'int',
         'limit': 'int',
+        'max_results': 'int',
         'need_record_num': 'int',
+        'next_token': 'str',
         'offset': 'int',
         'owner_id': 'list[int]',
         'payer_id': 'list[int]',
@@ -51,14 +53,16 @@ class ListBillOverviewByProdRequest(object):
         'billing_mode': 'BillingMode',
         'ignore_zero': 'IgnoreZero',
         'limit': 'Limit',
+        'max_results': 'MaxResults',
         'need_record_num': 'NeedRecordNum',
+        'next_token': 'NextToken',
         'offset': 'Offset',
         'owner_id': 'OwnerID',
         'payer_id': 'PayerID',
         'product': 'Product'
     }
 
-    def __init__(self, bill_category_parent=None, bill_period=None, billing_mode=None, ignore_zero=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category_parent=None, bill_period=None, billing_mode=None, ignore_zero=None, limit=None, max_results=None, need_record_num=None, next_token=None, offset=None, owner_id=None, payer_id=None, product=None, _configuration=None):  # noqa: E501
         """ListBillOverviewByProdRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,7 +73,9 @@ class ListBillOverviewByProdRequest(object):
         self._billing_mode = None
         self._ignore_zero = None
         self._limit = None
+        self._max_results = None
         self._need_record_num = None
+        self._next_token = None
         self._offset = None
         self._owner_id = None
         self._payer_id = None
@@ -84,8 +90,12 @@ class ListBillOverviewByProdRequest(object):
         if ignore_zero is not None:
             self.ignore_zero = ignore_zero
         self.limit = limit
+        if max_results is not None:
+            self.max_results = max_results
         if need_record_num is not None:
             self.need_record_num = need_record_num
+        if next_token is not None:
+            self.next_token = next_token
         if offset is not None:
             self.offset = offset
         if owner_id is not None:
@@ -205,6 +215,27 @@ class ListBillOverviewByProdRequest(object):
         self._limit = limit
 
     @property
+    def max_results(self):
+        """Gets the max_results of this ListBillOverviewByProdRequest.  # noqa: E501
+
+
+        :return: The max_results of this ListBillOverviewByProdRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_results
+
+    @max_results.setter
+    def max_results(self, max_results):
+        """Sets the max_results of this ListBillOverviewByProdRequest.
+
+
+        :param max_results: The max_results of this ListBillOverviewByProdRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._max_results = max_results
+
+    @property
     def need_record_num(self):
         """Gets the need_record_num of this ListBillOverviewByProdRequest.  # noqa: E501
 
@@ -224,6 +255,27 @@ class ListBillOverviewByProdRequest(object):
         """
 
         self._need_record_num = need_record_num
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this ListBillOverviewByProdRequest.  # noqa: E501
+
+
+        :return: The next_token of this ListBillOverviewByProdRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this ListBillOverviewByProdRequest.
+
+
+        :param next_token: The next_token of this ListBillOverviewByProdRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def offset(self):

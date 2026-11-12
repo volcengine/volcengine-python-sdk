@@ -35,6 +35,7 @@ class ListAmortizedCostBillDetailResponse(object):
     swagger_types = {
         'limit': 'int',
         'list': 'list[ListForListAmortizedCostBillDetailOutput]',
+        'next_token': 'str',
         'offset': 'int',
         'total': 'int',
         'warning': 'str'
@@ -43,12 +44,13 @@ class ListAmortizedCostBillDetailResponse(object):
     attribute_map = {
         'limit': 'Limit',
         'list': 'List',
+        'next_token': 'NextToken',
         'offset': 'Offset',
         'total': 'Total',
         'warning': 'Warning'
     }
 
-    def __init__(self, limit=None, list=None, offset=None, total=None, warning=None, _configuration=None):  # noqa: E501
+    def __init__(self, limit=None, list=None, next_token=None, offset=None, total=None, warning=None, _configuration=None):  # noqa: E501
         """ListAmortizedCostBillDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ListAmortizedCostBillDetailResponse(object):
 
         self._limit = None
         self._list = None
+        self._next_token = None
         self._offset = None
         self._total = None
         self._warning = None
@@ -65,6 +68,8 @@ class ListAmortizedCostBillDetailResponse(object):
             self.limit = limit
         if list is not None:
             self.list = list
+        if next_token is not None:
+            self.next_token = next_token
         if offset is not None:
             self.offset = offset
         if total is not None:
@@ -113,6 +118,27 @@ class ListAmortizedCostBillDetailResponse(object):
         """
 
         self._list = list
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this ListAmortizedCostBillDetailResponse.  # noqa: E501
+
+
+        :return: The next_token of this ListAmortizedCostBillDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this ListAmortizedCostBillDetailResponse.
+
+
+        :param next_token: The next_token of this ListAmortizedCostBillDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def offset(self):

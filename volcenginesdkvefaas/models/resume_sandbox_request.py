@@ -36,6 +36,7 @@ class ResumeSandboxRequest(object):
         '_async': 'bool',
         'function_id': 'str',
         'sandbox_id': 'str',
+        'snapshot_id': 'str',
         'timeout': 'int',
         'timeout_unit': 'str'
     }
@@ -44,11 +45,12 @@ class ResumeSandboxRequest(object):
         '_async': 'Async',
         'function_id': 'FunctionId',
         'sandbox_id': 'SandboxId',
+        'snapshot_id': 'SnapshotId',
         'timeout': 'Timeout',
         'timeout_unit': 'TimeoutUnit'
     }
 
-    def __init__(self, _async=None, function_id=None, sandbox_id=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, _async=None, function_id=None, sandbox_id=None, snapshot_id=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
         """ResumeSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class ResumeSandboxRequest(object):
         self.__async = None
         self._function_id = None
         self._sandbox_id = None
+        self._snapshot_id = None
         self._timeout = None
         self._timeout_unit = None
         self.discriminator = None
@@ -65,6 +68,8 @@ class ResumeSandboxRequest(object):
             self._async = _async
         self.function_id = function_id
         self.sandbox_id = sandbox_id
+        if snapshot_id is not None:
+            self.snapshot_id = snapshot_id
         if timeout is not None:
             self.timeout = timeout
         if timeout_unit is not None:
@@ -136,6 +141,27 @@ class ResumeSandboxRequest(object):
             raise ValueError("Invalid value for `sandbox_id`, must not be `None`")  # noqa: E501
 
         self._sandbox_id = sandbox_id
+
+    @property
+    def snapshot_id(self):
+        """Gets the snapshot_id of this ResumeSandboxRequest.  # noqa: E501
+
+
+        :return: The snapshot_id of this ResumeSandboxRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._snapshot_id
+
+    @snapshot_id.setter
+    def snapshot_id(self, snapshot_id):
+        """Sets the snapshot_id of this ResumeSandboxRequest.
+
+
+        :param snapshot_id: The snapshot_id of this ResumeSandboxRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._snapshot_id = snapshot_id
 
     @property
     def timeout(self):

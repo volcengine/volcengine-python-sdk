@@ -35,6 +35,7 @@ class DescribeVpcFirewallListRequest(object):
     swagger_types = {
         'cloud_firewall_id': 'str',
         'firewall_status': 'list[str]',
+        'member_account_id': 'str',
         'order_dir': 'str',
         'page_number': 'int',
         'page_size': 'int',
@@ -51,6 +52,7 @@ class DescribeVpcFirewallListRequest(object):
     attribute_map = {
         'cloud_firewall_id': 'CloudFirewallId',
         'firewall_status': 'FirewallStatus',
+        'member_account_id': 'MemberAccountID',
         'order_dir': 'OrderDir',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -64,7 +66,7 @@ class DescribeVpcFirewallListRequest(object):
         'vpc_firewall_name': 'VpcFirewallName'
     }
 
-    def __init__(self, cloud_firewall_id=None, firewall_status=None, order_dir=None, page_number=None, page_size=None, project_name=None, region_code=None, route_mode=None, route_policy_status=None, transit_router_id=None, transit_router_name=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_firewall_id=None, firewall_status=None, member_account_id=None, order_dir=None, page_number=None, page_size=None, project_name=None, region_code=None, route_mode=None, route_policy_status=None, transit_router_id=None, transit_router_name=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
         """DescribeVpcFirewallListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class DescribeVpcFirewallListRequest(object):
 
         self._cloud_firewall_id = None
         self._firewall_status = None
+        self._member_account_id = None
         self._order_dir = None
         self._page_number = None
         self._page_size = None
@@ -89,6 +92,8 @@ class DescribeVpcFirewallListRequest(object):
             self.cloud_firewall_id = cloud_firewall_id
         if firewall_status is not None:
             self.firewall_status = firewall_status
+        if member_account_id is not None:
+            self.member_account_id = member_account_id
         if order_dir is not None:
             self.order_dir = order_dir
         if page_number is not None:
@@ -153,6 +158,30 @@ class DescribeVpcFirewallListRequest(object):
         """
 
         self._firewall_status = firewall_status
+
+    @property
+    def member_account_id(self):
+        """Gets the member_account_id of this DescribeVpcFirewallListRequest.  # noqa: E501
+
+
+        :return: The member_account_id of this DescribeVpcFirewallListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._member_account_id
+
+    @member_account_id.setter
+    def member_account_id(self, member_account_id):
+        """Sets the member_account_id of this DescribeVpcFirewallListRequest.
+
+
+        :param member_account_id: The member_account_id of this DescribeVpcFirewallListRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                member_account_id is not None and len(member_account_id) > 128):
+            raise ValueError("Invalid value for `member_account_id`, length must be less than or equal to `128`")  # noqa: E501
+
+        self._member_account_id = member_account_id
 
     @property
     def order_dir(self):
