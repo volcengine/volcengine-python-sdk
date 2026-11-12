@@ -1,8 +1,0 @@
-{
-  "actions": [
-    "GrantPermission"
-  ],
-  "description": "VKE: 修改 GrantPermission",
-  "modules": "service/vke",
-  "type": "feature"
-}
