@@ -33,12 +33,15 @@ class DataForDescribeVpcFirewallListOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_id': 'str',
         'bandwidth': 'int',
         'bypass_status': 'str',
         'enable_ipv6': 'bool',
         'err_message': 'str',
         'firewall_status': 'str',
         'instance_type': 'int',
+        'member_account_id': 'str',
+        'member_account_name': 'str',
         'peak_traffic_within7_day': 'int',
         'project_name_for_tr': 'str',
         'region': 'str',
@@ -58,12 +61,15 @@ class DataForDescribeVpcFirewallListOutput(object):
     }
 
     attribute_map = {
+        'account_id': 'AccountID',
         'bandwidth': 'Bandwidth',
         'bypass_status': 'BypassStatus',
         'enable_ipv6': 'EnableIpv6',
         'err_message': 'ErrMessage',
         'firewall_status': 'FirewallStatus',
         'instance_type': 'InstanceType',
+        'member_account_id': 'MemberAccountID',
+        'member_account_name': 'MemberAccountName',
         'peak_traffic_within7_day': 'PeakTrafficWithin7Day',
         'project_name_for_tr': 'ProjectNameForTR',
         'region': 'Region',
@@ -82,18 +88,21 @@ class DataForDescribeVpcFirewallListOutput(object):
         'vpc_firewall_name': 'VpcFirewallName'
     }
 
-    def __init__(self, bandwidth=None, bypass_status=None, enable_ipv6=None, err_message=None, firewall_status=None, instance_type=None, peak_traffic_within7_day=None, project_name_for_tr=None, region=None, route_mode=None, route_policy_status=None, schedule_end_time=None, schedule_start_time=None, transit_router_description=None, transit_router_id=None, transit_router_name=None, upgrade_progress=None, upgrade_status=None, upgrade_version_code=None, version_code=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, bypass_status=None, enable_ipv6=None, err_message=None, firewall_status=None, instance_type=None, member_account_id=None, member_account_name=None, peak_traffic_within7_day=None, project_name_for_tr=None, region=None, route_mode=None, route_policy_status=None, schedule_end_time=None, schedule_start_time=None, transit_router_description=None, transit_router_id=None, transit_router_name=None, upgrade_progress=None, upgrade_status=None, upgrade_version_code=None, version_code=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
         """DataForDescribeVpcFirewallListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_id = None
         self._bandwidth = None
         self._bypass_status = None
         self._enable_ipv6 = None
         self._err_message = None
         self._firewall_status = None
         self._instance_type = None
+        self._member_account_id = None
+        self._member_account_name = None
         self._peak_traffic_within7_day = None
         self._project_name_for_tr = None
         self._region = None
@@ -112,6 +121,8 @@ class DataForDescribeVpcFirewallListOutput(object):
         self._vpc_firewall_name = None
         self.discriminator = None
 
+        if account_id is not None:
+            self.account_id = account_id
         if bandwidth is not None:
             self.bandwidth = bandwidth
         if bypass_status is not None:
@@ -124,6 +135,10 @@ class DataForDescribeVpcFirewallListOutput(object):
             self.firewall_status = firewall_status
         if instance_type is not None:
             self.instance_type = instance_type
+        if member_account_id is not None:
+            self.member_account_id = member_account_id
+        if member_account_name is not None:
+            self.member_account_name = member_account_name
         if peak_traffic_within7_day is not None:
             self.peak_traffic_within7_day = peak_traffic_within7_day
         if project_name_for_tr is not None:
@@ -156,6 +171,27 @@ class DataForDescribeVpcFirewallListOutput(object):
             self.vpc_firewall_id = vpc_firewall_id
         if vpc_firewall_name is not None:
             self.vpc_firewall_name = vpc_firewall_name
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The account_id of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param account_id: The account_id of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
 
     @property
     def bandwidth(self):
@@ -282,6 +318,48 @@ class DataForDescribeVpcFirewallListOutput(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def member_account_id(self):
+        """Gets the member_account_id of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The member_account_id of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._member_account_id
+
+    @member_account_id.setter
+    def member_account_id(self, member_account_id):
+        """Sets the member_account_id of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param member_account_id: The member_account_id of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._member_account_id = member_account_id
+
+    @property
+    def member_account_name(self):
+        """Gets the member_account_name of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The member_account_name of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._member_account_name
+
+    @member_account_name.setter
+    def member_account_name(self, member_account_name):
+        """Sets the member_account_name of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param member_account_name: The member_account_name of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._member_account_name = member_account_name
 
     @property
     def peak_traffic_within7_day(self):

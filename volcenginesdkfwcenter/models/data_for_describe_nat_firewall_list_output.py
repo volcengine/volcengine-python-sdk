@@ -38,6 +38,8 @@ class DataForDescribeNatFirewallListOutput(object):
         'can_create': 'bool',
         'err_message': 'str',
         'firewall_status': 'str',
+        'member_account_id': 'str',
+        'member_account_name': 'str',
         'nat_firewall_id': 'str',
         'nat_firewall_name': 'str',
         'nat_firewall_subnet_cidr': 'str',
@@ -58,6 +60,8 @@ class DataForDescribeNatFirewallListOutput(object):
         'can_create': 'CanCreate',
         'err_message': 'ErrMessage',
         'firewall_status': 'FirewallStatus',
+        'member_account_id': 'MemberAccountID',
+        'member_account_name': 'MemberAccountName',
         'nat_firewall_id': 'NatFirewallId',
         'nat_firewall_name': 'NatFirewallName',
         'nat_firewall_subnet_cidr': 'NatFirewallSubnetCidr',
@@ -72,7 +76,7 @@ class DataForDescribeNatFirewallListOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, can_create=None, err_message=None, firewall_status=None, nat_firewall_id=None, nat_firewall_name=None, nat_firewall_subnet_cidr=None, nat_gateway_id=None, nat_gateway_name=None, peak_traffic_within7_day=None, project_name_for_nat_gate=None, region=None, vpc_cidr=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, can_create=None, err_message=None, firewall_status=None, member_account_id=None, member_account_name=None, nat_firewall_id=None, nat_firewall_name=None, nat_firewall_subnet_cidr=None, nat_gateway_id=None, nat_gateway_name=None, peak_traffic_within7_day=None, project_name_for_nat_gate=None, region=None, vpc_cidr=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
         """DataForDescribeNatFirewallListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +87,8 @@ class DataForDescribeNatFirewallListOutput(object):
         self._can_create = None
         self._err_message = None
         self._firewall_status = None
+        self._member_account_id = None
+        self._member_account_name = None
         self._nat_firewall_id = None
         self._nat_firewall_name = None
         self._nat_firewall_subnet_cidr = None
@@ -107,6 +113,10 @@ class DataForDescribeNatFirewallListOutput(object):
             self.err_message = err_message
         if firewall_status is not None:
             self.firewall_status = firewall_status
+        if member_account_id is not None:
+            self.member_account_id = member_account_id
+        if member_account_name is not None:
+            self.member_account_name = member_account_name
         if nat_firewall_id is not None:
             self.nat_firewall_id = nat_firewall_id
         if nat_firewall_name is not None:
@@ -236,6 +246,48 @@ class DataForDescribeNatFirewallListOutput(object):
         """
 
         self._firewall_status = firewall_status
+
+    @property
+    def member_account_id(self):
+        """Gets the member_account_id of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+
+
+        :return: The member_account_id of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._member_account_id
+
+    @member_account_id.setter
+    def member_account_id(self, member_account_id):
+        """Sets the member_account_id of this DataForDescribeNatFirewallListOutput.
+
+
+        :param member_account_id: The member_account_id of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._member_account_id = member_account_id
+
+    @property
+    def member_account_name(self):
+        """Gets the member_account_name of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+
+
+        :return: The member_account_name of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._member_account_name
+
+    @member_account_name.setter
+    def member_account_name(self, member_account_name):
+        """Sets the member_account_name of this DataForDescribeNatFirewallListOutput.
+
+
+        :param member_account_name: The member_account_name of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._member_account_name = member_account_name
 
     @property
     def nat_firewall_id(self):
