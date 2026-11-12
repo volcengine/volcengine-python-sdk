@@ -54,6 +54,7 @@ class DataForDescribeControlPolicyOutput(object):
         'hit_cnt': 'int',
         'ip_type': 'str',
         'is_effected': 'bool',
+        'last_hit_time': 'int',
         'prio': 'int',
         'proto': 'str',
         'repeat_days': 'list[int]',
@@ -94,6 +95,7 @@ class DataForDescribeControlPolicyOutput(object):
         'hit_cnt': 'HitCnt',
         'ip_type': 'IpType',
         'is_effected': 'IsEffected',
+        'last_hit_time': 'LastHitTime',
         'prio': 'Prio',
         'proto': 'Proto',
         'repeat_days': 'RepeatDays',
@@ -112,7 +114,7 @@ class DataForDescribeControlPolicyOutput(object):
         'use_count': 'UseCount'
     }
 
-    def __init__(self, account_id=None, action=None, description=None, dest_port=None, dest_port_group_type=None, dest_port_list=None, dest_port_list_v1=None, dest_port_type=None, destination=None, destination_cidr_list=None, destination_cidr_list_v1=None, destination_domain_list=None, destination_group_type=None, destination_type=None, direction=None, domain_resolution_mode=None, effect_status=None, end_time=None, hit_cnt=None, ip_type=None, is_effected=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_cidr_list=None, source_cidr_list_v1=None, source_group_type=None, source_type=None, start_time=None, status=None, update_time=None, use_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, action=None, description=None, dest_port=None, dest_port_group_type=None, dest_port_list=None, dest_port_list_v1=None, dest_port_type=None, destination=None, destination_cidr_list=None, destination_cidr_list_v1=None, destination_domain_list=None, destination_group_type=None, destination_type=None, direction=None, domain_resolution_mode=None, effect_status=None, end_time=None, hit_cnt=None, ip_type=None, is_effected=None, last_hit_time=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_cidr_list=None, source_cidr_list_v1=None, source_group_type=None, source_type=None, start_time=None, status=None, update_time=None, use_count=None, _configuration=None):  # noqa: E501
         """DataForDescribeControlPolicyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -139,6 +141,7 @@ class DataForDescribeControlPolicyOutput(object):
         self._hit_cnt = None
         self._ip_type = None
         self._is_effected = None
+        self._last_hit_time = None
         self._prio = None
         self._proto = None
         self._repeat_days = None
@@ -199,6 +202,8 @@ class DataForDescribeControlPolicyOutput(object):
             self.ip_type = ip_type
         if is_effected is not None:
             self.is_effected = is_effected
+        if last_hit_time is not None:
+            self.last_hit_time = last_hit_time
         if prio is not None:
             self.prio = prio
         if proto is not None:
@@ -672,6 +677,27 @@ class DataForDescribeControlPolicyOutput(object):
         """
 
         self._is_effected = is_effected
+
+    @property
+    def last_hit_time(self):
+        """Gets the last_hit_time of this DataForDescribeControlPolicyOutput.  # noqa: E501
+
+
+        :return: The last_hit_time of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_hit_time
+
+    @last_hit_time.setter
+    def last_hit_time(self, last_hit_time):
+        """Sets the last_hit_time of this DataForDescribeControlPolicyOutput.
+
+
+        :param last_hit_time: The last_hit_time of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._last_hit_time = last_hit_time
 
     @property
     def prio(self):

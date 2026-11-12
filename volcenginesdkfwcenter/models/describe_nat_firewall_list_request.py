@@ -35,6 +35,7 @@ class DescribeNatFirewallListRequest(object):
     swagger_types = {
         'cloud_firewall_id': 'str',
         'firewall_status': 'list[str]',
+        'member_account_id': 'str',
         'nat_firewall_id': 'str',
         'nat_firewall_name': 'str',
         'nat_gateway_id': 'str',
@@ -51,6 +52,7 @@ class DescribeNatFirewallListRequest(object):
     attribute_map = {
         'cloud_firewall_id': 'CloudFirewallId',
         'firewall_status': 'FirewallStatus',
+        'member_account_id': 'MemberAccountID',
         'nat_firewall_id': 'NatFirewallId',
         'nat_firewall_name': 'NatFirewallName',
         'nat_gateway_id': 'NatGatewayId',
@@ -64,7 +66,7 @@ class DescribeNatFirewallListRequest(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, cloud_firewall_id=None, firewall_status=None, nat_firewall_id=None, nat_firewall_name=None, nat_gateway_id=None, nat_gateway_name=None, order_dir=None, page_number=None, page_size=None, project_name=None, region_code=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_firewall_id=None, firewall_status=None, member_account_id=None, nat_firewall_id=None, nat_firewall_name=None, nat_gateway_id=None, nat_gateway_name=None, order_dir=None, page_number=None, page_size=None, project_name=None, region_code=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """DescribeNatFirewallListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class DescribeNatFirewallListRequest(object):
 
         self._cloud_firewall_id = None
         self._firewall_status = None
+        self._member_account_id = None
         self._nat_firewall_id = None
         self._nat_firewall_name = None
         self._nat_gateway_id = None
@@ -89,6 +92,8 @@ class DescribeNatFirewallListRequest(object):
             self.cloud_firewall_id = cloud_firewall_id
         if firewall_status is not None:
             self.firewall_status = firewall_status
+        if member_account_id is not None:
+            self.member_account_id = member_account_id
         if nat_firewall_id is not None:
             self.nat_firewall_id = nat_firewall_id
         if nat_firewall_name is not None:
@@ -153,6 +158,30 @@ class DescribeNatFirewallListRequest(object):
         """
 
         self._firewall_status = firewall_status
+
+    @property
+    def member_account_id(self):
+        """Gets the member_account_id of this DescribeNatFirewallListRequest.  # noqa: E501
+
+
+        :return: The member_account_id of this DescribeNatFirewallListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._member_account_id
+
+    @member_account_id.setter
+    def member_account_id(self, member_account_id):
+        """Sets the member_account_id of this DescribeNatFirewallListRequest.
+
+
+        :param member_account_id: The member_account_id of this DescribeNatFirewallListRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                member_account_id is not None and len(member_account_id) > 128):
+            raise ValueError("Invalid value for `member_account_id`, length must be less than or equal to `128`")  # noqa: E501
+
+        self._member_account_id = member_account_id
 
     @property
     def nat_firewall_id(self):

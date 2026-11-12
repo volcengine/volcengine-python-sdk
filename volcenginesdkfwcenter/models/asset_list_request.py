@@ -34,6 +34,7 @@ class AssetListRequest(object):
     """
     swagger_types = {
         'internet_firewall_id': 'str',
+        'member_account_id': 'str',
         'asset': 'str',
         'asset_ip': 'list[str]',
         'asset_name': 'list[str]',
@@ -49,6 +50,7 @@ class AssetListRequest(object):
 
     attribute_map = {
         'internet_firewall_id': 'InternetFirewallId',
+        'member_account_id': 'MemberAccountID',
         'asset': 'asset',
         'asset_ip': 'asset_ip',
         'asset_name': 'asset_name',
@@ -62,13 +64,14 @@ class AssetListRequest(object):
         'stat': 'stat'
     }
 
-    def __init__(self, internet_firewall_id=None, asset=None, asset_ip=None, asset_name=None, asset_type=None, current_page=None, instance_type=None, ip_type=None, order_dir=None, page_size=None, region_code=None, stat=None, _configuration=None):  # noqa: E501
+    def __init__(self, internet_firewall_id=None, member_account_id=None, asset=None, asset_ip=None, asset_name=None, asset_type=None, current_page=None, instance_type=None, ip_type=None, order_dir=None, page_size=None, region_code=None, stat=None, _configuration=None):  # noqa: E501
         """AssetListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._internet_firewall_id = None
+        self._member_account_id = None
         self._asset = None
         self._asset_ip = None
         self._asset_name = None
@@ -84,6 +87,8 @@ class AssetListRequest(object):
 
         if internet_firewall_id is not None:
             self.internet_firewall_id = internet_firewall_id
+        if member_account_id is not None:
+            self.member_account_id = member_account_id
         if asset is not None:
             self.asset = asset
         if asset_ip is not None:
@@ -127,6 +132,30 @@ class AssetListRequest(object):
         """
 
         self._internet_firewall_id = internet_firewall_id
+
+    @property
+    def member_account_id(self):
+        """Gets the member_account_id of this AssetListRequest.  # noqa: E501
+
+
+        :return: The member_account_id of this AssetListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._member_account_id
+
+    @member_account_id.setter
+    def member_account_id(self, member_account_id):
+        """Sets the member_account_id of this AssetListRequest.
+
+
+        :param member_account_id: The member_account_id of this AssetListRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                member_account_id is not None and len(member_account_id) > 128):
+            raise ValueError("Invalid value for `member_account_id`, length must be less than or equal to `128`")  # noqa: E501
+
+        self._member_account_id = member_account_id
 
     @property
     def asset(self):
