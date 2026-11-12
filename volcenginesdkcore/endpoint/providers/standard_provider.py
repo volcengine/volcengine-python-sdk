@@ -188,6 +188,7 @@ ServiceInfos = {
     "origin_defence": ServiceInfo("origin_defence", False),
     "pca": ServiceInfo("pca", True),
     "inframanager": ServiceInfo("inframanager", False),
+    "mse": ServiceInfo("mse", False),
 }
 
 
