@@ -773,6 +773,7 @@ class ApiClient(object):
             )
         )
 
+
 _ORIGINAL_REQUEST = getattr(ApiClient.request, "__func__", ApiClient.request)
 
 

@@ -53,17 +53,22 @@ class DeserializedResponseInterceptor(ResponseInterceptor):
     def deserialize(self, response, response_type, service):
         try:
             return self._deserialize_response(response, response_type, service)
-        except Exception as e:
-            if isinstance(e, rest.ApiException) and (
-                    e.status == response.status and e.body == response.data):
+        except rest.ApiException as api_error:
+            if (api_error.status == response.status and
+                    api_error.body == response.data):
                 raise
-            reason = e.reason if isinstance(e, rest.ApiException) else (
-                "Failed to deserialize response: {0}".format(e))
-            cause = e.cause if isinstance(e, rest.ApiException) and e.cause is not None else e
+            cause = api_error.cause if api_error.cause is not None else api_error
             raise rest.ApiException(
-                status=response.status, reason=reason, body=response.data,
+                status=response.status, reason=api_error.reason, body=response.data,
                 headers=response.getheaders(), cause=cause,
-                previous_exception=e if isinstance(e, rest.ApiException) else None,
+                previous_exception=api_error,
+                code="SerializationError",
+                response_details=rest.RESTClientObject._snapshot(response, response.data, True))
+        except Exception as error:
+            raise rest.ApiException(
+                status=response.status,
+                reason="Failed to deserialize response: {0}".format(error),
+                body=response.data, headers=response.getheaders(), cause=error,
                 code="SerializationError",
                 response_details=rest.RESTClientObject._snapshot(response, response.data, True))
 
