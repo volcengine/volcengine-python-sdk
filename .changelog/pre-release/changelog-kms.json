@@ -1,0 +1,8 @@
+{
+  "actions": [
+    "DescribeSecretVersions"
+  ],
+  "description": "KMS: 修改 DescribeSecretVersions",
+  "modules": "service/kms",
+  "type": "feature"
+}
