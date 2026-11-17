@@ -24,6 +24,11 @@ from volcenginesdkcore.observability.debugger import sdk_core_logger, LogLevel
 from volcenginesdkcore.retryer.backoff_strategy import ExponentialWithRandomJitterBackoffStrategy
 
 logger = logging.getLogger(__name__)
+_ORIGINAL_REST_REQUEST = getattr(rest.RESTClientObject.request, "__func__", rest.RESTClientObject.request)
+_ORIGINAL_REST_METHODS = {
+    name: getattr(getattr(rest.RESTClientObject, name), "__func__", getattr(rest.RESTClientObject, name))
+    for name in ("GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH", "DELETE")
+}
 
 class ApiClient(object):
     """Generic API client for Swagger client library builds.
@@ -167,14 +172,30 @@ class ApiClient(object):
 
         while True:
             # perform request and return response
+            response_data = None
+            interceptor_context.response = None
+            interceptor_context._deserialized_response_interceptor = None
             try:
+                response_options = {}
+                if (getattr(interceptor_context.request, "response_type", response_type) == "file"
+                        and getattr(self.request, "__func__", None) is _ORIGINAL_REQUEST):
+                    response_options["_response_type"] = "file"
                 response_data = self.request(
                     method, url=interceptor_context.request.url, query_params=interceptor_context.request.query_params,
                     headers=interceptor_context.request.header_params,
                     post_params=interceptor_context.request.post_params, body=interceptor_context.request.body,
                     _preload_content=interceptor_context.request.preload_content,
-                    _request_timeout=interceptor_context.request.request_timeout)
+                    _request_timeout=interceptor_context.request.request_timeout,
+                    **response_options)
                 self.last_response = response_data
+                # Parse the built-in TOP response inside the attempt. Customer
+                # response interceptors still run once, after retries finish.
+                interceptors = self.interceptor_chain.response_interceptors
+                if (interceptors and type(interceptors[0]) is DeserializedResponseInterceptor
+                        and interceptor_context.request.response_type != "file"):
+                    interceptor_context.response = Response(response_data)
+                    interceptor_context = interceptors[0].intercept(interceptor_context)
+                    interceptor_context._deserialized_response_interceptor = interceptors[0]
             except Exception as e:
                 sdk_core_logger.debug("request error: {}".format(e))
                 retry_err = e
@@ -186,11 +207,13 @@ class ApiClient(object):
                     raise retry_err
                 break
             retry_count += 1
+            self._close_abandoned_stream(response_data)
             retry_err = None
             interceptor_context.request.retry_count = retry_count
             interceptor_context = self.interceptor_chain.execute_retry(interceptor_context)
 
-        interceptor_context.response = Response(response_data)
+        if interceptor_context.response is None:
+            interceptor_context.response = Response(response_data)
         interceptor_context = self.interceptor_chain.execute_response(interceptor_context)
 
         response = interceptor_context.response
@@ -200,7 +223,72 @@ class ApiClient(object):
             return (response.result, response.http_response.status,
                     response.http_response.getheaders())
 
+    @staticmethod
+    def _close_abandoned_stream(response):
+        if not isinstance(response, rest.urllib3.HTTPResponse):
+            return
+        try:
+            response.close()
+        except Exception:
+            connection = getattr(response, "_connection", None)
+            if connection is not None:
+                try:
+                    connection.close()
+                except Exception:
+                    pass
+        try:
+            response.release_conn()
+        except Exception:
+            pass
+
     def request_retry(self, response_data, retry_count, retry_err, retryer):
+        try:
+            return self._request_retry(response_data, retry_count, retry_err, retryer)
+        except Exception as e:
+            if response_data is not None:
+                if isinstance(response_data, rest.urllib3.HTTPResponse):
+                    body = getattr(response_data, "_body", None)
+                    headers = response_data.headers
+                    # The failed callback cannot return this unread stream
+                    # to the caller. Cleanup must not replace its cause.
+                    try:
+                        response_data.close()
+                    except Exception:
+                        # Do not pool an unread connection if response
+                        # cleanup itself fails.
+                        connection = getattr(response_data, "_connection", None)
+                        if connection is not None:
+                            try:
+                                connection.close()
+                            except Exception:
+                                pass
+                    try:
+                        response_data.release_conn()
+                    except Exception:
+                        pass
+                else:
+                    body = response_data.data
+                    headers = response_data.getheaders()
+                raise rest.ApiException(
+                    status=response_data.status,
+                    reason="Retry processing failed: {0}".format(e),
+                    body=body, headers=headers,
+                    cause=e, previous_exception=retry_err,
+                    code="RetryError",
+                    response_details=rest.RESTClientObject._snapshot(response_data, body, body is not None))
+            if isinstance(retry_err, rest.ApiException):
+                raise rest.ApiException(
+                    status=retry_err.status,
+                    reason="Retry processing failed: {0}".format(e),
+                    body=retry_err.body, headers=retry_err.headers,
+                    response_metadata=getattr(retry_err, "response_metadata", None),
+                    cause=e, previous_exception=retry_err,
+                    code="RetryError", response_details=retry_err.response_details)
+            raise rest.ApiException(
+                status=0, reason="Retry processing failed: {0}".format(e),
+                cause=e, previous_exception=retry_err, code="RetryError")
+
+    def _request_retry(self, response_data, retry_count, retry_err, retryer):
         if retryer.should_retry(response_data, retry_count, retry_err):
             delay = retryer.get_backoff_delay(retry_count)
             sleep(delay / 1000)
@@ -274,8 +362,17 @@ class ApiClient(object):
 
     def request(self, method, url, query_params=None, headers=None,
                 post_params=None, body=None, _preload_content=True,
-                _request_timeout=None):
+                _request_timeout=None, _response_type=None):
         """Makes the HTTP request using RESTClient."""
+        if _response_type == "file" and method in (
+                "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH", "DELETE") and (
+                getattr(self.rest_client.request, "__func__", None) is _ORIGINAL_REST_REQUEST
+                and getattr(getattr(self.rest_client, method), "__func__", None) is _ORIGINAL_REST_METHODS[method]):
+            return self.rest_client.request(
+                method, url, query_params=query_params, headers=headers,
+                post_params=post_params, body=body,
+                _preload_content=_preload_content,
+                _request_timeout=_request_timeout, _response_type="file")
         if method == "GET":
             return self.rest_client.GET(url,
                                         query_params=query_params,
@@ -490,6 +587,7 @@ class ApiClient(object):
         fresh.scheme = scheme
         fresh.region = region
         fresh.read_timeout = timeout
+        fresh._sts_network_errors = True
 
         # Retry: apply caller-level retry semantics to this STS call only.
         # Caller semantics: max_retries = TOTAL attempts (legacy from
@@ -497,6 +595,8 @@ class ApiClient(object):
         # num_max_retries = retries AFTER the initial attempt. Convert.
         fresh.auto_retry = True
         fresh.num_max_retries = max(max_retries - 1, 0)
+        from volcenginesdkcore.auth.sts_response import StsRetryCondition, StsResult
+        fresh.retry_condition = StsRetryCondition()
         # retry_interval is seconds; Configuration uses ms.
         # Collapse the exponential-backoff range to a fixed delay.
         delay_ms = int(retry_interval * 1000)
@@ -520,25 +620,32 @@ class ApiClient(object):
             "%s: STS call %s %s region=%s host=%s",
             provider_name, action, version, region, host or fresh.host,
         )
-        return client.call_api(
-            resource_path,
-            'POST',
-            path_params={},
-            query_params=[],
-            header_params={
-                'Accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body=params,
-            post_params=[],
-            files={},
-            response_type=object,
-            auth_settings=None,            # skip signing
-            async_req=False,
-            _return_http_data_only=True,
-            _preload_content=True,
-            collection_formats={},
-        )
+        result = client.call_api(
+                resource_path,
+                'POST',
+                path_params={},
+                query_params=[],
+                header_params={
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body=params,
+                post_params=[],
+                files={},
+                response_type=object,
+                auth_settings=None,            # skip signing
+                async_req=False,
+                _return_http_data_only=True,
+                _preload_content=True,
+                collection_formats={},
+            )
+        if not isinstance(result, dict):
+            response = getattr(client, "last_response", None)
+            raise rest.ApiException(
+                http_resp=response, reason="failed to retrieve credentials from sts",
+                code="UnknownError")
+        response = getattr(client, "last_response", None)
+        return StsResult(result, response) if response is not None else result
 
     def _do_http_request(self, url, method="GET", data=None, headers=None, timeout=None,
                          max_retries=1, retry_interval=0, request_name=None,
@@ -665,6 +772,9 @@ class ApiClient(object):
                 provider_name, request_name or "request", url, attempts, last_error,
             )
         )
+
+_ORIGINAL_REQUEST = getattr(ApiClient.request, "__func__", ApiClient.request)
+
 
 def metadata(self):
     return self._metadata

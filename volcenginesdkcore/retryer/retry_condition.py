@@ -7,6 +7,7 @@ import traceback
 from abc import abstractmethod
 
 import urllib3
+import six
 from six.moves.http_client import BadStatusLine
 
 from volcenginesdkcore.rest import ApiException, RESTResponse
@@ -83,9 +84,16 @@ class DefaultRetryCondition(RetryCondition):
 
         data = {}
         status_code = None
-        if isinstance(err, ApiException):
-            status_code = err.status
-            data = DefaultRetryCondition.__json_loads(err.body)
+        for wrapped in self._walk_exceptions(err):
+            if isinstance(wrapped, ApiException):
+                if str(wrapped.status) in self.__retry_status_codes:
+                    return True
+                from volcenginesdkcore.error_details import classify_top
+                wrapped_code = getattr(wrapped, "code", None)
+                if wrapped_code is None:
+                    wrapped_code = classify_top(getattr(wrapped, "body", None))[0]
+                if self._is_retryable_api_error_code(wrapped, wrapped_code):
+                    return True
 
         if isinstance(response, RESTResponse):
             status_code = response.status
@@ -98,11 +106,11 @@ class DefaultRetryCondition(RetryCondition):
         # retryable error code
         code = None
         metadata = data.get("ResponseMetadata")
-        if metadata:
+        if isinstance(metadata, dict):
             error = metadata.get("Error")
-            if error:
+            if isinstance(error, dict):
                 code = error.get("Code")
-        if code in self.retry_error_codes:
+        if isinstance(code, six.string_types) and code in self.retry_error_codes:
             sdk_core_logger.debug_retry("retry for retryable error code, code: %s", code)
             return True
 
@@ -110,30 +118,49 @@ class DefaultRetryCondition(RetryCondition):
 
         return False
 
+    def _is_retryable_api_error_code(self, error, code):
+        return isinstance(code, six.string_types) and code in self.retry_error_codes
+
+    @classmethod
+    def _walk_exceptions(cls, err):
+        from volcenginesdkcore.error_details import exception_causes
+        pending = [(err, 0)]
+        seen = set()
+        while pending and len(seen) < 256:
+            current, depth = pending.pop()
+            if not isinstance(current, BaseException) or id(current) in seen or depth >= 64:
+                continue
+            seen.add(id(current))
+            yield current
+            if isinstance(current, (ssl.SSLError, urllib3.exceptions.SSLError)):
+                continue
+            if isinstance(current, urllib3.exceptions.ProxyError):
+                children = (current.original_error,)
+            elif isinstance(current, urllib3.exceptions.MaxRetryError):
+                children = (current.reason,)
+            else:
+                children = exception_causes(current, include_previous=False)
+            for child in children:
+                if len(pending) + len(seen) >= 256:
+                    break
+                pending.append((child, depth + 1))
+
     @classmethod
     def _is_retryable_exception(cls, err):
         # Retry the underlying connection failure, not every proxy failure.
         # In particular, a CONNECT 407 or a TLS/configuration error must stop.
-        seen = set()
-        while isinstance(err, (urllib3.exceptions.ProxyError, urllib3.exceptions.MaxRetryError)):
-            if id(err) in seen:
-                return False
-            seen.add(id(err))
-            if isinstance(err, urllib3.exceptions.ProxyError):
-                err = err.original_error
-            else:
-                err = err.reason
-        if isinstance(err, (ssl.SSLError, urllib3.exceptions.SSLError)):
-            return False
-        if isinstance(err, cls.__retry_exceptions):
-            return True
-        # RemoteDisconnected on Python 3, empty BadStatusLine on Python 2.
-        if isinstance(err, BadStatusLine) and err.line in ("", "''"):
-            return True
-        return isinstance(err, socket.error) and err.errno in (
-            errno.ECONNRESET, errno.ECONNREFUSED, errno.ECONNABORTED,
-            errno.EPIPE, errno.ETIMEDOUT, errno.ENETUNREACH, errno.EHOSTUNREACH,
-        )
+        for current in cls._walk_exceptions(err):
+            if isinstance(current, (ssl.SSLError, urllib3.exceptions.SSLError)):
+                continue
+            if isinstance(current, cls.__retry_exceptions):
+                return True
+            if isinstance(current, BadStatusLine) and current.line in ("", "''"):
+                return True
+            if isinstance(current, socket.error) and current.errno in (
+                    errno.ECONNRESET, errno.ECONNREFUSED, errno.ECONNABORTED,
+                    errno.EPIPE, errno.ETIMEDOUT, errno.ENETUNREACH, errno.EHOSTUNREACH):
+                return True
+        return False
 
     @staticmethod
     def __json_loads(data):
@@ -147,7 +174,8 @@ class DefaultRetryCondition(RetryCondition):
         if data is None:
             return {}
         try:
-            return json.loads(data)
+            parsed = json.loads(data)
+            return parsed if isinstance(parsed, dict) else {}
         except Exception as e:
             sdk_core_logger.debug_retry("Failed to parse response data as JSON: {}".format(e))
             sdk_core_logger.debug_retry(traceback.format_exc())
