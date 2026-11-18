@@ -34,15 +34,17 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput(object):
     """
     swagger_types = {
         'event_rw': 'int',
-        'event_sources': 'list[str]'
+        'event_sources': 'list[str]',
+        'include_all_event_sources': 'bool'
     }
 
     attribute_map = {
         'event_rw': 'EventRW',
-        'event_sources': 'EventSources'
+        'event_sources': 'EventSources',
+        'include_all_event_sources': 'IncludeAllEventSources'
     }
 
-    def __init__(self, event_rw=None, event_sources=None, _configuration=None):  # noqa: E501
+    def __init__(self, event_rw=None, event_sources=None, include_all_event_sources=None, _configuration=None):  # noqa: E501
         """EventScopeForDescribeBackfillDeliveryTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput(object):
 
         self._event_rw = None
         self._event_sources = None
+        self._include_all_event_sources = None
         self.discriminator = None
 
         if event_rw is not None:
             self.event_rw = event_rw
         if event_sources is not None:
             self.event_sources = event_sources
+        if include_all_event_sources is not None:
+            self.include_all_event_sources = include_all_event_sources
 
     @property
     def event_rw(self):
@@ -98,6 +103,27 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput(object):
         """
 
         self._event_sources = event_sources
+
+    @property
+    def include_all_event_sources(self):
+        """Gets the include_all_event_sources of this EventScopeForDescribeBackfillDeliveryTaskOutput.  # noqa: E501
+
+
+        :return: The include_all_event_sources of this EventScopeForDescribeBackfillDeliveryTaskOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._include_all_event_sources
+
+    @include_all_event_sources.setter
+    def include_all_event_sources(self, include_all_event_sources):
+        """Sets the include_all_event_sources of this EventScopeForDescribeBackfillDeliveryTaskOutput.
+
+
+        :param include_all_event_sources: The include_all_event_sources of this EventScopeForDescribeBackfillDeliveryTaskOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._include_all_event_sources = include_all_event_sources
 
     def to_dict(self):
         """Returns the model properties as a dict"""

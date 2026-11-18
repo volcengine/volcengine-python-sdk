@@ -1,9 +1,9 @@
 {
-  "internal_dependencies": [
-    "volcenginesdkcore"
-  ],
   "external_dependencies": [
     "six>=1.16"
+  ],
+  "internal_dependencies": [
+    "volcenginesdkcore"
   ],
   "python_requires": ">=2.7"
 }

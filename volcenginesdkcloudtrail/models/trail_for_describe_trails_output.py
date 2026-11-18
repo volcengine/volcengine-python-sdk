@@ -57,6 +57,7 @@ class TrailForDescribeTrailsOutput(object):
         'tos_ssekms_key_id': 'str',
         'tos_write_role_trn': 'str',
         'trail_name': 'str',
+        'trail_region': 'str',
         'trail_type': 'int',
         'updated_time': 'str'
     }
@@ -86,11 +87,12 @@ class TrailForDescribeTrailsOutput(object):
         'tos_ssekms_key_id': 'TosSSEKMSKeyID',
         'tos_write_role_trn': 'TosWriteRoleTrn',
         'trail_name': 'TrailName',
+        'trail_region': 'TrailRegion',
         'trail_type': 'TrailType',
         'updated_time': 'UpdatedTime'
     }
 
-    def __init__(self, created_time=None, creator_id=None, event_rw=None, event_sources=None, include_all_event_sources=None, latest_delivery_error=None, latest_delivery_time=None, logging_status=None, organization_id=None, start_logging_time=None, stop_logging_time=None, tls_account_id=None, tls_project_name=None, tls_project_region=None, tls_topic_name=None, tls_write_role_trn=None, tos_account_id=None, tos_bucket_name=None, tos_bucket_region=None, tos_key_prefix=None, tos_sse_algorithm=None, tos_ssekms_key_id=None, tos_write_role_trn=None, trail_name=None, trail_type=None, updated_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_time=None, creator_id=None, event_rw=None, event_sources=None, include_all_event_sources=None, latest_delivery_error=None, latest_delivery_time=None, logging_status=None, organization_id=None, start_logging_time=None, stop_logging_time=None, tls_account_id=None, tls_project_name=None, tls_project_region=None, tls_topic_name=None, tls_write_role_trn=None, tos_account_id=None, tos_bucket_name=None, tos_bucket_region=None, tos_key_prefix=None, tos_sse_algorithm=None, tos_ssekms_key_id=None, tos_write_role_trn=None, trail_name=None, trail_region=None, trail_type=None, updated_time=None, _configuration=None):  # noqa: E501
         """TrailForDescribeTrailsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -120,6 +122,7 @@ class TrailForDescribeTrailsOutput(object):
         self._tos_ssekms_key_id = None
         self._tos_write_role_trn = None
         self._trail_name = None
+        self._trail_region = None
         self._trail_type = None
         self._updated_time = None
         self.discriminator = None
@@ -172,6 +175,8 @@ class TrailForDescribeTrailsOutput(object):
             self.tos_write_role_trn = tos_write_role_trn
         if trail_name is not None:
             self.trail_name = trail_name
+        if trail_region is not None:
+            self.trail_region = trail_region
         if trail_type is not None:
             self.trail_type = trail_type
         if updated_time is not None:
@@ -680,6 +685,27 @@ class TrailForDescribeTrailsOutput(object):
         """
 
         self._trail_name = trail_name
+
+    @property
+    def trail_region(self):
+        """Gets the trail_region of this TrailForDescribeTrailsOutput.  # noqa: E501
+
+
+        :return: The trail_region of this TrailForDescribeTrailsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._trail_region
+
+    @trail_region.setter
+    def trail_region(self, trail_region):
+        """Sets the trail_region of this TrailForDescribeTrailsOutput.
+
+
+        :param trail_region: The trail_region of this TrailForDescribeTrailsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._trail_region = trail_region
 
     @property
     def trail_type(self):

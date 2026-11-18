@@ -33,6 +33,7 @@ class RelatedResourceForLookupEventsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_id': 'str',
         'integrated_trn': 'str',
         'resource_id': 'str',
         'resource_type': 'str',
@@ -42,6 +43,7 @@ class RelatedResourceForLookupEventsOutput(object):
     }
 
     attribute_map = {
+        'account_id': 'AccountID',
         'integrated_trn': 'IntegratedTrn',
         'resource_id': 'ResourceID',
         'resource_type': 'ResourceType',
@@ -50,12 +52,13 @@ class RelatedResourceForLookupEventsOutput(object):
         'source_type': 'SourceType'
     }
 
-    def __init__(self, integrated_trn=None, resource_id=None, resource_type=None, resource_type_display=None, service_code=None, source_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, integrated_trn=None, resource_id=None, resource_type=None, resource_type_display=None, service_code=None, source_type=None, _configuration=None):  # noqa: E501
         """RelatedResourceForLookupEventsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_id = None
         self._integrated_trn = None
         self._resource_id = None
         self._resource_type = None
@@ -64,6 +67,8 @@ class RelatedResourceForLookupEventsOutput(object):
         self._source_type = None
         self.discriminator = None
 
+        if account_id is not None:
+            self.account_id = account_id
         if integrated_trn is not None:
             self.integrated_trn = integrated_trn
         if resource_id is not None:
@@ -76,6 +81,27 @@ class RelatedResourceForLookupEventsOutput(object):
             self.service_code = service_code
         if source_type is not None:
             self.source_type = source_type
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this RelatedResourceForLookupEventsOutput.  # noqa: E501
+
+
+        :return: The account_id of this RelatedResourceForLookupEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this RelatedResourceForLookupEventsOutput.
+
+
+        :param account_id: The account_id of this RelatedResourceForLookupEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
 
     @property
     def integrated_trn(self):
