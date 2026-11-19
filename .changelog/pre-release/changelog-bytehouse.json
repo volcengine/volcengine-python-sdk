@@ -1,0 +1,15 @@
+{
+  "actions": [
+    "DescribeStorages",
+    "DescribeVirtualWarehouses",
+    "TagResources",
+    "UntagResources",
+    "DescribeCrossCaches",
+    "DescribeElasticWarehouses",
+    "DescribeInstances",
+    "DescribeServers"
+  ],
+  "description": "BYTEHOUSE: 新增 DescribeVirtualWarehouses, TagResources, UntagResources, DescribeCrossCaches, DescribeElasticWarehouses, DescribeInstances, DescribeServers, DescribeStorages",
+  "modules": "service/bytehouse",
+  "type": "feature"
+}
