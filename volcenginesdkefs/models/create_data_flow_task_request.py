@@ -34,7 +34,6 @@ class CreateDataFlowTaskRequest(object):
     """
     swagger_types = {
         'bucket_name': 'str',
-        'bucket_owner': 'str',
         'bucket_prefix': 'str',
         'data_flow_policy_id': 'str',
         'data_flow_task_type': 'str',
@@ -42,7 +41,6 @@ class CreateDataFlowTaskRequest(object):
         'enable_tls': 'bool',
         'evict_rule': 'EvictRuleForCreateDataFlowTaskInput',
         'export_rule': 'ExportRuleForCreateDataFlowTaskInput',
-        'file_diff_rule': 'FileDiffRuleForCreateDataFlowTaskInput',
         'file_system_id': 'str',
         'file_system_path': 'str',
         'import_rule': 'ImportRuleForCreateDataFlowTaskInput',
@@ -51,7 +49,6 @@ class CreateDataFlowTaskRequest(object):
 
     attribute_map = {
         'bucket_name': 'BucketName',
-        'bucket_owner': 'BucketOwner',
         'bucket_prefix': 'BucketPrefix',
         'data_flow_policy_id': 'DataFlowPolicyId',
         'data_flow_task_type': 'DataFlowTaskType',
@@ -59,21 +56,19 @@ class CreateDataFlowTaskRequest(object):
         'enable_tls': 'EnableTls',
         'evict_rule': 'EvictRule',
         'export_rule': 'ExportRule',
-        'file_diff_rule': 'FileDiffRule',
         'file_system_id': 'FileSystemId',
         'file_system_path': 'FileSystemPath',
         'import_rule': 'ImportRule',
         'task_mode': 'TaskMode'
     }
 
-    def __init__(self, bucket_name=None, bucket_owner=None, bucket_prefix=None, data_flow_policy_id=None, data_flow_task_type=None, delete_rule=None, enable_tls=None, evict_rule=None, export_rule=None, file_diff_rule=None, file_system_id=None, file_system_path=None, import_rule=None, task_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_name=None, bucket_prefix=None, data_flow_policy_id=None, data_flow_task_type=None, delete_rule=None, enable_tls=None, evict_rule=None, export_rule=None, file_system_id=None, file_system_path=None, import_rule=None, task_mode=None, _configuration=None):  # noqa: E501
         """CreateDataFlowTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bucket_name = None
-        self._bucket_owner = None
         self._bucket_prefix = None
         self._data_flow_policy_id = None
         self._data_flow_task_type = None
@@ -81,7 +76,6 @@ class CreateDataFlowTaskRequest(object):
         self._enable_tls = None
         self._evict_rule = None
         self._export_rule = None
-        self._file_diff_rule = None
         self._file_system_id = None
         self._file_system_path = None
         self._import_rule = None
@@ -90,8 +84,6 @@ class CreateDataFlowTaskRequest(object):
 
         if bucket_name is not None:
             self.bucket_name = bucket_name
-        if bucket_owner is not None:
-            self.bucket_owner = bucket_owner
         if bucket_prefix is not None:
             self.bucket_prefix = bucket_prefix
         if data_flow_policy_id is not None:
@@ -105,8 +97,6 @@ class CreateDataFlowTaskRequest(object):
             self.evict_rule = evict_rule
         if export_rule is not None:
             self.export_rule = export_rule
-        if file_diff_rule is not None:
-            self.file_diff_rule = file_diff_rule
         if file_system_id is not None:
             self.file_system_id = file_system_id
         if file_system_path is not None:
@@ -136,27 +126,6 @@ class CreateDataFlowTaskRequest(object):
         """
 
         self._bucket_name = bucket_name
-
-    @property
-    def bucket_owner(self):
-        """Gets the bucket_owner of this CreateDataFlowTaskRequest.  # noqa: E501
-
-
-        :return: The bucket_owner of this CreateDataFlowTaskRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._bucket_owner
-
-    @bucket_owner.setter
-    def bucket_owner(self, bucket_owner):
-        """Sets the bucket_owner of this CreateDataFlowTaskRequest.
-
-
-        :param bucket_owner: The bucket_owner of this CreateDataFlowTaskRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._bucket_owner = bucket_owner
 
     @property
     def bucket_prefix(self):
@@ -220,7 +189,7 @@ class CreateDataFlowTaskRequest(object):
         """
         if self._configuration.client_side_validation and data_flow_task_type is None:
             raise ValueError("Invalid value for `data_flow_task_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Import", "Export", "Evict", "Delete", "FileDiff"]  # noqa: E501
+        allowed_values = ["Import", "Export", "Evict", "Delete"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 data_flow_task_type not in allowed_values):
             raise ValueError(
@@ -315,27 +284,6 @@ class CreateDataFlowTaskRequest(object):
         self._export_rule = export_rule
 
     @property
-    def file_diff_rule(self):
-        """Gets the file_diff_rule of this CreateDataFlowTaskRequest.  # noqa: E501
-
-
-        :return: The file_diff_rule of this CreateDataFlowTaskRequest.  # noqa: E501
-        :rtype: FileDiffRuleForCreateDataFlowTaskInput
-        """
-        return self._file_diff_rule
-
-    @file_diff_rule.setter
-    def file_diff_rule(self, file_diff_rule):
-        """Sets the file_diff_rule of this CreateDataFlowTaskRequest.
-
-
-        :param file_diff_rule: The file_diff_rule of this CreateDataFlowTaskRequest.  # noqa: E501
-        :type: FileDiffRuleForCreateDataFlowTaskInput
-        """
-
-        self._file_diff_rule = file_diff_rule
-
-    @property
     def file_system_id(self):
         """Gets the file_system_id of this CreateDataFlowTaskRequest.  # noqa: E501
 
@@ -416,7 +364,7 @@ class CreateDataFlowTaskRequest(object):
         :param task_mode: The task_mode of this CreateDataFlowTaskRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Manual", "Initial", "Period"]  # noqa: E501
+        allowed_values = ["Manual", "Period"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 task_mode not in allowed_values):
             raise ValueError(

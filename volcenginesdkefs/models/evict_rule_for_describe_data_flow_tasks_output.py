@@ -34,7 +34,7 @@ class EvictRuleForDescribeDataFlowTasksOutput(object):
     """
     swagger_types = {
         'data_type': 'str',
-        'entry_list_file': 'EntryListFileForDescribeDataFlowTasksOutput',
+        'entry_list_file': 'ConvertEntryListFileForDescribeDataFlowTasksOutput',
         'include_paths': 'list[str]',
         'last_access_time_interval': 'LastAccessTimeIntervalForDescribeDataFlowTasksOutput',
         'logic_operator': 'str'
@@ -99,7 +99,7 @@ class EvictRuleForDescribeDataFlowTasksOutput(object):
 
 
         :return: The entry_list_file of this EvictRuleForDescribeDataFlowTasksOutput.  # noqa: E501
-        :rtype: EntryListFileForDescribeDataFlowTasksOutput
+        :rtype: ConvertEntryListFileForDescribeDataFlowTasksOutput
         """
         return self._entry_list_file
 
@@ -109,7 +109,7 @@ class EvictRuleForDescribeDataFlowTasksOutput(object):
 
 
         :param entry_list_file: The entry_list_file of this EvictRuleForDescribeDataFlowTasksOutput.  # noqa: E501
-        :type: EntryListFileForDescribeDataFlowTasksOutput
+        :type: ConvertEntryListFileForDescribeDataFlowTasksOutput
         """
 
         self._entry_list_file = entry_list_file

@@ -35,7 +35,7 @@ class ExportRuleForDescribeDataFlowTasksOutput(object):
     swagger_types = {
         'conflict_policy': 'str',
         'data_type': 'str',
-        'entry_list_file': 'EntryListFileForDescribeDataFlowTasksOutput',
+        'entry_list_file': 'ConvertEntryListFileForDescribeDataFlowTasksOutput',
         'exclude_paths': 'list[str]',
         'include_paths': 'list[str]',
         'logic_operator': 'str'
@@ -125,7 +125,7 @@ class ExportRuleForDescribeDataFlowTasksOutput(object):
 
 
         :return: The entry_list_file of this ExportRuleForDescribeDataFlowTasksOutput.  # noqa: E501
-        :rtype: EntryListFileForDescribeDataFlowTasksOutput
+        :rtype: ConvertEntryListFileForDescribeDataFlowTasksOutput
         """
         return self._entry_list_file
 
@@ -135,7 +135,7 @@ class ExportRuleForDescribeDataFlowTasksOutput(object):
 
 
         :param entry_list_file: The entry_list_file of this ExportRuleForDescribeDataFlowTasksOutput.  # noqa: E501
-        :type: EntryListFileForDescribeDataFlowTasksOutput
+        :type: ConvertEntryListFileForDescribeDataFlowTasksOutput
         """
 
         self._entry_list_file = entry_list_file

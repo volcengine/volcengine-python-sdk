@@ -35,18 +35,16 @@ class AutoExportRuleForCreateDataFlowPolicyInput(object):
     swagger_types = {
         'export_type': 'str',
         'immediate_export': 'ImmediateExportForCreateDataFlowPolicyInput',
-        'period_export': 'PeriodExportForCreateDataFlowPolicyInput',
-        'status': 'str'
+        'period_export': 'PeriodExportForCreateDataFlowPolicyInput'
     }
 
     attribute_map = {
         'export_type': 'ExportType',
         'immediate_export': 'ImmediateExport',
-        'period_export': 'PeriodExport',
-        'status': 'Status'
+        'period_export': 'PeriodExport'
     }
 
-    def __init__(self, export_type=None, immediate_export=None, period_export=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, export_type=None, immediate_export=None, period_export=None, _configuration=None):  # noqa: E501
         """AutoExportRuleForCreateDataFlowPolicyInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,7 +53,6 @@ class AutoExportRuleForCreateDataFlowPolicyInput(object):
         self._export_type = None
         self._immediate_export = None
         self._period_export = None
-        self._status = None
         self.discriminator = None
 
         if export_type is not None:
@@ -64,8 +61,6 @@ class AutoExportRuleForCreateDataFlowPolicyInput(object):
             self.immediate_export = immediate_export
         if period_export is not None:
             self.period_export = period_export
-        if status is not None:
-            self.status = status
 
     @property
     def export_type(self):
@@ -136,34 +131,6 @@ class AutoExportRuleForCreateDataFlowPolicyInput(object):
         """
 
         self._period_export = period_export
-
-    @property
-    def status(self):
-        """Gets the status of this AutoExportRuleForCreateDataFlowPolicyInput.  # noqa: E501
-
-
-        :return: The status of this AutoExportRuleForCreateDataFlowPolicyInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this AutoExportRuleForCreateDataFlowPolicyInput.
-
-
-        :param status: The status of this AutoExportRuleForCreateDataFlowPolicyInput.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["Stopped", "Starting", "Running", "Stopping"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
-
-        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

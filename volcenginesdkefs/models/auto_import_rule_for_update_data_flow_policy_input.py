@@ -36,19 +36,17 @@ class AutoImportRuleForUpdateDataFlowPolicyInput(object):
         'bucket_event_types': 'list[str]',
         'data_type': 'str',
         'file_system_delete_policy': 'str',
-        'immediate_import': 'bool',
-        'status': 'str'
+        'immediate_import': 'bool'
     }
 
     attribute_map = {
         'bucket_event_types': 'BucketEventTypes',
         'data_type': 'DataType',
         'file_system_delete_policy': 'FileSystemDeletePolicy',
-        'immediate_import': 'ImmediateImport',
-        'status': 'Status'
+        'immediate_import': 'ImmediateImport'
     }
 
-    def __init__(self, bucket_event_types=None, data_type=None, file_system_delete_policy=None, immediate_import=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_event_types=None, data_type=None, file_system_delete_policy=None, immediate_import=None, _configuration=None):  # noqa: E501
         """AutoImportRuleForUpdateDataFlowPolicyInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,7 +56,6 @@ class AutoImportRuleForUpdateDataFlowPolicyInput(object):
         self._data_type = None
         self._file_system_delete_policy = None
         self._immediate_import = None
-        self._status = None
         self.discriminator = None
 
         if bucket_event_types is not None:
@@ -69,8 +66,6 @@ class AutoImportRuleForUpdateDataFlowPolicyInput(object):
             self.file_system_delete_policy = file_system_delete_policy
         if immediate_import is not None:
             self.immediate_import = immediate_import
-        if status is not None:
-            self.status = status
 
     @property
     def bucket_event_types(self):
@@ -177,34 +172,6 @@ class AutoImportRuleForUpdateDataFlowPolicyInput(object):
         """
 
         self._immediate_import = immediate_import
-
-    @property
-    def status(self):
-        """Gets the status of this AutoImportRuleForUpdateDataFlowPolicyInput.  # noqa: E501
-
-
-        :return: The status of this AutoImportRuleForUpdateDataFlowPolicyInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this AutoImportRuleForUpdateDataFlowPolicyInput.
-
-
-        :param status: The status of this AutoImportRuleForUpdateDataFlowPolicyInput.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["Stopped", "Starting", "Running", "Stopping"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
-
-        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

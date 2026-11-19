@@ -37,14 +37,12 @@ class CreateDataFlowPolicyRequest(object):
         'auto_export_rule': 'AutoExportRuleForCreateDataFlowPolicyInput',
         'auto_import_rule': 'AutoImportRuleForCreateDataFlowPolicyInput',
         'bucket_name': 'str',
-        'bucket_owner': 'str',
         'bucket_prefix': 'str',
         'conflict_policy': 'str',
         'data_flow_policy_name': 'str',
         'enable_tls': 'bool',
         'file_system_id': 'str',
-        'file_system_path': 'str',
-        'lazyload_rule': 'LazyloadRuleForCreateDataFlowPolicyInput'
+        'file_system_path': 'str'
     }
 
     attribute_map = {
@@ -52,17 +50,15 @@ class CreateDataFlowPolicyRequest(object):
         'auto_export_rule': 'AutoExportRule',
         'auto_import_rule': 'AutoImportRule',
         'bucket_name': 'BucketName',
-        'bucket_owner': 'BucketOwner',
         'bucket_prefix': 'BucketPrefix',
         'conflict_policy': 'ConflictPolicy',
         'data_flow_policy_name': 'DataFlowPolicyName',
         'enable_tls': 'EnableTls',
         'file_system_id': 'FileSystemId',
-        'file_system_path': 'FileSystemPath',
-        'lazyload_rule': 'LazyloadRule'
+        'file_system_path': 'FileSystemPath'
     }
 
-    def __init__(self, auto_evict_rule=None, auto_export_rule=None, auto_import_rule=None, bucket_name=None, bucket_owner=None, bucket_prefix=None, conflict_policy=None, data_flow_policy_name=None, enable_tls=None, file_system_id=None, file_system_path=None, lazyload_rule=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_evict_rule=None, auto_export_rule=None, auto_import_rule=None, bucket_name=None, bucket_prefix=None, conflict_policy=None, data_flow_policy_name=None, enable_tls=None, file_system_id=None, file_system_path=None, _configuration=None):  # noqa: E501
         """CreateDataFlowPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,14 +68,12 @@ class CreateDataFlowPolicyRequest(object):
         self._auto_export_rule = None
         self._auto_import_rule = None
         self._bucket_name = None
-        self._bucket_owner = None
         self._bucket_prefix = None
         self._conflict_policy = None
         self._data_flow_policy_name = None
         self._enable_tls = None
         self._file_system_id = None
         self._file_system_path = None
-        self._lazyload_rule = None
         self.discriminator = None
 
         if auto_evict_rule is not None:
@@ -89,8 +83,6 @@ class CreateDataFlowPolicyRequest(object):
         if auto_import_rule is not None:
             self.auto_import_rule = auto_import_rule
         self.bucket_name = bucket_name
-        if bucket_owner is not None:
-            self.bucket_owner = bucket_owner
         if bucket_prefix is not None:
             self.bucket_prefix = bucket_prefix
         self.conflict_policy = conflict_policy
@@ -99,8 +91,6 @@ class CreateDataFlowPolicyRequest(object):
             self.enable_tls = enable_tls
         self.file_system_id = file_system_id
         self.file_system_path = file_system_path
-        if lazyload_rule is not None:
-            self.lazyload_rule = lazyload_rule
 
     @property
     def auto_evict_rule(self):
@@ -189,27 +179,6 @@ class CreateDataFlowPolicyRequest(object):
         self._bucket_name = bucket_name
 
     @property
-    def bucket_owner(self):
-        """Gets the bucket_owner of this CreateDataFlowPolicyRequest.  # noqa: E501
-
-
-        :return: The bucket_owner of this CreateDataFlowPolicyRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._bucket_owner
-
-    @bucket_owner.setter
-    def bucket_owner(self, bucket_owner):
-        """Sets the bucket_owner of this CreateDataFlowPolicyRequest.
-
-
-        :param bucket_owner: The bucket_owner of this CreateDataFlowPolicyRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._bucket_owner = bucket_owner
-
-    @property
     def bucket_prefix(self):
         """Gets the bucket_prefix of this CreateDataFlowPolicyRequest.  # noqa: E501
 
@@ -250,7 +219,7 @@ class CreateDataFlowPolicyRequest(object):
         """
         if self._configuration.client_side_validation and conflict_policy is None:
             raise ValueError("Invalid value for `conflict_policy`, must not be `None`")  # noqa: E501
-        allowed_values = ["Skip", "KeepLatest", "Overwrite"]  # noqa: E501
+        allowed_values = ["KeepLatest"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 conflict_policy not in allowed_values):
             raise ValueError(
@@ -349,27 +318,6 @@ class CreateDataFlowPolicyRequest(object):
             raise ValueError("Invalid value for `file_system_path`, must not be `None`")  # noqa: E501
 
         self._file_system_path = file_system_path
-
-    @property
-    def lazyload_rule(self):
-        """Gets the lazyload_rule of this CreateDataFlowPolicyRequest.  # noqa: E501
-
-
-        :return: The lazyload_rule of this CreateDataFlowPolicyRequest.  # noqa: E501
-        :rtype: LazyloadRuleForCreateDataFlowPolicyInput
-        """
-        return self._lazyload_rule
-
-    @lazyload_rule.setter
-    def lazyload_rule(self, lazyload_rule):
-        """Sets the lazyload_rule of this CreateDataFlowPolicyRequest.
-
-
-        :param lazyload_rule: The lazyload_rule of this CreateDataFlowPolicyRequest.  # noqa: E501
-        :type: LazyloadRuleForCreateDataFlowPolicyInput
-        """
-
-        self._lazyload_rule = lazyload_rule
 
     def to_dict(self):
         """Returns the model properties as a dict"""
