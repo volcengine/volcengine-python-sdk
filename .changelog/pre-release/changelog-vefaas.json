@@ -1,8 +1,0 @@
-{
-  "actions": [
-    "ResumeSandbox"
-  ],
-  "description": "VEFAAS: 修改 ResumeSandbox",
-  "modules": "service/vefaas",
-  "type": "feature"
-}
