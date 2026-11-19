@@ -38,6 +38,7 @@ class DescribeNatGatewayAttributesResponse(object):
         'creation_time': 'str',
         'deleted_time': 'str',
         'description': 'str',
+        'direct_mode': 'bool',
         'dnat_entry_ids': 'list[str]',
         'eip_addresses': 'list[EipAddressForDescribeNatGatewayAttributesOutput]',
         'expired_time': 'str',
@@ -68,6 +69,7 @@ class DescribeNatGatewayAttributesResponse(object):
         'creation_time': 'CreationTime',
         'deleted_time': 'DeletedTime',
         'description': 'Description',
+        'direct_mode': 'DirectMode',
         'dnat_entry_ids': 'DnatEntryIds',
         'eip_addresses': 'EipAddresses',
         'expired_time': 'ExpiredTime',
@@ -92,7 +94,7 @@ class DescribeNatGatewayAttributesResponse(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, dnat_entry_ids=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, nat_ip_addresses=None, network_interface_id=None, network_type=None, overdue_time=None, project_name=None, request_id=None, smart_schedule_enabled=None, smart_schedule_rule=None, snat_entry_ids=None, spec=None, status=None, subnet_id=None, tags=None, updated_at=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, direct_mode=None, dnat_entry_ids=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, nat_ip_addresses=None, network_interface_id=None, network_type=None, overdue_time=None, project_name=None, request_id=None, smart_schedule_enabled=None, smart_schedule_rule=None, snat_entry_ids=None, spec=None, status=None, subnet_id=None, tags=None, updated_at=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeNatGatewayAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,6 +105,7 @@ class DescribeNatGatewayAttributesResponse(object):
         self._creation_time = None
         self._deleted_time = None
         self._description = None
+        self._direct_mode = None
         self._dnat_entry_ids = None
         self._eip_addresses = None
         self._expired_time = None
@@ -137,6 +140,8 @@ class DescribeNatGatewayAttributesResponse(object):
             self.deleted_time = deleted_time
         if description is not None:
             self.description = description
+        if direct_mode is not None:
+            self.direct_mode = direct_mode
         if dnat_entry_ids is not None:
             self.dnat_entry_ids = dnat_entry_ids
         if eip_addresses is not None:
@@ -286,6 +291,27 @@ class DescribeNatGatewayAttributesResponse(object):
         """
 
         self._description = description
+
+    @property
+    def direct_mode(self):
+        """Gets the direct_mode of this DescribeNatGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The direct_mode of this DescribeNatGatewayAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._direct_mode
+
+    @direct_mode.setter
+    def direct_mode(self, direct_mode):
+        """Sets the direct_mode of this DescribeNatGatewayAttributesResponse.
+
+
+        :param direct_mode: The direct_mode of this DescribeNatGatewayAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._direct_mode = direct_mode
 
     @property
     def dnat_entry_ids(self):
