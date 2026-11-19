@@ -107,7 +107,8 @@ class CreateTrailRequest(object):
             self.event_rw = event_rw
         if event_sources is not None:
             self.event_sources = event_sources
-        self.include_all_event_sources = include_all_event_sources
+        if include_all_event_sources is not None:
+            self.include_all_event_sources = include_all_event_sources
         if tls_account_id is not None:
             self.tls_account_id = tls_account_id
         if tls_project_name is not None:
@@ -207,8 +208,6 @@ class CreateTrailRequest(object):
         :param include_all_event_sources: The include_all_event_sources of this CreateTrailRequest.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and include_all_event_sources is None:
-            raise ValueError("Invalid value for `include_all_event_sources`, must not be `None`")  # noqa: E501
 
         self._include_all_event_sources = include_all_event_sources
 

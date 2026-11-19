@@ -75,7 +75,7 @@ class LookupConditionForLookupEventsInput(object):
         :param lookup_condition_key: The lookup_condition_key of this LookupConditionForLookupEventsInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["EventID", "RequestID", "EventSource", "EventName", "ApiVersion", "ReadOnly", "IdentityType", "IdentityName", "AccessKeyID", "Region", "ResourceType", "ResourceID", "ErrorCode"]  # noqa: E501
+        allowed_values = ["EventID", "RequestID", "EventSource", "EventName", "ApiVersion", "ReadOnly", "IdentityType", "IdentityName", "AccessKeyID", "Region", "ResourceType", "ResourceID", "ErrorCode", "SourceIPAddress"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 lookup_condition_key not in allowed_values):
             raise ValueError(
