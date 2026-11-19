@@ -38,7 +38,8 @@ class CreateVoicePrintRequest(object):
         'file_url': 'str',
         'nick_name': 'str',
         'product_key': 'str',
-        'type': 'str'
+        'type': 'str',
+        'audio_base64': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class CreateVoicePrintRequest(object):
         'file_url': 'FileUrl',
         'nick_name': 'NickName',
         'product_key': 'ProductKey',
-        'type': 'Type'
+        'type': 'Type',
+        'audio_base64': 'audioBase64'
     }
 
-    def __init__(self, device_name=None, file_key=None, file_url=None, nick_name=None, product_key=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, device_name=None, file_key=None, file_url=None, nick_name=None, product_key=None, type=None, audio_base64=None, _configuration=None):  # noqa: E501
         """CreateVoicePrintRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class CreateVoicePrintRequest(object):
         self._nick_name = None
         self._product_key = None
         self._type = None
+        self._audio_base64 = None
         self.discriminator = None
 
         self.device_name = device_name
@@ -74,6 +77,8 @@ class CreateVoicePrintRequest(object):
         self.product_key = product_key
         if type is not None:
             self.type = type
+        if audio_base64 is not None:
+            self.audio_base64 = audio_base64
 
     @property
     def device_name(self):
@@ -204,6 +209,27 @@ class CreateVoicePrintRequest(object):
         """
 
         self._type = type
+
+    @property
+    def audio_base64(self):
+        """Gets the audio_base64 of this CreateVoicePrintRequest.  # noqa: E501
+
+
+        :return: The audio_base64 of this CreateVoicePrintRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._audio_base64
+
+    @audio_base64.setter
+    def audio_base64(self, audio_base64):
+        """Sets the audio_base64 of this CreateVoicePrintRequest.
+
+
+        :param audio_base64: The audio_base64 of this CreateVoicePrintRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._audio_base64 = audio_base64
 
     def to_dict(self):
         """Returns the model properties as a dict"""

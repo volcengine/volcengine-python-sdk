@@ -96,7 +96,7 @@ ServiceInfos = {
     "vepfs": ServiceInfo("vepfs", False),
     "seccenter": ServiceInfo("seccenter", True),
     "advdefence": ServiceInfo("advdefence", True),
-    "tis": ServiceInfo("tis", True),
+    "tis": ServiceInfo("tis", False),
     "organization": ServiceInfo("organization", True),
     "vke": ServiceInfo("vke", False),
     "Redis": ServiceInfo("Redis", False),

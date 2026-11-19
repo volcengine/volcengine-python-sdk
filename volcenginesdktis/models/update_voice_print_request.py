@@ -39,7 +39,8 @@ class UpdateVoicePrintRequest(object):
         'nick_name': 'str',
         'product_key': 'str',
         'type': 'str',
-        'voice_print_id': 'str'
+        'voice_print_id': 'str',
+        'audio_base64': 'str'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class UpdateVoicePrintRequest(object):
         'nick_name': 'NickName',
         'product_key': 'ProductKey',
         'type': 'Type',
-        'voice_print_id': 'VoicePrintId'
+        'voice_print_id': 'VoicePrintId',
+        'audio_base64': 'audioBase64'
     }
 
-    def __init__(self, device_name=None, file_key=None, file_url=None, nick_name=None, product_key=None, type=None, voice_print_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, device_name=None, file_key=None, file_url=None, nick_name=None, product_key=None, type=None, voice_print_id=None, audio_base64=None, _configuration=None):  # noqa: E501
         """UpdateVoicePrintRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class UpdateVoicePrintRequest(object):
         self._product_key = None
         self._type = None
         self._voice_print_id = None
+        self._audio_base64 = None
         self.discriminator = None
 
         self.device_name = device_name
@@ -78,6 +81,8 @@ class UpdateVoicePrintRequest(object):
         if type is not None:
             self.type = type
         self.voice_print_id = voice_print_id
+        if audio_base64 is not None:
+            self.audio_base64 = audio_base64
 
     @property
     def device_name(self):
@@ -231,6 +236,27 @@ class UpdateVoicePrintRequest(object):
             raise ValueError("Invalid value for `voice_print_id`, must not be `None`")  # noqa: E501
 
         self._voice_print_id = voice_print_id
+
+    @property
+    def audio_base64(self):
+        """Gets the audio_base64 of this UpdateVoicePrintRequest.  # noqa: E501
+
+
+        :return: The audio_base64 of this UpdateVoicePrintRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._audio_base64
+
+    @audio_base64.setter
+    def audio_base64(self, audio_base64):
+        """Sets the audio_base64 of this UpdateVoicePrintRequest.
+
+
+        :param audio_base64: The audio_base64 of this UpdateVoicePrintRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._audio_base64 = audio_base64
 
     def to_dict(self):
         """Returns the model properties as a dict"""
