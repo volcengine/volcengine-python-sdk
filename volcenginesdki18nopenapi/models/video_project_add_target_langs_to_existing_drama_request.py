@@ -37,6 +37,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         'deadline': 'str',
         'drama_id': 'str',
         'dub_voice_mode': 'int',
+        'enable_lip_sync': 'bool',
         'from_task_type': 'int',
         'is_dub': 'bool',
         'need_term_validation': 'bool',
@@ -53,6 +54,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         'deadline': 'deadline',
         'drama_id': 'dramaId',
         'dub_voice_mode': 'dubVoiceMode',
+        'enable_lip_sync': 'enableLipSync',
         'from_task_type': 'fromTaskType',
         'is_dub': 'isDub',
         'need_term_validation': 'needTermValidation',
@@ -64,7 +66,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         'video_speed_policy': 'videoSpeedPolicy'
     }
 
-    def __init__(self, bgm_policy=None, deadline=None, drama_id=None, dub_voice_mode=None, from_task_type=None, is_dub=None, need_term_validation=None, project_id=None, source_style_map=None, target_languages=None, target_style_map=None, video_identifiers=None, video_speed_policy=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgm_policy=None, deadline=None, drama_id=None, dub_voice_mode=None, enable_lip_sync=None, from_task_type=None, is_dub=None, need_term_validation=None, project_id=None, source_style_map=None, target_languages=None, target_style_map=None, video_identifiers=None, video_speed_policy=None, _configuration=None):  # noqa: E501
         """VideoProjectAddTargetLangsToExistingDramaRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         self._deadline = None
         self._drama_id = None
         self._dub_voice_mode = None
+        self._enable_lip_sync = None
         self._from_task_type = None
         self._is_dub = None
         self._need_term_validation = None
@@ -92,6 +95,8 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         self.drama_id = drama_id
         if dub_voice_mode is not None:
             self.dub_voice_mode = dub_voice_mode
+        if enable_lip_sync is not None:
+            self.enable_lip_sync = enable_lip_sync
         self.from_task_type = from_task_type
         if is_dub is not None:
             self.is_dub = is_dub
@@ -194,6 +199,27 @@ class VideoProjectAddTargetLangsToExistingDramaRequest(object):
         """
 
         self._dub_voice_mode = dub_voice_mode
+
+    @property
+    def enable_lip_sync(self):
+        """Gets the enable_lip_sync of this VideoProjectAddTargetLangsToExistingDramaRequest.  # noqa: E501
+
+
+        :return: The enable_lip_sync of this VideoProjectAddTargetLangsToExistingDramaRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_lip_sync
+
+    @enable_lip_sync.setter
+    def enable_lip_sync(self, enable_lip_sync):
+        """Sets the enable_lip_sync of this VideoProjectAddTargetLangsToExistingDramaRequest.
+
+
+        :param enable_lip_sync: The enable_lip_sync of this VideoProjectAddTargetLangsToExistingDramaRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_lip_sync = enable_lip_sync
 
     @property
     def from_task_type(self):

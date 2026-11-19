@@ -1,0 +1,15 @@
+{
+  "actions": [
+    "VideoProjectSerialTaskCreate",
+    "VideoProjectSubtitleUpload",
+    "VideoProjectTaskDetail",
+    "VideoProjectTaskList",
+    "VideoProjectAddTargetLangsToExistingDrama",
+    "VideoProjectGetTaskProduct",
+    "VideoProjectSerialDubTaskCreate",
+    "VideoProjectSerialDubTaskCreateFromTranslation"
+  ],
+  "description": "I18N_OPENAPI: 修改 VideoProjectSerialDubTaskCreate, VideoProjectSerialDubTaskCreateFromTranslation, VideoProjectSerialTaskCreate, VideoProjectSubtitleUpload, VideoProjectTaskDetail, VideoProjectTaskList, VideoProjectAddTargetLangsToExistingDrama, VideoProjectGetTaskProduct",
+  "modules": "service/i18n_openapi",
+  "type": "feature"
+}

@@ -44,6 +44,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'drama_title': 'str',
         'dub_or_translation_task_id': 'str',
         'dub_voice_mode': 'int',
+        'enable_lip_sync': 'bool',
         'is_dub': 'bool',
         'llm_video_understanding_type': 'int',
         'max_target_subtitle_lines': 'int',
@@ -75,6 +76,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'drama_title': 'dramaTitle',
         'dub_or_translation_task_id': 'dubOrTranslationTaskID',
         'dub_voice_mode': 'dubVoiceMode',
+        'enable_lip_sync': 'enableLipSync',
         'is_dub': 'isDub',
         'llm_video_understanding_type': 'llmVideoUnderstandingType',
         'max_target_subtitle_lines': 'maxTargetSubtitleLines',
@@ -94,7 +96,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'use_mt': 'useMT'
     }
 
-    def __init__(self, ai_remove_type=None, asr_model=None, audit_fail_policy=None, bgm_policy=None, comment=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, dub_or_translation_task_id=None, dub_voice_mode=None, is_dub=None, llm_video_understanding_type=None, max_target_subtitle_lines=None, need_term_validation=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, serial_number=None, source_lang=None, source_style_map=None, suppression_params=None, target_langs=None, target_style_map=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_remove_type=None, asr_model=None, audit_fail_policy=None, bgm_policy=None, comment=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, dub_or_translation_task_id=None, dub_voice_mode=None, enable_lip_sync=None, is_dub=None, llm_video_understanding_type=None, max_target_subtitle_lines=None, need_term_validation=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, need_video_speed=None, serial_number=None, source_lang=None, source_style_map=None, suppression_params=None, target_langs=None, target_style_map=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
         """TaskInfoForVideoProjectSerialTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -111,6 +113,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         self._drama_title = None
         self._dub_or_translation_task_id = None
         self._dub_voice_mode = None
+        self._enable_lip_sync = None
         self._is_dub = None
         self._llm_video_understanding_type = None
         self._max_target_subtitle_lines = None
@@ -152,6 +155,8 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
             self.dub_or_translation_task_id = dub_or_translation_task_id
         if dub_voice_mode is not None:
             self.dub_voice_mode = dub_voice_mode
+        if enable_lip_sync is not None:
+            self.enable_lip_sync = enable_lip_sync
         if is_dub is not None:
             self.is_dub = is_dub
         if llm_video_understanding_type is not None:
@@ -417,6 +422,27 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         """
 
         self._dub_voice_mode = dub_voice_mode
+
+    @property
+    def enable_lip_sync(self):
+        """Gets the enable_lip_sync of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+
+
+        :return: The enable_lip_sync of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_lip_sync
+
+    @enable_lip_sync.setter
+    def enable_lip_sync(self, enable_lip_sync):
+        """Sets the enable_lip_sync of this TaskInfoForVideoProjectSerialTaskCreateInput.
+
+
+        :param enable_lip_sync: The enable_lip_sync of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_lip_sync = enable_lip_sync
 
     @property
     def is_dub(self):

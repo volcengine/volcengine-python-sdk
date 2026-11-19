@@ -33,6 +33,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'lip_sync_video_url': 'str',
         'poster_url': 'str',
         'source_last_time': 'str',
         'source_name': 'str',
@@ -48,6 +49,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
     }
 
     attribute_map = {
+        'lip_sync_video_url': 'lipSyncVideoUrl',
         'poster_url': 'posterUrl',
         'source_last_time': 'sourceLastTime',
         'source_name': 'sourceName',
@@ -62,12 +64,13 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
         'target_video_url': 'targetVideoUrl'
     }
 
-    def __init__(self, poster_url=None, source_last_time=None, source_name=None, source_vid=None, source_video_url=None, target_audio_download_url=None, target_audio_url=None, target_download_url=None, target_last_time=None, target_name=None, target_vid=None, target_video_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, lip_sync_video_url=None, poster_url=None, source_last_time=None, source_name=None, source_vid=None, source_video_url=None, target_audio_download_url=None, target_audio_url=None, target_download_url=None, target_last_time=None, target_name=None, target_vid=None, target_video_url=None, _configuration=None):  # noqa: E501
         """SuppressionVideoInfoForVideoProjectTaskDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._lip_sync_video_url = None
         self._poster_url = None
         self._source_last_time = None
         self._source_name = None
@@ -82,6 +85,8 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
         self._target_video_url = None
         self.discriminator = None
 
+        if lip_sync_video_url is not None:
+            self.lip_sync_video_url = lip_sync_video_url
         if poster_url is not None:
             self.poster_url = poster_url
         if source_last_time is not None:
@@ -106,6 +111,27 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput(object):
             self.target_vid = target_vid
         if target_video_url is not None:
             self.target_video_url = target_video_url
+
+    @property
+    def lip_sync_video_url(self):
+        """Gets the lip_sync_video_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The lip_sync_video_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._lip_sync_video_url
+
+    @lip_sync_video_url.setter
+    def lip_sync_video_url(self, lip_sync_video_url):
+        """Sets the lip_sync_video_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.
+
+
+        :param lip_sync_video_url: The lip_sync_video_url of this SuppressionVideoInfoForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._lip_sync_video_url = lip_sync_video_url
 
     @property
     def poster_url(self):
