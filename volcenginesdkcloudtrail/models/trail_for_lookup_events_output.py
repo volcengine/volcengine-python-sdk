@@ -35,6 +35,7 @@ class TrailForLookupEventsOutput(object):
     swagger_types = {
         'access_key_id': 'str',
         'error_code': 'str',
+        'event_category': 'str',
         'event_detail': 'str',
         'event_id': 'str',
         'event_name': 'str',
@@ -42,9 +43,11 @@ class TrailForLookupEventsOutput(object):
         'event_source': 'str',
         'event_source_display': 'str',
         'event_time': 'str',
+        'recipient_account_id': 'str',
         'region': 'str',
         'related_resources': 'list[RelatedResourceForLookupEventsOutput]',
         'request_id': 'str',
+        'shared_event_id': 'str',
         'source_ip_address': 'str',
         'user_name': 'str'
     }
@@ -52,6 +55,7 @@ class TrailForLookupEventsOutput(object):
     attribute_map = {
         'access_key_id': 'AccessKeyID',
         'error_code': 'ErrorCode',
+        'event_category': 'EventCategory',
         'event_detail': 'EventDetail',
         'event_id': 'EventID',
         'event_name': 'EventName',
@@ -59,14 +63,16 @@ class TrailForLookupEventsOutput(object):
         'event_source': 'EventSource',
         'event_source_display': 'EventSourceDisplay',
         'event_time': 'EventTime',
+        'recipient_account_id': 'RecipientAccountID',
         'region': 'Region',
         'related_resources': 'RelatedResources',
         'request_id': 'RequestID',
+        'shared_event_id': 'SharedEventID',
         'source_ip_address': 'SourceIPAddress',
         'user_name': 'UserName'
     }
 
-    def __init__(self, access_key_id=None, error_code=None, event_detail=None, event_id=None, event_name=None, event_name_display=None, event_source=None, event_source_display=None, event_time=None, region=None, related_resources=None, request_id=None, source_ip_address=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_key_id=None, error_code=None, event_category=None, event_detail=None, event_id=None, event_name=None, event_name_display=None, event_source=None, event_source_display=None, event_time=None, recipient_account_id=None, region=None, related_resources=None, request_id=None, shared_event_id=None, source_ip_address=None, user_name=None, _configuration=None):  # noqa: E501
         """TrailForLookupEventsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +80,7 @@ class TrailForLookupEventsOutput(object):
 
         self._access_key_id = None
         self._error_code = None
+        self._event_category = None
         self._event_detail = None
         self._event_id = None
         self._event_name = None
@@ -81,9 +88,11 @@ class TrailForLookupEventsOutput(object):
         self._event_source = None
         self._event_source_display = None
         self._event_time = None
+        self._recipient_account_id = None
         self._region = None
         self._related_resources = None
         self._request_id = None
+        self._shared_event_id = None
         self._source_ip_address = None
         self._user_name = None
         self.discriminator = None
@@ -92,6 +101,8 @@ class TrailForLookupEventsOutput(object):
             self.access_key_id = access_key_id
         if error_code is not None:
             self.error_code = error_code
+        if event_category is not None:
+            self.event_category = event_category
         if event_detail is not None:
             self.event_detail = event_detail
         if event_id is not None:
@@ -106,12 +117,16 @@ class TrailForLookupEventsOutput(object):
             self.event_source_display = event_source_display
         if event_time is not None:
             self.event_time = event_time
+        if recipient_account_id is not None:
+            self.recipient_account_id = recipient_account_id
         if region is not None:
             self.region = region
         if related_resources is not None:
             self.related_resources = related_resources
         if request_id is not None:
             self.request_id = request_id
+        if shared_event_id is not None:
+            self.shared_event_id = shared_event_id
         if source_ip_address is not None:
             self.source_ip_address = source_ip_address
         if user_name is not None:
@@ -158,6 +173,27 @@ class TrailForLookupEventsOutput(object):
         """
 
         self._error_code = error_code
+
+    @property
+    def event_category(self):
+        """Gets the event_category of this TrailForLookupEventsOutput.  # noqa: E501
+
+
+        :return: The event_category of this TrailForLookupEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._event_category
+
+    @event_category.setter
+    def event_category(self, event_category):
+        """Sets the event_category of this TrailForLookupEventsOutput.
+
+
+        :param event_category: The event_category of this TrailForLookupEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._event_category = event_category
 
     @property
     def event_detail(self):
@@ -307,6 +343,27 @@ class TrailForLookupEventsOutput(object):
         self._event_time = event_time
 
     @property
+    def recipient_account_id(self):
+        """Gets the recipient_account_id of this TrailForLookupEventsOutput.  # noqa: E501
+
+
+        :return: The recipient_account_id of this TrailForLookupEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._recipient_account_id
+
+    @recipient_account_id.setter
+    def recipient_account_id(self, recipient_account_id):
+        """Sets the recipient_account_id of this TrailForLookupEventsOutput.
+
+
+        :param recipient_account_id: The recipient_account_id of this TrailForLookupEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._recipient_account_id = recipient_account_id
+
+    @property
     def region(self):
         """Gets the region of this TrailForLookupEventsOutput.  # noqa: E501
 
@@ -368,6 +425,27 @@ class TrailForLookupEventsOutput(object):
         """
 
         self._request_id = request_id
+
+    @property
+    def shared_event_id(self):
+        """Gets the shared_event_id of this TrailForLookupEventsOutput.  # noqa: E501
+
+
+        :return: The shared_event_id of this TrailForLookupEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._shared_event_id
+
+    @shared_event_id.setter
+    def shared_event_id(self, shared_event_id):
+        """Sets the shared_event_id of this TrailForLookupEventsOutput.
+
+
+        :param shared_event_id: The shared_event_id of this TrailForLookupEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._shared_event_id = shared_event_id
 
     @property
     def source_ip_address(self):

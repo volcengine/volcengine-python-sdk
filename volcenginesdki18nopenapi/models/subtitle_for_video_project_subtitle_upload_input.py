@@ -37,6 +37,7 @@ class SubtitleForVideoProjectSubtitleUploadInput(object):
         'subtitle_langs': 'list[str]',
         'subtitle_name': 'str',
         'subtitle_url': 'str',
+        'type': 'int',
         'vid': 'str'
     }
 
@@ -45,10 +46,11 @@ class SubtitleForVideoProjectSubtitleUploadInput(object):
         'subtitle_langs': 'subtitleLangs',
         'subtitle_name': 'subtitleName',
         'subtitle_url': 'subtitleUrl',
+        'type': 'type',
         'vid': 'vid'
     }
 
-    def __init__(self, file_type=None, subtitle_langs=None, subtitle_name=None, subtitle_url=None, vid=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_type=None, subtitle_langs=None, subtitle_name=None, subtitle_url=None, type=None, vid=None, _configuration=None):  # noqa: E501
         """SubtitleForVideoProjectSubtitleUploadInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class SubtitleForVideoProjectSubtitleUploadInput(object):
         self._subtitle_langs = None
         self._subtitle_name = None
         self._subtitle_url = None
+        self._type = None
         self._vid = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class SubtitleForVideoProjectSubtitleUploadInput(object):
             self.subtitle_name = subtitle_name
         if subtitle_url is not None:
             self.subtitle_url = subtitle_url
+        if type is not None:
+            self.type = type
         if vid is not None:
             self.vid = vid
 
@@ -155,6 +160,27 @@ class SubtitleForVideoProjectSubtitleUploadInput(object):
         """
 
         self._subtitle_url = subtitle_url
+
+    @property
+    def type(self):
+        """Gets the type of this SubtitleForVideoProjectSubtitleUploadInput.  # noqa: E501
+
+
+        :return: The type of this SubtitleForVideoProjectSubtitleUploadInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this SubtitleForVideoProjectSubtitleUploadInput.
+
+
+        :param type: The type of this SubtitleForVideoProjectSubtitleUploadInput.  # noqa: E501
+        :type: int
+        """
+
+        self._type = type
 
     @property
     def vid(self):

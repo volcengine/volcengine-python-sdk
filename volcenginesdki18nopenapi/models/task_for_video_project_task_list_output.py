@@ -40,6 +40,7 @@ class TaskForVideoProjectTaskListOutput(object):
         'deadline': 'str',
         'drama_task_workflow': 'int',
         'is_expedited': 'bool',
+        'lip_sync_enabled': 'bool',
         'name': 'str',
         'project_name': 'str',
         'source_language': 'str',
@@ -57,6 +58,7 @@ class TaskForVideoProjectTaskListOutput(object):
         'deadline': 'deadline',
         'drama_task_workflow': 'dramaTaskWorkflow',
         'is_expedited': 'isExpedited',
+        'lip_sync_enabled': 'lipSyncEnabled',
         'name': 'name',
         'project_name': 'projectName',
         'source_language': 'sourceLanguage',
@@ -66,7 +68,7 @@ class TaskForVideoProjectTaskListOutput(object):
         'workflow_type': 'workflowType'
     }
 
-    def __init__(self, can_expedite=None, comment=None, created_at=None, creator=None, deadline=None, drama_task_workflow=None, is_expedited=None, name=None, project_name=None, source_language=None, status=None, target_languages=None, task_type=None, workflow_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, can_expedite=None, comment=None, created_at=None, creator=None, deadline=None, drama_task_workflow=None, is_expedited=None, lip_sync_enabled=None, name=None, project_name=None, source_language=None, status=None, target_languages=None, task_type=None, workflow_type=None, _configuration=None):  # noqa: E501
         """TaskForVideoProjectTaskListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class TaskForVideoProjectTaskListOutput(object):
         self._deadline = None
         self._drama_task_workflow = None
         self._is_expedited = None
+        self._lip_sync_enabled = None
         self._name = None
         self._project_name = None
         self._source_language = None
@@ -102,6 +105,8 @@ class TaskForVideoProjectTaskListOutput(object):
             self.drama_task_workflow = drama_task_workflow
         if is_expedited is not None:
             self.is_expedited = is_expedited
+        if lip_sync_enabled is not None:
+            self.lip_sync_enabled = lip_sync_enabled
         if name is not None:
             self.name = name
         if project_name is not None:
@@ -263,6 +268,27 @@ class TaskForVideoProjectTaskListOutput(object):
         """
 
         self._is_expedited = is_expedited
+
+    @property
+    def lip_sync_enabled(self):
+        """Gets the lip_sync_enabled of this TaskForVideoProjectTaskListOutput.  # noqa: E501
+
+
+        :return: The lip_sync_enabled of this TaskForVideoProjectTaskListOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._lip_sync_enabled
+
+    @lip_sync_enabled.setter
+    def lip_sync_enabled(self, lip_sync_enabled):
+        """Sets the lip_sync_enabled of this TaskForVideoProjectTaskListOutput.
+
+
+        :param lip_sync_enabled: The lip_sync_enabled of this TaskForVideoProjectTaskListOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._lip_sync_enabled = lip_sync_enabled
 
     @property
     def name(self):

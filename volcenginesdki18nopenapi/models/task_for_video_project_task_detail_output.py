@@ -40,6 +40,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
         'drama_task_workflow': 'int',
         'duration_count': 'str',
         'id': 'str',
+        'lip_sync_enabled': 'bool',
         'name': 'str',
         'need_term_validation': 'bool',
         'project_id': 'str',
@@ -64,6 +65,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
         'drama_task_workflow': 'dramaTaskWorkflow',
         'duration_count': 'durationCount',
         'id': 'id',
+        'lip_sync_enabled': 'lipSyncEnabled',
         'name': 'name',
         'need_term_validation': 'needTermValidation',
         'project_id': 'projectId',
@@ -80,7 +82,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
         'workflow_type': 'workflowType'
     }
 
-    def __init__(self, comment=None, created_at=None, creator=None, deadline=None, drama_task_workflow=None, duration_count=None, id=None, name=None, need_term_validation=None, project_id=None, project_name=None, source_language=None, source_videos=None, status=None, target_languages=None, task_type=None, translation_team=None, updated_at=None, updater=None, words_count=None, workflow_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, comment=None, created_at=None, creator=None, deadline=None, drama_task_workflow=None, duration_count=None, id=None, lip_sync_enabled=None, name=None, need_term_validation=None, project_id=None, project_name=None, source_language=None, source_videos=None, status=None, target_languages=None, task_type=None, translation_team=None, updated_at=None, updater=None, words_count=None, workflow_type=None, _configuration=None):  # noqa: E501
         """TaskForVideoProjectTaskDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class TaskForVideoProjectTaskDetailOutput(object):
         self._drama_task_workflow = None
         self._duration_count = None
         self._id = None
+        self._lip_sync_enabled = None
         self._name = None
         self._need_term_validation = None
         self._project_id = None
@@ -123,6 +126,8 @@ class TaskForVideoProjectTaskDetailOutput(object):
             self.duration_count = duration_count
         if id is not None:
             self.id = id
+        if lip_sync_enabled is not None:
+            self.lip_sync_enabled = lip_sync_enabled
         if name is not None:
             self.name = name
         if need_term_validation is not None:
@@ -298,6 +303,27 @@ class TaskForVideoProjectTaskDetailOutput(object):
         """
 
         self._id = id
+
+    @property
+    def lip_sync_enabled(self):
+        """Gets the lip_sync_enabled of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The lip_sync_enabled of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._lip_sync_enabled
+
+    @lip_sync_enabled.setter
+    def lip_sync_enabled(self, lip_sync_enabled):
+        """Sets the lip_sync_enabled of this TaskForVideoProjectTaskDetailOutput.
+
+
+        :param lip_sync_enabled: The lip_sync_enabled of this TaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._lip_sync_enabled = lip_sync_enabled
 
     @property
     def name(self):

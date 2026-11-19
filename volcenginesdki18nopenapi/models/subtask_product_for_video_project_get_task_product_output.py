@@ -37,6 +37,7 @@ class SubtaskProductForVideoProjectGetTaskProductOutput(object):
         'episode_num': 'str',
         'finished_audio': 'FinishedAudioForVideoProjectGetTaskProductOutput',
         'finished_video': 'FinishedVideoForVideoProjectGetTaskProductOutput',
+        'lip_sync_finished_video': 'LipSyncFinishedVideoForVideoProjectGetTaskProductOutput',
         'origin_video': 'OriginVideoForVideoProjectGetTaskProductOutput',
         'source_subtitle': 'SourceSubtitleForVideoProjectGetTaskProductOutput',
         'subtask_id': 'str',
@@ -49,6 +50,7 @@ class SubtaskProductForVideoProjectGetTaskProductOutput(object):
         'episode_num': 'episodeNum',
         'finished_audio': 'finishedAudio',
         'finished_video': 'finishedVideo',
+        'lip_sync_finished_video': 'lipSyncFinishedVideo',
         'origin_video': 'originVideo',
         'source_subtitle': 'sourceSubtitle',
         'subtask_id': 'subtaskId',
@@ -56,7 +58,7 @@ class SubtaskProductForVideoProjectGetTaskProductOutput(object):
         'target_subtitle': 'targetSubtitle'
     }
 
-    def __init__(self, ai_remove_video=None, episode_num=None, finished_audio=None, finished_video=None, origin_video=None, source_subtitle=None, subtask_id=None, target_lang=None, target_subtitle=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_remove_video=None, episode_num=None, finished_audio=None, finished_video=None, lip_sync_finished_video=None, origin_video=None, source_subtitle=None, subtask_id=None, target_lang=None, target_subtitle=None, _configuration=None):  # noqa: E501
         """SubtaskProductForVideoProjectGetTaskProductOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class SubtaskProductForVideoProjectGetTaskProductOutput(object):
         self._episode_num = None
         self._finished_audio = None
         self._finished_video = None
+        self._lip_sync_finished_video = None
         self._origin_video = None
         self._source_subtitle = None
         self._subtask_id = None
@@ -81,6 +84,8 @@ class SubtaskProductForVideoProjectGetTaskProductOutput(object):
             self.finished_audio = finished_audio
         if finished_video is not None:
             self.finished_video = finished_video
+        if lip_sync_finished_video is not None:
+            self.lip_sync_finished_video = lip_sync_finished_video
         if origin_video is not None:
             self.origin_video = origin_video
         if source_subtitle is not None:
@@ -175,6 +180,27 @@ class SubtaskProductForVideoProjectGetTaskProductOutput(object):
         """
 
         self._finished_video = finished_video
+
+    @property
+    def lip_sync_finished_video(self):
+        """Gets the lip_sync_finished_video of this SubtaskProductForVideoProjectGetTaskProductOutput.  # noqa: E501
+
+
+        :return: The lip_sync_finished_video of this SubtaskProductForVideoProjectGetTaskProductOutput.  # noqa: E501
+        :rtype: LipSyncFinishedVideoForVideoProjectGetTaskProductOutput
+        """
+        return self._lip_sync_finished_video
+
+    @lip_sync_finished_video.setter
+    def lip_sync_finished_video(self, lip_sync_finished_video):
+        """Sets the lip_sync_finished_video of this SubtaskProductForVideoProjectGetTaskProductOutput.
+
+
+        :param lip_sync_finished_video: The lip_sync_finished_video of this SubtaskProductForVideoProjectGetTaskProductOutput.  # noqa: E501
+        :type: LipSyncFinishedVideoForVideoProjectGetTaskProductOutput
+        """
+
+        self._lip_sync_finished_video = lip_sync_finished_video
 
     @property
     def origin_video(self):

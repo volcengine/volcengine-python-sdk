@@ -33,44 +33,101 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'connection_limit': 'int',
+        'cps_limit': 'int',
         'inbound_mbps_limit': 'str',
         'internal_ip': 'str',
+        'is_default': 'bool',
         'limit_rule_id': 'str',
         'nat_gateway_id': 'str',
         'outbound_mbps_limit': 'str'
     }
 
     attribute_map = {
+        'connection_limit': 'ConnectionLimit',
+        'cps_limit': 'CpsLimit',
         'inbound_mbps_limit': 'InboundMbpsLimit',
         'internal_ip': 'InternalIp',
+        'is_default': 'IsDefault',
         'limit_rule_id': 'LimitRuleId',
         'nat_gateway_id': 'NatGatewayId',
         'outbound_mbps_limit': 'OutboundMbpsLimit'
     }
 
-    def __init__(self, inbound_mbps_limit=None, internal_ip=None, limit_rule_id=None, nat_gateway_id=None, outbound_mbps_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection_limit=None, cps_limit=None, inbound_mbps_limit=None, internal_ip=None, is_default=None, limit_rule_id=None, nat_gateway_id=None, outbound_mbps_limit=None, _configuration=None):  # noqa: E501
         """NatIpLimitRuleForDescribeNatIpLimitRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._connection_limit = None
+        self._cps_limit = None
         self._inbound_mbps_limit = None
         self._internal_ip = None
+        self._is_default = None
         self._limit_rule_id = None
         self._nat_gateway_id = None
         self._outbound_mbps_limit = None
         self.discriminator = None
 
+        if connection_limit is not None:
+            self.connection_limit = connection_limit
+        if cps_limit is not None:
+            self.cps_limit = cps_limit
         if inbound_mbps_limit is not None:
             self.inbound_mbps_limit = inbound_mbps_limit
         if internal_ip is not None:
             self.internal_ip = internal_ip
+        if is_default is not None:
+            self.is_default = is_default
         if limit_rule_id is not None:
             self.limit_rule_id = limit_rule_id
         if nat_gateway_id is not None:
             self.nat_gateway_id = nat_gateway_id
         if outbound_mbps_limit is not None:
             self.outbound_mbps_limit = outbound_mbps_limit
+
+    @property
+    def connection_limit(self):
+        """Gets the connection_limit of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.  # noqa: E501
+
+
+        :return: The connection_limit of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._connection_limit
+
+    @connection_limit.setter
+    def connection_limit(self, connection_limit):
+        """Sets the connection_limit of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.
+
+
+        :param connection_limit: The connection_limit of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._connection_limit = connection_limit
+
+    @property
+    def cps_limit(self):
+        """Gets the cps_limit of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.  # noqa: E501
+
+
+        :return: The cps_limit of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._cps_limit
+
+    @cps_limit.setter
+    def cps_limit(self, cps_limit):
+        """Sets the cps_limit of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.
+
+
+        :param cps_limit: The cps_limit of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._cps_limit = cps_limit
 
     @property
     def inbound_mbps_limit(self):
@@ -113,6 +170,27 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput(object):
         """
 
         self._internal_ip = internal_ip
+
+    @property
+    def is_default(self):
+        """Gets the is_default of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.  # noqa: E501
+
+
+        :return: The is_default of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_default
+
+    @is_default.setter
+    def is_default(self, is_default):
+        """Sets the is_default of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.
+
+
+        :param is_default: The is_default of this NatIpLimitRuleForDescribeNatIpLimitRulesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_default = is_default
 
     @property
     def limit_rule_id(self):
