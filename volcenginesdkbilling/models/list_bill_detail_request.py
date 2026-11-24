@@ -121,7 +121,8 @@ class ListBillDetailRequest(object):
             self.ignore_zero = ignore_zero
         if instance_no is not None:
             self.instance_no = instance_no
-        self.limit = limit
+        if limit is not None:
+            self.limit = limit
         if max_results is not None:
             self.max_results = max_results
         if need_record_num is not None:
@@ -333,8 +334,6 @@ class ListBillDetailRequest(object):
         :param limit: The limit of this ListBillDetailRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and limit is None:
-            raise ValueError("Invalid value for `limit`, must not be `None`")  # noqa: E501
 
         self._limit = limit
 
