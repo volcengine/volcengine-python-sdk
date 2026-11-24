@@ -36,6 +36,7 @@ class RedirectToDramartRequest(object):
         'account_info': 'str',
         'domain': 'str',
         'password': 'str',
+        'team_id': 'str',
         'type': 'str',
         'user_name': 'str'
     }
@@ -44,11 +45,12 @@ class RedirectToDramartRequest(object):
         'account_info': 'AccountInfo',
         'domain': 'Domain',
         'password': 'Password',
+        'team_id': 'TeamID',
         'type': 'Type',
         'user_name': 'UserName'
     }
 
-    def __init__(self, account_info=None, domain=None, password=None, type=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_info=None, domain=None, password=None, team_id=None, type=None, user_name=None, _configuration=None):  # noqa: E501
         """RedirectToDramartRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class RedirectToDramartRequest(object):
         self._account_info = None
         self._domain = None
         self._password = None
+        self._team_id = None
         self._type = None
         self._user_name = None
         self.discriminator = None
@@ -65,6 +68,8 @@ class RedirectToDramartRequest(object):
         if domain is not None:
             self.domain = domain
         self.password = password
+        if team_id is not None:
+            self.team_id = team_id
         self.type = type
         if user_name is not None:
             self.user_name = user_name
@@ -135,6 +140,27 @@ class RedirectToDramartRequest(object):
             raise ValueError("Invalid value for `password`, must not be `None`")  # noqa: E501
 
         self._password = password
+
+    @property
+    def team_id(self):
+        """Gets the team_id of this RedirectToDramartRequest.  # noqa: E501
+
+
+        :return: The team_id of this RedirectToDramartRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._team_id
+
+    @team_id.setter
+    def team_id(self, team_id):
+        """Sets the team_id of this RedirectToDramartRequest.
+
+
+        :param team_id: The team_id of this RedirectToDramartRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._team_id = team_id
 
     @property
     def type(self):
