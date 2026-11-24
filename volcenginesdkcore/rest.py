@@ -371,10 +371,12 @@ class RESTClientObject(object):
                     r.close()
                 finally:
                     r.release_conn()
+                response_body = b"".join(chunks)
+                del chunks[:]
                 raise ApiException(
                     status=r.status, reason="Failed to read response body: {0}".format(e),
-                    body=b"".join(chunks), headers=r.headers, cause=e,
-                    code="ReadError", response_details=self._snapshot(r, b"".join(chunks), False))
+                    body=response_body, headers=r.headers, cause=e,
+                    code="ReadError", response_details=self._snapshot(r, response_body, False))
             except BaseException:
                 try:
                     r.close()
@@ -383,6 +385,8 @@ class RESTClientObject(object):
                 raise
             r.release_conn()
             r = RESTResponse(r, b"".join(chunks))
+            # Do not retain the individual chunks in a later exception traceback.
+            del chunks[:]
 
             # In the python 3, the response.data is bytes.
             # we need to decode it to string.
@@ -559,10 +563,6 @@ class ApiException(Exception):
         """Custom error messages for exception"""
         error_message = "({0})\n" \
                         "Reason: {1}\n".format(self.status, self.reason)
-        request_id = getattr(getattr(self, "response_metadata", None), "request_id", None)
-        if request_id:
-            error_message += "RequestId: {0}\n".format(request_id)
-
         if self.headers:
             error_message += "HTTP response headers: {0}\n".format(
                 self.headers)

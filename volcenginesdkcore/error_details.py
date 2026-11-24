@@ -40,8 +40,8 @@ class ResponseDetails(object):
         elif isinstance(body, bytearray):
             body = bytes(body)
         self.body = body
-        self.body_captured = bool(body_captured)
-        self.body_complete = bool(body_complete)
+        self.body_captured = bool(body_captured) and body is not None
+        self.body_complete = self.body_captured and bool(body_complete)
 
     def to_dict(self):
         result = copy.deepcopy(self.__dict__)

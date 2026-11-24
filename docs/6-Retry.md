@@ -81,6 +81,8 @@ STS Provider `max_retries` means total attempts, at least one. STS retries 429/5
 
 Default retry checks each JSON object level and matches only string business codes, so invalid field types do not obscure the final response error. An `ApiException.cause` from reading an available response still participates in the existing network retry rules; proxy authentication and TLS configuration errors are not treated as retryable network failures.
 
+If reading a response is interrupted, the server may already have applied the write. An automatic retry can submit the same request again; set `auto_retry=False` for writes without idempotency protection. Adding an expired-credential code such as `ExpiredToken` to the service retry list affects retry eligibility but does not invalidate the provider cache or force a credential refresh.
+
 An ordinary exception from retry conditions, backoff calculation or waiting stops retries and returns `ApiException` with the current `cause`. Available prior status, body, headers, RequestId and `previous_exception` are retained. Streaming responses abandoned on failure are closed and their connection pool slots released without reading the body; cleanup errors do not replace the original cause. `KeyboardInterrupt` / `SystemExit` propagate unchanged. See [Error Handling](7-ErrorHandling.md).
 
 #### Built-in Backoff Strategies

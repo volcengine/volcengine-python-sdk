@@ -95,7 +95,7 @@ except Exception as e:
 | `e.response_metadata` | `ResponseMetadata` 对象，`e.response_metadata.request_id` 为请求 ID |
 | `e.cause` | JSON 解析、转换、解码、读体、文件处理或重试处理的原始原因；没有底层异常时为 `None` |
 | `e.previous_exception` | 重试处理失败时的前次异常；转换已有 `ApiException` 时可保留该异常 |
-| `str(e)` | 汇总输出，依次包含状态码、`RequestId`、响应头与响应正文 |
+| `str(e)` | 沿用原格式，依次包含状态码、`reason`，以及存在的响应头和正文。不单独打印 `RequestId`，请通过 `e.response_metadata.request_id` 或结构化诊断读取 |
 
 `ApiException` 的所有构造方式均解析 RequestId：正文中的非空 `ResponseMetadata.RequestId` → 显式传入的元数据 ID → `X-Top-Requestid` → `X-Top-Request-Id` → `X-Tt-Logid`。头名称忽略大小写，候选头值为列表或元组时取首值。传入的元数据对象不会被原地修改；正文和头部没有 ID 时保持为空。
 
@@ -137,7 +137,7 @@ except Exception as e:
 
 `e.response_details` 返回独立的 `ResponseDetails` 副本，提供 `status_code`、`status`、`proto`、`request_id`、多值 `headers` / `trailers`、原始字节 `body`、`body_captured` / `body_complete`。HTTP 200 业务错误保留 200。urllib3 未提供协议或 trailers 时对应字段为空，不伪造信息。已读空正文为 `body_captured=true`、正文 `""`；未读流式响应为 false。UTF-8 字节在 JSON 中显示为文本，其他字节以可还原的 Base64 与 `body_encoding` 输出。
 
-诊断复用当次读取，不额外请求或重读关闭后的正文。读体中断保留实际已读字节，`body_complete=false`，原因在 `causes`；原始 TOP 字节不会被模型转换结果替换。不同尝试与不同请求的错误快照相互独立。
+诊断复用当次读取，不额外请求或重读关闭后的正文。未捕获正文时 `body_complete` 必为 `false`；读体中断保留实际已读字节，`body_complete=false`，原因在 `causes`。原始 TOP 字节不会被模型转换结果替换。不同尝试与不同请求的错误快照相互独立。
 
 | 场景 | `e.code` |
 |---|---|

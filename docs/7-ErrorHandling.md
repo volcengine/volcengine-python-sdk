@@ -100,7 +100,7 @@ When the server or gateway returns a **non-standard response** (e.g. a 504 gatew
 | `e.response_metadata` | A `ResponseMetadata` object; `e.response_metadata.request_id` is the request ID |
 | `e.cause` | The original JSON, conversion, decoding, reading, file or retry processing exception; `None` when no underlying exception exists |
 | `e.previous_exception` | The previous error when retry processing fails; may also retain an existing `ApiException` enriched during conversion |
-| `str(e)` | A summary containing the status code, `RequestId`, response headers and body |
+| `str(e)` | Keeps the existing format: status code, `reason`, and response headers and body if present. Read RequestId from `e.response_metadata.request_id` or the structured diagnostics |
 
 Every `ApiException` constructor path resolves RequestId in this order: nonempty body `ResponseMetadata.RequestId` → explicitly supplied metadata ID → `X-Top-Requestid` → `X-Top-Request-Id` → `X-Tt-Logid`. Header names are case insensitive; list / tuple header values use the first item. Supplied metadata objects are not modified in place. If neither body nor headers provide an ID, it remains empty.
 
@@ -137,7 +137,7 @@ except Exception as e:
 
 Standard TOP errors keep the nonempty service code; simple `errorcode` / `message` responses keep their code. Missing error codes or a JSON null body use `UnknownError`. Invalid JSON, HTML, empty bodies, arrays, incompatible metadata field types and result/model/file conversion failures use `SerializationError`. Interrupted reads use `ReadError`; retry condition/backoff/wait failures use `RetryError`. Existing exception text and reasons remain unchanged; newly rejected field types have new diagnostics.
 
-Snapshots reuse bytes read during the relevant attempt, preserve partial reads (`body_complete=false`), and retain the original TOP body after conversion failures. Printing never rereads closed bodies or sends requests. Nonempty string body `RequestId` is extracted independently of other malformed fields, before explicit metadata and the existing header fallbacks. Snapshots from different requests and attempts are independent.
+Snapshots reuse bytes read during the relevant attempt, preserve partial reads (`body_complete=false`), and retain the original TOP body after conversion failures. `body_complete` is always false when the body was not captured. Printing never rereads closed bodies or sends requests. Nonempty string body `RequestId` is extracted independently of other malformed fields, before explicit metadata and the existing header fallbacks. Snapshots from different requests and attempts are independent.
 
 The error tree follows `cause`, `previous_exception`, Python `__cause__` / unsuppressed `__context__`, urllib3 wrappers and Python 3.11 exception groups. Identity deduplication, 256 nodes and 64 levels bound traversal. Customer exceptions are not automatically wrapped or modified. An optional `response_details` property or no-argument method may provide a snapshot; null falls back to the actual status/RequestId available. Ordinary exceptions expose only their existing information. Complete bodies may contain credentials; redact a detached details copy before logging.
 
