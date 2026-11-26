@@ -45,6 +45,7 @@ class GetFunctionResponse(object):
         'enable_apmplus': 'bool',
         'envs': 'list[EnvForGetFunctionOutput]',
         'exclusive_mode': 'bool',
+        'function_type': 'str',
         'id': 'str',
         'initializer_sec': 'int',
         'instance_type': 'str',
@@ -81,6 +82,7 @@ class GetFunctionResponse(object):
         'enable_apmplus': 'EnableApmplus',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
+        'function_type': 'FunctionType',
         'id': 'Id',
         'initializer_sec': 'InitializerSec',
         'instance_type': 'InstanceType',
@@ -104,7 +106,7 @@ class GetFunctionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, async_task_config=None, code_size=None, code_size_limit=None, command=None, cpu=None, cpu_strategy=None, creation_time=None, description=None, efs_mount_config=None, enable_apmplus=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, code_size=None, code_size_limit=None, command=None, cpu=None, cpu_strategy=None, creation_time=None, description=None, efs_mount_config=None, enable_apmplus=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """GetFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -122,6 +124,7 @@ class GetFunctionResponse(object):
         self._enable_apmplus = None
         self._envs = None
         self._exclusive_mode = None
+        self._function_type = None
         self._id = None
         self._initializer_sec = None
         self._instance_type = None
@@ -169,6 +172,8 @@ class GetFunctionResponse(object):
             self.envs = envs
         if exclusive_mode is not None:
             self.exclusive_mode = exclusive_mode
+        if function_type is not None:
+            self.function_type = function_type
         if id is not None:
             self.id = id
         if initializer_sec is not None:
@@ -463,6 +468,27 @@ class GetFunctionResponse(object):
         """
 
         self._exclusive_mode = exclusive_mode
+
+    @property
+    def function_type(self):
+        """Gets the function_type of this GetFunctionResponse.  # noqa: E501
+
+
+        :return: The function_type of this GetFunctionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._function_type
+
+    @function_type.setter
+    def function_type(self, function_type):
+        """Sets the function_type of this GetFunctionResponse.
+
+
+        :param function_type: The function_type of this GetFunctionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._function_type = function_type
 
     @property
     def id(self):
