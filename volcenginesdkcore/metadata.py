@@ -156,7 +156,65 @@ def get_response_metadata(response):
                 action=meta_dict.get('Action'),
                 version=meta_dict.get('Version'),
                 region=meta_dict.get('Region'),
-                request_id=meta_dict.get('RequestId')
+                request_id=meta_dict.get('RequestId') if isinstance(
+                    meta_dict.get('RequestId'), six.string_types) else None
             )
 
     return None
+
+
+# TOP gateway request-id headers, tried in order as a fallback when the response
+# body does not carry a ResponseMetadata.RequestId.
+REQUEST_ID_HEADERS = ('X-Top-Requestid', 'X-Top-Request-Id', 'X-Tt-Logid')
+
+
+def resolve_request_id_from_headers(headers):
+    """Resolve a request id from the TOP gateway response headers.
+
+    Non-standard responses (e.g. a 504 gateway returning HTML) may lack a
+    ResponseMetadata body, so fall back to the gateway request-id headers to
+    keep a usable request id for troubleshooting. Header name matching is
+    case-insensitive because the header container may lowercase the keys.
+
+    :param headers: a mapping of response header name to value (str or list).
+    :return: the first non-empty request id found, otherwise None.
+    """
+    if not headers:
+        return None
+    try:
+        items = headers.items()
+    except AttributeError:
+        return None
+    for name in REQUEST_ID_HEADERS:
+        for key, value in items:
+            if key is None or key.lower() != name.lower():
+                continue
+            if isinstance(value, (list, tuple)):
+                value = value[0] if value else None
+            if isinstance(value, six.string_types) and value:
+                return value
+    return None
+
+
+def ensure_response_metadata(metadata, headers):
+    """Keep a body-parsed metadata request id, otherwise fall back to headers.
+
+    The body request id always takes priority over the header fallback, so a
+    standard response keeps its metadata untouched. For a non-standard response
+    the metadata is synthesized (or augmented) with the request id resolved from
+    the response headers.
+
+    :param metadata: a ResponseMetadata parsed from the body, or None.
+    :param headers: a mapping of response headers.
+    :return: a ResponseMetadata with a request id when one is available,
+             otherwise the original ``metadata`` (possibly None).
+    """
+    if metadata is not None and metadata.request_id:
+        return metadata
+    request_id = resolve_request_id_from_headers(headers)
+    if request_id is None:
+        return metadata
+    if metadata is None:
+        metadata = ResponseMetadata()
+    metadata.request_id = request_id
+    return metadata

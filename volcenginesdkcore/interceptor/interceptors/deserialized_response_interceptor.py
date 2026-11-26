@@ -9,7 +9,11 @@ import tempfile
 import six
 
 from volcenginesdkcore import rest
-from volcenginesdkcore.metadata import ResponseMetadata
+from volcenginesdkcore.metadata import (
+    ResponseMetadata,
+    ensure_response_metadata,
+    get_response_metadata,
+)
 from .interceptor import ResponseInterceptor
 
 
@@ -19,6 +23,8 @@ class DeserializedResponseInterceptor(ResponseInterceptor):
         return 'volcengine-deserialized-response-interceptor'
 
     def intercept(self, context):
+        if getattr(context, "_deserialized_response_interceptor", None) is self:
+            return context
         if context.request.preload_content:
             # deserialize response data
             if context.request.response_type:
@@ -45,6 +51,28 @@ class DeserializedResponseInterceptor(ResponseInterceptor):
     }
 
     def deserialize(self, response, response_type, service):
+        try:
+            return self._deserialize_response(response, response_type, service)
+        except rest.ApiException as api_error:
+            if (api_error.status == response.status and
+                    api_error.body == response.data):
+                raise
+            cause = api_error.cause if api_error.cause is not None else api_error
+            raise rest.ApiException(
+                status=response.status, reason=api_error.reason, body=response.data,
+                headers=response.getheaders(), cause=cause,
+                previous_exception=api_error,
+                code="SerializationError",
+                response_details=rest.RESTClientObject._snapshot(response, response.data, True))
+        except Exception as error:
+            raise rest.ApiException(
+                status=response.status,
+                reason="Failed to deserialize response: {0}".format(error),
+                body=response.data, headers=response.getheaders(), cause=error,
+                code="SerializationError",
+                response_details=rest.RESTClientObject._snapshot(response, response.data, True))
+
+    def _deserialize_response(self, response, response_type, service):
         """Deserializes response into an object.
 
         :param service: the target service
@@ -59,21 +87,71 @@ class DeserializedResponseInterceptor(ResponseInterceptor):
         if response_type == "file":
             return self.__deserialize_file(response)
 
+        headers = response.getheaders() if hasattr(response, "getheaders") else None
+
         # fetch data from response object
         try:
             data = json.loads(response.data)
-        except ValueError:
-            data = response.data
+        except (ValueError, TypeError) as e:
+            raise rest.ApiException(
+                status=response.status, reason=response.reason,
+                body=response.data, headers=headers, cause=e, code="SerializationError",
+                response_details=rest.RESTClientObject._snapshot(response, response.data, True))
+
+        # Non-standard response: the body is not a JSON object (e.g. a 504
+        # gateway returning HTML/plain text, which previously decayed to a str
+        # and raised AttributeError on data.get(...), escaping the caller's
+        # except). Wrap it into an ApiException carrying the real HTTP status,
+        # the raw body and a request id resolved from the response headers.
+        if not isinstance(data, dict):
+            raise rest.ApiException(
+                status=response.status,
+                reason=response.reason,
+                body=response.data,
+                headers=headers,
+                response_metadata=ensure_response_metadata(None, headers),
+                response_details=rest.RESTClientObject._snapshot(response, response.data, True))
 
         meta = data.get("ResponseMetadata")
+        if meta is not None and not isinstance(meta, dict):
+            raise rest.ApiException(
+                status=response.status, reason="ResponseMetadata must be a JSON object",
+                body=response.data, headers=headers, code="SerializationError",
+                response_details=rest.RESTClientObject._snapshot(response, response.data, True))
+        from volcenginesdkcore.error_details import classify_top
+        code, message = classify_top(response.data)
+        if code == "SerializationError":
+            error = ValueError(message)
+            raise rest.ApiException(
+                status=response.status, reason=message, body=response.data,
+                headers=headers, cause=error, code=code,
+                response_details=rest.RESTClientObject._snapshot(response, response.data, True))
         if meta is not None:
             err = meta.get("Error")
             if err is not None:
-                raise rest.ApiException(status=200, reason=str(err))
+                # Business error: keep the structured ResponseMetadata (request
+                # id, service, ...) on the exception so the caller can report it.
+                raise rest.ApiException(
+                    status=response.status,
+                    reason=str(err),
+                    body=response.data,
+                    headers=headers,
+                    response_metadata=ensure_response_metadata(
+                        get_response_metadata(data), headers),
+                    response_details=rest.RESTClientObject._snapshot(response, response.data, True))
             else:
                 data = data.get("Result")
         else:
-            raise rest.ApiException(status=200, reason="InternalServiceError")
+            # Non-standard JSON without a TOP ResponseMetadata: surface the real
+            # status code, raw body and a header-resolved request id instead of
+            # the previous hard-coded status=200/InternalServiceError.
+            raise rest.ApiException(
+                status=response.status,
+                reason="InternalServiceError",
+                body=response.data,
+                headers=headers,
+                response_metadata=ensure_response_metadata(None, headers),
+                response_details=rest.RESTClientObject._snapshot(response, response.data, True))
 
         resp_model = self.__deserialize(data, response_type, service)
         if (resp_model is None) or (type(resp_model) is dict):
@@ -98,25 +176,44 @@ class DeserializedResponseInterceptor(ResponseInterceptor):
         """Deserializes body to file
 
         Saves response body into a file in a temporary folder,
-        using the filename from the `Content-Disposition` header if provided.
+        retaining a short, safe extension from `Content-Disposition`.
 
         :param response:  RESTResponse.
         :return: file path.
         """
-        fd, path = tempfile.mkstemp()
-        os.close(fd)
-        os.remove(path)
-
+        suffix = ""
         content_disposition = response.getheader("Content-Disposition")
         if content_disposition:
-            filename = re.search(r'filename=[\'"]?([^\'"\s]+)[\'"]?',
-                                 content_disposition).group(1)
-            path = os.path.join(os.path.dirname(path), filename)
-
-        with open(path, "w") as f:
-            f.write(response.data)
-
-        return path
+            match = re.search(r'filename\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^;\s]+))',
+                              content_disposition, re.IGNORECASE)
+            if match:
+                filename = next(value for value in match.groups() if value is not None)
+                filename = os.path.basename(filename.replace("\\", "/"))
+                extension = os.path.splitext(filename)[1]
+                # Reserve space for tempfile's prefix/random name and avoid
+                # filesystem byte-length limits and Windows special names.
+                if re.match(r"^\.[A-Za-z0-9]{1,16}\Z", extension):
+                    suffix = extension
+        fd, path = tempfile.mkstemp(suffix=suffix)
+        try:
+            data = response.data
+            if isinstance(data, six.text_type):
+                data = data.encode("utf-8")
+            with os.fdopen(fd, "wb") as f:
+                fd = None
+                f.write(data)
+            return path
+        except BaseException:
+            if fd is not None:
+                try:
+                    os.close(fd)
+                except OSError:
+                    pass
+            try:
+                os.remove(path)
+            except OSError:
+                pass
+            raise
 
     def __deserialize(self, data, klass, service):
         """Deserializes dict, list, str into an object.
@@ -190,10 +287,11 @@ class DeserializedResponseInterceptor(ResponseInterceptor):
             return parse(string).date()
         except ImportError:
             return string
-        except ValueError:
+        except ValueError as e:
             raise rest.ApiException(
                 status=0,
-                reason="Failed to parse `{0}` as date object".format(string)
+                reason="Failed to parse `{0}` as date object".format(string),
+                cause=e
             )
 
     def __deserialize_datatime(self, string):
@@ -209,13 +307,14 @@ class DeserializedResponseInterceptor(ResponseInterceptor):
             return parse(string)
         except ImportError:
             return string
-        except ValueError:
+        except ValueError as e:
             raise rest.ApiException(
                 status=0,
                 reason=(
                     "Failed to parse `{0}` as datetime object"
                     .format(string)
-                )
+                ),
+                cause=e
             )
 
     def __hasattr(self, object, name):

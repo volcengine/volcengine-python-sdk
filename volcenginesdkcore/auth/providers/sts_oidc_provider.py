@@ -4,9 +4,6 @@ import time
 import uuid
 from datetime import datetime
 
-import dateutil.parser
-import dateutil.tz
-
 from .provider import Provider, CredentialValue
 
 
@@ -225,21 +222,13 @@ class StsOidcCredentialProvider(Provider):
             ca_file=self.ca_file,
             insecure_skip_verify=self.insecure_skip_verify,
         )
-        if 'Credentials' not in resp_result:
-            raise RuntimeError(
-                'failed to retrieve credentials from sts {}:{}'.format(
-                    self.PROVIDER_NAME, str(resp_result)
-                )
-            )
-        resp_cred = resp_result['Credentials']
-
-        # Parse expiration
-        dt = dateutil.parser.parse(resp_cred['Expiration'])
-        self.expired_time = (dt - datetime(1970, 1, 1, tzinfo=dateutil.tz.tzutc())).total_seconds()
-
-        self.credentials = CredentialValue(
+        from volcenginesdkcore.auth.sts_response import parse_sts_credentials
+        resp_cred, expiration = parse_sts_credentials(resp_result, "Expiration")
+        credentials = CredentialValue(
             ak=resp_cred['AccessKeyId'],
             sk=resp_cred['SecretAccessKey'],
             session_token=resp_cred['SessionToken'],
             provider_name=self.PROVIDER_NAME,
         )
+        self.expired_time = expiration
+        self.credentials = credentials

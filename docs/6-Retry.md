@@ -69,6 +69,22 @@ class CustomRetryCondition(DefaultRetryCondition):
 
 ### Backoff Strategy
 
+#### Wrapped Errors and Parsing Boundaries
+
+Default retry recognizes network causes, HTTP statuses and configured string business codes through `ApiException`, Python `__cause__` / unsuppressed `__context__` and urllib3 wrappers. Traversal is bounded to 256 nodes / 64 levels with cycle protection. `previous_exception` is diagnostic history, not a retry cause. Terminal TLS and proxy authentication failures remain nonretryable.
+
+When the built-in TOP parser is first in the response chain, ordinary preloaded responses are parsed during each attempt. Customer response interceptors run after retries finish and their errors retain identity. HTTP 200 HTML, JSON null and ordinary conversion failures normally make one attempt; recognized network causes or configured business codes may retry. Ordinary HTTP 500/429/502/503/504 retain existing status rules; `auto_retry=False` disables retry.
+
+Files are written only once, after selecting the final response. Abandoned streams are closed and returned to the pool without reading. Custom/reordered/subclassed parsers retain their interceptor order. Existing request/transport overrides need not accept the new `_response_type` argument.
+
+STS Provider `max_retries` means total attempts, at least one. STS retries 429/502/503/504, throttling/transient codes and recognized network causes. HTTP 500 without a retryable code, TLS and proxy authentication failures do not retry. Ordinary `num_max_retries` still counts retries after the first attempt.
+
+Default retry checks each JSON object level and matches only string business codes, so invalid field types do not obscure the final response error. An `ApiException.cause` from reading an available response still participates in the existing network retry rules; proxy authentication and TLS configuration errors are not treated as retryable network failures.
+
+If reading a response is interrupted, the server may already have applied the write. An automatic retry can submit the same request again; set `auto_retry=False` for writes without idempotency protection. Adding an expired-credential code such as `ExpiredToken` to the service retry list affects retry eligibility but does not invalidate the provider cache or force a credential refresh.
+
+An ordinary exception from retry conditions, backoff calculation or waiting stops retries and returns `ApiException` with the current `cause`. Available prior status, body, headers, RequestId and `previous_exception` are retained. Streaming responses abandoned on failure are closed and their connection pool slots released without reading the body; cleanup errors do not replace the original cause. `KeyboardInterrupt` / `SystemExit` propagate unchanged. See [Error Handling](7-ErrorHandling.md).
+
 #### Built-in Backoff Strategies
 
 | Name | Description | Formula |
