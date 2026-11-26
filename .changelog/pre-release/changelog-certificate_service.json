@@ -1,5 +1,0 @@
-{
-  "description": "CERTIFICATE_SERVICE: chore changes",
-  "modules": "service/certificate_service",
-  "type": "feature"
-}

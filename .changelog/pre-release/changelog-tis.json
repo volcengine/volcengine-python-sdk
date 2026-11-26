@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "CreateVoicePrint",
-    "UpdateVoicePrint"
-  ],
-  "description": "TIS: 修改 CreateVoicePrint, UpdateVoicePrint",
-  "modules": "service/tis",
-  "type": "feature"
-}
