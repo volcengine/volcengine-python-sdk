@@ -45,7 +45,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput(object):
         'file_system_id': 'str',
         'file_system_name': 'str',
         'file_system_path': 'str',
-        'lazyload_rule': 'LazyloadRuleForDescribeDataFlowPoliciesOutput',
         'running_task_count': 'int',
         'status': 'str',
         'status_detail': 'str',
@@ -67,7 +66,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput(object):
         'file_system_id': 'FileSystemId',
         'file_system_name': 'FileSystemName',
         'file_system_path': 'FileSystemPath',
-        'lazyload_rule': 'LazyloadRule',
         'running_task_count': 'RunningTaskCount',
         'status': 'Status',
         'status_detail': 'StatusDetail',
@@ -76,7 +74,7 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, auto_evict_rule=None, auto_export_rule=None, auto_import_rule=None, bucket=None, conflict_policy=None, create_time=None, data_flow_policy_id=None, data_flow_policy_name=None, delete_policy_data_flow_task_id=None, file_system_id=None, file_system_name=None, file_system_path=None, lazyload_rule=None, running_task_count=None, status=None, status_detail=None, sync_status=None, tls=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_evict_rule=None, auto_export_rule=None, auto_import_rule=None, bucket=None, conflict_policy=None, create_time=None, data_flow_policy_id=None, data_flow_policy_name=None, delete_policy_data_flow_task_id=None, file_system_id=None, file_system_name=None, file_system_path=None, running_task_count=None, status=None, status_detail=None, sync_status=None, tls=None, update_time=None, _configuration=None):  # noqa: E501
         """DataFlowPolicyForDescribeDataFlowPoliciesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,7 +92,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput(object):
         self._file_system_id = None
         self._file_system_name = None
         self._file_system_path = None
-        self._lazyload_rule = None
         self._running_task_count = None
         self._status = None
         self._status_detail = None
@@ -127,8 +124,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput(object):
             self.file_system_name = file_system_name
         if file_system_path is not None:
             self.file_system_path = file_system_path
-        if lazyload_rule is not None:
-            self.lazyload_rule = lazyload_rule
         if running_task_count is not None:
             self.running_task_count = running_task_count
         if status is not None:
@@ -393,27 +388,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput(object):
         """
 
         self._file_system_path = file_system_path
-
-    @property
-    def lazyload_rule(self):
-        """Gets the lazyload_rule of this DataFlowPolicyForDescribeDataFlowPoliciesOutput.  # noqa: E501
-
-
-        :return: The lazyload_rule of this DataFlowPolicyForDescribeDataFlowPoliciesOutput.  # noqa: E501
-        :rtype: LazyloadRuleForDescribeDataFlowPoliciesOutput
-        """
-        return self._lazyload_rule
-
-    @lazyload_rule.setter
-    def lazyload_rule(self, lazyload_rule):
-        """Sets the lazyload_rule of this DataFlowPolicyForDescribeDataFlowPoliciesOutput.
-
-
-        :param lazyload_rule: The lazyload_rule of this DataFlowPolicyForDescribeDataFlowPoliciesOutput.  # noqa: E501
-        :type: LazyloadRuleForDescribeDataFlowPoliciesOutput
-        """
-
-        self._lazyload_rule = lazyload_rule
 
     @property
     def running_task_count(self):

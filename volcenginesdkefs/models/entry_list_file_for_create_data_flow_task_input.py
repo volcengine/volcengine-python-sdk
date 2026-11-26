@@ -33,60 +33,29 @@ class EntryListFileForCreateDataFlowTaskInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'download_url': 'str',
         'file_bucket': 'str',
-        'file_key': 'str',
-        'file_name': 'str'
+        'file_key': 'str'
     }
 
     attribute_map = {
-        'download_url': 'DownloadUrl',
         'file_bucket': 'FileBucket',
-        'file_key': 'FileKey',
-        'file_name': 'FileName'
+        'file_key': 'FileKey'
     }
 
-    def __init__(self, download_url=None, file_bucket=None, file_key=None, file_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_bucket=None, file_key=None, _configuration=None):  # noqa: E501
         """EntryListFileForCreateDataFlowTaskInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._download_url = None
         self._file_bucket = None
         self._file_key = None
-        self._file_name = None
         self.discriminator = None
 
-        if download_url is not None:
-            self.download_url = download_url
         if file_bucket is not None:
             self.file_bucket = file_bucket
         if file_key is not None:
             self.file_key = file_key
-        if file_name is not None:
-            self.file_name = file_name
-
-    @property
-    def download_url(self):
-        """Gets the download_url of this EntryListFileForCreateDataFlowTaskInput.  # noqa: E501
-
-
-        :return: The download_url of this EntryListFileForCreateDataFlowTaskInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._download_url
-
-    @download_url.setter
-    def download_url(self, download_url):
-        """Sets the download_url of this EntryListFileForCreateDataFlowTaskInput.
-
-
-        :param download_url: The download_url of this EntryListFileForCreateDataFlowTaskInput.  # noqa: E501
-        :type: str
-        """
-
-        self._download_url = download_url
 
     @property
     def file_bucket(self):
@@ -129,27 +98,6 @@ class EntryListFileForCreateDataFlowTaskInput(object):
         """
 
         self._file_key = file_key
-
-    @property
-    def file_name(self):
-        """Gets the file_name of this EntryListFileForCreateDataFlowTaskInput.  # noqa: E501
-
-
-        :return: The file_name of this EntryListFileForCreateDataFlowTaskInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._file_name
-
-    @file_name.setter
-    def file_name(self, file_name):
-        """Sets the file_name of this EntryListFileForCreateDataFlowTaskInput.
-
-
-        :param file_name: The file_name of this EntryListFileForCreateDataFlowTaskInput.  # noqa: E501
-        :type: str
-        """
-
-        self._file_name = file_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

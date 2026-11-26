@@ -45,8 +45,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         'end_time': 'str',
         'evict_rule': 'EvictRuleForDescribeDataFlowTasksOutput',
         'export_rule': 'ExportRuleForDescribeDataFlowTasksOutput',
-        'file_diff_result': 'FileDiffResultForDescribeDataFlowTasksOutput',
-        'file_diff_rule': 'FileDiffRuleForDescribeDataFlowTasksOutput',
         'file_system_id': 'str',
         'file_system_name': 'str',
         'file_system_path': 'str',
@@ -72,8 +70,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         'end_time': 'EndTime',
         'evict_rule': 'EvictRule',
         'export_rule': 'ExportRule',
-        'file_diff_result': 'FileDiffResult',
-        'file_diff_rule': 'FileDiffRule',
         'file_system_id': 'FileSystemId',
         'file_system_name': 'FileSystemName',
         'file_system_path': 'FileSystemPath',
@@ -86,7 +82,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, bucket=None, create_time=None, data_flow_policy_id=None, data_flow_policy_name=None, data_flow_task_id=None, data_flow_task_mode=None, data_flow_task_type=None, delete_rule=None, disable_cancel=None, end_time=None, evict_rule=None, export_rule=None, file_diff_result=None, file_diff_rule=None, file_system_id=None, file_system_name=None, file_system_path=None, import_rule=None, queue=None, start_time=None, status=None, status_detail=None, tls=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket=None, create_time=None, data_flow_policy_id=None, data_flow_policy_name=None, data_flow_task_id=None, data_flow_task_mode=None, data_flow_task_type=None, delete_rule=None, disable_cancel=None, end_time=None, evict_rule=None, export_rule=None, file_system_id=None, file_system_name=None, file_system_path=None, import_rule=None, queue=None, start_time=None, status=None, status_detail=None, tls=None, update_time=None, _configuration=None):  # noqa: E501
         """DataFlowTaskForDescribeDataFlowTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -104,8 +100,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         self._end_time = None
         self._evict_rule = None
         self._export_rule = None
-        self._file_diff_result = None
-        self._file_diff_rule = None
         self._file_system_id = None
         self._file_system_name = None
         self._file_system_path = None
@@ -142,10 +136,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
             self.evict_rule = evict_rule
         if export_rule is not None:
             self.export_rule = export_rule
-        if file_diff_result is not None:
-            self.file_diff_result = file_diff_result
-        if file_diff_rule is not None:
-            self.file_diff_rule = file_diff_rule
         if file_system_id is not None:
             self.file_system_id = file_system_id
         if file_system_name is not None:
@@ -418,48 +408,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput(object):
         """
 
         self._export_rule = export_rule
-
-    @property
-    def file_diff_result(self):
-        """Gets the file_diff_result of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
-
-
-        :return: The file_diff_result of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
-        :rtype: FileDiffResultForDescribeDataFlowTasksOutput
-        """
-        return self._file_diff_result
-
-    @file_diff_result.setter
-    def file_diff_result(self, file_diff_result):
-        """Sets the file_diff_result of this DataFlowTaskForDescribeDataFlowTasksOutput.
-
-
-        :param file_diff_result: The file_diff_result of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
-        :type: FileDiffResultForDescribeDataFlowTasksOutput
-        """
-
-        self._file_diff_result = file_diff_result
-
-    @property
-    def file_diff_rule(self):
-        """Gets the file_diff_rule of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
-
-
-        :return: The file_diff_rule of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
-        :rtype: FileDiffRuleForDescribeDataFlowTasksOutput
-        """
-        return self._file_diff_rule
-
-    @file_diff_rule.setter
-    def file_diff_rule(self, file_diff_rule):
-        """Sets the file_diff_rule of this DataFlowTaskForDescribeDataFlowTasksOutput.
-
-
-        :param file_diff_rule: The file_diff_rule of this DataFlowTaskForDescribeDataFlowTasksOutput.  # noqa: E501
-        :type: FileDiffRuleForDescribeDataFlowTasksOutput
-        """
-
-        self._file_diff_rule = file_diff_rule
 
     @property
     def file_system_id(self):

@@ -36,19 +36,17 @@ class AutoEvictRuleForCreateDataFlowPolicyInput(object):
         'data_type': 'str',
         'exclude_paths': 'list[str]',
         'last_access_time_interval': 'LastAccessTimeIntervalForCreateDataFlowPolicyInput',
-        'logic_operator': 'str',
-        'status': 'str'
+        'logic_operator': 'str'
     }
 
     attribute_map = {
         'data_type': 'DataType',
         'exclude_paths': 'ExcludePaths',
         'last_access_time_interval': 'LastAccessTimeInterval',
-        'logic_operator': 'LogicOperator',
-        'status': 'Status'
+        'logic_operator': 'LogicOperator'
     }
 
-    def __init__(self, data_type=None, exclude_paths=None, last_access_time_interval=None, logic_operator=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, data_type=None, exclude_paths=None, last_access_time_interval=None, logic_operator=None, _configuration=None):  # noqa: E501
         """AutoEvictRuleForCreateDataFlowPolicyInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,7 +56,6 @@ class AutoEvictRuleForCreateDataFlowPolicyInput(object):
         self._exclude_paths = None
         self._last_access_time_interval = None
         self._logic_operator = None
-        self._status = None
         self.discriminator = None
 
         if data_type is not None:
@@ -69,8 +66,6 @@ class AutoEvictRuleForCreateDataFlowPolicyInput(object):
             self.last_access_time_interval = last_access_time_interval
         if logic_operator is not None:
             self.logic_operator = logic_operator
-        if status is not None:
-            self.status = status
 
     @property
     def data_type(self):
@@ -169,34 +164,6 @@ class AutoEvictRuleForCreateDataFlowPolicyInput(object):
             )
 
         self._logic_operator = logic_operator
-
-    @property
-    def status(self):
-        """Gets the status of this AutoEvictRuleForCreateDataFlowPolicyInput.  # noqa: E501
-
-
-        :return: The status of this AutoEvictRuleForCreateDataFlowPolicyInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this AutoEvictRuleForCreateDataFlowPolicyInput.
-
-
-        :param status: The status of this AutoEvictRuleForCreateDataFlowPolicyInput.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["Stopped", "Starting", "Running", "Stopping"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
-
-        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -1,0 +1,15 @@
+{
+  "actions": [
+    "DescribeFilespaceAttribute",
+    "SyncCreateFilespace",
+    "UpdateDataFlowPolicy",
+    "UpdateDataFlowTask",
+    "CreateDataFlowPolicy",
+    "CreateDataFlowTask",
+    "DescribeDataFlowPolicies",
+    "DescribeDataFlowTasks"
+  ],
+  "description": "EFS: 新增 UpdateDataFlowTask；删除 CreateFilePreSignedUrl；修改 CreateDataFlowPolicy, CreateDataFlowTask, UpdateDataFlowTask, DescribeDataFlowPolicies, DescribeDataFlowTasks, DescribeFilespaceAttribute, SyncCreateFilespace, UpdateDataFlowPolicy",
+  "modules": "service/efs",
+  "type": "breaking-change"
+}

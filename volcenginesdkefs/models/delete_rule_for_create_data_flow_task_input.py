@@ -35,6 +35,7 @@ class DeleteRuleForCreateDataFlowTaskInput(object):
     swagger_types = {
         'bucket_delete_policy': 'str',
         'data_location': 'str',
+        'entry_list_file': 'EntryListFileForCreateDataFlowTaskInput',
         'exclude_paths': 'list[str]',
         'include_paths': 'list[str]',
         'last_access_time_point': 'str'
@@ -43,12 +44,13 @@ class DeleteRuleForCreateDataFlowTaskInput(object):
     attribute_map = {
         'bucket_delete_policy': 'BucketDeletePolicy',
         'data_location': 'DataLocation',
+        'entry_list_file': 'EntryListFile',
         'exclude_paths': 'ExcludePaths',
         'include_paths': 'IncludePaths',
         'last_access_time_point': 'LastAccessTimePoint'
     }
 
-    def __init__(self, bucket_delete_policy=None, data_location=None, exclude_paths=None, include_paths=None, last_access_time_point=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_delete_policy=None, data_location=None, entry_list_file=None, exclude_paths=None, include_paths=None, last_access_time_point=None, _configuration=None):  # noqa: E501
         """DeleteRuleForCreateDataFlowTaskInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DeleteRuleForCreateDataFlowTaskInput(object):
 
         self._bucket_delete_policy = None
         self._data_location = None
+        self._entry_list_file = None
         self._exclude_paths = None
         self._include_paths = None
         self._last_access_time_point = None
@@ -65,6 +68,8 @@ class DeleteRuleForCreateDataFlowTaskInput(object):
             self.bucket_delete_policy = bucket_delete_policy
         if data_location is not None:
             self.data_location = data_location
+        if entry_list_file is not None:
+            self.entry_list_file = entry_list_file
         if exclude_paths is not None:
             self.exclude_paths = exclude_paths
         if include_paths is not None:
@@ -118,7 +123,7 @@ class DeleteRuleForCreateDataFlowTaskInput(object):
         :param data_location: The data_location of this DeleteRuleForCreateDataFlowTaskInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["FileSystem", "All"]  # noqa: E501
+        allowed_values = ["FileSystem", "All", "FileSystemCorruptedFiles"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 data_location not in allowed_values):
             raise ValueError(
@@ -127,6 +132,27 @@ class DeleteRuleForCreateDataFlowTaskInput(object):
             )
 
         self._data_location = data_location
+
+    @property
+    def entry_list_file(self):
+        """Gets the entry_list_file of this DeleteRuleForCreateDataFlowTaskInput.  # noqa: E501
+
+
+        :return: The entry_list_file of this DeleteRuleForCreateDataFlowTaskInput.  # noqa: E501
+        :rtype: EntryListFileForCreateDataFlowTaskInput
+        """
+        return self._entry_list_file
+
+    @entry_list_file.setter
+    def entry_list_file(self, entry_list_file):
+        """Sets the entry_list_file of this DeleteRuleForCreateDataFlowTaskInput.
+
+
+        :param entry_list_file: The entry_list_file of this DeleteRuleForCreateDataFlowTaskInput.  # noqa: E501
+        :type: EntryListFileForCreateDataFlowTaskInput
+        """
+
+        self._entry_list_file = entry_list_file
 
     @property
     def exclude_paths(self):

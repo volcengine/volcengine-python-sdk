@@ -35,7 +35,12 @@ class DeleteRuleForDescribeDataFlowTasksOutput(object):
     swagger_types = {
         'bucket_delete_policy': 'str',
         'data_location': 'str',
+        'download_url': 'str',
+        'entry_list_file': 'EntryListFileForDescribeDataFlowTasksOutput',
         'exclude_paths': 'list[str]',
+        'file_bucket': 'str',
+        'file_key': 'str',
+        'file_name': 'str',
         'include_paths': 'list[str]',
         'last_access_time_point': 'str'
     }
@@ -43,12 +48,17 @@ class DeleteRuleForDescribeDataFlowTasksOutput(object):
     attribute_map = {
         'bucket_delete_policy': 'BucketDeletePolicy',
         'data_location': 'DataLocation',
+        'download_url': 'DownloadUrl',
+        'entry_list_file': 'EntryListFile',
         'exclude_paths': 'ExcludePaths',
+        'file_bucket': 'FileBucket',
+        'file_key': 'FileKey',
+        'file_name': 'FileName',
         'include_paths': 'IncludePaths',
         'last_access_time_point': 'LastAccessTimePoint'
     }
 
-    def __init__(self, bucket_delete_policy=None, data_location=None, exclude_paths=None, include_paths=None, last_access_time_point=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_delete_policy=None, data_location=None, download_url=None, entry_list_file=None, exclude_paths=None, file_bucket=None, file_key=None, file_name=None, include_paths=None, last_access_time_point=None, _configuration=None):  # noqa: E501
         """DeleteRuleForDescribeDataFlowTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,7 +66,12 @@ class DeleteRuleForDescribeDataFlowTasksOutput(object):
 
         self._bucket_delete_policy = None
         self._data_location = None
+        self._download_url = None
+        self._entry_list_file = None
         self._exclude_paths = None
+        self._file_bucket = None
+        self._file_key = None
+        self._file_name = None
         self._include_paths = None
         self._last_access_time_point = None
         self.discriminator = None
@@ -65,8 +80,18 @@ class DeleteRuleForDescribeDataFlowTasksOutput(object):
             self.bucket_delete_policy = bucket_delete_policy
         if data_location is not None:
             self.data_location = data_location
+        if download_url is not None:
+            self.download_url = download_url
+        if entry_list_file is not None:
+            self.entry_list_file = entry_list_file
         if exclude_paths is not None:
             self.exclude_paths = exclude_paths
+        if file_bucket is not None:
+            self.file_bucket = file_bucket
+        if file_key is not None:
+            self.file_key = file_key
+        if file_name is not None:
+            self.file_name = file_name
         if include_paths is not None:
             self.include_paths = include_paths
         if last_access_time_point is not None:
@@ -115,6 +140,48 @@ class DeleteRuleForDescribeDataFlowTasksOutput(object):
         self._data_location = data_location
 
     @property
+    def download_url(self):
+        """Gets the download_url of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The download_url of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._download_url
+
+    @download_url.setter
+    def download_url(self, download_url):
+        """Sets the download_url of this DeleteRuleForDescribeDataFlowTasksOutput.
+
+
+        :param download_url: The download_url of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._download_url = download_url
+
+    @property
+    def entry_list_file(self):
+        """Gets the entry_list_file of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The entry_list_file of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: EntryListFileForDescribeDataFlowTasksOutput
+        """
+        return self._entry_list_file
+
+    @entry_list_file.setter
+    def entry_list_file(self, entry_list_file):
+        """Sets the entry_list_file of this DeleteRuleForDescribeDataFlowTasksOutput.
+
+
+        :param entry_list_file: The entry_list_file of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: EntryListFileForDescribeDataFlowTasksOutput
+        """
+
+        self._entry_list_file = entry_list_file
+
+    @property
     def exclude_paths(self):
         """Gets the exclude_paths of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
 
@@ -134,6 +201,69 @@ class DeleteRuleForDescribeDataFlowTasksOutput(object):
         """
 
         self._exclude_paths = exclude_paths
+
+    @property
+    def file_bucket(self):
+        """Gets the file_bucket of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The file_bucket of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_bucket
+
+    @file_bucket.setter
+    def file_bucket(self, file_bucket):
+        """Sets the file_bucket of this DeleteRuleForDescribeDataFlowTasksOutput.
+
+
+        :param file_bucket: The file_bucket of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._file_bucket = file_bucket
+
+    @property
+    def file_key(self):
+        """Gets the file_key of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The file_key of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_key
+
+    @file_key.setter
+    def file_key(self, file_key):
+        """Sets the file_key of this DeleteRuleForDescribeDataFlowTasksOutput.
+
+
+        :param file_key: The file_key of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._file_key = file_key
+
+    @property
+    def file_name(self):
+        """Gets the file_name of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+
+
+        :return: The file_name of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_name
+
+    @file_name.setter
+    def file_name(self, file_name):
+        """Sets the file_name of this DeleteRuleForDescribeDataFlowTasksOutput.
+
+
+        :param file_name: The file_name of this DeleteRuleForDescribeDataFlowTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._file_name = file_name
 
     @property
     def include_paths(self):

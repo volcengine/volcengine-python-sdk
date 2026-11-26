@@ -40,8 +40,7 @@ class UpdateDataFlowPolicyRequest(object):
         'data_flow_policy_id': 'str',
         'data_flow_policy_name': 'str',
         'enable_tls': 'bool',
-        'file_system_id': 'str',
-        'lazyload_rule': 'LazyloadRuleForUpdateDataFlowPolicyInput'
+        'file_system_id': 'str'
     }
 
     attribute_map = {
@@ -52,11 +51,10 @@ class UpdateDataFlowPolicyRequest(object):
         'data_flow_policy_id': 'DataFlowPolicyId',
         'data_flow_policy_name': 'DataFlowPolicyName',
         'enable_tls': 'EnableTls',
-        'file_system_id': 'FileSystemId',
-        'lazyload_rule': 'LazyloadRule'
+        'file_system_id': 'FileSystemId'
     }
 
-    def __init__(self, auto_evict_rule=None, auto_export_rule=None, auto_import_rule=None, conflict_policy=None, data_flow_policy_id=None, data_flow_policy_name=None, enable_tls=None, file_system_id=None, lazyload_rule=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_evict_rule=None, auto_export_rule=None, auto_import_rule=None, conflict_policy=None, data_flow_policy_id=None, data_flow_policy_name=None, enable_tls=None, file_system_id=None, _configuration=None):  # noqa: E501
         """UpdateDataFlowPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,7 +68,6 @@ class UpdateDataFlowPolicyRequest(object):
         self._data_flow_policy_name = None
         self._enable_tls = None
         self._file_system_id = None
-        self._lazyload_rule = None
         self.discriminator = None
 
         if auto_evict_rule is not None:
@@ -87,8 +84,6 @@ class UpdateDataFlowPolicyRequest(object):
         if enable_tls is not None:
             self.enable_tls = enable_tls
         self.file_system_id = file_system_id
-        if lazyload_rule is not None:
-            self.lazyload_rule = lazyload_rule
 
     @property
     def auto_evict_rule(self):
@@ -268,27 +263,6 @@ class UpdateDataFlowPolicyRequest(object):
             raise ValueError("Invalid value for `file_system_id`, must not be `None`")  # noqa: E501
 
         self._file_system_id = file_system_id
-
-    @property
-    def lazyload_rule(self):
-        """Gets the lazyload_rule of this UpdateDataFlowPolicyRequest.  # noqa: E501
-
-
-        :return: The lazyload_rule of this UpdateDataFlowPolicyRequest.  # noqa: E501
-        :rtype: LazyloadRuleForUpdateDataFlowPolicyInput
-        """
-        return self._lazyload_rule
-
-    @lazyload_rule.setter
-    def lazyload_rule(self, lazyload_rule):
-        """Sets the lazyload_rule of this UpdateDataFlowPolicyRequest.
-
-
-        :param lazyload_rule: The lazyload_rule of this UpdateDataFlowPolicyRequest.  # noqa: E501
-        :type: LazyloadRuleForUpdateDataFlowPolicyInput
-        """
-
-        self._lazyload_rule = lazyload_rule
 
     def to_dict(self):
         """Returns the model properties as a dict"""
