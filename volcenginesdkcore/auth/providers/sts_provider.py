@@ -3,8 +3,6 @@ import time
 import uuid
 from datetime import datetime
 
-import dateutil.parser, dateutil.tz
-
 from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient
 from .provider import Provider, CredentialValue
 
@@ -92,6 +90,7 @@ class StsCredentialProvider(Provider):
         configuration.region = self.region
         configuration.scheme = self.scheme
         configuration.read_timeout = self.timeout
+        configuration._sts_network_errors = True
 
         # Proxy / TLS customization for reaching the STS endpoint. Only applied
         # when the caller opted in; otherwise the configuration keeps its
@@ -108,6 +107,8 @@ class StsCredentialProvider(Provider):
         # semantics: num_max_retries = retries AFTER the initial attempt.
         configuration.auto_retry = True
         configuration.num_max_retries = max(self.max_retries - 1, 0)
+        from volcenginesdkcore.auth.sts_response import StsRetryCondition, parse_sts_credentials
+        configuration.retry_condition = StsRetryCondition()
         # Provider retry_interval is seconds; Configuration uses ms.
         # Collapse the exponential-backoff range to a fixed delay.
         delay_ms = int(self.retry_interval * 1000)
@@ -119,17 +120,11 @@ class StsCredentialProvider(Provider):
                              content_type='text/plain')
 
         resp, status_code, resp_header = c.do_call_with_http_info(info=info, body=params)
-        if 'Credentials' not in resp:
-            raise RuntimeError('failed to retrieve credentials from sts' + str(resp_header))
-        resp_cred = resp['Credentials']
-
-        # Parse the ISO string
-        dt = dateutil.parser.parse(resp_cred['ExpiredTime'])
-
-        # Convert to timestamp (seconds since epoch)
-        self.expired_time = (dt - datetime(1970, 1, 1, tzinfo=dateutil.tz.tzutc())).total_seconds()
-
-        self.credentials = CredentialValue(ak=resp_cred['AccessKeyId'],
+        resp_cred, expiration = parse_sts_credentials(
+            resp, "ExpiredTime", getattr(c.api_client, "last_response", None), status_code, resp_header)
+        credentials = CredentialValue(ak=resp_cred['AccessKeyId'],
                                            sk=resp_cred['SecretAccessKey'],
                                            session_token=resp_cred['SessionToken'],
                                            provider_name='StsCredentialProvider')
+        self.expired_time = expiration
+        self.credentials = credentials
